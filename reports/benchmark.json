@@ -1,0 +1,161 @@
+{
+ "generated_at": "2026-10-06T09:40:57.623821+00:00",
+ "seasons": [
+  "2023-24",
+  "2024-25",
+  "2025-26"
+ ],
+ "matches": 6153,
+ "leagues": [
+  "en.1",
+  "es.1",
+  "it.1",
+  "de.1",
+  "fr.1",
+  "de.2"
+ ],
+ "one_x_two": {
+  "model": 1.0011313920384712,
+  "market_open": 0.976822686795865,
+  "market_close": 0.9750936806314239,
+  "model_accuracy": 0.5114578254509995,
+  "close_accuracy": 0.5369738339021616,
+  "ou_model": 0.6836426444044674,
+  "ou_open": 0.6691630428041818,
+  "ou_close": 0.6661994849215216
+ },
+ "variants": [
+  {
+   "name": "ridge0.01",
+   "log_loss": 0.9993122118960057,
+   "accuracy": 0.5121079148382902,
+   "ou25": 0.6849969658861089
+  },
+  {
+   "name": "hl270",
+   "log_loss": 1.0009968454732894,
+   "accuracy": 0.5112953031041768,
+   "ou25": 0.6835210988697452
+  },
+  {
+   "name": "baseline",
+   "log_loss": 1.0011313920384712,
+   "accuracy": 0.5114578254509995,
+   "ou25": 0.6836426444044674
+  },
+  {
+   "name": "hl540",
+   "log_loss": 1.0012416476855188,
+   "accuracy": 0.5121079148382902,
+   "ou25": 0.6833611827696959
+  },
+  {
+   "name": "sot0.3",
+   "log_loss": 1.0014227808027925,
+   "accuracy": 0.5145457500406306,
+   "ou25": 0.6822992994587012
+  },
+  {
+   "name": "hl730",
+   "log_loss": 1.0016791984917774,
+   "accuracy": 0.5106452137168861,
+   "ou25": 0.683852611474659
+  },
+  {
+   "name": "hl180",
+   "log_loss": 1.0021669779512894,
+   "accuracy": 0.5130830489192264,
+   "ou25": 0.6844293847319404
+  },
+  {
+   "name": "sot0.5",
+   "log_loss": 1.002738717153915,
+   "accuracy": 0.5135706159596944,
+   "ou25": 0.6826929337703543
+  },
+  {
+   "name": "sot0.7",
+   "log_loss": 1.0051966821591143,
+   "accuracy": 0.5108077360637088,
+   "ou25": 0.6824160559457233
+  },
+  {
+   "name": "ridge0.05",
+   "log_loss": 1.005422767604284,
+   "accuracy": 0.5114578254509995,
+   "ou25": 0.6828359488417969
+  },
+  {
+   "name": "ridge0.1",
+   "log_loss": 1.0140825377523655,
+   "accuracy": 0.5086949455550138,
+   "ou25": 0.6829353168199752
+  }
+ ],
+ "blend": {
+  "fitted_on": "2023-24",
+  "tested_on": [
+   "2024-25",
+   "2025-26"
+  ],
+  "best_model_weight": 0.0,
+  "finding": "The best weight on the model was zero: on unseen seasons the model added no information to opening bookmaker prices."
+ },
+ "derived": {
+  "matches": 6153,
+  "source": "opening average odds (1X2 and over/under 2.5)",
+  "rows": [
+   {
+    "market": "Correct score",
+    "model": 2.9526,
+    "market_implied": 2.9087
+   },
+   {
+    "market": "Both teams score",
+    "model": 0.6889,
+    "market_implied": 0.6801
+   },
+   {
+    "market": "Over 3.5 goals",
+    "model": 0.6209,
+    "market_implied": 0.6065
+   },
+   {
+    "market": "Home by 2+",
+    "model": 0.4839,
+    "market_implied": 0.4727
+   },
+   {
+    "market": "Half-time result",
+    "model": 1.0014,
+    "market_implied": 0.9877
+   },
+   {
+    "market": "Half-time / full-time",
+    "model": 1.8065,
+    "market_implied": 1.778
+   }
+  ]
+ },
+ "counts": {
+  "finding": "Team-specific corners, cards and shots-on-target models did not beat league frequencies out of time (2025-26, monthly refits), so the app shows league frequencies plus team averages.",
+  "rows": [
+   {
+    "market": "Corners over 9.5",
+    "model": 0.7124,
+    "league": 0.6942
+   },
+   {
+    "market": "Cards over 3.5",
+    "model": 0.6857,
+    "league": 0.6731
+   },
+   {
+    "market": "Shots on target over 8.5",
+    "model": 0.7077,
+    "league": 0.6913
+   }
+  ]
+ },
+ "method": "Weekly refits on results strictly before each week; log loss, lower is better. Market prices are margin-free averages from football-data.co.uk. Opening prices are what is available before kickoff; closing prices are the benchmark."
+}

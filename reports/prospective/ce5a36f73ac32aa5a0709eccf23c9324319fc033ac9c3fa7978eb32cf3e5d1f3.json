@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-10-18",
+    "league_id": "de.2",
+    "league": "Germany \u2014 2. Bundesliga",
+    "home": "Karlsruher SC",
+    "away": "SV Darmstadt 98"
+  },
+  "registered_at": "2026-09-26T17:43:37.807088+00:00",
+  "run_id": "20260926T174337807107Z",
+  "data_hash": "31bc7ecbaa5be1281b69e8fea8945425833d5ea17451ac4f1e8a85dbbac4cd4b",
+  "code_hash": "31ea1a9b859e92400ba27076d3d53b44925cca3b6771fe7c8cad1836bd9337ef",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-1.0",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "half_life_days": 365,
+    "ridge": 0.025,
+    "optimizer": "Adam, fixed pre-specified 50 iterations",
+    "calibration": "not fitted"
+  },
+  "readiness": {
+    "league_id": "de.2",
+    "season": "2026-27",
+    "records": 1836,
+    "completed": 1584,
+    "upcoming": 252,
+    "latest_result": "2026-09-20",
+    "current_records": 306,
+    "unresolved_past": 0,
+    "source_checked_at": null,
+    "status": "review_required",
+    "issues": [
+      "Current source freshness unverified"
+    ]
+  },
+  "probabilities": [
+    0.40027149001661455,
+    0.24863912261327417,
+    0.3510893873701113
+  ],
+  "expected_goals": [
+    1.5586942537986408,
+    1.4467277546449544
+  ],
+  "over25": 0.5780235770506098,
+  "btts": 0.6069174903492122,
+  "decision": "withhold"
+}

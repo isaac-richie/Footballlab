@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-10-24",
+    "league_id": "it.1",
+    "league": "Italy \u2014 Serie A",
+    "home": "Como 1907",
+    "away": "US Sassuolo Calcio"
+  },
+  "registered_at": "2026-09-26T17:43:37.807088+00:00",
+  "run_id": "20260926T174337807107Z",
+  "data_hash": "31bc7ecbaa5be1281b69e8fea8945425833d5ea17451ac4f1e8a85dbbac4cd4b",
+  "code_hash": "31ea1a9b859e92400ba27076d3d53b44925cca3b6771fe7c8cad1836bd9337ef",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-1.0",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "half_life_days": 365,
+    "ridge": 0.025,
+    "optimizer": "Adam, fixed pre-specified 50 iterations",
+    "calibration": "not fitted"
+  },
+  "readiness": {
+    "league_id": "it.1",
+    "season": "2026-27",
+    "records": 2280,
+    "completed": 1940,
+    "upcoming": 330,
+    "latest_result": "2026-09-20",
+    "current_records": 380,
+    "unresolved_past": 0,
+    "source_checked_at": "2026-09-26T17:18:21.941470+00:00",
+    "status": "research_only",
+    "issues": []
+  },
+  "probabilities": [
+    0.6107453362118654,
+    0.20415011758480642,
+    0.18510454620332825
+  ],
+  "expected_goals": [
+    2.1277659186802724,
+    1.0885374326312396
+  ],
+  "over25": 0.623488399596367,
+  "btts": 0.5849590633271117,
+  "decision": "withhold"
+}

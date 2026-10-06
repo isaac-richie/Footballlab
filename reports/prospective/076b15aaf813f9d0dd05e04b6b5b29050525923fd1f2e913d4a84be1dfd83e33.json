@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-10-17",
+    "league_id": "fr.1",
+    "league": "France \u2014 Ligue 1",
+    "home": "RC Strasbourg Alsace",
+    "away": "Paris Saint-Germain FC"
+  },
+  "registered_at": "2026-09-23T06:14:36.769447+00:00",
+  "run_id": "20260923T061436769464Z",
+  "data_hash": "71e183a8657ee4bfa2b31f952f8d5b3c297a8c18a8ef934ae0edee45997a5776",
+  "code_hash": "178a7c49f848e87e077510e02a9c5bbe8a2d562235eb4f1ddda08ca72ef41d57",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-1.0",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "half_life_days": 365,
+    "ridge": 0.025,
+    "optimizer": "Adam, fixed pre-specified 50 iterations",
+    "calibration": "not fitted"
+  },
+  "readiness": {
+    "league_id": "fr.1",
+    "season": "2026-27",
+    "records": 1984,
+    "completed": 1713,
+    "upcoming": 261,
+    "latest_result": "2026-09-13",
+    "current_records": 306,
+    "unresolved_past": 9,
+    "source_checked_at": "2026-09-21T12:33:07.797896+00:00",
+    "status": "review_required",
+    "issues": [
+      "9 current-season past fixtures have no result (may include postponements)"
+    ]
+  },
+  "probabilities": [
+    0.24769355888474115,
+    0.24001207178652936,
+    0.5122943693287295
+  ],
+  "expected_goals": [
+    1.198577925009885,
+    1.809721153909364
+  ],
+  "over25": 0.5786666853568705,
+  "btts": 0.5887474113389148,
+  "decision": "withhold"
+}

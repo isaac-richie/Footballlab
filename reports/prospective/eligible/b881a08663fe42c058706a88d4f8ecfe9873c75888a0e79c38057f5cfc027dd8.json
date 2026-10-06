@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-10-11",
+    "league_id": "fr.1",
+    "league": "France \u2014 Ligue 1",
+    "home": "Stade Rennais FC 1901",
+    "away": "AJ Auxerre"
+  },
+  "registered_at": "2026-09-23T06:25:54.858046+00:00",
+  "run_id": "20260923T062554858064Z",
+  "data_hash": "c2d1e1300d9797e3ebd30b8c8561b209653d070bb30098dd65e92a26ec60b6d7",
+  "code_hash": "df88bc570ea05e9fc3d92e0376201555ddba53e933e9c1c1e61447d6fc19fb04",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-1.0",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "half_life_days": 365,
+    "ridge": 0.025,
+    "optimizer": "Adam, fixed pre-specified 50 iterations",
+    "calibration": "not fitted"
+  },
+  "readiness": {
+    "league_id": "fr.1",
+    "season": "2026-27",
+    "records": 1984,
+    "completed": 1722,
+    "upcoming": 261,
+    "latest_result": "2026-09-20",
+    "current_records": 306,
+    "unresolved_past": 0,
+    "source_checked_at": "2026-09-23T06:16:29.882636+00:00",
+    "status": "research_only",
+    "issues": []
+  },
+  "probabilities": [
+    0.5057513438253577,
+    0.25540054164532267,
+    0.23884811452931984
+  ],
+  "expected_goals": [
+    1.6472410859478315,
+    1.0591465810869265
+  ],
+  "over25": 0.5079389601361735,
+  "btts": 0.5325949403317741,
+  "decision": "withhold"
+}

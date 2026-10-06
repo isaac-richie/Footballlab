@@ -1,0 +1,28 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "football-lab",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "app.py",
+        "serve"
+      ],
+      "port": 8765
+    },
+    {
+      "name": "beat-the-lab",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8790",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "community/web"
+      ],
+      "port": 8790
+    }
+  ]
+}

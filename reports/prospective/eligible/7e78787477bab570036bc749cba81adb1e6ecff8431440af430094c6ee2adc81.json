@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-10-10",
+    "league_id": "es.1",
+    "league": "Spain \u2014 La Liga",
+    "home": "Deportivo Alav\u00e9s",
+    "away": "Club Atl\u00e9tico de Madrid"
+  },
+  "registered_at": "2026-09-23T06:25:54.858046+00:00",
+  "run_id": "20260923T062554858064Z",
+  "data_hash": "c2d1e1300d9797e3ebd30b8c8561b209653d070bb30098dd65e92a26ec60b6d7",
+  "code_hash": "df88bc570ea05e9fc3d92e0376201555ddba53e933e9c1c1e61447d6fc19fb04",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-1.0",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "half_life_days": 365,
+    "ridge": 0.025,
+    "optimizer": "Adam, fixed pre-specified 50 iterations",
+    "calibration": "not fitted"
+  },
+  "readiness": {
+    "league_id": "es.1",
+    "season": "2026-27",
+    "records": 2280,
+    "completed": 1959,
+    "upcoming": 311,
+    "latest_result": "2026-09-20",
+    "current_records": 380,
+    "unresolved_past": 0,
+    "source_checked_at": "2026-09-23T06:16:25.625798+00:00",
+    "status": "research_only",
+    "issues": []
+  },
+  "probabilities": [
+    0.28460964048629167,
+    0.2791694438285254,
+    0.436220915685183
+  ],
+  "expected_goals": [
+    1.0214992550278712,
+    1.3328239468823595
+  ],
+  "over25": 0.4183133034620397,
+  "btts": 0.47300635323511314,
+  "decision": "withhold"
+}

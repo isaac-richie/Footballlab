@@ -1,0 +1,30 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+reports/cache/
+market_data.json
+snapshots/*.csv
+
+# Regenerable or bulky run output (the frozen forecast ledger under reports/prospective/ IS tracked)
+reports/cache/
+reports/datasets/
+reports/code/
+reports/runs/
+reports/latest.json
+reports/validation.json
+reports/experiments.records.json
+reports/runner.lock
+reports/logs/
+snapshots/
+
+# Licence-restricted: never commit or publish
+reports/live_odds.json
+reports/odds_history/
+reports/lineups/
+stats.json
+
+.DS_Store
+.vercel/
+backup/

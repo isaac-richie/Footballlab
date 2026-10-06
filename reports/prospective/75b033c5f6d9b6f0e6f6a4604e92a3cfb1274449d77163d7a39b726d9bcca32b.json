@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-10-18",
+    "league_id": "es.1",
+    "league": "Spain \u2014 La Liga",
+    "home": "CA Osasuna",
+    "away": "Real Racing Club de Santander"
+  },
+  "registered_at": "2026-09-23T06:14:36.769447+00:00",
+  "run_id": "20260923T061436769464Z",
+  "data_hash": "71e183a8657ee4bfa2b31f952f8d5b3c297a8c18a8ef934ae0edee45997a5776",
+  "code_hash": "178a7c49f848e87e077510e02a9c5bbe8a2d562235eb4f1ddda08ca72ef41d57",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-1.0",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "half_life_days": 365,
+    "ridge": 0.025,
+    "optimizer": "Adam, fixed pre-specified 50 iterations",
+    "calibration": "not fitted"
+  },
+  "readiness": {
+    "league_id": "es.1",
+    "season": "2026-27",
+    "records": 2280,
+    "completed": 1949,
+    "upcoming": 310,
+    "latest_result": "2026-09-17",
+    "current_records": 380,
+    "unresolved_past": 11,
+    "source_checked_at": "2026-09-21T12:33:03.182373+00:00",
+    "status": "review_required",
+    "issues": [
+      "11 current-season past fixtures have no result (may include postponements)",
+      "At least one team has fewer than 10 league matches in the past year"
+    ]
+  },
+  "probabilities": [
+    0.46983012050369216,
+    0.2383700973365239,
+    0.2917997821597839
+  ],
+  "expected_goals": [
+    1.7041621689802742,
+    1.2967109107678942
+  ],
+  "over25": 0.577005496772078,
+  "btts": 0.5947949610808843,
+  "decision": "withhold"
+}

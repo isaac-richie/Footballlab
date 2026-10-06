@@ -1,0 +1,2 @@
+league_id,date,home,away,home_shots,away_shots,home_red_cards,away_red_cards,source
+en.1,YYYY-MM-DD,Exact Home Team Name,Exact Away Team Name,0,0,0,0,licensed-or-manual-source-label

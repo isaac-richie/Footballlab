@@ -1,0 +1,51 @@
+name: daily
+on:
+  schedule:
+    - cron: '30 5 * * *'   # 05:30 UTC every day
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Refresh results, freeze forecasts, grade finished ones
+        run: python3 agent.py --refresh --days 7
+      - name: Sync the community league
+        if: ${{ env.SUPABASE_URL != '' }}
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 community/sync.py
+      - name: Back up league data
+        if: ${{ env.SUPABASE_URL != '' }}
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 community/backup.py backup
+      - uses: actions/upload-artifact@v4
+        if: ${{ hashFiles('backup/*.json') != '' }}
+        with:
+          name: league-backup-${{ github.run_id }}
+          path: backup/
+          retention-days: 30
+      - name: Commit refreshed data and the forecast ledger
+        run: |
+          git config user.name "football-lab-bot"
+          git config user.email "football-lab-bot@users.noreply.github.com"
+          git add data.json reports/prospective reports/prospective-grades.json reports/latest.md
+          git diff --cached --quiet || git commit -m "Daily refresh $(date -u +%F)"
+          git push
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}

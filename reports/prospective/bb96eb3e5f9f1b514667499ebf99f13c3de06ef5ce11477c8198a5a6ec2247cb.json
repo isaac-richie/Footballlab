@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-10-23",
+    "league_id": "de.2",
+    "league": "Germany \u2014 2. Bundesliga",
+    "home": "SV Darmstadt 98",
+    "away": "FC St. Pauli"
+  },
+  "registered_at": "2026-09-26T17:43:37.807088+00:00",
+  "run_id": "20260926T174337807107Z",
+  "data_hash": "31bc7ecbaa5be1281b69e8fea8945425833d5ea17451ac4f1e8a85dbbac4cd4b",
+  "code_hash": "31ea1a9b859e92400ba27076d3d53b44925cca3b6771fe7c8cad1836bd9337ef",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-1.0",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "half_life_days": 365,
+    "ridge": 0.025,
+    "optimizer": "Adam, fixed pre-specified 50 iterations",
+    "calibration": "not fitted"
+  },
+  "readiness": {
+    "league_id": "de.2",
+    "season": "2026-27",
+    "records": 1836,
+    "completed": 1584,
+    "upcoming": 252,
+    "latest_result": "2026-09-20",
+    "current_records": 306,
+    "unresolved_past": 0,
+    "source_checked_at": null,
+    "status": "review_required",
+    "issues": [
+      "Current source freshness unverified",
+      "At least one team has fewer than 10 league matches in the past year"
+    ]
+  },
+  "probabilities": [
+    0.3633208888375853,
+    0.27191620912211467,
+    0.36476290204030004
+  ],
+  "expected_goals": [
+    1.2909302518080361,
+    1.293999955085267
+  ],
+  "over25": 0.4777806891277387,
+  "btts": 0.5297670894384809,
+  "decision": "withhold"
+}

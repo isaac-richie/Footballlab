@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co wss://*.supabase.co; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<meta name="description" content="Put your football predictions up against the Lab's model. Free, no money, scored fairly.">
+<title>Beat the Lab</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><div class="mark">BL</div><span>Beat the Lab</span></div>
+    <nav class="nav" aria-label="Views">
+      <a href="#play" data-view="play">Play</a>
+      <a href="#table" data-view="table">Table</a>
+      <a href="#results" data-view="results">Results</a>
+      <a href="#leagues" data-view="leagues">Leagues</a>
+    </nav>
+    <div class="spacer"></div>
+    <button class="icon-btn" id="theme" type="button" aria-label="Toggle colour theme">◐</button>
+    <button class="ghost" id="account" type="button">Sign in</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div id="banner"></div>
+
+  <section data-panel="play">
+    <div class="hero">
+      <div>
+        <span class="eyebrow" id="round-label">This round</span>
+        <h1>Can you read the game better than the Lab?</h1>
+        <p>Drag to split 100% between home, draw and away. Picks lock at kickoff and nobody sees them until then. Beat the Lab's forecast to score points.</p>
+      </div>
+      <div class="me card" id="me-card"></div>
+    </div>
+    <div class="toolbar">
+      <div class="seg" id="league-filter" role="group" aria-label="Competition"></div>
+    </div>
+    <div id="fixtures"></div>
+  </section>
+
+  <section data-panel="table" hidden>
+    <div class="view-head"><h1>Leaderboard</h1>
+      <div class="seg" id="board-scope" role="group" aria-label="Leaderboard">
+        <button data-scope="season" aria-pressed="true">Season</button>
+        <button data-scope="week" aria-pressed="false">Last round</button>
+        <button data-scope="group" aria-pressed="false">My leagues</button>
+      </div>
+    </div>
+    <select id="group-pick" class="select" hidden aria-label="Choose a league"></select>
+    <div class="card flush" id="board"></div>
+    <p class="note">Points = (Lab's Brier score − yours) × 100 on each finished match. Honest probabilities score best in the long run; going all-in on a hunch is punished when it misses.</p>
+  </section>
+
+  <section data-panel="results" hidden>
+    <div class="view-head"><h1>Your results</h1></div>
+    <div class="stats" id="my-stats"></div>
+    <div id="badges"></div>
+    <div id="history"></div>
+  </section>
+
+  <section data-panel="leagues" hidden>
+    <div class="view-head"><h1>Private leagues</h1></div>
+    <div class="grid2">
+      <form class="card" id="create-group"><h4>Start a league</h4>
+        <label class="field"><span>League name</span><input id="group-name" maxlength="40" minlength="3" required placeholder="Sunday League Legends"></label>
+        <button class="primary" type="submit">Create league</button></form>
+      <form class="card" id="join-group"><h4>Join with a code</h4>
+        <label class="field"><span>Invite code</span><input id="group-code" maxlength="8" minlength="8" required placeholder="A1B2C3D4" autocomplete="off"></label>
+        <button class="primary" type="submit">Join league</button></form>
+    </div>
+    <div id="my-groups"></div>
+  </section>
+
+  <footer>
+    <span>A free prediction game. No money changes hands. 18+. If gambling is a problem, visit <a href="https://www.begambleaware.org" rel="noopener">BeGambleAware</a>.</span>
+    <span>Fixtures: <a href="https://github.com/openfootball/football.json" rel="noopener">OpenFootball (CC0)</a> · 2. Bundesliga: <a href="https://www.openligadb.de/" rel="noopener">OpenLigaDB (ODbL)</a></span>
+  </footer>
+</div>
+
+<dialog id="auth-dialog">
+  <form method="dialog" id="auth-form">
+    <h3>Sign in or join</h3>
+    <p class="note">We'll email you a one-time code. No password needed.</p>
+    <label class="field"><span>Email</span><input id="auth-email" type="email" required autocomplete="email"></label>
+    <label class="field" id="otp-field" hidden><span>6-digit code</span><input id="auth-code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code"></label>
+    <p class="note error-text" id="auth-error"></p>
+    <div class="row"><button class="ghost" value="cancel" formnovalidate>Cancel</button><button class="primary" id="auth-submit" value="default">Send code</button></div>
+  </form>
+</dialog>
+<dialog id="name-dialog">
+  <form method="dialog" id="name-form">
+    <h3>Pick a username</h3>
+    <p class="note">Shown on leaderboards. 3 to 20 characters: lowercase letters, numbers, underscores.</p>
+    <label class="field"><span>Username</span><input id="username" required pattern="[a-z0-9_]{3,20}" maxlength="20" autocomplete="nickname"></label>
+    <p class="note error-text" id="name-error"></p>
+    <div class="row"><button class="primary" value="default">Save</button></div>
+  </form>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

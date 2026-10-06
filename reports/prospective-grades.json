@@ -1,0 +1,3920 @@
+{
+  "generated_at": "2026-09-26T17:43:37.965954+00:00",
+  "data_hash": "31bc7ecbaa5be1281b69e8fea8945425833d5ea17451ac4f1e8a85dbbac4cd4b",
+  "registered": 172,
+  "pending": 172,
+  "missing_result": 0,
+  "overall": {
+    "matches": 0,
+    "log_loss": null,
+    "brier": null,
+    "over25_brier": null,
+    "btts_brier": null
+  },
+  "eligible_registered": 103,
+  "eligible_pending": 103,
+  "eligible_overall": {
+    "matches": 0,
+    "log_loss": null,
+    "brier": null,
+    "over25_brier": null,
+    "btts_brier": null
+  },
+  "by_league": {
+    "de.1": {
+      "matches": 0,
+      "log_loss": null,
+      "brier": null,
+      "over25_brier": null,
+      "btts_brier": null
+    },
+    "de.2": {
+      "matches": 0,
+      "log_loss": null,
+      "brier": null,
+      "over25_brier": null,
+      "btts_brier": null
+    },
+    "en.1": {
+      "matches": 0,
+      "log_loss": null,
+      "brier": null,
+      "over25_brier": null,
+      "btts_brier": null
+    },
+    "es.1": {
+      "matches": 0,
+      "log_loss": null,
+      "brier": null,
+      "over25_brier": null,
+      "btts_brier": null
+    },
+    "fr.1": {
+      "matches": 0,
+      "log_loss": null,
+      "brier": null,
+      "over25_brier": null,
+      "btts_brier": null
+    },
+    "it.1": {
+      "matches": 0,
+      "log_loss": null,
+      "brier": null,
+      "over25_brier": null,
+      "btts_brier": null
+    }
+  },
+  "fixtures": [
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "FC Schalke 04",
+        "away": "1. FSV Mainz 05"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "AS Monaco FC",
+        "away": "Toulouse FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Juventus FC",
+        "away": "SS Lazio"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "RC Strasbourg Alsace",
+        "away": "Paris Saint-Germain FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "SV Darmstadt 98",
+        "away": "Energie Cottbus"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "SC Paderborn 07",
+        "away": "Hamburger SV"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "1. FC K\u00f6ln",
+        "away": "Borussia M\u00f6nchengladbach"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Sociedad de F\u00fatbol",
+        "away": "Levante UD"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "FC St. Pauli",
+        "away": "Karlsruher SC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "AS Roma",
+        "away": "Genoa CFC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-09",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "M\u00e1laga CF",
+        "away": "RCD Espanyol de Barcelona"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "VfL Bochum",
+        "away": "DSC Arminia Bielefeld"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "1. FC Union Berlin",
+        "away": "SV 07 Elversberg"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "SC Freiburg",
+        "away": "FC Schalke 04"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Athletic Club",
+        "away": "Getafe CF"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Racing Club de Lens",
+        "away": "Paris FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Hertha BSC",
+        "away": "SpVgg Greuther F\u00fcrth"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "FC Internazionale Milano",
+        "away": "ACF Fiorentina"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-19",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "AC Monza",
+        "away": "Cagliari Calcio"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "1. FC Magdeburg",
+        "away": "Karlsruher SC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Arsenal FC",
+        "away": "Leeds United FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Manchester United FC",
+        "away": "AFC Bournemouth"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "VfL Osnabr\u00fcck",
+        "away": "Dynamo Dresden"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Borussia M\u00f6nchengladbach",
+        "away": "TSG 1899 Hoffenheim"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Everton FC",
+        "away": "Chelsea FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "VfL Wolfsburg",
+        "away": "1. FC Heidenheim 1846"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "RB Leipzig",
+        "away": "SV 07 Elversberg"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Racing Club de Santander",
+        "away": "RCD Espanyol de Barcelona"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "RCD Espanyol de Barcelona",
+        "away": "Club Atl\u00e9tico de Madrid"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Rayo Vallecano de Madrid",
+        "away": "Athletic Club"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "1. FC Kaiserslautern",
+        "away": "VfL Bochum"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-23",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Stade Brestois 29",
+        "away": "OGC Nice"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "ES Troyes AC",
+        "away": "Olympique de Marseille"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-09",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "1. FC Heidenheim 1846",
+        "away": "1. FC Kaiserslautern"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Stade Brestois 29",
+        "away": "Angers SCO"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "SS Lazio",
+        "away": "Parma Calcio 1913"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "DSC Arminia Bielefeld",
+        "away": "VfL Osnabr\u00fcck"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Levante UD",
+        "away": "Sevilla FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "ACF Fiorentina",
+        "away": "Como 1907"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Lille OSC",
+        "away": "Stade Brestois 29"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Club Atl\u00e9tico de Madrid",
+        "away": "RC Deportivo La Coru\u00f1a"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Cagliari Calcio",
+        "away": "Juventus FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Liverpool FC",
+        "away": "Manchester City FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Racing Club de Santander",
+        "away": "Valencia CF"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "SS Lazio",
+        "away": "AC Monza"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Paris Saint-Germain FC",
+        "away": "Le Mans FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "FC Barcelona",
+        "away": "Real Madrid CF"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "RB Leipzig",
+        "away": "Eintracht Frankfurt"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Aston Villa FC",
+        "away": "Manchester City FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "1. FC K\u00f6ln",
+        "away": "FC Schalke 04"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Fulham FC",
+        "away": "Hull City AFC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "US Sassuolo Calcio",
+        "away": "AC Milan"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "FC Lorient",
+        "away": "Paris FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Deportivo Alav\u00e9s",
+        "away": "M\u00e1laga CF"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Arsenal FC",
+        "away": "Everton FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "AJ Auxerre",
+        "away": "Le Mans FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "1. FC Union Berlin",
+        "away": "Borussia Dortmund"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "1. FC N\u00fcrnberg",
+        "away": "VfL Wolfsburg"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "FC Augsburg",
+        "away": "FC Bayern M\u00fcnchen"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "AS Monaco FC",
+        "away": "Lille OSC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-23",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "VfB Stuttgart",
+        "away": "Borussia M\u00f6nchengladbach"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Chelsea FC",
+        "away": "Tottenham Hotspur FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Valencia CF",
+        "away": "Villarreal CF"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Olympique de Marseille",
+        "away": "Le Havre AC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "1. FC N\u00fcrnberg",
+        "away": "1. FC Kaiserslautern"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-16",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Frosinone Calcio",
+        "away": "US Sassuolo Calcio"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "SC Freiburg",
+        "away": "FC Bayern M\u00fcnchen"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "RC Celta de Vigo",
+        "away": "Real Betis Balompi\u00e9"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Aston Villa FC",
+        "away": "Brentford FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-16",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Eintracht Frankfurt",
+        "away": "1. FC K\u00f6ln"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-19",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Getafe CF",
+        "away": "Rayo Vallecano de Madrid"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Rayo Vallecano de Madrid",
+        "away": "Elche CF"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Ipswich Town FC",
+        "away": "Fulham FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Hull City AFC",
+        "away": "Everton FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Hamburger SV",
+        "away": "VfB Stuttgart"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-09",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Racing Club de Lens",
+        "away": "Olympique Lyonnais"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Leeds United FC",
+        "away": "Manchester United FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-16",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Holstein Kiel",
+        "away": "Hertha BSC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Brighton & Hove Albion FC",
+        "away": "Crystal Palace FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "SSC Napoli",
+        "away": "AS Roma"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-16",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Le Mans FC",
+        "away": "Toulouse FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Coventry City FC",
+        "away": "Fulham FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Liverpool FC",
+        "away": "Brighton & Hove Albion FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "AC Milan",
+        "away": "Atalanta BC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Sevilla FC",
+        "away": "CA Osasuna"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "SV Werder Bremen",
+        "away": "SC Paderborn 07"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Como 1907",
+        "away": "US Sassuolo Calcio"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-16",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Energie Cottbus",
+        "away": "1. FC N\u00fcrnberg"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Madrid CF",
+        "away": "Villarreal CF"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Coventry City FC",
+        "away": "Newcastle United FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "RC Celta de Vigo",
+        "away": "Deportivo Alav\u00e9s"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "SV 07 Elversberg",
+        "away": "FC Augsburg"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "CA Osasuna",
+        "away": "Real Racing Club de Santander"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Valencia CF",
+        "away": "Athletic Club"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-09",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Eintracht Braunschweig",
+        "away": "Holstein Kiel"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Paris Saint-Germain FC",
+        "away": "Olympique Lyonnais"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Deportivo Alav\u00e9s",
+        "away": "Club Atl\u00e9tico de Madrid"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "1. FSV Mainz 05",
+        "away": "Bayer 04 Leverkusen"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Como 1907",
+        "away": "AS Roma"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Udinese Calcio",
+        "away": "AC Milan"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Atalanta BC",
+        "away": "Venezia FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Angers SCO",
+        "away": "FC Lorient"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "1. FSV Mainz 05",
+        "away": "SV Werder Bremen"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "SpVgg Greuther F\u00fcrth",
+        "away": "Eintracht Braunschweig"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-16",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "RC Deportivo La Coru\u00f1a",
+        "away": "Levante UD"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Lille OSC",
+        "away": "Le Havre AC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Udinese Calcio",
+        "away": "US Lecce"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "1. FC Magdeburg",
+        "away": "Hannover 96"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Genoa CFC",
+        "away": "Venezia FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Manchester United FC",
+        "away": "Tottenham Hotspur FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Nottingham Forest FC",
+        "away": "Arsenal FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Sunderland AFC",
+        "away": "Leeds United FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "TSG 1899 Hoffenheim",
+        "away": "Hamburger SV"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Cagliari Calcio",
+        "away": "Bologna FC 1909"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Hull City AFC",
+        "away": "Brentford FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Stade Rennais FC 1901",
+        "away": "RC Strasbourg Alsace"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "FC Lorient",
+        "away": "AS Monaco FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Angers SCO",
+        "away": "Olympique de Marseille"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "OGC Nice",
+        "away": "RC Strasbourg Alsace"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-23",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Torino FC",
+        "away": "AC Monza"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-19",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Parma Calcio 1913",
+        "away": "Torino FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Bayer 04 Leverkusen",
+        "away": "SC Freiburg"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Madrid CF",
+        "away": "Sevilla FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Manchester City FC",
+        "away": "Ipswich Town FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Venezia FC",
+        "away": "SSC Napoli"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Brentford FC",
+        "away": "Liverpool FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "FC Augsburg",
+        "away": "1. FC Union Berlin"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Le Havre AC",
+        "away": "AJ Auxerre"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Toulouse FC",
+        "away": "ES Troyes AC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Stade Rennais FC 1901",
+        "away": "AJ Auxerre"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Crystal Palace FC",
+        "away": "Newcastle United FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-23",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "SV Darmstadt 98",
+        "away": "FC St. Pauli"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Eintracht Braunschweig",
+        "away": "Hannover 96"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Chelsea FC",
+        "away": "AFC Bournemouth"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Villarreal CF",
+        "away": "Elche CF"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Betis Balompi\u00e9",
+        "away": "FC Barcelona"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Torino FC",
+        "away": "Udinese Calcio"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Olympique Lyonnais",
+        "away": "OGC Nice"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "FC Bayern M\u00fcnchen",
+        "away": "RB Leipzig"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "SSC Napoli",
+        "away": "Frosinone Calcio"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "SC Paderborn 07",
+        "away": "VfB Stuttgart"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Betis Balompi\u00e9",
+        "away": "CA Osasuna"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "US Lecce",
+        "away": "Juventus FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Paris FC",
+        "away": "Stade Rennais FC 1901"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Holstein Kiel",
+        "away": "Dynamo Dresden"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "VfL Osnabr\u00fcck",
+        "away": "SpVgg Greuther F\u00fcrth"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Karlsruher SC",
+        "away": "SV Darmstadt 98"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Elche CF",
+        "away": "RC Celta de Vigo"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Bologna FC 1909",
+        "away": "FC Internazionale Milano"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-23",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "VfL Bochum",
+        "away": "VfL Wolfsburg"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Dynamo Dresden",
+        "away": "1. FC Magdeburg"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Hertha BSC",
+        "away": "DSC Arminia Bielefeld"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "FC Barcelona",
+        "away": "Getafe CF"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Newcastle United FC",
+        "away": "Aston Villa FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Hannover 96",
+        "away": "FC St. Pauli"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "M\u00e1laga CF",
+        "away": "Real Sociedad de F\u00fatbol"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "ES Troyes AC",
+        "away": "Racing Club de Lens"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-23",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Ipswich Town FC",
+        "away": "Nottingham Forest FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Sociedad de F\u00fatbol",
+        "away": "RC Deportivo La Coru\u00f1a"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Borussia Dortmund",
+        "away": "Eintracht Frankfurt"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "US Lecce",
+        "away": "Bologna FC 1909"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Atalanta BC",
+        "away": "Frosinone Calcio"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Crystal Palace FC",
+        "away": "Nottingham Forest FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Genoa CFC",
+        "away": "ACF Fiorentina"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Sunderland AFC",
+        "away": "Brighton & Hove Albion FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "AFC Bournemouth",
+        "away": "Sunderland AFC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-09",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Borussia Dortmund",
+        "away": "SV Werder Bremen"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-21",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Levante UD",
+        "away": "Athletic Club"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:18:22.948124+00:00",
+      "run_id": "20260923T061822948133Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "TSG 1899 Hoffenheim",
+        "away": "Bayer 04 Leverkusen"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-19",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Tottenham Hotspur FC",
+        "away": "Coventry City FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "1. FC Heidenheim 1846",
+        "away": "Energie Cottbus"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "FC Internazionale Milano",
+        "away": "Parma Calcio 1913"
+      },
+      "cohort": "first",
+      "registered_at": "2026-09-23T06:14:36.769447+00:00",
+      "run_id": "20260923T061436769464Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "AS Monaco FC",
+        "away": "Toulouse FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Juventus FC",
+        "away": "SS Lazio"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "RC Strasbourg Alsace",
+        "away": "Paris Saint-Germain FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "1. FC K\u00f6ln",
+        "away": "Borussia M\u00f6nchengladbach"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Sociedad de F\u00fatbol",
+        "away": "Levante UD"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "AS Roma",
+        "away": "Genoa CFC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Athletic Club",
+        "away": "Getafe CF"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Racing Club de Lens",
+        "away": "Paris FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "FC Internazionale Milano",
+        "away": "ACF Fiorentina"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Arsenal FC",
+        "away": "Leeds United FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Manchester United FC",
+        "away": "AFC Bournemouth"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Borussia M\u00f6nchengladbach",
+        "away": "TSG 1899 Hoffenheim"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Everton FC",
+        "away": "Chelsea FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "RCD Espanyol de Barcelona",
+        "away": "Club Atl\u00e9tico de Madrid"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Rayo Vallecano de Madrid",
+        "away": "Athletic Club"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-23",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Stade Brestois 29",
+        "away": "OGC Nice"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Stade Brestois 29",
+        "away": "Angers SCO"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "SS Lazio",
+        "away": "Parma Calcio 1913"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Levante UD",
+        "away": "Sevilla FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "ACF Fiorentina",
+        "away": "Como 1907"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Lille OSC",
+        "away": "Stade Brestois 29"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Cagliari Calcio",
+        "away": "Juventus FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Liverpool FC",
+        "away": "Manchester City FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "FC Barcelona",
+        "away": "Real Madrid CF"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "RB Leipzig",
+        "away": "Eintracht Frankfurt"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Aston Villa FC",
+        "away": "Manchester City FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "US Sassuolo Calcio",
+        "away": "AC Milan"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "FC Lorient",
+        "away": "Paris FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Arsenal FC",
+        "away": "Everton FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "1. FC Union Berlin",
+        "away": "Borussia Dortmund"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "FC Augsburg",
+        "away": "FC Bayern M\u00fcnchen"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "AS Monaco FC",
+        "away": "Lille OSC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-23",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "VfB Stuttgart",
+        "away": "Borussia M\u00f6nchengladbach"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Chelsea FC",
+        "away": "Tottenham Hotspur FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Valencia CF",
+        "away": "Villarreal CF"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Olympique de Marseille",
+        "away": "Le Havre AC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "SC Freiburg",
+        "away": "FC Bayern M\u00fcnchen"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "RC Celta de Vigo",
+        "away": "Real Betis Balompi\u00e9"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Aston Villa FC",
+        "away": "Brentford FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-16",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Eintracht Frankfurt",
+        "away": "1. FC K\u00f6ln"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-19",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Getafe CF",
+        "away": "Rayo Vallecano de Madrid"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Rayo Vallecano de Madrid",
+        "away": "Elche CF"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Hamburger SV",
+        "away": "VfB Stuttgart"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-09",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Racing Club de Lens",
+        "away": "Olympique Lyonnais"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Leeds United FC",
+        "away": "Manchester United FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Brighton & Hove Albion FC",
+        "away": "Crystal Palace FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "SSC Napoli",
+        "away": "AS Roma"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Liverpool FC",
+        "away": "Brighton & Hove Albion FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "AC Milan",
+        "away": "Atalanta BC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Sevilla FC",
+        "away": "CA Osasuna"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Como 1907",
+        "away": "US Sassuolo Calcio"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Madrid CF",
+        "away": "Villarreal CF"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "RC Celta de Vigo",
+        "away": "Deportivo Alav\u00e9s"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Valencia CF",
+        "away": "Athletic Club"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Paris Saint-Germain FC",
+        "away": "Olympique Lyonnais"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Deportivo Alav\u00e9s",
+        "away": "Club Atl\u00e9tico de Madrid"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "1. FSV Mainz 05",
+        "away": "Bayer 04 Leverkusen"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Como 1907",
+        "away": "AS Roma"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Udinese Calcio",
+        "away": "AC Milan"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Angers SCO",
+        "away": "FC Lorient"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "1. FSV Mainz 05",
+        "away": "SV Werder Bremen"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Lille OSC",
+        "away": "Le Havre AC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Udinese Calcio",
+        "away": "US Lecce"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Manchester United FC",
+        "away": "Tottenham Hotspur FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Nottingham Forest FC",
+        "away": "Arsenal FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Sunderland AFC",
+        "away": "Leeds United FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "TSG 1899 Hoffenheim",
+        "away": "Hamburger SV"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Cagliari Calcio",
+        "away": "Bologna FC 1909"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Stade Rennais FC 1901",
+        "away": "RC Strasbourg Alsace"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "FC Lorient",
+        "away": "AS Monaco FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Angers SCO",
+        "away": "Olympique de Marseille"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "OGC Nice",
+        "away": "RC Strasbourg Alsace"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-19",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Parma Calcio 1913",
+        "away": "Torino FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Bayer 04 Leverkusen",
+        "away": "SC Freiburg"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Madrid CF",
+        "away": "Sevilla FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Brentford FC",
+        "away": "Liverpool FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "FC Augsburg",
+        "away": "1. FC Union Berlin"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Le Havre AC",
+        "away": "AJ Auxerre"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Stade Rennais FC 1901",
+        "away": "AJ Auxerre"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Crystal Palace FC",
+        "away": "Newcastle United FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Chelsea FC",
+        "away": "AFC Bournemouth"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Villarreal CF",
+        "away": "Elche CF"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Betis Balompi\u00e9",
+        "away": "FC Barcelona"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Torino FC",
+        "away": "Udinese Calcio"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Olympique Lyonnais",
+        "away": "OGC Nice"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "FC Bayern M\u00fcnchen",
+        "away": "RB Leipzig"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Betis Balompi\u00e9",
+        "away": "CA Osasuna"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "US Lecce",
+        "away": "Juventus FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Paris FC",
+        "away": "Stade Rennais FC 1901"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Elche CF",
+        "away": "RC Celta de Vigo"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Bologna FC 1909",
+        "away": "FC Internazionale Milano"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "FC Barcelona",
+        "away": "Getafe CF"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-17",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Newcastle United FC",
+        "away": "Aston Villa FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-24",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Borussia Dortmund",
+        "away": "Eintracht Frankfurt"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "US Lecce",
+        "away": "Bologna FC 1909"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Crystal Palace FC",
+        "away": "Nottingham Forest FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Genoa CFC",
+        "away": "ACF Fiorentina"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Sunderland AFC",
+        "away": "Brighton & Hove Albion FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-18",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "AFC Bournemouth",
+        "away": "Sunderland AFC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-09",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Borussia Dortmund",
+        "away": "SV Werder Bremen"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-21",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Levante UD",
+        "away": "Athletic Club"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "TSG 1899 Hoffenheim",
+        "away": "Bayer 04 Leverkusen"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-26T17:43:37.807088+00:00",
+      "run_id": "20260926T174337807107Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "FC Internazionale Milano",
+        "away": "Parma Calcio 1913"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-09-23T06:25:54.858046+00:00",
+      "run_id": "20260923T062554858064Z",
+      "status": "pending",
+      "readiness": "research_only"
+    }
+  ],
+  "method": "First forecast and first research-only forecast are frozen separately. Registration requires a calendar day before fixture date. Grades use current source results and may change if that source is corrected."
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-10-10",
+    "league_id": "de.1",
+    "league": "Germany \u2014 Bundesliga",
+    "home": "SC Paderborn 07",
+    "away": "VfB Stuttgart"
+  },
+  "registered_at": "2026-09-23T06:14:36.769447+00:00",
+  "run_id": "20260923T061436769464Z",
+  "data_hash": "71e183a8657ee4bfa2b31f952f8d5b3c297a8c18a8ef934ae0edee45997a5776",
+  "code_hash": "178a7c49f848e87e077510e02a9c5bbe8a2d562235eb4f1ddda08ca72ef41d57",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-1.0",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "half_life_days": 365,
+    "ridge": 0.025,
+    "optimizer": "Adam, fixed pre-specified 50 iterations",
+    "calibration": "not fitted"
+  },
+  "readiness": {
+    "league_id": "de.1",
+    "season": "2026-27",
+    "records": 1836,
+    "completed": 1557,
+    "upcoming": 270,
+    "latest_result": "2026-09-13",
+    "current_records": 306,
+    "unresolved_past": 9,
+    "source_checked_at": "2026-09-21T12:33:05.975765+00:00",
+    "status": "review_required",
+    "issues": [
+      "9 current-season past fixtures have no result (may include postponements)",
+      "At least one team has fewer than 10 league matches in the past year"
+    ]
+  },
+  "probabilities": [
+    0.24651565193103536,
+    0.2791411801668135,
+    0.47434316790215103
+  ],
+  "expected_goals": [
+    1.0478323603057667,
+    1.5378794248460446
+  ],
+  "over25": 0.4779775596871834,
+  "btts": 0.5216985402370946,
+  "decision": "withhold"
+}

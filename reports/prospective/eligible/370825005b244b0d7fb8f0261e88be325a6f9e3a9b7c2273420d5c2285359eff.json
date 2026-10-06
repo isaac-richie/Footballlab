@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-10-18",
+    "league_id": "it.1",
+    "league": "Italy \u2014 Serie A",
+    "home": "ACF Fiorentina",
+    "away": "Como 1907"
+  },
+  "registered_at": "2026-09-23T06:25:54.858046+00:00",
+  "run_id": "20260923T062554858064Z",
+  "data_hash": "c2d1e1300d9797e3ebd30b8c8561b209653d070bb30098dd65e92a26ec60b6d7",
+  "code_hash": "df88bc570ea05e9fc3d92e0376201555ddba53e933e9c1c1e61447d6fc19fb04",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-1.0",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "half_life_days": 365,
+    "ridge": 0.025,
+    "optimizer": "Adam, fixed pre-specified 50 iterations",
+    "calibration": "not fitted"
+  },
+  "readiness": {
+    "league_id": "it.1",
+    "season": "2026-27",
+    "records": 2280,
+    "completed": 1940,
+    "upcoming": 330,
+    "latest_result": "2026-09-20",
+    "current_records": 380,
+    "unresolved_past": 0,
+    "source_checked_at": "2026-09-23T06:16:27.272299+00:00",
+    "status": "research_only",
+    "issues": []
+  },
+  "probabilities": [
+    0.2909666191535308,
+    0.24412824617117207,
+    0.46490513467529704
+  ],
+  "expected_goals": [
+    1.25437600277877,
+    1.6463382046770825
+  ],
+  "over25": 0.554202031191976,
+  "btts": 0.5777919529536018,
+  "decision": "withhold"
+}
