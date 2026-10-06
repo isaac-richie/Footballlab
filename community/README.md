@@ -18,6 +18,12 @@ python3 -m http.server 8790 --directory community/web
 
 Open http://localhost:8790. With `config.js` blank the site runs on sample data; sign in with any email and the code `123456`.
 
+## Spot Kick (web game)
+
+`web/game/` is a penalty shootout that deploys with the league site at `/game/`. Best of five then sudden death against the computer: aim and hold to power your kick, then go in goal and read the taker's run-up (it leans toward the real side 60% of the time). The **Daily Shootout** uses a date seed so everyone faces the same keeper and takers that day; the first result of the day is what you share, as a WhatsApp-ready ⚽/❌ row. No images, libraries or network calls; sound is synthesised in the browser and can be muted.
+
+Rules and balance live in `web/game/engine.js` and are tested with `node --test community/web/game/engine.test.js` (also run in CI). Tuned by simulation: a well-placed shot scores about 74% (real penalties are about 75%), a weak one about 53%; as keeper a random dive saves about 20%, reading the tell about 40%, and standing still about 11%.
+
 ## Scoring
 
 For each finished match the Brier score is the sum of squared errors over home, draw and away (0 is perfect, 2 is the worst). Points are `(Lab's Brier − your Brier) × 100`. Beating the Lab scores positive points; trailing it scores negative. Brier is a proper scoring rule: over many matches you maximize expected points by entering your honest probabilities, so going all-in on a hunch is punished when it misses. When a fixture has no Lab forecast, the benchmark is one third each.
