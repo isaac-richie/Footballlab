@@ -24,6 +24,16 @@ Open http://localhost:8790. With `config.js` blank the site runs on sample data;
 
 Rules and balance live in `web/game/engine.js` and are tested with `node --test community/web/game/engine.test.js` (also run in CI). Tuned by simulation: a well-placed shot scores about 74% (real penalties are about 75%), a weak one about 53%; as keeper a random dive saves about 20%, reading the tell about 40%, and standing still about 11%.
 
+## Kickabout (multiplayer football)
+
+`web/match/` is a light top-down football game: 3v3, 5v5 or 11v11, 3 or 5 minutes, against the computer or a friend. Move with WASD, arrows, a touch joystick or a game controller; pass, hold to shoot, tackle and switch player. The pitch is a cage (the ball rebounds off the boards), so there are no throw-ins. On a phone held upright the pitch turns vertical, and the guest's view is rotated so everyone attacks the same way on screen.
+
+**How online play works (zero cost per match).** The host's browser runs the match (`engine.js`, 60 steps a second) and sends the state 20 times a second; the guest sends button presses. Actions travel as counters, so a dropped or repeated packet never loses or doubles a pass or shot. The two browsers find each other through a short handshake (`net.js`): over Supabase Realtime once configured, or over a same-device channel for testing. After that, game traffic goes directly between the players over WebRTC, so it does not count against Supabase's free-plan limit of 100 messages a second per project. If a direct link cannot form (some strict networks), it falls back to relaying through the handshake channel at 10 updates a second. A relay (TURN) server would fix those cases but costs money, so it is not included.
+
+Limits of this draft: no prediction on the guest side, so the guest sees their own movement about one network round trip late; the host's match keeps running if they switch tabs, but background tabs update slowly. Match chat has a basic word filter and a rate limit only; open public chat needs proper moderation first (see the social plan).
+
+Tests: `node --test community/web/match/engine.test.js` (also run in CI).
+
 ## Scoring
 
 For each finished match the Brier score is the sum of squared errors over home, draw and away (0 is perfect, 2 is the worst). Points are `(Lab's Brier − your Brier) × 100`. Beating the Lab scores positive points; trailing it scores negative. Brier is a proper scoring rule: over many matches you maximize expected points by entering your honest probabilities, so going all-in on a hunch is punished when it misses. When a fixture has no Lab forecast, the benchmark is one third each.

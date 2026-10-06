@@ -23,6 +23,8 @@ jobs:
           node-version: '20'
       - name: Spot Kick engine tests
         run: node --test community/web/game/engine.test.js
+      - name: Kickabout match engine tests
+        run: node --test community/web/match/engine.test.js
 
   league-rules:
     runs-on: ubuntu-latest
