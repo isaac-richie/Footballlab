@@ -34,6 +34,21 @@ Limits of this draft: no prediction on the guest side, so the guest sees their o
 
 Tests: `node --test community/web/match/engine.test.js` (also run in CI).
 
+## Terrace (social, 18+)
+
+`web/social/` is the community hub: public rooms (General, one per league, Kickabout, Spot Kick), direct messages between mutual friends, friend requests, and challenges that drop two friends into a Kickabout room. It runs on Supabase with `supabase/social.sql` (run it after `schema.sql`), and in demo mode with sample players until configured.
+
+The whole platform is **18+**: a profile cannot exist without the player confirming their age (`profiles.adult`), and every social action requires a profile. Safety rules are enforced in the database and covered by `supabase/test_social.sql`:
+
+- Direct messages only between mutual friends; outsiders can't read or post in them.
+- Blocking either way cuts all contact: ends the friendship and pending requests, stops DMs and new requests, and hides each person's messages from the other.
+- Reports go to moderators; three distinct reports hide a message automatically until reviewed.
+- A server-side word filter and a rate limit of 5 messages per 10 seconds; 3 challenges a minute.
+- Banned players can neither read nor post. Signed-out visitors see nothing social.
+- No image uploads in v1.
+
+**Moderation.** Appoint a moderator in the Supabase SQL editor: `insert into public.moderators values ('<user uuid>');`. Moderators see hidden messages (marked) with Hide/Unhide on every message, see all reports (`select * from reports where status = 'open'`), and can suspend with `select ban_user('<user uuid>', 72, 'reason');`. Before opening to the public: publish community rules and a privacy notice, name who handles reports and how fast, and plan for law-enforcement requests and reports of under-18 users (the `underage` report reason exists for this).
+
 ## Scoring
 
 For each finished match the Brier score is the sum of squared errors over home, draw and away (0 is perfect, 2 is the worst). Points are `(Lab's Brier − your Brier) × 100`. Beating the Lab scores positive points; trailing it scores negative. Brier is a proper scoring rule: over many matches you maximize expected points by entering your honest probabilities, so going all-in on a hunch is punished when it misses. When a fixture has no Lab forecast, the benchmark is one third each.

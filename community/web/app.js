@@ -68,6 +68,7 @@
     e.preventDefault();
     const name = $('#username').value.trim().toLowerCase();
     if(!/^[a-z0-9_]{3,20}$/.test(name)){ $('#name-error').textContent = '3 to 20 lowercase letters, numbers or underscores.'; return }
+    if(!$('#adult').checked){ $('#name-error').textContent = 'You must be 18 or older to join.'; return }
     try{ await D.saveUsername(name); $('#name-dialog').close(); await refreshAccount(); toast('Welcome, ' + name) }
     catch(err){ $('#name-error').textContent = /duplicate|unique|taken/i.test(err.message) ? 'That username is taken.' : err.message }
   };

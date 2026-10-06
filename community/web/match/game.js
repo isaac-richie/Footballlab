@@ -368,8 +368,12 @@
   if(cfg.supabaseUrl && cfg.supabaseAnonKey && !window.supabase){
     const s = document.createElement('script'); s.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js'; document.head.appendChild(s);
   }
-  const roomParam = new URLSearchParams(location.search).get('room');
-  if(roomParam && /^[A-Z0-9]{6}$/i.test(roomParam)){ $('#code-in').value = roomParam.toUpperCase() }
+  // Links: ?room=CODE fills the code (add &auto=1 to join straight away, as challenges do);
+  // ?host=CODE opens a room with that code, so a challenger and their friend meet in it.
+  const params = new URLSearchParams(location.search), roomParam = params.get('room'), hostParam = params.get('host');
+  const modeParam = params.get('mode'); if(K.MODES[modeParam]){ S.mode = modeParam; seg('mode', 'mode', S.mode) }
+  if(hostParam && /^[A-Z0-9]{6}$/i.test(hostParam)) openRoom('host', hostParam.toUpperCase());
+  else if(roomParam && /^[A-Z0-9]{6}$/i.test(roomParam)){ $('#code-in').value = roomParam.toUpperCase(); if(params.get('auto') === '1') openRoom('guest', roomParam.toUpperCase()) }
   window.__kick = S;
   requestAnimationFrame(frame);
 })();

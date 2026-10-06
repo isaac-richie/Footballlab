@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co wss://*.supabase.co; img-src 'self' data:; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co wss://*.supabase.co; img-src 'self' data:; base-uri 'none'; form-action 'none'">
 <meta name="description" content="Put your football predictions up against the Lab's model. Free, no money, scored fairly.">
 <title>Beat the Lab</title>
 <link rel="stylesheet" href="styles.css">
@@ -19,6 +19,7 @@
       <a href="#leagues" data-view="leagues">Leagues</a>
       <a href="game/">Spot Kick</a>
       <a href="match/">Kickabout</a>
+      <a href="social/">Terrace</a>
     </nav>
     <div class="spacer"></div>
     <button class="icon-btn" id="theme" type="button" aria-label="Toggle colour theme">◐</button>
@@ -98,6 +99,7 @@
     <h3>Pick a username</h3>
     <p class="note">Shown on leaderboards. 3 to 20 characters: lowercase letters, numbers, underscores.</p>
     <label class="field"><span>Username</span><input id="username" required pattern="[a-z0-9_]{3,20}" maxlength="20" autocomplete="nickname"></label>
+    <label class="adult"><input type="checkbox" id="adult" required> I confirm I am 18 or older. Beat the Lab and its community are for adults only.</label>
     <p class="note error-text" id="name-error"></p>
     <div class="row"><button class="primary" value="default">Save</button></div>
   </form>

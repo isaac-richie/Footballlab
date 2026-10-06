@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co wss://*.supabase.co; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<title>Terrace</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+.app{display:grid;grid-template-columns:240px minmax(0,1fr) 300px;gap:14px;max-width:1240px;margin:0 auto;padding:14px 16px 20px;height:calc(100vh - 61px);height:calc(100dvh - 61px)}
+.col{min-height:0;display:flex;flex-direction:column}
+.side h4,.right h4{margin:14px 0 6px;font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--faint)}
+.side h4:first-child,.right h4:first-child{margin-top:0}
+.rooms{list-style:none;margin:0;padding:0}
+.rooms button{width:100%;display:flex;align-items:center;gap:8px;border:0;background:none;text-align:left;padding:8px 10px;border-radius:9px;color:var(--muted);font-size:13.5px}
+.rooms button:hover{background:var(--surface-2);color:var(--text)}
+.rooms button[aria-current="true"]{background:var(--surface-3);color:var(--text);font-weight:600}
+.rooms .hash{color:var(--faint);width:14px;text-align:center}
+.av{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:8px;color:#fff;font-size:11px;font-weight:750;flex-shrink:0}
+.chatcard{flex:1;display:flex;flex-direction:column;padding:0;overflow:hidden;min-height:0}
+.chathead{padding:12px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.chathead b{font-size:15px}
+.rules{font-size:11.5px;color:var(--faint)}
+.stream{flex:1;overflow:auto;padding:14px 16px;display:flex;flex-direction:column;gap:10px;min-height:0}
+.m{display:flex;gap:10px;align-items:flex-start;animation:pop .25s both;position:relative}
+.m .body{min-width:0;flex:1}
+.m .mmeta{font-size:11.5px;color:var(--faint);text-align:left}
+.m .mmeta b{color:var(--text);font-size:13px;margin-right:6px}
+.m .text{font-size:14px;line-height:1.45;word-wrap:break-word;white-space:pre-wrap}
+.m.hidden .text{opacity:.5;font-style:italic}
+.m .acts{position:absolute;right:0;top:-4px;display:none;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:2px}
+.m:hover .acts,.m:focus-within .acts{display:flex}
+.acts button{border:0;background:none;color:var(--muted);font-size:12px;padding:3px 7px;border-radius:6px}
+.acts button:hover{background:var(--surface-2);color:var(--text)}
+@keyframes pop{from{opacity:0;transform:translateY(4px)}}
+.composer{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--line)}
+.composer textarea{flex:1;resize:none;height:42px;max-height:120px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit}
+.composer button{border:0;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:700;padding:0 16px}
+.right{overflow:auto}
+.frow{display:flex;align-items:center;justify-content:flex-start;gap:6px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13px}
+.frow:last-child{border-bottom:0}
+.frow .sbtn{flex:none}
+.frow .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.sbtn{border:1px solid var(--line-2);background:var(--surface);border-radius:8px;padding:4px 8px;font-size:12px;color:var(--muted);width:auto;text-decoration:none;white-space:nowrap}
+.sbtn:hover{border-color:var(--accent);color:var(--accent)}
+.sbtn.go{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.addf{display:flex;gap:6px;margin-bottom:6px}
+.addf input{flex:1;background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:8px 10px;font-size:13px}
+.badge-n{display:inline-grid;place-items:center;min-width:18px;height:18px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-size:11px;font-weight:800;padding:0 5px;margin-left:6px}
+.empty-s{font-size:12.5px;color:var(--faint);padding:6px 0}
+.banner{background:color-mix(in srgb,var(--warn) 14%,transparent);color:var(--warn);border-radius:10px;padding:10px 12px;font-size:13px;margin-bottom:10px}
+.tabs-m{display:none}
+dialog .row2{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+dialog select,dialog textarea{width:100%;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:9px 10px;margin-top:6px;font:inherit;color:inherit}
+@media (max-width:980px){
+  .app{grid-template-columns:1fr;height:auto;min-height:calc(100dvh - 61px)}
+  .side{display:none}.right{display:none}
+  .app.show-side .side,.app.show-right .right{display:flex}
+  .app.show-side .chatcol,.app.show-right .chatcol{display:none}
+  .chatcard{height:calc(100dvh - 240px)}
+  .tabs-m{display:flex;gap:6px;max-width:1240px;margin:10px auto 0;padding:0 16px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><div class="mark">TR</div><span>Terrace</span></div>
+    <nav class="nav" aria-label="Site"><a href="../#play">League</a><a href="../match/">Kickabout</a><a href="./" aria-current="page">Terrace</a></nav>
+    <div class="spacer"></div>
+    <button class="ghost" id="account" type="button">Sign in</button>
+  </div>
+</header>
+<div class="tabs-m seg" role="group" aria-label="Section"><button data-pane="side">Rooms</button><button data-pane="chat" aria-pressed="true">Chat</button><button data-pane="right">Friends<span id="badge-m"></span></button></div>
+<div class="app" id="app">
+  <aside class="col side card" aria-label="Rooms">
+    <h4>Rooms</h4><ul class="rooms" id="public-rooms"></ul>
+    <h4>Direct messages</h4><ul class="rooms" id="dm-rooms"></ul>
+  </aside>
+  <section class="col chatcol">
+    <div id="notice"></div>
+    <div class="card chatcard">
+      <div class="chathead"><div><b id="room-title">General</b><div class="rules" id="room-rules">Be decent. No hate, scams, or sharing personal details. Report anything that isn't.</div></div></div>
+      <div class="stream" id="stream" aria-live="polite"></div>
+      <form class="composer" id="composer"><textarea id="text" maxlength="500" placeholder="Say something…" aria-label="Message"></textarea><button type="submit">Send</button></form>
+    </div>
+  </section>
+  <aside class="col right card" aria-label="Friends">
+    <h4>Challenges<span id="badge-c"></span></h4><div id="challenges"></div>
+    <h4>Friend requests<span id="badge-r"></span></h4><div id="requests"></div>
+    <h4>Friends</h4>
+    <form class="addf" id="addf"><input id="addname" placeholder="Add by username" maxlength="20" autocomplete="off"><button class="sbtn go" type="submit">Add</button></form>
+    <div id="friends"></div>
+    <h4>Blocked</h4><div id="blocked"></div>
+  </aside>
+</div>
+
+<dialog id="report-dlg"><form method="dialog" id="report-form">
+  <h3>Report message</h3><p class="note">Reports go to moderators. Three reports hide a message automatically until it's reviewed.</p>
+  <label class="field"><span>Reason</span><select id="report-reason"><option value="abuse">Abuse or harassment</option><option value="hate">Hate speech</option><option value="scam">Scam or fraud</option><option value="spam">Spam</option><option value="sexual">Sexual content</option><option value="underage">Looks under 18</option><option value="other">Something else</option></select></label>
+  <label class="field"><span>Note (optional)</span><textarea id="report-note" maxlength="300" rows="2"></textarea></label>
+  <div class="row2"><button class="ghost" value="cancel" formnovalidate>Cancel</button><button class="primary" style="width:auto" value="ok">Send report</button></div>
+</form></dialog>
+<dialog id="challenge-dlg"><form method="dialog">
+  <h3 id="challenge-title">Challenge</h3><p class="note">They get a notification. Accepting drops you both into a Kickabout room.</p>
+  <div class="seg" id="ch-mode" role="group" aria-label="Mode"><button type="button" data-v="3v3">3 v 3</button><button type="button" data-v="5v5" aria-pressed="true">5 v 5</button><button type="button" data-v="11v11">11 v 11</button></div>
+  <div class="row2"><button class="ghost" value="cancel">Cancel</button><button class="primary" style="width:auto" value="ok">Send challenge</button></div>
+</form></dialog>
+<dialog id="auth-dlg"><form method="dialog" id="auth-form">
+  <h3>Sign in</h3><p class="note">We'll email you a one-time code.</p>
+  <label class="field"><span>Email</span><input id="auth-email" type="email" required autocomplete="email"></label>
+  <label class="field" id="otp-field" hidden><span>6-digit code</span><input id="auth-code" inputmode="numeric" maxlength="6" autocomplete="one-time-code"></label>
+  <p class="note error-text" id="auth-error"></p>
+  <div class="row2"><button class="ghost" value="cancel" formnovalidate>Cancel</button><button class="primary" style="width:auto" id="auth-submit" value="ok">Send code</button></div>
+</form></dialog>
+<dialog id="profile-dlg"><form method="dialog" id="profile-form">
+  <h3>Create your profile</h3><p class="note">Your username is public. 3 to 20 lowercase letters, numbers or underscores.</p>
+  <label class="field"><span>Username</span><input id="p-name" required pattern="[a-z0-9_]{3,20}" maxlength="20"></label>
+  <label class="adult"><input type="checkbox" id="p-adult" required> I confirm I am 18 or older.</label>
+  <p class="note error-text" id="p-error"></p>
+  <div class="row2"><button class="primary" style="width:auto" value="ok">Create profile</button></div>
+</form></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="../config.js"></script>
+<script src="social.js"></script>
+</body>
+</html>

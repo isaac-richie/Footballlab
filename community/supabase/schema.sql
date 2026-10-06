@@ -11,6 +11,9 @@ create extension if not exists pgcrypto;
 create table public.profiles (
   id uuid primary key references auth.users (id) on delete cascade,
   username text not null unique check (username ~ '^[a-z0-9_]{3,20}$'),
+  -- The platform is 18+. A profile cannot exist without the player confirming their age.
+  adult boolean not null check (adult),
+  adult_confirmed_at timestamptz not null default now(),
   created_at timestamptz not null default now()
 );
 alter table public.profiles enable row level security;

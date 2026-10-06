@@ -31,7 +31,7 @@
       async verifyCode(email, token){ session = must(await sb.auth.verifyOtp({email, token, type: 'email'})).session },
       async signOut(){ must(await sb.auth.signOut()); session = null },
       async profile(){ if(!uid()) return null; return must(await sb.from('profiles').select('username').eq('id', uid()).maybeSingle()) },
-      async saveUsername(username){ must(await sb.from('profiles').upsert({id: uid(), username})) },
+      async saveUsername(username){ must(await sb.from('profiles').upsert({id: uid(), username, adult: true})) },
       async fixtures(from, to){ return must(await sb.from('fixtures').select('*').gte('kickoff_date', from).lte('kickoff_date', to).order('kickoff_date').order('home')) },
       async myPredictions(ids){
         if(!uid() || !ids.length) return {};

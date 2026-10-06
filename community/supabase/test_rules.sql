@@ -14,9 +14,11 @@ begin perform set_config('request.jwt.claim.sub', u, false); end $$;
 
 -- Player A
 set role authenticated; select pg_temp.as_user('00000000-0000-0000-0000-00000000000a');
-insert into public.profiles values (auth.uid(), 'alice');
+insert into public.profiles (id, username, adult) values (auth.uid(), 'alice', true);
 insert into public.predictions (user_id, fixture_id, p_home, p_draw, p_away) values (auth.uid(), 'open', 60, 25, 15);
 do $$ begin
+  begin update public.profiles set adult = false where id = auth.uid(); raise exception 'FAIL: profile without 18+ confirmation';
+  exception when check_violation then null; end;
   begin insert into public.predictions values (auth.uid(), 'locked', 50, 30, 20); raise exception 'FAIL: predicted a locked fixture';
   exception when insufficient_privilege then null; end;
   begin insert into public.predictions values (auth.uid(), 'open', 50, 30, 30); raise exception 'FAIL: sum not 100 accepted';
@@ -31,7 +33,7 @@ update public.predictions set p_home = 55, p_draw = 30 where fixture_id = 'open'
 reset role;
 
 -- Seed predictions made before lock (as service role) on the locked and finished fixtures.
-insert into public.profiles values ('00000000-0000-0000-0000-00000000000b', 'bob');
+insert into public.profiles (id, username, adult) values ('00000000-0000-0000-0000-00000000000b', 'bob', true);
 insert into public.predictions values
  ('00000000-0000-0000-0000-00000000000a', 'done', 20, 30, 50, now()), ('00000000-0000-0000-0000-00000000000b', 'done', 70, 20, 10, now()),
  ('00000000-0000-0000-0000-00000000000b', 'locked', 40, 30, 30, now()), ('00000000-0000-0000-0000-00000000000b', 'open', 10, 10, 80, now());
