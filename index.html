@@ -430,6 +430,7 @@ footer a{color:var(--muted)}
       <a href="#fixtures" data-view="fixtures">Fixtures</a>
       <a href="#match" data-view="match">Match</a>
       <a href="#season" data-view="season">Season</a>
+      <a href="#parlay" data-view="parlay">Parlay</a>
       <a href="#performance" data-view="performance">Performance</a>
     </nav>
     <div class="spacer"></div>
@@ -513,6 +514,26 @@ footer a{color:var(--muted)}
     <p class="note" id="season-note"></p>
   </section>
 
+  <!-- PARLAY -->
+  <section data-panel="parlay" hidden>
+    <div class="view-head"><div><h1>Parlay builder</h1><p>One leg per fixture across leagues, priced from the same forecasts as everything else. Lock legs you like, then shuffle the rest.</p></div></div>
+    <div class="match-layout">
+      <div class="card form-card">
+        <h4>Build</h4>
+        <div class="field"><span>Legs</span><div class="seg" id="pl-n"><button data-v="3" aria-pressed="true">3</button><button data-v="5">5</button><button data-v="10">10</button></div></div>
+        <div class="field"><span>Style</span><div class="seg" id="pl-mode"><button data-v="safest" aria-pressed="true">Safest</button><button data-v="balanced">Balanced</button></div></div>
+        <div class="field"><span>Leagues</span><div class="chips" id="pl-leagues"></div></div>
+        <div class="field"><span>Markets</span><div class="chips" id="pl-markets"></div></div>
+        <label class="field"><span>Leg probability: <b id="pl-range-l">50% to 95%</b></span>
+          <div style="display:flex;gap:8px"><input id="pl-min" type="range" min="5" max="95" value="50" aria-label="Minimum leg probability"><input id="pl-max" type="range" min="10" max="99" value="95" aria-label="Maximum leg probability"></div></label>
+        <label class="field"><span>Fixtures within</span><select id="pl-days"><option value="3">3 days</option><option value="7" selected>7 days</option><option value="14">14 days</option></select></label>
+        <button class="primary" id="pl-build" type="button">Build parlay</button>
+        <button class="ghost" id="pl-shuffle" type="button" style="width:100%;margin-top:8px">Shuffle unlocked legs</button>
+      </div>
+      <div id="pl-out"><div class="placeholder"><div><h3>Set your filters and build</h3><p>Safest picks the most likely leg in each fixture. Balanced samples sensible alternatives, so every shuffle is different.</p></div></div></div>
+    </div>
+  </section>
+
   <!-- PERFORMANCE -->
   <section data-panel="performance" hidden>
     <div class="view-head">
@@ -594,7 +615,7 @@ $('#theme').onclick = () => {
 /* ---------- Views ---------- */
 function showView(){
   const v = (location.hash || '#fixtures').slice(1).split('/')[0];
-  const view = ['fixtures','match','season','performance'].includes(v) ? v : 'fixtures';
+  const view = ['fixtures','match','season','parlay','performance'].includes(v) ? v : 'fixtures';
   $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== view);
   $$('.nav a').forEach(a => a.dataset.view === view ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
   if(view === 'performance' && !state.prospectiveLoaded) loadProspective();
@@ -662,7 +683,7 @@ async function loadLeague(){
     renderLeagues(data.leagues);
     renderStrip(data);
     fillTeams(data.teams, data.today);
-    renderBoard(); loadOddsStatus();
+    renderBoard(); loadOddsStatus(); plSetup(data.leagues);
   }catch(e){ if(token === state.rev) $('#strip').innerHTML = `<span class="error">${esc(e.message)}</span>` }
 }
 function renderLeagues(leagues){
@@ -1104,6 +1125,59 @@ async function loadSetup(d){
   $('#setup-out').innerHTML = setupInfo(state.setup, d);
   renderPlayers(state.setup);
 }
+
+/* ---------- Parlay builder ---------- */
+const PL = {n: 3, mode: 'safest', leagues: new Set(), markets: new Set(['dc', 'ou15', 'ou25', 'btts']), locked: new Set(), result: null, seed: 0};
+const PL_MARKETS = {'1x2': 'Result', dc: 'Double chance', ou15: 'O/U 1.5', ou25: 'O/U 2.5', ou35: 'O/U 3.5', btts: 'BTTS'};
+function plSetup(leagues){
+  if(!PL.leagues.size) Object.keys(leagues).forEach(k => k !== 'it.2' && PL.leagues.add(k));
+  $('#pl-leagues').innerHTML = Object.entries(leagues).map(([id, name]) => `<button type="button" class="leg" data-pl-league="${id}" aria-pressed="${PL.leagues.has(id)}">${esc(name.split(' — ')[1] || name)}</button>`).join('');
+  $('#pl-markets').innerHTML = Object.entries(PL_MARKETS).map(([id, n]) => `<button type="button" class="leg" data-pl-market="${id}" aria-pressed="${PL.markets.has(id)}">${n}</button>`).join('');
+}
+document.addEventListener('click', e => {
+  const l = e.target.closest('[data-pl-league]'), m = e.target.closest('[data-pl-market]');
+  const tog = (set, k, el) => { set.has(k) ? set.delete(k) : set.add(k); el.setAttribute('aria-pressed', set.has(k)) };
+  if(l) tog(PL.leagues, l.dataset.plLeague, l); if(m) tog(PL.markets, m.dataset.plMarket, m);
+});
+for(const [id, key] of [['#pl-n', 'n'], ['#pl-mode', 'mode']]) $(id).onclick = e => { const b = e.target.closest('[data-v]'); if(!b) return; PL[key] = key === 'n' ? +b.dataset.v : b.dataset.v; $$(id + ' button').forEach(x => x.setAttribute('aria-pressed', x === b)) };
+const plRange = () => { let a = +$('#pl-min').value, b = +$('#pl-max').value; if(a >= b){ b = Math.min(99, a + 5); $('#pl-max').value = b } $('#pl-range-l').textContent = `${a}% to ${b}%` };
+$('#pl-min').oninput = $('#pl-max').oninput = plRange;
+async function plBuild(opts = {}){
+  const out = $('#pl-out');
+  if(!PL.leagues.size){ out.innerHTML = '<div class="error">Pick at least one league.</div>'; return }
+  out.innerHTML = '<div class="card"><div class="skel" style="height:200px"></div></div>';
+  try{
+    const r = await api('/api/parlay', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({
+      leagues: [...PL.leagues], legs: PL.n, mode: PL.mode, markets: [...PL.markets], min_p: $('#pl-min').value / 100, max_p: $('#pl-max').value / 100,
+      days: +$('#pl-days').value, locked: [...PL.locked], exclude: opts.exclude || [], seed: PL.mode === 'safest' && !opts.shuffle ? 0 : PL.seed})});
+    PL.result = r; plRender();
+  }catch(err){ out.innerHTML = `<div class="error">${esc(err.message)}</div>` }
+}
+function plRender(){
+  const r = PL.result, out = $('#pl-out');
+  if(!r.legs.length){ out.innerHTML = '<div class="placeholder"><div><h3>No legs match</h3><p>Widen the probability range, add markets or leagues, or look further ahead.</p></div></div>'; return }
+  const src = r.legs.every(l => l.source === 'model') ? 'model' : 'mixed';
+  out.innerHTML = `<div class="card hero"><div class="hero-top"><span>${r.legs.length}-leg parlay${r.complete ? '' : ` · only ${r.legs.length} of ${r.requested} found`}</span>${srcBadge(src === 'model' ? 'model' : 'football-data')}</div>
+    <div class="kpis" style="margin-top:0"><div class="kpi"><small>Combined chance</small><b>${pct(r.probability)}</b></div><div class="kpi"><small>Fair odds</small><b>${r.fair_odds ? r.fair_odds.toFixed(2) : '–'}</b></div>
+    <div class="kpi"><small>Legs locked</small><b>${r.legs.filter(l => PL.locked.has(l.id)).length}</b></div><div class="kpi"><small>Fixtures available</small><b>${r.fixtures_available}</b></div></div></div>
+    <div class="card" style="margin-top:14px;padding:6px 18px">${r.legs.map((l, i) => `<div class="prow" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1.4fr) 64px auto;padding:12px 0">
+      <span class="pl"><b>${esc(l.home)}</b> v ${esc(l.away)}<br><small class="note" style="margin:0">${esc(day(l.date))} · ${esc(l.market_label)}</small></span>
+      <span>${esc(l.selection)}<br><small class="note" style="margin:0">fair ${l.fair_odds.toFixed(2)}</small></span><b>${pct(l.probability)}</b>
+      <span style="display:flex;gap:6px;justify-content:flex-end"><button class="leg" data-lock="${esc(l.id)}" aria-pressed="${PL.locked.has(l.id)}" title="Keep this leg when shuffling">${PL.locked.has(l.id) ? 'Locked' : 'Lock'}</button>
+      <button class="leg" data-replace="${esc(l.fixture)}" title="Swap for a different fixture">Replace</button><button class="leg" data-remove="${i}" aria-label="Remove leg">✕</button></span></div>`).join('')}</div>
+    <div style="display:flex;gap:8px;margin-top:14px"><button class="primary" id="pl-slip" type="button" style="width:auto">Add to slip</button></div>
+    <p class="note">${esc(r.note)} Built from ${src === 'model' ? 'the score model only (no bookmaker prices found for these fixtures)' : 'bookmaker-implied prices where available'}.</p>`;
+}
+$('#pl-out').addEventListener('click', e => {
+  const lk = e.target.closest('[data-lock]'), rp = e.target.closest('[data-replace]'), rm = e.target.closest('[data-remove]');
+  if(lk){ PL.locked.has(lk.dataset.lock) ? PL.locked.delete(lk.dataset.lock) : PL.locked.add(lk.dataset.lock); plRender() }
+  if(rp){ for(const l of PL.result.legs) if(l.fixture !== rp.dataset.replace) PL.locked.add(l.id); PL.seed++; plBuild({exclude: [rp.dataset.replace], shuffle: true}) }
+  if(rm){ const [gone] = PL.result.legs.splice(+rm.dataset.remove, 1); PL.locked.delete(gone.id); const p = PL.result.legs.reduce((m, l) => m * l.probability, 1);
+    Object.assign(PL.result, {probability: p, fair_odds: PL.result.legs.length ? 1 / p : null}); plRender() }
+  if(e.target.closest('#pl-slip')){ for(const l of PL.result.legs){ state.slip = state.slip.filter(x => x.key !== l.fixture); state.slip.push({key: l.fixture, home: l.home, away: l.away, date: l.date, legs: [l.selection], p: l.probability, source: l.source}) } saveSlip(); openSlip(true) }
+});
+$('#pl-build').onclick = () => plBuild();
+$('#pl-shuffle').onclick = () => { PL.seed = (PL.seed + 1) || 1; if(PL.mode === 'safest'){ PL.mode = 'balanced'; $$('#pl-mode button').forEach(x => x.setAttribute('aria-pressed', x.dataset.v === 'balanced')) } plBuild({shuffle: true}) };
 
 /* ---------- Bet builder ---------- */
 function legDefs(d){

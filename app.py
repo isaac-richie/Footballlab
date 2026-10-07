@@ -480,6 +480,25 @@ def season(data, league_id):
     return result
 
 
+def parlay_candidates(data, leagues, days=7):
+    """Every candidate leg for upcoming fixtures in the chosen leagues."""
+    from parlay import legs_for
+    today = dt.date.today().isoformat()
+    until = (dt.date.today() + dt.timedelta(days=days)).isoformat()
+    out = []
+    for league_id in leagues:
+        fixtures = [m for m in data['matches'] if m['league_id'] == league_id and today < m['date'] <= until and m['goals'] is None]
+        if not fixtures:
+            continue
+        try:
+            _, rho, priced = fixture_rates(data, league_id, fixtures, today)
+        except ValueError:
+            continue
+        for m, _, rates, source, _ in priced:
+            out += legs_for(m, distribution(*rates, rho), source)
+    return out
+
+
 def backtest(data, league_id):
     from evaluation import evaluate
     from evaluation_cache import cached_evaluate
@@ -596,6 +615,25 @@ class Handler(BaseHTTPRequestHandler):
         origin = self.headers.get('Origin')
         if origin and origin != 'http://' + self.headers.get('Host', ''):
             return self.send_json(dict(error='Cross-origin request rejected'), 403)
+        if urlparse(self.path).path == '/api/parlay':
+            from parlay import build, MARKETS
+            try:
+                length = int(self.headers.get('Content-Length', '0'))
+                if not 0 < length <= 20000:
+                    raise ValueError('Invalid request size.')
+                q = json.loads(self.rfile.read(length))
+                leagues = [l for l in q.get('leagues') or list(LEAGUES) if l in LEAGUES]
+                n = int(q.get('legs', 3))
+                if not 1 <= n <= 20:
+                    raise ValueError('Choose between 1 and 20 legs.')
+                markets = [m for m in q.get('markets') or [] if m in MARKETS]
+                candidates = parlay_candidates(load(), leagues, int(q.get('days', 7)))
+                result = build(candidates, n, float(q.get('min_p', 0)), float(q.get('max_p', 1)), markets,
+                               q.get('locked') or [], q.get('exclude') or [], int(q.get('seed', 0)), q.get('mode', 'balanced'))
+                result['fixtures_available'] = len({c['fixture'] for c in candidates})
+                return self.send_json(result)
+            except (ValueError, TypeError) as exc:
+                return self.send_json(dict(error=str(exc)), 400)
         if urlparse(self.path).path == '/api/odds/refresh':
             league = parse_qs(urlparse(self.path).query).get('league', [None])[0]
             result = live_odds.refresh(load(), [league] if league in LEAGUES else None, force=True)
