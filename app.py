@@ -577,6 +577,9 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json(dict(league_id=league_id, league=LEAGUES[league_id], leagues=LEAGUES,
                                 teams=sorted({m[k] for m in data['matches'] if m['league_id'] == league_id for k in ('home', 'away')}),
                                 fixtures=[m for m in data['matches'] if m['league_id'] == league_id and m['date'] >= today and m['goals'] is None][:30],
+                                recent=[dict(date=m['date'], home=m['home'], away=m['away'], goals=m['goals'])
+                                        for m in sorted((m for m in data['matches'] if m['league_id'] == league_id and m['goals'] is not None),
+                                                        key=lambda m: m['date'])[-14:]][::-1],
                                 fetched_at=data['fetched_at'], today=today,
                                 results=len(history(data, today, league_id)),
                                 supplemental_records=sum(r['league_id'] == league_id for r in load_stats(STATS)['records']),

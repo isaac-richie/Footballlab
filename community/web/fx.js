@@ -55,7 +55,23 @@
       g.addColorStop(0, hexA(col, P.glow)); g.addColorStop(1, hexA(col, 0));
       ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
     });
+    if(!P.light) floodlights(t);
     ctx.globalCompositeOperation = 'source-over';
+  }
+  // Four floodlight towers sweep soft cones of light across the stadium.
+  function floodlights(t){
+    const towers = [[0.04, -0.04, 0.9], [0.32, -0.08, 1.4], [0.68, -0.08, 1.75], [0.96, -0.04, 2.25]];
+    for(const [tx, ty, phase] of towers){
+      const x = tx * W, y = ty * H, sway = Math.sin(t * 0.00018 + phase) * 0.22;
+      const dir = Math.atan2(H * 0.9 - y, W / 2 - x) + sway, spread = 0.16, len = Math.hypot(W, H) * 0.95;
+      const g = ctx.createRadialGradient(x, y, 0, x, y, len);
+      g.addColorStop(0, 'rgba(255,248,225,0.10)'); g.addColorStop(0.5, 'rgba(255,248,225,0.035)'); g.addColorStop(1, 'rgba(255,248,225,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(x, y);
+      ctx.lineTo(x + Math.cos(dir - spread) * len, y + Math.sin(dir - spread) * len);
+      ctx.lineTo(x + Math.cos(dir + spread) * len, y + Math.sin(dir + spread) * len); ctx.closePath(); ctx.fill();
+      const lamp = ctx.createRadialGradient(x, y + 8, 0, x, y + 8, 60); lamp.addColorStop(0, 'rgba(255,250,235,0.55)'); lamp.addColorStop(1, 'rgba(255,250,235,0)');
+      ctx.fillStyle = lamp; ctx.fillRect(x - 60, y - 52, 120, 120);
+    }
   }
   function hexA(c, a){
     if(c.startsWith('#') && (c.length === 7 || c.length === 4)){
