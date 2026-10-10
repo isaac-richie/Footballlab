@@ -100,7 +100,7 @@ def match_events(events, fixtures):
 
 
 def _fetch(sport, key):
-    query = urlencode(dict(apiKey=key, regions='eu,uk', markets='h2h,totals', oddsFormat='decimal'))
+    query = urlencode(dict(apiKey=key, regions='eu', markets='h2h,totals', oddsFormat='decimal'))
     with urlopen(Request(API.format(sport=sport) + '?' + query, headers={'User-Agent': 'football-lab'}), timeout=20) as r:
         remaining = r.headers.get('x-requests-remaining')
         return json.loads(r.read()), remaining
