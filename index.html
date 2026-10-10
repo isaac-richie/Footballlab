@@ -742,7 +742,7 @@ function crest(name, small){
   const k = kit(name);
   return `<span class="crest${small ? ' sm' : ''}" style="background:linear-gradient(140deg,${k.primary} 0 58%,${k.secondary} 58% 100%);color:${inkOn(k.primary)};text-shadow:0 1px 2px #0005" aria-hidden="true">${esc(initials)}</span>`;
 }
-const SRC = {live: 'Live odds', 'football-data': 'Bookmaker odds', entered: 'Your odds', model: 'Model only'};
+const SRC = {live: 'Live bookie odds', 'football-data': 'Bookie odds', entered: 'Your odds', model: 'Our model'};
 const srcBadge = source => `<span class="src ${source === 'model' ? 'model' : 'market'}"><i></i>${SRC[source] || source}</span>`;
 function tri(p, big){
   return `<div class="tri${big ? ' big' : ''}" role="img" aria-label="Home ${pct(p[0])}, draw ${pct(p[1])}, away ${pct(p[2])}">` +
@@ -750,7 +750,7 @@ function tri(p, big){
 }
 function rows(entries, {highlight = true, head = true} = {}){
   const max = Math.max(...entries.map(e => e[1]));
-  return (head ? '<div class="phead"><span>Outcome</span><span></span><span>Prob</span><span>Fair</span></div>' : '') +
+  return (head ? '<div class="phead"><span>Outcome</span><span></span><span>Prob</span><span>True odds</span></div>' : '') +
     entries.map(([label, p, color]) => `<div class="prow${highlight && p === max ? ' hi' : ''}"><span class="pl" title="${esc(label)}">${esc(label)}</span>` +
       `<span class="pb"><i style="width:${Math.max(0, Math.min(100, p*100))}%${color ? ';background:' + color : ''}"></i></span><b>${pct(p)}</b><small>${fair(p)}</small></div>`).join('');
 }
@@ -814,7 +814,7 @@ $('#leagues').onclick = e => {
 function renderStrip(d){
   const q = d.quality, ok = q.status === 'research_only';
   $('#fresh').innerHTML = `<i style="${ok ? '' : 'background:var(--warn)'}"></i>Data fetched ${esc(new Date(d.fetched_at).toLocaleDateString(undefined, {day:'numeric', month:'short'}))}`;
-  $('#strip').innerHTML = `<span class="badge ${ok ? 'ok' : 'warn'}">${ok ? 'Data checks passed' : 'Review required'}</span>` +
+  $('#strip').innerHTML = `<span class="badge ${ok ? 'ok' : 'warn'}">${ok ? 'Data up to date' : 'Check the data'}</span>` +
     `<span class="kv"><b>${d.results.toLocaleString()}</b> results</span><span class="kv"><b>${q.upcoming}</b> upcoming</span>` +
     `<span class="kv">Latest result <b>${esc(q.latest_result || 'none')}</b></span>` +
     (q.issues.length ? `<details><summary>${q.issues.length} data issue${q.issues.length > 1 ? 's' : ''}</summary><ul>${q.issues.map(i => `<li>${esc(i)}</li>`).join('')}</ul></details>` : '');
@@ -856,7 +856,7 @@ function renderBoard(){
       `<span class="num">${f.expected_goals[0].toFixed(2)}–${f.expected_goals[1].toFixed(2)}</span>` +
       `<span class="num">${pct(f.over25)}</span><span class="num">${pct(f.btts)}</span>` +
       `<span class="num">${esc(f.top_score.score)}<small>${pct(f.top_score.probability)}</small></span>${(() => { const i = p.indexOf(Math.max(...p)), lab = [abbr(f.home), 'Draw', abbr(f.away)][i];
-        return `<span class="stub"><small>Model pick</small><b>${esc(lab)}</b><em>${pct(p[i])}</em></span>` })()}` +
+        return `<span class="stub"><small>Our pick</small><b>${esc(lab)}</b><em>${pct(p[i])}</em></span>` })()}` +
       `<span class="mini"><span>xG <b>${f.expected_goals[0].toFixed(1)}–${f.expected_goals[1].toFixed(1)}</b></span><span>O2.5 <b>${pct(f.over25)}</b></span><span>BTTS <b>${pct(f.btts)}</b></span><span>Top <b>${esc(f.top_score.score)}</b></span></span></button>`;
   });
   body.innerHTML = html;
@@ -919,16 +919,16 @@ function jevBadge(j){
   if(!j || j.status !== 'available') return j && j.status === 'throttled' ? '<span class="badge neutral" title="Local rate limit reached">JEV paused</span>' : '';
   const ev = j.answers && j.answers.evidence_state, hr = j.answers && j.answers.needs_human_review;
   const ok = ev && ev.choice === 'sufficient_for_research_review';
-  const p = hr && typeof hr.noul === 'number' ? ` · human check ${Math.round(hr.noul * 100)}%` : '';
-  return `<span class="badge ${ok ? 'ok' : 'warn'}" title="Independent TypeSafe JEV review (${esc(j.model || '')})${j.cached ? ', cached' : ''}. Advisory only.">JEV ${ok ? 'research-ready' : 'needs review'}${p}</span>`;
+  const p = '', flag = hr && typeof hr.noul === 'number' ? ` It puts the chance this needs a human check at ${Math.round(hr.noul * 100)}%.` : '';
+  return `<span class="badge ${ok ? 'ok' : 'warn'}" title="An independent AI review (TypeSafe JEV) of whether the data behind this forecast is solid.${flag} Advice only.">Second opinion: ${ok ? 'looks solid' : 'be careful'}${p}</span>`;
 }
 function compareStrip(d){
   const m = d.model_view.probabilities, p = d.probabilities;
   if(d.pricing.source === 'model')
     return `<div class="callout" style="margin:16px 0 0"><span class="ico">i</span><span><b>Model only.</b> No bookmaker prices were found for this fixture. In testing, prices derived from bookmaker odds beat this model on every market, so add odds above or refresh live odds when available.</span></div>`;
   const row = (label, v, ref) => `<span>${label}</span>` + v.map((x, i) => `<b>${pct(x)}${ref ? `<span class="diff">${(x - ref[i] > 0 ? '+' : '') + ((x - ref[i]) * 100).toFixed(1)}</span>` : ''}</b>`).join('');
-  return `<div class="compare"><span></span><span class="hd">Home</span><span class="hd">Draw</span><span class="hd">Away</span>${row('Priced (market)', p)}${row('Model view', m, p)}</div>
-    <p class="note">${esc(d.pricing.label)}. ${esc(d.pricing.note || '')} In testing the model added nothing to bookmaker prices, so the priced row is the one to trust.</p>`;
+  return `<div class="compare"><span></span><span class="hd">Home</span><span class="hd">Draw</span><span class="hd">Away</span>${row('Bookies say', p)}${row('Our model says', m, p)}</div>
+    <p class="note">${esc(d.pricing.label)}. ${esc(d.pricing.note || '')} Bookies have been more accurate than our model in testing, so trust the first row.</p>`;
 }
 const TABS = [['overview','Overview'],['pitch','Pitch'],['goals','Goals'],['handicap','Handicaps'],['halftime','Half-time'],['combos','Combos'],['scores','Correct score'],['builder','Bet builder'],['odds','Odds & value'],['stats','Corners & cards'],['evidence','Evidence']];
 function renderMatch(){
@@ -937,8 +937,8 @@ function renderMatch(){
   $('#out').innerHTML =
     `<div class="card hero">
       <div class="hero-top"><span>${esc(d.league.replace(' — ', ' · '))} · as of ${esc(d.analysis_date)}${d.pricing.fixture_date ? ' · kickoff ' + esc(day(d.pricing.fixture_date)) : ''}</span>
-        <span>${srcBadge(d.pricing.source)} ${jevBadge(d.jev_review)} <span class="badge ${ready ? 'ok' : 'warn'}">${ready ? 'Research only' : 'Review required'}</span>
-        ${d.market ? ` <span class="badge ${action === 'research_candidate' ? 'accent' : 'neutral'}">${action === 'research_candidate' ? 'Research candidate' : 'Withhold'}</span>` : ''}</span></div>
+        <span>${srcBadge(d.pricing.source)} ${jevBadge(d.jev_review)} <span class="badge ${ready ? 'ok' : 'warn'}">${ready ? 'Data looks good' : 'Check the data'}</span>
+        ${d.market ? ` <span class="badge ${action === 'research_candidate' ? 'accent' : 'neutral'}">${action === 'research_candidate' ? 'Worth a look' : 'No value found'}</span>` : ''}</span></div>
       ${(() => { const kh = kit(d.home), ka = kit(d.away);
         return `<div class="bug" aria-hidden="true"><span class="comp">${esc((d.league.split(' — ')[1] || d.league))}</span>
           <span class="team" style="background:${kh.primary};color:${inkOn(kh.primary)}"><span>${esc(abbr(d.home))}</span><span class="pct">${Math.round(p[0] * 100)}</span></span>
@@ -946,20 +946,20 @@ function renderMatch(){
           <span class="team" style="background:${ka.primary};color:${inkOn(ka.primary)}"><span class="pct">${Math.round(p[2] * 100)}</span><span>${esc(abbr(d.away))}</span></span></div>` })()}
       <div class="versus" style="--vt:match-head">
         <div class="side"><small>Home</small><div class="who">${crest(d.home)}<strong>${esc(d.home)}</strong></div><div class="xg">xG <b data-count="${d.expected_goals[0]}">${d.expected_goals[0].toFixed(2)}</b></div></div>
-        <div class="mid"><div class="ls">${esc(top.score)}</div><small>most likely · ${pct(top.probability)}</small></div>
+        <div class="mid"><div class="ls">${esc(top.score)}</div><small>most likely score · ${pct(top.probability)}</small></div>
         <div class="side away"><small>Away</small><div class="who">${crest(d.away)}<strong>${esc(d.away)}</strong></div><div class="xg">xG <b data-count="${d.expected_goals[1]}">${d.expected_goals[1].toFixed(2)}</b></div></div>
       </div>
       ${tri(p, true)}
       <div class="tri-labels">
-        <div><span>Home win</span><b class="c-h" data-count="${p[0]}" data-fmt="pct">${pct(p[0])}</b><small>fair ${fair(p[0])}</small></div>
-        <div><span>Draw</span><b class="c-d" data-count="${p[1]}" data-fmt="pct">${pct(p[1])}</b><small>fair ${fair(p[1])}</small></div>
-        <div><span>Away win</span><b class="c-a" data-count="${p[2]}" data-fmt="pct">${pct(p[2])}</b><small>fair ${fair(p[2])}</small></div>
+        <div><span>Home win</span><b class="c-h" data-count="${p[0]}" data-fmt="pct">${pct(p[0])}</b><small>true odds ${fair(p[0])}</small></div>
+        <div><span>Draw</span><b class="c-d" data-count="${p[1]}" data-fmt="pct">${pct(p[1])}</b><small>true odds ${fair(p[1])}</small></div>
+        <div><span>Away win</span><b class="c-a" data-count="${p[2]}" data-fmt="pct">${pct(p[2])}</b><small>true odds ${fair(p[2])}</small></div>
       </div>
       <div class="kpis">
         <div class="kpi"><small>Over 2.5</small><b data-count="${d.over25}" data-fmt="pct">${pct(d.over25)}</b><span>${fair(d.over25)}</span></div>
         <div class="kpi"><small>Both teams score</small><b data-count="${d.btts}" data-fmt="pct">${pct(d.btts)}</b><span>${fair(d.btts)}</span></div>
-        <div class="kpi"><small>Total xG</small><b>${(d.expected_goals[0] + d.expected_goals[1]).toFixed(2)}</b></div>
-        <div class="kpi"><small>Outcome spread</small><b>${(d.analysis.normalized_entropy * 100).toFixed(0)}%</b><span>${d.analysis.normalized_entropy > .95 ? 'open' : d.analysis.normalized_entropy > .85 ? 'balanced' : 'leaning'}</span></div>
+        <div class="kpi"><small>Goals expected</small><b>${(d.expected_goals[0] + d.expected_goals[1]).toFixed(2)}</b></div>
+        <div class="kpi"><small>How open is it?</small><b>${(d.analysis.normalized_entropy * 100).toFixed(0)}%</b><span>${d.analysis.normalized_entropy > .95 ? 'anyone\'s game' : d.analysis.normalized_entropy > .85 ? 'close call' : 'clear favourite'}</span></div>
       </div>
       ${compareStrip(d)}
     </div>
@@ -1004,9 +1004,9 @@ function overview(d){
     '</div>';
   if(d.market){
     const m = d.market, names = [H, 'Draw', A];
-    html += '<div style="margin-top:14px">' + card('Bookmaker comparison', `<div class="scroll"><table class="table"><tr><th>Outcome</th><th class="r">Model</th><th class="r">Market</th><th class="r">Gap</th><th class="r">Exp. return</th></tr>` +
+    html += '<div style="margin-top:14px">' + card('Our model vs the bookies', `<div class="scroll"><table class="table"><tr><th>Outcome</th><th class="r">Model</th><th class="r">Market</th><th class="r">Difference</th><th class="r">Expected profit</th></tr>` +
       names.map((n, i) => `<tr><td>${esc(n)}</td><td class="r">${pct(d.probabilities[i])}</td><td class="r">${pct(m.market_probabilities[i])}</td><td class="r ${m.gap[i] > 0 ? 'pos' : 'neg'}">${(m.gap[i] > 0 ? '+' : '') + (m.gap[i]*100).toFixed(1)} pts</td><td class="r ${m.expected_return[i] > 0 ? 'pos' : 'neg'}">${pct(m.expected_return[i])}</td></tr>`).join('') +
-      `</table></div><p class="note">Bookmaker margin ${pct(m.overround)}, removed proportionally. A gap is model disagreement. In testing the model did not beat these prices, so treat gaps with suspicion. Decision: <b>${esc(d.decision.action.replace('_', ' '))}</b>. ${esc(d.decision.reasons.join(' '))}</p>`, 'model vs market') + '</div>';
+      `</table></div><p class="note">The bookies' cut here is ${pct(m.overround)}, taken out before comparing. Where our model disagrees, be sceptical: bookies have been more accurate in testing. Verdict: <b>${esc((d.decision.action === 'research_candidate' ? 'Worth a look' : 'No value found'))}</b>. ${esc(d.decision.reasons.join(' '))}</p>`, 'our model vs the bookies') + '</div>';
   }
   return html;
 }
@@ -1020,7 +1020,7 @@ function goals(d){
   const teamExact = side => rows(Object.entries(m.team_exact_goals[side]).map(([k, p]) => [`Exactly ${k}`, p]));
   return '<div class="grid g2">' +
     card('Total goals', '<div class="phead"><span>Line</span><span></span><span>Over</span><span>Under</span></div>' +
-      totals.map(([l, p]) => `<div class="prow"><span class="pl">${l}</span><span class="pb"><i style="width:${p*100}%;background:var(--accent)"></i></span><b>${pct(p)}</b><small>${pct(1 - p)}</small></div>`).join(''), 'fair: over ' + fair(d.over25) + ' at 2.5') +
+      totals.map(([l, p]) => `<div class="prow"><span class="pl">${l}</span><span class="pb"><i style="width:${p*100}%;background:var(--accent)"></i></span><b>${pct(p)}</b><small>${pct(1 - p)}</small></div>`).join(''), 'true odds for over 2.5: ' + fair(d.over25)) +
     card('Exact total goals', hist, 'expected ' + (d.expected_goals[0] + d.expected_goals[1]).toFixed(2)) +
     card('Goal ranges', rows(Object.entries(m.multigoals).map(([k, p]) => [`${k} goals`, p]))) +
     card('Odd or even', rows([['Odd total', m.odd_even.odd], ['Even total', m.odd_even.even]]) +
@@ -1052,15 +1052,15 @@ function handicap(d){
   const step = (kind, i, n) => [`<button type="button" data-kind="${kind}" data-step="-1" aria-label="Previous line" ${i === 0 ? 'disabled' : ''}>−</button>`, `<button type="button" data-kind="${kind}" data-step="1" aria-label="Next line" ${i === n - 1 ? 'disabled' : ''}>+</button>`];
   const [ahPrev, ahNext] = step('ah', state.ah, m.asian_handicap.length), [atPrev, atNext] = step('at', state.at, m.asian_total.length);
   const ahCard = card('Asian handicap', `<div class="stepper">${ahPrev}<div class="lines"><div><small>${esc(H)} ${line(ah.line)}</small><b>${ah.home.fair_odds ? ah.home.fair_odds.toFixed(2) : '–'}</b> <span>fair</span></div><div><small>${esc(A)} ${line(-ah.line)}</small><b>${ah.away.fair_odds ? ah.away.fair_odds.toFixed(2) : '–'}</b> <span>fair</span></div></div>${ahNext}</div>` +
-    stack(ah.home, homeCols) + `<p class="note">Settlement from the ${esc(H)} side. Quarter lines split the stake across the two neighbouring lines. Fair odds give zero expected profit after pushes and half results.</p>`, 'step through lines');
+    stack(ah.home, homeCols) + `<p class="note">Shown from ${esc(H)}'s side. On quarter lines (like −0.75) half your stake goes on each neighbouring line, so you can win or lose half. True odds account for refunds and half results.</p>`, 'step through lines');
   const atCard = card('Asian total goals', `<div class="stepper">${atPrev}<div class="lines"><div><small>Over ${at.line}</small><b>${at.over.fair_odds ? at.over.fair_odds.toFixed(2) : '–'}</b> <span>fair</span></div><div><small>Under ${at.line}</small><b>${at.under.fair_odds ? at.under.fair_odds.toFixed(2) : '–'}</b> <span>fair</span></div></div>${atNext}</div>` +
-    stack(at.over, ['var(--accent)', 'color-mix(in srgb,var(--accent) 55%,var(--surface-3))', 'color-mix(in srgb,var(--muted) 55%,var(--surface-3))', 'var(--muted)']) + '<p class="note">Settlement from the over side.</p>', 'step through lines');
+    stack(at.over, ['var(--accent)', 'color-mix(in srgb,var(--accent) 55%,var(--surface-3))', 'color-mix(in srgb,var(--muted) 55%,var(--surface-3))', 'var(--muted)']) + '<p class="note">Shown from the over side.</p>', 'step through lines');
   const allAh = `<details class="more"><summary>All handicap lines</summary><div class="scroll"><table class="table"><tr><th>${esc(H)}</th><th class="r">Fair</th><th class="r">Win</th><th class="r">Push / half</th><th class="r">${esc(A)} fair</th></tr>` +
     m.asian_handicap.map((r, i) => `<tr${i === state.ah ? ' style="background:var(--surface-2)"' : ''}><td>${line(r.line)}</td><td class="r">${r.home.fair_odds ? r.home.fair_odds.toFixed(2) : '–'}</td><td class="r">${pct(r.home.win)}</td><td class="r">${pct(r.home.push + r.home.half_win + r.home.half_loss)}</td><td class="r">${r.away.fair_odds ? r.away.fair_odds.toFixed(2) : '–'}</td></tr>`).join('') + '</table></div></details>';
   const euro = Object.entries(d.home_handicap_covers).map(([l, p]) => [`${H} ${line(Number(l))}`, p, 'var(--home)']);
   return '<div class="grid g2">' + ahCard + atCard + '</div><div class="grid g2" style="margin-top:14px">' +
-    card('Half-goal handicap', rows(euro, {highlight:false}) + '<p class="note">Probability the home side covers. The away side covers the remainder. No pushes on half lines.</p>') +
-    card('Line table', allAh.replace('<details class="more">', '<details class="more" open style="margin-top:0">')) + '</div>';
+    card('Simple handicap', rows(euro, {highlight:false}) + '<p class="note">Probability the home side covers. The away side covers the remainder. No pushes on half lines.</p>') +
+    card('All handicap lines', allAh.replace('<details class="more">', '<details class="more" open style="margin-top:0">')) + '</div>';
 }
 
 function halftime(d){
@@ -1123,7 +1123,7 @@ function oddsTab(d){
   const v = d.market && d.market.best_price_value;
   if(v) html += card('Best price vs fair price', `<div class="scroll"><table class="table"><tr><th>Outcome</th><th class="r">Fair odds</th><th class="r">Best price</th><th>Bookmaker</th><th class="r">Edge</th></tr>` +
       v.map(x => `<tr><td>${esc(names[x.outcome])}</td><td class="r">${x.fair_odds.toFixed(2)}</td><td class="r best">${x.best.toFixed(2)}</td><td>${esc(x.book || 'best available')}</td><td class="r ${x.edge > 0 ? 'edge-pos' : 'edge-neg'}">${(x.edge > 0 ? '+' : '') + (x.edge * 100).toFixed(1)}%</td></tr>`).join('') +
-      `</table></div><p class="note">Fair odds are the margin-free market consensus. A positive edge means one bookmaker is out of line with the rest, which is the most reliable kind of value. It is still not a guarantee.</p>`, 'line shopping');
+      `</table></div><p class="note">True odds are what the price would be with the bookies' cut taken out. If one bookie pays more than that, they're out of line with the rest: that's the best kind of value. Still no guarantee.</p>`, 'line shopping');
   if(pr.books){
     const list = Object.fromEntries(['home', 'draw', 'away'].map(k => [k, Object.fromEntries((pr.books[k] || []).map(b => [b.book, b.price]))]));
     const books = [...new Set(['home', 'draw', 'away'].flatMap(k => Object.keys(list[k])))];
@@ -1453,28 +1453,28 @@ function evidence(d){
   const form = `<div class="scroll"><table class="table"><tr><th>Team</th><th>Last ${b.team_form[0].matches} (newest first)</th><th class="r">GF–GA</th><th class="r">Pts/game</th></tr>` +
     b.team_form.map(t => `<tr><td>${esc(t.team)}</td><td><div class="form-pills">${t.form.map(r => `<i class="${r}">${r}</i>`).join('') || '–'}</div></td><td class="r">${t.goals_for}–${t.goals_against}</td><td class="r">${t.points_per_match === null ? '–' : t.points_per_match.toFixed(2)}</td></tr>`).join('') + '</table></div>';
   const issues = d.readiness.issues;
-  const trace = `<details class="more"><summary>Policy trace</summary><div class="scroll"><table class="table"><tr><th>Check</th><th>Passed</th><th>Observed</th></tr>${d.decision.trace.map(t => `<tr><td>${esc(t.check)}</td><td>${t.passed ? 'yes' : 'no'}</td><td>${esc(typeof t.observed === 'string' ? t.observed : t.probability !== undefined ? pct(t.probability) + ' · gap ' + (t.probability_gap*100).toFixed(1) + ' pts' : '')}</td></tr>`).join('')}</table></div></details>`;
+  const trace = `<details class="more"><summary>How we decided</summary><div class="scroll"><table class="table"><tr><th>Check</th><th>Passed</th><th>Observed</th></tr>${d.decision.trace.map(t => `<tr><td>${esc(t.check)}</td><td>${t.passed ? 'yes' : 'no'}</td><td>${esc(typeof t.observed === 'string' ? t.observed : t.probability !== undefined ? pct(t.probability) + ' · gap ' + (t.probability_gap*100).toFixed(1) + ' pts' : '')}</td></tr>`).join('')}</table></div></details>`;
   const sm = d.supplemental_markets;
   const supp = (sm.shots ? rows(Object.entries(sm.shots.total_overs).map(([l, p]) => [`Total shots over ${l}`, p]), {highlight:false}) : '') +
     (sm.red_cards ? rows(Object.entries(sm.red_cards.total_overs).map(([l, p]) => [`Red cards over ${l}`, p]), {highlight:false}) : '') +
     (sm.withheld ? `<p class="note" style="margin-top:0">${esc(sm.withheld)}</p>` : '');
   return '<div class="grid g2">' +
     card('Recent form', form + `<p class="note">${esc(b.interpretation)}</p>`, 'league matches') +
-    card('Data readiness', `<p style="margin:0 0 8px"><span class="badge ${d.readiness.status === 'research_only' ? 'ok' : 'warn'}">${esc(d.readiness.status.replace('_', ' '))}</span></p>` +
+    card('Data check', `<p style="margin:0 0 8px"><span class="badge ${d.readiness.status === 'research_only' ? 'ok' : 'warn'}">${esc(d.readiness.status.replace('_', ' '))}</span></p>` +
       (issues.length ? `<ul class="list">${issues.map(i => `<li>${esc(i)}</li>`).join('')}</ul>` : '<p class="note" style="margin:0">All data checks passed.</p>') +
       `<ul class="list" style="margin-top:10px">${d.warnings.map(w => `<li>${esc(w)}</li>`).join('')}</ul>`) +
-    card('Model fit', `<div class="scroll"><table class="table">
+    card('How the model was built', `<div class="scroll"><table class="table">
       <tr><td>Model</td><td class="r">${esc(d.model.version)}</td></tr>
-      <tr><td>Training matches</td><td class="r">${d.sample_matches.toLocaleString()} (${f.effective_matches.toFixed(0)} effective)</td></tr>
+      <tr><td>Past matches studied</td><td class="r">${d.sample_matches.toLocaleString()}</td></tr>
       <tr><td>Team history</td><td class="r">${Object.values(d.team_samples).join(' / ')} matches · ${Object.values(d.recent_team_samples).join(' / ')} in last year</td></tr>
-      <tr><td>Dixon–Coles ρ</td><td class="r">${f.dixon_coles_rho.toFixed(3)}</td></tr>
+      <tr><td title="Dixon–Coles rho: how much more often 0-0 and 1-1 happen than simple maths predicts">Low-score adjustment</td><td class="r">${f.dixon_coles_rho.toFixed(3)}</td></tr>
       <tr><td>Latest result used</td><td class="r">${esc(d.latest_result)}</td></tr>
-      <tr><td>Half-life</td><td class="r">${d.model.half_life_days} days</td></tr></table></div>`) +
-    card('Research decision', `<p style="margin:0 0 8px"><span class="badge ${d.decision.action === 'research_candidate' ? 'accent' : 'neutral'}">${esc(d.decision.action.replace('_', ' '))}</span></p><p class="note" style="margin:0">${esc(d.decision.reasons.join(' '))}</p>` + trace) +
-    card('Independent review (JEV)', jev.status === 'available'
+      <tr><td>Recent games count more</td><td class="r">half weight after ${d.model.half_life_days} days</td></tr></table></div>`) +
+    card('Our verdict', `<p style="margin:0 0 8px"><span class="badge ${d.decision.action === 'research_candidate' ? 'accent' : 'neutral'}">${esc((d.decision.action === 'research_candidate' ? 'Worth a look' : 'No value found'))}</span></p><p class="note" style="margin:0">${esc(d.decision.reasons.join(' '))}</p>` + trace) +
+    card('Second opinion (JEV)', jev.status === 'available'
       ? `<p class="note" style="margin:0 0 8px">Model ${esc(jev.model || 'unknown')} · ${esc(jev.usage?.input_tokens ?? '?')} input tokens.</p>` +
         (typeof jev.answers?.needs_human_review?.noul === 'number' ? rows([['Needs human review', jev.answers.needs_human_review.noul]], {highlight:false, head:false}) : '') +
-        `<details class="more"><summary>Typed outputs</summary><pre class="json">${esc(JSON.stringify(jev.answers, null, 2))}</pre></details>`
+        `<details class="more"><summary>Full second-opinion details</summary><pre class="json">${esc(JSON.stringify(jev.answers, null, 2))}</pre></details>`
       : `<p class="note" style="margin:0">${esc(jev.status === 'throttled' ? 'Paused by the local rate limit.' : jev.reason || 'Not configured.')} Local forecasts are unaffected.</p>`, jev.status) +
     card('Shots and red cards', supp || '<p class="note" style="margin:0">No supplemental data.</p>') +
     '</div>' + `<div class="card" style="margin-top:14px"><h4>What this cannot tell you</h4><ul class="list">${b.limitations.map(l => `<li>${esc(l)}</li>`).join('')}</ul></div>`;
@@ -1490,7 +1490,7 @@ async function loadBenchmark(){
     const tbl = (h, rs) => `<div class="scroll"><table class="table"><tr>${h.map((c, i) => `<th${i ? ' class="r"' : ''}>${c}</th>`).join('')}</tr>${rs.map(r => `<tr>${r.map((c, i) => `<td${i ? ' class="r"' : ''}>${c}</td>`).join('')}</tr>`).join('')}</table></div>`;
     $('#benchmark').innerHTML = `<div class="card"><h4>Model vs bookmakers<small>${b.matches.toLocaleString()} matches · ${b.seasons.join(', ')}</small></h4>
       <div class="bench">
-        <div><small>Model log loss (1X2)</small><div class="big">${x.model.toFixed(4)}</div><small>${pct(x.model_accuracy)} results called</small></div>
+        <div><small title="Log loss: lower is better">Our model's error score</small><div class="big">${x.model.toFixed(4)}</div><small>${pct(x.model_accuracy)} results called</small></div>
         <div><small>Opening odds</small><div class="big">${x.market_open.toFixed(4)}</div><small>available before kickoff</small></div>
         <div><small>Closing odds</small><div class="big">${x.market_close.toFixed(4)}</div><small>${pct(x.close_accuracy)} results called</small></div>
       </div>
@@ -1499,7 +1499,7 @@ async function loadBenchmark(){
         <div><h4>Derived markets: model vs market-implied</h4>${tbl(['Market', 'Model', 'Market-implied', ''], derived)}</div>
         <div><h4>Corners, cards, shots: model vs league rate</h4>${tbl(['Market', 'Team model', 'League rate', ''], counts)}<p class="note">${esc(b.counts.finding)}</p></div>
       </div>
-      <details class="more"><summary>Model tuning variants</summary>${tbl(['Variant', '1X2 log loss', 'Accuracy', 'O/U 2.5 log loss'], b.variants.map(v => [v.name, v.log_loss.toFixed(4), pct(v.accuracy), v.ou25.toFixed(4)]))}<p class="note">${esc(b.method)}</p></details></div>`;
+      <details class="more"><summary>Model tuning variants</summary>${tbl(['Version', 'Result error', 'Called right', 'Goals error'], b.variants.map(v => [v.name, v.log_loss.toFixed(4), pct(v.accuracy), v.ou25.toFixed(4)]))}<p class="note">${esc(b.method)}</p></details></div>`;
   }catch{}
 }
 async function loadProspective(){
@@ -1523,11 +1523,11 @@ $('#test').onclick = async () => {
     if(league !== state.league) return;
     const c = d.log_loss_comparison, t = (h, r) => `<div class="scroll"><table class="table"><tr>${h.map((x, i) => `<th${i ? ' class="r"' : ''}>${esc(x)}</th>`).join('')}</tr>${r.map(row => `<tr>${row.map((x, i) => `<td${i ? ' class="r"' : ''}>${esc(x)}</td>`).join('')}</tr>`).join('')}</table></div>`;
     $('#evaluation').innerHTML = '<div class="grid g2">' +
-      card('1X2 scores', t(['Forecast', 'Log loss', 'Brier', 'Accuracy'], [['Dixon–Coles model', d.model], ['Plain Poisson', d.poisson_no_correction], ['League frequency', d.league_baseline]].map(([s, m]) => [s, m.log_loss.toFixed(4), m.brier.toFixed(4), pct(m.accuracy)])) +
-        `<p class="note">Model minus baseline log loss: ${c.mean_delta.toFixed(4)}, 95% interval ${c.interval_95.map(x => x.toFixed(4)).join(' to ')}. Negative favours the model.</p>`, `${d.matches} matches · ${d.season}`) +
-      card('Goal markets', t(['Market', 'Brier', 'Baseline'], Object.entries(d.goal_market_scores).map(([k, v]) => [k, v.brier.toFixed(4), v.baseline_brier.toFixed(4)]))) +
-      card('By season', t(['Season', 'Matches', 'Dixon–Coles', 'Poisson'], d.dixon_coles_ablation.map(s => [s.season, s.matches, s.dixon_coles.log_loss.toFixed(4), s.poisson.log_loss.toFixed(4)]))) +
-      card('Calibration', Object.entries(d.calibration).map(([k, r]) => `<h4 style="margin-top:6px">${esc(k)}</h4>` + t(['Matches', 'Predicted', 'Observed', '95% range'], r.map(x => [x.matches, pct(x.predicted), pct(x.observed), x.observed_interval_95.map(pct).join('–')]))).join(''), 'predicted vs observed') +
+      card('Match result predictions', t(['Forecast', 'Error score', 'Accuracy score', 'Called right'], [['Our model', d.model], ['Simpler model', d.poisson_no_correction], ['League averages', d.league_baseline]].map(([s, m]) => [s, m.log_loss.toFixed(4), m.brier.toFixed(4), pct(m.accuracy)])) +
+        `<p class="note">Our model vs simply guessing league averages (error difference): ${c.mean_delta.toFixed(4)}, 95% interval ${c.interval_95.map(x => x.toFixed(4)).join(' to ')}. Below zero means our model did better.</p>`, `${d.matches} matches · ${d.season}`) +
+      card('Goal markets', t(['Market', 'Our error', 'Guessing error'], Object.entries(d.goal_market_scores).map(([k, v]) => [k, v.brier.toFixed(4), v.baseline_brier.toFixed(4)]))) +
+      card('By season', t(['Season', 'Matches', 'Our model', 'Simpler model'], d.dixon_coles_ablation.map(s => [s.season, s.matches, s.dixon_coles.log_loss.toFixed(4), s.poisson.log_loss.toFixed(4)]))) +
+      card('When we say 60%, does it happen 60%?', Object.entries(d.calibration).map(([k, r]) => `<h4 style="margin-top:6px">${esc(k)}</h4>` + t(['Matches', 'Predicted', 'Observed', '95% range'], r.map(x => [x.matches, pct(x.predicted), pct(x.observed), x.observed_interval_95.map(pct).join('–')]))).join(''), 'what we said vs what happened') +
       `</div><p class="note">${esc(d.method)}</p>`;
   }catch(e){ if(league === state.league) $('#evaluation').innerHTML = `<div class="error">${esc(e.message)}</div>` }
   finally{ b.disabled = false; b.textContent = 'Run backtest for this league' }

@@ -295,14 +295,14 @@ def market_prices(data, request, league_id, home, away, asof, fixture_date):
         if live and live.get('h2h'):
             line = live['totals'].get('2.5') or {}
             ou = [line['over']['median'], line['under']['median']] if line.get('over') and line.get('under') else None
-            return dict(source='live', label=f"Live median of {len(live['books'])} bookmakers",
+            return dict(source='live', label=f"Typical price across {len(live['books'])} bookies, live",
                         h2h=[live['h2h'][k]['median'] for k in ('home', 'draw', 'away')], ou25=ou,
                         fetched_at=live['fetched_at'], best={k: live['h2h'][k] for k in ('home', 'draw', 'away')},
                         books=live['all_h2h'], totals=live['totals'])
     record = market_lookup(data).get((league_id, fixture_date, home, away))
     if record and 'avg_open' in record['odds']:
         odds = record['odds']
-        return dict(source='football-data', label='Bookmaker average (football-data.co.uk)',
+        return dict(source='football-data', label='Average bookie price (football-data.co.uk)',
                     h2h=odds['avg_open'], ou25=odds.get('ou25_avg_open'),
                     best=dict(zip(('home', 'draw', 'away'), ({'best': x} for x in odds['max_open']))) if 'max_open' in odds else None,
                     asian=dict(line=odds.get('ah_line_open'), prices=odds.get('ah_avg_open')) if 'ah_avg_open' in odds else None,
@@ -333,14 +333,14 @@ def predict(data, request, stats=None):
     model_view = distribution(lh, la, rho)
     fixture_date = fixture_date_for(data, league_id, home, away, asof, request.get('fixture_date'))
     prices = market_prices(data, request, league_id, home, away, asof, fixture_date)
-    pricing = dict(source='model', label='Score-history model (no bookmaker prices found)', fixture_date=fixture_date)
+    pricing = dict(source='model', label='Our model only (no bookie prices for this match yet)', fixture_date=fixture_date)
     rates = (lh, la)
     if prices:
         mh, ma, mrho, error = market_fit(prices, rho, (lh, la))
         if error < .03:
             rates, rho = (mh, ma), mrho
             pricing = dict(prices, fixture_date=fixture_date, fit_error=error,
-                           note='Goal rates solved from margin-free bookmaker prices; every market below is derived from them.')
+                           note='Every number on this page is worked out from the bookies\' prices, with their cut removed.')
         else:
             pricing['note'] = f'Bookmaker prices found but could not be matched by a goal model (error {error:.3f}); using the model.'
     result = distribution(*rates, rho)

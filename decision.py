@@ -23,12 +23,12 @@ def assess(forecast):
                   observed=quality['status'], required='research_only')]
     if quality['status'] != 'research_only':
         return dict(action='withhold', policy=POLICY, trace=trace,
-                    reasons=['Data quality requires review before market comparison can be considered.'])
+                    reasons=['The data for this match needs checking first, so we are not comparing prices.'])
     market = forecast.get('market')
     if not market:
         trace.append(dict(check='complete_market_odds', passed=False, observed='missing', required='three decimal 1X2 odds'))
         return dict(action='withhold', policy=POLICY, trace=trace,
-                    reasons=['Enter all three market odds for a research comparison.'])
+                    reasons=['Add the bookie odds to see if any price is worth a look.'])
     candidates = []
     for index, label in enumerate(('home', 'draw', 'away')):
         probability, gap = forecast.get('model_view', forecast)['probabilities'][index], market['gap'][index]
@@ -45,6 +45,6 @@ def assess(forecast):
                                    expected_return=expected_return, fair_odds=1/probability))
     if not candidates:
         return dict(action='withhold', policy=POLICY, trace=trace,
-                    reasons=['No outcome passed all pre-specified research thresholds.'])
+                    reasons=['No price here is clearly better than it should be.'])
     return dict(action='research_candidate', policy=POLICY, trace=trace, candidates=candidates,
-                reasons=['Candidate is a hypothesis for later calibration and tracking, not a recommendation or a claim of edge.'])
+                reasons=['One price looks generous by our numbers. Treat it as an idea to check, not a tip.'])
