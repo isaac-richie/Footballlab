@@ -560,6 +560,13 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header('Cache-Control', 'no-cache')
             self.end_headers()
             self.wfile.write(raw)
+        elif path == '/fx.js':
+            raw = (ROOT / 'community' / 'web' / 'fx.js').read_bytes()   # one shared copy for every page
+            self.send_response(200)
+            self.send_header('Content-Type', 'text/javascript; charset=utf-8')
+            self.send_header('Cache-Control', 'no-cache')
+            self.end_headers()
+            self.wfile.write(raw)
         elif path == '/api/data':
             data = load()
             today = dt.date.today().isoformat()
