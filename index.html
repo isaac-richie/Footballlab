@@ -452,6 +452,23 @@ html{background:var(--bg)}
 .side strong{text-transform:uppercase;letter-spacing:.5px;font-weight:800;font-size:28px}
 .mid .ls{font-size:46px;letter-spacing:4px}
 @media (max-width:1000px){.fx{grid-template-columns:minmax(0,1fr) 92px;grid-template-areas:"teams bar" "nums nums" "stub stub"}.stub{grid-area:stub;margin:4px 0 0;border-left:0;border-top:2px dashed color-mix(in srgb,var(--text) 18%,transparent);flex-direction:row;gap:10px;align-items:center;padding:8px 0}.stub::before,.stub::after{display:none}.bug .team{font-size:15px}.bug .comp{display:none}.bug{grid-template-columns:1fr auto 1fr}}
+/* Featured games */
+.ft-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.ft{display:flex;flex-direction:column;gap:12px;animation:rise .5s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i,0) * 70ms);overflow:hidden}
+.ft.top{grid-column:1 / -1}
+.ft .meta{display:flex;justify-content:space-between;align-items:center;font-family:var(--display);text-transform:uppercase;letter-spacing:1px;font-size:13px;color:var(--muted)}
+.ft .meta .hot{color:var(--accent)}
+.ft .vs{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
+.ft .vs .t{display:flex;align-items:center;gap:10px;font-family:var(--display);text-transform:uppercase;font-weight:800;font-size:21px;line-height:1.05;letter-spacing:.3px}
+.ft .vs .t.away{flex-direction:row-reverse;text-align:right}
+.ft .vs .sc{font-family:var(--display);font-size:28px;font-weight:800;letter-spacing:2px;color:var(--muted)}
+.ft .kitbar{height:4px;border-radius:2px;margin:-18px -18px 0}
+.ft ul{margin:0;padding-left:18px;font-size:14px;line-height:1.5}
+.ft ul li+li{margin-top:4px}
+.ft .go{align-self:flex-start;margin-top:auto}
+.ft.top .vs .t{font-size:30px}
+.ft.top ul{font-size:15px;columns:2;column-gap:32px}
+@media (max-width:760px){.ft.top ul{columns:1}.ft.top .vs .t{font-size:22px}}
 footer{margin:40px 0 30px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--faint)}
 footer a{color:var(--muted)}
 
@@ -493,6 +510,7 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <div class="brand"><div class="mark">FL</div><span>Football Lab</span></div>
     <nav class="nav" aria-label="Views">
+      <a href="#featured" data-view="featured">Featured</a>
       <a href="#fixtures" data-view="fixtures">Fixtures</a>
       <a href="#match" data-view="match">Match</a>
       <a href="#season" data-view="season">Season</a>
@@ -510,6 +528,16 @@ footer a{color:var(--muted)}
 <div class="wrap">
   <div class="leagues" id="leagues" role="group" aria-label="Competition"></div>
   <div class="strip" id="strip" role="status">Loading local data…</div>
+
+  <!-- FEATURED -->
+  <section data-panel="featured" hidden>
+    <div class="view-head">
+      <div><h1>Games to watch</h1><p id="ft-sub">The biggest, closest games across the leagues, with a quick take on each. Open any one for the full breakdown.</p></div>
+      <div class="seg" id="ft-period" role="group" aria-label="Period"><button data-p="day">Next matchday</button><button data-p="week" aria-pressed="true">This week</button></div>
+    </div>
+    <div class="ft-grid" id="ft-grid"><div class="card"><div class="skel" style="height:220px"></div></div><div class="card"><div class="skel" style="height:220px"></div></div></div>
+    <p class="note" id="ft-note"></p>
+  </section>
 
   <!-- FIXTURES -->
   <section data-panel="fixtures">
@@ -689,8 +717,9 @@ $('#theme').onclick = () => {
 
 /* ---------- Views ---------- */
 function showView(){
-  const v = (location.hash || '#fixtures').slice(1).split('/')[0];
-  const view = ['fixtures','match','season','parlay','performance'].includes(v) ? v : 'fixtures';
+  const v = (location.hash || '#featured').slice(1).split('/')[0];
+  const view = ['featured','fixtures','match','season','parlay','performance'].includes(v) ? v : 'featured';
+  if(view === 'featured' && !state.ftLoaded) loadFeatured();
   $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== view);
   $$('.nav a').forEach(a => a.dataset.view === view ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
   if(view === 'performance' && !state.prospectiveLoaded) loadProspective();
@@ -1254,6 +1283,41 @@ async function loadSetup(d){
   $('#setup-out').innerHTML = setupInfo(state.setup, d);
   renderPlayers(state.setup);
 }
+
+/* ---------- Featured games ---------- */
+state.ftPeriod = 'week';
+async function loadFeatured(){
+  state.ftLoaded = true;
+  try{
+    const d = await api('/api/featured?period=' + state.ftPeriod);
+    $('#ft-sub').textContent = `${d.label}: the biggest, closest games across the leagues, with a quick take on each. Open any one for the full breakdown.`;
+    $('#ft-note').textContent = d.note;
+    if(!d.games.length){ $('#ft-grid').innerHTML = '<div class="placeholder"><div><h3>No games found</h3><p>There are no upcoming fixtures in the data for this period.</p></div></div>'; return }
+    $('#ft-grid').innerHTML = d.games.map((g, i) => {
+      const kh = kit(g.home), ka = kit(g.away), p = g.probabilities;
+      return `<article class="card ft${i === 0 ? ' top' : ''}" style="--i:${i}">
+        <div class="kitbar" style="background:linear-gradient(90deg,${kh.primary} 50%,${ka.primary} 50%)"></div>
+        <div class="meta"><span>${esc(g.league)} · ${esc(day(g.date))}</span><span class="${i === 0 ? 'hot' : ''}">${i === 0 ? 'Game of the week' : '#' + (i + 1)}</span></div>
+        <div class="vs"><span class="t">${crest(g.home)}${esc(g.home)}</span><span class="sc">v</span><span class="t away">${crest(g.away)}${esc(g.away)}</span></div>
+        ${tri(p, true)}
+        <div class="tri-labels" style="margin-top:0"><div><span>Home</span><b class="c-h">${pct(p[0])}</b></div><div><span>Draw</span><b class="c-d">${pct(p[1])}</b></div><div><span>Away</span><b class="c-a">${pct(p[2])}</b></div></div>
+        <ul>${g.take.map(t => `<li>${esc(t)}</li>`).join('')}</ul>
+        <button class="primary go" type="button" data-ft="${i}" style="width:auto">Full analysis →</button>
+      </article>`;
+    }).join('');
+    state.ftGames = d.games;
+  }catch(e){ $('#ft-grid').innerHTML = `<div class="error">${esc(e.message)}</div>` }
+}
+$('#ft-period').onclick = e => { const b = e.target.closest('[data-p]'); if(!b) return; state.ftPeriod = b.dataset.p;
+  $$('#ft-period button').forEach(x => x.setAttribute('aria-pressed', x === b)); loadFeatured() };
+$('#ft-grid').addEventListener('click', async e => {
+  const b = e.target.closest('[data-ft]'); if(!b) return;
+  const g = state.ftGames[+b.dataset.ft];
+  if(g.league_id !== state.league){ state.league = g.league_id; store.set('fl-league', g.league_id); await loadLeague() }
+  $('#home').value = g.home; $('#away').value = g.away; $('#date').value = state.data.today; state.fixtureDate = g.date;
+  for(const id of ['#oh', '#od', '#oa', '#oo', '#ou']) $(id).value = '';
+  location.hash = '#match'; analyse();
+});
 
 /* ---------- Parlay builder ---------- */
 const PL = {n: 3, mode: 'safest', leagues: new Set(), markets: new Set(['dc', 'ou15', 'ou25', 'btts']), locked: new Set(), result: null, seed: 0};

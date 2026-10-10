@@ -612,6 +612,10 @@ class Handler(BaseHTTPRequestHandler):
             except ValueError:
                 return self.send_json(dict(error='Invalid date'), 400)
             self.send_json(match_setup(query['league'], query['date'], query['home'], query['away']))
+        elif path == '/api/featured':
+            from featured import featured
+            period = parse_qs(urlparse(self.path).query).get('period', ['week'])[0]
+            self.send_json(featured(load(), LEAGUES, slate, history, 'day' if period == 'day' else 'week'))
         elif path == '/api/season':
             try:
                 query = parse_qs(urlparse(self.path).query)
