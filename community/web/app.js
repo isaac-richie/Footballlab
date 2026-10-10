@@ -10,12 +10,12 @@
   const state = {view: 'play', league: store.get('btl-league') || 'all', scope: 'season', fixtures: [], preds: {}, profile: null, groups: [], group: null};
 
   function crest(name){
-    const skip = new Set(['fc', 'cf', 'ac', 'afc', 'as', 'rc', 'sc', 'ogc', 'vfb', 'vfl', 'club', 'de', '1.']);
-    const w = name.normalize('NFKD').replace(/[̀-ͯ]/g, '').split(/[\s-]+/).filter(x => /^[a-z0-9]/i.test(x) && !skip.has(x.toLowerCase()));
+    const K = window.Kits, k = K ? K.kit(name) : {primary: '#666', secondary: '#fff'};
+    const w = name.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').split(/[\s-]+/).filter(x => /^[a-z0-9]/i.test(x) && !/^(fc|cf|ac|afc|as|rc|sc|ogc|vfb|vfl|club|de)$/i.test(x));
     const ini = (w.length > 1 ? w[0][0] + w[1][0] : (w[0] || name).slice(0, 2)).toUpperCase();
-    let h = 0; for(const c of name) h = (h * 31 + c.charCodeAt(0)) % 360;
-    return `<span class="crest" style="background:linear-gradient(140deg,hsl(${h} 62% 50%),hsl(${(h + 28) % 360} 58% 34%))" aria-hidden="true">${esc(ini)}</span>`;
+    return `<span class="crest" style="background:linear-gradient(140deg,${k.primary} 0 58%,${k.secondary} 58% 100%);color:${K ? K.inkOn(k.primary) : '#fff'};text-shadow:0 1px 2px #0005" aria-hidden="true">${esc(ini)}</span>`;
   }
+
   function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove('on'), 2200) }
   function countUp(el, to, dp = 1){
     if(!motionOK()){ el.textContent = pts(to); return }
@@ -153,8 +153,11 @@
     return 'Locks ' + t.toLocaleString(undefined, {weekday: 'short', hour: '2-digit', minute: '2-digit'});
   }
   async function renderPlay(){
-    const all = await D.fixtures(isoDay(-1), isoDay(14));
+    const all = await D.fixtures(isoDay(-10), isoDay(14));
     state.fixtures = all.filter(f => f.status === 'scheduled');
+    const done = all.filter(f => f.status === 'finished').slice(-14).reverse(), code = n => window.Kits ? window.Kits.abbr(n) : n.slice(0, 3).toUpperCase();
+    const run = done.map(f => `<span>${esc(code(f.home))}<b>${f.home_goals}–${f.away_goals}</b>${esc(code(f.away))}</span>`).join('');
+    $('#ticker').hidden = !done.length; $('#ticker-run').innerHTML = run + run;
     const ids = state.fixtures.map(f => f.id);
     const [preds, counts] = await Promise.all([D.myPredictions(ids), D.entryCounts(ids)]);
     state.preds = preds;
@@ -166,7 +169,7 @@
     list.forEach((f, i) => {
       if(f.kickoff_date !== last){ html += `<div class="day">${esc(dayLabel(f.kickoff_date))}</div>`; last = f.kickoff_date }
       const open = M.isOpen(f);
-      html += `<div class="card fixture" style="--i:${Math.min(i, 20)}"><div class="teams"><div class="team">${crest(f.home)}<span>${esc(f.home)}</span></div><div class="team">${crest(f.away)}<span>${esc(f.away)}</span></div></div>
+      html += `<div class="card fixture" style="--i:${Math.min(i, 20)};--kh:${window.Kits ? window.Kits.kit(f.home).primary : 'transparent'}"><div class="teams"><div class="team">${crest(f.home)}<span>${esc(f.home)}</span></div><div class="team">${crest(f.away)}<span>${esc(f.away)}</span></div></div>
         <div>${triInput(f, preds[f.id], open)}</div>
         <div class="meta">${esc(f.league_name)}<br>${lockText(f)}<br>${counts[f.id] || 0} player${counts[f.id] === 1 ? '' : 's'} in<br><span class="saved" data-saved="${esc(f.id)}">Saved ✓</span></div></div>`;
     });

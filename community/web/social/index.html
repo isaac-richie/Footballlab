@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co wss://*.supabase.co; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co; img-src 'self' data:; base-uri 'none'; form-action 'none'">
 <title>Terrace</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=swap">
 <link rel="stylesheet" href="../styles.css">
 <style>
 .app{display:grid;grid-template-columns:240px minmax(0,1fr) 300px;gap:14px;max-width:1240px;margin:0 auto;padding:14px 16px 20px;height:calc(100vh - 61px);height:calc(100dvh - 61px)}
@@ -122,6 +123,7 @@ dialog select,dialog textarea{width:100%;background:var(--surface-2);border:1px 
 </form></dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="../fx.js"></script>
+<script src="../kits.js"></script>
 <script src="../config.js"></script>
 <script src="social.js"></script>
 </body>

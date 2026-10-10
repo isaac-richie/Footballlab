@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co wss://*.supabase.co; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co; img-src 'self' data:; base-uri 'none'; form-action 'none'">
 <meta name="description" content="Put your football predictions up against the Lab's model. Free, no money, scored fairly.">
 <title>Beat the Lab</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=swap">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,6 +28,7 @@
   </div>
 </header>
 
+<div class="ticker" id="ticker" aria-label="Latest results" hidden><span class="lbl">Results</span><div class="run" id="ticker-run"></div></div>
 <div class="wrap">
   <div id="banner"></div>
 
@@ -107,6 +109,7 @@
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="fx.js"></script>
+<script src="kits.js"></script>
 <script src="config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 <script src="data.js"></script>
