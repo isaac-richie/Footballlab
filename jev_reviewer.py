@@ -15,6 +15,9 @@ MAX_CALLS_PER_MINUTE = 60
 MIN_SECONDS_BETWEEN_CALLS = .25
 _lock = threading.Lock()
 _calls = []
+# Identical evidence gets the same answer: reuse it for a while instead of spending quota.
+CACHE_SECONDS = 6 * 3600
+_cache = {}
 
 
 def _permit(now=None):
@@ -33,8 +36,8 @@ def review(forecast):
     key = os.environ.get('TYPESAFE_API_KEY', '').strip()
     if not key:
         return {'status': 'unavailable', 'reason': 'TYPESAFE_API_KEY is not present in the server environment.'}
-    if not _permit():
-        return {'status': 'throttled', 'reason': 'Local Jev circuit breaker: maximum 60 calls/minute and 4 calls/second per process.'}
+    pricing = forecast.get('pricing') or {}
+    latest = forecast.get('latest_result')
     state = {
         'model_version': forecast['model']['version'],
         'analysis_date': forecast['analysis_date'],
@@ -45,14 +48,27 @@ def review(forecast):
         'one_x_two_probabilities': [round(x, 4) for x in forecast['probabilities']],
         'manual_market_present': bool(forecast.get('market')),
         'deterministic_action': forecast['decision']['action'],
+        'pricing_source': pricing.get('source', 'model'),
+        'pricing_fit_error': round(pricing['fit_error'], 4) if isinstance(pricing.get('fit_error'), (int, float)) else None,
+        'fixture_date': pricing.get('fixture_date'),
+        'latest_result_used': latest,
+        'days_since_latest_result': (_days(forecast['analysis_date'], latest) if latest else None),
+        'training_matches': forecast.get('sample_matches'),
     }
+    cache_key = json.dumps(state, sort_keys=True)
+    with _lock:
+        hit = _cache.get(cache_key)
+    if hit and time.monotonic() - hit[0] < CACHE_SECONDS:
+        return dict(hit[1], cached=True)
+    if not _permit():
+        return {'status': 'throttled', 'reason': 'Local Jev circuit breaker: maximum 60 calls/minute and 4 calls/second per process.'}
     payload = {
         'model': MODEL,
         'state': json.dumps(state, sort_keys=True),
         'questions': {
             'needs_human_review': {
                 'type': 'noul',
-                'instructions': 'Does this forecast record contain a data-quality, freshness, or missing-evidence reason that requires human review before relying on it?'
+                'instructions': 'Does this forecast record contain a data-quality, freshness, pricing-fit, or missing-evidence reason that requires human review before relying on it? A long gap since the latest result is only a concern if fixtures were expected in between.'
             },
             'evidence_state': {
                 'type': 'choice',
@@ -75,6 +91,16 @@ def review(forecast):
     answers = response_body.get('answers')
     if not isinstance(answers, dict):
         return {'status': 'unavailable', 'reason': 'Jev response did not contain typed answers.'}
-    return {'status': 'available', 'provider': 'TypeSafe Jev', 'model': response_body.get('model', MODEL),
-            'answers': answers, 'usage': response_body.get('usage', {}),
-            'authority': 'Advisory only. Deterministic quality gates and research policy remain authoritative.'}
+    result = {'status': 'available', 'provider': 'TypeSafe Jev', 'model': response_body.get('model', MODEL),
+              'answers': answers, 'usage': response_body.get('usage', {}), 'cached': False,
+              'authority': 'Advisory only. Deterministic quality gates and research policy remain authoritative.'}
+    with _lock:
+        _cache[cache_key] = (time.monotonic(), result)
+        if len(_cache) > 500:
+            _cache.pop(next(iter(_cache)))
+    return result
+
+
+def _days(a, b):
+    import datetime as dt
+    return (dt.date.fromisoformat(a) - dt.date.fromisoformat(b)).days

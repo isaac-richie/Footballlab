@@ -28,7 +28,7 @@ def run(days, output=REPORTS):
     for match in fixtures:
         fixture = {k: match[k] for k in ('date', 'league_id', 'league', 'home', 'away')}
         try:
-            analysis = predict(data, {**fixture, 'date': today.isoformat()}, stats)
+            analysis = predict(data, {**fixture, 'date': today.isoformat(), 'review': False}, stats)
             analyses.append({'fixture': fixture, 'status': analysis['readiness']['status'],
                              'analysis': analysis})
         except ValueError as exc:

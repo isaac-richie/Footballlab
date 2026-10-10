@@ -15,7 +15,7 @@ from urllib.error import HTTPError
 from quality import atomic_write, canonicalize, coverage, digest, normalize, normalize_openligadb
 from model import SPEC as MODEL, fit_rates, fit_team_rates, fit_dixon_coles
 from markets import extended_markets, fit_first_half_share
-from implied import implied_rates
+from implied import implied_rates, implied_rates_rho
 from count_markets import count_markets
 import odds_data
 import live_odds
@@ -336,10 +336,9 @@ def predict(data, request, stats=None):
     pricing = dict(source='model', label='Score-history model (no bookmaker prices found)', fixture_date=fixture_date)
     rates = (lh, la)
     if prices:
-        mh, ma, error = implied_rates(odds_data.no_vig(prices['h2h']),
-                                      odds_data.no_vig(prices['ou25'])[0] if prices.get('ou25') else None, rho, (lh, la))
+        mh, ma, mrho, error = market_fit(prices, rho, (lh, la))
         if error < .03:
-            rates = (mh, ma)
+            rates, rho = (mh, ma), mrho
             pricing = dict(prices, fixture_date=fixture_date, fit_error=error,
                            note='Goal rates solved from margin-free bookmaker prices; every market below is derived from them.')
         else:
@@ -382,7 +381,8 @@ def predict(data, request, stats=None):
     result['decision'] = assess(result)
     from analysis import briefing
     result['analysis'] = briefing(rows, home, away, result)
-    result['jev_review'] = jev_review(result)
+    result['jev_review'] = (jev_review(result) if request.get('review', True)
+                            else {'status': 'skipped', 'reason': 'Independent review skipped for batch runs to protect quota.'})
     return result
 
 
@@ -394,6 +394,19 @@ def _cache_key(data, league_id, today):
     live_stamp = live_odds.load_cache().get('leagues', {}).get(league_id, {}).get('fetched_at')
     market_lookup(data)
     return (league_id, today, data.get('fetched_at'), live_stamp, _market_cache.get('stamp'))
+
+
+def market_fit(prices, rho, start):
+    """Goal rates (and low-score dependence) reproducing margin-free bookmaker prices.
+
+    With 1X2 and over/under 2.5 prices there are three numbers to match, so the
+    dependence term is solved too and the 1X2 shown equals the market exactly.
+    """
+    p = odds_data.no_vig(prices['h2h'])
+    if prices.get('ou25'):
+        return implied_rates_rho(p, odds_data.no_vig(prices['ou25'])[0], rho, start)
+    mh, ma, error = implied_rates(p, None, rho, start)
+    return mh, ma, rho, error
 
 
 def fixture_rates(data, league_id, fixtures, today):
@@ -409,11 +422,10 @@ def fixture_rates(data, league_id, fixtures, today):
         if m['date'] >= today:
             prices = market_prices(data, {}, league_id, m['home'], m['away'], today, m['date'])
         if prices:
-            mh, ma, error = implied_rates(odds_data.no_vig(prices['h2h']),
-                                          odds_data.no_vig(prices['ou25'])[0] if prices.get('ou25') else None,
-                                          rho, model_rates)
+            mh, ma, mrho, error = market_fit(prices, rho, model_rates)
             if error < .03:
                 source, rates = prices['source'], (mh, ma)
+                m = {**m, '_rho': mrho}
         priced.append((m, model_rates, rates, source, prices))
     return rows, rho, priced
 
@@ -435,7 +447,7 @@ def slate(data, league_id, limit=40):
     items = []
     for m, model_rates, rates, source, prices in priced:
         model = distribution(*model_rates, rho)
-        d = distribution(*rates, rho) if source != 'model' else model
+        d = distribution(*rates, m.get('_rho', rho)) if source != 'model' else model
         items.append(dict(date=m['date'], home=m['home'], away=m['away'], probabilities=d['probabilities'],
                           expected_goals=list(rates), over25=d['over25'], over15=d['total_goal_overs']['1.5'],
                           btts=d['btts'], top_score=d['scorelines'][0], source=source,
@@ -495,7 +507,7 @@ def parlay_candidates(data, leagues, days=7):
         except ValueError:
             continue
         for m, _, rates, source, _ in priced:
-            out += legs_for(m, distribution(*rates, rho), source)
+            out += legs_for(m, distribution(*rates, m.get('_rho', rho)), source)
     return out
 
 

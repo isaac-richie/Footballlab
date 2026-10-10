@@ -55,3 +55,55 @@ def implied_rates(probabilities, over25=None, rho=0.0, start=(1.4, 1.1)):
     lh, la = (min(6, max(.05, math.exp(t))) for t in x)
     error = max(abs(v) for v in residuals(x)[:3 if over25 is not None else 2])
     return lh, la, error
+
+
+def implied_rates_rho(probabilities, over25, rho0=0.0, start=(1.4, 1.1), bounds=(-0.25, 0.25)):
+    """Fit (log lh, log la, rho) so home, away and over 2.5 match the market exactly.
+
+    Three prices, three unknowns: the low-score dependence is solved per match
+    instead of borrowed from the league fit. Falls back to the two-parameter fit
+    (with rho0) if the solution would leave valid probability bounds.
+    """
+    x = [math.log(start[0]), math.log(start[1]), rho0]
+    def residuals(v):
+        lh, la = (min(6, max(.05, math.exp(t))) for t in v[:2])
+        rho = v[2]
+        if not (bounds[0] <= rho <= bounds[1]) or 1 - lh * la * rho <= 0 or 1 + lh * rho <= 0 or 1 + la * rho <= 0:
+            raise ValueError('rho out of range')
+        h, a, o = _targets(lh, la, rho)
+        return [h - probabilities[0], a - probabilities[2], o - over25]
+    try:
+        for _ in range(40):
+            r = residuals(x)
+            jac = []
+            for i in range(3):
+                y = list(x); y[i] += 1e-5
+                jac.append([(b - a) / 1e-5 for a, b in zip(r, residuals(y))])
+            # Solve J^T-indexed 3x3 system J * step = r (columns are parameters).
+            m = [[jac[c][row] for c in range(3)] + [r[row]] for row in range(3)]
+            for col in range(3):
+                piv = max(range(col, 3), key=lambda k: abs(m[k][col]))
+                if abs(m[piv][col]) < 1e-12:
+                    raise ValueError('singular')
+                m[col], m[piv] = m[piv], m[col]
+                for k in range(3):
+                    if k != col:
+                        f = m[k][col] / m[col][col]
+                        m[k] = [a - f * b for a, b in zip(m[k], m[col])]
+            step = [m[i][3] / m[i][i] for i in range(3)]
+            damp = 1.0
+            while damp > 1e-3:
+                cand = [x[0] - damp * max(-.5, min(.5, step[0])), x[1] - damp * max(-.5, min(.5, step[1])), x[2] - damp * max(-.05, min(.05, step[2]))]
+                try:
+                    residuals(cand); break
+                except ValueError:
+                    damp /= 2
+            x = cand
+            if max(abs(v) for v in step) < 1e-8:
+                break
+        error = max(abs(v) for v in residuals(x))
+    except ValueError:
+        lh, la, error = implied_rates(probabilities, over25, rho0, start)
+        return lh, la, rho0, error
+    lh, la = (min(6, max(.05, math.exp(t))) for t in x[:2])
+    return lh, la, x[2], error
