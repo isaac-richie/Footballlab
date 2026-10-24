@@ -458,21 +458,54 @@ html{background:var(--bg)}
 .mid .ls{font-size:46px;letter-spacing:4px}
 @media (max-width:1000px){.fx{grid-template-columns:minmax(0,1fr) 92px;grid-template-areas:"teams bar" "nums nums" "stub stub"}.stub{grid-area:stub;margin:4px 0 0;border-left:0;border-top:2px dashed color-mix(in srgb,var(--text) 18%,transparent);flex-direction:row;gap:10px;align-items:center;padding:8px 0}.stub::before,.stub::after{display:none}.bug .team{font-size:15px}.bug .comp{display:none}.bug{grid-template-columns:1fr auto 1fr}}
 /* Featured games */
-.ft-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.st{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:999px;font-family:var(--display);font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;vertical-align:middle;white-space:nowrap}
+.st.ko{background:color-mix(in srgb,var(--text) 8%,transparent);color:var(--text)}
+.st.live{background:#ff3b5c;color:#fff;box-shadow:0 0 14px -2px #ff3b5c}
+.st.live i{width:7px;height:7px;border-radius:50%;background:#fff;animation:livePulse 1.2s ease-in-out infinite}
+@keyframes livePulse{50%{opacity:.25;transform:scale(.6)}}
+.st.done{background:color-mix(in srgb,var(--muted) 22%,transparent);color:var(--muted)}
+.fx .teams small.when{display:flex!important;justify-content:flex-start;margin-top:4px;font-size:12px;color:var(--muted);gap:6px;align-items:center}
+.fx .teams .st{display:inline-flex!important;width:auto!important;flex:0 0 auto}
+.fx.is-live{border-color:#ff3b5c66}
+.ft-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.ft-grid{grid-template-columns:minmax(0,1fr)}}
+.ft-stage{position:relative;perspective:1600px}
+.ft-grid.leave{position:absolute;inset:0 0 auto 0;pointer-events:none}
+.ft-grid.leave .ft{animation:ftOut .45s cubic-bezier(.7,0,.3,1) both;animation-delay:calc(var(--j,0) * 45ms)}
+.ft-grid.enter .ft{animation:ftIn .6s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(120ms + var(--j,0) * 70ms)}
+.ft-grid.back.leave .ft{animation-name:ftOutBack}.ft-grid.back.enter .ft{animation-name:ftInBack}
+@keyframes ftOut{to{opacity:0;transform:translateX(-18%) rotateY(28deg) scale(.92);filter:blur(3px)}}
+@keyframes ftIn{from{opacity:0;transform:translateX(22%) rotateY(-30deg) scale(.92);filter:blur(3px)}}
+@keyframes ftOutBack{to{opacity:0;transform:translateX(18%) rotateY(-28deg) scale(.92);filter:blur(3px)}}
+@keyframes ftInBack{from{opacity:0;transform:translateX(-22%) rotateY(30deg) scale(.92);filter:blur(3px)}}
+.ft-stage.swipe .ft-grid:not(.leave){transition:none}
+.ft-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px}
+.ft-arrow{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--text);
+  font-family:var(--display);text-transform:uppercase;letter-spacing:1px;font-weight:800;font-size:14px;cursor:pointer;transition:transform .2s,border-color .2s,background .2s}
+.ft-arrow:hover:not(:disabled){border-color:var(--accent);transform:translateY(-2px)}
+.ft-arrow:disabled{opacity:.35;cursor:default}
+.ft-dots{display:flex;gap:8px;align-items:center}
+.ft-dots button{width:9px;height:9px;padding:0;border-radius:999px;border:0;background:var(--line);cursor:pointer;transition:width .35s cubic-bezier(.16,1,.3,1),background .3s}
+.ft-dots button[aria-selected=true]{width:30px;background:var(--accent)}
+.ft-count{font-family:var(--display);font-size:13px;letter-spacing:1px;color:var(--muted);min-width:44px;text-align:center}
+@media (max-width:520px){.ft-arrow span{display:none}.ft-arrow{padding:10px 14px}}
+@media (prefers-reduced-motion:reduce){.ft-grid.leave,.ft-grid.enter .ft{animation:none!important}.ft-grid.leave{display:none}}
 .ft{display:flex;flex-direction:column;gap:12px;animation:rise .5s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i,0) * 70ms);overflow:hidden}
-.ft.top{grid-column:1 / -1}
+.ft.top{border-color:color-mix(in srgb,var(--accent) 45%,var(--line));box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 20%,transparent),0 18px 50px -20px color-mix(in srgb,var(--accent) 35%,transparent)}
 .ft .meta{display:flex;justify-content:space-between;align-items:center;font-family:var(--display);text-transform:uppercase;letter-spacing:1px;font-size:13px;color:var(--muted)}
 .ft .meta .hot{color:var(--accent)}
 .ft .vs{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px}
 .ft .vs .t{display:flex;align-items:center;gap:10px;font-family:var(--display);text-transform:uppercase;font-weight:800;font-size:21px;line-height:1.05;letter-spacing:.3px}
 .ft .vs .t.away{flex-direction:row-reverse;text-align:right}
+.ft .vs .t{min-width:0;overflow-wrap:anywhere}.ft .vs .crest{flex-shrink:0}
+@media (max-width:520px){.ft .vs .t,.ft.top .vs .t{font-size:17px;flex-direction:column;align-items:flex-start;text-align:left}.ft .vs .t.away{flex-direction:column;align-items:flex-end;text-align:right}.ft.top .vs .crest{width:52px;height:52px}}
 .ft .vs .sc{font-family:var(--display);font-size:28px;font-weight:800;letter-spacing:2px;color:var(--muted)}
 .ft .kitbar{height:4px;border-radius:2px;margin:-18px -18px 0}
 .ft ul{margin:0;padding-left:18px;font-size:14px;line-height:1.5}
 .ft ul li+li{margin-top:4px}
 .ft .go{align-self:flex-start;margin-top:auto}
-.ft.top .vs .t{font-size:30px}
-.ft.top ul{font-size:15px;columns:2;column-gap:32px}
+.ft.top .vs .t{font-size:24px}
+.ft.top ul{font-size:15px}
 @media (max-width:760px){.ft.top ul{columns:1}.ft.top .vs .t{font-size:22px}}
 .logo-mark{display:block;filter:drop-shadow(0 4px 14px color-mix(in srgb,var(--accent) 35%,transparent));transition:transform .4s cubic-bezier(.2,.8,.2,1)}
 .brand:hover .logo-mark{transform:rotate(-12deg) scale(1.08)}
@@ -490,6 +523,20 @@ details>summary{list-style:none;display:flex;align-items:center;justify-content:
 details>summary::-webkit-details-marker{display:none}
 details>summary::after{content:"";width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(45deg) translateY(-2px);transition:transform .25s;flex-shrink:0}
 details[open]>summary::after{transform:rotate(-135deg) translateY(-2px)}
+/* Club badges */
+.badge-crest{background:radial-gradient(circle at 50% 40%,#ffffff1f,#ffffff08)!important;border:1px solid var(--line);padding:4px;box-shadow:none}
+.badge-crest .bc{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 4px #0006)}
+.tb{width:20px;height:20px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 1px 2px #0005)}
+.bug .bt{display:inline-flex;align-items:center;gap:8px}
+.bug .bb{width:26px;height:26px;object-fit:contain;filter:drop-shadow(0 1px 3px #0007)}
+.ft .vs .crest{width:52px;height:52px;border-radius:14px}
+.ft.top .vs .crest{width:68px;height:68px;border-radius:18px}
+/* Menu scrolls sideways on small screens instead of widening the page */
+.top .wrap{min-width:0}
+.nav{min-width:0;flex:0 1 auto;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{white-space:nowrap;flex-shrink:0}
+.top .icon-btn{flex-shrink:0}
 footer{margin:40px 0 30px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--faint)}
 footer a{color:var(--muted)}
 
@@ -556,7 +603,14 @@ footer a{color:var(--muted)}
       <div><h1>Games to watch</h1><p id="ft-sub">The biggest, closest games across the leagues, with a quick take on each. Open any one for the full breakdown.</p></div>
       <div class="seg" id="ft-period" role="group" aria-label="Period"><button data-p="day">Next matchday</button><button data-p="week" aria-pressed="true">This week</button></div>
     </div>
-    <div class="ft-grid" id="ft-grid"><div class="card"><div class="skel" style="height:220px"></div></div><div class="card"><div class="skel" style="height:220px"></div></div></div>
+    <div class="ft-pager">
+      <div class="ft-stage" id="ft-stage"><div class="ft-grid" id="ft-grid"><div class="card"><div class="skel" style="height:220px"></div></div><div class="card"><div class="skel" style="height:220px"></div></div></div></div>
+      <div class="ft-nav" id="ft-nav" hidden>
+        <button type="button" class="ft-arrow" id="ft-prev" aria-label="Previous games">←<span>Previous</span></button>
+        <div class="ft-dots" id="ft-dots" role="tablist" aria-label="Pages"></div>
+        <button type="button" class="ft-arrow" id="ft-next" aria-label="Next games"><span>Next</span>→</button>
+      </div>
+    </div>
     <p class="note" id="ft-note"></p>
   </section>
 
@@ -686,6 +740,15 @@ const pct = p => (p * 100).toFixed(1) + '%';
 const fair = p => p > .0005 ? (1 / p).toFixed(2) : '–';
 const line = l => (l > 0 ? '+' : '') + (Number.isInteger(l) ? l.toFixed(1) : String(l));
 const day = d => new Date(d + 'T12:00:00').toLocaleDateString(undefined, {weekday:'short', day:'numeric', month:'short'});
+// Kickoff in the viewer's own time zone, and a live / full-time pill.
+const koTime = iso => iso ? new Date(iso).toLocaleTimeString(undefined, {hour:'2-digit', minute:'2-digit'}) : '';
+function statusPill(f){
+  if(f.status === 'live'){ const min = Math.max(1, Math.round((Date.now() - new Date(f.kickoff)) / 6e4)); const m = min > 105 ? '90+' : min > 45 && min <= 60 ? 'HT' : (min > 60 ? min - 15 : min) + "'";
+    return `<span class="st live" title="In play now"><i></i>Live ${m}</span>` }
+  if(f.status === 'awaiting_result') return '<span class="st done" title="Played, final score not in yet">Played · result soon</span>';
+  if(f.status === 'finished') return '<span class="st done">Full time</span>';
+  return f.kickoff ? `<span class="st ko">${esc(koTime(f.kickoff))}</span>` : '';
+}
 const store = {get(k){try{return localStorage.getItem(k)}catch{return null}}, set(k,v){try{localStorage.setItem(k,v)}catch{}}};
 async function api(url, options){const r = await fetch(url, options), d = await r.json(); if(!r.ok) throw Error(d.error || 'Request failed'); return d}
 
@@ -785,7 +848,11 @@ const CODES = {'manchester city': 'MCI', 'manchester united': 'MUN', 'nottingham
   'marseille': 'OM', 'as roma': 'ROM', 'sporting': 'SCP'};
 const abbr0 = name => { const w = name.replace(/\b(FC|CF|AFC|SC|AC|SSC|AS|RC|OGC|VfB|VfL|TSG|1\.|de|Club)\b/g, '').trim().split(/\s+/).filter(Boolean); return (w.length > 1 ? w[0].slice(0, 3) : (w[0] || name).slice(0, 3)).toUpperCase() };
 const abbr = name => { const n = name.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, ''); const k = Object.keys(CODES).find(c => n.includes(c)); return k ? CODES[k] : abbr0(name) };
+// Real club badges (private Lab only; cached locally by `app.py fetch-badges`).
+let BADGES = {};
+const badgeImg = (name, cls) => BADGES[name] ? `<img class="${cls}" src="${BADGES[name]}" alt="" loading="lazy" decoding="async">` : '';
 function crest(name, small){
+  if(BADGES[name]) return `<span class="crest badge-crest${small ? ' sm' : ''}" aria-hidden="true">${badgeImg(name, 'bc')}</span>`;
   const words = name.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').split(/[\s\-]+/).filter(w => /^[a-z0-9]/i.test(w) && !NOISE.has(w.toLowerCase()));
   const initials = (words.length > 1 ? words[0][0] + words[1][0] : (words[0] || name).slice(0, 2)).toUpperCase();
   let h = 0; for(const c of name) h = (h * 31 + c.charCodeAt(0)) % 360;
@@ -897,11 +964,11 @@ function renderBoard(){
   let html = '', last = null;
   list.forEach((f, idx) => {
     if(state.sort === 'date' && f.date !== last){ const dd = Math.round((new Date(f.date + 'T12:00:00') - new Date(state.data.today + 'T12:00:00')) / 864e5);
-      html += `<div class="day"><span>${esc(day(f.date))}</span><span class="ko">${dd <= 1 ? 'Tomorrow' : 'In ' + dd + ' days'} · KO TBC</span></div>`; last = f.date }
+      html += `<div class="day"><span>${esc(day(f.date))}</span><span class="ko">${dd <= 0 ? 'Today' : dd === 1 ? 'Tomorrow' : 'In ' + dd + ' days'}</span></div>`; last = f.date }
     const p = f.probabilities;
     const mv = f.movement, mvTag = mv ? `<span class="move ${mv.change[0] >= 0 ? 'up' : 'down'}" title="Home probability moved since ${esc(new Date(mv.since).toLocaleString())}">${mv.change[0] >= 0 ? '▲' : '▼'}${Math.abs(mv.change[0] * 100).toFixed(1)}${mv.sharp ? ' sharp' : ''}</span>` : '';
-    html += `<button class="fx" style="--i:${state.noStagger ? 0 : Math.min(idx, 30)}${state.noStagger ? ';animation:none' : ''}" data-home="${esc(f.home)}" data-away="${esc(f.away)}" data-date="${esc(f.date)}">` +
-      `<span class="teams"><span><i class="kit" style="background:${kit(f.home).primary}"></i>${esc(f.home)}${f.source !== 'model' ? srcBadge(f.source) : ''}${mvTag}</span><span><i class="kit" style="background:${kit(f.away).primary}"></i>${esc(f.away)}${f.thin_history ? '<span class="flag" title="Thin recent history">●</span>' : ''}</span>${state.sort !== 'date' ? `<small>${esc(day(f.date))}</small>` : ''}</span>` +
+    html += `<button class="fx${f.status === 'live' ? ' is-live' : ''}" style="--i:${state.noStagger ? 0 : Math.min(idx, 30)}${state.noStagger ? ';animation:none' : ''}" data-home="${esc(f.home)}" data-away="${esc(f.away)}" data-date="${esc(f.date)}">` +
+      `<span class="teams"><span>${badgeImg(f.home, 'tb') || `<i class="kit" style="background:${kit(f.home).primary}"></i>`}${esc(f.home)}${f.source !== 'model' ? srcBadge(f.source) : ''}${mvTag}</span><span>${badgeImg(f.away, 'tb') || `<i class="kit" style="background:${kit(f.away).primary}"></i>`}${esc(f.away)}${f.thin_history ? '<span class="flag" title="Thin recent history">●</span>' : ''}</span><small class="when">${state.sort !== 'date' ? esc(day(f.date)) + ' ' : ''}${statusPill(f) || 'Time TBC'}</small></span>` +
       `<span class="bar">${tri(p)}<span class="nums"><span class="c-h">${Math.round(p[0]*100)}</span><span class="c-d">${Math.round(p[1]*100)}</span><span class="c-a">${Math.round(p[2]*100)}</span></span></span>` +
       `<span class="num">${f.expected_goals[0].toFixed(2)}–${f.expected_goals[1].toFixed(2)}</span>` +
       `<span class="num">${pct(f.over25)}</span><span class="num">${pct(f.btts)}</span>` +
@@ -912,6 +979,8 @@ function renderBoard(){
   body.innerHTML = html;
   $('#board-note').textContent = `${s.fixtures.length} fixtures, ${s.priced} priced from bookmaker odds. ${s.note} ● marks a team with fewer than 10 league matches in the past year.`;
 }
+// Keep live minutes ticking without a reload.
+setInterval(() => { if(state.slate && (state.slate.fixtures || []).some(f => f.status === 'live') && !document.hidden){ state.noStagger = true; renderBoard(); state.noStagger = false } }, 60000);
 $('#board-body').onclick = e => {
   const b = e.target.closest('.fx'); if(!b) return;
   $('#home').value = b.dataset.home; $('#away').value = b.dataset.away; $('#date').value = state.data.today;
@@ -991,9 +1060,9 @@ function renderMatch(){
         ${d.market ? ` <span class="badge ${action === 'research_candidate' ? 'accent' : 'neutral'}">${action === 'research_candidate' ? 'Worth a look' : 'No value found'}</span>` : ''}</span></div>
       ${(() => { const kh = kit(d.home), ka = kit(d.away);
         return `<div class="bug" aria-hidden="true"><span class="comp">${esc((d.league.split(' — ')[1] || d.league))}</span>
-          <span class="team" style="background:${kh.primary};color:${inkOn(kh.primary)}"><span>${esc(abbr(d.home))}</span><span class="pct">${Math.round(p[0] * 100)}</span></span>
+          <span class="team" style="background:${kh.primary};color:${inkOn(kh.primary)}"><span class="bt">${badgeImg(d.home, 'bb')}${esc(abbr(d.home))}</span><span class="pct">${Math.round(p[0] * 100)}</span></span>
           <span class="mid"><b>${Math.round(p[1] * 100)}</b><small>Draw %</small></span>
-          <span class="team" style="background:${ka.primary};color:${inkOn(ka.primary)}"><span class="pct">${Math.round(p[2] * 100)}</span><span>${esc(abbr(d.away))}</span></span></div>` })()}
+          <span class="team" style="background:${ka.primary};color:${inkOn(ka.primary)}"><span class="pct">${Math.round(p[2] * 100)}</span><span class="bt">${esc(abbr(d.away))}${badgeImg(d.away, 'bb')}</span></span></div>` })()}
       <div class="versus" style="--vt:match-head">
         <div class="side"><small>Home</small><div class="who">${crest(d.home)}<strong>${esc(d.home)}</strong></div><div class="xg">xG <b data-count="${d.expected_goals[0]}">${d.expected_goals[0].toFixed(2)}</b></div></div>
         <div class="mid"><div class="ls">${esc(top.score)}</div><small>most likely score · ${pct(top.probability)}</small></div>
@@ -1314,21 +1383,57 @@ async function loadFeatured(){
     $('#ft-sub').textContent = `${d.label}: the biggest, closest games across the leagues, with a quick take on each. Open any one for the full breakdown.`;
     $('#ft-note').textContent = d.note;
     if(!d.games.length){ $('#ft-grid').innerHTML = '<div class="placeholder"><div><h3>No games found</h3><p>There are no upcoming fixtures in the data for this period.</p></div></div>'; return }
-    $('#ft-grid').innerHTML = d.games.map((g, i) => {
-      const kh = kit(g.home), ka = kit(g.away), p = g.probabilities;
-      return `<article class="card ft${i === 0 ? ' top' : ''}" style="--i:${i}">
-        <div class="kitbar" style="background:linear-gradient(90deg,${kh.primary} 50%,${ka.primary} 50%)"></div>
-        <div class="meta"><span>${esc(g.league)} · ${esc(day(g.date))}</span><span class="${i === 0 ? 'hot' : ''}">${i === 0 ? 'Game of the week' : '#' + (i + 1)}</span></div>
-        <div class="vs"><span class="t">${crest(g.home)}${esc(g.home)}</span><span class="sc">v</span><span class="t away">${crest(g.away)}${esc(g.away)}</span></div>
-        ${tri(p, true)}
-        <div class="tri-labels" style="margin-top:0"><div><span>Home</span><b class="c-h">${pct(p[0])}</b></div><div><span>Draw</span><b class="c-d">${pct(p[1])}</b></div><div><span>Away</span><b class="c-a">${pct(p[2])}</b></div></div>
-        <ul>${g.take.map(t => `<li>${esc(t)}</li>`).join('')}</ul>
-        <button class="primary go" type="button" data-ft="${i}" style="width:auto">Full analysis →</button>
-      </article>`;
-    }).join('');
-    state.ftGames = d.games;
+    state.ftGames = d.games; state.ftPage = 0;
+    ftRender(0, 0);
   }catch(e){ $('#ft-grid').innerHTML = `<div class="error">${esc(e.message)}</div>` }
 }
+// Pages of featured games: four a page on wide screens, two on phones.
+const ftPer = () => innerWidth < 760 ? 2 : 4;
+const ftPages = () => Math.ceil((state.ftGames || []).length / ftPer());
+function ftCard(g, i, j){
+  const p = g.probabilities;
+  return `<article class="card ft${i === 0 ? ' top' : ''}" style="--i:${j};--j:${j}">
+    <div class="meta"><span>${esc(g.league)} · ${esc(day(g.date))} ${statusPill(g)}</span><span class="${i === 0 ? 'hot' : ''}">${i === 0 ? (state.ftPeriod === 'day' ? 'Game of the day' : 'Game of the week') : '#' + (i + 1)}</span></div>
+    <div class="vs"><span class="t">${crest(g.home)}${esc(g.home)}</span><span class="sc">v</span><span class="t away">${crest(g.away)}${esc(g.away)}</span></div>
+    ${tri(p, true)}
+    <div class="tri-labels" style="margin-top:0"><div><span>Home</span><b class="c-h">${pct(p[0])}</b></div><div><span>Draw</span><b class="c-d">${pct(p[1])}</b></div><div><span>Away</span><b class="c-a">${pct(p[2])}</b></div></div>
+    <ul>${g.take.map(t => `<li>${esc(t)}</li>`).join('')}</ul>
+    <button class="primary go" type="button" data-ft="${i}" style="width:auto">Full analysis →</button>
+  </article>`;
+}
+function ftRender(page, dir){
+  const games = state.ftGames || [], per = ftPer(), pages = ftPages();
+  page = Math.max(0, Math.min(pages - 1, page)); state.ftPage = page;
+  const grid = $('#ft-grid'), stage = $('#ft-stage');
+  const html = games.slice(page * per, page * per + per).map((g, j) => ftCard(g, page * per + j, j)).join('');
+  const animate = dir && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(animate){
+    stage.querySelectorAll('.ft-grid.leave').forEach(n => n.remove());
+    const old = grid.cloneNode(true); old.removeAttribute('id'); old.className = 'ft-grid leave' + (dir < 0 ? ' back' : '');
+    old.querySelectorAll('.ft').forEach((c, j) => c.style.setProperty('--j', j));
+    stage.style.minHeight = grid.offsetHeight + 'px';
+    stage.appendChild(old); setTimeout(() => { old.remove(); stage.style.minHeight = '' }, 700);
+    grid.className = 'ft-grid enter' + (dir < 0 ? ' back' : '');
+  }else grid.className = 'ft-grid';
+  grid.innerHTML = html;
+  $('#ft-nav').hidden = pages < 2;
+  $('#ft-prev').disabled = page === 0; $('#ft-next').disabled = page >= pages - 1;
+  $('#ft-dots').innerHTML = Array.from({length: pages}, (_, k) => `<button type="button" role="tab" aria-selected="${k === page}" aria-label="Page ${k + 1} of ${pages}" data-page="${k}"></button>`).join('') +
+    `<span class="ft-count">${page * per + 1}–${Math.min(games.length, page * per + per)} of ${games.length}</span>`;
+  if(animate){ const top = $('#ft-stage').getBoundingClientRect().top; if(top < 70) scrollBy({top: top - 90, behavior: 'smooth'}) }
+}
+const ftGo = d => { const n = state.ftPage + d; if(n >= 0 && n < ftPages()) ftRender(n, d) };
+$('#ft-prev').onclick = () => ftGo(-1); $('#ft-next').onclick = () => ftGo(1);
+$('#ft-dots').onclick = e => { const b = e.target.closest('[data-page]'); if(b && +b.dataset.page !== state.ftPage) ftRender(+b.dataset.page, +b.dataset.page > state.ftPage ? 1 : -1) };
+addEventListener('keydown', e => {
+  if(location.hash && location.hash !== '#featured' || e.target.closest('input,select,textarea')) return;
+  if(e.key === 'ArrowRight') ftGo(1); else if(e.key === 'ArrowLeft') ftGo(-1);
+});
+{ let x0 = null, y0 = 0;   // swipe between pages on touch screens
+  $('#ft-stage').addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY }, {passive: true});
+  $('#ft-stage').addEventListener('touchend', e => { if(x0 == null) return; const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0; x0 = null;
+    if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) ftGo(dx < 0 ? 1 : -1) }); }
+{ let lastPer = ftPer(); addEventListener('resize', () => { const p = ftPer(); if(p !== lastPer && state.ftGames){ const first = state.ftPage * lastPer; lastPer = p; ftRender(Math.floor(first / p), 0) } }) }
 $('#ft-period').onclick = e => { const b = e.target.closest('[data-p]'); if(!b) return; state.ftPeriod = b.dataset.p;
   $$('#ft-period button').forEach(x => x.setAttribute('aria-pressed', x === b)); loadFeatured() };
 $('#ft-grid').addEventListener('click', async e => {
@@ -1618,9 +1723,8 @@ $('#test').onclick = async () => {
   finally{ b.disabled = false; b.textContent = 'Run backtest for this league' }
 };
 
-showView();
-loadLeague();
-loadSlip();
+// Badges first so the first render already shows them; the page works without them.
+api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() => { showView(); loadLeague(); loadSlip() });
 </script>
 </body>
 </html>

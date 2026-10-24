@@ -69,7 +69,7 @@ def write_up(f, home_ppg, away_ppg):
     return lines
 
 
-def featured(data, leagues, slate_fn, history_fn, period='week', limit=7):
+def featured(data, leagues, slate_fn, history_fn, period='week', limit=10):
     today = dt.date.today()
     candidates = []
     for league_id, name in leagues.items():
@@ -95,15 +95,21 @@ def featured(data, leagues, slate_fn, history_fn, period='week', limit=7):
         hp, ap = form_ppg(rows, f['home']), form_ppg(rows, f['away'])
         games.append(dict(league_id=league_id, league=name.split(' — ')[-1], date=f['date'], home=f['home'], away=f['away'],
                           probabilities=f['probabilities'], over25=f['over25'], btts=f['btts'], top_score=f['top_score'],
-                          expected_goals=f['expected_goals'], source=f['source'], form=[round(hp, 2), round(ap, 2)],
+                          expected_goals=f['expected_goals'], source=f['source'], kickoff=f.get('kickoff'), status=f.get('status'), form=[round(hp, 2), round(ap, 2)],
                           hype=round(anticipation(hp, ap, f['probabilities']) * LEAGUE_WEIGHT.get(league_id, 1), 1), take=write_up(f, hp, ap)))
     games.sort(key=lambda g: -g['hype'])
-    # Keep it varied: at most three games from any one league.
+    # Spread across the leagues: each league's biggest game first, then the best of the
+    # rest with at most two per league, so one division never fills the list.
     picked, per = [], {}
     for g in games:
-        if per.get(g['league_id'], 0) < 3:
-            picked.append(g); per[g['league_id']] = per.get(g['league_id'], 0) + 1
-        if len(picked) == limit:
-            break
+        if g['league_id'] not in per:
+            picked.append(g); per[g['league_id']] = 1
+    for cap in (2, 3):
+        for g in games:
+            if len(picked) >= limit:
+                break
+            if g not in picked and per[g['league_id']] < cap:
+                picked.append(g); per[g['league_id']] += 1
+    picked = sorted(picked, key=lambda g: -g['hype'])[:limit]
     return dict(period=period, label=label, games=picked,
                 note='Chosen by how strong both clubs are and how close the game looks. Write-ups come straight from the numbers.')

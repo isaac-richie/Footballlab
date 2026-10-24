@@ -28,3 +28,8 @@ stats.json
 .DS_Store
 .vercel/
 backup/
+
+# Club badges are trademarks: private local cache only, never committed or published
+reports/badges/
+reports/implied_goals.json
+reports/market_ratings_experiment.json

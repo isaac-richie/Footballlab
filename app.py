@@ -19,6 +19,8 @@ from implied import implied_rates, implied_rates_rho
 from count_markets import count_markets
 import odds_data
 import live_odds
+import schedule
+import market_ratings
 from stats import import_csv, load as load_stats, market_rates, own_count_rates, poisson_over
 from decision import assess
 from jev_reviewer import review as jev_review
@@ -147,6 +149,8 @@ def load(fill_gaps=True):
     canonicalize(data['matches'])
     if fill_gaps:
         fill_missing_results(data)
+        if odds_data.MARKET.exists():
+            schedule.reconcile(data, odds_data.load(), live_cache=live_odds.load_cache())
     _load_cache[fill_gaps] = (stamp, data)
     return data
 
@@ -292,8 +296,12 @@ def market_lookup(data):
         return {}
     key = (stamp, data.get('fetched_at'), id(data['matches']), len(data['matches']))
     if _market_cache.get('stamp') != key:
-        _market_cache.update(stamp=key,
-                             index=odds_data.index(odds_data.load(), data['matches']))
+        index = odds_data.index(odds_data.load(), data['matches'])
+        for m in data['matches']:
+            k = (m['league_id'], m['date'], m['home'], m['away'])
+            if m.get('_fd') and k not in index:
+                index[k] = m['_fd']
+        _market_cache.update(stamp=key, index=index)
     return _market_cache['index']
 
 
@@ -360,7 +368,7 @@ def predict(data, request, stats=None):
     if home == away or home not in teams or away not in teams:
         raise ValueError('Choose two different teams from the data.')
     rows = history(data, asof, league_id)
-    lh, la, counts, fit = fit_rates(rows, home, away, asof)
+    lh, la, counts, fit = fit_rates(rows, home, away, asof, targets=market_ratings.targets(rows))
     rho = fit['dixon_coles_rho']
     model_view = distribution(lh, la, rho)
     fixture_date = fixture_date_for(data, league_id, home, away, asof, request.get('fixture_date'))
@@ -445,7 +453,7 @@ def fixture_rates(data, league_id, fixtures, today):
     """One model fit at today's cutoff; bookmaker-implied rates wherever prices exist."""
     rows = history(data, today, league_id)
     teams = {t for m in fixtures for t in (m['home'], m['away'])}
-    expected, _ = fit_team_rates(rows, today, sorted(teams))
+    expected, _ = fit_team_rates(market_ratings.targets(rows), today, sorted(teams), half_life_days=market_ratings.HALF_LIFE_DAYS)
     rho, _ = fit_dixon_coles(rows, today, expected)
     priced = []
     for m in fixtures:
@@ -470,7 +478,9 @@ def slate(data, league_id, limit=40):
     key = _cache_key(data, league_id, today)
     if key in _slate_cache:
         return _slate_cache[key]
-    fixtures = [m for m in data['matches'] if m['league_id'] == league_id and m['date'] > today and m['goals'] is None][:limit]
+    # Upcoming means not yet kicked off or still in play, with a confirmed date.
+    fixtures = [m for m in data['matches'] if m['league_id'] == league_id and m['goals'] is None and not m.get('unconfirmed')
+                and (m['date'] > today or m['date'] == today and m.get('kickoff')) and schedule.status(m) in ('scheduled', 'live')][:limit]
     rows, rho, priced = fixture_rates(data, league_id, fixtures, today)
     recent = {t: sum(t in (m['home'], m['away']) and
                      (dt.date.fromisoformat(today) - dt.date.fromisoformat(m['date'])).days <= 365 for m in rows)
@@ -486,7 +496,8 @@ def slate(data, league_id, limit=40):
                           model_probabilities=model['probabilities'],
                           best=prices.get('best') if prices and source != 'model' else None,
                           movement=movement.get('|'.join((m['date'], m['home'], m['away']))),
-                          thin_history=min(recent[m['home']], recent[m['away']]) < 10))
+                          thin_history=min(recent[m['home']], recent[m['away']]) < 10,
+                          kickoff=m.get('kickoff'), status=schedule.status(m)))
     result = dict(league_id=league_id, league=LEAGUES[league_id], analysis_date=today, model=MODEL['version'],
                   dixon_coles_rho=rho, quality=coverage(data, league_id, today), fixtures=items,
                   priced=sum(i['source'] != 'model' for i in items),
@@ -597,6 +608,21 @@ class Handler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-Type', 'image/svg+xml')
             self.send_header('Cache-Control', 'max-age=3600')
+            self.end_headers()
+            self.wfile.write(raw)
+        elif path == '/api/badges':
+            import badges
+            self.send_json(badges.urls())
+        elif path.startswith('/badge/'):
+            import badges, re as _re
+            name = path.rsplit('/', 1)[-1]
+            file = badges.DIR / name
+            if not _re.fullmatch(r'[0-9a-f]{12}\.png', name) or not file.exists():
+                return self.send_json(dict(error='Not found'), 404)
+            raw = file.read_bytes()
+            self.send_response(200)
+            self.send_header('Content-Type', 'image/png')
+            self.send_header('Cache-Control', 'max-age=604800')
             self.end_headers()
             self.wfile.write(raw)
         elif path in ('/fx.js', '/motion.js'):
@@ -720,12 +746,21 @@ if __name__ == '__main__':
     from config import load_environment
     load_environment()
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=['refresh', 'serve', 'backtest', 'import-stats', 'backfill-halftime', 'refresh-odds'])
+    parser.add_argument('command', choices=['refresh', 'serve', 'backtest', 'import-stats', 'backfill-halftime', 'refresh-odds', 'fetch-badges'])
     parser.add_argument('path', nargs='?', help='CSV path for import-stats')
     parser.add_argument('--port', type=int, default=8765)
     args = parser.parse_args()
     if args.command == 'refresh':
         refresh()
+    elif args.command == 'fetch-badges':
+        import badges
+        data = load(fill_gaps=False)
+        seasons = {lg: max(m['season'] for m in data['matches'] if m['league_id'] == lg) for lg in LEAGUES
+                   if any(m['league_id'] == lg for m in data['matches'])}
+        teams = sorted({(m['league_id'], t) for m in data['matches'] if m['season'] == seasons.get(m['league_id'])
+                        for t in (m['home'], m['away'])})
+        index = badges.fetch(teams)
+        print(json.dumps(dict(teams=len(teams), with_badge=sum(1 for v in index.values() if v.get('file')))))
     elif args.command == 'refresh-odds':
         data = load()
         print(json.dumps(dict(football_data=odds_data.fetch(data['matches']))))

@@ -9,9 +9,10 @@ import math
 
 
 SPEC = {
-    'version': 'poisson-attack-defence-dixon-coles-1.0',
+    'version': 'poisson-attack-defence-dixon-coles-1.1-market-targets',
     'family': 'Poisson scores with Dixon-Coles low-score dependence correction',
     'features': ['league baseline', 'home advantage', 'team attack', 'team defence'],
+    'targets': 'closing-price implied goals (75%) blended with scorelines, 90-day half-life, where prices exist',
     'half_life_days': 365,
     'ridge': 0.025,
     'optimizer': 'Adam, fixed pre-specified 50 iterations',
@@ -136,9 +137,13 @@ def fit_dixon_coles(rows, asof, expected, half_life_days=365):
     return best, {'rho_observations': len(prepared), 'rho_bounds': [lower, upper], 'rho_method': 'weighted grid likelihood'}
 
 
-def fit_rates(rows, home, away, asof, half_life_days=365, ridge=0.025, iterations=50):
-    """Fit using only earlier completed matches and return the requested rates."""
-    expected, metadata = fit_team_rates(rows, asof, (home, away), half_life_days, ridge, iterations)
+def fit_rates(rows, home, away, asof, half_life_days=365, ridge=0.025, iterations=50, targets=None, target_half_life=90):
+    """Fit using only earlier completed matches and return the requested rates.
+
+    targets: optional copies of rows with market-implied goals; ratings are then fitted
+    to those (with their own half-life) while rho still comes from real scorelines."""
+    expected, metadata = fit_team_rates(targets or rows, asof, (home, away),
+                                        target_half_life if targets else half_life_days, ridge, iterations)
     lh, la = expected(home, away)
     rho, rho_meta = fit_dixon_coles(rows, asof, expected, half_life_days)
     counts = {team: sum(team in (m['home'], m['away']) for m in rows) for team in (home, away)}
