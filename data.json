@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-10-10T14:02:46.557996+00:00",
+  "fetched_at": "2026-10-24T15:56:34.581981+00:00",
   "license": "per-source",
   "sources": [
     {
@@ -7,7 +7,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "fbdfd426fa18fa2f8630b77de87c082734da495ac4668d6d72f29f76b73b9564",
-      "checked_at": "2026-10-10T14:01:56.276354+00:00",
+      "checked_at": "2026-10-24T15:55:20.968851+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -15,7 +15,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "7beb67dd49d7132bf9f7baea540342439b97ed4a7b21ffb90d3231a402c54d02",
-      "checked_at": "2026-10-10T14:01:57.161806+00:00",
+      "checked_at": "2026-10-24T15:55:22.684129+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -23,7 +23,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "a3e94b23cac768e4191e99312f4d48471c4000c5c2fe766b0325cee935754061",
-      "checked_at": "2026-10-10T14:01:57.996710+00:00",
+      "checked_at": "2026-10-24T15:55:24.711315+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -31,7 +31,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "f1b9901cffb6b073f389e730213b5f8efe6a9a73b2f86058794f2d0f1dcc54dc",
-      "checked_at": "2026-10-10T14:01:58.954136+00:00",
+      "checked_at": "2026-10-24T15:55:26.030711+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -39,7 +39,7 @@
       "league_id": "fr.1",
       "matches": 380,
       "sha256": "8abb493061d32faaf413c403b440c043723d9743a9e69d6472bf5410e2d4e039",
-      "checked_at": "2026-10-10T14:02:00.814914+00:00",
+      "checked_at": "2026-10-24T15:55:26.972065+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -47,7 +47,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "8d09f0f9846981626cdfec48903e1f21e7c79aabe6f92535c9e092e8e79b808b",
-      "checked_at": "2026-10-10T14:02:04.908534+00:00",
+      "checked_at": "2026-10-24T15:55:31.885360+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -55,7 +55,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "0204c66c919c2cd5cc3d1ba26be4f68592e4e173843162a9e6755182ccf83778",
-      "checked_at": "2026-10-10T14:02:06.836871+00:00",
+      "checked_at": "2026-10-24T15:55:33.975825+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -63,7 +63,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "d775fdd375af6998233fbfcd5b33d176cb9d016a981682626c5ce2f95b0c2f88",
-      "checked_at": "2026-10-10T14:02:08.081916+00:00",
+      "checked_at": "2026-10-24T15:55:36.068380+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -71,7 +71,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "b0c052dc75836dfc6b0d3781d35b828851db7377c9f6ccb39643dbbe1964f3bd",
-      "checked_at": "2026-10-10T14:02:09.124170+00:00",
+      "checked_at": "2026-10-24T15:55:37.668528+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -79,7 +79,7 @@
       "league_id": "fr.1",
       "matches": 380,
       "sha256": "6301ac1ba1fa0f5b72345759711beac3b3be3c989725cc1c6ef9307ffef692c7",
-      "checked_at": "2026-10-10T14:02:10.244440+00:00",
+      "checked_at": "2026-10-24T15:55:39.017669+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -87,7 +87,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "03e13eafbf78dfe00d7e89dd3bf6643986eb6e8fd86c7664aeb8c5bc0bed88d0",
-      "checked_at": "2026-10-10T14:02:14.280627+00:00",
+      "checked_at": "2026-10-24T15:55:44.956452+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -95,7 +95,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "e4c1e1a958f224ba3c815c898982ab495b9577315cc58ee7a5e7b532960f738b",
-      "checked_at": "2026-10-10T14:02:15.366158+00:00",
+      "checked_at": "2026-10-24T15:55:46.613075+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -103,7 +103,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "47734fc8d2ec34c5529ca814c97d1c86ecddc4a2c8095506d9b12f29cb283308",
-      "checked_at": "2026-10-10T14:02:16.358746+00:00",
+      "checked_at": "2026-10-24T15:55:49.123274+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -111,7 +111,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "d104edde48a5e254545eac3d3ed379a09801e1ebcef5c6480e28bc36fcfa202d",
-      "checked_at": "2026-10-10T14:02:17.835702+00:00",
+      "checked_at": "2026-10-24T15:55:52.331843+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -119,7 +119,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "fa328cecf4c12232ac77a5d477059eebe16b68b3712ec87800b89efda8ddfb70",
-      "checked_at": "2026-10-10T14:02:19.763262+00:00",
+      "checked_at": "2026-10-24T15:55:55.620885+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -127,7 +127,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "c3d18f552d83382cd4b6b21127adbbfe38e7f8618ddc979fb5404f2df07d0a75",
-      "checked_at": "2026-10-10T14:02:23.308904+00:00",
+      "checked_at": "2026-10-24T15:56:06.770925+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -135,7 +135,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "da5bfa1b3634e1039d9e71aec50bdc847f8761189e3de235a4e730e0dc64ca38",
-      "checked_at": "2026-10-10T14:02:25.245053+00:00",
+      "checked_at": "2026-10-24T15:56:07.764638+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -143,7 +143,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "7d9bb936de3ccaeec54d57371512a58a5eeb21277e7d5f0882911a834d22b659",
-      "checked_at": "2026-10-10T14:02:26.133906+00:00",
+      "checked_at": "2026-10-24T15:56:08.673889+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -151,7 +151,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "f473d6595e6c29ebedc08b09177aed6a6b2ff0fa8378b82f51dea469139f44c3",
-      "checked_at": "2026-10-10T14:02:26.994799+00:00",
+      "checked_at": "2026-10-24T15:56:10.126427+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -159,7 +159,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "90e9974afe6597452622387ad218f6b0011a5f91f1b426f05152f5b9c105e355",
-      "checked_at": "2026-10-10T14:02:27.909347+00:00",
+      "checked_at": "2026-10-24T15:56:11.124272+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -167,7 +167,7 @@
       "league_id": "it.2",
       "matches": 390,
       "sha256": "7592d38014c83fa37477901fd288c9f7268e11cfb254f1dd9458e304970373b0",
-      "checked_at": "2026-10-10T14:02:28.909188+00:00",
+      "checked_at": "2026-10-24T15:56:12.306722+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -175,7 +175,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1",
-      "checked_at": "2026-10-10T14:02:31.318882+00:00",
+      "checked_at": "2026-10-24T15:56:19.285433+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -183,7 +183,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "b40397d8e62c640138548d57a1a9f76150549213d2a07fcbbb90ed0eabc6ccea",
-      "checked_at": "2026-10-10T14:02:32.225879+00:00",
+      "checked_at": "2026-10-24T15:56:20.723649+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -191,7 +191,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "28f7773dea86345aeb0cbb4aff2f90231033f7ed855219e70fdd1cf45d4d7e7f",
-      "checked_at": "2026-10-10T14:02:34.266599+00:00",
+      "checked_at": "2026-10-24T15:56:22.105938+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -199,7 +199,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "17d0999db6281e6365823acdbce41a4f01dd469eac63e1f897e4e47c02906672",
-      "checked_at": "2026-10-10T14:02:35.163014+00:00",
+      "checked_at": "2026-10-24T15:56:23.313904+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -207,7 +207,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "3e9403445dd96f4bb7f740de22d4ea7e3ea7d640777a12eab621ae4d4dbf3bc7",
-      "checked_at": "2026-10-10T14:02:38.071021+00:00",
+      "checked_at": "2026-10-24T15:56:24.445290+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -215,7 +215,7 @@
       "league_id": "it.2",
       "matches": 380,
       "sha256": "74e38be319c2c30b82abcd9aabd5468a79d36408e7f6f2b066eb8bf7938a06b5",
-      "checked_at": "2026-10-10T14:02:39.034930+00:00",
+      "checked_at": "2026-10-24T15:56:25.449375+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -223,7 +223,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
-      "checked_at": "2026-10-10T14:02:41.402208+00:00",
+      "checked_at": "2026-10-24T15:56:28.653769+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -231,7 +231,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "4b1a9906e3f2b279a1f25497a38f2f58e21ec19ea726b882fa646da7c07bc0e0",
-      "checked_at": "2026-10-10T14:02:42.393503+00:00",
+      "checked_at": "2026-10-24T15:56:29.401985+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -239,7 +239,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "721a6c220fecb8208287e41401fa2fce652cd23765ce58a39bf98cdaa3d528ad",
-      "checked_at": "2026-10-10T14:02:43.192329+00:00",
+      "checked_at": "2026-10-24T15:56:30.149356+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -247,7 +247,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "07fab65d4a1de8ce4c8472da9ccf4d1d2b145ecd5abdc5b6d4250a5c119d7681",
-      "checked_at": "2026-10-10T14:02:43.912444+00:00",
+      "checked_at": "2026-10-24T15:56:30.933438+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -255,7 +255,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "f875275f835e378fc8c4e7d48c7a2f327e7d426237bd057fe652fd47f30b5a4f",
-      "checked_at": "2026-10-10T14:02:44.595218+00:00",
+      "checked_at": "2026-10-24T15:56:31.633657+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -263,7 +263,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "708c400d7a1c4e22b5f52c24ad8e986ac46fef8e40c1b8c2b459e53825d3be8e",
-      "checked_at": "2026-10-10T14:02:03.613226+00:00",
+      "checked_at": "2026-10-24T15:55:30.685348+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -272,7 +272,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "5d006d7ee1e4bdec54cb5a3e9f95eb7a7aa09f876e728ed9b056692ae7ecf400",
-      "checked_at": "2026-10-10T14:02:13.328262+00:00",
+      "checked_at": "2026-10-24T15:55:43.326261+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -281,7 +281,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "1a8c0eded9f3d910898ee5eab6fcdad9013f1f8c02b3c7d9b780f9bb78e6b911",
-      "checked_at": "2026-10-10T14:02:22.395480+00:00",
+      "checked_at": "2026-10-24T15:56:05.933538+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -290,7 +290,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "9b127bbc9c59e06d9b0319027da1cc21285d0e513d5e182c63cf625b2081580e",
-      "checked_at": "2026-10-10T14:02:30.415403+00:00",
+      "checked_at": "2026-10-24T15:56:17.814859+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -299,7 +299,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "9a444fdc467a5e812c370fdee4e5031946ae59d5d3748e4b46485f8cf5ec01b1",
-      "checked_at": "2026-10-10T14:02:40.633658+00:00",
+      "checked_at": "2026-10-24T15:56:27.895826+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -307,8 +307,8 @@
       "url": "https://api.openligadb.de/getmatchdata/bl2/2026",
       "league_id": "de.2",
       "matches": 306,
-      "sha256": "efb81ca2e0ef56c6225d0514070bc20b33db194af55261bcc0b49bf8980a1413",
-      "checked_at": "2026-10-10T14:02:46.553140+00:00",
+      "sha256": "a7e5750020a79b84796ca803df0cf46c020cfc8d4eacaeaf8dc9d347b74b35f7",
+      "checked_at": "2026-10-24T15:56:34.576493+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     }
@@ -182365,8 +182365,14 @@
       "date": "2026-10-10",
       "home": "1. FC N\u00fcrnberg",
       "away": "VfL Wolfsburg",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        4,
+        4
+      ],
+      "ht": [
+        0,
+        2
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -182545,8 +182551,14 @@
       "date": "2026-10-11",
       "home": "FC St. Pauli",
       "away": "Karlsruher SC",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        2,
+        0
+      ],
+      "ht": [
+        1,
+        0
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -182555,8 +182567,14 @@
       "date": "2026-10-11",
       "home": "Hertha BSC",
       "away": "SpVgg Greuther F\u00fcrth",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        2,
+        1
+      ],
+      "ht": [
+        0,
+        0
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -182565,8 +182583,14 @@
       "date": "2026-10-11",
       "home": "VfL Bochum",
       "away": "DSC Arminia Bielefeld",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        0,
+        1
+      ],
+      "ht": [
+        0,
+        0
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -182655,8 +182679,14 @@
       "date": "2026-10-16",
       "home": "Holstein Kiel",
       "away": "Hertha BSC",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        0,
+        0
+      ],
+      "ht": [
+        0,
+        0
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -182665,8 +182695,14 @@
       "date": "2026-10-16",
       "home": "Energie Cottbus",
       "away": "1. FC N\u00fcrnberg",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        1,
+        1
+      ],
+      "ht": [
+        0,
+        0
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -182885,8 +182921,14 @@
       "date": "2026-10-17",
       "home": "VfL Wolfsburg",
       "away": "1. FC Heidenheim 1846",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        3,
+        1
+      ],
+      "ht": [
+        2,
+        1
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -182895,8 +182937,14 @@
       "date": "2026-10-17",
       "home": "1. FC Kaiserslautern",
       "away": "VfL Bochum",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        2,
+        0
+      ],
+      "ht": [
+        1,
+        0
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -182905,8 +182953,14 @@
       "date": "2026-10-17",
       "home": "SpVgg Greuther F\u00fcrth",
       "away": "Eintracht Braunschweig",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        2,
+        0
+      ],
+      "ht": [
+        1,
+        0
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -182915,8 +182969,14 @@
       "date": "2026-10-17",
       "home": "Hannover 96",
       "away": "FC St. Pauli",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        1,
+        1
+      ],
+      "ht": [
+        0,
+        1
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -183115,8 +183175,14 @@
       "date": "2026-10-18",
       "home": "Karlsruher SC",
       "away": "SV Darmstadt 98",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        4,
+        0
+      ],
+      "ht": [
+        2,
+        0
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -183125,8 +183191,14 @@
       "date": "2026-10-18",
       "home": "Dynamo Dresden",
       "away": "1. FC Magdeburg",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        2,
+        0
+      ],
+      "ht": [
+        1,
+        0
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -183135,8 +183207,14 @@
       "date": "2026-10-18",
       "home": "DSC Arminia Bielefeld",
       "away": "VfL Osnabr\u00fcck",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        2,
+        1
+      ],
+      "ht": [
+        1,
+        1
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -183235,8 +183313,14 @@
       "date": "2026-10-23",
       "home": "SV Darmstadt 98",
       "away": "FC St. Pauli",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        0,
+        0
+      ],
+      "ht": [
+        0,
+        0
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -183245,8 +183329,14 @@
       "date": "2026-10-23",
       "home": "VfL Bochum",
       "away": "VfL Wolfsburg",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        1,
+        1
+      ],
+      "ht": [
+        0,
+        1
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -183415,8 +183505,14 @@
       "date": "2026-10-24",
       "home": "1. FC Heidenheim 1846",
       "away": "Energie Cottbus",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        1,
+        1
+      ],
+      "ht": [
+        0,
+        1
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -183425,8 +183521,14 @@
       "date": "2026-10-24",
       "home": "Hertha BSC",
       "away": "DSC Arminia Bielefeld",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        1,
+        0
+      ],
+      "ht": [
+        0,
+        0
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"
@@ -183435,8 +183537,14 @@
       "date": "2026-10-24",
       "home": "1. FC Magdeburg",
       "away": "Karlsruher SC",
-      "goals": null,
-      "ht": null,
+      "goals": [
+        6,
+        1
+      ],
+      "ht": [
+        1,
+        0
+      ],
       "league_id": "de.2",
       "league": "Germany \u2014 2. Bundesliga",
       "season": "2026-27"

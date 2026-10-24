@@ -80,7 +80,7 @@ def main():
     args = parser.parse_args()
     from config import load_environment
     load_environment()
-    upcoming, results = build_rows(load())
+    upcoming, results = build_rows(load(fill_gaps=False))   # public: open-licence results only
     if args.dry_run:
         print(json.dumps(dict(upcoming=len(upcoming), results=len(results), sample=(upcoming or results)[:2]), indent=2))
         return

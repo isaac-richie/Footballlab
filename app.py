@@ -130,12 +130,32 @@ def backfill_halftime():
     print(json.dumps(dict(matches=len(data['matches']), with_halftime=attached)))
 
 
-def load():
+def load(fill_gaps=True):
+    """Load results. With fill_gaps, past fixtures the open feed hasn't scored yet are filled
+    in memory from football-data.co.uk (private use only, never saved or published)."""
     if not DATA.exists():
         raise ValueError('Run python3 app.py refresh first.')
     data = json.loads(DATA.read_text())
     canonicalize(data['matches'])
+    if fill_gaps:
+        fill_missing_results(data)
     return data
+
+
+def fill_missing_results(data):
+    today = dt.date.today().isoformat()
+    gaps = [m for m in data['matches'] if m['goals'] is None and m['date'] < today]
+    if not gaps or not odds_data.MARKET.exists():
+        return 0
+    found = odds_data.index(odds_data.load(), data['matches'])
+    filled = 0
+    for m in gaps:
+        r = found.get((m['league_id'], m['date'], m['home'], m['away']))
+        if r and r.get('goals') and not r.get('upcoming'):
+            m['goals'], m['ht'], m['goals_source'] = list(r['goals']), r.get('ht'), 'football-data'
+            filled += 1
+    data['filled_from_football_data'] = filled
+    return filled
 
 
 def history(data, asof, league_id):
