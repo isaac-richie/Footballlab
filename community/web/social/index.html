@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co; img-src 'self' data:; base-uri 'none'; form-action 'none'">
 <title>Terrace</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=swap">
+<link rel="icon" type="image/svg+xml" href="../logo-mark.svg">
 <link rel="stylesheet" href="../styles.css">
 <style>
 .app{display:grid;grid-template-columns:240px minmax(0,1fr) 300px;gap:14px;max-width:1240px;margin:0 auto;padding:14px 16px 20px;height:calc(100vh - 61px);height:calc(100dvh - 61px)}
@@ -66,7 +67,7 @@ dialog select,dialog textarea{width:100%;background:var(--surface-2);border:1px 
 <body>
 <header class="top">
   <div class="wrap">
-    <div class="brand"><div class="mark">TR</div><span>Terrace</span></div>
+    <div class="brand"><img class="logo-mark" src="../logo-mark.svg" alt="" width="30" height="30"><span>Terrace</span></div>
     <nav class="nav" aria-label="Site"><a href="../#play">League</a><a href="../match/">Kickabout</a><a href="./" aria-current="page">Terrace</a></nav>
     <div class="spacer"></div>
     <button class="ghost" id="account" type="button">Sign in</button>

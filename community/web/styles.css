@@ -192,3 +192,6 @@ body{background:transparent}
 @keyframes tick{to{transform:translateX(-50%)}}
 .fixture{border-left:5px solid var(--kh,transparent)}
 @media (prefers-reduced-motion:reduce){.ticker .run{animation:none}}
+
+.logo-mark{display:block;filter:drop-shadow(0 4px 14px color-mix(in srgb,var(--accent) 35%,transparent));transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.brand:hover .logo-mark{transform:rotate(-12deg) scale(1.08)}

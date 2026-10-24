@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Football Lab</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=swap">
 <style>
@@ -469,6 +470,8 @@ html{background:var(--bg)}
 .ft.top .vs .t{font-size:30px}
 .ft.top ul{font-size:15px;columns:2;column-gap:32px}
 @media (max-width:760px){.ft.top ul{columns:1}.ft.top .vs .t{font-size:22px}}
+.logo-mark{display:block;filter:drop-shadow(0 4px 14px color-mix(in srgb,var(--accent) 35%,transparent));transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.brand:hover .logo-mark{transform:rotate(-12deg) scale(1.08)}
 footer{margin:40px 0 30px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--faint)}
 footer a{color:var(--muted)}
 
@@ -508,7 +511,7 @@ footer a{color:var(--muted)}
 <body>
 <header class="top">
   <div class="wrap">
-    <div class="brand"><div class="mark">FL</div><span>Football Lab</span></div>
+    <div class="brand"><img class="logo-mark" src="/logo-mark.svg" alt="" width="30" height="30"><span>Football Lab</span></div>
     <nav class="nav" aria-label="Views">
       <a href="#featured" data-view="featured">Featured</a>
       <a href="#fixtures" data-view="fixtures">Fixtures</a>

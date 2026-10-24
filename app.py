@@ -580,6 +580,13 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header('Cache-Control', 'no-cache')
             self.end_headers()
             self.wfile.write(raw)
+        elif path in ('/logo-mark.svg', '/favicon.svg'):
+            raw = (ROOT / 'community' / 'web' / 'logo-mark.svg').read_bytes()
+            self.send_response(200)
+            self.send_header('Content-Type', 'image/svg+xml')
+            self.send_header('Cache-Control', 'max-age=3600')
+            self.end_headers()
+            self.wfile.write(raw)
         elif path == '/fx.js':
             raw = (ROOT / 'community' / 'web' / 'fx.js').read_bytes()   # one shared copy for every page
             self.send_response(200)
