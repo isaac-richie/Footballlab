@@ -155,7 +155,11 @@ button{cursor:pointer}
 .field select,.field input{width:100%;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-height:42px;font-size:13.5px}
 .field select:focus,.field input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
 .teams-pick{position:relative}
-.swap{position:absolute;right:10px;top:50%;transform:translateY(-50%);z-index:2;width:30px;height:30px;border-radius:50%;border:1px solid var(--line-2);background:var(--surface);color:var(--muted);font-size:14px;display:grid;place-items:center}
+.swap{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--muted);font-size:12px;font-weight:650;border-radius:999px;padding:3px 10px;transition:color .2s,border-color .2s,transform .3s}
+.swap:hover{color:var(--accent);border-color:var(--accent)}
+.swap:active{transform:rotate(180deg)}
+.field-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.field-row>span{font-size:12px;color:var(--muted);font-weight:550}
 .swap:hover{color:var(--accent);border-color:var(--accent)}
 .odds-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .odds-row .field{margin-bottom:0}
@@ -472,6 +476,20 @@ html{background:var(--bg)}
 @media (max-width:760px){.ft.top ul{columns:1}.ft.top .vs .t{font-size:22px}}
 .logo-mark{display:block;filter:drop-shadow(0 4px 14px color-mix(in srgb,var(--accent) 35%,transparent));transition:transform .4s cubic-bezier(.2,.8,.2,1)}
 .brand:hover .logo-mark{transform:rotate(-12deg) scale(1.08)}
+/* Form controls that sit properly */
+select,.field select{-webkit-appearance:none;appearance:none;padding-right:42px!important;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23c2f25e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat!important;background-position:right 16px center!important;background-size:12px 8px!important}
+/* The chevron must survive later background shorthands. */
+select,.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23c2f25e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")!important}
+select:hover{border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+input[type=date]{padding-right:14px}
+input[type=date]::-webkit-calendar-picker-indicator{filter:invert(.75);cursor:pointer;opacity:.8}
+:root[data-theme="light"] input[type=date]::-webkit-calendar-picker-indicator{filter:none}
+details>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:8px}
+details>summary::-webkit-details-marker{display:none}
+details>summary::after{content:"";width:9px;height:9px;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(45deg) translateY(-2px);transition:transform .25s;flex-shrink:0}
+details[open]>summary::after{transform:rotate(-135deg) translateY(-2px)}
 footer{margin:40px 0 30px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--faint)}
 footer a{color:var(--muted)}
 
@@ -575,8 +593,7 @@ footer a{color:var(--muted)}
         <h4>Build the matchup</h4>
         <div class="teams-pick">
           <label class="field"><span>Home team</span><select id="home" required></select></label>
-          <label class="field"><span>Away team</span><select id="away" required></select></label>
-          <button type="button" class="swap" id="swap" title="Swap teams" aria-label="Swap home and away">⇅</button>
+          <div class="field"><div class="field-row"><span id="away-l">Away team</span><button type="button" class="swap" id="swap" title="Swap home and away">⇅ Swap</button></div><select id="away" required aria-labelledby="away-l"></select></div>
         </div>
         <label class="field"><span>Analysis date</span><input id="date" type="date" required></label>
         <details class="fold" id="odds-fold">
@@ -661,6 +678,7 @@ footer a{color:var(--muted)}
   <footer id="slip-foot"></footer>
 </aside>
 <script src="/fx.js"></script>
+<script src="/motion.js" defer></script>
 <script>
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

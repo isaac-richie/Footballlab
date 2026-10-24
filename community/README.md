@@ -49,6 +49,10 @@ The whole platform is **18+**: a profile cannot exist without the player confirm
 
 **Moderation.** Appoint a moderator in the Supabase SQL editor: `insert into public.moderators values ('<user uuid>');`. Moderators see hidden messages (marked) with Hide/Unhide on every message, see all reports (`select * from reports where status = 'open'`), and can suspend with `select ban_user('<user uuid>', 72, 'reason');`. Before opening to the public: publish community rules and a privacy notice, name who handles reports and how fast, and plan for law-enforcement requests and reports of under-18 users (the `underage` report reason exists for this).
 
+## Brand kit
+
+`web/logo-mark.svg` is the mark (a football under a magnifying glass). `web/brand/` holds the hand-lettered wordmark (no font needed, so it renders the same everywhere) for dark and light backgrounds, an X/Twitter header (1500x500) and a link-preview image (1200x630), each as SVG and PNG. Regenerate with `python3 tools/make_brand.py` (PNGs via headless Chrome). For link previews to work once deployed, set `og:image` to the absolute URL of `brand/share-1200x630.png`.
+
 ## Scoring
 
 For each finished match the Brier score is the sum of squared errors over home, draw and away (0 is perfect, 2 is the worst). Points are `(Lab's Brier − your Brier) × 100`. Beating the Lab scores positive points; trailing it scores negative. Brier is a proper scoring rule: over many matches you maximize expected points by entering your honest probabilities, so going all-in on a hunch is punished when it misses. When a fixture has no Lab forecast, the benchmark is one third each.

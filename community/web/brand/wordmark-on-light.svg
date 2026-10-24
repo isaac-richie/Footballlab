@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 472 64" width="1889" height="256" role="img" aria-label="Football Lab"><title>Football Lab</title><defs><linearGradient id="wm-lab" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9ff8a"/><stop offset="1" stop-color="#8fcf2f"/></linearGradient></defs><svg x="0" y="0" width="64" height="64" viewBox="0 0 64 64">
+  
+  <defs>
+    <clipPath id="wm-ball"><circle cx="26" cy="26" r="16.5"/></clipPath>
+    <linearGradient id="wm-rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d9ff8a"/><stop offset="1" stop-color="#8fcf2f"/>
+    </linearGradient>
+  </defs>
+  <!-- handle -->
+  <path d="M40.5 40.5 L55 55" stroke="#13200a" stroke-width="11" stroke-linecap="round"/>
+  <path d="M40.5 40.5 L55 55" stroke="url(#wm-rim)" stroke-width="7.5" stroke-linecap="round"/>
+  <!-- the football, seen through the lens -->
+  <g clip-path="url(#wm-ball)">
+    <circle cx="26" cy="26" r="16.5" fill="#f4f7fb"/>
+    <path d="M26 19.2 L32.4 23.9 L30 31.4 L22 31.4 L19.6 23.9 Z" fill="#0b0f14"/>
+    <path d="M26 19.2 L26 10.5 M32.4 23.9 L40.6 21 M30 31.4 L35 38.6 M22 31.4 L17 38.6 M19.6 23.9 L11.4 21" stroke="#0b0f14" stroke-width="1.6"/>
+    <path d="M21.5 6.5 L30.5 6.5 L33 12.5 L26 15.2 L19 12.5 Z" fill="#0b0f14"/>
+    <path d="M43 15 L46 24 L41.5 27 L37.5 20.5 Z" fill="#0b0f14"/>
+    <path d="M40 36 L43 42 L34 46 L32.5 40 Z" fill="#0b0f14"/>
+    <path d="M12 36 L19.5 40 L18 46 L9 42 Z" fill="#0b0f14"/>
+    <path d="M9 15 L14.5 20.5 L10.5 27 L6 24 Z" fill="#0b0f14"/>
+    <!-- lens glare -->
+    <path d="M14 18 A13.5 13.5 0 0 1 22 11.5" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" fill="none" opacity=".85"/>
+  </g>
+  <!-- lens rim -->
+  <circle cx="26" cy="26" r="18.5" fill="none" stroke="url(#wm-rim)" stroke-width="5"/>
+</svg><g transform="translate(89 7) scale(1.25) skewX(-9)"><g fill="none" stroke="#0b0f14" stroke-width="7" stroke-linejoin="round" stroke-linecap="butt"><path transform="translate(0.0 0)" d="M3.5 40V3.5H20M3.5 20.5H16"/><path transform="translate(25.0 0)" d="M11 3.5h0a7.5 7.5 0 0 1 7.5 7.5v18a7.5 7.5 0 0 1-15 0V11A7.5 7.5 0 0 1 11 3.5Z"/><path transform="translate(52.0 0)" d="M11 3.5h0a7.5 7.5 0 0 1 7.5 7.5v18a7.5 7.5 0 0 1-15 0V11A7.5 7.5 0 0 1 11 3.5Z"/><path transform="translate(79.0 0)" d="M0 3.5H22M11 3.5V40"/><path transform="translate(106.0 0)" d="M3.5 36.5V3.5h9a7.75 7.75 0 0 1 0 15.5h-9M3.5 19h10a8.75 8.75 0 0 1 0 17.5h-10" stroke-linecap="square"/><path transform="translate(137.0 0)" d="M3.5 40V11a7.5 7.5 0 0 1 15 0V40M3.5 24h15"/><path transform="translate(164.0 0)" d="M3.5 0V36.5H20"/><path transform="translate(189.0 0)" d="M3.5 0V36.5H20"/></g><g fill="none" stroke="url(#wm-lab)" stroke-width="7" stroke-linejoin="round" stroke-linecap="butt"><path transform="translate(223.0 0)" d="M3.5 0V36.5H20"/><path transform="translate(248.0 0)" d="M3.5 40V11a7.5 7.5 0 0 1 15 0V40M3.5 24h15"/><path transform="translate(275.0 0)" d="M3.5 36.5V3.5h9a7.75 7.75 0 0 1 0 15.5h-9M3.5 19h10a8.75 8.75 0 0 1 0 17.5h-10" stroke-linecap="square"/></g></g></svg>

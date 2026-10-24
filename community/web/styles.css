@@ -195,3 +195,13 @@ body{background:transparent}
 
 .logo-mark{display:block;filter:drop-shadow(0 4px 14px color-mix(in srgb,var(--accent) 35%,transparent));transition:transform .4s cubic-bezier(.2,.8,.2,1)}
 .brand:hover .logo-mark{transform:rotate(-12deg) scale(1.08)}
+
+/* Form controls that sit properly */
+select,.field select{-webkit-appearance:none;appearance:none;padding-right:42px!important;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23c2f25e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat!important;background-position:right 16px center!important;background-size:12px 8px!important}
+/* The chevron must survive later background shorthands. */
+select,.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23c2f25e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")!important}
+details>summary{list-style:none}
+details>summary::-webkit-details-marker{display:none}
+#account,.ghost{white-space:nowrap}

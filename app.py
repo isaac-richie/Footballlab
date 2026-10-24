@@ -105,7 +105,9 @@ def refresh():
 
 def backfill_halftime():
     """Attach half-time scores from the exact raw snapshots behind current partitions."""
-    data = load()
+    # Fresh, unfilled copy: this writes data.json, which must hold open-licence results only.
+    data = json.loads(DATA.read_text())
+    canonicalize(data['matches'])
     halves = {}
     for source in data['sources']:
         path = ROOT / 'snapshots' / (source.get('sha256', '') + '.json')
@@ -135,11 +137,21 @@ def load(fill_gaps=True):
     in memory from football-data.co.uk (private use only, never saved or published)."""
     if not DATA.exists():
         raise ValueError('Run python3 app.py refresh first.')
+    # Parsing and gap-filling take seconds, so reuse the result until either file changes.
+    # Callers treat the returned data as read-only.
+    stamp = (DATA.stat().st_mtime_ns, odds_data.MARKET.stat().st_mtime_ns if odds_data.MARKET.exists() else 0, fill_gaps)
+    hit = _load_cache.get(fill_gaps)
+    if hit and hit[0] == stamp:
+        return hit[1]
     data = json.loads(DATA.read_text())
     canonicalize(data['matches'])
     if fill_gaps:
         fill_missing_results(data)
+    _load_cache[fill_gaps] = (stamp, data)
     return data
+
+
+_load_cache = {}
 
 
 def fill_missing_results(data):
@@ -587,8 +599,8 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header('Cache-Control', 'max-age=3600')
             self.end_headers()
             self.wfile.write(raw)
-        elif path == '/fx.js':
-            raw = (ROOT / 'community' / 'web' / 'fx.js').read_bytes()   # one shared copy for every page
+        elif path in ('/fx.js', '/motion.js'):
+            raw = (ROOT / 'community' / 'web' / path.lstrip('/')).read_bytes()   # one shared copy for every page
             self.send_response(200)
             self.send_header('Content-Type', 'text/javascript; charset=utf-8')
             self.send_header('Cache-Control', 'no-cache')
