@@ -20,6 +20,7 @@ from count_markets import count_markets
 import odds_data
 import live_odds
 import schedule
+import saudi
 import market_ratings
 from stats import import_csv, load as load_stats, market_rates, own_count_rates, poisson_over
 from decision import assess
@@ -40,7 +41,9 @@ LEAGUES = {
     'fr.1': 'France — Ligue 1',
     'it.2': 'Italy — Serie B',
     'de.2': 'Germany — 2. Bundesliga',
+    'sa.1': 'Saudi Arabia — Pro League',     # TheSportsDB, private Lab only (saudi.py)
 }
+OPEN_LEAGUES = [k for k in LEAGUES if k != 'sa.1']     # leagues with an open results feed
 
 
 def refresh():
@@ -51,7 +54,7 @@ def refresh():
     successes = 0
     for year in range(2021, dt.date.today().year + 1):
         season = f'{year}-{str(year + 1)[-2:]}'
-        for league_id, league_name in LEAGUES.items():
+        for league_id, league_name in ((k, LEAGUES[k]) for k in OPEN_LEAGUES):
             # OpenLigaDB covers the missing 2. Bundesliga partitions and publishes
             # its match database under ODbL; keep this provenance per source.
             url = (f'{OPENLIGADB_SOURCE}{year}' if league_id == 'de.2'
@@ -149,6 +152,7 @@ def load(fill_gaps=True):
     canonicalize(data['matches'])
     if fill_gaps:
         fill_missing_results(data)
+        saudi.merge(data)
         if odds_data.MARKET.exists():
             schedule.reconcile(data, odds_data.load(), live_cache=live_odds.load_cache())
     _load_cache[fill_gaps] = (stamp, data)
@@ -171,7 +175,23 @@ def fill_missing_results(data):
             m['goals'], m['ht'], m['goals_source'] = list(r['goals']), r.get('ht'), 'football-data'
             filled += 1
     data['filled_from_football_data'] = filled
+    data['seasons_from_football_data'] = fill_missing_seasons(data)
     return filled
+
+
+def fill_missing_seasons(data):
+    """Whole league-seasons the open feed lacks (Serie B 2021-24), from football-data, in memory only."""
+    have = {(m['league_id'], m['season']) for m in data['matches']}
+    added = {}
+    for r in odds_data.load()['records']:
+        key = (r['league_id'], r.get('season'))
+        if key in have or r.get('upcoming') or not r.get('goals') or not (r.get('home') and r.get('away')):
+            continue
+        data['matches'].append(dict(date=r['date'], home=r['home'], away=r['away'], goals=list(r['goals']), ht=r.get('ht'),
+                                    league_id=r['league_id'], league=LEAGUES[r['league_id']], season=r['season'],
+                                    goals_source='football-data'))
+        added[f'{key[0]} {key[1]}'] = added.get(f'{key[0]} {key[1]}', 0) + 1
+    return added
 
 
 def history(data, asof, league_id):
@@ -442,9 +462,9 @@ def market_fit(prices, rho, start):
     With 1X2 and over/under 2.5 prices there are three numbers to match, so the
     dependence term is solved too and the 1X2 shown equals the market exactly.
     """
-    p = odds_data.no_vig(prices['h2h'])
+    p = odds_data.fair(prices['h2h'])
     if prices.get('ou25'):
-        return implied_rates_rho(p, odds_data.no_vig(prices['ou25'])[0], rho, start)
+        return implied_rates_rho(p, odds_data.fair(prices['ou25'])[0], rho, start)
     mh, ma, error = implied_rates(p, None, rho, start)
     return mh, ma, rho, error
 
@@ -746,15 +766,17 @@ if __name__ == '__main__':
     from config import load_environment
     load_environment()
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=['refresh', 'serve', 'backtest', 'import-stats', 'backfill-halftime', 'refresh-odds', 'fetch-badges'])
+    parser.add_argument('command', choices=['refresh', 'serve', 'backtest', 'import-stats', 'backfill-halftime', 'refresh-odds', 'fetch-badges', 'fetch-saudi'])
     parser.add_argument('path', nargs='?', help='CSV path for import-stats')
     parser.add_argument('--port', type=int, default=8765)
     args = parser.parse_args()
     if args.command == 'refresh':
         refresh()
+    elif args.command == 'fetch-saudi':
+        print(json.dumps(saudi.fetch()))
     elif args.command == 'fetch-badges':
         import badges
-        data = load(fill_gaps=False)
+        data = load()                    # includes clubs only football-data lists (new Serie B season)
         seasons = {lg: max(m['season'] for m in data['matches'] if m['league_id'] == lg) for lg in LEAGUES
                    if any(m['league_id'] == lg for m in data['matches'])}
         teams = sorted({(m['league_id'], t) for m in data['matches'] if m['season'] == seasons.get(m['league_id'])

@@ -1,0 +1,981 @@
+{
+ "generated_at": "2026-10-24T17:06:37.000234+00:00",
+ "tune": [
+  "2023-24",
+  "2024-25"
+ ],
+ "holdout": [
+  "2025-26",
+  "2026-27"
+ ],
+ "matches": {
+  "tune": 4883,
+  "holdout": 2930
+ },
+ "models": {
+  "prod": {
+   "tune": {
+    "log_loss": 1.00299,
+    "brier": 0.59942,
+    "rps": 0.20251,
+    "accuracy": 0.5087,
+    "n": 4883
+   },
+   "holdout": {
+    "log_loss": 1.00751,
+    "brier": 0.60192,
+    "rps": 0.2053,
+    "accuracy": 0.5058,
+    "n": 2930
+   },
+   "ou25": {
+    "tune": 0.68253,
+    "holdout": 0.68438
+   },
+   "newcomer_matches": {
+    "log_loss": 1.02123,
+    "brier": 0.61247,
+    "rps": 0.20178,
+    "accuracy": 0.49158,
+    "n": 1009
+   }
+  },
+  "exact": {
+   "tune": {
+    "log_loss": 0.9999,
+    "brier": 0.59736,
+    "rps": 0.2018,
+    "accuracy": 0.50911,
+    "n": 4883
+   },
+   "holdout": {
+    "log_loss": 1.00222,
+    "brier": 0.59832,
+    "rps": 0.20385,
+    "accuracy": 0.50819,
+    "n": 2930
+   },
+   "ou25": {
+    "tune": 0.67375,
+    "holdout": 0.6791
+   },
+   "newcomer_matches": {
+    "log_loss": 1.0166,
+    "brier": 0.60924,
+    "rps": 0.20032,
+    "accuracy": 0.49257,
+    "n": 1009
+   }
+  },
+  "exact_new": {
+   "tune": {
+    "log_loss": 0.99821,
+    "brier": 0.59629,
+    "rps": 0.20126,
+    "accuracy": 0.51096,
+    "n": 4883
+   },
+   "holdout": {
+    "log_loss": 1.00292,
+    "brier": 0.59894,
+    "rps": 0.20416,
+    "accuracy": 0.50785,
+    "n": 2930
+   },
+   "ou25": {
+    "tune": 0.67412,
+    "holdout": 0.67894
+   },
+   "newcomer_matches": {
+    "log_loss": 1.01752,
+    "brier": 0.61037,
+    "rps": 0.20089,
+    "accuracy": 0.48761,
+    "n": 1009
+   }
+  },
+  "ridge0.01": {
+   "tune": {
+    "log_loss": 0.99594,
+    "brier": 0.59487,
+    "rps": 0.20059,
+    "accuracy": 0.51178,
+    "n": 4883
+   },
+   "holdout": {
+    "log_loss": 1.00131,
+    "brier": 0.59789,
+    "rps": 0.2037,
+    "accuracy": 0.51058,
+    "n": 2930
+   },
+   "ou25": {
+    "tune": 0.67421,
+    "holdout": 0.67927
+   },
+   "newcomer_matches": {
+    "log_loss": 1.01699,
+    "brier": 0.61021,
+    "rps": 0.20084,
+    "accuracy": 0.49058,
+    "n": 1009
+   }
+  },
+  "ridge0.05": {
+   "tune": {
+    "log_loss": 1.00201,
+    "brier": 0.59875,
+    "rps": 0.20241,
+    "accuracy": 0.5087,
+    "n": 4883
+   },
+   "holdout": {
+    "log_loss": 1.00607,
+    "brier": 0.60106,
+    "rps": 0.20512,
+    "accuracy": 0.50614,
+    "n": 2930
+   },
+   "ou25": {
+    "tune": 0.67445,
+    "holdout": 0.67883
+   },
+   "newcomer_matches": {
+    "log_loss": 1.01911,
+    "brier": 0.61124,
+    "rps": 0.20126,
+    "accuracy": 0.48464,
+    "n": 1009
+   }
+  },
+  "ridge0.1": {
+   "tune": {
+    "log_loss": 1.00896,
+    "brier": 0.60343,
+    "rps": 0.20461,
+    "accuracy": 0.50031,
+    "n": 4883
+   },
+   "holdout": {
+    "log_loss": 1.01236,
+    "brier": 0.60541,
+    "rps": 0.20714,
+    "accuracy": 0.50307,
+    "n": 2930
+   },
+   "ou25": {
+    "tune": 0.67547,
+    "holdout": 0.67919
+   },
+   "newcomer_matches": {
+    "log_loss": 1.02265,
+    "brier": 0.61343,
+    "rps": 0.20225,
+    "accuracy": 0.4886,
+    "n": 1009
+   }
+  },
+  "hl60": {
+   "tune": {
+    "log_loss": 0.9971,
+    "brier": 0.59553,
+    "rps": 0.20089,
+    "accuracy": 0.513,
+    "n": 4883
+   },
+   "holdout": {
+    "log_loss": 1.00272,
+    "brier": 0.59882,
+    "rps": 0.20409,
+    "accuracy": 0.50887,
+    "n": 2930
+   },
+   "ou25": {
+    "tune": 0.67465,
+    "holdout": 0.67957
+   },
+   "newcomer_matches": {
+    "log_loss": 1.01826,
+    "brier": 0.61093,
+    "rps": 0.20115,
+    "accuracy": 0.48365,
+    "n": 1009
+   }
+  },
+  "hl150": {
+   "tune": {
+    "log_loss": 1.00014,
+    "brier": 0.59765,
+    "rps": 0.20191,
+    "accuracy": 0.5087,
+    "n": 4883
+   },
+   "holdout": {
+    "log_loss": 1.00392,
+    "brier": 0.59963,
+    "rps": 0.20451,
+    "accuracy": 0.50922,
+    "n": 2930
+   },
+   "ou25": {
+    "tune": 0.67382,
+    "holdout": 0.67862
+   },
+   "newcomer_matches": {
+    "log_loss": 1.01724,
+    "brier": 0.61011,
+    "rps": 0.20077,
+    "accuracy": 0.49158,
+    "n": 1009
+   }
+  },
+  "hl240": {
+   "tune": {
+    "log_loss": 1.00205,
+    "brier": 0.59898,
+    "rps": 0.20255,
+    "accuracy": 0.50563,
+    "n": 4883
+   },
+   "holdout": {
+    "log_loss": 1.00523,
+    "brier": 0.60056,
+    "rps": 0.20496,
+    "accuracy": 0.50546,
+    "n": 2930
+   },
+   "ou25": {
+    "tune": 0.67384,
+    "holdout": 0.6786
+   },
+   "newcomer_matches": {
+    "log_loss": 1.01768,
+    "brier": 0.61043,
+    "rps": 0.20091,
+    "accuracy": 0.49058,
+    "n": 1009
+   }
+  },
+  "mw0.5": {
+   "tune": {
+    "log_loss": 1.00043,
+    "brier": 0.59796,
+    "rps": 0.20199,
+    "accuracy": 0.51075,
+    "n": 4883
+   },
+   "holdout": {
+    "log_loss": 1.00676,
+    "brier": 0.60166,
+    "rps": 0.20536,
+    "accuracy": 0.50614,
+    "n": 2930
+   },
+   "ou25": {
+    "tune": 0.67723,
+    "holdout": 0.6838
+   },
+   "newcomer_matches": {
+    "log_loss": 1.02572,
+    "brier": 0.61613,
+    "rps": 0.20355,
+    "accuracy": 0.48067,
+    "n": 1009
+   }
+  },
+  "mw0.9": {
+   "tune": {
+    "log_loss": 0.99832,
+    "brier": 0.5963,
+    "rps": 0.20129,
+    "accuracy": 0.51055,
+    "n": 4883
+   },
+   "holdout": {
+    "log_loss": 1.00205,
+    "brier": 0.59831,
+    "rps": 0.2039,
+    "accuracy": 0.51092,
+    "n": 2930
+   },
+   "ou25": {
+    "tune": 0.67355,
+    "holdout": 0.67732
+   },
+   "newcomer_matches": {
+    "log_loss": 1.01454,
+    "brier": 0.60824,
+    "rps": 0.1999,
+    "accuracy": 0.50248,
+    "n": 1009
+   }
+  },
+  "goals_hl180": {
+   "tune": {
+    "log_loss": 1.00763,
+    "brier": 0.603,
+    "rps": 0.20434,
+    "accuracy": 0.50317,
+    "n": 4883
+   },
+   "holdout": {
+    "log_loss": 1.01372,
+    "brier": 0.60637,
+    "rps": 0.20753,
+    "accuracy": 0.50205,
+    "n": 2930
+   },
+   "ou25": {
+    "tune": 0.68132,
+    "holdout": 0.6905
+   },
+   "newcomer_matches": {
+    "log_loss": 1.03654,
+    "brier": 0.62334,
+    "rps": 0.20695,
+    "accuracy": 0.47374,
+    "n": 1009
+   }
+  },
+  "goals_hl365": {
+   "tune": {
+    "log_loss": 1.00675,
+    "brier": 0.60246,
+    "rps": 0.2042,
+    "accuracy": 0.50113,
+    "n": 4883
+   },
+   "holdout": {
+    "log_loss": 1.01045,
+    "brier": 0.60414,
+    "rps": 0.20658,
+    "accuracy": 0.50887,
+    "n": 2930
+   },
+   "ou25": {
+    "tune": 0.67717,
+    "holdout": 0.68553
+   },
+   "newcomer_matches": {
+    "log_loss": 1.02797,
+    "brier": 0.61756,
+    "rps": 0.20428,
+    "accuracy": 0.49158,
+    "n": 1009
+   }
+  }
+ },
+ "chosen": {
+  "model": "ridge0.01",
+  "model_without_prices": "goals_hl365",
+  "margin_method": "additive"
+ },
+ "models_by_league": {
+  "de.1": {
+   "prod": {
+    "log_loss": 0.97512,
+    "brier": 0.57859,
+    "rps": 0.1984,
+    "accuracy": 0.55278,
+    "n": 360
+   },
+   "ridge0.01": {
+    "log_loss": 0.96918,
+    "brier": 0.57387,
+    "rps": 0.19658,
+    "accuracy": 0.55278,
+    "n": 360
+   },
+   "goals_hl365": {
+    "log_loss": 0.97668,
+    "brier": 0.57935,
+    "rps": 0.19908,
+    "accuracy": 0.54444,
+    "n": 360
+   }
+  },
+  "de.2": {
+   "prod": {
+    "log_loss": 1.05422,
+    "brier": 0.63489,
+    "rps": 0.22175,
+    "accuracy": 0.46736,
+    "n": 383
+   },
+   "ridge0.01": {
+    "log_loss": 1.05277,
+    "brier": 0.63429,
+    "rps": 0.22203,
+    "accuracy": 0.45953,
+    "n": 383
+   },
+   "goals_hl365": {
+    "log_loss": 1.05773,
+    "brier": 0.63775,
+    "rps": 0.22409,
+    "accuracy": 0.45692,
+    "n": 383
+   }
+  },
+  "en.1": {
+   "prod": {
+    "log_loss": 1.02724,
+    "brier": 0.61603,
+    "rps": 0.20774,
+    "accuracy": 0.48222,
+    "n": 450
+   },
+   "ridge0.01": {
+    "log_loss": 1.01937,
+    "brier": 0.61178,
+    "rps": 0.20613,
+    "accuracy": 0.49333,
+    "n": 450
+   },
+   "goals_hl365": {
+    "log_loss": 1.03202,
+    "brier": 0.62005,
+    "rps": 0.21015,
+    "accuracy": 0.48444,
+    "n": 450
+   }
+  },
+  "es.1": {
+   "prod": {
+    "log_loss": 0.9788,
+    "brier": 0.58063,
+    "rps": 0.19857,
+    "accuracy": 0.52878,
+    "n": 469
+   },
+   "ridge0.01": {
+    "log_loss": 0.96608,
+    "brier": 0.572,
+    "rps": 0.19477,
+    "accuracy": 0.53518,
+    "n": 469
+   },
+   "goals_hl365": {
+    "log_loss": 0.97372,
+    "brier": 0.57726,
+    "rps": 0.1971,
+    "accuracy": 0.53305,
+    "n": 469
+   }
+  },
+  "fr.1": {
+   "prod": {
+    "log_loss": 0.99167,
+    "brier": 0.59171,
+    "rps": 0.20458,
+    "accuracy": 0.52304,
+    "n": 369
+   },
+   "ridge0.01": {
+    "log_loss": 0.98375,
+    "brier": 0.58636,
+    "rps": 0.20227,
+    "accuracy": 0.5393,
+    "n": 369
+   },
+   "goals_hl365": {
+    "log_loss": 0.99857,
+    "brier": 0.59647,
+    "rps": 0.20645,
+    "accuracy": 0.5393,
+    "n": 369
+   }
+  },
+  "it.1": {
+   "prod": {
+    "log_loss": 0.98192,
+    "brier": 0.58415,
+    "rps": 0.19993,
+    "accuracy": 0.53111,
+    "n": 450
+   },
+   "ridge0.01": {
+    "log_loss": 0.97569,
+    "brier": 0.58003,
+    "rps": 0.19802,
+    "accuracy": 0.54222,
+    "n": 450
+   },
+   "goals_hl365": {
+    "log_loss": 0.98878,
+    "brier": 0.58871,
+    "rps": 0.20207,
+    "accuracy": 0.53778,
+    "n": 450
+   }
+  },
+  "it.2": {
+   "prod": {
+    "log_loss": 1.04254,
+    "brier": 0.6268,
+    "rps": 0.20736,
+    "accuracy": 0.46102,
+    "n": 449
+   },
+   "ridge0.01": {
+    "log_loss": 1.04199,
+    "brier": 0.62658,
+    "rps": 0.20751,
+    "accuracy": 0.45657,
+    "n": 449
+   },
+   "goals_hl365": {
+    "log_loss": 1.04544,
+    "brier": 0.62922,
+    "rps": 0.20859,
+    "accuracy": 0.46993,
+    "n": 449
+   }
+  }
+ },
+ "margin": {
+  "avg_open": {
+   "proportional": {
+    "tune": {
+     "log_loss": 0.98486,
+     "brier": 0.5876,
+     "rps": 0.19719,
+     "accuracy": 0.51856,
+     "n": 4875
+    },
+    "holdout": {
+     "log_loss": 0.99136,
+     "brier": 0.59137,
+     "rps": 0.20094,
+     "accuracy": 0.52053,
+     "n": 2922
+    }
+   },
+   "shin": {
+    "tune": {
+     "log_loss": 0.98425,
+     "brier": 0.58733,
+     "rps": 0.19702,
+     "accuracy": 0.51856,
+     "n": 4875
+    },
+    "holdout": {
+     "log_loss": 0.99041,
+     "brier": 0.59081,
+     "rps": 0.20067,
+     "accuracy": 0.52053,
+     "n": 2922
+    }
+   },
+   "power": {
+    "tune": {
+     "log_loss": 0.98418,
+     "brier": 0.58729,
+     "rps": 0.19698,
+     "accuracy": 0.51856,
+     "n": 4875
+    },
+    "holdout": {
+     "log_loss": 0.99015,
+     "brier": 0.59064,
+     "rps": 0.20059,
+     "accuracy": 0.52053,
+     "n": 2922
+    }
+   },
+   "odds_ratio": {
+    "tune": {
+     "log_loss": 0.98441,
+     "brier": 0.58738,
+     "rps": 0.19705,
+     "accuracy": 0.51856,
+     "n": 4875
+    },
+    "holdout": {
+     "log_loss": 0.99049,
+     "brier": 0.59083,
+     "rps": 0.20069,
+     "accuracy": 0.52053,
+     "n": 2922
+    }
+   },
+   "additive": {
+    "tune": {
+     "log_loss": 0.98411,
+     "brier": 0.58727,
+     "rps": 0.19698,
+     "accuracy": 0.51856,
+     "n": 4875
+    },
+    "holdout": {
+     "log_loss": 0.9902,
+     "brier": 0.59069,
+     "rps": 0.2006,
+     "accuracy": 0.52053,
+     "n": 2922
+    }
+   }
+  },
+  "avg_close": {
+   "proportional": {
+    "tune": {
+     "log_loss": 0.98251,
+     "brier": 0.58602,
+     "rps": 0.19651,
+     "accuracy": 0.52605,
+     "n": 4876
+    },
+    "holdout": {
+     "log_loss": 0.98912,
+     "brier": 0.59,
+     "rps": 0.20041,
+     "accuracy": 0.52417,
+     "n": 2917
+    }
+   },
+   "shin": {
+    "tune": {
+     "log_loss": 0.98191,
+     "brier": 0.58574,
+     "rps": 0.19635,
+     "accuracy": 0.52605,
+     "n": 4876
+    },
+    "holdout": {
+     "log_loss": 0.98815,
+     "brier": 0.58946,
+     "rps": 0.20015,
+     "accuracy": 0.52417,
+     "n": 2917
+    }
+   },
+   "power": {
+    "tune": {
+     "log_loss": 0.98185,
+     "brier": 0.58571,
+     "rps": 0.19631,
+     "accuracy": 0.52605,
+     "n": 4876
+    },
+    "holdout": {
+     "log_loss": 0.98789,
+     "brier": 0.5893,
+     "rps": 0.20008,
+     "accuracy": 0.52417,
+     "n": 2917
+    }
+   },
+   "odds_ratio": {
+    "tune": {
+     "log_loss": 0.98208,
+     "brier": 0.5858,
+     "rps": 0.19638,
+     "accuracy": 0.52605,
+     "n": 4876
+    },
+    "holdout": {
+     "log_loss": 0.98825,
+     "brier": 0.58949,
+     "rps": 0.20018,
+     "accuracy": 0.52417,
+     "n": 2917
+    }
+   },
+   "additive": {
+    "tune": {
+     "log_loss": 0.98177,
+     "brier": 0.58569,
+     "rps": 0.19631,
+     "accuracy": 0.52605,
+     "n": 4876
+    },
+    "holdout": {
+     "log_loss": 0.98791,
+     "brier": 0.58934,
+     "rps": 0.20009,
+     "accuracy": 0.52417,
+     "n": 2917
+    }
+   }
+  },
+  "pin_open": {
+   "proportional": {
+    "tune": {
+     "log_loss": 0.98408,
+     "brier": 0.58715,
+     "rps": 0.19703,
+     "accuracy": 0.51856,
+     "n": 4875
+    },
+    "holdout": {
+     "log_loss": 0.97694,
+     "brier": 0.58207,
+     "rps": 0.19646,
+     "accuracy": 0.52451,
+     "n": 1081
+    }
+   },
+   "shin": {
+    "tune": {
+     "log_loss": 0.9836,
+     "brier": 0.58695,
+     "rps": 0.19691,
+     "accuracy": 0.51856,
+     "n": 4875
+    },
+    "holdout": {
+     "log_loss": 0.97603,
+     "brier": 0.58161,
+     "rps": 0.19624,
+     "accuracy": 0.52451,
+     "n": 1081
+    }
+   },
+   "power": {
+    "tune": {
+     "log_loss": 0.98357,
+     "brier": 0.58692,
+     "rps": 0.19688,
+     "accuracy": 0.51856,
+     "n": 4875
+    },
+    "holdout": {
+     "log_loss": 0.9758,
+     "brier": 0.58146,
+     "rps": 0.19617,
+     "accuracy": 0.52451,
+     "n": 1081
+    }
+   },
+   "odds_ratio": {
+    "tune": {
+     "log_loss": 0.98375,
+     "brier": 0.58699,
+     "rps": 0.19693,
+     "accuracy": 0.51856,
+     "n": 4875
+    },
+    "holdout": {
+     "log_loss": 0.97623,
+     "brier": 0.58167,
+     "rps": 0.19627,
+     "accuracy": 0.52451,
+     "n": 1081
+    }
+   },
+   "additive": {
+    "tune": {
+     "log_loss": 0.98348,
+     "brier": 0.5869,
+     "rps": 0.19687,
+     "accuracy": 0.51856,
+     "n": 4875
+    },
+    "holdout": {
+     "log_loss": 0.97575,
+     "brier": 0.58148,
+     "rps": 0.19617,
+     "accuracy": 0.52451,
+     "n": 1081
+    }
+   }
+  },
+  "pin_close": {
+   "proportional": {
+    "tune": {
+     "log_loss": 0.98178,
+     "brier": 0.58562,
+     "rps": 0.19638,
+     "accuracy": 0.52584,
+     "n": 4876
+    },
+    "holdout": {
+     "log_loss": 0.97654,
+     "brier": 0.58211,
+     "rps": 0.19692,
+     "accuracy": 0.52412,
+     "n": 1078
+    }
+   },
+   "shin": {
+    "tune": {
+     "log_loss": 0.98141,
+     "brier": 0.58545,
+     "rps": 0.19629,
+     "accuracy": 0.52584,
+     "n": 4876
+    },
+    "holdout": {
+     "log_loss": 0.97571,
+     "brier": 0.58169,
+     "rps": 0.19674,
+     "accuracy": 0.52412,
+     "n": 1078
+    }
+   },
+   "power": {
+    "tune": {
+     "log_loss": 0.98137,
+     "brier": 0.58543,
+     "rps": 0.19627,
+     "accuracy": 0.52584,
+     "n": 4876
+    },
+    "holdout": {
+     "log_loss": 0.9755,
+     "brier": 0.58154,
+     "rps": 0.19667,
+     "accuracy": 0.52412,
+     "n": 1078
+    }
+   },
+   "odds_ratio": {
+    "tune": {
+     "log_loss": 0.98152,
+     "brier": 0.58549,
+     "rps": 0.1963,
+     "accuracy": 0.52584,
+     "n": 4876
+    },
+    "holdout": {
+     "log_loss": 0.9759,
+     "brier": 0.58174,
+     "rps": 0.19676,
+     "accuracy": 0.52412,
+     "n": 1078
+    }
+   },
+   "additive": {
+    "tune": {
+     "log_loss": 0.98132,
+     "brier": 0.58541,
+     "rps": 0.19626,
+     "accuracy": 0.52584,
+     "n": 4876
+    },
+    "holdout": {
+     "log_loss": 0.97545,
+     "brier": 0.58156,
+     "rps": 0.19668,
+     "accuracy": 0.52412,
+     "n": 1078
+    }
+   }
+  }
+ },
+ "pre_kickoff": {
+  "model_weight": 0.0,
+  "tune": {
+   "market": {
+    "log_loss": 0.98411,
+    "brier": 0.58727,
+    "rps": 0.19698,
+    "accuracy": 0.51856,
+    "n": 4875
+   },
+   "market_plus_model": {
+    "log_loss": 0.98411,
+    "brier": 0.58727,
+    "rps": 0.19698,
+    "accuracy": 0.51856,
+    "n": 4875
+   },
+   "model": {
+    "log_loss": 0.99592,
+    "brier": 0.59487,
+    "rps": 0.20055,
+    "accuracy": 0.51179,
+    "n": 4875
+   }
+  },
+  "holdout": {
+   "market": {
+    "log_loss": 0.9902,
+    "brier": 0.59069,
+    "rps": 0.2006,
+    "accuracy": 0.52053,
+    "n": 2922
+   },
+   "market_plus_model": {
+    "log_loss": 0.9902,
+    "brier": 0.59069,
+    "rps": 0.2006,
+    "accuracy": 0.52053,
+    "n": 2922
+   },
+   "model": {
+    "log_loss": 1.00119,
+    "brier": 0.59781,
+    "rps": 0.20381,
+    "accuracy": 0.51095,
+    "n": 2922
+   }
+  },
+  "closing_holdout": {
+   "log_loss": 0.98791,
+   "brier": 0.58934,
+   "rps": 0.20009,
+   "accuracy": 0.52417,
+   "n": 2917
+  },
+  "pinnacle_vs_average": {
+   "seasons": [
+    "2023-24",
+    "2024-25",
+    "2025-26"
+   ],
+   "average": {
+    "log_loss": 0.98251,
+    "brier": 0.58621,
+    "rps": 0.19682,
+    "accuracy": 0.52015,
+    "n": 5956
+   },
+   "pinnacle": {
+    "log_loss": 0.98208,
+    "brier": 0.58592,
+    "rps": 0.19675,
+    "accuracy": 0.51964,
+    "n": 5956
+   }
+  }
+ },
+ "calibration": {
+  "ridge0.01": {
+   "temperature": 0.85,
+   "draw_shift": 0.15,
+   "holdout_raw": {
+    "log_loss": 1.00131,
+    "brier": 0.59789,
+    "rps": 0.2037,
+    "accuracy": 0.51058,
+    "n": 2930
+   },
+   "holdout_calibrated": {
+    "log_loss": 0.99924,
+    "brier": 0.59666,
+    "rps": 0.20319,
+    "accuracy": 0.50922,
+    "n": 2930
+   }
+  },
+  "goals_hl365": {
+   "temperature": 0.91,
+   "draw_shift": 0.12,
+   "holdout_raw": {
+    "log_loss": 1.01045,
+    "brier": 0.60414,
+    "rps": 0.20658,
+    "accuracy": 0.50887,
+    "n": 2930
+   },
+   "holdout_calibrated": {
+    "log_loss": 1.0092,
+    "brier": 0.60347,
+    "rps": 0.20627,
+    "accuracy": 0.50683,
+    "n": 2930
+   }
+  }
+ }
+}

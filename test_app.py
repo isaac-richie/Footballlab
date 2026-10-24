@@ -53,10 +53,10 @@ class Tests(unittest.TestCase):
         rows = []
         for day in range(100):
             rows.append(dict(date=f'2024-01-{(day % 28)+1:02d}', home='A', away='B', goals=[2, 1]))
-        home, away, _, meta = fit_rates(rows, 'A', 'B', '2025-02-01', iterations=20)
+        home, away, _, meta = fit_rates(rows, 'A', 'B', '2025-02-01')
         self.assertTrue(.05 <= home <= 6)
         self.assertTrue(.05 <= away <= 6)
-        self.assertEqual(meta['iterations'], 20)
+        self.assertIn('converged', meta['solver'])
 
 
 if __name__ == '__main__':

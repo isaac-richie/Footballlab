@@ -111,5 +111,7 @@ def featured(data, leagues, slate_fn, history_fn, period='week', limit=10):
             if g not in picked and per[g['league_id']] < cap:
                 picked.append(g); per[g['league_id']] += 1
     picked = sorted(picked, key=lambda g: -g['hype'])[:limit]
-    return dict(period=period, label=label, games=picked,
+    every = sorted(games, key=lambda g: (g['date'], g.get('kickoff') or '', g['league']))
+    return dict(period=period, label=label, games=picked, all=every,
+                leagues={lid: n.split(' — ')[-1] for lid, n in leagues.items() if any(g['league_id'] == lid for g in games)},
                 note='Chosen by how strong both clubs are and how close the game looks. Write-ups come straight from the numbers.')

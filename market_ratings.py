@@ -34,7 +34,8 @@ def _implied(rec):
 
 def table():
     """{'league|date|home|away': [home xG, away xG]} for every priced, finished match. Cached on disk."""
-    stamp = odds_data.MARKET.stat().st_mtime_ns if odds_data.MARKET.exists() else 0
+    # The tag re-keys the cache when record naming changes (football-data's own names for unlinked clubs).
+    stamp = [odds_data.MARKET.stat().st_mtime_ns if odds_data.MARKET.exists() else 0, 'own-names']
     if _memo.get('stamp') == stamp:
         return _memo['table']
     try:
@@ -56,9 +57,9 @@ def table():
     return out
 
 
-def targets(rows):
+def targets(rows, weight=MARKET_WEIGHT):
     """Copies of rows whose goals are blended towards the market's implied goals."""
-    t, w = table(), MARKET_WEIGHT
+    t, w = table(), weight
     out = []
     for m in rows:
         imp = t.get('|'.join((m['league_id'], m['date'], m['home'], m['away'])))

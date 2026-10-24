@@ -205,7 +205,28 @@ def fetch(matches, first_year=2021):
 
 
 def load():
-    return json.loads(MARKET.read_text()) if MARKET.exists() else dict(records=[], sources=[], license=LICENSE)
+    market = json.loads(MARKET.read_text()) if MARKET.exists() else dict(records=[], sources=[], license=LICENSE)
+    own_names(market)
+    return market
+
+
+def own_names(market):
+    """Keep football-data's own name for a club the results dataset never has.
+
+    A name with no fixture votes at all (Serie B 2021-24 clubs, before the open
+    feed starts) cannot be mapped, but it is still one stable identity inside
+    football-data. Names that had votes but stayed ambiguous remain unlinked,
+    and a fallback never takes a name another source name already maps to.
+    """
+    unresolved = {(u['league_id'], u['name']) for u in market.get('unresolved_names', [])}
+    taken = {(k.split('|', 1)[0], v) for k, v in market.get('name_map', {}).items()}
+    for r in market.get('records', []):
+        for side in ('home', 'away'):
+            name = r.get('fd_' + side)
+            if r.get(side) or not name or (r['league_id'], name) in unresolved:
+                continue
+            if f"{r['league_id']}|{name}" not in market.get('name_map', {}) and (r['league_id'], name) not in taken:
+                r[side] = name
 
 
 def index(market, matches=None):
@@ -241,3 +262,42 @@ def no_vig(odds):
     implied = [1 / o for o in odds]
     total = sum(implied)
     return [p / total for p in implied]
+
+
+def _bisect(f, lo, hi):
+    """Root of an increasing function on [lo, hi]."""
+    for _ in range(60):
+        mid = (lo + hi) / 2
+        lo, hi = (mid, hi) if f(mid) < 0 else (lo, mid)
+    return (lo + hi) / 2
+
+
+def fair(odds, method='power'):
+    """Margin-free probabilities. Bookmakers shade longshots more than favourites,
+    which proportional removal ignores; Shin's model (an insider-trading share z)
+    and the power method (q ** k) both take more margin off longshots.
+
+    Power is the default: on 7,800 matches in 2023-27 it beat proportional removal
+    on opening and closing prices, average and Pinnacle alike, by about 0.001 log
+    loss (tools/accuracy_lab.py). Additive tied it but can go negative on a longshot."""
+    q = [1 / o for o in odds]
+    total = sum(q)
+    if method == 'proportional' or total <= 1:
+        return [p / total for p in q]
+    if method == 'shin':
+        def shin(z):
+            return [(math.sqrt(z * z + 4 * (1 - z) * p * p / total) - z) / (2 * (1 - z)) for p in q]
+        z = _bisect(lambda z: 1 - sum(shin(z)), 0.0, 0.4)
+        p = shin(z)
+    elif method == 'power':
+        k = _bisect(lambda k: 1 - sum(x ** k for x in q), 1.0, 3.0)
+        p = [x ** k for x in q]
+    elif method == 'odds_ratio':
+        c = _bisect(lambda c: 1 - sum(x / (c + x - c * x) for x in q), 1.0, 3.0)
+        p = [x / (c + x - c * x) for x in q]
+    elif method == 'additive':
+        p = [max(1e-6, x - (total - 1) / len(q)) for x in q]
+    else:
+        raise ValueError(f'Unknown margin method {method}.')
+    s = sum(p)
+    return [x / s for x in p]

@@ -32,7 +32,8 @@ ALIASES = {'FC Internazionale Milano': 'Inter Milan', 'FC Bayern München': 'Bay
            'Real Betis Balompié': 'Real Betis', 'Rayo Vallecano de Madrid': 'Rayo Vallecano', 'Olympique Lyonnais': 'Lyon',
            'Olympique de Marseille': 'Marseille', 'Stade Rennais FC 1901': 'Rennes', 'Racing Club de Lens': 'Lens',
            'RC Strasbourg Alsace': 'Strasbourg', 'Brighton & Hove Albion FC': 'Brighton', 'Wolverhampton Wanderers FC': 'Wolves',
-           'Athletic Club': 'Athletic Bilbao', 'Hamburger SV': 'Hamburg', 'RB Leipzig': 'RB Leipzig', 'SSC Napoli': 'Napoli', 'AS Monaco FC': 'Monaco', '1. FSV Mainz 05': 'Mainz'}
+           'Athletic Club': 'Athletic Bilbao', 'Hamburger SV': 'Hamburg', 'RB Leipzig': 'RB Leipzig', 'SSC Napoli': 'Napoli', 'AS Monaco FC': 'Monaco', '1. FSV Mainz 05': 'Mainz', 'Brighton & Hove Albion FC': 'Brighton', 'Nottingham Forest FC': 'Nottingham Forest',
+           'DSC Arminia Bielefeld': 'Arminia Bielefeld', 'Real Sociedad de Fútbol': 'Real Sociedad'}
 NOISE = r'\b(FC|CF|AFC|SC|AC|SSC|AS|RC|OGC|VfB|VfL|TSG|FSV|SV|US|UD|CD|RCD|SD|Calcio|Club|de|1\.|\d{4})\b'
 
 
@@ -78,6 +79,8 @@ def best_match(name, league_id, teams):
             sim += 0.15
         if t.get('strGender') and t['strGender'] != 'Male':
             sim -= 0.5
+        if re.search(r'\b(B|C|II|U\d\d|Reserves?|Youth|Women|Femenino|Feminile|Frauen)\b$', t.get('strTeam') or ''):
+            sim -= 0.5                      # reserve, youth and women's sides share the club name
         scored.append((sim, t))
     scored.sort(key=lambda x: -x[0])
     return scored[0][1] if scored and scored[0][0] >= 0.75 else None

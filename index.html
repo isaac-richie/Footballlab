@@ -467,6 +467,25 @@ html{background:var(--bg)}
 .fx .teams small.when{display:flex!important;justify-content:flex-start;margin-top:4px;font-size:12px;color:var(--muted);gap:6px;align-items:center}
 .fx .teams .st{display:inline-flex!important;width:auto!important;flex:0 0 auto}
 .fx.is-live{border-color:#ff3b5c66}
+.ft-filter{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 0 16px;padding-bottom:2px}
+.ft-filter::-webkit-scrollbar{display:none}
+.ft-filter button{flex-shrink:0;white-space:nowrap;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted);font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.8px;font-size:13px;cursor:pointer;transition:all .2s}
+.ft-filter button b{margin-left:6px;opacity:.6;font-weight:700}
+.ft-filter button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#0b0f14}
+.ft-all{margin-top:34px}
+.ft-all-head{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
+.ft-all-head h2{margin:0;font-family:var(--display);text-transform:uppercase;letter-spacing:1px;font-size:26px}
+.ft-all-head span{color:var(--muted);font-size:14px}
+.ga-day{font-family:var(--display);text-transform:uppercase;letter-spacing:1.2px;font-size:13px;color:var(--accent);margin:18px 0 6px}
+.ga{display:grid;grid-template-columns:86px minmax(0,1fr) 150px 120px;gap:12px;align-items:center;width:100%;text-align:left;padding:10px 14px;margin:0 0 6px;border-radius:14px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;font:inherit;transition:transform .2s,border-color .2s;animation:rise .4s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i,0) * 18ms)}
+.ga:hover{border-color:color-mix(in srgb,var(--accent) 55%,var(--line));transform:translateX(3px)}
+.ga.is-live{border-color:#ff3b5c88}
+.ga .lg{font-family:var(--display);text-transform:uppercase;letter-spacing:.6px;font-size:11px;color:var(--muted)}
+.ga .tm{display:flex;flex-direction:column;gap:4px;min-width:0;font-weight:700}
+.ga .tm span{display:flex;align-items:center;gap:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ga .tm .tb,.ga .tm .kit{width:20px;height:20px;flex-shrink:0}
+.ga .pk{font-size:13px;color:var(--muted);text-align:right}.ga .pk b{color:var(--text);font-family:var(--display);font-size:17px}
+@media (max-width:640px){.ga{grid-template-columns:70px minmax(0,1fr);row-gap:8px}.ga .tri-wrap{grid-column:1/-1}.ga .pk{display:none}}
 .ft-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 @media (max-width:760px){.ft-grid{grid-template-columns:minmax(0,1fr)}}
 .ft-stage{position:relative;perspective:1600px}
@@ -603,6 +622,7 @@ footer a{color:var(--muted)}
       <div><h1>Games to watch</h1><p id="ft-sub">The biggest, closest games across the leagues, with a quick take on each. Open any one for the full breakdown.</p></div>
       <div class="seg" id="ft-period" role="group" aria-label="Period"><button data-p="day">Next matchday</button><button data-p="week" aria-pressed="true">This week</button></div>
     </div>
+    <div class="ft-filter" id="ft-filter-top" role="group" aria-label="League"></div>
     <div class="ft-pager">
       <div class="ft-stage" id="ft-stage"><div class="ft-grid" id="ft-grid"><div class="card"><div class="skel" style="height:220px"></div></div><div class="card"><div class="skel" style="height:220px"></div></div></div></div>
       <div class="ft-nav" id="ft-nav" hidden>
@@ -610,6 +630,10 @@ footer a{color:var(--muted)}
         <div class="ft-dots" id="ft-dots" role="tablist" aria-label="Pages"></div>
         <button type="button" class="ft-arrow" id="ft-next" aria-label="Next games"><span>Next</span>→</button>
       </div>
+    </div>
+    <div class="ft-all">
+      <div class="ft-all-head"><h2>Every game</h2><span id="ft-all-count"></span></div>
+      <div id="ft-all"></div>
     </div>
     <p class="note" id="ft-note"></p>
   </section>
@@ -801,6 +825,7 @@ $('#theme').onclick = () => {
 
 /* ---------- Views ---------- */
 function showView(){
+  { const v = (location.hash || '#featured').slice(1) || 'featured'; $('#leagues').hidden = $('#strip').hidden = v === 'featured'; }
   const v = (location.hash || '#featured').slice(1).split('/')[0];
   const view = ['featured','fixtures','match','season','parlay','performance'].includes(v) ? v : 'featured';
   if(view === 'featured' && !state.ftLoaded) loadFeatured();
@@ -846,7 +871,7 @@ const CODES = {'manchester city': 'MCI', 'manchester united': 'MUN', 'nottingham
   'real sociedad': 'RSO', 'atletico': 'ATM', 'athletic': 'ATH', 'ac milan': 'MIL', 'internazionale': 'INT', 'paris saint-germain': 'PSG',
   'bayern': 'BAY', 'borussia dortmund': 'BVB', 'monchengladbach': 'BMG', 'leverkusen': 'B04', 'rb leipzig': 'RBL', 'olympique lyonnais': 'OL',
   'marseille': 'OM', 'as roma': 'ROM', 'sporting': 'SCP'};
-const abbr0 = name => { const w = name.replace(/\b(FC|CF|AFC|SC|AC|SSC|AS|RC|OGC|VfB|VfL|TSG|1\.|de|Club)\b/g, '').trim().split(/\s+/).filter(Boolean); return (w.length > 1 ? w[0].slice(0, 3) : (w[0] || name).slice(0, 3)).toUpperCase() };
+const abbr0 = name => { const w = name.replace(/^\d+\.\s*/, '').replace(/\b(FC|CF|AFC|SC|AC|SSC|AS|RC|OGC|VfB|VfL|TSG|1\.|de|Club)\b/g, '').trim().split(/\s+/).filter(Boolean); return (w.length > 1 ? w[0].slice(0, 3) : (w[0] || name).slice(0, 3)).toUpperCase() };
 const abbr = name => { const n = name.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, ''); const k = Object.keys(CODES).find(c => n.includes(c)); return k ? CODES[k] : abbr0(name) };
 // Real club badges (private Lab only; cached locally by `app.py fetch-badges`).
 let BADGES = {};
@@ -1383,10 +1408,48 @@ async function loadFeatured(){
     $('#ft-sub').textContent = `${d.label}: the biggest, closest games across the leagues, with a quick take on each. Open any one for the full breakdown.`;
     $('#ft-note').textContent = d.note;
     if(!d.games.length){ $('#ft-grid').innerHTML = '<div class="placeholder"><div><h3>No games found</h3><p>There are no upcoming fixtures in the data for this period.</p></div></div>'; return }
-    state.ftGames = d.games; state.ftPage = 0;
+    state.ftData = d; if(state.ftLeague !== 'all' && !(d.leagues || {})[state.ftLeague]) state.ftLeague = 'all';
+    ftFilters(); ftAll(); state.ftGames = ftFiltered(); state.ftPage = 0;
     ftRender(0, 0);
   }catch(e){ $('#ft-grid').innerHTML = `<div class="error">${esc(e.message)}</div>` }
 }
+// One place for every league: a league filter over the top games and the full list.
+state.ftLeague = 'all';
+function ftFiltered(){
+  const d = state.ftData; if(!d) return [];
+  if(state.ftLeague === 'all') return d.games;
+  return d.all.filter(g => g.league_id === state.ftLeague).sort((a, b) => b.hype - a.hype).slice(0, 10);
+}
+function ftFilters(){
+  const d = state.ftData, n = id => d.all.filter(g => id === 'all' || g.league_id === id).length;
+  $('#ft-filter-top').innerHTML = [['all', 'All leagues'], ...Object.entries(d.leagues || {})].map(([id, name]) =>
+    `<button type="button" data-lg="${id}" aria-pressed="${state.ftLeague === id}">${esc(name)}<b>${n(id)}</b></button>`).join('');
+}
+function ftAll(){
+  const d = state.ftData, list = d.all.filter(g => state.ftLeague === 'all' || g.league_id === state.ftLeague);
+  $('#ft-all-count').textContent = `${list.length} game${list.length === 1 ? '' : 's'} · ${d.label}`;
+  let html = '', last = null;
+  list.forEach((g, i) => {
+    if(g.date !== last){ html += `<div class="ga-day">${esc(day(g.date))}</div>`; last = g.date }
+    const p = g.probabilities, k = p.indexOf(Math.max(...p)), lab = [g.home, 'Draw', g.away][k];
+    const side = t => `<span>${badgeImg(t, 'tb') || `<i class="kit" style="background:${kit(t).primary}"></i>`}${esc(t)}</span>`;
+    html += `<button type="button" class="ga${g.status === 'live' ? ' is-live' : ''}" style="--i:${Math.min(i, 40)}" data-ga="${d.all.indexOf(g)}">
+      <span><span class="lg">${esc(g.league)}</span><br>${statusPill(g) || '<span class="st ko">TBC</span>'}</span>
+      <span class="tm">${side(g.home)}${side(g.away)}</span>
+      <span class="tri-wrap">${tri(p)}<span class="nums" style="display:flex;justify-content:space-between;font-size:12px;margin-top:4px"><span class="c-h">${Math.round(p[0]*100)}</span><span class="c-d">${Math.round(p[1]*100)}</span><span class="c-a">${Math.round(p[2]*100)}</span></span></span>
+      <span class="pk">Pick <b>${esc(k === 1 ? 'Draw' : abbr(lab))}</b> ${pct(p[k])}</span></button>`;
+  });
+  $('#ft-all').innerHTML = html || '<div class="empty">No games for this league in this period.</div>';
+}
+$('#ft-filter-top').onclick = e => { const b = e.target.closest('[data-lg]'); if(!b || b.dataset.lg === state.ftLeague) return;
+  state.ftLeague = b.dataset.lg; ftFilters(); state.ftGames = ftFiltered(); ftRender(0, 1); ftAll() };
+async function openFeatured(g){
+  if(g.league_id !== state.league){ state.league = g.league_id; store.set('fl-league', g.league_id); await loadLeague() }
+  $('#home').value = g.home; $('#away').value = g.away; $('#date').value = state.data.today; state.fixtureDate = g.date;
+  for(const id of ['#oh', '#od', '#oa', '#oo', '#ou']) $(id).value = '';
+  location.hash = '#match'; analyse();
+}
+$('#ft-all').onclick = e => { const b = e.target.closest('[data-ga]'); if(b) openFeatured(state.ftData.all[+b.dataset.ga]) };
 // Pages of featured games: four a page on wide screens, two on phones.
 const ftPer = () => innerWidth < 760 ? 2 : 4;
 const ftPages = () => Math.ceil((state.ftGames || []).length / ftPer());
@@ -1438,11 +1501,7 @@ $('#ft-period').onclick = e => { const b = e.target.closest('[data-p]'); if(!b) 
   $$('#ft-period button').forEach(x => x.setAttribute('aria-pressed', x === b)); loadFeatured() };
 $('#ft-grid').addEventListener('click', async e => {
   const b = e.target.closest('[data-ft]'); if(!b) return;
-  const g = state.ftGames[+b.dataset.ft];
-  if(g.league_id !== state.league){ state.league = g.league_id; store.set('fl-league', g.league_id); await loadLeague() }
-  $('#home').value = g.home; $('#away').value = g.away; $('#date').value = state.data.today; state.fixtureDate = g.date;
-  for(const id of ['#oh', '#od', '#oa', '#oo', '#ou']) $(id).value = '';
-  location.hash = '#match'; analyse();
+  openFeatured(state.ftGames[+b.dataset.ft]);
 });
 
 /* ---------- Parlay builder ---------- */
