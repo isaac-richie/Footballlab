@@ -566,9 +566,11 @@ details[open]>summary::after{transform:rotate(-135deg) translateY(-2px)}
     backdrop-filter:saturate(1.6) blur(18px);-webkit-backdrop-filter:saturate(1.6) blur(18px);box-shadow:0 18px 40px -12px #000a}
   .tabbar a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 0 5px;border-radius:16px;color:var(--muted);text-decoration:none;
     font-family:var(--display);text-transform:uppercase;letter-spacing:.5px;font-size:10.5px;font-weight:700;transition:color .2s,background .25s}
-  .tabbar svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.2,1.4,.4,1)}
+  .tabbar svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s cubic-bezier(.2,1.5,.4,1)}
+  .tabbar svg .f{fill:currentColor;stroke:none;opacity:.14;transition:opacity .25s}
+  .tabbar a[aria-current=page] svg .f{opacity:.28}
   .tabbar a[aria-current=page]{color:#0b0f14;background:var(--accent)}
-  .tabbar a[aria-current=page] svg{transform:translateY(-1px) scale(1.08)}
+  .tabbar a[aria-current=page] svg{transform:translateY(-2px) scale(1.12) rotate(-4deg)}
   body{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
   .wrap{padding-left:14px;padding-right:14px}
   /* solid, layered surfaces so the stadium never shows through text */
@@ -706,12 +708,12 @@ footer a{color:var(--muted)}
   </div>
 </header>
 <nav class="tabbar" aria-label="Views">
-  <a href="#featured" data-view="featured"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg><span>Featured</span></a>
-  <a href="#fixtures" data-view="fixtures"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Fixtures</span></a>
-  <a href="#match" data-view="match"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5l3.5 2.5-1.3 4h-4.4l-1.3-4z"/></svg><span>Match</span></a>
-  <a href="#season" data-view="season"><svg viewBox="0 0 24 24"><path d="M7 4h10v4a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20h7"/></svg><span>Season</span></a>
-  <a href="#parlay" data-view="parlay"><svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="3"/><path d="M8 8.5h8M8 12h8M8 15.5h5"/></svg><span>Parlay</span></a>
-  <a href="#performance" data-view="performance"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Record</span></a>
+  <a href="#featured" data-view="featured"><svg viewBox="0 0 24 24"><path class="f" d="M12 2.8l2.7 5.6 6.1.8-4.4 4.3 1.1 6.1L12 16.7l-5.5 2.9 1.1-6.1-4.4-4.3 6.1-.8z"/><path d="M12 2.8l2.7 5.6 6.1.8-4.4 4.3 1.1 6.1L12 16.7l-5.5 2.9 1.1-6.1-4.4-4.3 6.1-.8z"/><path d="M19.5 2.5v2.4M18.3 3.7h2.4"/></svg><span>Featured</span></a>
+  <a href="#fixtures" data-view="fixtures"><svg viewBox="0 0 24 24"><rect class="f" x="3" y="4.5" width="18" height="16" rx="3.5"/><rect x="3" y="4.5" width="18" height="16" rx="3.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><circle cx="12" cy="15" r="3"/><path d="M12 13.2l1.1.8-.4 1.3h-1.4l-.4-1.3z"/></svg><span>Fixtures</span></a>
+  <a href="#match" data-view="match"><svg viewBox="0 0 24 24"><circle class="f" cx="12" cy="12" r="9.2"/><circle cx="12" cy="12" r="9.2"/><path d="M12 7.6l3.3 2.4-1.3 3.9h-4l-1.3-3.9z"/><path d="M12 7.6V3.2M15.3 10l4.3-1.4M14 13.9l2.7 3.7M10 13.9l-2.7 3.7M8.7 10 4.4 8.6"/></svg><span>Match</span></a>
+  <a href="#season" data-view="season"><svg viewBox="0 0 24 24"><path class="f" d="M7 3.5h10v5a5 5 0 0 1-10 0z"/><path d="M7 3.5h10v5a5 5 0 0 1-10 0zM7 5.5H4.2a3.3 3.3 0 0 0 3.3 4.2M17 5.5h2.8a3.3 3.3 0 0 1-3.3 4.2M12 13.5v3.5M8 20.5h8M9.5 17h5v3.5h-5z"/></svg><span>Season</span></a>
+  <a href="#parlay" data-view="parlay"><svg viewBox="0 0 24 24"><path class="f" d="M5 3h14v18l-2.3-1.6L14.3 21 12 19.4 9.7 21l-2.4-1.6L5 21z"/><path d="M5 3h14v18l-2.3-1.6L14.3 21 12 19.4 9.7 21l-2.4-1.6L5 21z"/><path d="M8.2 8l1.2 1.2L11.6 7M8.2 13l1.2 1.2 2.2-2.2M13.8 8.2h2.4M13.8 13.2h2.4"/></svg><span>Parlay</span></a>
+  <a href="#performance" data-view="performance"><svg viewBox="0 0 24 24"><path class="f" d="M4 20.5V14l5-4 4 3 7-7v14.5z"/><path d="M4 14l5-4 4 3 7-7M15.5 6H20v4.5M3 20.5h18"/></svg><span>Record</span></a>
 </nav>
 
 <div class="ticker" id="ticker" aria-label="Latest results" hidden><span class="lbl">Results</span><div class="run" id="ticker-run"></div></div>
@@ -1932,7 +1934,8 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
   const IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const store = {get(k){ try{ return localStorage.getItem(k) }catch{ return null } }, set(k, v){ try{ localStorage.setItem(k, v) }catch{} }};
   let VOLUME = +(store.get('mx-vol') ?? 25);
-  let muted = store.get('mx-muted') === '1', idx = Math.floor(Math.random() * TRACKS.length), players = [], live = 0, timer = null, started = false;
+  // iPhones can't turn YouTube down from the page, so music starts muted there until ♫ is tapped.
+  let muted = (store.get('mx-muted') ?? (IOS ? '1' : '0')) === '1', idx = Math.floor(Math.random() * TRACKS.length), players = [], live = 0, timer = null, started = false;
   const ui = document.getElementById('mx');
 
   function loadApi(){ const t = document.createElement('script'); t.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(t) }
@@ -1948,7 +1951,7 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
   }
   function play(slot, first){
     const [id, title, start] = TRACKS[idx], p = players[slot];
-    p.setVolume(first ? (muted ? 0 : VOLUME) : 0);
+    p.setVolume(first ? (muted ? 0 : VOLUME) : 0); muted ? p.mute() : p.unMute();
     p.loadVideoById({videoId: id, startSeconds: start});
     if(!first && !muted) fade(p, 0, VOLUME, FADE_MS);
     document.getElementById('mx-title').textContent = title;
@@ -1962,7 +1965,7 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
   }
   function begin(){
     started = true; ui.hidden = false; ui.classList.toggle('off', muted); ui.classList.toggle('ios', IOS); play(live, true);
-    if(IOS){ const sub = document.getElementById('mx-sub'); sub.textContent = 'Use your volume buttons'; setTimeout(() => { sub.textContent = 'Now playing · NCS' }, 6000) }
+    if(IOS){ const sub = document.getElementById('mx-sub'); sub.textContent = muted ? 'Tap ♫ for music' : 'Use your volume buttons'; if(!muted) setTimeout(() => { sub.textContent = 'Now playing · NCS' }, 6000) }
   }
   const vol = document.getElementById('mx-vol');
   vol.value = VOLUME;
@@ -1976,7 +1979,8 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
   ['pointerdown', 'keydown', 'touchstart', 'wheel'].forEach(e => addEventListener(e, kick, {passive: true}));
   document.getElementById('mx-toggle').onclick = () => {
     muted = !muted; store.set('mx-muted', muted ? '1' : '0'); ui.classList.toggle('off', muted);
-    const p = players[live]; if(p) fade(p, muted ? VOLUME : 0, muted ? 0 : VOLUME, 600);
+    document.getElementById('mx-sub').textContent = muted && IOS ? 'Tap ♫ for music' : 'Now playing · NCS';
+    const p = players[live]; if(p){ if(!muted) p.unMute(); fade(p, muted ? VOLUME : 0, muted ? 0 : VOLUME, 600, () => { if(muted) p.mute() }) }
     document.getElementById('mx-toggle').setAttribute('aria-label', muted ? 'Play music' : 'Mute music');
   };
   document.getElementById('mx-next').onclick = next;
