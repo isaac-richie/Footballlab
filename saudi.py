@@ -99,6 +99,11 @@ def load():
 
 def merge(data):
     """Add the stored Saudi games to the in-memory dataset (private Lab only)."""
-    rows = [m for m in load().get('matches', []) if not m.get('postponed')]
+    stored = load()
+    rows = [m for m in stored.get('matches', []) if not m.get('postponed')]
+    # A source record per season so the data-quality check can see how fresh it is.
+    for season in sorted({m['season'] for m in rows}):
+        data.setdefault('sources', []).append(dict(url=f'thesportsdb:4668/{season}/', league_id=LEAGUE_ID,
+                                                   checked_at=stored.get('fetched_at'), license=stored.get('license')))
     data['matches'] = [m for m in data['matches'] if m['league_id'] != LEAGUE_ID] + [dict(m) for m in rows]
     return len(rows)

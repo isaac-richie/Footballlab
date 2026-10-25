@@ -109,6 +109,10 @@ def reconcile(data, market, today=None, live_cache=None):
             for m in by_league.get(league_id, []):
                 if m['home'] == home and m['away'] == away and m['date'] == date and v.get('commence_time'):
                     m['kickoff'] = v['commence_time']
+    # Leagues whose current season now comes from football-data get a freshness record.
+    for league_id in {m['league_id'] for m in matches if m.get('schedule_source') == 'football-data' and m['season'] == current}:
+        data.setdefault('sources', []).append(dict(url=f'football-data:{league_id}/{current}/', league_id=league_id,
+                                                   checked_at=market.get('fetched_at'), license=market.get('license')))
     matches.sort(key=lambda m: (m['date'], m.get('kickoff') or ''))
     data['schedule'] = dict(added=added, moved=moved, unconfirmed=unconfirmed)
     return data['schedule']

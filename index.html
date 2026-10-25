@@ -292,7 +292,7 @@ pre.json{white-space:pre-wrap;word-break:break-word;font-size:11.5px;color:var(-
 .bench small{display:block;color:var(--muted);font-size:11.5px}
 .gain{color:var(--ok);font-weight:650}
 .loss{color:#f07272;font-weight:650}
-@media (max-width:760px){.bench{grid-template-columns:1fr}.compare{grid-template-columns:auto 1fr 1fr 1fr;font-size:12px}.crest{width:36px;height:36px;font-size:12px}}
+@media (max-width:760px){.bench{grid-template-columns:minmax(0,1fr)}.compare{grid-template-columns:auto 1fr 1fr 1fr;font-size:12px}.crest{width:36px;height:36px;font-size:12px}}
 /* Motion */
 .tabs{position:relative}
 .tab-ink{position:absolute;bottom:-1px;height:2px;background:var(--accent);border-radius:2px;transition:left .35s cubic-bezier(.2,.8,.2,1),width .35s cubic-bezier(.2,.8,.2,1)}
@@ -365,7 +365,7 @@ pre.json{white-space:pre-wrap;word-break:break-word;font-size:11.5px;color:var(-
 .scrim{position:fixed;inset:0;z-index:45;background:#0006;opacity:0;pointer-events:none;transition:opacity .3s}
 .scrim.open{opacity:1;pointer-events:auto}
 .spark{width:100%;height:70px;display:block}
-@media (max-width:760px){.builder-grid{grid-template-columns:1fr}.builder-sum{position:static}.hide-sm{display:none}}
+@media (max-width:760px){.builder-grid{grid-template-columns:minmax(0,1fr)}.builder-sum{position:static}.hide-sm{display:none}}
 /* Pitch */
 :root{--grass-a:#123821;--grass-b:#15402a;--chalk:#ffffffd0}
 :root[data-theme="light"]{--grass-a:#3d8b4f;--grass-b:#44965a;--chalk:#ffffffe6}
@@ -560,7 +560,7 @@ footer{margin:40px 0 30px;padding-top:18px;border-top:1px solid var(--line);disp
 footer a{color:var(--muted)}
 
 @media (max-width:1000px){
-  .match-layout{grid-template-columns:1fr}
+  .match-layout{grid-template-columns:minmax(0,1fr)}
   .form-card{position:static}
   .board-head{display:none}
   .fx{grid-template-columns:minmax(0,1fr) 92px;grid-template-areas:"teams bar" "nums nums";padding:12px 16px;row-gap:8px}
@@ -578,7 +578,7 @@ footer a{color:var(--muted)}
   .nav{gap:0}
   .top .wrap{gap:8px}
   .brand span{display:none}
-  .g2,.g3{grid-template-columns:1fr}
+  .g2,.g3{grid-template-columns:minmax(0,1fr)}
   .kpis{grid-template-columns:repeat(2,1fr)}
   .metrics{grid-template-columns:repeat(2,1fr)}
   .side strong{font-size:17px}

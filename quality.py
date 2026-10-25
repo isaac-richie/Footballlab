@@ -131,11 +131,17 @@ def coverage(data, league_id, asof):
         problems.append('Current-season fixtures missing')
     if not completed or (today - dt.date.fromisoformat(max(m['date'] for m in completed))).days > 30:
         problems.append('Completed results are missing or more than 30 days old')
-    missing = sum(m['goals'] is None and (today - dt.date.fromisoformat(m['date'])).days > 2
-                  for m in current if m['date'] < asof)
+    # Results can lag a few days; after two weeks with no score anywhere the game was
+    # almost certainly postponed, which says nothing about the quality of the data.
+    age = lambda m: (today - dt.date.fromisoformat(m['date'])).days
+    unplayed = [m for m in current if m['date'] < asof and m['goals'] is None]
+    missing = sum(2 < age(m) <= 14 for m in unplayed)
+    postponed = sum(age(m) > 14 for m in unplayed)
     if missing:
-        problems.append(f'{missing} current-season past fixtures have no result (may include postponements)')
-    sources = [s for s in data.get('sources', []) if s.get('league_id') == league_id and f'/{season}/' in s['url']]
+        problems.append(f'{missing} recent current-season fixtures have no result yet')
+    # OpenLigaDB addresses end in the start year (…/bl2/2026) rather than the season.
+    sources = [s for s in data.get('sources', []) if s.get('league_id') == league_id and
+               (f'/{season}/' in s['url'] or s['url'].rstrip('/').endswith(f'/{year}'))]
     checked = max((s.get('checked_at', '') for s in sources), default='')
     if not checked:
         problems.append('Current source freshness unverified')
@@ -144,5 +150,5 @@ def coverage(data, league_id, asof):
     return dict(league_id=league_id, season=season, records=len(rows), completed=len(completed),
                 upcoming=sum(m['date'] >= asof and m['goals'] is None for m in rows),
                 latest_result=max((m['date'] for m in completed), default=None),
-                current_records=len(current), unresolved_past=missing, source_checked_at=checked or None,
+                current_records=len(current), unresolved_past=missing, likely_postponed=postponed, source_checked_at=checked or None,
                 status='review_required' if problems else 'research_only', issues=problems)
