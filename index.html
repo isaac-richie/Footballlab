@@ -644,6 +644,9 @@ details[open]>summary::after{transform:rotate(-135deg) translateY(-2px)}
 .mx .eq i:nth-child(2){animation-delay:-.4s}.mx .eq i:nth-child(3){animation-delay:-.7s}
 @keyframes eq{0%,100%{height:4px}50%{height:14px}}
 .mx.off .mx-btn{background:var(--surface-3);color:var(--muted)}.mx.off .eq i{animation:none;height:4px}
+.mx-vol{width:78px;flex-shrink:0;accent-color:var(--accent);cursor:pointer}
+.mx.ios .mx-vol{display:none}
+@media (max-width:380px){.mx-vol{width:60px}}
 .mx-info{min-width:0;display:flex;flex-direction:column;line-height:1.15}
 .mx-info small{font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
 .mx-info b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -1908,7 +1911,8 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
 <!-- Music: NCS (NoCopyrightSounds) classics streamed from their official YouTube channel. -->
 <div class="mx" id="mx" hidden>
   <button type="button" class="mx-btn" id="mx-toggle" aria-label="Mute music"><span class="eq"><i></i><i></i><i></i></span></button>
-  <div class="mx-info"><small>Now playing · NCS</small><b id="mx-title">—</b></div>
+  <div class="mx-info"><small id="mx-sub">Now playing · NCS</small><b id="mx-title">—</b></div>
+  <input type="range" class="mx-vol" id="mx-vol" min="0" max="100" step="1" aria-label="Music volume">
   <button type="button" class="mx-skip" id="mx-next" aria-label="Next track"><svg viewBox="0 0 24 24"><path d="M6 5l9 7-9 7zM17 5v14"/></svg></button>
 </div>
 <div id="mx-a" class="mx-yt"></div><div id="mx-b" class="mx-yt"></div>
@@ -1923,8 +1927,11 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
     ['x_OwcYTNbHs', 'Jim Yosef – Firefly', 40], ['q1ULJ92aldE', 'Syn Cole – Feel Good', 35],
     ['__CRWE-L45k', 'Electro-Light – Symbolism', 45], ['S19UcWdOA-I', 'Lost Sky – Fearless pt.II', 40],
     ['iqoNoU-rm14', 'Max Brhon – Cyberpunk', 40]];
-  const VOLUME = 35, PLAY_SECONDS = 60, FADE_MS = 4000;
+  const PLAY_SECONDS = 60, FADE_MS = 4000;
+  // iOS ignores volume set by a page: listeners use the hardware buttons there.
+  const IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const store = {get(k){ try{ return localStorage.getItem(k) }catch{ return null } }, set(k, v){ try{ localStorage.setItem(k, v) }catch{} }};
+  let VOLUME = +(store.get('mx-vol') ?? 25);
   let muted = store.get('mx-muted') === '1', idx = Math.floor(Math.random() * TRACKS.length), players = [], live = 0, timer = null, started = false;
   const ui = document.getElementById('mx');
 
@@ -1953,7 +1960,17 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
     fade(out, muted ? 0 : VOLUME, 0, FADE_MS, () => { try{ out.stopVideo() }catch{} });
     play(live, false);
   }
-  function begin(){ started = true; ui.hidden = false; ui.classList.toggle('off', muted); play(live, true) }
+  function begin(){
+    started = true; ui.hidden = false; ui.classList.toggle('off', muted); ui.classList.toggle('ios', IOS); play(live, true);
+    if(IOS){ const sub = document.getElementById('mx-sub'); sub.textContent = 'Use your volume buttons'; setTimeout(() => { sub.textContent = 'Now playing · NCS' }, 6000) }
+  }
+  const vol = document.getElementById('mx-vol');
+  vol.value = VOLUME;
+  vol.addEventListener('input', () => {
+    VOLUME = +vol.value; store.set('mx-vol', VOLUME);
+    if(VOLUME > 0 && muted){ muted = false; store.set('mx-muted', '0'); ui.classList.remove('off') }
+    try{ players[live].setVolume(muted ? 0 : VOLUME) }catch{}
+  });
   // Browsers only allow sound after the visitor's first tap, key or scroll.
   const kick = () => { if(started || players.length) return; ['pointerdown', 'keydown', 'touchstart', 'wheel'].forEach(e => removeEventListener(e, kick)); loadApi() };
   ['pointerdown', 'keydown', 'touchstart', 'wheel'].forEach(e => addEventListener(e, kick, {passive: true}));
