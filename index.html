@@ -561,11 +561,12 @@ details[open]>summary::after{transform:rotate(-135deg) translateY(-2px)}
 @media (max-width:760px){
   .top .nav{display:none}
   .top .wrap{height:54px}
-  .tabbar{display:grid;grid-template-columns:repeat(6,1fr);position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:40;
+  .tabbar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));overflow:hidden;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:40;
     padding:6px;border-radius:22px;border:1px solid var(--line-2);background:color-mix(in srgb,var(--bg) 78%,transparent);
     backdrop-filter:saturate(1.6) blur(18px);-webkit-backdrop-filter:saturate(1.6) blur(18px);box-shadow:0 18px 40px -12px #000a}
   .tabbar a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 0 5px;border-radius:16px;color:var(--muted);text-decoration:none;
-    font-family:var(--display);text-transform:uppercase;letter-spacing:.5px;font-size:10.5px;font-weight:700;transition:color .2s,background .25s}
+    font-family:var(--display);text-transform:uppercase;letter-spacing:.3px;font-size:10px;font-weight:700;transition:color .2s,background .25s;min-width:0}
+  .tabbar span{max-width:100%;overflow:hidden;text-overflow:clip;white-space:nowrap}
   .tabbar svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s cubic-bezier(.2,1.5,.4,1)}
   .tabbar svg .f{fill:currentColor;stroke:none;opacity:.14;transition:opacity .25s}
   .tabbar a[aria-current=page] svg .f{opacity:.28}
@@ -657,7 +658,7 @@ details[open]>summary::after{transform:rotate(-135deg) translateY(-2px)}
 @media (max-width:760px){.mx{left:12px;bottom:calc(96px + env(safe-area-inset-bottom));max-width:calc(100vw - 24px)}}
 /* ---------- Page heroes ---------- */
 .view-head{position:relative}
-.view-head::before{content:'';position:absolute;left:-40px;top:-60px;width:420px;height:220px;pointer-events:none;z-index:-1;
+.view-head::before{content:'';position:absolute;left:-20px;top:-60px;width:min(420px,85vw);height:220px;pointer-events:none;z-index:-1;
   background:radial-gradient(closest-side,color-mix(in srgb,var(--accent) 18%,transparent),transparent);filter:blur(10px)}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
 .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent);animation:ping 2.2s ease-out infinite}
@@ -719,6 +720,49 @@ footer a{color:var(--muted)}
   .fx .stub small{font-size:10px}
   .fx .src,.fx .move{display:none!important}
 }
+
+/* ---------- Featured card: face-off ---------- */
+.ft.fc{position:relative;gap:14px;padding:18px;border-radius:24px;overflow:hidden;isolation:isolate;
+  background:linear-gradient(105deg,color-mix(in srgb,var(--kh) 22%,transparent),transparent 42%,transparent 58%,color-mix(in srgb,var(--ka) 22%,transparent)),
+             linear-gradient(180deg,color-mix(in srgb,var(--surface) 96%,transparent),color-mix(in srgb,var(--surface-2) 96%,transparent));
+  border:1px solid var(--line-2);box-shadow:0 1px 0 #ffffff14 inset,0 24px 50px -24px #000}
+.ft.fc::after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background:repeating-linear-gradient(90deg,transparent 0 46px,#ffffff05 46px 92px)}
+.ft.fc.top{border-color:color-mix(in srgb,var(--accent) 50%,var(--line-2));box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 18%,transparent),0 30px 60px -26px color-mix(in srgb,var(--accent) 45%,#000)}
+.fc-head{display:flex;justify-content:space-between;align-items:center;font-family:var(--display);text-transform:uppercase;letter-spacing:1.2px;font-size:12px;font-weight:800}
+.fc-lg{color:var(--muted)}
+.fc-rank{padding:4px 10px;border-radius:999px;background:var(--surface-3);color:var(--muted)}
+.fc-rank.hot{background:var(--accent);color:#0b0f14}
+.fc-face{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:start;gap:10px}
+.fc-team{display:flex;flex-direction:column;align-items:center;gap:10px;min-width:0;text-align:center}
+.fc-team b{font-family:var(--display);text-transform:uppercase;font-weight:800;font-size:16px;line-height:1.1;letter-spacing:.3px;overflow-wrap:normal}
+.fc-ring{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;
+  background:radial-gradient(circle,color-mix(in srgb,var(--kh) 35%,transparent),transparent 70%);box-shadow:0 0 0 1px color-mix(in srgb,var(--kh) 55%,transparent) inset}
+.fc-ring.away{background:radial-gradient(circle,color-mix(in srgb,var(--ka) 35%,transparent),transparent 70%);box-shadow:0 0 0 1px color-mix(in srgb,var(--ka) 55%,transparent) inset}
+.fc-ring .crest{width:52px;height:52px;border-radius:14px;background:transparent;box-shadow:none}
+.fc-mid{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:76px;gap:2px}
+.fc-ko{font-family:var(--display);font-size:26px;font-weight:800;letter-spacing:.5px;line-height:1}
+.fc-mid small{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.fc-live{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:#ff3b5c;color:#fff;font-family:var(--display);font-weight:800;letter-spacing:1px;text-transform:uppercase;box-shadow:0 0 18px -2px #ff3b5c}
+.fc-live i{width:7px;height:7px;border-radius:50%;background:#fff;animation:livePulse 1.2s infinite}
+.fc-bar{display:flex;gap:3px;height:30px;border-radius:12px;overflow:hidden}
+.fc-bar i{display:flex;align-items:center;justify-content:center;min-width:34px;opacity:.55;transition:opacity .3s}
+.fc-bar i.fav{opacity:1}
+.fc-bar .h{background:var(--home)}.fc-bar .d{background:var(--draw)}.fc-bar .a{background:var(--away)}
+.fc-bar em{font-style:normal;font-family:var(--display);font-weight:800;font-size:15px;color:#0b0f14}
+.fc-bar em::after{content:'%';font-size:10px;margin-left:1px;opacity:.7}
+.fc-keys{display:flex;justify-content:space-between;margin-top:-8px;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--faint)}
+.fc-take{margin:0;font-size:14.5px;line-height:1.45;color:var(--text)}
+.fc-chips{display:flex;flex-wrap:wrap;gap:6px}
+.fc-chips span{padding:5px 10px;border-radius:10px;background:var(--surface-3);font-size:12px;color:var(--muted)}
+.fc-chips b{color:var(--text);margin-left:3px}
+.fc-go{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:2px;padding:12px;border-radius:14px;cursor:pointer;
+  border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line-2));background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent);
+  font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:1px;font-size:14px;transition:background .2s,color .2s}
+.fc-go svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+.fc-go:hover{background:var(--accent);color:#0b0f14}.fc-go:hover svg{transform:translateX(4px)}
+.ft.fc.top .fc-go{background:var(--accent);color:#0b0f14;border-color:var(--accent)}
+@media (max-width:760px){.fc-ring{width:64px;height:64px}.fc-ring .crest{width:44px;height:44px}.fc-team b{font-size:14px}.fc-ko{font-size:22px}}
 </style>
 </head>
 <body>
@@ -1614,14 +1658,23 @@ $('#ft-all').onclick = e => { const b = e.target.closest('[data-ga]'); if(b) ope
 const ftPer = () => innerWidth < 760 ? 2 : 4;
 const ftPages = () => Math.ceil((state.ftGames || []).length / ftPer());
 function ftCard(g, i, j){
-  const p = g.probabilities;
-  return `<article class="card ft${i === 0 ? ' top' : ''}" style="--i:${j};--j:${j}">
-    <div class="meta"><span>${esc(g.league)} · ${esc(day(g.date))} ${statusPill(g)}</span><span class="${i === 0 ? 'hot' : ''}">${i === 0 ? (state.ftPeriod === 'day' ? 'Game of the day' : 'Game of the week') : '#' + (i + 1)}</span></div>
-    <div class="vs"><span class="t">${crest(g.home)}${esc(g.home)}</span><span class="sc">v</span><span class="t away">${crest(g.away)}${esc(g.away)}</span></div>
-    ${tri(p, true)}
-    <div class="tri-labels" style="margin-top:0"><div><span>Home</span><b class="c-h">${pct(p[0])}</b></div><div><span>Draw</span><b class="c-d">${pct(p[1])}</b></div><div><span>Away</span><b class="c-a">${pct(p[2])}</b></div></div>
-    <ul>${g.take.map(t => `<li>${esc(t)}</li>`).join('')}</ul>
-    <button class="primary go" type="button" data-ft="${i}" style="width:auto">Full analysis →</button>
+  const p = g.probabilities, fav = p.indexOf(Math.max(...p)), kh = kit(g.home).primary, ka = kit(g.away).primary;
+  const rank = i === 0 ? (state.ftPeriod === 'day' ? 'Game of the day' : 'Game of the week') : '#' + (i + 1);
+  const centre = g.status === 'live' ? `<span class="fc-live"><i></i>Live</span>`
+    : `<b class="fc-ko">${esc(g.kickoff ? koTime(g.kickoff) : 'TBC')}</b><small>${esc(day(g.date))}</small>`;
+  const seg = (k, cls) => `<i class="${cls}${fav === k ? ' fav' : ''}" style="flex:${Math.max(p[k], .08)}"><em>${Math.round(p[k] * 100)}</em></i>`;
+  return `<article class="card ft fc${i === 0 ? ' top' : ''}" style="--i:${j};--j:${j};--kh:${kh};--ka:${ka}">
+    <header class="fc-head"><span class="fc-lg">${esc(g.league)}</span><span class="fc-rank${i === 0 ? ' hot' : ''}">${esc(rank)}</span></header>
+    <div class="fc-face">
+      <div class="fc-team"><span class="fc-ring">${crest(g.home)}</span><b>${esc(g.home)}</b></div>
+      <div class="fc-mid">${centre}</div>
+      <div class="fc-team"><span class="fc-ring away">${crest(g.away)}</span><b>${esc(g.away)}</b></div>
+    </div>
+    <div class="fc-bar" role="img" aria-label="Home ${pct(p[0])}, draw ${pct(p[1])}, away ${pct(p[2])}">${seg(0, 'h')}${seg(1, 'd')}${seg(2, 'a')}</div>
+    <div class="fc-keys"><span>Home</span><span>Draw</span><span>Away</span></div>
+    <p class="fc-take">${esc(g.take[0] || '')}</p>
+    <div class="fc-chips"><span>O2.5 <b>${Math.round(g.over25 * 100)}%</b></span><span>BTTS <b>${Math.round(g.btts * 100)}%</b></span><span>Likeliest <b>${esc(g.top_score.score)}</b></span></div>
+    <button class="fc-go" type="button" data-ft="${i}">Full analysis<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
   </article>`;
 }
 function ftRender(page, dir){

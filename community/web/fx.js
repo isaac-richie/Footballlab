@@ -17,7 +17,7 @@
   const canvas = document.createElement('canvas');
   canvas.id = 'living-pitch'; canvas.setAttribute('aria-hidden', 'true');
   // A soft blur keeps the stadium as atmosphere, like a photo behind frosted glass.
-  canvas.style.cssText = 'position:fixed;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:-1;pointer-events:none;filter:blur(3px) saturate(1.1)';
+  canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;filter:blur(3px) saturate(1.1)';
   const mount = () => { if(document.body && !canvas.isConnected) document.body.prepend(canvas) };
   document.addEventListener('DOMContentLoaded', mount); mount();
   const ctx = canvas.getContext('2d');
