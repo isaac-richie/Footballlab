@@ -11,7 +11,7 @@ import datetime as dt
 import json
 import time
 from pathlib import Path
-from urllib.error import HTTPError
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 from quality import atomic_write
@@ -32,6 +32,10 @@ def _get(url, log):
             if exc.code != 429 or wait is None:
                 raise
             log(f'rate limited, waiting {wait}s'); time.sleep(wait)
+        except (URLError, TimeoutError, OSError) as exc:     # connection dropped: wait and retry
+            if wait is None:
+                raise
+            log(f'network error ({exc}), retrying in {wait}s'); time.sleep(wait)
 
 
 def _score(v):
@@ -75,11 +79,15 @@ def fetch(pause=2.3, log=print, refresh_from=None):
         matches += rows
         if year < last and rows and all(m['goals'] is not None or m['postponed'] for m in rows):
             complete.append(season)
+        _save(matches, complete)          # keep finished seasons even if a later one fails
+    return dict(matches=len(matches), seasons=len({m['season'] for m in matches}))
+
+
+def _save(matches, complete):
     payload = dict(fetched_at=dt.datetime.now(dt.timezone.utc).isoformat(), source='TheSportsDB (free API)',
                    license='TheSportsDB terms; private research only, do not redistribute',
                    complete_seasons=complete, matches=matches)
     atomic_write(FILE, json.dumps(payload))
-    return dict(matches=len(matches), seasons=len({m['season'] for m in matches}))
 
 
 def load():
