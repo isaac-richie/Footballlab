@@ -726,6 +726,17 @@ def parlay_candidates(data, leagues, days=7, include_today=False):
     return out
 
 
+def build_record(data):
+    """Replay-and-grade the recent past, freeze upcoming forecasts, save reports/record.json."""
+    import record
+    from parlay import legs_for
+    report = record.build(data, list(LEAGUES), fixture_rates, distribution, legs_for)
+    report['live'] = record.freeze_and_grade(data, list(LEAGUES), slate, vip_slip, MODEL['version'])
+    saved = json.loads(record.FILE.read_text()); saved['live'] = report['live']
+    atomic_write(record.FILE, json.dumps(saved))
+    return report
+
+
 def vip_slip(data, n=12, days=3, min_p=.70, max_p=.92, per_league=3):
     """The day's VIP slip: the surest pick from each of the most predictable games.
 
@@ -882,6 +893,10 @@ class Handler(BaseHTTPRequestHandler):
             except ValueError:
                 return self.send_json(dict(error='Invalid date'), 400)
             self.send_json(match_setup(query['league'], query['date'], query['home'], query['away']))
+        elif path == '/api/record':
+            import record
+            saved = record.load()
+            self.send_json(saved or dict(error='No record yet. Run: python3 app.py record'), 200 if saved else 404)
         elif path == '/api/vip':
             q = parse_qs(urlparse(self.path).query)
             try:
@@ -961,12 +976,14 @@ if __name__ == '__main__':
     from config import load_environment
     load_environment()
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=['refresh', 'serve', 'backtest', 'import-stats', 'backfill-halftime', 'refresh-odds', 'fetch-badges', 'fetch-saudi', 'fetch-ucl'])
+    parser.add_argument('command', choices=['refresh', 'serve', 'backtest', 'import-stats', 'backfill-halftime', 'refresh-odds', 'fetch-badges', 'fetch-saudi', 'fetch-ucl', 'record'])
     parser.add_argument('path', nargs='?', help='CSV path for import-stats')
     parser.add_argument('--port', type=int, default=8765)
     args = parser.parse_args()
     if args.command == 'refresh':
         refresh()
+    elif args.command == 'record':
+        print(json.dumps(build_record(load()), indent=1)[:2000])
     elif args.command == 'fetch-ucl':
         import ucl
         print(json.dumps(ucl.fetch()))

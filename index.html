@@ -561,11 +561,11 @@ details[open]>summary::after{transform:rotate(-135deg) translateY(-2px)}
 @media (max-width:760px){
   .top .nav{display:none}
   .top .wrap{height:54px}
-  .tabbar{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));overflow:hidden;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:40;
+  .tabbar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));overflow:hidden;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:40;
     padding:6px;border-radius:22px;border:1px solid var(--line-2);background:color-mix(in srgb,var(--bg) 78%,transparent);
     backdrop-filter:saturate(1.6) blur(18px);-webkit-backdrop-filter:saturate(1.6) blur(18px);box-shadow:0 18px 40px -12px #000a}
   .tabbar a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 0 5px;border-radius:16px;color:var(--muted);text-decoration:none;
-    font-family:var(--display);text-transform:uppercase;letter-spacing:.3px;font-size:10px;font-weight:700;transition:color .2s,background .25s;min-width:0}
+    font-family:var(--display);text-transform:uppercase;letter-spacing:.2px;font-size:9px;font-weight:700;transition:color .2s,background .25s;min-width:0}
   .tabbar span{max-width:100%;overflow:hidden;text-overflow:clip;white-space:nowrap}
   .tabbar svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s cubic-bezier(.2,1.5,.4,1)}
   .tabbar svg .f{fill:currentColor;stroke:none;opacity:.14;transition:opacity .25s}
@@ -878,6 +878,46 @@ footer a{color:var(--muted)}
 .mx-sheet{max-height:calc(100dvh - 120px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
 .mx-sheet::-webkit-scrollbar{display:none}
 @media (max-width:760px){.mx-sheet{max-height:calc(100dvh - 200px - env(safe-area-inset-bottom))}.mx-list{max-height:none!important;overflow:visible}}
+
+/* ---------- Track record ---------- */
+.rec-top{padding:20px!important}
+.rk-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.rk{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
+.rk svg{width:96px;height:96px;transform:rotate(-90deg)}
+.rk circle{fill:none;stroke:var(--surface-3);stroke-width:3}
+.rk .p{stroke-linecap:round;stroke-dasharray:97.4;transition:stroke-dashoffset 1s cubic-bezier(.2,.8,.2,1)}
+.rk b{position:absolute;top:32px;font-family:var(--display);font-size:24px;font-weight:800}
+.rk small{margin-top:6px;font-weight:700;font-size:12.5px}
+.rk em{font-style:normal;font-size:11.5px;color:var(--muted)}
+.rec-line{margin:16px 0 0;font-size:13.5px;color:var(--muted);text-align:center}.rec-line b{color:var(--accent)}
+.rt{display:flex;align-items:flex-end;gap:10px;height:190px;overflow-x:auto;padding-bottom:4px}
+.rt-col{display:flex;flex-direction:column;align-items:center;min-width:52px;flex:1}
+.rt-bars{display:flex;align-items:flex-end;gap:3px;height:110px}
+.rt-bars i{display:block;width:14px;border-radius:6px 6px 2px 2px}
+.rt-bars .pick,.lg.pick{background:var(--accent)}.rt-bars .vip,.lg.vip{background:#ffd166}
+.lg{display:inline-block;width:9px;height:9px;border-radius:3px;margin:0 4px 0 8px;vertical-align:middle}
+.rt-col b{font-family:var(--display);font-size:15px;margin-top:6px}
+.rt-col small{font-size:11px;color:var(--muted)}.rt-col em{font-style:normal;font-size:10.5px;color:var(--faint)}
+.rls{display:flex;flex-direction:column;gap:8px}
+.rl{display:grid;grid-template-columns:minmax(0,120px) 1fr 44px 30px;align-items:center;gap:10px;font-size:13px}
+.rl>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rl-bar{height:8px;border-radius:6px;background:var(--surface-3);overflow:hidden}.rl-bar i{display:block;height:100%;background:var(--accent);border-radius:inherit}
+.rl b{font-family:var(--display);text-align:right}.rl small{color:var(--faint);font-size:11px;text-align:right}
+.rgs{display:flex;flex-direction:column;gap:6px;max-height:520px;overflow:auto}
+.rg{display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border-radius:12px;background:var(--surface-2)}
+.rg-mark{flex-shrink:0;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:13px}
+.rg.ok .rg-mark{background:color-mix(in srgb,var(--accent) 25%,transparent);color:var(--accent)}
+.rg.no .rg-mark{background:#ff3b5c26;color:#ff7b8f}
+.rg-main{display:flex;flex-direction:column;min-width:0;font-size:13px}
+.rg-main small{font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
+.rg-main b{font-weight:650}.rg-main b em{font-style:normal;font-family:var(--display);color:var(--accent);margin:0 4px}
+.rg-main span{color:var(--muted);font-size:12px}
+.rvs{display:flex;flex-wrap:wrap;gap:6px}
+.rv{display:flex;flex-direction:column;align-items:center;padding:8px 10px;border-radius:12px;background:var(--surface-2);min-width:62px}
+.rv b{font-family:var(--display);font-size:17px}.rv small{font-size:10.5px;color:var(--muted)}
+.rv.all{background:color-mix(in srgb,#ffd166 22%,var(--surface-2));box-shadow:inset 0 0 0 1px #ffd16666}
+.rec-h{margin:26px 0 10px;font-family:var(--display);text-transform:uppercase;letter-spacing:1px;font-size:18px;color:var(--muted)}
+@media (max-width:760px){.rk svg{width:78px;height:78px}.rk b{top:25px;font-size:19px}.rl{grid-template-columns:minmax(0,96px) 1fr 40px 26px}}
 </style>
 </head>
 <body>
@@ -891,7 +931,7 @@ footer a{color:var(--muted)}
       <a href="#match" data-view="match">Match</a>
       <a href="#season" data-view="season">Season</a>
       <a href="#parlay" data-view="parlay">Parlay</a>
-      <a href="#performance" data-view="performance">Performance</a>
+      <a href="#performance" data-view="performance">Record</a>
     </nav>
     <div class="spacer"></div>
     <span class="fresh" id="fresh"></span>
@@ -906,6 +946,7 @@ footer a{color:var(--muted)}
   <a href="#match" data-view="match"><svg viewBox="0 0 24 24"><circle class="f" cx="12" cy="12" r="9.2"/><circle cx="12" cy="12" r="9.2"/><path d="M12 7.6l3.3 2.4-1.3 3.9h-4l-1.3-3.9z"/><path d="M12 7.6V3.2M15.3 10l4.3-1.4M14 13.9l2.7 3.7M10 13.9l-2.7 3.7M8.7 10 4.4 8.6"/></svg><span>Match</span></a>
   <a href="#season" data-view="season"><svg viewBox="0 0 24 24"><path class="f" d="M7 3.5h10v5a5 5 0 0 1-10 0z"/><path d="M7 3.5h10v5a5 5 0 0 1-10 0zM7 5.5H4.2a3.3 3.3 0 0 0 3.3 4.2M17 5.5h2.8a3.3 3.3 0 0 1-3.3 4.2M12 13.5v3.5M8 20.5h8M9.5 17h5v3.5h-5z"/></svg><span>Season</span></a>
   <a href="#parlay" data-view="parlay"><svg viewBox="0 0 24 24"><path class="f" d="M5 3h14v18l-2.3-1.6L14.3 21 12 19.4 9.7 21l-2.4-1.6L5 21z"/><path d="M5 3h14v18l-2.3-1.6L14.3 21 12 19.4 9.7 21l-2.4-1.6L5 21z"/><path d="M8.2 8l1.2 1.2L11.6 7M8.2 13l1.2 1.2 2.2-2.2M13.8 8.2h2.4M13.8 13.2h2.4"/></svg><span>Parlay</span></a>
+  <a href="#performance" data-view="performance"><svg viewBox="0 0 24 24"><path class="f" d="M4 20.5V14l5-4 4 3 7-7v14.5z"/><path d="M4 14l5-4 4 3 7-7M15.5 6H20v4.5M3 20.5h18"/></svg><span>Record</span></a>
 </nav>
 
 <div class="ticker" id="ticker" aria-label="Latest results" hidden><span class="lbl">Results</span><div class="run" id="ticker-run"></div></div>
@@ -1042,11 +1083,13 @@ footer a{color:var(--muted)}
   <section data-panel="performance" hidden>
     <div class="view-head">
       <div>
-        <span class="eyebrow"><i></i>Our record</span><h1>Performance</h1>
-        <p>Forward forecasts are frozen before kickoff and graded later. The backtest replays completed seasons using only earlier results.</p>
+        <span class="eyebrow"><i></i>Our record</span><h1>Track record</h1>
+        <p>Every finished game, graded against what we said before kickoff. Watch the weekly trend to see if we're getting sharper.</p>
       </div>
       <button class="ghost" id="test" type="button">Run backtest for this league</button>
     </div>
+    <div id="record"><div class="card"><div class="skel" style="height:220px"></div></div></div>
+    <h3 class="rec-h">Deeper checks</h3>
     <div id="benchmark" style="margin-bottom:14px"></div>
     <div id="prospective" class="card"><div class="skel" style="height:70px"></div></div>
     <div id="evaluation" style="margin-top:14px"></div>
@@ -2126,8 +2169,43 @@ async function loadBenchmark(){
       <details class="more"><summary>Model tuning variants</summary>${tbl(['Version', 'Result error', 'Called right', 'Goals error'], b.variants.map(v => [v.name, v.log_loss.toFixed(4), pct(v.accuracy), v.ou25.toFixed(4)]))}<p class="note">${esc(b.method)}</p></details></div>`;
   }catch{}
 }
+/* ---------- Track record ---------- */
+const LG_SHORT = id => ((state.data && state.data.leagues && state.data.leagues[id]) || id).split(' — ').pop();
+async function loadRecord(){
+  let d;
+  try{ d = await api('/api/record') }catch(e){ $('#record').innerHTML = `<div class="card"><p class="note">${esc(e.message)}</p></div>`; return }
+  const o = d.overall, v = d.vip, live = d.live || {};
+  const pc = x => x == null ? '–' : Math.round(x * 100) + '%';
+  const ring = (x, label, sub, colour) => `<div class="rk"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle class="p" cx="18" cy="18" r="15.5" style="stroke:${colour};stroke-dashoffset:${(97.4 * (1 - (x || 0))).toFixed(1)}"/></svg><b>${pc(x)}</b><small>${label}</small><em>${sub}</em></div>`;
+  const maxW = Math.max(...d.trend.map(t => t.games), 1);
+  const trend = d.trend.map(t => `<div class="rt-col" title="Week of ${esc(day(t.week))}: ${t.games} games, ${pc(t.pick_hit_rate)} picks right${t.vip_hit_rate != null ? ', VIP ' + pc(t.vip_hit_rate) : ''}">
+      <div class="rt-bars"><i class="pick" style="height:${(t.pick_hit_rate || 0) * 100}%"></i>${t.vip_hit_rate != null ? `<i class="vip" style="height:${t.vip_hit_rate * 100}%"></i>` : ''}</div>
+      <b>${pc(t.pick_hit_rate)}</b><small>${esc(new Date(t.week + 'T12:00:00').toLocaleDateString(undefined, {day: 'numeric', month: 'short'}))}</small><em>${t.games} games</em></div>`).join('');
+  const leagues = Object.entries(d.by_league).filter(([, m]) => m.games).sort((a, b) => b[1].pick_hit_rate - a[1].pick_hit_rate)
+    .map(([id, m]) => `<div class="rl"><span>${esc(LG_SHORT(id))}</span><span class="rl-bar"><i style="width:${m.pick_hit_rate * 100}%"></i></span><b>${pc(m.pick_hit_rate)}</b><small>${m.games}</small></div>`).join('');
+  const outcomeTxt = (g, k) => k === 0 ? g.home + ' win' : k === 1 ? 'Draw' : g.away + ' win';
+  const latest = d.latest.slice(0, 20).map(g => `<div class="rg ${g.hit ? 'ok' : 'no'}"><span class="rg-mark">${g.hit ? '✓' : '✗'}</span>
+      <span class="rg-main"><small>${esc(LG_SHORT(g.league_id))} · ${esc(day(g.date))}</small><b>${esc(g.home)} <em>${g.goals[0]}–${g.goals[1]}</em> ${esc(g.away)}</b>
+      <span>We said ${esc(outcomeTxt(g, g.pick))} · ${pc(g.probabilities[g.pick])}</span></span></div>`).join('');
+  const vipDays = v.days.map(x => `<span class="rv${x.all_won ? ' all' : ''}" title="${x.won} of ${x.picks} VIP picks came in"><b>${x.won}/${x.picks}</b><small>${esc(day(x.date))}</small></span>`).join('');
+  $('#record').innerHTML = `
+    <div class="card rec-top">
+      <div class="rk-row">${ring(o.pick_hit_rate, 'Picks right', o.games + ' games', 'var(--accent)')}${ring(v.hit_rate, 'VIP picks right', v.won + ' of ' + v.picks, '#ffd166')}${ring(o.confident_hit_rate, 'Confident picks', o.confident_games + ' games at 60%+', 'var(--away)')}</div>
+      <p class="rec-line"><b>${pc(o.sharper_than_guessing)}</b> sharper than guessing from the base rates (log loss ${o.log_loss} vs ${o.baseline_log_loss}). A blind guess between home, draw and away is right about 33% of the time.</p>
+    </div>
+    <div class="grid g2" style="margin-top:14px">
+      <div class="card"><h4>Week by week</h4><div class="rt">${trend}</div><p class="note" style="margin:8px 0 0"><i class="lg pick"></i> picks right <i class="lg vip"></i> VIP picks right</p></div>
+      <div class="card"><h4>By league</h4><div class="rls">${leagues}</div></div>
+    </div>
+    <div class="grid g2" style="margin-top:14px">
+      <div class="card"><h4>Latest results</h4><div class="rgs">${latest}</div></div>
+      <div class="card"><h4>VIP picks by day</h4><div class="rvs">${vipDays || '<p class="note">No VIP days yet.</p>'}</div>
+        <h4 style="margin-top:18px">Live record</h4><p class="note" style="margin:0">${live.frozen ? `${live.frozen} forecasts frozen before kickoff since ${esc(new Date(live.since).toLocaleDateString())}; ${live.graded} graded${live.pick_hit_rate != null ? `, ${pc(live.pick_hit_rate)} right` : ''}${live.vip_hit_rate != null ? `, VIP ${pc(live.vip_hit_rate)}` : ''}. These are never revised, so this is the true running score.` : 'Starts with the next update.'}</p></div>
+    </div>
+    <p class="note">${esc(d.method)} Window: ${esc(day(d.first_day))} – ${esc(day(d.last_day))}. Updated ${esc(new Date(d.generated_at).toLocaleString())}.</p>`;
+}
 async function loadProspective(){
-  state.prospectiveLoaded = true; loadBenchmark();
+  state.prospectiveLoaded = true; loadBenchmark(); loadRecord();
   try{
     const d = await api('/api/prospective');
     const metric = (label, value, sub = '') => `<div class="metric"><small>${label}</small><b>${value}</b><span>${sub}</span></div>`;
@@ -2237,7 +2315,7 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
     ['F90Cw4l-8NY', 'Bastille', 'Pompeii', 35, '#c2f25e'], ['Xu3FTEmN-eg', 'Chemical Brothers', 'Galvanize', 35, '#f4a261'],
     ['dX3k_QDnzHE', 'M83', 'Midnight City', 60, '#ffd166'], ['Dst9gZkq1a8', 'Travis Scott', 'Goosebumps', 35, '#ef476f'],
     ['9ClYy0MxsU0', 'Stormzy', 'Vossi Bop', 35, '#06d6a0'], ['pSY3i5XHHXo', 'Dave', 'Sprinter', 35, '#8338ec']];
-  const PLAY_SECONDS = 90, FADE_MS = 4000;
+  const PLAY_SECONDS = 90, FADE_MS = 3500, MIX_DELAY_MS = 1200, MIX_IN_MS = 2800;
   // Genres for browsing and for 'play only this' filtering.
   const AFRO = /Young Jonn|Asake|Burna Boy|Maphorisa|T\.I Blaze|Seyi Vibez|Wizkid|Davido|Rema|Ayra Starr|CKay|Kizz Daniel|Fireboy|Olamide|Omah Lay|Shallipopi|Victony|ODUMODU|Odumodu|BNXN|Joeboy/i;
   const AMAPIANO = /Tyla|Uncle Waffles|Black Coffee/i;
@@ -2303,10 +2381,12 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
       blocked = true; paused = true; pausedAt = performance.now(); paint(); $m('mx-sub').textContent = 'Tap ▶ to play';
     }, 9000);
   }
+  // Equal-power curves: a fade-out follows cos, a fade-in sin, so loudness stays even through a mix.
   function fade(p, from, to, ms, done){
     const id = (p._fade || 0) + 1, t0 = performance.now(); p._fade = id;
+    const curve = to < from ? k => 1 - Math.cos(k * Math.PI / 2) : k => Math.sin(k * Math.PI / 2);
     (function step(now){ if(p._fade !== id) return;        // a newer fade on this player wins
-      const k = Math.min(1, (now - t0) / ms); try{ p.setVolume(Math.round(from + (to - from) * k)) }catch{}
+      const k = Math.min(1, (now - t0) / ms); try{ p.setVolume(Math.round(from + (to - from) * curve(k))) }catch{}
       k < 1 ? requestAnimationFrame(step) : done && done() })(t0);
   }
   function paint(){
@@ -2330,7 +2410,8 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
       p.loadVideoById({videoId: id, startSeconds: start});
       p.playVideo();
     }catch{}
-    if(DUAL && !first && !muted) fade(p, 0, VOLUME, FADE_MS);
+    // Staggered entry: the new song comes in once the old one is already well down, so they never clash.
+    if(DUAL && !first && !muted) setTimeout(() => { if(p === players[live] && !paused) fade(p, 0, VOLUME, MIX_IN_MS) }, MIX_DELAY_MS);
     paused = false; blocked = false; slotStart = performance.now(); paint(); arm(); nudge(p);
   }
   // Phones load a new song but often leave it unstarted after a swap; an explicit play starts it.
