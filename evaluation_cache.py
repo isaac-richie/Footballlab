@@ -14,7 +14,8 @@ def cached_evaluate(data, league_id, compute, directory=None, day=None, revision
     directory = Path(directory) if directory is not None else ROOT / 'reports' / 'cache'
     if revision is None:
         revision = {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
-                    for name in ('app.py', 'model.py', 'evaluation.py', 'quality.py', 'evaluation_cache.py')}
+                    for name in ('app.py', 'model.py', 'evaluation.py', 'quality.py', 'evaluation_cache.py',
+                                 'market_ratings.py', 'markets.py', 'odds_data.py')}
     key = digest(dict(schema=1, data=data, league=league_id,
                       day=day or dt.date.today().isoformat(), revision=revision))
     # One file per league bounds storage; the digest remains the authority.

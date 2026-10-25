@@ -1,6 +1,7 @@
 import unittest
 
-from model import fit_ratings, newcomers
+from markets import score_matrix
+from model import calibrate, fit_ratings, newcomers
 from odds_data import fair
 
 
@@ -46,6 +47,17 @@ class RatingsTest(unittest.TestCase):
         # Shin removes more margin from the longshot than proportional removal does.
         self.assertLess(fair(odds, 'shin')[2], fair(odds, 'proportional')[2])
         self.assertEqual([round(x, 6) for x in fair([2, 4, 4], 'shin')], [.5, .25, .25])
+
+    def test_calibrated_grid_matches_calibrated_result(self):
+        cal = dict(temperature=.82, draw_shift=.18)
+        raw, grid = score_matrix(1.6, 1.1, -.05), score_matrix(1.6, 1.1, -.05, cal)
+        side = lambda g, test: sum(p for (h, a), p in g.items() if test(h, a))
+        target = calibrate([side(raw, lambda h, a: h > a), side(raw, lambda h, a: h == a), side(raw, lambda h, a: h < a)], **cal)
+        self.assertAlmostEqual(side(grid, lambda h, a: h > a), target[0])
+        self.assertAlmostEqual(side(grid, lambda h, a: h == a), target[1])
+        self.assertAlmostEqual(sum(grid.values()), 1)
+        # Within a result the shape is unchanged: 2-1 versus 1-0 keeps its ratio.
+        self.assertAlmostEqual(grid[(2, 1)] / grid[(1, 0)], raw[(2, 1)] / raw[(1, 0)])
 
 
 if __name__ == '__main__':

@@ -9,14 +9,16 @@ import math
 
 
 SPEC = {
-    'version': 'poisson-attack-defence-dixon-coles-1.1-market-targets',
+    'version': 'poisson-attack-defence-dixon-coles-2.0-exact-calibrated',
     'family': 'Poisson scores with Dixon-Coles low-score dependence correction',
     'features': ['league baseline', 'home advantage', 'team attack', 'team defence'],
-    'targets': 'closing-price implied goals (75%) blended with scorelines, 90-day half-life, where prices exist',
-    'half_life_days': 365,
-    'ridge': 0.025,
-    'optimizer': 'Adam, fixed pre-specified 50 iterations',
-    'calibration': 'not fitted',
+    'targets': 'closing-price implied goals (90%) blended with scorelines, 60-day half-life, where prices exist; '
+               'otherwise scorelines with a 365-day half-life',
+    'ridge': '0.005 with prices, 0.01 without',
+    'optimizer': 'block Newton, solved to convergence; no pinned reference team',
+    'calibration': 'temperature 0.91 and draw shift 0.12 on the model\'s own 1X2 (0.94/0.09 without prices), fitted on 2023-25 forecasts',
+    'margin_removal': 'power method',
+    'holdout': '2025-27, 3,330 matches in 8 leagues: 1X2 log loss 0.9873 (previous model 0.9975), tools/accuracy_lab.py',
 }
 
 
@@ -88,6 +90,30 @@ def fit_team_rates(rows, asof, teams=(), half_life_days=365, ridge=0.025, iterat
     return expected, metadata
 
 
+def calibrate(probabilities, temperature=1.0, draw_shift=0.0):
+    """Home/draw/away after a temperature on log-probabilities and a draw log-odds shift."""
+    x = [max(p, 1e-12) ** (1 / temperature) for p in probabilities]
+    x[1] *= math.exp(draw_shift)
+    total = sum(x)
+    return [v / total for v in x]
+
+
+def calibrate_grid(grid, calibration):
+    """Rescale a normalized {(home, away): p} score grid so its 1X2 matches calibrate().
+
+    Every cell inside one result is scaled alike, so scorelines, totals and
+    combinations keep their shape given the result and stay mutually consistent.
+    """
+    if not calibration:
+        return grid
+    side = lambda h, a: 0 if h > a else 1 if h == a else 2
+    raw = [0.0, 0.0, 0.0]
+    for (h, a), p in grid.items():
+        raw[side(h, a)] += p
+    target = calibrate(raw, calibration['temperature'], calibration['draw_shift'])
+    return {(h, a): p * target[side(h, a)] / raw[side(h, a)] for (h, a), p in grid.items()}
+
+
 UPPER = {'de.2': 'de.1', 'it.2': 'it.1'}   # a club new to a second tier may have come down from here
 
 
@@ -119,7 +145,7 @@ def newcomers(matches, league_id, same_team=None):
     return out
 
 
-def fit_ratings(rows, asof, teams=(), half_life_days=365, ridge=0.025, newcomers=None, offset_ridge=0.002):
+def fit_ratings(rows, asof, teams=(), half_life_days=365, ridge=0.025, newcomers=None, offset_ridge=0.002, start=None):
     """Attack/defence ratings solved exactly, with a learned prior for new clubs.
 
     Same penalized likelihood as fit_team_rates (mean weighted Poisson NLL plus
@@ -132,6 +158,8 @@ def fit_ratings(rows, asof, teams=(), half_life_days=365, ridge=0.025, newcomers
     first season in the league add a shared attack and defence offset for that
     kind of newcomer, learned from every such season in the history, so a
     promoted side starts below the league average rather than at it.
+
+    start: a previous fit's expected.state, to warm-start a refit a few days on.
     """
     if len(rows) < 100:
         raise ValueError('At least 100 completed earlier matches are required.')
@@ -154,6 +182,11 @@ def fit_ratings(rows, asof, teams=(), half_life_days=365, ridge=0.025, newcomers
     # Global block: baseline, home, up attack, up defence, down attack, down defence.
     g = [math.log(max(mean_goals, .05)), 0.0, 0.0, 0.0, 0.0, 0.0]
     penalty = [0.0, 0.0] + [offset_ridge] * 4
+    if start:
+        g = list(start['global'])
+        for team, (a, d) in start['teams'].items():
+            if team in index:
+                att[index[team]], dfn[index[team]] = a, d
 
     def features(e):
         x = [1.0, float(e[2]), 0.0, 0.0, 0.0, 0.0]
@@ -183,6 +216,14 @@ def fit_ratings(rows, asof, teams=(), half_life_days=365, ridge=0.025, newcomers
                 step = max(-1.0, min(1.0, (grad[i] / total + ridge * vec[i]) / (hess[i] / total + ridge)))
                 vec[i] -= step
                 biggest = max(biggest, abs(step))
+            # Every rate has one attack, one defence and the baseline, so moving all
+            # of one kind by c and the baseline by -c leaves the likelihood alone;
+            # the penalty is then minimised exactly by centring. Without this the
+            # alternating steps crawl along that flat direction when ridge is light.
+            shift = sum(vec) / t
+            for i in range(t):
+                vec[i] -= shift
+            g[0] += shift
         grad, hess = [0.0] * 6, [[0.0] * 6 for _ in range(6)]
         for k, lam in enumerate(rates()):
             r, c = weight[k] * (lam - goals[k]), weight[k] * lam
@@ -214,6 +255,7 @@ def fit_ratings(rows, asof, teams=(), half_life_days=365, ridge=0.025, newcomers
         eta_away = g[0] + a(ai) + d(hi) + offset(ak, 0) + offset(hk, 1)
         return max(.05, min(6, math.exp(eta_home))), max(.05, min(6, math.exp(eta_away)))
     expected.season_aware = True
+    expected.state = {'global': list(g), 'teams': {x: (att[i], dfn[i]) for x, i in index.items()}}
     metadata = dict(teams=len(all_teams), effective_matches=total, solver='block Newton, converged',
                     home_advantage=g[1], newcomer_offsets=dict(up_attack=g[2], up_defence=g[3],
                                                                down_attack=g[4], down_defence=g[5]),

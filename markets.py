@@ -7,6 +7,8 @@ goal share, which is fitted from earlier half-time scores only.
 import datetime as dt
 import math
 
+from model import calibrate_grid
+
 MAX_GOALS = 25
 HALF_MAX = 12
 MIN_HALFTIME_MATCHES = 200
@@ -19,8 +21,8 @@ def poisson(lam, top=MAX_GOALS):
     return p
 
 
-def score_matrix(lh, la, rho=0.0):
-    """Normalized Dixon-Coles score grid as {(home, away): probability}."""
+def score_matrix(lh, la, rho=0.0, calibration=None):
+    """Normalized Dixon-Coles score grid as {(home, away): probability}, optionally calibrated."""
     def tau(h, a):
         if h == 0 and a == 0: return 1 - lh * la * rho
         if h == 0 and a == 1: return 1 + lh * rho
@@ -32,7 +34,7 @@ def score_matrix(lh, la, rho=0.0):
     if any(p <= 0 or not math.isfinite(p) for p in cells.values()):
         raise ValueError('Dixon-Coles rho creates an invalid score probability.')
     mass = sum(cells.values())
-    return {k: v / mass for k, v in cells.items()}
+    return calibrate_grid({k: v / mass for k, v in cells.items()}, calibration)
 
 
 def fair_odds(p):
@@ -135,8 +137,8 @@ def halftime_markets(lh, la, share):
         note='Halves are independent Poisson splits of the fitted goal rates; full-time totals here omit the low-score correction.')
 
 
-def extended_markets(lh, la, rho=0.0, share=None):
-    grid = score_matrix(lh, la, rho)
+def extended_markets(lh, la, rho=0.0, share=None, calibration=None):
+    grid = score_matrix(lh, la, rho, calibration)
     def chance(test):
         return sum(p for (h, a), p in grid.items() if test(h, a))
     correct = [[grid[(h, a)] for a in range(6)] for h in range(6)]

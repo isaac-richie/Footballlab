@@ -33,18 +33,18 @@ RECORDS = ROOT / 'reports' / 'accuracy_lab.records.json'
 METHODS = ('proportional', 'shin', 'power', 'odds_ratio', 'additive')
 PRICES = ('avg_open', 'avg_close', 'pin_open', 'pin_close')
 
+# Unlisted settings are the 1.1 production values (below), not today's module
+# defaults, so 'prod' and 'exact' stay fixed reference points.
+BASE = dict(half_life=90, weight=.75, ridge=.025)
 VARIANTS = {
     'prod': dict(old=True),
     'exact': dict(new=False),
     **{f'r{r}': dict(ridge=r, new=False) for r in (.01, .005, .0025)},
-    'r.005_new': dict(ridge=.005),
-    'r.005_mw.9': dict(ridge=.005, weight=.9, new=False),
-    'r.005_hl60': dict(ridge=.005, half_life=60, new=False),
-    'r.005_mw.9_hl60': dict(ridge=.005, weight=.9, half_life=60, new=False),
-    'r.005_mw.9_hl120': dict(ridge=.005, weight=.9, half_life=120, new=False),
-    'r.005_mw1': dict(ridge=.005, weight=1, new=False),
-    **{f'goals_hl{h}_r{r}{"_new" if n else ""}': dict(weight=0, half_life=h, ridge=r, new=n)
-       for h in (270, 365, 540) for r in (.025, .01) for n in (False, True)},
+    **{f'r{r}_mw{w}_hl{h}': dict(ridge=r, weight=w, half_life=h, new=False)
+       for r in (.01, .005) for w in (.75, .9) for h in (60, 90, 120) if (w, h) != (.75, 90)},
+    'r0.005_mw0.9_hl60_new': dict(ridge=.005, weight=.9, half_life=60),
+    **{f'goals_hl{h}_r{r}': dict(weight=0, half_life=h, ridge=r, new=False) for h in (365, 540, 730) for r in (.025, .01)},
+    'goals_hl540_r0.01_new': dict(weight=0, half_life=540, ridge=.01),
 }
 
 
@@ -53,12 +53,12 @@ def same_team(a, b):
 
 
 def fit(rows, start, teams, flags, v):
-    half = v.get('half_life', market_ratings.HALF_LIFE_DAYS)
-    target = market_ratings.targets(rows, v.get('weight', market_ratings.MARKET_WEIGHT)) if v.get('weight', 1) else rows
+    v = {**BASE, **v}
+    target = market_ratings.targets(rows, v['weight']) if v['weight'] else rows
     if v.get('old'):
-        expected, _ = fit_team_rates(target, start, teams, half_life_days=half)
+        expected, _ = fit_team_rates(target, start, teams, half_life_days=v['half_life'], ridge=v['ridge'])
     else:
-        expected, _ = fit_ratings(target, start, teams, half_life_days=half, ridge=v.get('ridge', .025),
+        expected, _ = fit_ratings(target, start, teams, half_life_days=v['half_life'], ridge=v['ridge'],
                                   newcomers=flags if v.get('new', True) else None)
     rho, _ = fit_dixon_coles(rows, start, expected)
     return expected, rho
@@ -157,9 +157,14 @@ def summarize(records):
                                    ou25=dict(tune=ou_ll(tune, lambda r, n=name: r[n][3]), holdout=ou_ll(hold, lambda r, n=name: r[n][3])),
                                    newcomer_matches=score([r for r in hold if r['newcomer']], model(name)))
                         for name in VARIANTS}
-    priced = lambda name: [r for r in tune if r['league'] != 'sa.1']
-    best_model = min(VARIANTS, key=lambda n: score(priced(n), model(n))['log_loss'])
-    unpriced_best = min((n for n in VARIANTS if n.startswith('goals_')), key=lambda n: score(tune, model(n))['log_loss'])
+    # Leagues with no prices at all (Saudi) are routed to the scoreline model, as
+    # market_ratings.fit does. The newcomer prior is excluded from selection: it
+    # never gained more than 0.0002 on tuning seasons, well inside the noise.
+    priced_leagues = {r['league'] for r in records if r['odds']}
+    priced = [r for r in tune if r['league'] in priced_leagues]
+    simple = [n for n in VARIANTS if not n.endswith('_new')]
+    best_model = min((n for n in simple if not n.startswith('goals_')), key=lambda n: score(priced, model(n))['log_loss'])
+    unpriced_best = min((n for n in simple if n.startswith('goals_')), key=lambda n: score(tune, model(n))['log_loss'])
     report['chosen'] = dict(model=best_model, model_without_prices=unpriced_best)
     report['models_by_league'] = {lg: {n: score([r for r in hold if r['league'] == lg], model(n))
                                        for n in ('prod', best_model, unpriced_best)} for lg in leagues}
@@ -202,6 +207,18 @@ def summarize(records):
         cal[name] = dict(temperature=t, draw_shift=d, holdout_raw=score(hold, f),
                          holdout_calibrated=score(hold, lambda r: calibrate(f(r), t, d)))
     report['calibration'] = cal
+
+    # 5. The production configuration end to end, against the 1.1 model.
+    def production(r):
+        name = best_model if r['league'] in priced_leagues else unpriced_best
+        return calibrate(r[name][:3], cal[name]['temperature'], cal[name]['draw_shift'])
+    groups = dict(all=lambda r: True, priced_leagues=lambda r: r['league'] in priced_leagues,
+                  unpriced_leagues=lambda r: r['league'] not in priced_leagues)
+    report['production'] = {g: dict(previous=score([r for r in hold if f(r)], model('prod')),
+                                    current=score([r for r in hold if f(r)], production)) for g, f in groups.items()}
+    report['production_by_league'] = {lg: dict(previous=score([r for r in hold if r['league'] == lg], model('prod')),
+                                               current=score([r for r in hold if r['league'] == lg], production))
+                                      for lg in leagues}
     return report
 
 
@@ -221,7 +238,7 @@ def main():
         RECORDS.write_text(json.dumps(records))
     report = summarize(records)
     OUT.write_text(json.dumps(report, indent=1))
-    print(json.dumps({k: report[k] for k in ('matches', 'chosen', 'pre_kickoff', 'calibration')}, indent=1))
+    print(json.dumps({k: report[k] for k in ('matches', 'chosen', 'pre_kickoff', 'calibration', 'production')}, indent=1))
     for src, methods in report['margin'].items():
         print(src, {m: v['holdout']['log_loss'] for m, v in methods.items() if v['holdout']})
     for name, v in report['models'].items():

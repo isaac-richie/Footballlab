@@ -22,6 +22,34 @@ The dashboard has three views. **Fixtures** forecasts every upcoming fixture in 
 
 Half-time scores are now kept during ingestion when present and consistent with the full-time score. `python3 app.py backfill-halftime` attaches them to existing data offline from the stored raw snapshots, accepting only snapshots whose full-time score matches.
 
+## Model 2.0: exact ratings, calibration and better margin removal (October 2026)
+
+`python3 tools/accuracy_lab.py` predicts every week of 2023-24 to 2026-27 in all eight leagues from fits on earlier results only. Settings are chosen on 2023-25 and scored once on 2025-27 (3,330 matches), so the holdout is not flattered by the search. Summary in `reports/accuracy_lab.json`; per-match records stay local (they contain football-data prices).
+
+| 2025-27 holdout, 1X2 | Previous model | Model 2.0 |
+|---|---|---|
+| All 8 leagues: log loss | 0.9975 | **0.9873** |
+| All 8 leagues: Brier | 0.5951 | 0.5888 |
+| All 8 leagues: hit rate | 51.2% | 52.0% |
+| 7 priced leagues: log loss | 1.0075 | 0.9968 |
+| Saudi (no prices): log loss | 0.9239 | 0.9185 |
+
+Every league improved, from Serie B (1.0425 to 1.0387) to La Liga (0.9788 to 0.9621). For reference, opening bookmaker prices score 0.9902 on the priced leagues, and the app still prices from them wherever they exist. The model is what you see for the rest.
+
+What changed:
+
+- **Solved exactly.** The old fit stopped after 50 Adam steps and pinned one club (alphabetically last) at the league average. That overstated goal levels by about 10% at short half-lives. Block Newton, with an exact centring step, now solves the same penalised likelihood to convergence in under ten rounds (about 0.04 s), and every club is free.
+- **Retuned.** Ridge 0.025 → 0.005, market targets 75% → 90%, half-life 90 → 60 days. Leagues without prices use scorelines with a 365-day half-life and ridge 0.01 (`market_ratings.fit` decides per league).
+- **Calibrated.** Temperature 0.91 and a draw shift of +0.12 apply to the model's own 1X2 (0.94 and +0.09 without prices). The whole score grid is rescaled per result, so every derived market stays consistent. Bookmaker-priced numbers are not touched.
+- **Power margin removal** replaces proportional removal for all bookmaker prices. It was better by about 0.001 log loss on opening and closing prices, average and Pinnacle.
+- **More history.** Serie B 2021-24 (1,140 matches) is filled from football-data in memory, using football-data's own names for clubs the open feed never had. The Saudi Pro League 2021-22 to date comes from TheSportsDB (`python3 app.py fetch-saudi`).
+
+Tested and not adopted:
+
+- A learned promoted/relegated-club prior (`model.newcomers`) gained at most 0.0002 on the tuning seasons and lost on the holdout in every round.
+- Blending the model into opening prices got a fitted model weight of 0.
+- Pinnacle beats the bookmaker average by only 0.0004.
+
 ## Market pricing (accuracy work, October 2026)
 
 Benchmark (`reports/benchmark.json`, `python3 experiments.py`): over 6,153 matches in six leagues (2023-24 to 2025-26, weekly refits on earlier results only), the score model's 1X2 log loss was 1.0011 against 0.9768 for opening bookmaker odds and 0.9751 for closing odds. Tuning half-life, shrinkage and a shots-on-target signal moved it by at most 0.002. A model/market blend fitted on 2023-24 put zero weight on the model, so on unseen seasons the model added nothing to opening prices.

@@ -13,7 +13,7 @@ from urllib.parse import parse_qs, urlparse
 from urllib.request import urlopen
 from urllib.error import HTTPError
 from quality import atomic_write, canonicalize, coverage, digest, normalize, normalize_openligadb
-from model import SPEC as MODEL, fit_rates, fit_team_rates, fit_dixon_coles
+from model import SPEC as MODEL, calibrate_grid
 from markets import extended_markets, fit_first_half_share
 from implied import implied_rates, implied_rates_rho
 from count_markets import count_markets
@@ -217,7 +217,7 @@ def rates(rows, home, away, asof):
     return max(.05, min(6, lh)), max(.05, min(6, la)), counts
 
 
-def distribution(lh, la, rho=0.0):
+def distribution(lh, la, rho=0.0, calibration=None):
     if not all(isinstance(x, (int, float)) and math.isfinite(x) and 0 < x <= 6 for x in (lh, la)):
         raise ValueError('Goal rates must be finite and between 0 and 6.')
     def poisson(lam):
@@ -237,6 +237,9 @@ def distribution(lh, la, rho=0.0):
     if any(p <= 0 or not math.isfinite(p) for _, _, p in cells):
         raise ValueError('Dixon-Coles rho creates an invalid score probability.')
     mass = sum(p for _, _, p in cells)
+    if calibration:
+        grid = calibrate_grid({(h, a): p / mass for h, a, p in cells}, calibration)
+        cells, mass = [(h, a, grid[(h, a)]) for h, a, _ in cells], 1.0
     probs = [sum(p for h, a, p in cells if (h > a, h == a, h < a)[i]) / mass for i in range(3)]
     def chance(predicate):
         return sum(p for h, a, p in cells if predicate(h, a)) / mass
@@ -388,24 +391,25 @@ def predict(data, request, stats=None):
     if home == away or home not in teams or away not in teams:
         raise ValueError('Choose two different teams from the data.')
     rows = history(data, asof, league_id)
-    lh, la, counts, fit = fit_rates(rows, home, away, asof, targets=market_ratings.targets(rows))
-    rho = fit['dixon_coles_rho']
-    model_view = distribution(lh, la, rho)
+    expected, rho, fit = market_ratings.fit(rows, asof, (home, away))
+    lh, la = expected(home, away)
+    counts = {t: sum(t in (m['home'], m['away']) for m in rows) for t in (home, away)}
+    model_view = distribution(lh, la, rho, fit['calibration'])
     fixture_date = fixture_date_for(data, league_id, home, away, asof, request.get('fixture_date'))
     prices = market_prices(data, request, league_id, home, away, asof, fixture_date)
     pricing = dict(source='model', label='Our model only (no bookie prices for this match yet)', fixture_date=fixture_date)
-    rates = (lh, la)
+    rates, calibration = (lh, la), fit['calibration']
     if prices:
         mh, ma, mrho, error = market_fit(prices, rho, (lh, la))
         if error < .03:
-            rates, rho = (mh, ma), mrho
+            rates, rho, calibration = (mh, ma), mrho, None
             pricing = dict(prices, fixture_date=fixture_date, fit_error=error,
                            note='Every number on this page is worked out from the bookies\' prices, with their cut removed.')
         else:
             pricing['note'] = f'Bookmaker prices found but could not be matched by a goal model (error {error:.3f}); using the model.'
-    result = distribution(*rates, rho)
+    result = distribution(*rates, rho, calibration)
     share = fit_first_half_share(rows, asof)
-    result['markets'] = extended_markets(*rates, rho, share)
+    result['markets'] = extended_markets(*rates, rho, share, calibration)
     if fixture_date:
         pricing['movement'] = live_odds.movement(league_id, '|'.join((fixture_date, home, away)))
     result['pricing'] = pricing
@@ -473,10 +477,10 @@ def fixture_rates(data, league_id, fixtures, today):
     """One model fit at today's cutoff; bookmaker-implied rates wherever prices exist."""
     rows = history(data, today, league_id)
     teams = {t for m in fixtures for t in (m['home'], m['away'])}
-    expected, _ = fit_team_rates(market_ratings.targets(rows), today, sorted(teams), half_life_days=market_ratings.HALF_LIFE_DAYS)
-    rho, _ = fit_dixon_coles(rows, today, expected)
+    expected, rho, fit = market_ratings.fit(rows, today, sorted(teams))
     priced = []
     for m in fixtures:
+        m = {**m, '_cal': fit['calibration']}       # applies to the model's own numbers only
         model_rates = expected(m['home'], m['away'])
         source, rates, prices = 'model', model_rates, None
         if m['date'] >= today:
@@ -508,7 +512,7 @@ def slate(data, league_id, limit=40):
     movement = live_odds.movement_summary(league_id)
     items = []
     for m, model_rates, rates, source, prices in priced:
-        model = distribution(*model_rates, rho)
+        model = distribution(*model_rates, rho, m['_cal'])
         d = distribution(*rates, m.get('_rho', rho)) if source != 'model' else model
         items.append(dict(date=m['date'], home=m['home'], away=m['away'], probabilities=d['probabilities'],
                           expected_goals=list(rates), over25=d['over25'], over15=d['total_goal_overs']['1.5'],
@@ -570,7 +574,7 @@ def parlay_candidates(data, leagues, days=7):
         except ValueError:
             continue
         for m, _, rates, source, _ in priced:
-            out += legs_for(m, distribution(*rates, m.get('_rho', rho)), source)
+            out += legs_for(m, distribution(*rates, m.get('_rho', rho), m['_cal'] if source == 'model' else None), source)
     return out
 
 

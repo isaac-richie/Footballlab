@@ -110,7 +110,7 @@ def paired_date_interval(records, calibrated, replicates=1000):
 
 def evaluate(data, league_id):
     from app import LEAGUES, MODEL, distribution, history
-    from model import fit_dixon_coles, fit_team_rates
+    import market_ratings
     from quality import digest
     if league_id not in LEAGUES:
         raise ValueError('Choose a supported league.')
@@ -135,13 +135,15 @@ def evaluate(data, league_id):
     for match in rows:
         if match['season'] in selected:
             by_date[match['date']].append(match)
+    state = None
     for date, matches in sorted(by_date.items()):
         prior = [m for m in rows if m['date'] < date]
         if len(prior) < 100:
             continue
-        expected, _ = fit_team_rates(prior, date,
-                                     {t for m in matches for t in (m['home'], m['away'])})
-        rho, _ = fit_dixon_coles(prior, date, expected)
+        # The production fit, so this backtest scores exactly what the forecasts use.
+        expected, rho, fit = market_ratings.fit(prior, date, sorted({t for m in matches for t in (m['home'], m['away'])}),
+                                                start=state)
+        state = expected.state       # the next date's fit starts here; same converged answer, far fewer steps
         base = [1.,1.,1.]
         for m in prior:
             h,a = m['goals']
@@ -151,7 +153,7 @@ def evaluate(data, league_id):
         btts_baseline = (1+sum(m['goals'][0]>0 and m['goals'][1]>0 for m in prior))/(len(prior)+2)
         for match in matches:
             lh, la = expected(match['home'], match['away'])
-            forecast = distribution(lh, la, rho)
+            forecast = distribution(lh, la, rho, fit['calibration'])
             h,a = match['goals']
             record = dict(date=match['date'], season=match['season'], home=match['home'], away=match['away'],
                           probabilities=forecast['probabilities'],
