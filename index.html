@@ -816,6 +816,40 @@ footer a{color:var(--muted)}
 .mx-credit{position:relative;margin:10px 0 0;font-size:10.5px;color:var(--faint);text-align:center}
 @media (max-width:760px){.mx{left:12px;bottom:calc(96px + env(safe-area-inset-bottom))}.mx-sheet{width:calc(100vw - 24px)}}
 @media (prefers-reduced-motion:reduce){.mx-disc .vinyl,.mx-eq i,.mx-list .eqs i{animation:none}}
+
+/* ---------- VIP slip ---------- */
+.vip-cta{display:flex;align-items:center;gap:10px;margin-top:14px;padding:12px 14px;border-radius:16px;text-decoration:none;color:var(--text);max-width:420px;
+  background:linear-gradient(100deg,color-mix(in srgb,#ffd166 22%,var(--surface-2)),var(--surface-2));border:1px solid color-mix(in srgb,#ffd166 45%,var(--line-2));transition:transform .2s}
+.vip-cta:hover{transform:translateY(-2px)}
+.vip-cta span{font-size:20px}.vip-cta b{font-family:var(--display);text-transform:uppercase;letter-spacing:.6px;font-size:16px}
+.vip-cta em{font-style:normal;font-size:12.5px;color:var(--muted);flex:1}
+.vip-cta svg{width:18px;height:18px;fill:none;stroke:#ffd166;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.vip-code{position:relative;overflow:hidden;margin-bottom:14px;border-radius:24px!important;padding:20px!important;
+  background:radial-gradient(120% 120% at 0% 0%,color-mix(in srgb,#ffd166 22%,transparent),transparent 55%),var(--surface)!important;border:1px solid color-mix(in srgb,#ffd166 40%,var(--line-2))!important}
+.vc-top{display:flex;flex-direction:column;gap:4px}
+.vc-top small{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#ffd166;font-weight:700}
+.vc-code{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:clamp(22px,6vw,34px);letter-spacing:2px;font-weight:700}
+.vc-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.vc-b{padding:11px 16px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface-3);color:var(--text);font-weight:650;font-size:13.5px;cursor:pointer;transition:background .2s,color .2s}
+.vc-b.primary{background:#ffd166;color:#1a1300;border-color:#ffd166;flex:1 1 220px}
+.vc-b.done{background:var(--accent);color:#0b0f14;border-color:var(--accent)}
+.vc-how{margin:12px 0 0;font-size:12.5px;color:var(--muted)}.vc-how a{color:#ffd166}
+.vip-legs{display:grid;gap:8px}
+.vl{display:grid;grid-template-columns:28px minmax(0,1fr) 64px;align-items:center;gap:12px;padding:14px;border-radius:18px;border:1px solid var(--line-2);
+  background:color-mix(in srgb,var(--surface) 94%,transparent);animation:rise .45s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i) * 35ms)}
+.vl-n{font-family:var(--display);font-weight:800;font-size:18px;color:var(--faint)}
+.vl-main{min-width:0;display:flex;flex-direction:column;gap:6px}
+.vl-meta{font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.vl-teams{display:flex;flex-direction:column;gap:3px;font-weight:650;font-size:14px}
+.vl-teams span{display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vl-teams .tb{width:18px;height:18px}
+.vl-pick{align-self:flex-start;padding:5px 10px;border-radius:10px;font-size:13px;font-weight:700;color:#1a1300;background:#ffd166}
+.vl-p{position:relative;display:flex;flex-direction:column;align-items:center}
+.vl-p svg{width:56px;height:56px;transform:rotate(-90deg)}
+.vl-p circle{fill:none;stroke:var(--surface-3);stroke-width:3.2}
+.vl-p .p{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:97.4}
+.vl-p b{position:absolute;top:17px;font-family:var(--display);font-size:15px}
+.vl-p small{font-size:11px;color:var(--muted);margin-top:2px}
 </style>
 </head>
 <body>
@@ -824,6 +858,7 @@ footer a{color:var(--muted)}
     <div class="brand"><img class="logo-mark" src="/logo-mark.svg" alt="" width="30" height="30"><span>Football Lab</span></div>
     <nav class="nav" aria-label="Views">
       <a href="#featured" data-view="featured">Featured</a>
+      <a href="#vip" data-view="vip">VIP</a>
       <a href="#fixtures" data-view="fixtures">Fixtures</a>
       <a href="#match" data-view="match">Match</a>
       <a href="#season" data-view="season">Season</a>
@@ -838,11 +873,11 @@ footer a{color:var(--muted)}
 </header>
 <nav class="tabbar" aria-label="Views">
   <a href="#featured" data-view="featured"><svg viewBox="0 0 24 24"><path class="f" d="M12 2.8l2.7 5.6 6.1.8-4.4 4.3 1.1 6.1L12 16.7l-5.5 2.9 1.1-6.1-4.4-4.3 6.1-.8z"/><path d="M12 2.8l2.7 5.6 6.1.8-4.4 4.3 1.1 6.1L12 16.7l-5.5 2.9 1.1-6.1-4.4-4.3 6.1-.8z"/><path d="M19.5 2.5v2.4M18.3 3.7h2.4"/></svg><span>Featured</span></a>
+  <a href="#vip" data-view="vip"><svg viewBox="0 0 24 24"><path class="f" d="M3 8l4.5 3.5L12 5l4.5 6.5L21 8l-2 11H5z"/><path d="M3 8l4.5 3.5L12 5l4.5 6.5L21 8l-2 11H5zM5 19h14"/></svg><span>VIP</span></a>
   <a href="#fixtures" data-view="fixtures"><svg viewBox="0 0 24 24"><rect class="f" x="3" y="4.5" width="18" height="16" rx="3.5"/><rect x="3" y="4.5" width="18" height="16" rx="3.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><circle cx="12" cy="15" r="3"/><path d="M12 13.2l1.1.8-.4 1.3h-1.4l-.4-1.3z"/></svg><span>Fixtures</span></a>
   <a href="#match" data-view="match"><svg viewBox="0 0 24 24"><circle class="f" cx="12" cy="12" r="9.2"/><circle cx="12" cy="12" r="9.2"/><path d="M12 7.6l3.3 2.4-1.3 3.9h-4l-1.3-3.9z"/><path d="M12 7.6V3.2M15.3 10l4.3-1.4M14 13.9l2.7 3.7M10 13.9l-2.7 3.7M8.7 10 4.4 8.6"/></svg><span>Match</span></a>
   <a href="#season" data-view="season"><svg viewBox="0 0 24 24"><path class="f" d="M7 3.5h10v5a5 5 0 0 1-10 0z"/><path d="M7 3.5h10v5a5 5 0 0 1-10 0zM7 5.5H4.2a3.3 3.3 0 0 0 3.3 4.2M17 5.5h2.8a3.3 3.3 0 0 1-3.3 4.2M12 13.5v3.5M8 20.5h8M9.5 17h5v3.5h-5z"/></svg><span>Season</span></a>
   <a href="#parlay" data-view="parlay"><svg viewBox="0 0 24 24"><path class="f" d="M5 3h14v18l-2.3-1.6L14.3 21 12 19.4 9.7 21l-2.4-1.6L5 21z"/><path d="M5 3h14v18l-2.3-1.6L14.3 21 12 19.4 9.7 21l-2.4-1.6L5 21z"/><path d="M8.2 8l1.2 1.2L11.6 7M8.2 13l1.2 1.2 2.2-2.2M13.8 8.2h2.4M13.8 13.2h2.4"/></svg><span>Parlay</span></a>
-  <a href="#performance" data-view="performance"><svg viewBox="0 0 24 24"><path class="f" d="M4 20.5V14l5-4 4 3 7-7v14.5z"/><path d="M4 14l5-4 4 3 7-7M15.5 6H20v4.5M3 20.5h18"/></svg><span>Record</span></a>
 </nav>
 
 <div class="ticker" id="ticker" aria-label="Latest results" hidden><span class="lbl">Results</span><div class="run" id="ticker-run"></div></div>
@@ -853,7 +888,7 @@ footer a{color:var(--muted)}
   <!-- FEATURED -->
   <section data-panel="featured" hidden>
     <div class="view-head hero-head">
-      <div><span class="eyebrow"><i></i>Matchday</span><h1>Games to watch</h1><p id="ft-sub">The biggest, closest games across every league.</p><div class="hero-stats" id="ft-stats"></div></div>
+      <div><span class="eyebrow"><i></i>Matchday</span><h1>Games to watch</h1><p id="ft-sub">The biggest, closest games across every league.</p><div class="hero-stats" id="ft-stats"></div><a class="vip-cta" href="#vip"><span>👑</span><b>Today's VIP slip</b><em>Surest picks · one code</em><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       <div class="seg" id="ft-period" role="group" aria-label="Period"><button data-p="day">Next matchday</button><button data-p="week" aria-pressed="true">This week</button></div>
     </div>
     <div class="ft-filter" id="ft-filter-top" role="group" aria-label="League"></div>
@@ -940,6 +975,19 @@ footer a{color:var(--muted)}
     </div>
     <div class="card" style="padding:0;overflow:hidden" id="season-out"><div class="sim-loading">Preparing simulation…</div></div>
     <p class="note" id="season-note"></p>
+  </section>
+
+  <!-- VIP -->
+  <section data-panel="vip" hidden>
+    <div class="view-head hero-head">
+      <div><span class="eyebrow"><i></i>VIP slip</span><h1>Today's surest picks</h1>
+        <p>One pick from each of the most predictable games across every league. Take the code to any bookie, or paste the picks into SportyClaw to book them anywhere.</p>
+        <div class="hero-stats" id="vip-stats"></div></div>
+      <div class="seg" id="vip-n" role="group" aria-label="Number of picks"><button data-n="10">10</button><button data-n="12" aria-pressed="true">12</button><button data-n="15">15</button></div>
+    </div>
+    <div class="vip-code card" id="vip-code"></div>
+    <div class="vip-legs" id="vip-legs"><div class="card"><div class="skel" style="height:240px"></div></div></div>
+    <p class="note">18+ only. These are probabilities, not guarantees: even a slip of 85% picks loses most of the time once enough legs are combined. Bet only what you can afford to lose. <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware</a></p>
   </section>
 
   <!-- PARLAY -->
@@ -1060,10 +1108,11 @@ $('#theme').onclick = () => {
 
 /* ---------- Views ---------- */
 function showView(){
-  { const v = (location.hash || '#featured').slice(1) || 'featured'; $('#leagues').hidden = $('#strip').hidden = v === 'featured' || $('#strip').classList.contains('empty'); }
+  { const v = (location.hash || '#featured').slice(1) || 'featured'; $('#leagues').hidden = $('#strip').hidden = v === 'featured' || v === 'vip' || $('#strip').classList.contains('empty'); }
   const v = (location.hash || '#featured').slice(1).split('/')[0];
-  const view = ['featured','fixtures','match','season','parlay','performance'].includes(v) ? v : 'featured';
+  const view = ['featured','vip','fixtures','match','season','parlay','performance'].includes(v) ? v : 'featured';
   if(view === 'featured' && !state.ftLoaded) loadFeatured();
+  if(view === 'vip' && !state.vipLoaded) loadVip();
   $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== view);
   $$('.nav a, .tabbar a').forEach(a => a.dataset.view === view ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
   if(view === 'performance' && !state.prospectiveLoaded) loadProspective();
@@ -1769,6 +1818,46 @@ $('#ft-grid').addEventListener('click', async e => {
   const b = e.target.closest('[data-ft]'); if(!b) return;
   openFeatured(state.ftGames[+b.dataset.ft]);
 });
+
+/* ---------- VIP slip ---------- */
+state.vipN = 12;
+// Bookie wording for each pick, so SportyClaw or any bookie can read it.
+function bookieText(l){
+  const h = l.home, a = l.away;
+  if(l.market === '1x2') return l.selection === 'Draw' ? 'Draw (X)' : l.selection.startsWith(h) ? `${h} to win (1)` : `${a} to win (2)`;
+  if(l.market === 'dc') return l.selection === `${h} or draw` ? `${h} or draw (1X)` : l.selection === `${a} or draw` ? `${a} or draw (X2)` : `${h} or ${a} (12)`;
+  if(l.market === 'btts') return l.selection.startsWith('Not') ? 'Both teams to score: No' : 'Both teams to score: Yes';
+  return l.selection + ' goals';
+}
+async function loadVip(){
+  state.vipLoaded = true;
+  $('#vip-legs').innerHTML = '<div class="card"><div class="skel" style="height:240px"></div></div>';
+  try{
+    const d = await api('/api/vip?n=' + state.vipN); state.vip = d;
+    const legs = d.legs;
+    if(!legs.length){ $('#vip-code').innerHTML = ''; $('#vip-legs').innerHTML = '<div class="placeholder"><div><h3>No VIP slip right now</h3><p>Not enough confident games in the next three days. Check back closer to the weekend.</p></div></div>'; return }
+    $('#vip-stats').innerHTML = `<span><b>${legs.length}</b> picks</span><span><b>${d.combined_fair_odds.toFixed(2)}×</b> fair odds</span><span><b>${Math.round(d.combined_probability * 100)}%</b> all land</span>`;
+    $('#vip-code').innerHTML = `<div class="vc-top"><small>Your code</small><b class="vc-code">${esc(d.code)}</b></div>
+      <div class="vc-btns"><button type="button" class="vc-b primary" id="vip-copy-picks">Copy for SportyClaw / bookie</button><button type="button" class="vc-b" id="vip-copy-code">Copy code</button><button type="button" class="vc-b" id="vip-share">Share</button></div>
+      <p class="vc-how">Paste the picks into <a href="https://sportyclawai.site" target="_blank" rel="noopener">SportyClaw</a> and ask it to book them on your bookie (SportyBet, Bet9ja, 1xBet…), or add them yourself.</p>`;
+    $('#vip-legs').innerHTML = legs.map((l, i) => `<article class="vl" style="--i:${i}">
+      <div class="vl-n">${String(i + 1).padStart(2, '0')}</div>
+      <div class="vl-main"><div class="vl-meta">${esc(l.league)} · ${esc(day(l.date))}${l.kickoff ? ' · ' + esc(koTime(l.kickoff)) : ''}</div>
+        <div class="vl-teams"><span>${badgeImg(l.home, 'tb') || ''}${esc(l.home)}</span><span>${badgeImg(l.away, 'tb') || ''}${esc(l.away)}</span></div>
+        <div class="vl-pick">${esc(bookieText(l))}</div></div>
+      <div class="vl-p"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle class="p" cx="18" cy="18" r="15.5" style="stroke-dashoffset:${(97.4 * (1 - l.probability)).toFixed(1)}"/></svg><b>${Math.round(l.probability * 100)}%</b><small>@${l.fair_odds.toFixed(2)}</small></div>
+    </article>`).join('');
+    const text = () => `Book these ${legs.length} games:\n` + legs.map((l, i) => `${i + 1}. ${l.home} vs ${l.away} — ${bookieText(l)}`).join('\n') + `\n\n${d.code} · Football Lab`;
+    const copy = async (t, b, label) => { try{ await navigator.clipboard.writeText(t) }catch{ const x = document.createElement('textarea'); x.value = t; document.body.appendChild(x); x.select(); document.execCommand('copy'); x.remove() }
+      const old = b.textContent; b.textContent = label; b.classList.add('done'); setTimeout(() => { b.textContent = old; b.classList.remove('done') }, 1600) };
+    $('#vip-copy-picks').onclick = e => copy(text(), e.currentTarget, 'Copied ✓');
+    $('#vip-copy-code').onclick = e => copy(d.code, e.currentTarget, 'Copied ✓');
+    $('#vip-share').onclick = async e => { const url = location.origin + '/#vip';
+      if(navigator.share){ try{ await navigator.share({title: 'Football Lab VIP slip ' + d.code, text: text(), url}) }catch{} } else copy(text() + '\n' + url, e.currentTarget, 'Link copied ✓') };
+  }catch(e){ $('#vip-legs').innerHTML = `<div class="error">${esc(e.message)}</div>` }
+}
+$('#vip-n').onclick = e => { const b = e.target.closest('[data-n]'); if(!b) return; state.vipN = +b.dataset.n;
+  $$('#vip-n button').forEach(x => x.setAttribute('aria-pressed', x === b)); loadVip() };
 
 /* ---------- Parlay builder ---------- */
 const PL = {n: 3, mode: 'safest', leagues: new Set(), markets: new Set(['dc', 'ou15', 'ou25', 'btts']), locked: new Set(), result: null, seed: 0};

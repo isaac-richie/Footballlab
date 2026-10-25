@@ -621,14 +621,18 @@ def season(data, league_id):
     return result
 
 
-def parlay_candidates(data, leagues, days=7):
-    """Every candidate leg for upcoming fixtures in the chosen leagues."""
+def parlay_candidates(data, leagues, days=7, include_today=False):
+    """Every candidate leg for upcoming fixtures in the chosen leagues.
+
+    include_today adds today's games that have not kicked off (known kickoff only)."""
     from parlay import legs_for
     today = dt.date.today().isoformat()
     until = (dt.date.today() + dt.timedelta(days=days)).isoformat()
     out = []
     for league_id in leagues:
-        fixtures = [m for m in data['matches'] if m['league_id'] == league_id and today < m['date'] <= until and m['goals'] is None]
+        fixtures = [m for m in data['matches'] if m['league_id'] == league_id and m['date'] <= until and m['goals'] is None
+                    and not m.get('unconfirmed') and (today < m['date'] or include_today and m['date'] == today
+                                                      and m.get('kickoff') and schedule.status(m) == 'scheduled')]
         if not fixtures:
             continue
         try:
@@ -638,6 +642,37 @@ def parlay_candidates(data, leagues, days=7):
         for m, _, rates, source, _ in priced:
             out += legs_for(m, distribution(*rates, m.get('_rho', rho), m['_cal'] if source == 'model' else None), source)
     return out
+
+
+def vip_slip(data, n=12, days=3, min_p=.70, max_p=.92, per_league=3):
+    """The day's VIP slip: the surest pick from each of the most predictable games.
+
+    One leg per game, most likely selections first, at most per_league legs from any
+    league, and nothing below min_p or above max_p (near-certain legs pay nothing).
+    """
+    import hashlib
+    from parlay import build
+    pool = parlay_candidates(data, [k for k in LEAGUES if k != 'ucl'], days=days, include_today=True)
+    ranked = build(pool, len(pool), min_p=min_p, max_p=max_p, mode='safest')['legs']
+    legs, per = [], {}
+    for leg in sorted(ranked, key=lambda c: -c['probability']):
+        if per.get(leg['league_id'], 0) >= per_league:
+            continue
+        per[leg['league_id']] = per.get(leg['league_id'], 0) + 1
+        legs.append(leg)
+        if len(legs) == n:
+            break
+    legs.sort(key=lambda c: (c['date'], c['league_id']))
+    kick = {(m['league_id'], m['date'], m['home'], m['away']): m.get('kickoff') for m in data['matches'] if m['goals'] is None}
+    for leg in legs:
+        leg['league'] = LEAGUES[leg['league_id']].split(' — ')[-1]
+        leg['kickoff'] = kick.get((leg['league_id'], leg['date'], leg['home'], leg['away']))
+    combined = math.prod(c['probability'] for c in legs) if legs else 0
+    fingerprint = hashlib.sha1('|'.join(c['id'] for c in legs).encode()).hexdigest()[:4].upper()
+    today = dt.date.today()
+    return dict(code=f"FL-VIP-{today.strftime('%y%m%d')}-{fingerprint}", generated_for=today.isoformat(), legs=legs,
+                combined_probability=combined, combined_fair_odds=(1 / combined) if combined else None,
+                note='Fair odds are what each pick is worth by our numbers; your bookie will offer slightly less.')
 
 
 def backtest(data, league_id):
@@ -765,6 +800,13 @@ class Handler(BaseHTTPRequestHandler):
             except ValueError:
                 return self.send_json(dict(error='Invalid date'), 400)
             self.send_json(match_setup(query['league'], query['date'], query['home'], query['away']))
+        elif path == '/api/vip':
+            q = parse_qs(urlparse(self.path).query)
+            try:
+                n = max(5, min(15, int(q.get('n', ['12'])[0])))
+            except ValueError:
+                n = 12
+            self.send_json(vip_slip(load(), n))
         elif path == '/api/featured':
             from featured import featured
             period = parse_qs(urlparse(self.path).query).get('period', ['week'])[0]
@@ -837,12 +879,15 @@ if __name__ == '__main__':
     from config import load_environment
     load_environment()
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=['refresh', 'serve', 'backtest', 'import-stats', 'backfill-halftime', 'refresh-odds', 'fetch-badges', 'fetch-saudi'])
+    parser.add_argument('command', choices=['refresh', 'serve', 'backtest', 'import-stats', 'backfill-halftime', 'refresh-odds', 'fetch-badges', 'fetch-saudi', 'fetch-ucl'])
     parser.add_argument('path', nargs='?', help='CSV path for import-stats')
     parser.add_argument('--port', type=int, default=8765)
     args = parser.parse_args()
     if args.command == 'refresh':
         refresh()
+    elif args.command == 'fetch-ucl':
+        import ucl
+        print(json.dumps(ucl.fetch()))
     elif args.command == 'fetch-saudi':
         print(json.dumps(saudi.fetch()))
     elif args.command == 'fetch-badges':
