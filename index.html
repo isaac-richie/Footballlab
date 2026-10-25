@@ -655,6 +655,22 @@ details[open]>summary::after{transform:rotate(-135deg) translateY(-2px)}
 .mx-info small{font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
 .mx-info b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media (max-width:760px){.mx{left:12px;bottom:calc(96px + env(safe-area-inset-bottom));max-width:calc(100vw - 24px)}}
+/* ---------- Page heroes ---------- */
+.view-head{position:relative}
+.view-head::before{content:'';position:absolute;left:-40px;top:-60px;width:420px;height:220px;pointer-events:none;z-index:-1;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--accent) 18%,transparent),transparent);filter:blur(10px)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:8px;font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+.eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 60%,transparent);animation:ping 2.2s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}80%,100%{box-shadow:0 0 0 9px transparent}}
+.hero-head h1{font-size:clamp(36px,6vw,60px)!important;line-height:.95!important}
+.hero-head p{font-size:15px!important;margin-top:8px!important}
+.hero-stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.hero-stats span{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;font-size:13px;color:var(--muted);
+  background:color-mix(in srgb,var(--surface-2) 85%,transparent);border:1px solid var(--line-2)}
+.hero-stats b{color:var(--text);font-family:var(--display);font-size:15px}
+.hero-stats .live{color:#ff8197;border-color:#ff3b5c55}
+.hero-stats .live i{width:7px;height:7px;border-radius:50%;background:#ff3b5c;animation:livePulse 1.2s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.eyebrow i{animation:none}}
 footer{margin:40px 0 30px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--faint)}
 footer a{color:var(--muted)}
 
@@ -739,8 +755,8 @@ footer a{color:var(--muted)}
 
   <!-- FEATURED -->
   <section data-panel="featured" hidden>
-    <div class="view-head">
-      <div><h1>Games to watch</h1><p id="ft-sub">The biggest, closest games across every league.</p></div>
+    <div class="view-head hero-head">
+      <div><span class="eyebrow"><i></i>Matchday</span><h1>Games to watch</h1><p id="ft-sub">The biggest, closest games across every league.</p><div class="hero-stats" id="ft-stats"></div></div>
       <div class="seg" id="ft-period" role="group" aria-label="Period"><button data-p="day">Next matchday</button><button data-p="week" aria-pressed="true">This week</button></div>
     </div>
     <div class="ft-filter" id="ft-filter-top" role="group" aria-label="League"></div>
@@ -763,7 +779,7 @@ footer a{color:var(--muted)}
   <section data-panel="fixtures">
     <div class="view-head">
       <div>
-        <h1>Upcoming fixtures</h1>
+        <span class="eyebrow"><i></i>The board</span><h1>Upcoming fixtures</h1>
         <p>Every scheduled match after today, forecast from one model fit. Open a fixture for the full market breakdown.</p>
       </div>
       <div class="toolbar">
@@ -821,7 +837,7 @@ footer a{color:var(--muted)}
   <section data-panel="season" hidden>
     <div class="view-head">
       <div>
-        <h1>Season projection</h1>
+        <span class="eyebrow"><i></i>Projections</span><h1>Season projection</h1>
         <p>The rest of the season played out thousands of times. Click a column to sort.</p>
       </div>
     </div>
@@ -831,7 +847,7 @@ footer a{color:var(--muted)}
 
   <!-- PARLAY -->
   <section data-panel="parlay" hidden>
-    <div class="view-head"><div><h1>Parlay builder</h1><p>One leg per fixture across leagues, priced from the same forecasts as everything else. Lock legs you like, then shuffle the rest.</p></div></div>
+    <div class="view-head"><div><span class="eyebrow"><i></i>Build a slip</span><h1>Parlay builder</h1><p>One leg per fixture across leagues, priced from the same forecasts as everything else. Lock legs you like, then shuffle the rest.</p></div></div>
     <div class="match-layout">
       <div class="card form-card">
         <h4>Build</h4>
@@ -853,7 +869,7 @@ footer a{color:var(--muted)}
   <section data-panel="performance" hidden>
     <div class="view-head">
       <div>
-        <h1>Performance</h1>
+        <span class="eyebrow"><i></i>Our record</span><h1>Performance</h1>
         <p>Forward forecasts are frozen before kickoff and graded later. The backtest replays completed seasons using only earlier results.</p>
       </div>
       <button class="ghost" id="test" type="button">Run backtest for this league</button>
@@ -1547,6 +1563,9 @@ async function loadFeatured(){
     const d = await api('/api/featured?period=' + state.ftPeriod);
     $('#ft-sub').textContent = `${d.label} · the biggest, closest games across every league.`;
     $('#ft-note').textContent = d.note;
+    { const live = d.all.filter(g => g.status === 'live').length, leagues = Object.keys(d.leagues || {}).length;
+      $('#ft-stats').innerHTML = `<span><b>${d.all.length}</b> games</span><span><b>${leagues}</b> leagues</span>` +
+        (live ? `<span class="live"><i></i><b>${live}</b> live now</span>` : `<span><b>${d.games.length}</b> picked for you</span>`) }
     if(!d.games.length){ $('#ft-grid').innerHTML = '<div class="placeholder"><div><h3>No games found</h3><p>There are no upcoming fixtures in the data for this period.</p></div></div>'; return }
     state.ftData = d; if(state.ftLeague !== 'all' && !(d.leagues || {})[state.ftLeague]) state.ftLeague = 'all';
     ftFilters(); ftAll(); state.ftGames = ftFiltered(); state.ftPage = 0;
