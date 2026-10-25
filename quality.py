@@ -37,6 +37,12 @@ def atomic_write(path, text):
 # Without this the model splits one club's history into two "teams".
 # Verified by disjoint seasons and identical football-data.co.uk identities.
 TEAM_ALIASES = {
+    # OpenFootball renames clubs between seasons; map every spelling to the current one.
+    'nl.1': {'AZ Alkmaar': 'AZ', 'FC Twente': "FC Twente '65", 'Feyenoord': 'Feyenoord Rotterdam', 'NEC Nijmegen': 'NEC',
+             'PSV Eindhoven': 'PSV', 'Vitesse': 'SBV Vitesse', 'Willem II': 'Willem II Tilburg', 'sc Heerenveen': 'SC Heerenveen',
+             'SC Cambuur': 'SC Cambuur-Leeuwarden'},
+    'pt.1': {'Boavista': 'Boavista FC', 'GD Estoril': 'GD Estoril Praia', 'Gil Vicente': 'Gil Vicente FC', 'SL Benfica': 'Sport Lisboa e Benfica',
+             'Sporting Braga': 'Sporting Clube de Braga', 'Sporting CP': 'Sporting Clube de Portugal'},
     'fr.1': {'AS Monaco': 'AS Monaco FC', 'Paris Saint-Germain': 'Paris Saint-Germain FC',
              'Stade Rennais': 'Stade Rennais FC 1901', 'RC Lens': 'Racing Club de Lens',
              'RC Strasbourg': 'RC Strasbourg Alsace', 'Olympique Marseille': 'Olympique de Marseille',
@@ -98,7 +104,7 @@ def normalize(raw, league_id, league_name, season):
 
 
 # OpenFootball gives kickoff in the league's local time.
-LEAGUE_TZ = {'tr.1': 'Europe/Istanbul', 'sco.1': 'Europe/London', 'en.1': 'Europe/London', 'es.1': 'Europe/Madrid', 'it.1': 'Europe/Rome', 'it.2': 'Europe/Rome',
+LEAGUE_TZ = {'nl.1': 'Europe/Amsterdam', 'pt.1': 'Europe/Lisbon', 'be.1': 'Europe/Brussels', 'tr.1': 'Europe/Istanbul', 'sco.1': 'Europe/London', 'en.1': 'Europe/London', 'es.1': 'Europe/Madrid', 'it.1': 'Europe/Rome', 'it.2': 'Europe/Rome',
              'de.1': 'Europe/Berlin', 'de.2': 'Europe/Berlin', 'fr.1': 'Europe/Paris'}
 
 

@@ -9,7 +9,7 @@ import math
 
 
 # Points per game are earned against different opposition in each division.
-LEAGUE_WEIGHT = {'it.2': 0.8, 'de.2': 0.8, 'tr.1': 0.85, 'sco.1': 0.85, 'ucl': 1.15}
+LEAGUE_WEIGHT = {'it.2': 0.8, 'de.2': 0.8, 'tr.1': 0.85, 'sco.1': 0.85, 'nl.1': 0.9, 'pt.1': 0.9, 'be.1': 0.85, 'ucl': 1.15}
 
 
 def form_ppg(rows, team, n=19):

@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parent
 DIR = ROOT / 'reports' / 'badges'
 INDEX = DIR / 'index.json'
 API = 'https://www.thesportsdb.com/api/v1/json/123/searchteams.php?t='
-COUNTRY = {'en.1': 'England', 'es.1': 'Spain', 'it.1': 'Italy', 'de.1': 'Germany', 'fr.1': 'France', 'it.2': 'Italy', 'de.2': 'Germany', 'tr.1': 'Turkey', 'sco.1': 'Scotland', 'sa.1': 'Saudi-Arabia'}
+COUNTRY = {'en.1': 'England', 'es.1': 'Spain', 'it.1': 'Italy', 'de.1': 'Germany', 'fr.1': 'France', 'it.2': 'Italy', 'de.2': 'Germany', 'tr.1': 'Turkey', 'sco.1': 'Scotland', 'nl.1': 'Netherlands', 'pt.1': 'Portugal', 'be.1': 'Belgium', 'sa.1': 'Saudi-Arabia'}
 # Names TheSportsDB knows differently from our dataset.
 ALIASES = {'FC Internazionale Milano': 'Inter Milan', 'FC Bayern München': 'Bayern Munich', 'Club Atlético de Madrid': 'Atletico Madrid',
            'Paris Saint-Germain FC': 'Paris SG', 'Borussia Mönchengladbach': 'Monchengladbach', 'RCD Espanyol de Barcelona': 'Espanyol',

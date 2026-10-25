@@ -15,7 +15,7 @@ import datetime as dt
 import math
 from functools import lru_cache
 
-TRACKED = ('en.1', 'es.1', 'it.1', 'de.1', 'fr.1', 'tr.1', 'sco.1', 'it.2', 'de.2', 'sa.1')
+TRACKED = ('en.1', 'es.1', 'it.1', 'de.1', 'fr.1', 'tr.1', 'sco.1', 'nl.1', 'pt.1', 'be.1', 'it.2', 'de.2', 'sa.1')
 OTHER = 'other'
 
 

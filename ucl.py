@@ -66,6 +66,16 @@ def fetch(pause=2.5, log=print):
     return dict(matches=len(matches), seasons=len({m['season'] for m in matches}))
 
 
+# TheSportsDB names that fuzzy matching gets wrong or misses.
+ALIASES = {'Paris SG': 'Paris Saint-Germain FC', 'Paris Saint-Germain': 'Paris Saint-Germain FC', 'Club Brugge': 'Club Brugge KV',
+           'Inter': 'FC Internazionale Milano', 'Inter Milan': 'FC Internazionale Milano', 'Ath Madrid': 'Club Atlético de Madrid',
+           'RasenBallsport Leipzig': 'RB Leipzig', 'RB Leipzig': 'RB Leipzig', 'Sporting CP': 'Sporting Clube de Portugal',
+           'Sp Lisbon': 'Sporting Clube de Portugal', 'Sporting Lisbon': 'Sporting Clube de Portugal', 'Benfica': 'Sport Lisboa e Benfica',
+           'PSV Eindhoven': 'PSV', 'PSV': 'PSV', 'Feyenoord': 'Feyenoord Rotterdam', 'AZ Alkmaar': 'AZ', 'Twente': "FC Twente '65",
+           'Celtic': 'Celtic FC', 'Rangers': 'Rangers FC', 'Antwerp': 'Royal Antwerp FC', 'Genk': 'KRC Genk', 'Gent': 'KAA Gent',
+           'Union SG': 'Union Saint-Gilloise', 'Union Saint-Gilloise': 'Union Saint-Gilloise', 'Anderlecht': 'RSC Anderlecht'}
+
+
 def resolve(matches, data):
     """Rename TheSportsDB clubs to the dataset's names where the club is one we track."""
     import badges
@@ -77,10 +87,15 @@ def resolve(matches, data):
 
     def name(t):
         if t not in cache:
-            if t in by_badge:
+            if t in ALIASES and ALIASES[t] in known:
+                cache[t] = ALIASES[t]
+            elif t in by_badge:
                 cache[t] = by_badge[t]
             else:
-                best = max(known, key=lambda k: similarity(t, k), default=None)
-                cache[t] = best if best and similarity(t, best) >= 0.8 else t
+                ranked = sorted(known, key=lambda k: -similarity(t, k))[:2]
+                top = similarity(t, ranked[0]) if ranked else 0
+                second = similarity(t, ranked[1]) if len(ranked) > 1 else 0
+                # refuse near-ties ('Paris SG' is about as close to Paris FC as to PSG)
+                cache[t] = ranked[0] if top >= 0.8 and top - second >= 0.08 else t
         return cache[t]
     return [{**m, 'home': name(m['home']), 'away': name(m['away'])} for m in matches]
