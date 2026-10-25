@@ -850,6 +850,34 @@ footer a{color:var(--muted)}
 .vl-p .p{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:97.4}
 .vl-p b{position:absolute;top:17px;font-family:var(--display);font-size:15px}
 .vl-p small{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* music: cover art, genres, search, shuffle */
+.mx-disc .art{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);border-radius:50%;object-fit:cover;animation:spin 6s linear infinite}
+.mx.off .mx-disc .art{animation-play-state:paused}
+.mx-cover{position:relative;width:112px;height:96px;flex-shrink:0}
+.mx-cover img{position:absolute;left:0;top:0;width:96px;height:96px;border-radius:14px;object-fit:cover;box-shadow:0 14px 30px -10px #000;z-index:1}
+.mx-cover .mx-disc.lg{position:absolute;left:22px;top:4px;width:88px;height:88px;box-shadow:none;transition:left .5s cubic-bezier(.2,1.2,.4,1)}
+.mx:not(.off) .mx-cover .mx-disc.lg{left:30px}
+.mx-ctl{gap:14px!important}
+.mx-ctl .sm,.mx-ctl .sm-spacer{width:36px;height:36px}
+.mx-ctl .sm{background:none!important;color:var(--muted)!important}
+.mx-ctl .sm[aria-pressed=true]{color:var(--disc)!important}
+.mx-ctl .sm svg{fill:none!important;stroke-width:1.8!important}
+.mx-upnext{position:relative;margin:2px 0 10px;text-align:center;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mx-upnext b{color:var(--text);font-weight:600}
+.mx-genres{position:relative;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:6px 0 8px;padding-bottom:2px}
+.mx-genres::-webkit-scrollbar{display:none}
+.mx-genres button{flex-shrink:0;padding:6px 11px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--muted);font-size:12px;font-weight:650;cursor:pointer;white-space:nowrap}
+.mx-genres button small{opacity:.6;font-weight:500}
+.mx-genres button[aria-pressed=true]{background:var(--disc);border-color:var(--disc);color:#0b0f14}
+.mx-q{position:relative;width:100%;box-sizing:border-box;padding:9px 12px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--text);font:inherit;font-size:13px;margin-bottom:4px}
+.mx-list img{width:40px;height:40px;border-radius:8px;object-fit:cover;flex-shrink:0;background:var(--surface-3)}
+.mx-list li.on img{box-shadow:0 0 0 2px var(--disc)}
+.mx-none{padding:14px;text-align:center;color:var(--muted);font-size:13px}
+.mx-list{max-height:min(280px,34vh)!important}
+.mx-sheet{max-height:calc(100dvh - 120px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+.mx-sheet::-webkit-scrollbar{display:none}
+@media (max-width:760px){.mx-sheet{max-height:calc(100dvh - 200px - env(safe-area-inset-bottom))}.mx-list{max-height:none!important;overflow:visible}}
 </style>
 </head>
 <body>
@@ -888,7 +916,7 @@ footer a{color:var(--muted)}
   <!-- FEATURED -->
   <section data-panel="featured" hidden>
     <div class="view-head hero-head">
-      <div><span class="eyebrow"><i></i>Matchday</span><h1>Games to watch</h1><p id="ft-sub">The biggest, closest games across every league.</p><div class="hero-stats" id="ft-stats"></div><a class="vip-cta" href="#vip"><span>👑</span><b>Today's VIP slip</b><em>Surest picks · one code</em><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div><span class="eyebrow"><i></i>Matchday</span><h1>Games to watch</h1><p id="ft-sub">The biggest, closest games across every league.</p><div class="hero-stats" id="ft-stats"></div><a class="vip-cta" href="#vip"><span>👑</span><b>VIP picks</b><em>Our surest predictions</em><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       <div class="seg" id="ft-period" role="group" aria-label="Period"><button data-p="day">Next matchday</button><button data-p="week" aria-pressed="true">This week</button></div>
     </div>
     <div class="ft-filter" id="ft-filter-top" role="group" aria-label="League"></div>
@@ -980,14 +1008,14 @@ footer a{color:var(--muted)}
   <!-- VIP -->
   <section data-panel="vip" hidden>
     <div class="view-head hero-head">
-      <div><span class="eyebrow"><i></i>VIP slip</span><h1>Today's surest picks</h1>
-        <p>One pick from each of the most predictable games across every league. Take the code to any bookie, or paste the picks into SportyClaw to book them anywhere.</p>
+      <div><span class="eyebrow"><i></i>VIP picks</span><h1>VIP picks</h1>
+        <p>Our surest prediction from each of the most predictable games across every league, for the next three days.</p>
         <div class="hero-stats" id="vip-stats"></div></div>
       <div class="seg" id="vip-n" role="group" aria-label="Number of picks"><button data-n="10">10</button><button data-n="12" aria-pressed="true">12</button><button data-n="15">15</button></div>
     </div>
     <div class="vip-code card" id="vip-code"></div>
     <div class="vip-legs" id="vip-legs"><div class="card"><div class="skel" style="height:240px"></div></div></div>
-    <p class="note">18+ only. These are probabilities, not guarantees: even a slip of 85% picks loses most of the time once enough legs are combined. Bet only what you can afford to lose. <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware</a></p>
+    <p class="note">18+ only. These are probabilities, not guarantees: an 85% pick still loses about one time in seven, and combining many picks multiplies the risk. Bet only what you can afford to lose. <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware</a></p>
   </section>
 
   <!-- PARLAY -->
@@ -1836,10 +1864,9 @@ async function loadVip(){
     const d = await api('/api/vip?n=' + state.vipN); state.vip = d;
     const legs = d.legs;
     if(!legs.length){ $('#vip-code').innerHTML = ''; $('#vip-legs').innerHTML = '<div class="placeholder"><div><h3>No VIP slip right now</h3><p>Not enough confident games in the next three days. Check back closer to the weekend.</p></div></div>'; return }
-    $('#vip-stats').innerHTML = `<span><b>${legs.length}</b> picks</span><span><b>${d.combined_fair_odds.toFixed(2)}×</b> fair odds</span><span><b>${Math.round(d.combined_probability * 100)}%</b> all land</span>`;
-    $('#vip-code').innerHTML = `<div class="vc-top"><small>Your code</small><b class="vc-code">${esc(d.code)}</b></div>
-      <div class="vc-btns"><button type="button" class="vc-b primary" id="vip-copy-picks">Copy for SportyClaw / bookie</button><button type="button" class="vc-b" id="vip-copy-code">Copy code</button><button type="button" class="vc-b" id="vip-share">Share</button></div>
-      <p class="vc-how">Paste the picks into <a href="https://sportyclawai.site" target="_blank" rel="noopener">SportyClaw</a> and ask it to book them on your bookie (SportyBet, Bet9ja, 1xBet…), or add them yourself.</p>`;
+    const avg = legs.reduce((t, l) => t + l.probability, 0) / legs.length;
+    $('#vip-stats').innerHTML = `<span><b>${legs.length}</b> picks</span><span><b>${Math.round(avg * 100)}%</b> average confidence</span><span><b>${new Set(legs.map(l => l.league)).size}</b> leagues</span>`;
+    $('#vip-code').hidden = true;   // booking codes are on hold for now
     $('#vip-legs').innerHTML = legs.map((l, i) => `<article class="vl" style="--i:${i}">
       <div class="vl-n">${String(i + 1).padStart(2, '0')}</div>
       <div class="vl-main"><div class="vl-meta">${esc(l.league)} · ${esc(day(l.date))}${l.kickoff ? ' · ' + esc(koTime(l.kickoff)) : ''}</div>
@@ -1847,13 +1874,6 @@ async function loadVip(){
         <div class="vl-pick">${esc(bookieText(l))}</div></div>
       <div class="vl-p"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle class="p" cx="18" cy="18" r="15.5" style="stroke-dashoffset:${(97.4 * (1 - l.probability)).toFixed(1)}"/></svg><b>${Math.round(l.probability * 100)}%</b><small>@${l.fair_odds.toFixed(2)}</small></div>
     </article>`).join('');
-    const text = () => `Book these ${legs.length} games:\n` + legs.map((l, i) => `${i + 1}. ${l.home} vs ${l.away} — ${bookieText(l)}`).join('\n') + `\n\n${d.code} · Football Lab`;
-    const copy = async (t, b, label) => { try{ await navigator.clipboard.writeText(t) }catch{ const x = document.createElement('textarea'); x.value = t; document.body.appendChild(x); x.select(); document.execCommand('copy'); x.remove() }
-      const old = b.textContent; b.textContent = label; b.classList.add('done'); setTimeout(() => { b.textContent = old; b.classList.remove('done') }, 1600) };
-    $('#vip-copy-picks').onclick = e => copy(text(), e.currentTarget, 'Copied ✓');
-    $('#vip-copy-code').onclick = e => copy(d.code, e.currentTarget, 'Copied ✓');
-    $('#vip-share').onclick = async e => { const url = location.origin + '/#vip';
-      if(navigator.share){ try{ await navigator.share({title: 'Football Lab VIP slip ' + d.code, text: text(), url}) }catch{} } else copy(text() + '\n' + url, e.currentTarget, 'Link copied ✓') };
   }catch(e){ $('#vip-legs').innerHTML = `<div class="error">${esc(e.message)}</div>` }
 }
 $('#vip-n').onclick = e => { const b = e.target.closest('[data-n]'); if(!b) return; state.vipN = +b.dataset.n;
@@ -2144,25 +2164,30 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
 <!-- Music: NCS (NoCopyrightSounds) classics streamed from their official YouTube channel. -->
 <div class="mx" id="mx" hidden>
   <button type="button" class="mx-pill" id="mx-open" aria-expanded="false" aria-controls="mx-sheet">
-    <span class="mx-disc sm"><svg class="mx-ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18.5"/><circle class="p" id="mx-ring" cx="20" cy="20" r="18.5"/></svg><span class="vinyl"><i></i></span></span>
+    <span class="mx-disc sm"><svg class="mx-ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18.5"/><circle class="p" id="mx-ring" cx="20" cy="20" r="18.5"/></svg><span class="vinyl"><i></i></span><img class="art" id="mx-art-sm" alt=""></span>
     <span class="mx-txt"><small id="mx-sub">Now playing</small><span class="mx-marq"><b id="mx-title">—</b></span></span>
     <span class="mx-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
   </button>
   <section class="mx-sheet" id="mx-sheet" aria-label="Music" hidden>
     <header><span class="mx-badge">Matchday mix</span><button type="button" class="mx-x" id="mx-close" aria-label="Close player">✕</button></header>
     <div class="mx-hero">
-      <span class="mx-disc lg"><span class="vinyl"><i></i></span></span>
+      <div class="mx-cover"><span class="mx-disc lg"><span class="vinyl"><i></i></span></span><img id="mx-art" alt=""></div>
       <div class="mx-meta"><b id="mx-song">—</b><span id="mx-artist">—</span>
         <div class="mx-prog"><i id="mx-bar"></i></div><div class="mx-times"><span id="mx-el">0:00</span><span>crossfade in <em id="mx-left">1:30</em></span></div>
       </div>
     </div>
     <div class="mx-ctl">
+      <span class="sm-spacer"></span>
       <button type="button" id="mx-prev" aria-label="Previous track"><svg viewBox="0 0 24 24"><path d="M18 5l-9 7 9 7zM7 5v14"/></svg></button>
       <button type="button" class="big" id="mx-play" aria-label="Pause"><svg class="pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg><svg class="play" viewBox="0 0 24 24"><path d="M7 4.5l13 7.5-13 7.5z"/></svg></button>
       <button type="button" id="mx-next" aria-label="Next track"><svg viewBox="0 0 24 24"><path d="M6 5l9 7-9 7zM17 5v14"/></svg></button>
+      <button type="button" class="sm" id="mx-shuf" aria-label="Shuffle" aria-pressed="true"><svg viewBox="0 0 24 24"><path d="M3 7h3.5c5 0 6 10 11 10H21M3 17h3.5c1.8 0 3-1.3 4-3M14 9c1-1.3 2-2 3.5-2H21M18.5 4.5 21 7l-2.5 2.5M18.5 14.5 21 17l-2.5 2.5"/></svg></button>
     </div>
+    <p class="mx-upnext">Up next · <b id="mx-upnext">—</b></p>
     <label class="mx-volrow" id="mx-volrow"><svg viewBox="0 0 24 24"><path d="M4 9.5h4l5-4v13l-5-4H4z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/></svg><input type="range" id="mx-vol" min="0" max="100" step="1" aria-label="Music volume"></label>
     <p class="mx-ios" id="mx-ios" hidden>On iPhone, use your volume buttons.</p>
+    <div class="mx-genres" id="mx-genres" role="group" aria-label="Genre"></div>
+    <input class="mx-q" id="mx-q" type="search" placeholder="Search tracks or artists" aria-label="Search tracks">
     <ol class="mx-list" id="mx-list"></ol>
     <p class="mx-credit">Streamed from the artists' official YouTube channels and NCS.</p>
   </section>
@@ -2213,12 +2238,31 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
     ['dX3k_QDnzHE', 'M83', 'Midnight City', 60, '#ffd166'], ['Dst9gZkq1a8', 'Travis Scott', 'Goosebumps', 35, '#ef476f'],
     ['9ClYy0MxsU0', 'Stormzy', 'Vossi Bop', 35, '#06d6a0'], ['pSY3i5XHHXo', 'Dave', 'Sprinter', 35, '#8338ec']];
   const PLAY_SECONDS = 90, FADE_MS = 4000;
+  // Genres for browsing and for 'play only this' filtering.
+  const AFRO = /Young Jonn|Asake|Burna Boy|Maphorisa|T\.I Blaze|Seyi Vibez|Wizkid|Davido|Rema|Ayra Starr|CKay|Kizz Daniel|Fireboy|Olamide|Omah Lay|Shallipopi|Victony|ODUMODU|Odumodu|BNXN|Joeboy/i;
+  const AMAPIANO = /Tyla|Uncle Waffles|Black Coffee/i;
+  const ANTHEMS = /Waka Waka|Wavin|We Are The Champions|We Are One|^Colors$|La Copa|Seven Nation Army/i;
+  const GAME = /Blur|Kasabian|^Jet$|Gorillaz|Arctic Monkeys|Bastille|Foster The People|M83|Chemical Brothers|Fall Out Boy|Avicii/i;
+  const NCS = /Janji|Elektronomia|Jim Yosef|Lost Sky|Different Heaven|Cartoon|DEAF KEV|Disfigure|Syn Cole|Electro-Light|Max Brhon/i;
+  const genreOf = ([, artist, song]) => ANTHEMS.test(song) ? 'Anthems' : AFRO.test(artist) ? 'Afrobeats' : AMAPIANO.test(artist) ? 'Amapiano'
+    : GAME.test(artist) ? 'Game classics' : NCS.test(artist) ? 'NCS' : 'Global';
+  const GENRES = ['All', 'Afrobeats', 'Amapiano', 'Anthems', 'Game classics', 'Global', 'NCS'];
+  const art = (id, size) => `https://i.ytimg.com/vi/${id}/${size || 'hqdefault'}.jpg`;
   const store = {get(k){ try{ return localStorage.getItem(k) }catch{ return null } }, set(k, v){ try{ localStorage.setItem(k, v) }catch{} }};
   // iOS ignores volume set by a page, so there the music starts muted until the listener taps play.
   const IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   let VOLUME = +(store.get('mx-vol') ?? 25);
   let muted = (store.get('mx-muted') ?? (IOS ? '1' : '0')) === '1';
   let idx = Math.floor(Math.random() * TRACKS.length), players = [], live = 0, timer = null, started = false, slotStart = 0, paused = false, pausedAt = 0;
+  let genre = store.get('mx-genre') || 'All', shuffle = store.get('mx-shuffle') !== '0', query = '', played = [], upNext = null;
+  if(!GENRES.includes(genre)) genre = 'All';
+  const pool = () => TRACKS.map((t, k) => k).filter(k => genre === 'All' || genreOf(TRACKS[k]) === genre);
+  function pickNext(){
+    const list = pool().filter(k => k !== idx); if(!list.length) return idx;
+    if(!shuffle){ const all = pool(), at = all.indexOf(idx); return all[(at + 1) % all.length] }
+    const fresh = list.filter(k => !played.slice(-10).includes(k));
+    const from = fresh.length ? fresh : list; return from[Math.floor(Math.random() * from.length)];
+  }
   const $m = id => document.getElementById(id), ui = $m('mx'), sheet = $m('mx-sheet');
 
   function loadApi(){ const t = document.createElement('script'); t.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(t) }
@@ -2233,10 +2277,15 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
       k < 1 ? requestAnimationFrame(step) : done && done() })(t0);
   }
   function paint(){
-    const [, artist, song, , colour] = TRACKS[idx];
+    const [vid, artist, song, , colour] = TRACKS[idx];
+    $m('mx-art').src = art(vid); $m('mx-art-sm').src = art(vid, 'mqdefault');
+    if(upNext == null || upNext === idx) upNext = pickNext();
+    $m('mx-upnext').textContent = TRACKS[upNext][2] + ' · ' + TRACKS[upNext][1];
+    if('mediaSession' in navigator){ try{ navigator.mediaSession.metadata = new MediaMetadata({title: song, artist, album: 'Football Lab · Matchday mix',
+      artwork: [{src: art(vid), sizes: '480x360', type: 'image/jpeg'}]}) }catch{} }
     $m('mx-title').textContent = song + ' · ' + artist; $m('mx-song').textContent = song; $m('mx-artist').textContent = artist;
     ui.style.setProperty('--disc', colour);
-    $m('mx-list').querySelectorAll('li').forEach((li, k) => li.classList.toggle('on', k === idx));
+    $m('mx-list').querySelectorAll('li').forEach(li => li.classList.toggle('on', +li.dataset.k === idx));
     ui.classList.toggle('off', muted || paused);
     $m('mx-play').setAttribute('aria-label', muted || paused ? 'Play' : 'Pause');
     $m('mx-sub').textContent = muted && IOS ? 'Tap for music' : paused ? 'Paused' : 'Now playing';
@@ -2252,11 +2301,15 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
   function go(step, to){
     if(!players.length) return;
     const out = players[live]; live = 1 - live;
-    idx = to != null ? to : (idx + step + TRACKS.length) % TRACKS.length;
+    played.push(idx);
+    if(to != null) idx = to;
+    else if(step < 0 && played.length > 1){ played.pop(); idx = played.pop() ?? idx }
+    else idx = upNext != null && upNext !== idx ? upNext : pickNext();
+    upNext = null;
     fade(out, muted ? 0 : VOLUME, 0, FADE_MS, () => { try{ out.stopVideo() }catch{} });
     play(live, false);
   }
-  function begin(){ started = true; ui.hidden = false; ui.classList.toggle('ios', IOS); $m('mx-ios').hidden = !IOS; $m('mx-volrow').hidden = IOS; play(live, true) }
+  function begin(){ if(!pool().includes(idx)) idx = pool()[0] ?? idx; started = true; ui.hidden = false; ui.classList.toggle('ios', IOS); $m('mx-ios').hidden = !IOS; $m('mx-volrow').hidden = IOS; play(live, true) }
   // 60-second slot progress: ring on the pill, bar and countdown in the sheet.
   (function tick(){
     if(started && !paused){
@@ -2277,8 +2330,23 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
   // Browsers only allow sound after the visitor's first tap, key or scroll.
   const kick = () => { if(started || players.length) return; ['pointerdown', 'keydown', 'touchstart', 'wheel'].forEach(e => removeEventListener(e, kick)); loadApi() };
   ['pointerdown', 'keydown', 'touchstart', 'wheel'].forEach(e => addEventListener(e, kick, {passive: true}));
-  $m('mx-list').innerHTML = TRACKS.map(([, a, s], k) => `<li><button type="button" data-k="${k}"><span class="n">${String(k + 1).padStart(2, '0')}</span><span class="t"><b>${s}</b><small>${a}</small></span><span class="eqs"><i></i><i></i><i></i></span></button></li>`).join('');
-  $m('mx-list').onclick = e => { const b = e.target.closest('[data-k]'); if(b && +b.dataset.k !== idx) go(0, +b.dataset.k) };
+  function renderList(){
+    const q = query.trim().toLowerCase();
+    const rows = TRACKS.map((t, k) => [t, k]).filter(([t]) => (genre === 'All' || genreOf(t) === genre) && (!q || (t[1] + ' ' + t[2]).toLowerCase().includes(q)));
+    $m('mx-list').innerHTML = rows.map(([[vid, a, s], k], n) => `<li data-k="${k}"${k === idx ? ' class="on"' : ''}><button type="button" data-k="${k}"><img src="${art(vid, 'default')}" alt="" loading="lazy"><span class="t"><b>${s}</b><small>${a}</small></span><span class="eqs"><i></i><i></i><i></i></span></button></li>`).join('')
+      || '<li class="mx-none">No tracks match.</li>';
+    $m('mx-genres').innerHTML = GENRES.map(g => `<button type="button" data-g="${g}" aria-pressed="${g === genre}">${g}${g === 'All' ? '' : ` <small>${TRACKS.filter(t => genreOf(t) === g).length}</small>`}</button>`).join('');
+  }
+  renderList();
+  $m('mx-genres').onclick = e => { const b = e.target.closest('[data-g]'); if(!b) return; genre = b.dataset.g; store.set('mx-genre', genre); upNext = null; renderList(); paint() };
+  $m('mx-q').addEventListener('input', e => { query = e.target.value; renderList() });
+  $m('mx-shuf').onclick = () => { shuffle = !shuffle; store.set('mx-shuffle', shuffle ? '1' : '0'); $m('mx-shuf').setAttribute('aria-pressed', shuffle); upNext = null; paint() };
+  $m('mx-shuf').setAttribute('aria-pressed', shuffle);
+  if('mediaSession' in navigator){ try{
+    navigator.mediaSession.setActionHandler('nexttrack', () => go(1)); navigator.mediaSession.setActionHandler('previoustrack', () => go(-1));
+    navigator.mediaSession.setActionHandler('play', () => { if(paused || muted) togglePlay() }); navigator.mediaSession.setActionHandler('pause', () => { if(!paused && !muted) togglePlay() });
+  }catch{} }
+  $m('mx-list').onclick = e => { const b = e.target.closest('button[data-k]'); if(b && +b.dataset.k !== idx) go(0, +b.dataset.k) };
   const openSheet = open => { sheet.hidden = !open; ui.classList.toggle('open', open); $m('mx-open').setAttribute('aria-expanded', open) };
   $m('mx-open').onclick = () => { if(IOS && muted && sheet.hidden){ togglePlay() } openSheet(sheet.hidden) };
   $m('mx-close').onclick = () => openSheet(false);

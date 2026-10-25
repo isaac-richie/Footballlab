@@ -607,6 +607,8 @@ def season(data, league_id):
     matches = [m for m in data['matches'] if m['league_id'] == league_id and m['season'] == current]
     played = [(m['home'], m['away'], *m['goals']) for m in matches if m['goals'] is not None]
     remaining = [m for m in matches if m['goals'] is None]
+    added = complete_fixtures(matches, league_id)
+    remaining += added
     if not remaining:
         raise ValueError(f'No remaining {current} fixtures in the source for this league.')
     _, _, priced = fixture_rates(data, league_id, remaining, today)
@@ -614,11 +616,48 @@ def season(data, league_id):
     result = simulate(played, [(m['home'], m['away']) for m in remaining], rates, league_id)
     result.update(league_id=league_id, league=LEAGUES[league_id], season=current, analysis_date=today,
                   priced_fixtures=sum(source != 'model' for *_, source, _ in priced),
-                  stale_results=coverage(data, league_id, today)['latest_result'])
+                  stale_results=coverage(data, league_id, today)['latest_result'], unscheduled_added=len(added))
+    if added:
+        result['method'] += (f' The full fixture list is not published yet, so {len(added)} unscheduled games were added '
+                             'from the league format' + (' (33-game regular season; the post-split games are not modelled).'
+                                                         if league_id == 'sco.1' else '.'))
     if len(_season_cache) > 8:
         _season_cache.clear()
     _season_cache[key] = result
     return result
+
+
+# Meetings per pair in a regular season (Scotland: three meetings before the split).
+MEETINGS = {'sco.1': 3}
+
+
+def complete_fixtures(matches, league_id):
+    """Games still to come that the source has not scheduled yet, derived from the league format.
+
+    Double round robin by default: every ordered pair once. Scotland: each pair three
+    times in the regular season, home advantage alternating. Undated (placed after the
+    season), so they only feed the season simulation.
+    """
+    teams = sorted({t for m in matches for t in (m['home'], m['away'])})
+    if len(teams) < 4:
+        return []
+    meet = MEETINGS.get(league_id, 2)
+    count = {}
+    for m in matches:
+        count[(m['home'], m['away'])] = count.get((m['home'], m['away']), 0) + 1
+    end = f"{int(max(m['season'] for m in matches)[:4]) + 1}-06-30"
+    stub = lambda h, a: dict(league_id=league_id, season=matches[0]['season'], date=end, home=h, away=a, goals=None, ht=None, unscheduled=True)
+    out = []
+    for i, h in enumerate(teams):
+        for a in teams[i + 1:]:
+            have = count.get((h, a), 0) + count.get((a, h), 0)
+            for k in range(have, meet):
+                # alternate venues: whoever has hosted fewer of these meetings hosts the next
+                home_first = count.get((h, a), 0) <= count.get((a, h), 0)
+                pair = (h, a) if home_first else (a, h)
+                count[pair] = count.get(pair, 0) + 1
+                out.append(stub(*pair))
+    return out
 
 
 def parlay_candidates(data, leagues, days=7, include_today=False):
