@@ -11,8 +11,14 @@ def digest(value):
     return hashlib.sha256(json.dumps(value, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
 
 
+_ROOT = Path(__file__).resolve().parent
+
+
 def atomic_write(path, text):
     path = Path(path)
+    # Serverless hosts (Vercel) only allow writes under /tmp: caches and logs go there.
+    if os.environ.get('VERCEL') and path.resolve().is_relative_to(_ROOT):
+        path = Path('/tmp/football-lab') / path.resolve().relative_to(_ROOT)
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, name = tempfile.mkstemp(prefix=path.name + '.', dir=path.parent)
     try:

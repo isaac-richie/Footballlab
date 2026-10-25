@@ -1,0 +1,19 @@
+# Private data: licensed for local research only, never uploaded.
+.env
+market_data.json
+saudi_data.json
+stats.json
+snapshots/
+backup/
+reports/badges/
+reports/odds_history/
+reports/lineups/
+reports/live_odds.json
+reports/implied_goals.json
+reports/market_ratings_experiment.json
+reports/accuracy_lab.records.json
+reports/logs/
+# Not needed by the Lab
+community/web/brand/
+tools/
+.github/

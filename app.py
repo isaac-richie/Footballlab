@@ -43,6 +43,8 @@ LEAGUES = {
     'de.2': 'Germany — 2. Bundesliga',
     'sa.1': 'Saudi Arabia — Pro League',     # TheSportsDB, private Lab only (saudi.py)
 }
+if not (ROOT / 'saudi_data.json').exists():
+    del LEAGUES['sa.1']                          # not downloaded here (e.g. the hosted, open-data Lab)
 OPEN_LEAGUES = [k for k in LEAGUES if k != 'sa.1']     # leagues with an open results feed
 
 
@@ -588,6 +590,8 @@ def backtest(data, league_id):
 
 def setup_logging():
     from logging.handlers import RotatingFileHandler
+    if os.environ.get('VERCEL'):                 # read-only disk: Vercel keeps stdout logs instead
+        logging.basicConfig(level=logging.INFO); return
     (ROOT / 'reports' / 'logs').mkdir(parents=True, exist_ok=True)
     handler = RotatingFileHandler(ROOT / 'reports' / 'logs' / 'app.log', maxBytes=2_000_000, backupCount=5)
     handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s %(message)s'))
