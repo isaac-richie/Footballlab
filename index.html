@@ -631,6 +631,23 @@ details[open]>summary::after{transform:rotate(-135deg) translateY(-2px)}
 .date-row input{flex:1;min-width:0;border:0;background:none;color:var(--text);font:inherit;font-weight:650;padding:6px 4px;text-align:right}
 .date-row .today{border:0;border-radius:10px;padding:7px 11px;background:var(--surface-3);color:var(--text);font-weight:650;font-size:12px;cursor:pointer}
 .date-row .today:hover{background:var(--accent);color:#0b0f14}
+/* ---------- Music mini-player ---------- */
+.mx-yt{position:fixed;left:-9999px;top:0;width:200px;height:112px;pointer-events:none}
+.mx{position:fixed;left:16px;bottom:16px;z-index:45;display:flex;align-items:center;gap:10px;padding:6px 8px 6px 6px;border-radius:999px;max-width:min(320px,calc(100vw - 32px));
+  border:1px solid var(--line-2);background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 12px 30px -12px #000a;animation:rise .5s both}
+.mx-btn,.mx-skip{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer}
+.mx-btn{background:var(--accent);color:#0b0f14}
+.mx-skip{background:var(--surface-3);color:var(--text)}
+.mx-skip svg{width:15px;height:15px;fill:currentColor;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round}
+.mx .eq{display:flex;align-items:flex-end;gap:2px;height:14px}
+.mx .eq i{width:3px;background:currentColor;border-radius:2px;animation:eq 1s ease-in-out infinite}
+.mx .eq i:nth-child(2){animation-delay:-.4s}.mx .eq i:nth-child(3){animation-delay:-.7s}
+@keyframes eq{0%,100%{height:4px}50%{height:14px}}
+.mx.off .mx-btn{background:var(--surface-3);color:var(--muted)}.mx.off .eq i{animation:none;height:4px}
+.mx-info{min-width:0;display:flex;flex-direction:column;line-height:1.15}
+.mx-info small{font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.mx-info b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:760px){.mx{left:12px;bottom:calc(96px + env(safe-area-inset-bottom));max-width:calc(100vw - 24px)}}
 footer{margin:40px 0 30px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--faint)}
 footer a{color:var(--muted)}
 
@@ -1886,6 +1903,73 @@ $('#test').onclick = async () => {
 
 // Badges first so the first render already shows them; the page works without them.
 api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() => { showView(); loadLeague(); loadSlip() });
+</script>
+
+<!-- Music: NCS (NoCopyrightSounds) classics streamed from their official YouTube channel. -->
+<div class="mx" id="mx" hidden>
+  <button type="button" class="mx-btn" id="mx-toggle" aria-label="Mute music"><span class="eq"><i></i><i></i><i></i></span></button>
+  <div class="mx-info"><small>Now playing · NCS</small><b id="mx-title">—</b></div>
+  <button type="button" class="mx-skip" id="mx-next" aria-label="Next track"><svg viewBox="0 0 24 24"><path d="M6 5l9 7-9 7zM17 5v14"/></svg></button>
+</div>
+<div id="mx-a" class="mx-yt"></div><div id="mx-b" class="mx-yt"></div>
+<script>
+(function(){
+  'use strict';
+  // Ten-ish NCS classics (verified uploads on the NoCopyrightSounds channel).
+  const TRACKS = [
+    ['3nQNiWdeH2Q', 'Janji – Heroes Tonight', 40], ['TW9d8vYrVFQ', 'Elektronomia – Sky High', 45],
+    ['jK2aIUmmdP4', 'Different Heaven & EH!DE – My Heart', 50], ['K4DyBUG242c', 'Cartoon, Jéja – On & On', 40],
+    ['J2X5mJ3HDYE', 'DEAF KEV – Invincible', 45], ['p7ZsBPK656s', 'Disfigure – Blank', 50],
+    ['x_OwcYTNbHs', 'Jim Yosef – Firefly', 40], ['q1ULJ92aldE', 'Syn Cole – Feel Good', 35],
+    ['__CRWE-L45k', 'Electro-Light – Symbolism', 45], ['S19UcWdOA-I', 'Lost Sky – Fearless pt.II', 40],
+    ['iqoNoU-rm14', 'Max Brhon – Cyberpunk', 40]];
+  const VOLUME = 35, PLAY_SECONDS = 60, FADE_MS = 4000;
+  const store = {get(k){ try{ return localStorage.getItem(k) }catch{ return null } }, set(k, v){ try{ localStorage.setItem(k, v) }catch{} }};
+  let muted = store.get('mx-muted') === '1', idx = Math.floor(Math.random() * TRACKS.length), players = [], live = 0, timer = null, started = false;
+  const ui = document.getElementById('mx');
+
+  function loadApi(){ const t = document.createElement('script'); t.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(t) }
+  window.onYouTubeIframeAPIReady = () => {
+    let ready = 0;
+    players = ['mx-a', 'mx-b'].map(id => new YT.Player(id, {width: 200, height: 112, playerVars: {controls: 0, playsinline: 1, disablekb: 1, rel: 0},
+      events: {onReady: () => { if(++ready === 2) begin() }, onError: () => next()}}));
+  };
+  function fade(p, from, to, ms, done){
+    const t0 = performance.now();
+    (function step(now){ const k = Math.min(1, (now - t0) / ms); try{ p.setVolume(Math.round(from + (to - from) * k)) }catch{}
+      k < 1 ? requestAnimationFrame(step) : done && done() })(t0);
+  }
+  function play(slot, first){
+    const [id, title, start] = TRACKS[idx], p = players[slot];
+    p.setVolume(first ? (muted ? 0 : VOLUME) : 0);
+    p.loadVideoById({videoId: id, startSeconds: start});
+    if(!first && !muted) fade(p, 0, VOLUME, FADE_MS);
+    document.getElementById('mx-title').textContent = title;
+    clearTimeout(timer); timer = setTimeout(next, PLAY_SECONDS * 1000);
+  }
+  function next(){
+    if(!players.length) return;
+    const out = players[live]; live = 1 - live; idx = (idx + 1) % TRACKS.length;
+    fade(out, muted ? 0 : VOLUME, 0, FADE_MS, () => { try{ out.stopVideo() }catch{} });
+    play(live, false);
+  }
+  function begin(){ started = true; ui.hidden = false; ui.classList.toggle('off', muted); play(live, true) }
+  // Browsers only allow sound after the visitor's first tap, key or scroll.
+  const kick = () => { if(started || players.length) return; ['pointerdown', 'keydown', 'touchstart', 'wheel'].forEach(e => removeEventListener(e, kick)); loadApi() };
+  ['pointerdown', 'keydown', 'touchstart', 'wheel'].forEach(e => addEventListener(e, kick, {passive: true}));
+  document.getElementById('mx-toggle').onclick = () => {
+    muted = !muted; store.set('mx-muted', muted ? '1' : '0'); ui.classList.toggle('off', muted);
+    const p = players[live]; if(p) fade(p, muted ? VOLUME : 0, muted ? 0 : VOLUME, 600);
+    document.getElementById('mx-toggle').setAttribute('aria-label', muted ? 'Play music' : 'Mute music');
+  };
+  document.getElementById('mx-next').onclick = next;
+  document.addEventListener('visibilitychange', () => { const p = players[live]; if(!p) return; try{ document.hidden ? p.pauseVideo() : p.playVideo() }catch{} });
+})();
+</script>
+<script>
+  // Visitor counts (Vercel Web Analytics: no cookies). Only on the hosted site.
+  if(!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)){ window.va = window.va || function(){ (window.vaq = window.vaq || []).push(arguments) };
+    const s = document.createElement('script'); s.defer = true; s.src = '/_vercel/insights/script.js'; document.head.appendChild(s) }
 </script>
 </body>
 </html>
