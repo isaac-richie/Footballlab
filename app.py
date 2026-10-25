@@ -102,12 +102,64 @@ def refresh():
                 failures.append(dict(url=url, league_id=league_id, error=str(exc)))
     if not successes:
         raise RuntimeError('No source succeeded; existing data has not been replaced.')
+    try:
+        patched = patch_bundesliga(matches, sources)
+        print(json.dumps(dict(bundesliga_patched_from_openligadb=patched)))
+    except Exception as exc:
+        failures.append(dict(url=OPENLIGADB_SOURCE.replace('bl2', 'bl1'), league_id='de.1', error=str(exc)))
     unique = {(m['league_id'], m['date'], m['home'], m['away']): m for m in matches}
     payload = dict(fetched_at=dt.datetime.now(dt.timezone.utc).isoformat(),
                    license='per-source', sources=list(sources.values()), failures=failures,
                    matches=sorted(unique.values(), key=lambda m: m['date']))
     atomic_write(DATA, json.dumps(payload, indent=2))
     print(json.dumps(dict(matches=len(unique), sources=len(sources), failures=failures)))
+
+
+def current_teams(data, league_id):
+    """This season's clubs only, so relegated sides don't clutter the team picker."""
+    rows = [m for m in data['matches'] if m['league_id'] == league_id]
+    if not rows:
+        return []
+    season = max(m['season'] for m in rows)
+    return sorted({t for m in rows if m['season'] == season for t in (m['home'], m['away'])})
+
+
+def patch_bundesliga(matches, sources):
+    """OpenFootball's Bundesliga lags by weeks; OpenLigaDB (ODbL) is current.
+
+    Fill missing scores and correct dates for this season's Bundesliga games from
+    OpenLigaDB. Games are matched by their home/away pairing, which happens once a
+    season, after pairing the two sources' team names by similarity.
+    """
+    from live_odds import similarity
+    today = dt.date.today()
+    year = today.year if today.month >= 7 else today.year - 1
+    season = f'{year}-{str(year + 1)[-2:]}'
+    url = OPENLIGADB_SOURCE.replace('bl2', 'bl1') + str(year)
+    with urlopen(url, timeout=25) as response:
+        raw = response.read()
+    fresh = normalize_openligadb(raw, 'de.1', LEAGUES['de.1'], season)
+    ours = [m for m in matches if m['league_id'] == 'de.1' and m['season'] == season]
+    our_teams = sorted({t for m in ours for t in (m['home'], m['away'])})
+    names = {}
+    for t in sorted({t for m in fresh for t in (m['home'], m['away'])}):
+        best = max(our_teams, key=lambda o: similarity(t, o), default=None)
+        if best and similarity(t, best) >= 0.6 and best not in names.values():
+            names[t] = best
+    by_pair = {(m['home'], m['away']): m for m in ours}
+    patched = 0
+    for f in fresh:
+        m = by_pair.get((names.get(f['home']), names.get(f['away'])))
+        if not m:
+            continue
+        if m['date'] != f['date'] and m['goals'] is None:
+            m['date'] = f['date']; patched += 1
+        if f['goals'] is not None and m['goals'] is None:
+            m['goals'], m['ht'], m['goals_source'] = f['goals'], f['ht'], 'openligadb'; patched += 1
+    sources[url] = dict(url=url, league_id='de.1', matches=len(fresh), sha256=hashlib.sha256(raw).hexdigest(),
+                        checked_at=dt.datetime.now(dt.timezone.utc).isoformat(), license='ODbL-1.0',
+                        license_url='https://opendatacommons.org/licenses/odbl/1-0/', role='fills missing Bundesliga results')
+    return patched
 
 
 def backfill_halftime():
@@ -668,7 +720,7 @@ class Handler(BaseHTTPRequestHandler):
             if league_id not in LEAGUES:
                 return self.send_json(dict(error='Choose a supported league.'), 400)
             self.send_json(dict(league_id=league_id, league=LEAGUES[league_id], leagues=LEAGUES,
-                                teams=sorted({m[k] for m in data['matches'] if m['league_id'] == league_id for k in ('home', 'away')}),
+                                teams=current_teams(data, league_id),
                                 fixtures=[m for m in data['matches'] if m['league_id'] == league_id and m['date'] >= today and m['goals'] is None][:30],
                                 recent=[dict(date=m['date'], home=m['home'], away=m['away'], goals=m['goals'])
                                         for m in sorted((m for m in data['matches'] if m['league_id'] == league_id and m['goals'] is not None),
