@@ -908,7 +908,8 @@ function statusPill(f){
     return `<span class="st live" title="In play now"><i></i>Live ${m}</span>` }
   if(f.status === 'awaiting_result') return '<span class="st done" title="Played, final score not in yet">Played · result soon</span>';
   if(f.status === 'finished') return '<span class="st done">Full time</span>';
-  return f.kickoff ? `<span class="st ko">${esc(koTime(f.kickoff))}</span>` : '';
+  if(f.kickoff) return `<span class="st ko">${esc(koTime(f.kickoff))}</span>`;
+  return f.date === new Date().toLocaleDateString('en-CA') ? '<span class="st ko">Today</span>' : '';
 }
 const store = {get(k){try{return localStorage.getItem(k)}catch{return null}}, set(k,v){try{localStorage.setItem(k,v)}catch{}}};
 async function api(url, options){const r = await fetch(url, options), d = await r.json(); if(!r.ok) throw Error(d.error || 'Request failed'); return d}

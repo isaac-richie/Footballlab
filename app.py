@@ -556,9 +556,10 @@ def slate(data, league_id, limit=40):
     key = _cache_key(data, league_id, today)
     if key in _slate_cache:
         return _slate_cache[key]
-    # Upcoming means not yet kicked off or still in play, with a confirmed date.
+    # Upcoming means not yet kicked off or still in play. Today's games without a known
+    # kickoff time (the hosted, open-data Lab) stay listed as 'today' until their result arrives.
     fixtures = [m for m in data['matches'] if m['league_id'] == league_id and m['goals'] is None and not m.get('unconfirmed')
-                and (m['date'] > today or m['date'] == today and m.get('kickoff')) and schedule.status(m) in ('scheduled', 'live')][:limit]
+                and m['date'] >= today and schedule.status(m) in ('scheduled', 'live')][:limit]
     rows, rho, priced = fixture_rates(data, league_id, fixtures, today)
     recent = {t: sum(t in (m['home'], m['away']) and
                      (dt.date.fromisoformat(today) - dt.date.fromisoformat(m['date'])).days <= 365 for m in rows)

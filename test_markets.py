@@ -70,7 +70,8 @@ class MarketTests(unittest.TestCase):
                        league_id='en.1', season='x'),
                   dict(date=today.isoformat(), home='A', away='B', goals=None, league_id='en.1', season='x')]
         result = slate(dict(matches=past + future, fetched_at='t-test', sources=[]), 'en.1')
-        self.assertEqual(len(result['fixtures']), 1)
+        # today's game has no kickoff time, so it stays listed until its result arrives
+        self.assertEqual(len(result['fixtures']), 2)
         self.assertAlmostEqual(sum(result['fixtures'][0]['probabilities']), 1)
 
 
