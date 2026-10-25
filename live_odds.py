@@ -24,7 +24,7 @@ HISTORY = ROOT / 'reports' / 'odds_history'
 SHARP_MOVE = .03  # margin-free probability change treated as a notable move
 CACHE_MINUTES = 60
 API = 'https://api.the-odds-api.com/v4/sports/{sport}/odds'
-SPORTS = {'en.1': 'soccer_epl', 'sa.1': 'soccer_saudi_arabia_pro_league', 'es.1': 'soccer_spain_la_liga', 'it.1': 'soccer_italy_serie_a',
+SPORTS = {'en.1': 'soccer_epl', 'tr.1': 'soccer_turkey_super_league', 'sco.1': 'soccer_spl', 'sa.1': 'soccer_saudi_arabia_pro_league', 'es.1': 'soccer_spain_la_liga', 'it.1': 'soccer_italy_serie_a',
           'de.1': 'soccer_germany_bundesliga', 'fr.1': 'soccer_france_ligue_one',
           'it.2': 'soccer_italy_serie_b', 'de.2': 'soccer_germany_bundesliga2'}
 NOISE = {'fc', 'cf', 'ac', 'afc', 'sc', 'ssc', 'as', 'us', 'rc', 'sv', 'vfl', 'vfb', 'tsg', 'fsv', 'club', 'de', 'calcio',

@@ -41,10 +41,15 @@ LEAGUES = {
     'fr.1': 'France — Ligue 1',
     'it.2': 'Italy — Serie B',
     'de.2': 'Germany — 2. Bundesliga',
-    'sa.1': 'Saudi Arabia — Pro League',     # TheSportsDB, private Lab only (saudi.py)
+    'sa.1': 'Saudi Arabia — Saudi Pro League',     # TheSportsDB, private Lab only (saudi.py)
+    'tr.1': 'Turkey — Süper Lig',            # current season from football-data (private Lab only)
+    'sco.1': 'Scotland — Scottish Premiership',       # current season from football-data (private Lab only)
 }
 if not (ROOT / 'saudi_data.json').exists():
     del LEAGUES['sa.1']                          # not downloaded here (e.g. the hosted, open-data Lab)
+if not odds_data.MARKET.exists():                # no open current-season feed for these yet
+    for _lg in ('tr.1', 'sco.1'):
+        LEAGUES.pop(_lg, None)
 OPEN_LEAGUES = [k for k in LEAGUES if k != 'sa.1']     # leagues with an open results feed
 
 

@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parent
 MARKET = ROOT / 'market_data.json'
 BASE = 'https://football-data.co.uk/mmz4281/'
 FIXTURES_URL = 'https://football-data.co.uk/fixtures.csv'
-CODES = {'en.1': 'E0', 'es.1': 'SP1', 'it.1': 'I1', 'de.1': 'D1', 'fr.1': 'F1', 'it.2': 'I2', 'de.2': 'D2'}
+CODES = {'en.1': 'E0', 'es.1': 'SP1', 'it.1': 'I1', 'de.1': 'D1', 'fr.1': 'F1', 'it.2': 'I2', 'de.2': 'D2', 'tr.1': 'T1', 'sco.1': 'SC0'}
 LICENSE = 'football-data.co.uk; reuse terms unverified; private research only, do not redistribute'
 
 # (output key, columns). Every group is all-or-nothing so a partial set never

@@ -98,7 +98,7 @@ def normalize(raw, league_id, league_name, season):
 
 
 # OpenFootball gives kickoff in the league's local time.
-LEAGUE_TZ = {'en.1': 'Europe/London', 'es.1': 'Europe/Madrid', 'it.1': 'Europe/Rome', 'it.2': 'Europe/Rome',
+LEAGUE_TZ = {'tr.1': 'Europe/Istanbul', 'sco.1': 'Europe/London', 'en.1': 'Europe/London', 'es.1': 'Europe/Madrid', 'it.1': 'Europe/Rome', 'it.2': 'Europe/Rome',
              'de.1': 'Europe/Berlin', 'de.2': 'Europe/Berlin', 'fr.1': 'Europe/Paris'}
 
 

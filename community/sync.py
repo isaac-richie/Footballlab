@@ -24,7 +24,7 @@ from app import LEAGUES, distribution, fixture_rates, load  # noqa: E402
 from prospective import fixture_id  # noqa: E402
 import live_odds  # noqa: E402
 
-PUBLIC_LEAGUES = [k for k in LEAGUES if k not in ('it.2', 'sa.1')]  # Serie B: no open current feed; Saudi: not openly licensed
+PUBLIC_LEAGUES = [k for k in LEAGUES if k not in ('it.2', 'sa.1', 'tr.1', 'sco.1')]  # no open current-season feed / not openly licensed
 LOOKAHEAD_DAYS, LOOKBACK_DAYS = 14, 10
 
 
