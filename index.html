@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Football Lab</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -469,7 +469,7 @@ html{background:var(--bg)}
 .fx.is-live{border-color:#ff3b5c66}
 .ft-filter{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 0 16px;padding-bottom:2px}
 .ft-filter::-webkit-scrollbar{display:none}
-.ft-filter button{flex-shrink:0;white-space:nowrap;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted);font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.8px;font-size:13px;cursor:pointer;transition:all .2s}
+.ft-filter button{flex-shrink:0;white-space:nowrap;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);color:var(--muted);font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.8px;font-size:13px;cursor:pointer;transition:all .2s}
 .ft-filter button b{margin-left:6px;opacity:.6;font-weight:700}
 .ft-filter button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#0b0f14}
 .ft-all{margin-top:34px}
@@ -477,7 +477,7 @@ html{background:var(--bg)}
 .ft-all-head h2{margin:0;font-family:var(--display);text-transform:uppercase;letter-spacing:1px;font-size:26px}
 .ft-all-head span{color:var(--muted);font-size:14px}
 .ga-day{font-family:var(--display);text-transform:uppercase;letter-spacing:1.2px;font-size:13px;color:var(--accent);margin:18px 0 6px}
-.ga{display:grid;grid-template-columns:86px minmax(0,1fr) 150px 120px;gap:12px;align-items:center;width:100%;text-align:left;padding:10px 14px;margin:0 0 6px;border-radius:14px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;font:inherit;transition:transform .2s,border-color .2s;animation:rise .4s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i,0) * 18ms)}
+.ga{display:grid;grid-template-columns:86px minmax(0,1fr) 150px 120px;gap:12px;align-items:center;width:100%;text-align:left;padding:10px 14px;margin:0 0 6px;border-radius:14px;border:1px solid var(--line);background:var(--surface-2);color:var(--text);cursor:pointer;font:inherit;transition:transform .2s,border-color .2s;animation:rise .4s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i,0) * 18ms)}
 .ga:hover{border-color:color-mix(in srgb,var(--accent) 55%,var(--line));transform:translateX(3px)}
 .ga.is-live{border-color:#ff3b5c88}
 .ga .lg{font-family:var(--display);text-transform:uppercase;letter-spacing:.6px;font-size:11px;color:var(--muted)}
@@ -499,7 +499,7 @@ html{background:var(--bg)}
 @keyframes ftInBack{from{opacity:0;transform:translateX(-22%) rotateY(30deg) scale(.92);filter:blur(3px)}}
 .ft-stage.swipe .ft-grid:not(.leave){transition:none}
 .ft-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px}
-.ft-arrow{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--text);
+.ft-arrow{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);color:var(--text);
   font-family:var(--display);text-transform:uppercase;letter-spacing:1px;font-weight:800;font-size:14px;cursor:pointer;transition:transform .2s,border-color .2s,background .2s}
 .ft-arrow:hover:not(:disabled){border-color:var(--accent);transform:translateY(-2px)}
 .ft-arrow:disabled{opacity:.35;cursor:default}
@@ -556,6 +556,52 @@ details[open]>summary::after{transform:rotate(-135deg) translateY(-2px)}
 .nav::-webkit-scrollbar{display:none}
 .nav a{white-space:nowrap;flex-shrink:0}
 .top .icon-btn{flex-shrink:0}
+/* ---------- Phone: app-style layout ---------- */
+.tabbar{display:none}
+@media (max-width:760px){
+  .top .nav{display:none}
+  .top .wrap{height:54px}
+  .tabbar{display:grid;grid-template-columns:repeat(6,1fr);position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:40;
+    padding:6px;border-radius:22px;border:1px solid var(--line-2);background:color-mix(in srgb,var(--bg) 78%,transparent);
+    backdrop-filter:saturate(1.6) blur(18px);-webkit-backdrop-filter:saturate(1.6) blur(18px);box-shadow:0 18px 40px -12px #000a}
+  .tabbar a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 0 5px;border-radius:16px;color:var(--muted);text-decoration:none;
+    font-family:var(--display);text-transform:uppercase;letter-spacing:.5px;font-size:10.5px;font-weight:700;transition:color .2s,background .25s}
+  .tabbar svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s cubic-bezier(.2,1.4,.4,1)}
+  .tabbar a[aria-current=page]{color:#0b0f14;background:var(--accent)}
+  .tabbar a[aria-current=page] svg{transform:translateY(-1px) scale(1.08)}
+  body{padding-bottom:calc(92px + env(safe-area-inset-bottom))}
+  .wrap{padding-left:14px;padding-right:14px}
+  /* solid, layered surfaces so the stadium never shows through text */
+  .card{background:color-mix(in srgb,var(--surface) 94%,transparent);border-color:var(--line-2);border-radius:20px;padding:16px;
+    box-shadow:0 1px 0 #ffffff0d inset,0 20px 40px -18px #000c}
+  .view-head h1{font-size:30px;line-height:1}
+  .view-head p{font-size:14px;line-height:1.45}
+  .seg{background:var(--surface-2)}
+  .ft-filter{margin-left:-14px;margin-right:-14px;padding:0 14px 4px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 24px),transparent)}
+  .ft-filter button{padding:9px 14px;font-size:12px;background:var(--surface-2);box-shadow:0 6px 16px -10px #000}
+  /* featured cards: compact, scannable */
+  .ft{gap:12px}
+  .ft .meta{font-size:11.5px}
+  .ft .vs{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:8px}
+  .ft .vs .t,.ft.top .vs .t{font-size:16px;line-height:1.1;gap:8px;display:flex;flex-direction:column;align-items:flex-start}
+  .ft .vs .t.away{align-items:flex-end;text-align:right}
+  .ft .vs .crest,.ft.top .vs .crest{width:46px;height:46px;border-radius:14px}
+  .ft .vs .sc{font-size:18px;opacity:.6}
+  .ft .tri.big{height:10px}
+  .ft .tri-labels b{font-size:20px;letter-spacing:-.4px}
+  .ft ul{font-size:13.5px;line-height:1.45;padding:12px 12px 12px 28px;margin:0;border-radius:14px;background:var(--surface-2)}
+  .ft ul li:nth-child(n+3){display:none}
+  .ft .go{width:100%!important;justify-content:center;border-radius:14px;padding:13px}
+  .ft-nav{margin-top:14px}
+  .ga{border-radius:16px;padding:12px}
+  .ticker{font-size:13px}
+  /* match hero: crest above the name, names break between words only */
+  .versus{gap:8px}
+  .side .who{flex-direction:column!important;align-items:flex-start;gap:8px}
+  .versus .side:last-child .who{align-items:flex-end}.versus .side:last-child{text-align:right}
+  .side strong,.hero .side strong{font-size:16px;line-height:1.1;overflow-wrap:normal;word-break:normal;hyphens:auto}
+  footer{margin-bottom:10px}
+}
 footer{margin:40px 0 30px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--faint)}
 footer a{color:var(--muted)}
 
@@ -610,6 +656,14 @@ footer a{color:var(--muted)}
     <button class="icon-btn" id="theme" type="button" aria-label="Toggle colour theme" title="Toggle theme">◐</button>
   </div>
 </header>
+<nav class="tabbar" aria-label="Views">
+  <a href="#featured" data-view="featured"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg><span>Featured</span></a>
+  <a href="#fixtures" data-view="fixtures"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg><span>Fixtures</span></a>
+  <a href="#match" data-view="match"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5l3.5 2.5-1.3 4h-4.4l-1.3-4z"/></svg><span>Match</span></a>
+  <a href="#season" data-view="season"><svg viewBox="0 0 24 24"><path d="M7 4h10v4a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 13v4M8.5 20h7"/></svg><span>Season</span></a>
+  <a href="#parlay" data-view="parlay"><svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="3"/><path d="M8 8.5h8M8 12h8M8 15.5h5"/></svg><span>Parlay</span></a>
+  <a href="#performance" data-view="performance"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Record</span></a>
+</nav>
 
 <div class="ticker" id="ticker" aria-label="Latest results" hidden><span class="lbl">Results</span><div class="run" id="ticker-run"></div></div>
 <div class="wrap">
@@ -830,7 +884,7 @@ function showView(){
   const view = ['featured','fixtures','match','season','parlay','performance'].includes(v) ? v : 'featured';
   if(view === 'featured' && !state.ftLoaded) loadFeatured();
   $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== view);
-  $$('.nav a').forEach(a => a.dataset.view === view ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
+  $$('.nav a, .tabbar a').forEach(a => a.dataset.view === view ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
   if(view === 'performance' && !state.prospectiveLoaded) loadProspective();
   if(view === 'season' && state.seasonLeague !== state.league) loadSeason();
   if(view === 'match') requestAnimationFrame(moveInk);

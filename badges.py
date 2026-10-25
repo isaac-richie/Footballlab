@@ -133,9 +133,32 @@ def fetch(teams, pause=3, log=print):
                 log(f'{i}/{len(todo)} {name}: download failed ({exc})')
         atomic_write(INDEX, json.dumps(index, indent=1, ensure_ascii=False))
         time.sleep(pause)
+    write_map()
     return index
 
 
+MAP = ROOT / 'badge_urls.json'   # committed: names -> TheSportsDB image addresses (no images)
+
+
+def remote(source):
+    return source if source.endswith('/small') else source + '/small'
+
+
+def write_map():
+    """Save where each badge lives on TheSportsDB's image server, for hosts without the local cache."""
+    links = {n: remote(v['source']) for n, v in sorted(load_index().items()) if v.get('source')}
+    atomic_write(MAP, json.dumps(links, indent=0, ensure_ascii=False))
+    return len(links)
+
+
 def urls():
-    """Badge URLs the Lab can show: {dataset team name: '/badge/<file>'}."""
-    return {n: '/badge/' + v['file'] for n, v in load_index().items() if v.get('file') and (DIR / v['file']).exists()}
+    """Badge URLs the Lab can show: the local copy when cached, else TheSportsDB's own image server."""
+    out = {}
+    try:
+        out.update(json.loads(MAP.read_text()))
+    except (OSError, ValueError):
+        pass
+    for n, v in load_index().items():
+        if v.get('file') and (DIR / v['file']).exists():
+            out[n] = '/badge/' + v['file']
+    return out

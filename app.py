@@ -731,8 +731,11 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json(dict(error='Not found'), 404)
 
     def do_POST(self):
+        # Only this site's own pages may post. Behind a host such as Vercel the page is
+        # https and the public name can arrive as X-Forwarded-Host.
         origin = self.headers.get('Origin')
-        if origin and origin != 'http://' + self.headers.get('Host', ''):
+        hosts = {h for h in (self.headers.get('Host'), self.headers.get('X-Forwarded-Host')) if h}
+        if origin and urlparse(origin).netloc not in hosts:
             return self.send_json(dict(error='Cross-origin request rejected'), 403)
         if urlparse(self.path).path == '/api/parlay':
             from parlay import build, MARKETS
