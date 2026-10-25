@@ -8,4 +8,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from app import Handler as handler  # noqa: E402,F401  (Vercel looks for `handler`)
+from app import Handler  # noqa: E402
+
+
+class handler(Handler):
+    """Vercel looks for a top-level class named `handler` defined in this file."""
