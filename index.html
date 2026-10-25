@@ -636,26 +636,6 @@ details[open]>summary::after{transform:rotate(-135deg) translateY(-2px)}
 .date-row input{flex:1;min-width:0;border:0;background:none;color:var(--text);font:inherit;font-weight:650;padding:6px 4px;text-align:right}
 .date-row .today{border:0;border-radius:10px;padding:7px 11px;background:var(--surface-3);color:var(--text);font-weight:650;font-size:12px;cursor:pointer}
 .date-row .today:hover{background:var(--accent);color:#0b0f14}
-/* ---------- Music mini-player ---------- */
-.mx-yt{position:fixed;left:-9999px;top:0;width:200px;height:112px;pointer-events:none}
-.mx{position:fixed;left:16px;bottom:16px;z-index:45;display:flex;align-items:center;gap:10px;padding:6px 8px 6px 6px;border-radius:999px;max-width:min(320px,calc(100vw - 32px));
-  border:1px solid var(--line-2);background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 12px 30px -12px #000a;animation:rise .5s both}
-.mx-btn,.mx-skip{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer}
-.mx-btn{background:var(--accent);color:#0b0f14}
-.mx-skip{background:var(--surface-3);color:var(--text)}
-.mx-skip svg{width:15px;height:15px;fill:currentColor;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round}
-.mx .eq{display:flex;align-items:flex-end;gap:2px;height:14px}
-.mx .eq i{width:3px;background:currentColor;border-radius:2px;animation:eq 1s ease-in-out infinite}
-.mx .eq i:nth-child(2){animation-delay:-.4s}.mx .eq i:nth-child(3){animation-delay:-.7s}
-@keyframes eq{0%,100%{height:4px}50%{height:14px}}
-.mx.off .mx-btn{background:var(--surface-3);color:var(--muted)}.mx.off .eq i{animation:none;height:4px}
-.mx-vol{width:78px;flex-shrink:0;accent-color:var(--accent);cursor:pointer}
-.mx.ios .mx-vol{display:none}
-@media (max-width:380px){.mx-vol{width:60px}}
-.mx-info{min-width:0;display:flex;flex-direction:column;line-height:1.15}
-.mx-info small{font-size:10px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
-.mx-info b{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-@media (max-width:760px){.mx{left:12px;bottom:calc(96px + env(safe-area-inset-bottom));max-width:calc(100vw - 24px)}}
 /* ---------- Page heroes ---------- */
 .view-head{position:relative}
 .view-head::before{content:'';position:absolute;left:-20px;top:-60px;width:min(420px,85vw);height:220px;pointer-events:none;z-index:-1;
@@ -763,6 +743,79 @@ footer a{color:var(--muted)}
 .fc-go:hover{background:var(--accent);color:#0b0f14}.fc-go:hover svg{transform:translateX(4px)}
 .ft.fc.top .fc-go{background:var(--accent);color:#0b0f14;border-color:var(--accent)}
 @media (max-width:760px){.fc-ring{width:64px;height:64px}.fc-ring .crest{width:44px;height:44px}.fc-team b{font-size:14px}.fc-ko{font-size:22px}}
+
+/* ---------- Music player ---------- */
+.mx-yt{position:fixed;left:-9999px;top:0;width:200px;height:112px;pointer-events:none}
+.mx{--disc:#c2f25e;position:fixed;left:16px;bottom:16px;z-index:45}
+.mx[hidden]{display:none}
+.mx-pill{display:flex;align-items:center;gap:10px;max-width:min(300px,calc(100vw - 32px));padding:6px 14px 6px 6px;border-radius:999px;cursor:pointer;color:var(--text);text-align:left;
+  border:1px solid var(--line-2);background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);
+  box-shadow:0 14px 34px -14px #000c,0 0 0 1px color-mix(in srgb,var(--disc) 15%,transparent);transition:transform .25s cubic-bezier(.2,1.4,.4,1),box-shadow .3s;animation:rise .5s both}
+.mx-pill:hover{transform:translateY(-2px)}
+.mx-disc{position:relative;display:grid;place-items:center;flex-shrink:0;border-radius:50%}
+.mx-disc.sm{width:40px;height:40px}
+.mx-disc .vinyl{position:absolute;inset:4px;border-radius:50%;animation:spin 6s linear infinite;
+  background:radial-gradient(circle,var(--disc) 0 20%,#0b0f14 21% 23%,transparent 24%),repeating-radial-gradient(circle,#15181f 0 1.5px,#0b0d12 1.5px 3px);
+  box-shadow:inset 0 0 0 1px #ffffff14}
+.mx-disc .vinyl i{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 30deg,transparent 0 40deg,#ffffff1c 60deg,transparent 80deg 220deg,#ffffff12 240deg,transparent 260deg)}
+.mx.off .vinyl{animation-play-state:paused}
+@keyframes spin{to{transform:rotate(360deg)}}
+.mx-ring{position:absolute;inset:0;transform:rotate(-90deg)}
+.mx-ring circle{fill:none;stroke:#ffffff14;stroke-width:2.2}
+.mx-ring .p{stroke:var(--disc);stroke-linecap:round;stroke-dasharray:116.2;stroke-dashoffset:116.2;transition:stroke .4s}
+.mx-txt{display:flex;flex-direction:column;min-width:0;line-height:1.2}
+.mx-txt small{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--disc)}
+.mx-marq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent)}
+.mx-marq b{display:inline-block;font-size:13px;white-space:nowrap}
+.mx-eq{display:flex;align-items:flex-end;gap:2px;height:16px;color:var(--disc)}
+.mx-eq i{width:3px;border-radius:2px;background:currentColor;animation:eq .9s ease-in-out infinite}
+.mx-eq i:nth-child(2){animation-delay:-.3s}.mx-eq i:nth-child(3){animation-delay:-.6s}.mx-eq i:nth-child(4){animation-delay:-.45s}
+@keyframes eq{0%,100%{height:3px}50%{height:16px}}
+.mx.off .mx-eq i{animation:none;height:3px;opacity:.5}
+.mx-sheet{position:absolute;left:0;bottom:calc(100% + 10px);width:min(360px,calc(100vw - 32px));padding:16px;border-radius:24px;
+  border:1px solid var(--line-2);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(24px) saturate(1.5);-webkit-backdrop-filter:blur(24px) saturate(1.5);
+  box-shadow:0 30px 70px -20px #000,0 0 0 1px color-mix(in srgb,var(--disc) 20%,transparent);transform-origin:bottom left;animation:sheetIn .35s cubic-bezier(.2,1.2,.4,1) both}
+.mx-sheet::before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(120% 60% at 30% 0%,color-mix(in srgb,var(--disc) 22%,transparent),transparent 70%);transition:background .6s}
+@keyframes sheetIn{from{opacity:0;transform:translateY(12px) scale(.96)}}
+.mx-sheet header{position:relative;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.mx-badge{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:1.5px;font-size:11px;color:var(--disc)}
+.mx-x{border:0;background:var(--surface-3);color:var(--muted);width:28px;height:28px;border-radius:50%;cursor:pointer}
+.mx-hero{position:relative;display:flex;gap:14px;align-items:center}
+.mx-disc.lg{width:96px;height:96px;box-shadow:0 14px 30px -10px #000,0 0 30px -6px var(--disc)}
+.mx-disc.lg .vinyl{inset:0}
+.mx-meta{min-width:0;flex:1;display:flex;flex-direction:column}
+.mx-meta b{font-family:var(--display);font-size:22px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;line-height:1.05;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mx-meta>span{color:var(--muted);font-size:13px;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mx-prog{height:4px;border-radius:4px;background:#ffffff14;margin-top:12px;overflow:hidden}
+.mx-prog i{display:block;height:100%;width:0;background:var(--disc);border-radius:inherit}
+.mx-times{display:flex;justify-content:space-between;font-size:11px;color:var(--faint);margin-top:5px}
+.mx-times em{font-style:normal;color:var(--muted)}
+.mx-ctl{position:relative;display:flex;justify-content:center;align-items:center;gap:18px;margin:14px 0 8px}
+.mx-ctl button{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:0;cursor:pointer;background:var(--surface-3);color:var(--text);transition:transform .2s}
+.mx-ctl button:hover{transform:scale(1.08)}
+.mx-ctl svg{width:18px;height:18px;fill:currentColor;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+.mx-ctl .big{width:58px;height:58px;background:var(--disc);color:#0b0f14;box-shadow:0 10px 24px -8px var(--disc)}
+.mx-ctl .big svg{width:22px;height:22px;stroke-width:3}
+.mx-ctl .big .play{display:none}.mx.off .mx-ctl .big .play{display:block}.mx.off .mx-ctl .big .pause{display:none}
+.mx-volrow{position:relative;display:flex;align-items:center;gap:10px;padding:6px 4px;color:var(--muted)}
+.mx-volrow[hidden]{display:none}
+.mx-volrow svg{width:18px;height:18px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mx-volrow input{flex:1;accent-color:var(--disc)}
+.mx-ios{position:relative;margin:4px 0;font-size:12px;color:var(--muted);text-align:center}
+.mx-list{position:relative;list-style:none;margin:8px 0 0;padding:0;max-height:min(240px,32vh);overflow:auto;border-top:1px solid var(--line);scrollbar-width:thin}
+.mx-list button{display:flex;align-items:center;gap:12px;width:100%;padding:9px 6px;border:0;background:none;color:var(--text);text-align:left;cursor:pointer;border-radius:12px}
+.mx-list button:hover{background:var(--surface-2)}
+.mx-list .n{font-family:var(--display);font-size:13px;color:var(--faint);width:20px}
+.mx-list .t{display:flex;flex-direction:column;min-width:0;flex:1;line-height:1.2}
+.mx-list .t b{font-size:13.5px}.mx-list .t small{font-size:11.5px;color:var(--muted)}
+.mx-list .eqs{display:none;align-items:flex-end;gap:2px;height:12px;color:var(--disc)}
+.mx-list .eqs i{width:3px;border-radius:2px;background:currentColor;animation:eq .9s ease-in-out infinite}
+.mx-list .eqs i:nth-child(2){animation-delay:-.3s}.mx-list .eqs i:nth-child(3){animation-delay:-.6s}
+.mx-list li.on .eqs{display:flex}.mx-list li.on .t b{color:var(--disc)}.mx-list li.on .n{color:var(--disc)}
+.mx.off .mx-list .eqs i{animation:none;height:3px}
+.mx-credit{position:relative;margin:10px 0 0;font-size:10.5px;color:var(--faint);text-align:center}
+@media (max-width:760px){.mx{left:12px;bottom:calc(96px + env(safe-area-inset-bottom))}.mx-sheet{width:calc(100vw - 24px)}}
+@media (prefers-reduced-motion:reduce){.mx-disc .vinyl,.mx-eq i,.mx-list .eqs i{animation:none}}
 </style>
 </head>
 <body>
@@ -2001,79 +2054,121 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
 
 <!-- Music: NCS (NoCopyrightSounds) classics streamed from their official YouTube channel. -->
 <div class="mx" id="mx" hidden>
-  <button type="button" class="mx-btn" id="mx-toggle" aria-label="Mute music"><span class="eq"><i></i><i></i><i></i></span></button>
-  <div class="mx-info"><small id="mx-sub">Now playing · NCS</small><b id="mx-title">—</b></div>
-  <input type="range" class="mx-vol" id="mx-vol" min="0" max="100" step="1" aria-label="Music volume">
-  <button type="button" class="mx-skip" id="mx-next" aria-label="Next track"><svg viewBox="0 0 24 24"><path d="M6 5l9 7-9 7zM17 5v14"/></svg></button>
+  <button type="button" class="mx-pill" id="mx-open" aria-expanded="false" aria-controls="mx-sheet">
+    <span class="mx-disc sm"><svg class="mx-ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18.5"/><circle class="p" id="mx-ring" cx="20" cy="20" r="18.5"/></svg><span class="vinyl"><i></i></span></span>
+    <span class="mx-txt"><small id="mx-sub">Now playing</small><span class="mx-marq"><b id="mx-title">—</b></span></span>
+    <span class="mx-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  </button>
+  <section class="mx-sheet" id="mx-sheet" aria-label="Music" hidden>
+    <header><span class="mx-badge">NCS · Matchday mix</span><button type="button" class="mx-x" id="mx-close" aria-label="Close player">✕</button></header>
+    <div class="mx-hero">
+      <span class="mx-disc lg"><span class="vinyl"><i></i></span></span>
+      <div class="mx-meta"><b id="mx-song">—</b><span id="mx-artist">—</span>
+        <div class="mx-prog"><i id="mx-bar"></i></div><div class="mx-times"><span id="mx-el">0:00</span><span>crossfade in <em id="mx-left">1:00</em></span></div>
+      </div>
+    </div>
+    <div class="mx-ctl">
+      <button type="button" id="mx-prev" aria-label="Previous track"><svg viewBox="0 0 24 24"><path d="M18 5l-9 7 9 7zM7 5v14"/></svg></button>
+      <button type="button" class="big" id="mx-play" aria-label="Pause"><svg class="pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg><svg class="play" viewBox="0 0 24 24"><path d="M7 4.5l13 7.5-13 7.5z"/></svg></button>
+      <button type="button" id="mx-next" aria-label="Next track"><svg viewBox="0 0 24 24"><path d="M6 5l9 7-9 7zM17 5v14"/></svg></button>
+    </div>
+    <label class="mx-volrow" id="mx-volrow"><svg viewBox="0 0 24 24"><path d="M4 9.5h4l5-4v13l-5-4H4z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/></svg><input type="range" id="mx-vol" min="0" max="100" step="1" aria-label="Music volume"></label>
+    <p class="mx-ios" id="mx-ios" hidden>On iPhone, use your volume buttons.</p>
+    <ol class="mx-list" id="mx-list"></ol>
+    <p class="mx-credit">Music by NCS (NoCopyrightSounds), streamed from their YouTube channel.</p>
+  </section>
 </div>
 <div id="mx-a" class="mx-yt"></div><div id="mx-b" class="mx-yt"></div>
 <script>
 (function(){
   'use strict';
-  // Ten-ish NCS classics (verified uploads on the NoCopyrightSounds channel).
+  // NCS classics (verified uploads on the NoCopyrightSounds channel): id, artist, song, start second, label colour.
   const TRACKS = [
-    ['3nQNiWdeH2Q', 'Janji – Heroes Tonight', 40], ['TW9d8vYrVFQ', 'Elektronomia – Sky High', 45],
-    ['jK2aIUmmdP4', 'Different Heaven & EH!DE – My Heart', 50], ['K4DyBUG242c', 'Cartoon, Jéja – On & On', 40],
-    ['J2X5mJ3HDYE', 'DEAF KEV – Invincible', 45], ['p7ZsBPK656s', 'Disfigure – Blank', 50],
-    ['x_OwcYTNbHs', 'Jim Yosef – Firefly', 40], ['q1ULJ92aldE', 'Syn Cole – Feel Good', 35],
-    ['__CRWE-L45k', 'Electro-Light – Symbolism', 45], ['S19UcWdOA-I', 'Lost Sky – Fearless pt.II', 40],
-    ['iqoNoU-rm14', 'Max Brhon – Cyberpunk', 40]];
+    ['3nQNiWdeH2Q', 'Janji', 'Heroes Tonight', 40, '#ff4d6d'], ['TW9d8vYrVFQ', 'Elektronomia', 'Sky High', 45, '#4cc9f0'],
+    ['jK2aIUmmdP4', 'Different Heaven & EH!DE', 'My Heart', 50, '#f72585'], ['K4DyBUG242c', 'Cartoon, Jéja', 'On & On', 40, '#ffd166'],
+    ['J2X5mJ3HDYE', 'DEAF KEV', 'Invincible', 45, '#7b2ff7'], ['p7ZsBPK656s', 'Disfigure', 'Blank', 50, '#06d6a0'],
+    ['x_OwcYTNbHs', 'Jim Yosef', 'Firefly', 40, '#ff9f1c'], ['q1ULJ92aldE', 'Syn Cole', 'Feel Good', 35, '#c2f25e'],
+    ['__CRWE-L45k', 'Electro-Light', 'Symbolism', 45, '#3a86ff'], ['S19UcWdOA-I', 'Lost Sky', 'Fearless pt.II', 40, '#ef476f'],
+    ['iqoNoU-rm14', 'Max Brhon', 'Cyberpunk', 40, '#00f5d4']];
   const PLAY_SECONDS = 60, FADE_MS = 4000;
-  // iOS ignores volume set by a page: listeners use the hardware buttons there.
-  const IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   const store = {get(k){ try{ return localStorage.getItem(k) }catch{ return null } }, set(k, v){ try{ localStorage.setItem(k, v) }catch{} }};
+  // iOS ignores volume set by a page, so there the music starts muted until the listener taps play.
+  const IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
   let VOLUME = +(store.get('mx-vol') ?? 25);
-  // iPhones can't turn YouTube down from the page, so music starts muted there until ♫ is tapped.
-  let muted = (store.get('mx-muted') ?? (IOS ? '1' : '0')) === '1', idx = Math.floor(Math.random() * TRACKS.length), players = [], live = 0, timer = null, started = false;
-  const ui = document.getElementById('mx');
+  let muted = (store.get('mx-muted') ?? (IOS ? '1' : '0')) === '1';
+  let idx = Math.floor(Math.random() * TRACKS.length), players = [], live = 0, timer = null, started = false, slotStart = 0, paused = false, pausedAt = 0;
+  const $m = id => document.getElementById(id), ui = $m('mx'), sheet = $m('mx-sheet');
 
   function loadApi(){ const t = document.createElement('script'); t.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(t) }
   window.onYouTubeIframeAPIReady = () => {
     let ready = 0;
     players = ['mx-a', 'mx-b'].map(id => new YT.Player(id, {width: 200, height: 112, playerVars: {controls: 0, playsinline: 1, disablekb: 1, rel: 0},
-      events: {onReady: () => { if(++ready === 2) begin() }, onError: () => next()}}));
+      events: {onReady: () => { if(++ready === 2) begin() }, onError: () => go(1)}}));
   };
   function fade(p, from, to, ms, done){
     const t0 = performance.now();
     (function step(now){ const k = Math.min(1, (now - t0) / ms); try{ p.setVolume(Math.round(from + (to - from) * k)) }catch{}
       k < 1 ? requestAnimationFrame(step) : done && done() })(t0);
   }
+  function paint(){
+    const [, artist, song, , colour] = TRACKS[idx];
+    $m('mx-title').textContent = song + ' · ' + artist; $m('mx-song').textContent = song; $m('mx-artist').textContent = artist;
+    ui.style.setProperty('--disc', colour);
+    $m('mx-list').querySelectorAll('li').forEach((li, k) => li.classList.toggle('on', k === idx));
+    ui.classList.toggle('off', muted || paused);
+    $m('mx-play').setAttribute('aria-label', muted || paused ? 'Play' : 'Pause');
+    $m('mx-sub').textContent = muted && IOS ? 'Tap for music' : paused ? 'Paused' : 'Now playing';
+  }
   function play(slot, first){
-    const [id, title, start] = TRACKS[idx], p = players[slot];
+    const [id, , , start] = TRACKS[idx], p = players[slot];
     p.setVolume(first ? (muted ? 0 : VOLUME) : 0); muted ? p.mute() : p.unMute();
     p.loadVideoById({videoId: id, startSeconds: start});
     if(!first && !muted) fade(p, 0, VOLUME, FADE_MS);
-    document.getElementById('mx-title').textContent = title;
-    clearTimeout(timer); timer = setTimeout(next, PLAY_SECONDS * 1000);
+    paused = false; slotStart = performance.now(); paint();
+    clearTimeout(timer); timer = setTimeout(() => go(1), PLAY_SECONDS * 1000);
   }
-  function next(){
+  function go(step, to){
     if(!players.length) return;
-    const out = players[live]; live = 1 - live; idx = (idx + 1) % TRACKS.length;
+    const out = players[live]; live = 1 - live;
+    idx = to != null ? to : (idx + step + TRACKS.length) % TRACKS.length;
     fade(out, muted ? 0 : VOLUME, 0, FADE_MS, () => { try{ out.stopVideo() }catch{} });
     play(live, false);
   }
-  function begin(){
-    started = true; ui.hidden = false; ui.classList.toggle('off', muted); ui.classList.toggle('ios', IOS); play(live, true);
-    if(IOS){ const sub = document.getElementById('mx-sub'); sub.textContent = muted ? 'Tap ♫ for music' : 'Use your volume buttons'; if(!muted) setTimeout(() => { sub.textContent = 'Now playing · NCS' }, 6000) }
+  function begin(){ started = true; ui.hidden = false; ui.classList.toggle('ios', IOS); $m('mx-ios').hidden = !IOS; $m('mx-volrow').hidden = IOS; play(live, true) }
+  // 60-second slot progress: ring on the pill, bar and countdown in the sheet.
+  (function tick(){
+    if(started && !paused){
+      const el = Math.min(PLAY_SECONDS, (performance.now() - slotStart) / 1000), k = el / PLAY_SECONDS, left = Math.ceil(PLAY_SECONDS - el);
+      $m('mx-ring').style.strokeDashoffset = String(116.2 * (1 - k)); $m('mx-bar').style.width = (k * 100) + '%';
+      $m('mx-el').textContent = '0:' + String(Math.floor(el)).padStart(2, '0'); $m('mx-left').textContent = '0:' + String(left).padStart(2, '0');
+    }
+    requestAnimationFrame(tick);
+  })();
+  function togglePlay(){
+    const p = players[live]; if(!p) return;
+    if(muted){ muted = false; store.set('mx-muted', '0'); p.unMute(); fade(p, 0, VOLUME, 600); if(paused){ p.playVideo(); resume() } return paint() }
+    if(paused){ p.playVideo(); resume() } else { p.pauseVideo(); paused = true; pausedAt = performance.now(); clearTimeout(timer) }
+    paint();
   }
-  const vol = document.getElementById('mx-vol');
-  vol.value = VOLUME;
-  vol.addEventListener('input', () => {
-    VOLUME = +vol.value; store.set('mx-vol', VOLUME);
-    if(VOLUME > 0 && muted){ muted = false; store.set('mx-muted', '0'); ui.classList.remove('off') }
-    try{ players[live].setVolume(muted ? 0 : VOLUME) }catch{}
-  });
+  function resume(){ paused = false; slotStart += performance.now() - pausedAt; clearTimeout(timer); timer = setTimeout(() => go(1), Math.max(500, PLAY_SECONDS * 1000 - (performance.now() - slotStart))) }
   // Browsers only allow sound after the visitor's first tap, key or scroll.
   const kick = () => { if(started || players.length) return; ['pointerdown', 'keydown', 'touchstart', 'wheel'].forEach(e => removeEventListener(e, kick)); loadApi() };
   ['pointerdown', 'keydown', 'touchstart', 'wheel'].forEach(e => addEventListener(e, kick, {passive: true}));
-  document.getElementById('mx-toggle').onclick = () => {
-    muted = !muted; store.set('mx-muted', muted ? '1' : '0'); ui.classList.toggle('off', muted);
-    document.getElementById('mx-sub').textContent = muted && IOS ? 'Tap ♫ for music' : 'Now playing · NCS';
-    const p = players[live]; if(p){ if(!muted) p.unMute(); fade(p, muted ? VOLUME : 0, muted ? 0 : VOLUME, 600, () => { if(muted) p.mute() }) }
-    document.getElementById('mx-toggle').setAttribute('aria-label', muted ? 'Play music' : 'Mute music');
-  };
-  document.getElementById('mx-next').onclick = next;
-  document.addEventListener('visibilitychange', () => { const p = players[live]; if(!p) return; try{ document.hidden ? p.pauseVideo() : p.playVideo() }catch{} });
+  $m('mx-list').innerHTML = TRACKS.map(([, a, s], k) => `<li><button type="button" data-k="${k}"><span class="n">${String(k + 1).padStart(2, '0')}</span><span class="t"><b>${s}</b><small>${a}</small></span><span class="eqs"><i></i><i></i><i></i></span></button></li>`).join('');
+  $m('mx-list').onclick = e => { const b = e.target.closest('[data-k]'); if(b && +b.dataset.k !== idx) go(0, +b.dataset.k) };
+  const openSheet = open => { sheet.hidden = !open; ui.classList.toggle('open', open); $m('mx-open').setAttribute('aria-expanded', open) };
+  $m('mx-open').onclick = () => { if(IOS && muted && sheet.hidden){ togglePlay() } openSheet(sheet.hidden) };
+  $m('mx-close').onclick = () => openSheet(false);
+  document.addEventListener('keydown', e => { if(e.key === 'Escape' && !sheet.hidden) openSheet(false) });
+  document.addEventListener('pointerdown', e => { if(!sheet.hidden && !ui.contains(e.target)) openSheet(false) });
+  $m('mx-play').onclick = togglePlay; $m('mx-next').onclick = () => go(1); $m('mx-prev').onclick = () => go(-1);
+  const vol = $m('mx-vol'); vol.value = VOLUME;
+  vol.addEventListener('input', () => {
+    VOLUME = +vol.value; store.set('mx-vol', VOLUME);
+    if(VOLUME > 0 && muted){ muted = false; store.set('mx-muted', '0'); try{ players[live].unMute() }catch{} }
+    try{ players[live].setVolume(VOLUME) }catch{} paint();
+  });
+  document.addEventListener('visibilitychange', () => { const p = players[live]; if(!p || paused) return; try{ document.hidden ? p.pauseVideo() : p.playVideo() }catch{} });
 })();
 </script>
 <script>
