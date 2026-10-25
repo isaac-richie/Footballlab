@@ -36,6 +36,9 @@ ALIASES = {'FC Internazionale Milano': 'Inter Milan', 'FC Bayern München': 'Bay
            'DSC Arminia Bielefeld': 'Arminia Bielefeld', 'Real Sociedad de Fútbol': 'Real Sociedad',
            'Angers SCO': 'Angers', 'Paris Saint-Germain FC': 'Paris SG', 'AC Milan': 'AC Milan', 'ACF Fiorentina': 'Fiorentina',
            'Mantova 1911 SSD': 'Mantova', 'Verona': 'Hellas Verona'}
+# Clubs the free name search cannot find (it returns one team: a women's or netball side).
+TEAM_IDS = {'Brighton & Hove Albion FC': '133619', 'Nottingham Forest FC': '133720', 'Paris Saint-Germain FC': '133714'}
+LOOKUP = 'https://www.thesportsdb.com/api/v1/json/123/lookupteam.php?id='
 NOISE = r'\b(FC|CF|AFC|SC|AC|SSC|AS|RC|OGC|VfB|VfL|TSG|FSV|SV|US|UD|CD|RCD|SD|Calcio|Club|de|1\.|\d{4})\b'
 
 
@@ -111,10 +114,11 @@ def fetch(teams, pause=3, log=print):
     atomic_write(INDEX, json.dumps(index, indent=1, ensure_ascii=False))
     for i, (league_id, name) in enumerate(todo, 1):
         try:
-            found = _lookup(query_for(name), log)
+            found = (json.loads(_get(LOOKUP + TEAM_IDS[name])).get('teams') if name in TEAM_IDS
+                     else _lookup(query_for(name), log))
         except Exception as exc:
             log(f'{i}/{len(todo)} {name}: lookup failed ({exc})'); time.sleep(pause); continue
-        team = best_match(name, league_id, found)
+        team = found[0] if name in TEAM_IDS and found else best_match(name, league_id, found)
         if not team:
             index[name] = {'missing': True, 'query': query_for(name)}
             log(f'{i}/{len(todo)} {name}: no confident match')
