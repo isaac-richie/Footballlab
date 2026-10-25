@@ -161,4 +161,13 @@ def urls():
     for n, v in load_index().items():
         if v.get('file') and (DIR / v['file']).exists():
             out[n] = '/badge/' + v['file']
+    # Clubs met only in Europe (Benfica, PSV...): TheSportsDB's fixture data carries their badge links.
+    try:
+        import ucl
+        for m in ucl.load().get('matches', []):
+            for name, url in zip((m['home'], m['away']), m.get('badges') or ()):
+                if url and name not in out:
+                    out[name] = remote(url)
+    except Exception:
+        pass
     return out

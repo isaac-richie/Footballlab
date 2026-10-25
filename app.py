@@ -47,6 +47,8 @@ LEAGUES = {
 }
 if not (ROOT / 'saudi_data.json').exists():
     del LEAGUES['sa.1']                          # not downloaded here (e.g. the hosted, open-data Lab)
+if (ROOT / 'ucl_data.json').exists():           # TheSportsDB, private Lab only (ucl.py, ucl_model.py)
+    LEAGUES['ucl'] = 'Europe — Champions League'
 if not odds_data.MARKET.exists():                # no open current-season feed for these yet
     for _lg in ('tr.1', 'sco.1'):
         LEAGUES.pop(_lg, None)
@@ -214,6 +216,8 @@ def load(fill_gaps=True):
     if fill_gaps:
         fill_missing_results(data)
         saudi.merge(data)
+        if 'ucl' in LEAGUES:
+            merge_ucl(data)
         if odds_data.MARKET.exists():
             schedule.reconcile(data, odds_data.load(), live_cache=live_odds.load_cache())
     _load_cache[fill_gaps] = (stamp, data)
@@ -221,6 +225,32 @@ def load(fill_gaps=True):
 
 
 _load_cache = {}
+
+
+def merge_ucl(data):
+    """Champions League games with club names matched to the domestic data (private Lab only)."""
+    import ucl
+    stored = ucl.load()
+    rows = ucl.resolve([m for m in stored.get('matches', []) if not m.get('postponed')], data)
+    data['matches'] = [m for m in data['matches'] if m['league_id'] != 'ucl'] + rows
+    for season in sorted({m['season'] for m in rows}):
+        data.setdefault('sources', []).append(dict(url=f'thesportsdb:4480/{season}/', league_id='ucl',
+                                                   checked_at=stored.get('fetched_at'), license=stored.get('license')))
+    return len(rows)
+
+
+_ucl_forecaster = {}
+
+
+def ucl_forecaster(data):
+    """One cross-league forecaster per loaded dataset (offsets cached per day on disk)."""
+    import ucl_model
+    key = id(data['matches'])
+    if key not in _ucl_forecaster:
+        _ucl_forecaster.clear()
+        _ucl_forecaster[key] = ucl_model.Forecaster(data, [m for m in data['matches'] if m['league_id'] == 'ucl'],
+                                                    market_ratings.fit, ROOT / 'reports' / 'ucl_params.json')
+    return _ucl_forecaster[key]
 
 
 def fill_missing_results(data):
@@ -452,8 +482,13 @@ def predict(data, request, stats=None):
     if home == away or home not in teams or away not in teams:
         raise ValueError('Choose two different teams from the data.')
     rows = history(data, asof, league_id)
-    expected, rho, fit = market_ratings.fit(rows, asof, (home, away))
-    lh, la = expected(home, away)
+    if league_id == 'ucl':
+        (lh, la), clubs_from = ucl_forecaster(data).rates(home, away, asof)
+        rho, fit = 0.0, dict(calibration=None, method='cross-league: domestic ratings with league-strength offsets',
+                             leagues=list(clubs_from))
+    else:
+        expected, rho, fit = market_ratings.fit(rows, asof, (home, away))
+        lh, la = expected(home, away)
     counts = {t: sum(t in (m['home'], m['away']) for m in rows) for t in (home, away)}
     model_view = distribution(lh, la, rho, fit['calibration'])
     fixture_date = fixture_date_for(data, league_id, home, away, asof, request.get('fixture_date'))
@@ -482,7 +517,7 @@ def predict(data, request, stats=None):
     recent_counts = {t: sum(t in (m['home'], m['away']) and
                            (dt.date.fromisoformat(asof) - dt.date.fromisoformat(m['date'])).days <= 365
                            for m in rows) for t in (home, away)}
-    if min(recent_counts.values()) < 10:
+    if min(recent_counts.values()) < 10 and league_id != 'ucl':   # cup sides play few games in the competition
         readiness['issues'].append('At least one team has fewer than 10 league matches in the past year')
         readiness['status'] = 'review_required'
     result.update(model=MODEL, fit=fit, readiness=readiness, recent_team_samples=recent_counts)
@@ -537,6 +572,9 @@ def market_fit(prices, rho, start):
 def fixture_rates(data, league_id, fixtures, today):
     """One model fit at today's cutoff; bookmaker-implied rates wherever prices exist."""
     rows = history(data, today, league_id)
+    if league_id == 'ucl':                       # cross-league: domestic ratings on one scale
+        f = ucl_forecaster(data)
+        return rows, 0.0, [({**m, '_cal': None}, r, r, 'model', None) for m in fixtures for r in [f.rates(m['home'], m['away'], today)[0]]]
     teams = {t for m in fixtures for t in (m['home'], m['away'])}
     expected, rho, fit = market_ratings.fit(rows, today, sorted(teams))
     priced = []
@@ -582,7 +620,7 @@ def slate(data, league_id, limit=40):
                           model_probabilities=model['probabilities'],
                           best=prices.get('best') if prices and source != 'model' else None,
                           movement=movement.get('|'.join((m['date'], m['home'], m['away']))),
-                          thin_history=min(recent[m['home']], recent[m['away']]) < 10,
+                          thin_history=league_id != 'ucl' and min(recent[m['home']], recent[m['away']]) < 10,
                           kickoff=m.get('kickoff'), status=schedule.status(m)))
     result = dict(league_id=league_id, league=LEAGUES[league_id], analysis_date=today, model=MODEL['version'],
                   dixon_coles_rho=rho, quality=coverage(data, league_id, today), fixtures=items,
@@ -603,6 +641,8 @@ def season(data, league_id):
     key = _cache_key(data, league_id, today)
     if key in _season_cache:
         return _season_cache[key]
+    if league_id == 'ucl':
+        raise ValueError('Season projections are for league tables; they are not available for cup competitions.')
     current = coverage(data, league_id, today)['season']
     matches = [m for m in data['matches'] if m['league_id'] == league_id and m['season'] == current]
     played = [(m['home'], m['away'], *m['goals']) for m in matches if m['goals'] is not None]
@@ -691,7 +731,7 @@ def vip_slip(data, n=12, days=3, min_p=.70, max_p=.92, per_league=3):
     """
     import hashlib
     from parlay import build
-    pool = parlay_candidates(data, [k for k in LEAGUES if k != 'ucl'], days=days, include_today=True)
+    pool = parlay_candidates(data, list(LEAGUES), days=days, include_today=True)
     ranked = build(pool, len(pool), min_p=min_p, max_p=max_p, mode='safest')['legs']
     legs, per = [], {}
     for leg in sorted(ranked, key=lambda c: -c['probability']):
