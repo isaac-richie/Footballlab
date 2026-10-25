@@ -16,7 +16,8 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const canvas = document.createElement('canvas');
   canvas.id = 'living-pitch'; canvas.setAttribute('aria-hidden', 'true');
-  canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none';
+  // A soft blur keeps the stadium as atmosphere, like a photo behind frosted glass.
+  canvas.style.cssText = 'position:fixed;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);z-index:-1;pointer-events:none;filter:blur(3px) saturate(1.1)';
   const mount = () => { if(document.body && !canvas.isConnected) document.body.prepend(canvas) };
   document.addEventListener('DOMContentLoaded', mount); mount();
   const ctx = canvas.getContext('2d');
@@ -56,15 +57,15 @@
     if(light) return {light, accent, away, bg: css('--bg') || '#f3f5f8',
       sky: ['#8fbfec', '#cfe4f7', '#eef5fb'], stand: '#5b6575', standLit: '#8792a3', roof: '#3a4250',
       grass: ['#4f9a3c', '#5aa845'], line: 'rgba(255,255,255,.85)', haze: 'rgba(255,255,255,0)', beam: 0,
-      crowd: ['#2e3542', '#c94b4b', '#e9ecf1', '#3b6fb6', '#e0b13c', '#4b5563'], overlay: [.42, .58], lamp: 0};
+      crowd: ['#2e3542', '#c94b4b', '#e9ecf1', '#3b6fb6', '#e0b13c', '#4b5563'], overlay: [.52, .66], lamp: 0};
     if(dusk) return {light, accent, away, bg: css('--bg') || '#0a0d12',
       sky: ['#140c26', '#4a2347', '#d0683f'], stand: '#120f18', standLit: '#2a2230', roof: '#08070c',
       grass: ['#21592a', '#2b6c33'], line: 'rgba(255,255,255,.6)', haze: 'rgba(255,170,110,.14)', beam: .55,
-      crowd: ['#1b1720', '#3a2b35', '#8a3b36', '#2f4a80', '#7a6440', '#e4d6c8'], overlay: [.34, .62], lamp: .8, open: true};
+      crowd: ['#1b1720', '#3a2b35', '#8a3b36', '#2f4a80', '#7a6440', '#e4d6c8'], overlay: [.46, .70], lamp: .8, open: true};
     return {light, accent, away, bg: css('--bg') || '#0a0d12',
       sky: ['#03050a', '#0a1120', '#142238'], stand: '#0c1018', standLit: '#1c2433', roof: '#05070b',
       grass: ['#1e6129', '#2a7a35'], line: 'rgba(255,255,255,.7)', haze: 'rgba(200,220,255,.09)', beam: 1,
-      crowd: ['#141a24', '#2a3242', '#8f2c34', '#2a52a0', '#6e6034', '#d9e0ea'], overlay: [.30, .60], lamp: 1};
+      crowd: ['#141a24', '#2a3242', '#8f2c34', '#2a52a0', '#6e6034', '#d9e0ea'], overlay: [.44, .68], lamp: 1};
   }
 
   /* ---------- Painting helpers (offscreen, once per scene and size) ---------- */
@@ -328,7 +329,7 @@
     if(prev && fade < 1){ blit(prev, t, 1); fade = Math.min(1, fade + (still ? 1 : 0.06 * dt)); blit(scene, t, fade); if(fade >= 1) prev = null }
     else blit(scene, t, 1);
     beams(scene, t);
-    if(!still){ crowdFlashes(scene, dt); ball(scene, dt); sparks(dt) }
+    if(!still) sparks(dt);           // calm by design: no flying ball or crowd flashes behind content
     if(running) requestAnimationFrame(f => frame(f));
   }
   function start(){ if(running || !enabled || reduced.matches || document.hidden) return; running = true; last = performance.now(); requestAnimationFrame(f => frame(f)) }
