@@ -154,6 +154,8 @@ def patch_bundesliga(matches, sources):
             continue
         if m['date'] != f['date'] and m['goals'] is None:
             m['date'] = f['date']; patched += 1
+        if f.get('kickoff') and m['goals'] is None:
+            m['kickoff'] = f['kickoff']
         if f['goals'] is not None and m['goals'] is None:
             m['goals'], m['ht'], m['goals_source'] = f['goals'], f['ht'], 'openligadb'; patched += 1
     sources[url] = dict(url=url, league_id='de.1', matches=len(fresh), sha256=hashlib.sha256(raw).hexdigest(),

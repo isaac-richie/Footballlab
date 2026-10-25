@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import tempfile
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 
@@ -88,9 +89,27 @@ def normalize(raw, league_id, league_name, season):
         if score is not None and not (isinstance(score, list) and len(score) == 2 and
                                      all(type(g) is int and 0 <= g <= 30 for g in score)):
             raise ValueError('Invalid full-time score; source quarantined')
-        rows.append(dict(date=date, home=home, away=away, goals=score, ht=valid_halftime(ht, score),
-                         league_id=league_id, league=league_name, season=season))
+        row = dict(date=date, home=home, away=away, goals=score, ht=valid_halftime(ht, score),
+                   league_id=league_id, league=league_name, season=season)
+        if item.get('time') and (kickoff := local_kickoff(date, item['time'], league_id)):
+            row['kickoff'] = kickoff
+        rows.append(row)
     return rows
+
+
+# OpenFootball gives kickoff in the league's local time.
+LEAGUE_TZ = {'en.1': 'Europe/London', 'es.1': 'Europe/Madrid', 'it.1': 'Europe/Rome', 'it.2': 'Europe/Rome',
+             'de.1': 'Europe/Berlin', 'de.2': 'Europe/Berlin', 'fr.1': 'Europe/Paris'}
+
+
+def local_kickoff(date, time, league_id):
+    """'14:00' local on a date -> '2026-10-25T14:00:00Z' (None when unknown)."""
+    try:
+        h, m = (int(x) for x in str(time).split(':')[:2])
+        local = dt.datetime.fromisoformat(date).replace(hour=h, minute=m, tzinfo=ZoneInfo(LEAGUE_TZ.get(league_id, 'UTC')))
+    except (ValueError, TypeError):
+        return None
+    return local.astimezone(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
 
 
 def normalize_openligadb(raw, league_id, league_name, season):
@@ -119,8 +138,12 @@ def normalize_openligadb(raw, league_id, league_name, season):
             half = [result for result in results if result.get('resultTypeKind') == 'HalfTime']
             if half:
                 ht = valid_halftime([half[0].get('pointsTeam1'), half[0].get('pointsTeam2')], score)
-        rows.append(dict(date=date, home=home, away=away, goals=score, ht=ht,
-                         league_id=league_id, league=league_name, season=season))
+        row = dict(date=date, home=home, away=away, goals=score, ht=ht,
+                   league_id=league_id, league=league_name, season=season)
+        utc = item.get('matchDateTimeUTC')
+        if isinstance(utc, str) and utc.endswith('Z'):
+            row['kickoff'] = utc[:19] + 'Z'
+        rows.append(row)
     return rows
 
 
