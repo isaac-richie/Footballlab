@@ -33,7 +33,9 @@ ALIASES = {'FC Internazionale Milano': 'Inter Milan', 'FC Bayern München': 'Bay
            'Olympique de Marseille': 'Marseille', 'Stade Rennais FC 1901': 'Rennes', 'Racing Club de Lens': 'Lens',
            'RC Strasbourg Alsace': 'Strasbourg', 'Brighton & Hove Albion FC': 'Brighton', 'Wolverhampton Wanderers FC': 'Wolves',
            'Athletic Club': 'Athletic Bilbao', 'Hamburger SV': 'Hamburg', 'RB Leipzig': 'RB Leipzig', 'SSC Napoli': 'Napoli', 'AS Monaco FC': 'Monaco', '1. FSV Mainz 05': 'Mainz', 'Brighton & Hove Albion FC': 'Brighton', 'Nottingham Forest FC': 'Nottingham Forest',
-           'DSC Arminia Bielefeld': 'Arminia Bielefeld', 'Real Sociedad de Fútbol': 'Real Sociedad'}
+           'DSC Arminia Bielefeld': 'Arminia Bielefeld', 'Real Sociedad de Fútbol': 'Real Sociedad',
+           'Angers SCO': 'Angers', 'Paris Saint-Germain FC': 'Paris SG', 'AC Milan': 'AC Milan', 'ACF Fiorentina': 'Fiorentina',
+           'Mantova 1911 SSD': 'Mantova', 'Verona': 'Hellas Verona'}
 NOISE = r'\b(FC|CF|AFC|SC|AC|SSC|AS|RC|OGC|VfB|VfL|TSG|FSV|SV|US|UD|CD|RCD|SD|Calcio|Club|de|1\.|\d{4})\b'
 
 
@@ -90,7 +92,23 @@ def fetch(teams, pause=3, log=print):
     """teams: iterable of (league_id, name). Skips clubs already cached."""
     DIR.mkdir(parents=True, exist_ok=True)
     index = load_index()
+    # Saudi fixtures already carry each club's badge link from TheSportsDB.
+    import saudi
+    known = {}
+    for m in saudi.load().get('matches', []):
+        for name, url in zip((m['home'], m['away']), m.get('badges') or ()):
+            if url:
+                known[name] = url
     todo = [(lg, n) for lg, n in teams if n not in index or index[n].get('missing')]   # retry misses
+    for lg, n in [t for t in todo if t[1] in known]:
+        try:
+            file = hashlib.sha1(n.encode()).hexdigest()[:12] + '.png'
+            (DIR / file).write_bytes(_get(known[n] + '/small'))
+            index[n] = {'file': file, 'matched': n, 'source': known[n]}
+            todo.remove((lg, n))
+        except Exception as exc:
+            log(f'{n}: badge download failed ({exc})')
+    atomic_write(INDEX, json.dumps(index, indent=1, ensure_ascii=False))
     for i, (league_id, name) in enumerate(todo, 1):
         try:
             found = _lookup(query_for(name), log)
