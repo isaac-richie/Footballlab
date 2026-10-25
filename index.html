@@ -2265,15 +2265,48 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
   }
   const $m = id => document.getElementById(id), ui = $m('mx'), sheet = $m('mx-sheet');
 
-  function loadApi(){ const t = document.createElement('script'); t.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(t) }
+  // Phones allow one audible player and only start sound inside a tap, so they use a single
+  // player (fade out, swap, fade in); desktops crossfade between two.
+  const DUAL = !IOS && !matchMedia('(pointer: coarse)').matches;
+  let apiReady = false, wantPlay = false, errors = 0, watch = null, swapping = false;
+  function loadApi(){ if(window.YT && YT.Player) return window.onYouTubeIframeAPIReady(); const t = document.createElement('script'); t.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(t) }
   window.onYouTubeIframeAPIReady = () => {
+    const ids = DUAL ? ['mx-a', 'mx-b'] : ['mx-a'];
     let ready = 0;
-    players = ['mx-a', 'mx-b'].map(id => new YT.Player(id, {width: 200, height: 112, playerVars: {controls: 0, playsinline: 1, disablekb: 1, rel: 0},
-      events: {onReady: () => { if(++ready === 2) begin() }, onError: () => go(1)}}));
+    players = ids.map(id => new YT.Player(id, {width: 200, height: 112, playerVars: {controls: 0, playsinline: 1, disablekb: 1, rel: 0, autoplay: 0},
+      events: {onReady: () => { if(++ready === ids.length){ apiReady = true; if(wantPlay && !started) begin() } },
+               onStateChange: onState, onError: onErr}}));
   };
+  function onState(e){
+    if(e.target !== players[live]) return;
+    if(e.data === 1){ errors = 0; clearTimeout(watch); if(blocked){ blocked = false; paused = false; paint() } }
+    if(e.data === 0 && !paused) go(1);                     // the video ran out before its slot did
+  }
+  function onErr(e){
+    if(e.target !== players[live]) return;
+    if(++errors > 4){ paused = true; $m('mx-sub').textContent = 'Music unavailable right now'; return }
+    go(1, null, true);                                     // blocked or removed upload: skip it quickly
+  }
+  let blocked = false;
+  function arm(){
+    // Watchdog: a track that never starts is either stalled (skip it) or blocked by the browser (ask for a tap).
+    clearTimeout(watch);
+    const p = players[live];
+    watch = setTimeout(() => {
+      let st = -1; try{ st = p.getPlayerState() }catch{}
+      if(st === 1 || paused) return;
+      if(st === 3) return go(1, null, true);
+      try{ p.playVideo() }catch{}                          // one last nudge before asking for a tap
+      setTimeout(() => { let s2 = -1; try{ s2 = p.getPlayerState() }catch{} if(s2 === 1 || paused) return;
+        blocked = true; paused = true; pausedAt = performance.now(); paint(); $m('mx-sub').textContent = 'Tap ▶ to play' }, 2000);
+      return;
+      blocked = true; paused = true; pausedAt = performance.now(); paint(); $m('mx-sub').textContent = 'Tap ▶ to play';
+    }, 9000);
+  }
   function fade(p, from, to, ms, done){
-    const t0 = performance.now();
-    (function step(now){ const k = Math.min(1, (now - t0) / ms); try{ p.setVolume(Math.round(from + (to - from) * k)) }catch{}
+    const id = (p._fade || 0) + 1, t0 = performance.now(); p._fade = id;
+    (function step(now){ if(p._fade !== id) return;        // a newer fade on this player wins
+      const k = Math.min(1, (now - t0) / ms); try{ p.setVolume(Math.round(from + (to - from) * k)) }catch{}
       k < 1 ? requestAnimationFrame(step) : done && done() })(t0);
   }
   function paint(){
@@ -2292,27 +2325,52 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
   }
   function play(slot, first){
     const [id, , , start] = TRACKS[idx], p = players[slot];
-    p.setVolume(first ? (muted ? 0 : VOLUME) : 0); muted ? p.mute() : p.unMute();
-    p.loadVideoById({videoId: id, startSeconds: start});
-    if(!first && !muted) fade(p, 0, VOLUME, FADE_MS);
-    paused = false; slotStart = performance.now(); paint();
-    clearTimeout(timer); timer = setTimeout(() => go(1), PLAY_SECONDS * 1000);
+    try{
+      p.setVolume(first || !DUAL ? (muted ? 0 : VOLUME) : 0); muted ? p.mute() : p.unMute();
+      p.loadVideoById({videoId: id, startSeconds: start});
+      p.playVideo();
+    }catch{}
+    if(DUAL && !first && !muted) fade(p, 0, VOLUME, FADE_MS);
+    paused = false; blocked = false; slotStart = performance.now(); paint(); arm(); nudge(p);
   }
-  function go(step, to){
-    if(!players.length) return;
-    const out = players[live]; live = 1 - live;
+  // Phones load a new song but often leave it unstarted after a swap; an explicit play starts it.
+  function nudge(p){
+    for(const ms of [400, 1200, 2500, 5000]) setTimeout(() => {
+      if(paused || p !== players[live]) return;
+      let st = -1; try{ st = p.getPlayerState() }catch{}
+      if(st === -1 || st === 5 || st === 2){ try{ if(!muted) p.unMute(); p.playVideo() }catch{} }
+    }, ms);
+  }
+  function go(step, to, quick){
+    if(!players.length || swapping) return;
     played.push(idx);
     if(to != null) idx = to;
     else if(step < 0 && played.length > 1){ played.pop(); idx = played.pop() ?? idx }
     else idx = upNext != null && upNext !== idx ? upNext : pickNext();
     upNext = null;
-    fade(out, muted ? 0 : VOLUME, 0, FADE_MS, () => { try{ out.stopVideo() }catch{} });
-    play(live, false);
+    const out = players[live];
+    if(DUAL){
+      live = 1 - live;
+      fade(out, muted ? 0 : VOLUME, 0, quick ? 300 : FADE_MS, () => { try{ out.stopVideo() }catch{} });
+      play(live, false);
+    } else {
+      // one player: fade down, swap the song, fade back up
+      swapping = true; paint();
+      fade(out, muted ? 0 : VOLUME, 0, quick ? 200 : 1500, () => {
+        swapping = false; play(live, false);
+        if(!muted){ try{ out.setVolume(0) }catch{} fade(out, 0, VOLUME, 1500) }
+      });
+    }
   }
-  function begin(){ if(!pool().includes(idx)) idx = pool()[0] ?? idx; started = true; ui.hidden = false; ui.classList.toggle('ios', IOS); $m('mx-ios').hidden = !IOS; $m('mx-volrow').hidden = IOS; play(live, true) }
+  function begin(){
+    if(!pool().includes(idx)) idx = pool()[0] ?? idx;
+    started = true; ui.hidden = false; ui.classList.toggle('ios', IOS); $m('mx-ios').hidden = !IOS; $m('mx-volrow').hidden = IOS;
+    play(live, true);
+  }
   // 60-second slot progress: ring on the pill, bar and countdown in the sheet.
   (function tick(){
-    if(started && !paused){
+    if(started && !paused && !swapping){
+      if((performance.now() - slotStart) / 1000 >= PLAY_SECONDS) go(1);   // clock-driven: no drifting timers
       const el = Math.min(PLAY_SECONDS, (performance.now() - slotStart) / 1000), k = el / PLAY_SECONDS, left = Math.ceil(PLAY_SECONDS - el);
       $m('mx-ring').style.strokeDashoffset = String(116.2 * (1 - k)); $m('mx-bar').style.width = (k * 100) + '%';
       const mmss = x => Math.floor(x / 60) + ':' + String(Math.floor(x % 60)).padStart(2, '0');
@@ -2321,15 +2379,27 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
     requestAnimationFrame(tick);
   })();
   function togglePlay(){
-    const p = players[live]; if(!p) return;
-    if(muted){ muted = false; store.set('mx-muted', '0'); p.unMute(); fade(p, 0, VOLUME, 600); if(paused){ p.playVideo(); resume() } return paint() }
-    if(paused){ p.playVideo(); resume() } else { p.pauseVideo(); paused = true; pausedAt = performance.now(); clearTimeout(timer) }
+    const p = players[live];
+    if(!p){ wantPlay = true; return }
+    if(muted){                                             // first tap on iPhone, or unmuting: start sound, never pause
+      muted = false; store.set('mx-muted', '0'); try{ p.unMute(); p.setVolume(0) }catch{} fade(p, 0, VOLUME, 600)
+      if(paused || blocked){ try{ p.playVideo() }catch{} resume(); arm() }
+      return paint();
+    }
+    if(paused || blocked){ try{ p.playVideo() }catch{} resume(); arm() }
+    else { try{ p.pauseVideo() }catch{} paused = true; pausedAt = performance.now() }
     paint();
   }
-  function resume(){ paused = false; slotStart += performance.now() - pausedAt; clearTimeout(timer); timer = setTimeout(() => go(1), Math.max(500, PLAY_SECONDS * 1000 - (performance.now() - slotStart))) }
-  // Browsers only allow sound after the visitor's first tap, key or scroll.
-  const kick = () => { if(started || players.length) return; ['pointerdown', 'keydown', 'touchstart', 'wheel'].forEach(e => removeEventListener(e, kick)); loadApi() };
-  ['pointerdown', 'keydown', 'touchstart', 'wheel'].forEach(e => addEventListener(e, kick, {passive: true}));
+  function resume(){ if(pausedAt) slotStart += performance.now() - pausedAt; pausedAt = 0; paused = false; blocked = false }
+  // Load YouTube with the page so the first tap can start sound inside the gesture (phones require it).
+  addEventListener('load', () => setTimeout(loadApi, 600));
+  const kick = () => {
+    if(started) return;
+    ['pointerdown', 'keydown', 'touchend', 'wheel'].forEach(e => removeEventListener(e, kick));
+    wantPlay = true;
+    if(apiReady) begin(); else if(!window.YT) loadApi();
+  };
+  ['pointerdown', 'keydown', 'touchend', 'wheel'].forEach(e => addEventListener(e, kick, {passive: true}));
   function renderList(){
     const q = query.trim().toLowerCase();
     const rows = TRACKS.map((t, k) => [t, k]).filter(([t]) => (genre === 'All' || genreOf(t) === genre) && (!q || (t[1] + ' ' + t[2]).toLowerCase().includes(q)));
@@ -2359,7 +2429,9 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
     if(VOLUME > 0 && muted){ muted = false; store.set('mx-muted', '0'); try{ players[live].unMute() }catch{} }
     try{ players[live].setVolume(VOLUME) }catch{} paint();
   });
-  document.addEventListener('visibilitychange', () => { const p = players[live]; if(!p || paused) return; try{ document.hidden ? p.pauseVideo() : p.playVideo() }catch{} });
+  // Pause with the page and pick up where the slot left off.
+  document.addEventListener('visibilitychange', () => { const p = players[live]; if(!p || !started || paused) return;
+    try{ if(document.hidden){ p.pauseVideo(); pausedAt = performance.now() } else { p.playVideo(); if(pausedAt){ slotStart += performance.now() - pausedAt; pausedAt = 0 } } }catch{} });
 })();
 </script>
 <script>
