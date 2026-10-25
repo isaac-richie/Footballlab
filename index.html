@@ -2149,11 +2149,11 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
     <span class="mx-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
   </button>
   <section class="mx-sheet" id="mx-sheet" aria-label="Music" hidden>
-    <header><span class="mx-badge">NCS · Matchday mix</span><button type="button" class="mx-x" id="mx-close" aria-label="Close player">✕</button></header>
+    <header><span class="mx-badge">Matchday mix</span><button type="button" class="mx-x" id="mx-close" aria-label="Close player">✕</button></header>
     <div class="mx-hero">
       <span class="mx-disc lg"><span class="vinyl"><i></i></span></span>
       <div class="mx-meta"><b id="mx-song">—</b><span id="mx-artist">—</span>
-        <div class="mx-prog"><i id="mx-bar"></i></div><div class="mx-times"><span id="mx-el">0:00</span><span>crossfade in <em id="mx-left">1:00</em></span></div>
+        <div class="mx-prog"><i id="mx-bar"></i></div><div class="mx-times"><span id="mx-el">0:00</span><span>crossfade in <em id="mx-left">1:30</em></span></div>
       </div>
     </div>
     <div class="mx-ctl">
@@ -2164,22 +2164,28 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
     <label class="mx-volrow" id="mx-volrow"><svg viewBox="0 0 24 24"><path d="M4 9.5h4l5-4v13l-5-4H4z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/></svg><input type="range" id="mx-vol" min="0" max="100" step="1" aria-label="Music volume"></label>
     <p class="mx-ios" id="mx-ios" hidden>On iPhone, use your volume buttons.</p>
     <ol class="mx-list" id="mx-list"></ol>
-    <p class="mx-credit">Music by NCS (NoCopyrightSounds), streamed from their YouTube channel.</p>
+    <p class="mx-credit">Streamed from the artists' official YouTube channels and NCS.</p>
   </section>
 </div>
 <div id="mx-a" class="mx-yt"></div><div id="mx-b" class="mx-yt"></div>
 <script>
 (function(){
   'use strict';
-  // NCS classics (verified uploads on the NoCopyrightSounds channel): id, artist, song, start second, label colour.
+  // Matchday mix: official artist / label uploads only (checked via YouTube oEmbed), plus NCS classics.
+  // id, artist, song, start second (near the hook), label colour.
   const TRACKS = [
+    ['h3vLawxCp6c', 'Young Jonn', 'Elumelu', 30, '#ffb703'], ['dLwsz1lxxYM', 'Asake', 'Wa', 25, '#e63946'],
+    ['xCPy1jvOp90', 'Burna Boy', 'Dangote', 40, '#2a9d8f'], ['iqAUNXhyX7g', 'DJ Maphorisa, DJ Tunez, Wizkid & Mavo', 'Money Constant', 30, '#c2f25e'],
+    ['VcEliwZCUYA', 'T.I Blaze', 'Try', 30, '#f4a261'], ['dnvGPkHCDcY', 'Seyi Vibez', 'Bank Of America (BOA)', 25, '#ffd166'],
+    ['8Xy9p4w-AKc', 'Seyi Vibez', 'GTA', 30, '#ef476f'], ['421w1j87fEM', 'Burna Boy', 'Last Last', 35, '#06d6a0'],
+    ['bbVZo4Yw7pI', 'Asake', 'Lonely At The Top', 30, '#8338ec'],
+    ['dvgZkm1xWPE', 'Coldplay', 'Viva La Vida', 45, '#e9c46a'], ['VPRjCeoBqrI', 'Coldplay', 'A Sky Full Of Stars', 60, '#4cc9f0'],
+    ['UtF6Jej8yb4', 'Avicii', 'The Nights', 45, '#ff6b6b'], ['IcrbM1l_BoI', 'Avicii', 'Wake Me Up', 55, '#f77f00'],
+    ['SSbBvKaM6sk', 'Blur', 'Song 2', 0, '#3a86ff'], ['lk5iMgG-WJI', 'Kasabian', 'Club Foot', 15, '#d62828'],
+    ['tuK6n2Lkza0', 'Jet', 'Are You Gonna Be My Girl', 10, '#fb8500'],
     ['3nQNiWdeH2Q', 'Janji', 'Heroes Tonight', 40, '#ff4d6d'], ['TW9d8vYrVFQ', 'Elektronomia', 'Sky High', 45, '#4cc9f0'],
-    ['jK2aIUmmdP4', 'Different Heaven & EH!DE', 'My Heart', 50, '#f72585'], ['K4DyBUG242c', 'Cartoon, Jéja', 'On & On', 40, '#ffd166'],
-    ['J2X5mJ3HDYE', 'DEAF KEV', 'Invincible', 45, '#7b2ff7'], ['p7ZsBPK656s', 'Disfigure', 'Blank', 50, '#06d6a0'],
-    ['x_OwcYTNbHs', 'Jim Yosef', 'Firefly', 40, '#ff9f1c'], ['q1ULJ92aldE', 'Syn Cole', 'Feel Good', 35, '#c2f25e'],
-    ['__CRWE-L45k', 'Electro-Light', 'Symbolism', 45, '#3a86ff'], ['S19UcWdOA-I', 'Lost Sky', 'Fearless pt.II', 40, '#ef476f'],
-    ['iqoNoU-rm14', 'Max Brhon', 'Cyberpunk', 40, '#00f5d4']];
-  const PLAY_SECONDS = 60, FADE_MS = 4000;
+    ['x_OwcYTNbHs', 'Jim Yosef', 'Firefly', 40, '#ff9f1c'], ['S19UcWdOA-I', 'Lost Sky', 'Fearless pt.II', 40, '#ef476f']];
+  const PLAY_SECONDS = 90, FADE_MS = 4000;
   const store = {get(k){ try{ return localStorage.getItem(k) }catch{ return null } }, set(k, v){ try{ localStorage.setItem(k, v) }catch{} }};
   // iOS ignores volume set by a page, so there the music starts muted until the listener taps play.
   const IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
@@ -2229,7 +2235,8 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
     if(started && !paused){
       const el = Math.min(PLAY_SECONDS, (performance.now() - slotStart) / 1000), k = el / PLAY_SECONDS, left = Math.ceil(PLAY_SECONDS - el);
       $m('mx-ring').style.strokeDashoffset = String(116.2 * (1 - k)); $m('mx-bar').style.width = (k * 100) + '%';
-      $m('mx-el').textContent = '0:' + String(Math.floor(el)).padStart(2, '0'); $m('mx-left').textContent = '0:' + String(left).padStart(2, '0');
+      const mmss = x => Math.floor(x / 60) + ':' + String(Math.floor(x % 60)).padStart(2, '0');
+      $m('mx-el').textContent = mmss(el); $m('mx-left').textContent = mmss(left);
     }
     requestAnimationFrame(tick);
   })();
