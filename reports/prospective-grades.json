@@ -1,39 +1,39 @@
 {
-  "generated_at": "2026-09-26T17:43:37.965954+00:00",
-  "data_hash": "31bc7ecbaa5be1281b69e8fea8945425833d5ea17451ac4f1e8a85dbbac4cd4b",
-  "registered": 172,
-  "pending": 172,
-  "missing_result": 0,
+  "generated_at": "2026-10-26T11:22:40.293680+00:00",
+  "data_hash": "29e77c7a6898ac2f25ebf640d0264885662d24d3a2d848b20ecc0ed3f8c6d4b4",
+  "registered": 257,
+  "pending": 85,
+  "missing_result": 118,
   "overall": {
-    "matches": 0,
-    "log_loss": null,
-    "brier": null,
-    "over25_brier": null,
-    "btts_brier": null
+    "matches": 54,
+    "log_loss": 1.035790130170229,
+    "brier": 0.6221508933651779,
+    "over25_brier": 0.2289361937820117,
+    "btts_brier": 0.24750161721451308
   },
-  "eligible_registered": 103,
-  "eligible_pending": 103,
+  "eligible_registered": 114,
+  "eligible_pending": 11,
   "eligible_overall": {
-    "matches": 0,
-    "log_loss": null,
-    "brier": null,
-    "over25_brier": null,
-    "btts_brier": null
+    "matches": 18,
+    "log_loss": 1.0665662706990657,
+    "brier": 0.6520263396789181,
+    "over25_brier": 0.20423230506777476,
+    "btts_brier": 0.23796825411804118
   },
   "by_league": {
     "de.1": {
-      "matches": 0,
-      "log_loss": null,
-      "brier": null,
-      "over25_brier": null,
-      "btts_brier": null
+      "matches": 27,
+      "log_loss": 1.0174912059027221,
+      "brier": 0.6138374837318188,
+      "over25_brier": 0.21458836355375338,
+      "btts_brier": 0.24889044150764797
     },
     "de.2": {
-      "matches": 0,
-      "log_loss": null,
-      "brier": null,
-      "over25_brier": null,
-      "btts_brier": null
+      "matches": 27,
+      "log_loss": 1.0540890544377357,
+      "brier": 0.6304643029985373,
+      "over25_brier": 0.24328402401027005,
+      "btts_brier": 0.24611279292137822
     },
     "en.1": {
       "matches": 0,
@@ -62,9 +62,37 @@
       "brier": null,
       "over25_brier": null,
       "btts_brier": null
+    },
+    "nl.1": {
+      "matches": 0,
+      "log_loss": null,
+      "brier": null,
+      "over25_brier": null,
+      "btts_brier": null
+    },
+    "pt.1": {
+      "matches": 0,
+      "log_loss": null,
+      "brier": null,
+      "over25_brier": null,
+      "btts_brier": null
     }
   },
   "fixtures": [
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "PEC Zwolle",
+        "away": "ADO Den Haag"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
     {
       "fixture": {
         "date": "2026-10-17",
@@ -76,8 +104,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          1
+        ],
+        "outcome": 2,
+        "log_loss": 1.0421696291743034,
+        "brier": 0.6293431118039817,
+        "over25_brier": 0.18160266943626924,
+        "btts_brier": 0.24779483665196497
+      },
+      "result_hash": "7a4b70b0096e2b51f85cc953cb4d570da9623cb4f2b069933bab603f947ba787"
     },
     {
       "fixture": {
@@ -90,7 +130,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -104,6 +144,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-27",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "AS Roma",
+        "away": "Cagliari Calcio"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -118,7 +172,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -132,6 +186,46 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.8490368974059274,
+        "brier": 0.49723847714492,
+        "over25_brier": 0.11513175408323305,
+        "btts_brier": 0.10951187898921137
+      },
+      "result_hash": "d1d6cf8ef0377fd83b4ecff1a614ce9134f8aa4dae87b92166eeabae39cac618"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-27",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "US Sassuolo Calcio",
+        "away": "SS Lazio"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-30",
+        "league_id": "pt.1",
+        "league": "Portugal \u2014 Primeira Liga",
+        "home": "Casa Pia AC",
+        "away": "Sporting Clube de Portugal"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -146,8 +240,34 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.7692042150465513,
+        "brier": 0.43376678558873083,
+        "over25_brier": 0.16199484334273073,
+        "btts_brier": 0.2124536628203413
+      },
+      "result_hash": "a3b5ffb976a78f6227b5d37d77475289fef217969e596aeb6cc345d72620f997"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "SV Darmstadt 98",
+        "away": "1. FC Magdeburg"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
-      "readiness": "review_required"
+      "readiness": "research_only"
     },
     {
       "fixture": {
@@ -160,8 +280,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.9215477163764091,
+        "brier": 0.5451112385838472,
+        "over25_brier": 0.22065622916072056,
+        "btts_brier": 0.17849467175775485
+      },
+      "result_hash": "34262e2ee55eaf331d2aff23aac0eae961208a7cf4ea5b5c96f2f4e661542e06"
     },
     {
       "fixture": {
@@ -174,8 +306,50 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "OGC Nice",
+        "away": "Stade Rennais FC 1901"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Borussia M\u00f6nchengladbach",
+        "away": "SC Paderborn 07"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Olympique Lyonnais",
+        "away": "Angers SCO"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
     },
     {
       "fixture": {
@@ -188,8 +362,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.6643212398121799,
+        "brier": 0.35338812026072297,
+        "over25_brier": 0.29408207526543206,
+        "btts_brier": 0.3102040529317124
+      },
+      "result_hash": "b74beeb6a3a6e45f6094ac4e4da0fbcef5df3ba9fb592dfb89bfe24d493464cf"
     },
     {
       "fixture": {
@@ -202,7 +388,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -216,6 +402,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "Telstar 1963",
+        "away": "FC Utrecht"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -230,8 +430,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          1
+        ],
+        "outcome": 2,
+        "log_loss": 1.182887628419174,
+        "brier": 0.7329615835494956,
+        "over25_brier": 0.22008995119828031,
+        "btts_brier": 0.26905546351185594
+      },
+      "result_hash": "d73a1cab1eeac9b4047a28043fdca72bbd466b3a1e7092c0a4beb77f30b24f32"
     },
     {
       "fixture": {
@@ -244,8 +456,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.2102543497432676,
+        "brier": 0.7559753699983683,
+        "over25_brier": 0.3446671159113923,
+        "btts_brier": 0.3795340344127334
+      },
+      "result_hash": "c28e03aed40897e3bb70ee62411aedfddef26210d5dcfb77ee5fcf2ac304e157"
     },
     {
       "fixture": {
@@ -258,8 +482,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.7466439871045596,
+        "brier": 0.4154828118272309,
+        "over25_brier": 0.263085460639268,
+        "btts_brier": 0.22154564974564925
+      },
+      "result_hash": "21677c625cef1a432139a5f07695f8fe153a741fe379fc33aa21ea6f4edda420"
     },
     {
       "fixture": {
@@ -272,7 +508,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -286,8 +522,22 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Paris FC",
+        "away": "AS Monaco FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
     },
     {
       "fixture": {
@@ -300,8 +550,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.6179205327224481,
+        "brier": 0.31871379083306856,
+        "over25_brier": 0.1854264366713184,
+        "btts_brier": 0.1839787025374665
+      },
+      "result_hash": "0a67095bc835631a1cc74af51e68ee839bf274824a36795d9dbc49179645b7f3"
     },
     {
       "fixture": {
@@ -314,7 +576,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -328,7 +590,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -342,8 +604,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          6,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.7422318240840258,
+        "brier": 0.41333214777843774,
+        "over25_brier": 0.1438804220543526,
+        "btts_brier": 0.13649885812421908
+      },
+      "result_hash": "11488140608d7cc8889509839d9af3c760ca9bbe077621590e007dfcfe556426"
     },
     {
       "fixture": {
@@ -356,7 +630,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -370,8 +644,22 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "ES Troyes AC",
+        "away": "Le Mans FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
     },
     {
       "fixture": {
@@ -384,8 +672,34 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.378856046642,
+        "brier": 0.8403611657152463,
+        "over25_brier": 0.31783035202829607,
+        "btts_brier": 0.1630769821567377
+      },
+      "result_hash": "4f718b17077edfe26f15337e041aec486854fec05e6e167c8e22ec4678cf1ed4"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "FC Augsburg",
+        "away": "SC Freiburg"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
-      "readiness": "review_required"
+      "readiness": "research_only"
     },
     {
       "fixture": {
@@ -398,8 +712,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.9812935520576201,
+        "brier": 0.5914742818533536,
+        "over25_brier": 0.1672942287800063,
+        "btts_brier": 0.14048742601489358
+      },
+      "result_hash": "e9c7b6f419af1d86c7179d3108ba1d046176e7e3f65e13685959bb33f8c8e72a"
     },
     {
       "fixture": {
@@ -412,6 +738,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-28",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Venezia FC",
+        "away": "FC Internazionale Milano"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -426,8 +766,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.9305844720483163,
+        "brier": 0.5579436353492464,
+        "over25_brier": 0.14752942147967565,
+        "btts_brier": 0.13216546269462345
+      },
+      "result_hash": "26b1f8b4805ed8579d35560918828aa4e07a317e42cec98ab72d02e5d34354b7"
     },
     {
       "fixture": {
@@ -440,6 +792,32 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.7020573697136911,
+        "brier": 0.38169135091051154,
+        "over25_brier": 0.1669027783552649,
+        "btts_brier": 0.3693903851879201
+      },
+      "result_hash": "e24b0beba7239fbb7d5a483fb51447c26fa94fb96ca245ca60bfed9846344779"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Karlsruher SC",
+        "away": "1. FC Heidenheim 1846"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -454,7 +832,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -468,7 +846,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -482,6 +860,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-30",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Lille OSC",
+        "away": "Racing Club de Lens"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -496,6 +888,32 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.8741634014213971,
+        "brier": 0.509545755239792,
+        "over25_brier": 0.17327333524823563,
+        "btts_brier": 0.22660953807291923
+      },
+      "result_hash": "0a9dd5b7521a18fdd8693a88fb86f40f80ff16af92c1593568eaf27b01206853"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Coventry City FC",
+        "away": "Sunderland AFC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -510,7 +928,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -524,7 +942,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -538,6 +956,32 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.4042986009341394,
+        "brier": 0.8681380717916026,
+        "over25_brier": 0.3262121822859817,
+        "btts_brier": 0.35266260477358935
+      },
+      "result_hash": "f95abb31881fd38c05dacd87ec3555393d3220f6d690db7e6a1480233f02041c"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "AFC Bournemouth",
+        "away": "Leeds United FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -552,7 +996,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -566,7 +1010,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -580,8 +1024,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.645430411861779,
+        "brier": 0.3392554228583003,
+        "over25_brier": 0.17864579434142278,
+        "btts_brier": 0.17414363159585772
+      },
+      "result_hash": "d197ad7fd9465c74a56de4a93b22a83361b47f4bf111bd8cec1147441e7da15d"
     },
     {
       "fixture": {
@@ -594,7 +1050,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -608,6 +1064,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Racing Club de Santander",
+        "away": "Real Madrid CF"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -622,7 +1092,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -636,8 +1106,22 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Hannover 96",
+        "away": "Dynamo Dresden"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "research_only"
     },
     {
       "fixture": {
@@ -650,7 +1134,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -664,6 +1148,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-28",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "AC Milan",
+        "away": "Bologna FC 1909"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -678,7 +1176,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -692,7 +1190,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -706,7 +1204,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -720,7 +1218,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -734,8 +1232,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          6,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.6332557831525043,
+        "brier": 0.3301465932276455,
+        "over25_brier": 0.13725949369741275,
+        "btts_brier": 0.39464210868045785
+      },
+      "result_hash": "04035c9e41c3dd1cca562dcde035e061f5e589070276d65b96c1a16382231eef"
     },
     {
       "fixture": {
@@ -748,8 +1258,22 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Rayo Vallecano de Madrid",
+        "away": "RC Celta de Vigo"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
     },
     {
       "fixture": {
@@ -762,8 +1286,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.201813345317218,
+        "brier": 0.7352483429159817,
+        "over25_brier": 0.18507639519906638,
+        "btts_brier": 0.2495277434693734
+      },
+      "result_hash": "a9c27fdd4c3af6faac15ed4e7637f53817b4cc6d5fbfe2674724b127253de891"
     },
     {
       "fixture": {
@@ -776,7 +1312,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -790,6 +1326,48 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "SV Werder Bremen",
+        "away": "TSG 1899 Hoffenheim"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "Feyenoord Rotterdam",
+        "away": "Fortuna Sittard"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Como 1907",
+        "away": "Venezia FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -804,7 +1382,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -818,7 +1396,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -832,6 +1410,34 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "missing_result",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "pt.1",
+        "league": "Portugal \u2014 Primeira Liga",
+        "home": "CS Mar\u00edtimo",
+        "away": "CD Santa Clara"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "1. FC Union Berlin",
+        "away": "1. FC K\u00f6ln"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "research_only"
     },
@@ -846,6 +1452,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "US Lecce",
+        "away": "Genoa CFC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -860,8 +1480,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.3723510661794076,
+        "brier": 0.9024584684268734,
+        "over25_brier": 0.2671263686806845,
+        "btts_brier": 0.27510531877334177
+      },
+      "result_hash": "8b103b1cd302ece5622762004b11f28384264c45f7e7a7dfc80145c1db2b3855"
     },
     {
       "fixture": {
@@ -874,8 +1506,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          4
+        ],
+        "outcome": 1,
+        "log_loss": 1.379956097379431,
+        "brier": 0.8550496150222558,
+        "over25_brier": 0.20948105425695973,
+        "btts_brier": 0.18399044327198405
+      },
+      "result_hash": "0c3534e782cddfd415f12a4cd14ff96440b72c1d649bd699bbcd3e30e5cff10b"
     },
     {
       "fixture": {
@@ -888,6 +1532,32 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          2
+        ],
+        "outcome": 1,
+        "log_loss": 1.67393249526529,
+        "brier": 1.1443506275371882,
+        "over25_brier": 0.10812732901167262,
+        "btts_brier": 0.17073186452779346
+      },
+      "result_hash": "038a00b1687526afdc3a5c7070165d817041c1834e25bdf45a0d50fc7fbdde8a"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-28",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "AC Monza",
+        "away": "SSC Napoli"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -902,7 +1572,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -916,6 +1586,32 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.6773747380087798,
+        "brier": 1.0568675965417804,
+        "over25_brier": 0.1461383087177854,
+        "btts_brier": 0.16326949069822855
+      },
+      "result_hash": "709f5db7e4375da1546b56c7ea3f360bcb38497c49090e73486907b3ed536b5f"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-29",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Frosinone Calcio",
+        "away": "US Lecce"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -930,8 +1626,50 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-28",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Parma Calcio 1913",
+        "away": "Udinese Calcio"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Villarreal CF",
+        "away": "RCD Espanyol de Barcelona"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-02",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "US Sassuolo Calcio",
+        "away": "ACF Fiorentina"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
     },
     {
       "fixture": {
@@ -944,7 +1682,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -958,7 +1696,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -972,6 +1710,32 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          1
+        ],
+        "outcome": 2,
+        "log_loss": 1.2180533471179433,
+        "brier": 0.759028810844703,
+        "over25_brier": 0.24111957534531456,
+        "btts_brier": 0.284864390570693
+      },
+      "result_hash": "a312b9cfe563b0707e36eae95a9da72fe463b03bbb21dce693dd68558652d90f"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Liverpool FC",
+        "away": "Arsenal FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -986,7 +1750,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1000,8 +1764,34 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 0.4405251266277029,
+        "brier": 0.19119334038885855,
+        "over25_brier": 0.09865448570311576,
+        "btts_brier": 0.13986344170924392
+      },
+      "result_hash": "d458e2ea29eb5ef1dbc37a54aba119a41b0fe60f610a95302d32915db0872736"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-29",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "ACF Fiorentina",
+        "away": "Atalanta BC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
-      "readiness": "research_only"
+      "readiness": "review_required"
     },
     {
       "fixture": {
@@ -1014,7 +1804,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -1028,7 +1818,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1042,6 +1832,46 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.6314538158436206,
+        "brier": 0.32884179921438333,
+        "over25_brier": 0.38000464929884586,
+        "btts_brier": 0.3809041976458611
+      },
+      "result_hash": "b6c33d03d20c019b68c191adcf0fdd381d4c3ed4b5641e992cc2195ac20a45bd"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "SBV Excelsior",
+        "away": "FC Twente '65"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Getafe CF",
+        "away": "Sevilla FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1056,7 +1886,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1070,7 +1900,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -1084,8 +1914,22 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "1. FC Kaiserslautern",
+        "away": "Hertha BSC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "research_only"
     },
     {
       "fixture": {
@@ -1098,6 +1942,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "SC Cambuur-Leeuwarden",
+        "away": "Go Ahead Eagles"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1112,8 +1970,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.4968578397081895,
+        "brier": 0.939984693500447,
+        "over25_brier": 0.30820865212420573,
+        "btts_brier": 0.32480432868268627
+      },
+      "result_hash": "b47e5bec0a8de9aa7dce7bb14b296b40c135fbeebaa633877c68310caee0498c"
     },
     {
       "fixture": {
@@ -1126,8 +1996,22 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Eintracht Frankfurt",
+        "away": "Hamburger SV"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "research_only"
     },
     {
       "fixture": {
@@ -1140,7 +2024,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1154,8 +2038,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.31222012970278,
+        "brier": 0.8010732888644532,
+        "over25_brier": 0.23901705754911678,
+        "btts_brier": 0.28997312750310517
+      },
+      "result_hash": "fbdae11815f1948877e1bb3b9a684000e9924d808a745849547027ae5b74e6ac"
     },
     {
       "fixture": {
@@ -1168,7 +2064,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1182,7 +2078,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -1196,7 +2092,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1210,6 +2106,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Bologna FC 1909",
+        "away": "AC Monza"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1224,7 +2134,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -1238,7 +2148,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1252,7 +2162,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -1266,8 +2176,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          2
+        ],
+        "outcome": 1,
+        "log_loss": 1.1670774422955283,
+        "brier": 0.7211655439073685,
+        "over25_brier": 0.37866312922608153,
+        "btts_brier": 0.2941369290456129
+      },
+      "result_hash": "42e93c9aa3e80eb9d40d8e6cf36fc6617345815a8d90c081ea2b99b0f8f85278"
     },
     {
       "fixture": {
@@ -1280,7 +2202,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -1294,6 +2216,32 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.4611819395557433,
+        "brier": 0.8883008876655678,
+        "over25_brier": 0.42801145442119043,
+        "btts_brier": 0.11274553825942922
+      },
+      "result_hash": "7c16b9a0f0313fddb7156e9d654a65a7f939a878a642a8341c4a0d80c1555b72"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Udinese Calcio",
+        "away": "AS Roma"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1308,7 +2256,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1322,7 +2270,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1336,7 +2284,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1350,8 +2298,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          3
+        ],
+        "outcome": 0,
+        "log_loss": 0.6488513011389423,
+        "brier": 0.34181097423641515,
+        "over25_brier": 0.14739589597290179,
+        "btts_brier": 0.14446893770019759
+      },
+      "result_hash": "364affab0dc5e21cbcb2b68da978927f23ae091c73394ce79ea4e784e1c8c54a"
     },
     {
       "fixture": {
@@ -1364,7 +2324,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1378,6 +2338,34 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "FC Bayern M\u00fcnchen",
+        "away": "Borussia Dortmund"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "AFC Ajax",
+        "away": "AZ"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1392,8 +2380,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.1060828598277146,
+        "brier": 0.6781970537455244,
+        "over25_brier": 0.2055205063422034,
+        "btts_brier": 0.2593328704390578
+      },
+      "result_hash": "d13768612020fb4b436911a529434103b40b5810d437a8c20b66d30baeb20fc1"
     },
     {
       "fixture": {
@@ -1406,8 +2406,22 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "pt.1",
+        "league": "Portugal \u2014 Primeira Liga",
+        "home": "FC Porto",
+        "away": "GD Estoril Praia"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
     },
     {
       "fixture": {
@@ -1420,6 +2434,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-02",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Newcastle United FC",
+        "away": "Everton FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1434,8 +2462,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          4
+        ],
+        "outcome": 2,
+        "log_loss": 0.8270909870450689,
+        "brier": 0.4749482726933715,
+        "over25_brier": 0.24156685342652373,
+        "btts_brier": 0.19795486783039734
+      },
+      "result_hash": "59af8ddeee1794cd0216096d720321f1e5f03a8752f0a9ed1644f4326cef798d"
     },
     {
       "fixture": {
@@ -1448,7 +2488,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1462,7 +2502,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -1476,7 +2516,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1490,7 +2530,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -1504,8 +2544,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.4266567912449077,
+        "brier": 0.8874520426828274,
+        "over25_brier": 0.2720549471507044,
+        "btts_brier": 0.23117229773045372
+      },
+      "result_hash": "83c697a43963dddcb82c7513f20804c9f585d8c2f54c4c85b73a758e9bd16da2"
     },
     {
       "fixture": {
@@ -1518,8 +2570,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.7805579146522914,
+        "brier": 0.44079122017844974,
+        "over25_brier": 0.2683191392436332,
+        "btts_brier": 0.30464366927666864
+      },
+      "result_hash": "1eb2c1197c9b50b8ba5c87559eafb22261cba899ddad8e5c660aab3448014182"
     },
     {
       "fixture": {
@@ -1532,6 +2596,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Aston Villa FC",
+        "away": "Fulham FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1546,7 +2624,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1560,7 +2638,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1574,8 +2652,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.9585875293224341,
+        "brier": 0.5741320945837962,
+        "over25_brier": 0.24028328812036823,
+        "btts_brier": 0.3075434156028283
+      },
+      "result_hash": "76d0cca3322010c731808b4622682542bb243b8bb32e8ad630a1dcfa6802ae45"
     },
     {
       "fixture": {
@@ -1588,7 +2678,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1602,6 +2692,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "FC Barcelona",
+        "away": "Deportivo Alav\u00e9s"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1616,6 +2720,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Hull City AFC",
+        "away": "Ipswich Town FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1630,8 +2748,22 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Athletic Club",
+        "away": "Real Sociedad de F\u00fatbol"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
     },
     {
       "fixture": {
@@ -1644,8 +2776,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.592222459322829,
+        "brier": 0.9991067587222161,
+        "over25_brier": 0.18679563147129097,
+        "btts_brier": 0.18566434391703787
+      },
+      "result_hash": "d209a02a1380806a635f60d6cde07b35fa9738a6e1d069c95431dd6ef1e6fc9e"
     },
     {
       "fixture": {
@@ -1658,7 +2802,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -1672,6 +2816,48 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Tottenham Hotspur FC",
+        "away": "Crystal Palace FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "SC Heerenveen",
+        "away": "NEC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-02",
+        "league_id": "pt.1",
+        "league": "Portugal \u2014 Primeira Liga",
+        "home": "Gil Vicente FC",
+        "away": "Vit\u00f3ria Guimar\u00e3es"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1686,7 +2872,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -1700,7 +2886,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1714,6 +2900,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "pt.1",
+        "league": "Portugal \u2014 Primeira Liga",
+        "home": "Sporting Clube de Braga",
+        "away": "FC Famalic\u00e3o"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1728,7 +2928,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1742,7 +2942,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1756,7 +2956,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1770,8 +2970,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.577139087803075,
+        "brier": 0.28921167108658846,
+        "over25_brier": 0.17402496918326762,
+        "btts_brier": 0.17822655727238645
+      },
+      "result_hash": "a6abb431826ea3742d654f45067aac1050f35150ccf3f7f267d5778363a3e383"
     },
     {
       "fixture": {
@@ -1784,7 +2996,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1798,7 +3010,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1812,6 +3024,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "pt.1",
+        "league": "Portugal \u2014 Primeira Liga",
+        "home": "Acad\u00e9mico de Viseu FC",
+        "away": "Rio Ave FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1826,6 +3052,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "RC Strasbourg Alsace",
+        "away": "AJ Auxerre"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1840,8 +3080,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.2666524082498538,
+        "brier": 0.795794940740958,
+        "over25_brier": 0.22124827542111822,
+        "btts_brier": 0.23243980317449178
+      },
+      "result_hash": "876b244c7101d96915e5a50022974290f62fd0e1bc43c9d3b4008b2cea625b27"
     },
     {
       "fixture": {
@@ -1854,7 +3106,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1868,7 +3120,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1882,6 +3134,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "FC St. Pauli",
+        "away": "1. FC N\u00fcrnberg"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1896,8 +3162,22 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "RC Deportivo La Coru\u00f1a",
+        "away": "CA Osasuna"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
     },
     {
       "fixture": {
@@ -1910,8 +3190,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.3022613148428428,
+        "brier": 0.7951600495097068,
+        "over25_brier": 0.22827438690337687,
+        "btts_brier": 0.28065316905211946
+      },
+      "result_hash": "2526547541ed2d749f7a4a47154a5594eacb8742a3aa96553e4ea2d4d33c5f51"
     },
     {
       "fixture": {
@@ -1924,6 +3216,32 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.2443293205219998,
+        "brier": 0.7729859691280321,
+        "over25_brier": 0.1988824739613636,
+        "btts_brier": 0.2474869272647206
+      },
+      "result_hash": "fe886f837b5aee777c5eb120480275b2c59eca431e26883770e713ccb8933b85"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Real Betis Balompi\u00e9",
+        "away": "M\u00e1laga CF"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1938,7 +3256,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1952,8 +3270,22 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Bayer 04 Leverkusen",
+        "away": "VfB Stuttgart"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "research_only"
     },
     {
       "fixture": {
@@ -1966,7 +3298,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1980,6 +3312,48 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "VfL Wolfsburg",
+        "away": "VfL Osnabr\u00fcck"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Elche CF",
+        "away": "Valencia CF"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "es.1",
+        "league": "Spain \u2014 La Liga",
+        "home": "Levante UD",
+        "away": "Club Atl\u00e9tico de Madrid"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1994,7 +3368,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2008,6 +3382,32 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          6,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.41006996302881193,
+        "brier": 0.1705707205720042,
+        "over25_brier": 0.08573705638932543,
+        "btts_brier": 0.1340758485413559
+      },
+      "result_hash": "8b21c5761b81b151797fa5ec1d4725bec6989e832c7e5d4d2c618a2b1d158443"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "FC Groningen",
+        "away": "Sparta Rotterdam"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -2022,6 +3422,34 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "pt.1",
+        "league": "Portugal \u2014 Primeira Liga",
+        "home": "FC Arouca",
+        "away": "CD Nacional"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-30",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Le Havre AC",
+        "away": "Paris Saint-Germain FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -2036,6 +3464,32 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.7458242363203379,
+        "brier": 0.415004870243051,
+        "over25_brier": 0.22846254756451498,
+        "btts_brier": 0.2721693668855154
+      },
+      "result_hash": "f8039b5e9b9c084e4561911dbdd60e5e41c301d567ef41dd147957ca184edc1a"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-28",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Genoa CFC",
+        "away": "Juventus FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -2050,7 +3504,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2064,7 +3518,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2078,7 +3532,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2092,6 +3546,32 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.8249713048952964,
+        "brier": 0.4741961514531409,
+        "over25_brier": 0.23772262274018915,
+        "btts_brier": 0.3037362294148221
+      },
+      "result_hash": "5fb35cde8438c0bfe0fcbfae93a3983631363bb33def490e3773665400097b57"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "PSV",
+        "away": "Willem II Tilburg"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -2106,6 +3586,32 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.9404324077849326,
+        "brier": 0.5626178423123105,
+        "over25_brier": 0.19557142552807694,
+        "btts_brier": 0.35008147388750294
+      },
+      "result_hash": "af7c781a66e8cb39bec6e875a799a9ea97325b3d049d3cf117cede7286be0f39"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Manchester City FC",
+        "away": "Brighton & Hove Albion FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -2120,8 +3626,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.9156122370622904,
+        "brier": 0.5447594569047105,
+        "over25_brier": 0.17806410152516264,
+        "btts_brier": 0.36834884009178603
+      },
+      "result_hash": "edfa05834c000a8dbaef7caf0fa91b8fb0d692f8df3b7f6a11203edd615744e3"
     },
     {
       "fixture": {
@@ -2134,6 +3652,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-30",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Energie Cottbus",
+        "away": "VfL Bochum"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -2148,7 +3680,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2162,8 +3694,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.2951933317611928,
+        "brier": 0.7959815095031411,
+        "over25_brier": 0.2137991587288663,
+        "btts_brier": 0.23580001322474953
+      },
+      "result_hash": "dde26b3e95745be2cfda96517e0ccacb6f754fd675d369c47d0432d1e829d1c7"
     },
     {
       "fixture": {
@@ -2176,8 +3720,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.8986130133112183,
+        "brier": 0.5323054685376146,
+        "over25_brier": 0.34690670290479814,
+        "btts_brier": 0.378222412483254
+      },
+      "result_hash": "34827e55d58f0588a3f05d55775623779258547ec2d040d19863020a38a2fb63"
     },
     {
       "fixture": {
@@ -2190,6 +3746,46 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.7213215085822154,
+        "brier": 0.39644562865685673,
+        "over25_brier": 0.3157525722754355,
+        "btts_brier": 0.33768031558446737
+      },
+      "result_hash": "4d15abbee8be817c4f26fc279d86c20c0cffc28357ffcf062aaafcf7f6f3169c"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Frosinone Calcio",
+        "away": "Torino FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-30",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "SV 07 Elversberg",
+        "away": "1. FSV Mainz 05"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -2204,7 +3800,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2218,7 +3814,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2232,8 +3828,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.2586824372424859,
+        "brier": 0.7716748227962992,
+        "over25_brier": 0.18166193474670034,
+        "btts_brier": 0.2632151071227871
+      },
+      "result_hash": "8146e15a709ae5f4960c89ab7d8c822e3d088532492c283798b484082a0ce5a1"
     },
     {
       "fixture": {
@@ -2246,7 +3854,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2260,6 +3868,62 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-30",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "DSC Arminia Bielefeld",
+        "away": "Eintracht Braunschweig"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Olympique de Marseille",
+        "away": "Toulouse FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Chelsea FC",
+        "away": "Manchester United FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "en.1",
+        "league": "England \u2014 Premier League",
+        "home": "Brentford FC",
+        "away": "Nottingham Forest FC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -2274,7 +3938,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2288,7 +3952,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2302,8 +3966,34 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.49539832415368845,
+        "brier": 0.22990252508756182,
+        "over25_brier": 0.39705599015458864,
+        "btts_brier": 0.3544833594207165
+      },
+      "result_hash": "ee89625f152d81487bd909ef0dd4b954b029f91915b0323c020210b93e413748"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "SS Lazio",
+        "away": "Cagliari Calcio"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
-      "readiness": "research_only"
+      "readiness": "review_required"
     },
     {
       "fixture": {
@@ -2316,7 +4006,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2330,7 +4020,7 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2344,8 +4034,36 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "pt.1",
+        "league": "Portugal \u2014 Primeira Liga",
+        "home": "Moreirense FC",
+        "away": "CF Estrela da Amadora"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "SpVgg Greuther F\u00fcrth",
+        "away": "Holstein Kiel"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "research_only"
     },
     {
       "fixture": {
@@ -2358,6 +4076,48 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-02",
+        "league_id": "pt.1",
+        "league": "Portugal \u2014 Primeira Liga",
+        "home": "Sport Lisboa e Benfica",
+        "away": "FC Alverca"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "FC Lorient",
+        "away": "Stade Brestois 29"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "FC Schalke 04",
+        "away": "RB Leipzig"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -2372,6 +4132,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-02",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Atalanta BC",
+        "away": "Parma Calcio 1913"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -2386,7 +4160,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2400,6 +4174,32 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          2
+        ],
+        "outcome": 1,
+        "log_loss": 1.5427594211895326,
+        "brier": 1.0638080638881937,
+        "over25_brier": 0.18487937875851918,
+        "btts_brier": 0.23548324734746937
+      },
+      "result_hash": "84593e2128604a155d32bc0a0658ac79c39e6bb2a3dd2886267a2a7a2033ef6b"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Juventus FC",
+        "away": "SSC Napoli"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -2414,7 +4214,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:18:22.948124+00:00",
       "run_id": "20260923T061822948133Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2428,8 +4228,34 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.2717851082618068,
+        "brier": 0.8028992645793687,
+        "over25_brier": 0.13920213317406402,
+        "btts_brier": 0.41121720106261644
+      },
+      "result_hash": "4b78a6461157704564ee3357f19f5bbf4e81f19201249225e21bae3c8cdc6b01"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-27",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Torino FC",
+        "away": "Como 1907"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
-      "readiness": "research_only"
+      "readiness": "review_required"
     },
     {
       "fixture": {
@@ -2442,7 +4268,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2456,6 +4282,32 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.5526167209046662,
+        "brier": 0.9489581407331112,
+        "over25_brier": 0.5381794690283068,
+        "btts_brier": 0.07882029043904377
+      },
+      "result_hash": "e4165bfc09442397644f4097b8a16ac7955f75b642c5ceedd19d40c9d76bb30d"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "AC Milan",
+        "away": "FC Internazionale Milano"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -2470,7 +4322,7 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2484,7 +4336,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2498,7 +4350,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2512,6 +4364,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
+      "status": "missing_result",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "SV Darmstadt 98",
+        "away": "1. FC Magdeburg"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "research_only"
     },
@@ -2526,8 +4392,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.9121250736415358,
+        "brier": 0.5386289082028649,
+        "over25_brier": 0.20649485168273907,
+        "btts_brier": 0.16917076392386812
+      },
+      "result_hash": "34262e2ee55eaf331d2aff23aac0eae961208a7cf4ea5b5c96f2f4e661542e06"
     },
     {
       "fixture": {
@@ -2540,7 +4418,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2554,7 +4432,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2568,7 +4446,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2582,7 +4460,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2596,7 +4474,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2610,7 +4488,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2624,6 +4502,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "missing_result",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "FC Augsburg",
+        "away": "SC Freiburg"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "research_only"
     },
@@ -2638,8 +4530,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.9957973566562756,
+        "brier": 0.6034113325063344,
+        "over25_brier": 0.1517212975120113,
+        "btts_brier": 0.1299186610029832
+      },
+      "result_hash": "e9c7b6f419af1d86c7179d3108ba1d046176e7e3f65e13685959bb33f8c8e72a"
     },
     {
       "fixture": {
@@ -2652,7 +4556,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2666,7 +4570,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2680,7 +4584,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2694,7 +4598,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2708,7 +4612,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2722,7 +4626,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2736,7 +4640,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2750,7 +4654,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2764,6 +4668,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
+      "status": "missing_result",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Hannover 96",
+        "away": "Dynamo Dresden"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "research_only"
     },
@@ -2778,7 +4696,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2792,7 +4710,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2806,7 +4724,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2820,8 +4738,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          6,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.636562653030844,
+        "brier": 0.33262043825410836,
+        "over25_brier": 0.1427212753197899,
+        "btts_brier": 0.3876024857998242
+      },
+      "result_hash": "04035c9e41c3dd1cca562dcde035e061f5e589070276d65b96c1a16382231eef"
     },
     {
       "fixture": {
@@ -2834,7 +4764,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2848,6 +4778,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
+      "status": "missing_result",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "SV Werder Bremen",
+        "away": "TSG 1899 Hoffenheim"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "research_only"
     },
@@ -2862,7 +4806,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2876,6 +4820,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "missing_result",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "1. FC Union Berlin",
+        "away": "1. FC K\u00f6ln"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "research_only"
     },
@@ -2890,8 +4848,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.3943307147647628,
+        "brier": 0.9259532220485057,
+        "over25_brier": 0.268337666625473,
+        "btts_brier": 0.26733530389907884
+      },
+      "result_hash": "8b103b1cd302ece5622762004b11f28384264c45f7e7a7dfc80145c1db2b3855"
     },
     {
       "fixture": {
@@ -2904,8 +4874,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          2
+        ],
+        "outcome": 1,
+        "log_loss": 1.7179325921645838,
+        "brier": 1.1755386335689386,
+        "over25_brier": 0.09707298973434288,
+        "btts_brier": 0.16587223181350869
+      },
+      "result_hash": "038a00b1687526afdc3a5c7070165d817041c1834e25bdf45a0d50fc7fbdde8a"
     },
     {
       "fixture": {
@@ -2918,7 +4900,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2932,8 +4914,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.6870319611733222,
+        "brier": 1.0641186193533942,
+        "over25_brier": 0.14123799063075732,
+        "btts_brier": 0.16080048654297602
+      },
+      "result_hash": "709f5db7e4375da1546b56c7ea3f360bcb38497c49090e73486907b3ed536b5f"
     },
     {
       "fixture": {
@@ -2946,7 +4940,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2960,7 +4954,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2974,7 +4968,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -2988,8 +4982,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 0.4405251266277029,
+        "brier": 0.19119334038885855,
+        "over25_brier": 0.09865448570311576,
+        "btts_brier": 0.13986344170924392
+      },
+      "result_hash": "d458e2ea29eb5ef1dbc37a54aba119a41b0fe60f610a95302d32915db0872736"
     },
     {
       "fixture": {
@@ -3002,7 +5008,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3016,7 +5022,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3030,8 +5036,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.6199544495593398,
+        "brier": 0.3202881390746992,
+        "over25_brier": 0.37952393146421753,
+        "btts_brier": 0.37759216865170303
+      },
+      "result_hash": "b6c33d03d20c019b68c191adcf0fdd381d4c3ed4b5641e992cc2195ac20a45bd"
     },
     {
       "fixture": {
@@ -3044,7 +5062,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3058,6 +5076,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
+      "status": "missing_result",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "1. FC Kaiserslautern",
+        "away": "Hertha BSC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "research_only"
     },
@@ -3072,8 +5104,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.4534716749730934,
+        "brier": 0.9118574831778811,
+        "over25_brier": 0.293729383830896,
+        "btts_brier": 0.31794065838992586
+      },
+      "result_hash": "b47e5bec0a8de9aa7dce7bb14b296b40c135fbeebaa633877c68310caee0498c"
     },
     {
       "fixture": {
@@ -3086,6 +5130,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
+      "status": "missing_result",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Eintracht Frankfurt",
+        "away": "Hamburger SV"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "research_only"
     },
@@ -3100,7 +5158,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3114,7 +5172,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3128,7 +5186,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3142,7 +5200,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3156,7 +5214,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3170,7 +5228,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3184,7 +5242,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3198,7 +5256,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3212,7 +5270,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3226,6 +5284,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
+      "status": "missing_result",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "FC Bayern M\u00fcnchen",
+        "away": "Borussia Dortmund"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "research_only"
     },
@@ -3240,7 +5312,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3254,7 +5326,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3268,8 +5340,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          4
+        ],
+        "outcome": 2,
+        "log_loss": 0.827602804046036,
+        "brier": 0.47539397418120743,
+        "over25_brier": 0.232750888273018,
+        "btts_brier": 0.19185403505153156
+      },
+      "result_hash": "59af8ddeee1794cd0216096d720321f1e5f03a8752f0a9ed1644f4326cef798d"
     },
     {
       "fixture": {
@@ -3282,7 +5366,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3296,7 +5380,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3310,7 +5394,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3324,8 +5408,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.4266567912449077,
+        "brier": 0.8874520426828274,
+        "over25_brier": 0.2720549471507044,
+        "btts_brier": 0.23117229773045372
+      },
+      "result_hash": "83c697a43963dddcb82c7513f20804c9f585d8c2f54c4c85b73a758e9bd16da2"
     },
     {
       "fixture": {
@@ -3338,7 +5434,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3352,7 +5448,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3366,7 +5462,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3380,7 +5476,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3394,7 +5490,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3408,8 +5504,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.5529801737695592,
+        "brier": 0.9764433458763591,
+        "over25_brier": 0.1861786933497805,
+        "btts_brier": 0.18203984718889657
+      },
+      "result_hash": "d209a02a1380806a635f60d6cde07b35fa9738a6e1d069c95431dd6ef1e6fc9e"
     },
     {
       "fixture": {
@@ -3422,7 +5530,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3436,7 +5544,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3450,7 +5558,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3464,7 +5572,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3478,7 +5586,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3492,7 +5600,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3506,8 +5614,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.5675955228866062,
+        "brier": 0.2823191955181443,
+        "over25_brier": 0.17859167268897014,
+        "btts_brier": 0.18431494678838017
+      },
+      "result_hash": "a6abb431826ea3742d654f45067aac1050f35150ccf3f7f267d5778363a3e383"
     },
     {
       "fixture": {
@@ -3520,7 +5640,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3534,7 +5654,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3548,8 +5668,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.2666524082498538,
+        "brier": 0.795794940740958,
+        "over25_brier": 0.22124827542111822,
+        "btts_brier": 0.23243980317449178
+      },
+      "result_hash": "876b244c7101d96915e5a50022974290f62fd0e1bc43c9d3b4008b2cea625b27"
     },
     {
       "fixture": {
@@ -3562,7 +5694,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3576,7 +5708,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3590,7 +5722,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3604,7 +5736,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3618,6 +5750,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
+      "status": "missing_result",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-31",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Bayer 04 Leverkusen",
+        "away": "VfB Stuttgart"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "research_only"
     },
@@ -3632,7 +5778,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3646,7 +5792,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3660,7 +5806,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3674,8 +5820,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          6,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.3818048412073835,
+        "brier": 0.15209768466393814,
+        "over25_brier": 0.08299080425352126,
+        "btts_brier": 0.1398754245702552
+      },
+      "result_hash": "8b21c5761b81b151797fa5ec1d4725bec6989e832c7e5d4d2c618a2b1d158443"
     },
     {
       "fixture": {
@@ -3688,7 +5846,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3702,7 +5860,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3716,7 +5874,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3730,7 +5888,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3744,7 +5902,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3758,7 +5916,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3772,6 +5930,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
+      "status": "missing_result",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-30",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "DSC Arminia Bielefeld",
+        "away": "Eintracht Braunschweig"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "research_only"
     },
@@ -3786,8 +5958,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.49539832415368845,
+        "brier": 0.22990252508756182,
+        "over25_brier": 0.39705599015458864,
+        "btts_brier": 0.3544833594207165
+      },
+      "result_hash": "ee89625f152d81487bd909ef0dd4b954b029f91915b0323c020210b93e413748"
     },
     {
       "fixture": {
@@ -3800,7 +5984,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3814,6 +5998,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
+      "status": "missing_result",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "SpVgg Greuther F\u00fcrth",
+        "away": "Holstein Kiel"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-10-26T11:22:39.936383+00:00",
+      "run_id": "20261026T112239936389Z",
       "status": "pending",
       "readiness": "research_only"
     },
@@ -3828,7 +6026,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3842,7 +6040,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3856,7 +6054,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3870,8 +6068,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          2
+        ],
+        "outcome": 1,
+        "log_loss": 1.5499852961718807,
+        "brier": 1.0705610243145767,
+        "over25_brier": 0.18661421425083796,
+        "btts_brier": 0.23993545740428787
+      },
+      "result_hash": "84593e2128604a155d32bc0a0658ac79c39e6bb2a3dd2886267a2a7a2033ef6b"
     },
     {
       "fixture": {
@@ -3884,7 +6094,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     },
     {
@@ -3898,8 +6108,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.2717851082618068,
+        "brier": 0.8028992645793687,
+        "over25_brier": 0.13920213317406402,
+        "btts_brier": 0.41121720106261644
+      },
+      "result_hash": "4b78a6461157704564ee3357f19f5bbf4e81f19201249225e21bae3c8cdc6b01"
     },
     {
       "fixture": {
@@ -3912,7 +6134,7 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "research_only"
     }
   ],

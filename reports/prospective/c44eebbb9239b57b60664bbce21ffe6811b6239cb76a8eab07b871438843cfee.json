@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-11-01",
+    "league_id": "nl.1",
+    "league": "Netherlands \u2014 Eredivisie",
+    "home": "FC Groningen",
+    "away": "Sparta Rotterdam"
+  },
+  "registered_at": "2026-10-26T11:22:39.936383+00:00",
+  "run_id": "20261026T112239936389Z",
+  "data_hash": "29e77c7a6898ac2f25ebf640d0264885662d24d3a2d848b20ecc0ed3f8c6d4b4",
+  "code_hash": "ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-2.0-exact-calibrated",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "targets": "closing-price implied goals (90%) blended with scorelines, 60-day half-life, where prices exist; otherwise scorelines with a 365-day half-life",
+    "ridge": "0.005 with prices, 0.01 without",
+    "optimizer": "block Newton, solved to convergence; no pinned reference team",
+    "calibration": "temperature 0.91 and draw shift 0.12 on the model's own 1X2 (0.94/0.09 without prices), fitted on 2023-25 forecasts",
+    "margin_removal": "power method",
+    "holdout": "2025-27, 3,330 matches in 8 leagues: 1X2 log loss 0.9873 (previous model 0.9975), tools/accuracy_lab.py"
+  },
+  "readiness": {
+    "league_id": "nl.1",
+    "season": "2026-27",
+    "records": 1836,
+    "completed": 1592,
+    "upcoming": 216,
+    "latest_result": "2026-09-20",
+    "current_records": 306,
+    "unresolved_past": 10,
+    "likely_postponed": 9,
+    "source_checked_at": "2026-10-26T11:22:29.560151+00:00",
+    "status": "review_required",
+    "issues": [
+      "Completed results are missing or more than 30 days old",
+      "10 recent current-season fixtures have no result yet"
+    ]
+  },
+  "probabilities": [
+    0.47648377756398225,
+    0.28331057827120576,
+    0.240205644164812
+  ],
+  "expected_goals": [
+    1.6269802476240671,
+    1.1245727014148115
+  ],
+  "over25": 0.5140290625610109,
+  "btts": 0.5571076928836461,
+  "decision": "withhold",
+  "pricing_source": "model",
+  "model_probabilities": [
+    0.47648377756398225,
+    0.28331057827120576,
+    0.240205644164812
+  ]
+}
