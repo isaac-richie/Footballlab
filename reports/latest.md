@@ -1,25 +1,22 @@
-# Football Lab research run — 2026-10-26
+# Football Lab research run — 2026-10-27
 
-85 fixtures in the next 7 days (excluding today).
+82 fixtures in the next 7 days (excluding today).
 Status: review_required
 
 ## Coverage
 
-- England — Premier League: review_required — Completed results are missing or more than 30 days old; 12 recent current-season fixtures have no result yet
-- Spain — La Liga: review_required — Completed results are missing or more than 30 days old; 12 recent current-season fixtures have no result yet
-- Italy — Serie A: review_required — Completed results are missing or more than 30 days old; 13 recent current-season fixtures have no result yet
+- England — Premier League: review_required — Completed results are missing or more than 30 days old; 15 recent current-season fixtures have no result yet
+- Spain — La Liga: review_required — Completed results are missing or more than 30 days old; 11 recent current-season fixtures have no result yet
+- Italy — Serie A: review_required — Completed results are missing or more than 30 days old; 15 recent current-season fixtures have no result yet
 - Germany — Bundesliga: research_only — Initial freshness checks passed; research only
-- France — Ligue 1: review_required — Completed results are missing or more than 30 days old; 10 recent current-season fixtures have no result yet
+- France — Ligue 1: review_required — Completed results are missing or more than 30 days old; 12 recent current-season fixtures have no result yet
 - Italy — Serie B: review_required — Current-season fixtures missing; Completed results are missing or more than 30 days old; Current source freshness unverified
 - Germany — 2. Bundesliga: research_only — Initial freshness checks passed; research only
-- Netherlands — Eredivisie: review_required — Completed results are missing or more than 30 days old; 10 recent current-season fixtures have no result yet
-- Portugal — Primeira Liga: review_required — Completed results are missing or more than 30 days old; 2 recent current-season fixtures have no result yet
+- Netherlands — Eredivisie: review_required — Completed results are missing or more than 30 days old; 13 recent current-season fixtures have no result yet
+- Portugal — Primeira Liga: review_required — Completed results are missing or more than 30 days old; 4 recent current-season fixtures have no result yet
 
 ## Forecasts
 
-- 2026-10-27 · Italy — Serie A · US Sassuolo Calcio v SS Lazio: review_required; 1X2 29.1%/27.4%/43.4%; expected goals 1.17–1.47; O2.5 48.8%; BTTS 53.7%; decision withhold.
-- 2026-10-27 · Italy — Serie A · AS Roma v Cagliari Calcio: review_required; 1X2 63.6%/23.0%/13.4%; expected goals 1.84–0.76; O2.5 48.0%; BTTS 44.9%; decision withhold.
-- 2026-10-27 · Italy — Serie A · Torino FC v Como 1907: review_required; 1X2 20.6%/26.1%/53.3%; expected goals 0.95–1.64; O2.5 47.5%; BTTS 49.9%; decision withhold.
 - 2026-10-28 · Italy — Serie A · AC Milan v Bologna FC 1909: review_required; 1X2 48.3%/27.3%/24.4%; expected goals 1.52–1.03; O2.5 46.6%; BTTS 50.8%; decision withhold.
 - 2026-10-28 · Italy — Serie A · Venezia FC v FC Internazionale Milano: review_required; 1X2 6.6%/13.2%/80.3%; expected goals 0.77–2.79; O2.5 69.2%; BTTS 50.3%; decision withhold.
 - 2026-10-28 · Italy — Serie A · Parma Calcio 1913 v Udinese Calcio: review_required; 1X2 30.8%/31.5%/37.7%; expected goals 1.01–1.14; O2.5 36.0%; BTTS 43.9%; decision withhold.
@@ -106,4 +103,4 @@ Status: review_required
 Prospective ledger: 257 registered, 54 graded, 85 pending.
 These are uncalibrated research forecasts, not recommendations.
 
-Run: 20261026T112239936389Z · data: 29e77c7a6898ac2f25ebf640d0264885662d24d3a2d848b20ecc0ed3f8c6d4b4 · code: ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107
+Run: 20261027T104705740921Z · data: 06de44e1217af453c2997ba0af59c0d0ef685a99e1e2d36e8588655bfd138534 · code: ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107
