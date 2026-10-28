@@ -1,27 +1,22 @@
-# Football Lab research run — 2026-10-27
+# Football Lab research run — 2026-10-28
 
-82 fixtures in the next 7 days (excluding today).
+77 fixtures in the next 7 days (excluding today).
 Status: review_required
 
 ## Coverage
 
-- England — Premier League: review_required — Completed results are missing or more than 30 days old; 15 recent current-season fixtures have no result yet
-- Spain — La Liga: review_required — Completed results are missing or more than 30 days old; 11 recent current-season fixtures have no result yet
-- Italy — Serie A: review_required — Completed results are missing or more than 30 days old; 15 recent current-season fixtures have no result yet
+- England — Premier League: review_required — Completed results are missing or more than 30 days old; 20 recent current-season fixtures have no result yet
+- Spain — La Liga: review_required — Completed results are missing or more than 30 days old; 21 recent current-season fixtures have no result yet
+- Italy — Serie A: review_required — Completed results are missing or more than 30 days old; 20 recent current-season fixtures have no result yet
 - Germany — Bundesliga: research_only — Initial freshness checks passed; research only
-- France — Ligue 1: review_required — Completed results are missing or more than 30 days old; 12 recent current-season fixtures have no result yet
+- France — Ligue 1: review_required — Completed results are missing or more than 30 days old; 18 recent current-season fixtures have no result yet
 - Italy — Serie B: review_required — Current-season fixtures missing; Completed results are missing or more than 30 days old; Current source freshness unverified
 - Germany — 2. Bundesliga: research_only — Initial freshness checks passed; research only
-- Netherlands — Eredivisie: review_required — Completed results are missing or more than 30 days old; 13 recent current-season fixtures have no result yet
-- Portugal — Primeira Liga: review_required — Completed results are missing or more than 30 days old; 4 recent current-season fixtures have no result yet
+- Netherlands — Eredivisie: review_required — Completed results are missing or more than 30 days old; 18 recent current-season fixtures have no result yet
+- Portugal — Primeira Liga: review_required — Completed results are missing or more than 30 days old; 8 recent current-season fixtures have no result yet
 
 ## Forecasts
 
-- 2026-10-28 · Italy — Serie A · AC Milan v Bologna FC 1909: review_required; 1X2 48.3%/27.3%/24.4%; expected goals 1.52–1.03; O2.5 46.6%; BTTS 50.8%; decision withhold.
-- 2026-10-28 · Italy — Serie A · Venezia FC v FC Internazionale Milano: review_required; 1X2 6.6%/13.2%/80.3%; expected goals 0.77–2.79; O2.5 69.2%; BTTS 50.3%; decision withhold.
-- 2026-10-28 · Italy — Serie A · Parma Calcio 1913 v Udinese Calcio: review_required; 1X2 30.8%/31.5%/37.7%; expected goals 1.01–1.14; O2.5 36.0%; BTTS 43.9%; decision withhold.
-- 2026-10-28 · Italy — Serie A · Genoa CFC v Juventus FC: review_required; 1X2 18.5%/27.8%/53.7%; expected goals 0.79–1.49; O2.5 39.7%; BTTS 42.9%; decision withhold.
-- 2026-10-28 · Italy — Serie A · AC Monza v SSC Napoli: review_required; 1X2 14.6%/22.2%/63.2%; expected goals 0.86–1.94; O2.5 52.9%; BTTS 49.6%; decision withhold.
 - 2026-10-29 · Italy — Serie A · Frosinone Calcio v US Lecce: review_required; 1X2 55.4%/26.6%/18.0%; expected goals 1.58–0.82; O2.5 42.8%; BTTS 44.9%; decision withhold.
 - 2026-10-29 · Italy — Serie A · ACF Fiorentina v Atalanta BC: review_required; 1X2 27.2%/27.2%/45.6%; expected goals 1.13–1.51; O2.5 48.7%; BTTS 53.1%; decision withhold.
 - 2026-10-30 · Germany — Bundesliga · SV 07 Elversberg v 1. FSV Mainz 05: review_required; 1X2 43.0%/24.3%/32.7%; expected goals 1.87–1.63; O2.5 67.4%; BTTS 68.7%; decision withhold.
@@ -100,7 +95,7 @@ Status: review_required
 - 2026-11-02 · Portugal — Primeira Liga · Sport Lisboa e Benfica v FC Alverca: review_required; 1X2 82.2%/11.9%/5.9%; expected goals 2.77–0.68; O2.5 67.3%; BTTS 45.9%; decision withhold.
 - 2026-11-02 · Portugal — Primeira Liga · Gil Vicente FC v Vitória Guimarães: review_required; 1X2 41.2%/29.3%/29.4%; expected goals 1.21–0.99; O2.5 37.3%; BTTS 43.9%; decision withhold.
 
-Prospective ledger: 257 registered, 54 graded, 85 pending.
+Prospective ledger: 257 registered, 54 graded, 82 pending.
 These are uncalibrated research forecasts, not recommendations.
 
-Run: 20261027T104705740921Z · data: 06de44e1217af453c2997ba0af59c0d0ef685a99e1e2d36e8588655bfd138534 · code: ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107
+Run: 20261028T112952395333Z · data: 6641f53b84cd9960fa598daf1f46f9c07368b94ac5e2ad44565db0b8eacb5063 · code: ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107
