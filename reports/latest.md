@@ -1,6 +1,6 @@
-# Football Lab research run — 2026-10-28
+# Football Lab research run — 2026-10-29
 
-77 fixtures in the next 7 days (excluding today).
+75 fixtures in the next 7 days (excluding today).
 Status: review_required
 
 ## Coverage
@@ -13,12 +13,10 @@ Status: review_required
 - Italy — Serie B: review_required — Current-season fixtures missing; Completed results are missing or more than 30 days old; Current source freshness unverified
 - Germany — 2. Bundesliga: research_only — Initial freshness checks passed; research only
 - Netherlands — Eredivisie: review_required — Completed results are missing or more than 30 days old; 18 recent current-season fixtures have no result yet
-- Portugal — Primeira Liga: review_required — Completed results are missing or more than 30 days old; 8 recent current-season fixtures have no result yet
+- Portugal — Primeira Liga: review_required — Completed results are missing or more than 30 days old; 9 recent current-season fixtures have no result yet
 
 ## Forecasts
 
-- 2026-10-29 · Italy — Serie A · Frosinone Calcio v US Lecce: review_required; 1X2 55.4%/26.6%/18.0%; expected goals 1.58–0.82; O2.5 42.8%; BTTS 44.9%; decision withhold.
-- 2026-10-29 · Italy — Serie A · ACF Fiorentina v Atalanta BC: review_required; 1X2 27.2%/27.2%/45.6%; expected goals 1.13–1.51; O2.5 48.7%; BTTS 53.1%; decision withhold.
 - 2026-10-30 · Germany — Bundesliga · SV 07 Elversberg v 1. FSV Mainz 05: review_required; 1X2 43.0%/24.3%/32.7%; expected goals 1.87–1.63; O2.5 67.4%; BTTS 68.7%; decision withhold.
 - 2026-10-30 · France — Ligue 1 · Le Havre AC v Paris Saint-Germain FC: review_required; 1X2 12.3%/21.1%/66.6%; expected goals 0.83–2.09; O2.5 55.9%; BTTS 50.1%; decision withhold.
 - 2026-10-30 · France — Ligue 1 · Lille OSC v Racing Club de Lens: review_required; 1X2 40.7%/29.6%/29.7%; expected goals 1.35–1.12; O2.5 44.3%; BTTS 50.9%; decision withhold.
@@ -95,7 +93,7 @@ Status: review_required
 - 2026-11-02 · Portugal — Primeira Liga · Sport Lisboa e Benfica v FC Alverca: review_required; 1X2 82.2%/11.9%/5.9%; expected goals 2.77–0.68; O2.5 67.3%; BTTS 45.9%; decision withhold.
 - 2026-11-02 · Portugal — Primeira Liga · Gil Vicente FC v Vitória Guimarães: review_required; 1X2 41.2%/29.3%/29.4%; expected goals 1.21–0.99; O2.5 37.3%; BTTS 43.9%; decision withhold.
 
-Prospective ledger: 257 registered, 54 graded, 82 pending.
+Prospective ledger: 257 registered, 54 graded, 77 pending.
 These are uncalibrated research forecasts, not recommendations.
 
-Run: 20261028T112952395333Z · data: 6641f53b84cd9960fa598daf1f46f9c07368b94ac5e2ad44565db0b8eacb5063 · code: ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107
+Run: 20261029T114024747120Z · data: 9e88198d5ba1394a807aab44279f1b46628f5730c256acd44a853b50794041f3 · code: ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107

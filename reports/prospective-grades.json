@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-28T11:29:52.872115+00:00",
-  "data_hash": "6641f53b84cd9960fa598daf1f46f9c07368b94ac5e2ad44565db0b8eacb5063",
+  "generated_at": "2026-10-29T11:40:25.224160+00:00",
+  "data_hash": "9e88198d5ba1394a807aab44279f1b46628f5730c256acd44a853b50794041f3",
   "registered": 257,
-  "pending": 82,
-  "missing_result": 121,
+  "pending": 77,
+  "missing_result": 126,
   "overall": {
     "matches": 54,
     "log_loss": 1.035790130170229,
@@ -752,7 +752,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1162,7 +1162,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1558,7 +1558,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1640,7 +1640,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -3490,7 +3490,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
