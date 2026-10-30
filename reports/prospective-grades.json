@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-29T11:40:25.224160+00:00",
-  "data_hash": "9e88198d5ba1394a807aab44279f1b46628f5730c256acd44a853b50794041f3",
-  "registered": 257,
-  "pending": 77,
-  "missing_result": 126,
+  "generated_at": "2026-10-30T11:30:54.610898+00:00",
+  "data_hash": "3e12bc48ba02a086cf8234048fe8b1bce0fe5dc690f03907852835dad40d2429",
+  "registered": 264,
+  "pending": 82,
+  "missing_result": 128,
   "overall": {
     "matches": 54,
     "log_loss": 1.035790130170229,
@@ -11,8 +11,8 @@
     "over25_brier": 0.2289361937820117,
     "btts_brier": 0.24750161721451308
   },
-  "eligible_registered": 114,
-  "eligible_pending": 11,
+  "eligible_registered": 116,
+  "eligible_pending": 13,
   "eligible_overall": {
     "matches": 18,
     "log_loss": 1.0665662706990657,
@@ -416,6 +416,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-06",
+        "league_id": "pt.1",
+        "league": "Portugal \u2014 Primeira Liga",
+        "home": "FC Famalic\u00e3o",
+        "away": "FC Arouca"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-30T11:30:54.088697+00:00",
+      "run_id": "20261030T113054088707Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -1069,6 +1083,20 @@
     },
     {
       "fixture": {
+        "date": "2026-11-06",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Venezia FC",
+        "away": "Udinese Calcio"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-30T11:30:54.088697+00:00",
+      "run_id": "20261030T113054088707Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
         "date": "2026-11-01",
         "league_id": "es.1",
         "league": "Spain \u2014 La Liga",
@@ -1612,7 +1640,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1790,7 +1818,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2683,6 +2711,20 @@
     },
     {
       "fixture": {
+        "date": "2026-11-06",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Eintracht Braunschweig",
+        "away": "Energie Cottbus"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-30T11:30:54.088697+00:00",
+      "run_id": "20261030T113054088707Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
         "date": "2026-10-10",
         "league_id": "en.1",
         "league": "England \u2014 Premier League",
@@ -3373,6 +3415,20 @@
     },
     {
       "fixture": {
+        "date": "2026-11-06",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Hamburger SV",
+        "away": "Borussia M\u00f6nchengladbach"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-30T11:30:54.088697+00:00",
+      "run_id": "20261030T113054088707Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
         "date": "2026-10-17",
         "league_id": "de.1",
         "league": "Germany \u2014 Bundesliga",
@@ -3478,6 +3534,20 @@
         "btts_brier": 0.2721693668855154
       },
       "result_hash": "f8039b5e9b9c084e4561911dbdd60e5e41c301d567ef41dd147957ca184edc1a"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-06",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Dynamo Dresden",
+        "away": "SpVgg Greuther F\u00fcrth"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-30T11:30:54.088697+00:00",
+      "run_id": "20261030T113054088707Z",
+      "status": "pending",
+      "readiness": "research_only"
     },
     {
       "fixture": {
@@ -3653,6 +3723,20 @@
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
       "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-06",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "Willem II Tilburg",
+        "away": "PEC Zwolle"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-30T11:30:54.088697+00:00",
+      "run_id": "20261030T113054088707Z",
+      "status": "pending",
       "readiness": "review_required"
     },
     {
@@ -4090,6 +4174,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
+      "status": "pending",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-06",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Toulouse FC",
+        "away": "RC Strasbourg Alsace"
+      },
+      "cohort": "first",
+      "registered_at": "2026-10-30T11:30:54.088697+00:00",
+      "run_id": "20261030T113054088707Z",
       "status": "pending",
       "readiness": "review_required"
     },
@@ -5811,6 +5909,20 @@
     },
     {
       "fixture": {
+        "date": "2026-11-06",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "Hamburger SV",
+        "away": "Borussia M\u00f6nchengladbach"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-10-30T11:30:54.088697+00:00",
+      "run_id": "20261030T113054088707Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
         "date": "2026-10-17",
         "league_id": "de.1",
         "league": "Germany \u2014 Bundesliga",
@@ -5834,6 +5946,20 @@
         "btts_brier": 0.1398754245702552
       },
       "result_hash": "8b21c5761b81b151797fa5ec1d4725bec6989e832c7e5d4d2c618a2b1d158443"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-06",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "Dynamo Dresden",
+        "away": "SpVgg Greuther F\u00fcrth"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-10-30T11:30:54.088697+00:00",
+      "run_id": "20261030T113054088707Z",
+      "status": "pending",
+      "readiness": "research_only"
     },
     {
       "fixture": {
