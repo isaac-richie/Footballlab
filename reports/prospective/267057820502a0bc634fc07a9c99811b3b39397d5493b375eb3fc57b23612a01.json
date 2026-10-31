@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-11-07",
+    "league_id": "en.1",
+    "league": "England \u2014 Premier League",
+    "home": "Sunderland AFC",
+    "away": "Chelsea FC"
+  },
+  "registered_at": "2026-10-31T11:02:59.621670+00:00",
+  "run_id": "20261031T110259621679Z",
+  "data_hash": "0fa4cbc1201a389d6b2470a206eca3a6aa8cdae458420af9150e1c8259b30318",
+  "code_hash": "ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-2.0-exact-calibrated",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "targets": "closing-price implied goals (90%) blended with scorelines, 60-day half-life, where prices exist; otherwise scorelines with a 365-day half-life",
+    "ridge": "0.005 with prices, 0.01 without",
+    "optimizer": "block Newton, solved to convergence; no pinned reference team",
+    "calibration": "temperature 0.91 and draw shift 0.12 on the model's own 1X2 (0.94/0.09 without prices), fitted on 2023-25 forecasts",
+    "margin_removal": "power method",
+    "holdout": "2025-27, 3,330 matches in 8 leagues: 1X2 log loss 0.9873 (previous model 0.9975), tools/accuracy_lab.py"
+  },
+  "readiness": {
+    "league_id": "en.1",
+    "season": "2026-27",
+    "records": 2280,
+    "completed": 1950,
+    "upcoming": 300,
+    "latest_result": "2026-09-20",
+    "current_records": 380,
+    "unresolved_past": 20,
+    "likely_postponed": 10,
+    "source_checked_at": "2026-10-31T11:02:44.613705+00:00",
+    "status": "review_required",
+    "issues": [
+      "Completed results are missing or more than 30 days old",
+      "20 recent current-season fixtures have no result yet"
+    ]
+  },
+  "probabilities": [
+    0.32213211761108934,
+    0.2904708187513349,
+    0.38739706363757603
+  ],
+  "expected_goals": [
+    1.2984380204363166,
+    1.4351993595248873
+  ],
+  "over25": 0.5092766669849986,
+  "btts": 0.5673300344482068,
+  "decision": "withhold",
+  "pricing_source": "model",
+  "model_probabilities": [
+    0.32213211761108934,
+    0.2904708187513349,
+    0.38739706363757603
+  ]
+}
