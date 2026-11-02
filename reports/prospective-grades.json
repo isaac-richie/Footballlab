@@ -1,39 +1,39 @@
 {
-  "generated_at": "2026-11-01T11:57:29.947535+00:00",
-  "data_hash": "237863c368e246f62403545e95d3eba94dc728383b0ddac4111da2773fcc7a3d",
+  "generated_at": "2026-11-02T13:45:04.039918+00:00",
+  "data_hash": "870ec93d0cb10bd381056bc51fd595120088c35f02e9f297a3ac58c8aed94f97",
   "registered": 332,
-  "pending": 112,
-  "missing_result": 153,
+  "pending": 80,
+  "missing_result": 180,
   "overall": {
-    "matches": 67,
-    "log_loss": 1.037713875766046,
-    "brier": 0.6246914927472428,
-    "over25_brier": 0.2298331084301378,
-    "btts_brier": 0.23985140355654203
+    "matches": 72,
+    "log_loss": 1.0345184114641406,
+    "brier": 0.6219548539588571,
+    "over25_brier": 0.22977286641847622,
+    "btts_brier": 0.23878521610216547
   },
-  "eligible_registered": 128,
-  "eligible_pending": 18,
+  "eligible_registered": 129,
+  "eligible_pending": 15,
   "eligible_overall": {
-    "matches": 25,
-    "log_loss": 1.0988585770750685,
-    "brier": 0.6744646146864668,
-    "over25_brier": 0.21216413156494687,
-    "btts_brier": 0.22902658144863713
+    "matches": 29,
+    "log_loss": 1.066614279298117,
+    "brier": 0.6502315768134762,
+    "over25_brier": 0.21324553828730272,
+    "btts_brier": 0.22820720727120433
   },
   "by_league": {
     "de.1": {
-      "matches": 34,
-      "log_loss": 1.0389607123329618,
-      "brier": 0.6305607835934375,
-      "over25_brier": 0.2073825051375923,
-      "btts_brier": 0.23855658846285763
+      "matches": 36,
+      "log_loss": 1.0313863880432124,
+      "brier": 0.6245622360511174,
+      "over25_brier": 0.20677657798384694,
+      "btts_brier": 0.23555008176943662
     },
     "de.2": {
-      "matches": 33,
-      "log_loss": 1.03642925627286,
-      "brier": 0.6186443446026786,
-      "over25_brier": 0.25296403303457865,
-      "btts_brier": 0.24118545547124723
+      "matches": 36,
+      "log_loss": 1.0376504348850688,
+      "brier": 0.6193474718665968,
+      "over25_brier": 0.25276915485310547,
+      "btts_brier": 0.2420203504348943
     },
     "en.1": {
       "matches": 0,
@@ -90,7 +90,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -524,7 +524,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -672,7 +672,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1378,7 +1378,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1434,8 +1434,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.6674969234789336,
+        "brier": 0.3560034428271598,
+        "over25_brier": 0.19491400437895032,
+        "btts_brier": 0.1784824542124766
+      },
+      "result_hash": "86078f1f4a4878058c4eab8e4ed3e3aaf0adc46dc2386e069995eb54c3b1368e"
     },
     {
       "fixture": {
@@ -1600,7 +1612,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1722,7 +1734,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1778,7 +1790,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -1792,8 +1804,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.2447110982194558,
+        "brier": 0.7681742066181244,
+        "over25_brier": 0.2387601095119173,
+        "btts_brier": 0.20688089095166687
+      },
+      "result_hash": "1ee34de9083bd6c933b9f01b9558658ffe7e8ccd2829d29b35ce2e5cb3a89b27"
     },
     {
       "fixture": {
@@ -1820,7 +1844,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2092,7 +2116,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2188,7 +2212,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2310,7 +2334,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2324,7 +2348,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -2488,8 +2512,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.5605346520154932,
+        "brier": 0.2769996490452243,
+        "over25_brier": 0.15419152322843516,
+        "btts_brier": 0.16199804501089252
+      },
+      "result_hash": "ba1f95b79cb1a73ae40207c45d20b23765a2bc90eb2183fe0ec61771d18f3589"
     },
     {
       "fixture": {
@@ -3336,7 +3372,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -3406,7 +3442,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -3600,7 +3636,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -3766,7 +3802,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -3808,7 +3844,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -3946,8 +3982,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.4981462763243556,
+        "brier": 0.9313191105433019,
+        "over25_brier": 0.2648107961029496,
+        "btts_brier": 0.23014704641859948
+      },
+      "result_hash": "22243a450e0dc25155ee037246b41fc06483c11cb032d44adc32afa4d2d393ad"
     },
     {
       "fixture": {
@@ -3974,7 +4022,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -4054,7 +4102,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -4190,7 +4238,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -4204,7 +4252,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -4272,7 +4320,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -4300,7 +4348,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -4718,7 +4766,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -4894,7 +4942,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -5004,7 +5052,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -5074,8 +5122,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.9876069990548015,
+        "brier": 0.5939230619386298,
+        "over25_brier": 0.2921516840888042,
+        "btts_brier": 0.3449830844739613
+      },
+      "result_hash": "2a3ae05955b834bae855c4d1cdb7aba899fa5a03c35835882bd4bee1f50a6e19"
     },
     {
       "fixture": {
@@ -5294,7 +5354,7 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
+      "status": "missing_result",
       "readiness": "review_required"
     },
     {
@@ -5982,8 +6042,20 @@
       "cohort": "eligible",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.6674969234789336,
+        "brier": 0.3560034428271598,
+        "over25_brier": 0.19491400437895032,
+        "btts_brier": 0.1784824542124766
+      },
+      "result_hash": "86078f1f4a4878058c4eab8e4ed3e3aaf0adc46dc2386e069995eb54c3b1368e"
     },
     {
       "fixture": {
@@ -6146,8 +6218,20 @@
       "cohort": "eligible",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.2447110982194558,
+        "brier": 0.7681742066181244,
+        "over25_brier": 0.2387601095119173,
+        "btts_brier": 0.20688089095166687
+      },
+      "result_hash": "1ee34de9083bd6c933b9f01b9558658ffe7e8ccd2829d29b35ce2e5cb3a89b27"
     },
     {
       "fixture": {
@@ -6482,8 +6566,20 @@
       "cohort": "eligible",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.5605346520154932,
+        "brier": 0.2769996490452243,
+        "over25_brier": 0.15419152322843516,
+        "btts_brier": 0.16199804501089252
+      },
+      "result_hash": "ba1f95b79cb1a73ae40207c45d20b23765a2bc90eb2183fe0ec61771d18f3589"
     },
     {
       "fixture": {
@@ -6923,6 +7019,20 @@
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
       "status": "missing_result",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-08",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "1. FC Magdeburg",
+        "away": "FC St. Pauli"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-02T13:45:03.576133+00:00",
+      "run_id": "20261102T134503576144Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -7498,8 +7608,20 @@
       "cohort": "eligible",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "pending",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.9876069990548015,
+        "brier": 0.5939230619386298,
+        "over25_brier": 0.2921516840888042,
+        "btts_brier": 0.3449830844739613
+      },
+      "result_hash": "2a3ae05955b834bae855c4d1cdb7aba899fa5a03c35835882bd4bee1f50a6e19"
     },
     {
       "fixture": {
