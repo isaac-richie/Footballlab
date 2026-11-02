@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-11-06",
+    "league_id": "it.1",
+    "league": "Italy \u2014 Serie A",
+    "home": "Venezia FC",
+    "away": "Udinese Calcio"
+  },
+  "registered_at": "2026-10-30T11:30:54.088697+00:00",
+  "run_id": "20261030T113054088707Z",
+  "data_hash": "3e12bc48ba02a086cf8234048fe8b1bce0fe5dc690f03907852835dad40d2429",
+  "code_hash": "ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-2.0-exact-calibrated",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "targets": "closing-price implied goals (90%) blended with scorelines, 60-day half-life, where prices exist; otherwise scorelines with a 365-day half-life",
+    "ridge": "0.005 with prices, 0.01 without",
+    "optimizer": "block Newton, solved to convergence; no pinned reference team",
+    "calibration": "temperature 0.91 and draw shift 0.12 on the model's own 1X2 (0.94/0.09 without prices), fitted on 2023-25 forecasts",
+    "margin_removal": "power method",
+    "holdout": "2025-27, 3,330 matches in 8 leagues: 1X2 log loss 0.9873 (previous model 0.9975), tools/accuracy_lab.py"
+  },
+  "readiness": {
+    "league_id": "it.1",
+    "season": "2026-27",
+    "records": 2280,
+    "completed": 1940,
+    "upcoming": 290,
+    "latest_result": "2026-09-20",
+    "current_records": 380,
+    "unresolved_past": 23,
+    "likely_postponed": 10,
+    "source_checked_at": "2026-10-30T11:30:35.897661+00:00",
+    "status": "review_required",
+    "issues": [
+      "Completed results are missing or more than 30 days old",
+      "23 recent current-season fixtures have no result yet",
+      "At least one team has fewer than 10 league matches in the past year"
+    ]
+  },
+  "probabilities": [
+    0.24617421526408895,
+    0.27577851410513476,
+    0.4780472706307767
+  ],
+  "expected_goals": [
+    1.0232012622023667,
+    1.4966930229879505
+  ],
+  "over25": 0.45722791370873783,
+  "btts": 0.5018825125920348,
+  "decision": "withhold",
+  "pricing_source": "model",
+  "model_probabilities": [
+    0.24617421526408895,
+    0.27577851410513476,
+    0.4780472706307767
+  ]
+}

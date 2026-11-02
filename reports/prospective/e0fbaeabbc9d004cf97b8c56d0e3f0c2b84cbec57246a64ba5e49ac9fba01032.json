@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-10-31",
+    "league_id": "en.1",
+    "league": "England \u2014 Premier League",
+    "home": "Brentford FC",
+    "away": "Nottingham Forest FC"
+  },
+  "registered_at": "2026-10-26T11:22:39.936383+00:00",
+  "run_id": "20261026T112239936389Z",
+  "data_hash": "29e77c7a6898ac2f25ebf640d0264885662d24d3a2d848b20ecc0ed3f8c6d4b4",
+  "code_hash": "ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-2.0-exact-calibrated",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "targets": "closing-price implied goals (90%) blended with scorelines, 60-day half-life, where prices exist; otherwise scorelines with a 365-day half-life",
+    "ridge": "0.005 with prices, 0.01 without",
+    "optimizer": "block Newton, solved to convergence; no pinned reference team",
+    "calibration": "temperature 0.91 and draw shift 0.12 on the model's own 1X2 (0.94/0.09 without prices), fitted on 2023-25 forecasts",
+    "margin_removal": "power method",
+    "holdout": "2025-27, 3,330 matches in 8 leagues: 1X2 log loss 0.9873 (previous model 0.9975), tools/accuracy_lab.py"
+  },
+  "readiness": {
+    "league_id": "en.1",
+    "season": "2026-27",
+    "records": 2280,
+    "completed": 1950,
+    "upcoming": 300,
+    "latest_result": "2026-09-20",
+    "current_records": 380,
+    "unresolved_past": 12,
+    "likely_postponed": 9,
+    "source_checked_at": "2026-10-26T11:22:27.839873+00:00",
+    "status": "review_required",
+    "issues": [
+      "Completed results are missing or more than 30 days old",
+      "12 recent current-season fixtures have no result yet"
+    ]
+  },
+  "probabilities": [
+    0.4612118718335809,
+    0.2839049336764691,
+    0.2548831944899502
+  ],
+  "expected_goals": [
+    1.57412226656767,
+    1.1395062598448702
+  ],
+  "over25": 0.5048464987683519,
+  "btts": 0.5519977723223011,
+  "decision": "withhold",
+  "pricing_source": "model",
+  "model_probabilities": [
+    0.4612118718335809,
+    0.2839049336764691,
+    0.2548831944899502
+  ]
+}

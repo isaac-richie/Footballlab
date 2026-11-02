@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-10-28",
+    "league_id": "it.1",
+    "league": "Italy \u2014 Serie A",
+    "home": "AC Milan",
+    "away": "Bologna FC 1909"
+  },
+  "registered_at": "2026-10-26T11:22:39.936383+00:00",
+  "run_id": "20261026T112239936389Z",
+  "data_hash": "29e77c7a6898ac2f25ebf640d0264885662d24d3a2d848b20ecc0ed3f8c6d4b4",
+  "code_hash": "ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-2.0-exact-calibrated",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "targets": "closing-price implied goals (90%) blended with scorelines, 60-day half-life, where prices exist; otherwise scorelines with a 365-day half-life",
+    "ridge": "0.005 with prices, 0.01 without",
+    "optimizer": "block Newton, solved to convergence; no pinned reference team",
+    "calibration": "temperature 0.91 and draw shift 0.12 on the model's own 1X2 (0.94/0.09 without prices), fitted on 2023-25 forecasts",
+    "margin_removal": "power method",
+    "holdout": "2025-27, 3,330 matches in 8 leagues: 1X2 log loss 0.9873 (previous model 0.9975), tools/accuracy_lab.py"
+  },
+  "readiness": {
+    "league_id": "it.1",
+    "season": "2026-27",
+    "records": 2280,
+    "completed": 1940,
+    "upcoming": 300,
+    "latest_result": "2026-09-20",
+    "current_records": 380,
+    "unresolved_past": 13,
+    "likely_postponed": 8,
+    "source_checked_at": "2026-10-26T11:22:28.065925+00:00",
+    "status": "review_required",
+    "issues": [
+      "Completed results are missing or more than 30 days old",
+      "13 recent current-season fixtures have no result yet"
+    ]
+  },
+  "probabilities": [
+    0.48278963738692326,
+    0.2728255476485319,
+    0.24438481496454495
+  ],
+  "expected_goals": [
+    1.5224397865285724,
+    1.0325085680713728
+  ],
+  "over25": 0.46624157041655884,
+  "btts": 0.508041129144591,
+  "decision": "withhold",
+  "pricing_source": "model",
+  "model_probabilities": [
+    0.48278963738692326,
+    0.2728255476485319,
+    0.24438481496454495
+  ]
+}
