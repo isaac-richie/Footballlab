@@ -10,5 +10,13 @@
       }
     }
   ],
-  "routes": [{"handle": "filesystem"}, {"src": "/(.*)", "dest": "/api/index.py"}]
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/((?!_vercel/).*)",
+      "dest": "/api/index.py"
+    }
+  ]
 }
