@@ -1,19 +1,19 @@
-# Football Lab research run — 2026-11-02
+# Football Lab research run — 2026-11-03
 
 75 fixtures in the next 7 days (excluding today).
 Status: review_required
 
 ## Coverage
 
-- England — Premier League: review_required — Completed results are missing or more than 30 days old; 11 recent current-season fixtures have no result yet
-- Spain — La Liga: review_required — Completed results are missing or more than 30 days old; 12 recent current-season fixtures have no result yet
-- Italy — Serie A: review_required — Completed results are missing or more than 30 days old; 22 recent current-season fixtures have no result yet
+- England — Premier League: review_required — Completed results are missing or more than 30 days old; 18 recent current-season fixtures have no result yet
+- Spain — La Liga: review_required — Completed results are missing or more than 30 days old; 11 recent current-season fixtures have no result yet
+- Italy — Serie A: review_required — Completed results are missing or more than 30 days old; 23 recent current-season fixtures have no result yet
 - Germany — Bundesliga: research_only — Initial freshness checks passed; research only
-- France — Ligue 1: review_required — Completed results are missing or more than 30 days old; 11 recent current-season fixtures have no result yet
+- France — Ligue 1: review_required — Completed results are missing or more than 30 days old; 15 recent current-season fixtures have no result yet
 - Italy — Serie B: review_required — Current-season fixtures missing; Completed results are missing or more than 30 days old; Current source freshness unverified
 - Germany — 2. Bundesliga: research_only — Initial freshness checks passed; research only
-- Netherlands — Eredivisie: review_required — Completed results are missing or more than 30 days old; 9 recent current-season fixtures have no result yet
-- Portugal — Primeira Liga: review_required — Completed results are missing or more than 30 days old; 10 recent current-season fixtures have no result yet
+- Netherlands — Eredivisie: review_required — Completed results are missing or more than 30 days old; 14 recent current-season fixtures have no result yet
+- Portugal — Primeira Liga: review_required — Completed results are missing or more than 30 days old; 12 recent current-season fixtures have no result yet
 
 ## Forecasts
 
@@ -93,7 +93,7 @@ Status: review_required
 - 2026-11-08 · Portugal — Primeira Liga · Rio Ave FC v Sporting Clube de Braga: review_required; 1X2 17.4%/22.0%/60.6%; expected goals 0.93–1.88; O2.5 53.2%; BTTS 51.0%; decision withhold.
 - 2026-11-08 · Portugal — Primeira Liga · CF Estrela da Amadora v Sport Lisboa e Benfica: review_required; 1X2 9.2%/14.8%/76.1%; expected goals 0.84–2.57; O2.5 66.3%; BTTS 52.0%; decision withhold.
 
-Prospective ledger: 332 registered, 72 graded, 80 pending.
+Prospective ledger: 332 registered, 72 graded, 75 pending.
 These are uncalibrated research forecasts, not recommendations.
 
-Run: 20261102T134503576144Z · data: 870ec93d0cb10bd381056bc51fd595120088c35f02e9f297a3ac58c8aed94f97 · code: ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107
+Run: 20261103T125627555392Z · data: d6eaab2203bc7afa776ba2146152114cc31f5abb1661e235df70611901027ce8 · code: ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107
