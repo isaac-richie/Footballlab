@@ -1,19 +1,19 @@
-# Football Lab research run — 2026-11-04
+# Football Lab research run — 2026-11-05
 
 75 fixtures in the next 7 days (excluding today).
 Status: review_required
 
 ## Coverage
 
-- England — Premier League: review_required — Completed results are missing or more than 30 days old; 19 recent current-season fixtures have no result yet
-- Spain — La Liga: review_required — Completed results are missing or more than 30 days old; 21 recent current-season fixtures have no result yet
-- Italy — Serie A: review_required — Completed results are missing or more than 30 days old; 28 recent current-season fixtures have no result yet
+- England — Premier League: review_required — Completed results are missing or more than 30 days old; 20 recent current-season fixtures have no result yet
+- Spain — La Liga: review_required — Completed results are missing or more than 30 days old; 20 recent current-season fixtures have no result yet
+- Italy — Serie A: review_required — Completed results are missing or more than 30 days old; 30 recent current-season fixtures have no result yet
 - Germany — Bundesliga: research_only — Initial freshness checks passed; research only
 - France — Ligue 1: review_required — Completed results are missing or more than 30 days old; 18 recent current-season fixtures have no result yet
 - Italy — Serie B: review_required — Current-season fixtures missing; Completed results are missing or more than 30 days old; Current source freshness unverified
 - Germany — 2. Bundesliga: research_only — Initial freshness checks passed; research only
 - Netherlands — Eredivisie: review_required — Completed results are missing or more than 30 days old; 18 recent current-season fixtures have no result yet
-- Portugal — Primeira Liga: review_required — Completed results are missing or more than 30 days old; 16 recent current-season fixtures have no result yet
+- Portugal — Primeira Liga: review_required — Completed results are missing or more than 30 days old; 18 recent current-season fixtures have no result yet
 
 ## Forecasts
 
@@ -96,4 +96,4 @@ Status: review_required
 Prospective ledger: 332 registered, 72 graded, 75 pending.
 These are uncalibrated research forecasts, not recommendations.
 
-Run: 20261104T131122451903Z · data: ed628f68f920475f8141615fe251b53a550b416b7acb789e2e8696dc91a47b56 · code: ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107
+Run: 20261105T132540660871Z · data: 6335424bae364f3f897bdef4b26d67550b76baa8ed26ff38c51af60f08534782 · code: ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107
