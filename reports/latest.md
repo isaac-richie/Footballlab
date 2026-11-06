@@ -1,6 +1,6 @@
-# Football Lab research run — 2026-11-05
+# Football Lab research run — 2026-11-06
 
-75 fixtures in the next 7 days (excluding today).
+68 fixtures in the next 7 days (excluding today).
 Status: review_required
 
 ## Coverage
@@ -17,13 +17,6 @@ Status: review_required
 
 ## Forecasts
 
-- 2026-11-06 · Italy — Serie A · Venezia FC v Udinese Calcio: review_required; 1X2 24.6%/27.6%/47.8%; expected goals 1.02–1.50; O2.5 45.7%; BTTS 50.2%; decision withhold.
-- 2026-11-06 · Germany — Bundesliga · Hamburger SV v Borussia Mönchengladbach: research_only; 1X2 38.3%/28.2%/33.5%; expected goals 1.46–1.36; O2.5 53.0%; BTTS 58.2%; decision withhold.
-- 2026-11-06 · France — Ligue 1 · Toulouse FC v RC Strasbourg Alsace: review_required; 1X2 38.2%/26.5%/35.3%; expected goals 1.53–1.47; O2.5 57.4%; BTTS 61.2%; decision withhold.
-- 2026-11-06 · Germany — 2. Bundesliga · Dynamo Dresden v SpVgg Greuther Fürth: research_only; 1X2 50.3%/24.1%/25.6%; expected goals 1.91–1.35; O2.5 62.9%; BTTS 63.7%; decision withhold.
-- 2026-11-06 · Germany — 2. Bundesliga · Eintracht Braunschweig v Energie Cottbus: research_only; 1X2 36.6%/24.8%/38.6%; expected goals 1.65–1.69; O2.5 64.5%; BTTS 66.5%; decision withhold.
-- 2026-11-06 · Netherlands — Eredivisie · Willem II Tilburg v PEC Zwolle: review_required; 1X2 33.2%/28.9%/37.9%; expected goals 1.37–1.47; O2.5 53.4%; BTTS 58.9%; decision withhold.
-- 2026-11-06 · Portugal — Primeira Liga · FC Famalicão v FC Arouca: review_required; 1X2 50.2%/26.2%/23.6%; expected goals 1.50–0.97; O2.5 44.5%; BTTS 48.0%; decision withhold.
 - 2026-11-07 · England — Premier League · Arsenal FC v Hull City AFC: review_required; 1X2 56.6%/28.7%/14.7%; expected goals 1.54–0.70; O2.5 38.6%; BTTS 40.9%; decision withhold.
 - 2026-11-07 · England — Premier League · Nottingham Forest FC v Manchester City FC: review_required; 1X2 19.3%/26.2%/54.5%; expected goals 1.01–1.78; O2.5 52.5%; BTTS 54.1%; decision withhold.
 - 2026-11-07 · England — Premier League · Leeds United FC v Tottenham Hotspur FC: review_required; 1X2 44.5%/28.0%/27.5%; expected goals 1.59–1.23; O2.5 53.0%; BTTS 57.6%; decision withhold.
@@ -96,4 +89,4 @@ Status: review_required
 Prospective ledger: 332 registered, 72 graded, 75 pending.
 These are uncalibrated research forecasts, not recommendations.
 
-Run: 20261105T132540660871Z · data: 6335424bae364f3f897bdef4b26d67550b76baa8ed26ff38c51af60f08534782 · code: ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107
+Run: 20261106T130823535143Z · data: 248bdffd018dcedb8cb9ddf43861b39e78b0a10e1448c7fc1029453242cb2b42 · code: ccf1b693f3cdc4e34707be1633bf10f81c4fd07dfd196f95de8540d6d0100107

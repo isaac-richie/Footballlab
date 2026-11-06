@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-05T13:25:25.159330+00:00",
+  "fetched_at": "2026-11-06T13:08:12.201780+00:00",
   "license": "per-source",
   "sources": [
     {
@@ -7,7 +7,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "fbdfd426fa18fa2f8630b77de87c082734da495ac4668d6d72f29f76b73b9564",
-      "checked_at": "2026-11-05T13:25:15.377565+00:00",
+      "checked_at": "2026-11-06T13:07:57.515247+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -15,7 +15,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "7beb67dd49d7132bf9f7baea540342439b97ed4a7b21ffb90d3231a402c54d02",
-      "checked_at": "2026-11-05T13:25:15.446151+00:00",
+      "checked_at": "2026-11-06T13:07:57.669148+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -23,7 +23,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "a3e94b23cac768e4191e99312f4d48471c4000c5c2fe766b0325cee935754061",
-      "checked_at": "2026-11-05T13:25:15.519967+00:00",
+      "checked_at": "2026-11-06T13:07:57.817166+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -31,7 +31,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "f1b9901cffb6b073f389e730213b5f8efe6a9a73b2f86058794f2d0f1dcc54dc",
-      "checked_at": "2026-11-05T13:25:15.608577+00:00",
+      "checked_at": "2026-11-06T13:07:57.987954+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -39,7 +39,7 @@
       "league_id": "fr.1",
       "matches": 380,
       "sha256": "8abb493061d32faaf413c403b440c043723d9743a9e69d6472bf5410e2d4e039",
-      "checked_at": "2026-11-05T13:25:15.669983+00:00",
+      "checked_at": "2026-11-06T13:07:58.154415+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -47,7 +47,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "8d09f0f9846981626cdfec48903e1f21e7c79aabe6f92535c9e092e8e79b808b",
-      "checked_at": "2026-11-05T13:25:17.044576+00:00",
+      "checked_at": "2026-11-06T13:07:59.961046+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -55,7 +55,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "0204c66c919c2cd5cc3d1ba26be4f68592e4e173843162a9e6755182ccf83778",
-      "checked_at": "2026-11-05T13:25:17.106112+00:00",
+      "checked_at": "2026-11-06T13:08:00.095088+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -63,7 +63,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "d775fdd375af6998233fbfcd5b33d176cb9d016a981682626c5ce2f95b0c2f88",
-      "checked_at": "2026-11-05T13:25:17.174973+00:00",
+      "checked_at": "2026-11-06T13:08:00.244256+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -71,7 +71,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "b0c052dc75836dfc6b0d3781d35b828851db7377c9f6ccb39643dbbe1964f3bd",
-      "checked_at": "2026-11-05T13:25:17.237012+00:00",
+      "checked_at": "2026-11-06T13:08:00.353893+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -79,7 +79,7 @@
       "league_id": "fr.1",
       "matches": 380,
       "sha256": "6301ac1ba1fa0f5b72345759711beac3b3be3c989725cc1c6ef9307ffef692c7",
-      "checked_at": "2026-11-05T13:25:17.295882+00:00",
+      "checked_at": "2026-11-06T13:08:00.514436+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -87,7 +87,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "03e13eafbf78dfe00d7e89dd3bf6643986eb6e8fd86c7664aeb8c5bc0bed88d0",
-      "checked_at": "2026-11-05T13:25:18.452815+00:00",
+      "checked_at": "2026-11-06T13:08:02.334005+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -95,7 +95,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "e4c1e1a958f224ba3c815c898982ab495b9577315cc58ee7a5e7b532960f738b",
-      "checked_at": "2026-11-05T13:25:18.526796+00:00",
+      "checked_at": "2026-11-06T13:08:02.530113+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -103,7 +103,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "47734fc8d2ec34c5529ca814c97d1c86ecddc4a2c8095506d9b12f29cb283308",
-      "checked_at": "2026-11-05T13:25:18.590298+00:00",
+      "checked_at": "2026-11-06T13:08:02.689592+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -111,7 +111,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "d104edde48a5e254545eac3d3ed379a09801e1ebcef5c6480e28bc36fcfa202d",
-      "checked_at": "2026-11-05T13:25:18.714614+00:00",
+      "checked_at": "2026-11-06T13:08:02.744182+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -119,7 +119,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "fa328cecf4c12232ac77a5d477059eebe16b68b3712ec87800b89efda8ddfb70",
-      "checked_at": "2026-11-05T13:25:18.798087+00:00",
+      "checked_at": "2026-11-06T13:08:02.883557+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -127,7 +127,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "c3d18f552d83382cd4b6b21127adbbfe38e7f8618ddc979fb5404f2df07d0a75",
-      "checked_at": "2026-11-05T13:25:20.073005+00:00",
+      "checked_at": "2026-11-06T13:08:05.041919+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -135,7 +135,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "da5bfa1b3634e1039d9e71aec50bdc847f8761189e3de235a4e730e0dc64ca38",
-      "checked_at": "2026-11-05T13:25:20.091377+00:00",
+      "checked_at": "2026-11-06T13:08:05.195239+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -143,7 +143,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "7d9bb936de3ccaeec54d57371512a58a5eeb21277e7d5f0882911a834d22b659",
-      "checked_at": "2026-11-05T13:25:20.113708+00:00",
+      "checked_at": "2026-11-06T13:08:05.344140+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -151,7 +151,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "f473d6595e6c29ebedc08b09177aed6a6b2ff0fa8378b82f51dea469139f44c3",
-      "checked_at": "2026-11-05T13:25:20.134217+00:00",
+      "checked_at": "2026-11-06T13:08:05.457918+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -159,7 +159,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "90e9974afe6597452622387ad218f6b0011a5f91f1b426f05152f5b9c105e355",
-      "checked_at": "2026-11-05T13:25:20.155505+00:00",
+      "checked_at": "2026-11-06T13:08:05.579263+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -167,7 +167,7 @@
       "league_id": "it.2",
       "matches": 390,
       "sha256": "7592d38014c83fa37477901fd288c9f7268e11cfb254f1dd9458e304970373b0",
-      "checked_at": "2026-11-05T13:25:20.189182+00:00",
+      "checked_at": "2026-11-06T13:08:05.760144+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -175,7 +175,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1",
-      "checked_at": "2026-11-05T13:25:21.387451+00:00",
+      "checked_at": "2026-11-06T13:08:07.439676+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -183,7 +183,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "b40397d8e62c640138548d57a1a9f76150549213d2a07fcbbb90ed0eabc6ccea",
-      "checked_at": "2026-11-05T13:25:21.408998+00:00",
+      "checked_at": "2026-11-06T13:08:07.567255+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -191,7 +191,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "28f7773dea86345aeb0cbb4aff2f90231033f7ed855219e70fdd1cf45d4d7e7f",
-      "checked_at": "2026-11-05T13:25:21.490935+00:00",
+      "checked_at": "2026-11-06T13:08:07.644824+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -199,7 +199,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "17d0999db6281e6365823acdbce41a4f01dd469eac63e1f897e4e47c02906672",
-      "checked_at": "2026-11-05T13:25:21.511781+00:00",
+      "checked_at": "2026-11-06T13:08:07.818267+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -207,7 +207,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "3e9403445dd96f4bb7f740de22d4ea7e3ea7d640777a12eab621ae4d4dbf3bc7",
-      "checked_at": "2026-11-05T13:25:21.538209+00:00",
+      "checked_at": "2026-11-06T13:08:07.896081+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -215,7 +215,7 @@
       "league_id": "it.2",
       "matches": 380,
       "sha256": "74e38be319c2c30b82abcd9aabd5468a79d36408e7f6f2b066eb8bf7938a06b5",
-      "checked_at": "2026-11-05T13:25:21.605710+00:00",
+      "checked_at": "2026-11-06T13:08:08.059726+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -223,7 +223,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
-      "checked_at": "2026-11-05T13:25:22.853334+00:00",
+      "checked_at": "2026-11-06T13:08:09.429570+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -231,7 +231,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "4b1a9906e3f2b279a1f25497a38f2f58e21ec19ea726b882fa646da7c07bc0e0",
-      "checked_at": "2026-11-05T13:25:22.868612+00:00",
+      "checked_at": "2026-11-06T13:08:09.487004+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -239,7 +239,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "721a6c220fecb8208287e41401fa2fce652cd23765ce58a39bf98cdaa3d528ad",
-      "checked_at": "2026-11-05T13:25:22.884410+00:00",
+      "checked_at": "2026-11-06T13:08:09.541429+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -247,7 +247,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "07fab65d4a1de8ce4c8472da9ccf4d1d2b145ecd5abdc5b6d4250a5c119d7681",
-      "checked_at": "2026-11-05T13:25:22.901164+00:00",
+      "checked_at": "2026-11-06T13:08:09.675072+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -255,7 +255,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "f875275f835e378fc8c4e7d48c7a2f327e7d426237bd057fe652fd47f30b5a4f",
-      "checked_at": "2026-11-05T13:25:22.925702+00:00",
+      "checked_at": "2026-11-06T13:08:09.712605+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -263,7 +263,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "2194b63aba45bbb14254e9e3ef394c6a2f32089153e2844bc14a3ef7eaad0acb",
-      "checked_at": "2026-11-05T13:25:25.153751+00:00",
+      "checked_at": "2026-11-06T13:08:12.196264+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
       "role": "fills missing Bundesliga results"
@@ -305,7 +305,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "6918998992aae77f498a1f39622f17032dde29649f0827822b9017699ee8212a",
-      "checked_at": "2026-11-05T13:25:16.950463+00:00",
+      "checked_at": "2026-11-06T13:07:59.761726+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -313,7 +313,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "053899d21effad8bc15aa74852631324276819673ad29ea9c3ed74ac02af2a51",
-      "checked_at": "2026-11-05T13:25:16.983897+00:00",
+      "checked_at": "2026-11-06T13:07:59.909059+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -321,7 +321,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "4c033f836ad98581c5055456d363a57d80d612a0e6605cf63c053ada1bfa19c1",
-      "checked_at": "2026-11-05T13:25:18.349674+00:00",
+      "checked_at": "2026-11-06T13:08:01.977479+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -329,7 +329,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "fdec06d71d3fe491d8fac75a7680c1ea8dc0e952f5d071e4722cd1fa77f76a06",
-      "checked_at": "2026-11-05T13:25:18.379967+00:00",
+      "checked_at": "2026-11-06T13:08:02.208499+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -337,7 +337,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "7fca2acdd40027c59890e68cc5b8cba667eebed353c2e4870315ae02f3ef5380",
-      "checked_at": "2026-11-05T13:25:19.978271+00:00",
+      "checked_at": "2026-11-06T13:08:04.732249+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -345,7 +345,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "70ae548487e9c3afb38d4af97f5896f90ec268b6aea9cb95e0da4765af0cee75",
-      "checked_at": "2026-11-05T13:25:20.052299+00:00",
+      "checked_at": "2026-11-06T13:08:04.885320+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -353,7 +353,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "e6398379f3d68eb2863cc7dcac12c60219ab186614366bb86560039638b2f6c5",
-      "checked_at": "2026-11-05T13:25:21.261643+00:00",
+      "checked_at": "2026-11-06T13:08:07.153659+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -361,7 +361,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "67b38b62062641055946f99f0f393e44ac22a7df3021d4fc7ba1bb6adf94df30",
-      "checked_at": "2026-11-05T13:25:22.765022+00:00",
+      "checked_at": "2026-11-06T13:08:09.258129+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -369,7 +369,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "c35c7b249ce7f3eb21c543d89ca32a3654cb218ed79c22ce6a9765fead5334da",
-      "checked_at": "2026-11-05T13:25:22.832899+00:00",
+      "checked_at": "2026-11-06T13:08:09.374290+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -385,7 +385,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "970507a228aa4ccd2968d52a9862b0d2844148bc548bc7ffe5e83d1c0d8f0517",
-      "checked_at": "2026-11-05T13:25:24.073727+00:00",
+      "checked_at": "2026-11-06T13:08:10.915467+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -393,7 +393,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "57cac2d6caab5a303d0b846ce523462b4571da10766a128ac0a5102bd0182e7e",
-      "checked_at": "2026-11-05T13:25:24.124482+00:00",
+      "checked_at": "2026-11-06T13:08:11.047680+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -401,7 +401,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "204a047e80abae556e9aed6afede82335d93866a49b479f585313ae5e7a9ecff",
-      "checked_at": "2026-11-05T13:25:21.348164+00:00",
+      "checked_at": "2026-11-06T13:08:07.312544+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -417,7 +417,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "563ee175daae3b2443ee99e48084e417cfcb2868499787f033ae2fec7cda4039",
-      "checked_at": "2026-11-05T13:25:16.862493+00:00",
+      "checked_at": "2026-11-06T13:07:59.631694+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -426,7 +426,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "8435c7a8a4e4541602b43f23f142873a1b353674344495cd707ad92aa35b2f6a",
-      "checked_at": "2026-11-05T13:25:18.259472+00:00",
+      "checked_at": "2026-11-06T13:08:01.808741+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -435,7 +435,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "a01a006edb8e310a432dc7eaf62d94298b4c19d8680dad8a934a1fe12e21b655",
-      "checked_at": "2026-11-05T13:25:19.904608+00:00",
+      "checked_at": "2026-11-06T13:08:04.544438+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -444,7 +444,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "93f8d0a04dc80adf2b477aeeee555f0a03cbefb4adab1a46b9aa42dc71bf3112",
-      "checked_at": "2026-11-05T13:25:21.208396+00:00",
+      "checked_at": "2026-11-06T13:08:07.008562+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -453,7 +453,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "26ca6f436c5916b78ce6f2bb06a69cae57b7ef0a073d3a9a446f66f1b67afbba",
-      "checked_at": "2026-11-05T13:25:22.746975+00:00",
+      "checked_at": "2026-11-06T13:08:09.186665+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -461,8 +461,8 @@
       "url": "https://api.openligadb.de/getmatchdata/bl2/2026",
       "league_id": "de.2",
       "matches": 306,
-      "sha256": "460af459a62a5f6a88aebe5e742419e3c8d9a708b6d5dd5a14c741cafe1a98ab",
-      "checked_at": "2026-11-05T13:25:23.997868+00:00",
+      "sha256": "480cc2a206545dc20f3f76c192aa8a8844d51080440191a8f5c2211726fbe52a",
+      "checked_at": "2026-11-06T13:08:10.849753+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     }
@@ -277531,6 +277531,28 @@
     },
     {
       "date": "2026-12-04",
+      "home": "DSC Arminia Bielefeld",
+      "away": "Dynamo Dresden",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-04T17:30:00Z"
+    },
+    {
+      "date": "2026-12-04",
+      "home": "Energie Cottbus",
+      "away": "VfL Osnabr\u00fcck",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-04T17:30:00Z"
+    },
+    {
+      "date": "2026-12-04",
       "home": "Telstar 1963",
       "away": "FC Groningen",
       "goals": null,
@@ -277805,6 +277827,50 @@
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "1. FC Kaiserslautern",
+      "away": "SpVgg Greuther F\u00fcrth",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-05T12:00:00Z"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "1. FC N\u00fcrnberg",
+      "away": "VfL Bochum",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-05T12:00:00Z"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "Karlsruher SC",
+      "away": "Holstein Kiel",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-05T12:00:00Z"
+    },
+    {
+      "date": "2026-12-05",
+      "home": "Hannover 96",
+      "away": "Hertha BSC",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-05T19:30:00Z"
     },
     {
       "date": "2026-12-05",
@@ -278096,74 +278162,8 @@
     },
     {
       "date": "2026-12-06",
-      "home": "Hannover 96",
-      "away": "Hertha BSC",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T12:30:00Z"
-    },
-    {
-      "date": "2026-12-06",
       "home": "SV Darmstadt 98",
       "away": "Eintracht Braunschweig",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T12:30:00Z"
-    },
-    {
-      "date": "2026-12-06",
-      "home": "1. FC Kaiserslautern",
-      "away": "SpVgg Greuther F\u00fcrth",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T12:30:00Z"
-    },
-    {
-      "date": "2026-12-06",
-      "home": "1. FC N\u00fcrnberg",
-      "away": "VfL Bochum",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T12:30:00Z"
-    },
-    {
-      "date": "2026-12-06",
-      "home": "Karlsruher SC",
-      "away": "Holstein Kiel",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T12:30:00Z"
-    },
-    {
-      "date": "2026-12-06",
-      "home": "DSC Arminia Bielefeld",
-      "away": "Dynamo Dresden",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T12:30:00Z"
-    },
-    {
-      "date": "2026-12-06",
-      "home": "Energie Cottbus",
-      "away": "VfL Osnabr\u00fcck",
       "goals": null,
       "ht": null,
       "league_id": "de.2",
@@ -278315,6 +278315,28 @@
       "league": "Germany \u2014 Bundesliga",
       "season": "2026-27",
       "kickoff": "2026-12-11T19:30:00Z"
+    },
+    {
+      "date": "2026-12-11",
+      "home": "DSC Arminia Bielefeld",
+      "away": "1. FC Kaiserslautern",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-11T17:30:00Z"
+    },
+    {
+      "date": "2026-12-11",
+      "home": "1. FC Magdeburg",
+      "away": "1. FC N\u00fcrnberg",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-11T17:30:00Z"
     },
     {
       "date": "2026-12-12",
@@ -278560,6 +278582,50 @@
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Hertha BSC",
+      "away": "SV Darmstadt 98",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-12T12:00:00Z"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Holstein Kiel",
+      "away": "Hannover 96",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-12T12:00:00Z"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Eintracht Braunschweig",
+      "away": "Karlsruher SC",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-12T12:00:00Z"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Dynamo Dresden",
+      "away": "Energie Cottbus",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-12T19:30:00Z"
     },
     {
       "date": "2026-12-12",
@@ -278840,74 +278906,8 @@
     },
     {
       "date": "2026-12-13",
-      "home": "Hertha BSC",
-      "away": "SV Darmstadt 98",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T12:30:00Z"
-    },
-    {
-      "date": "2026-12-13",
       "home": "VfL Bochum",
       "away": "1. FC Heidenheim 1846",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T12:30:00Z"
-    },
-    {
-      "date": "2026-12-13",
-      "home": "Dynamo Dresden",
-      "away": "Energie Cottbus",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T12:30:00Z"
-    },
-    {
-      "date": "2026-12-13",
-      "home": "Holstein Kiel",
-      "away": "Hannover 96",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T12:30:00Z"
-    },
-    {
-      "date": "2026-12-13",
-      "home": "DSC Arminia Bielefeld",
-      "away": "1. FC Kaiserslautern",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T12:30:00Z"
-    },
-    {
-      "date": "2026-12-13",
-      "home": "1. FC Magdeburg",
-      "away": "1. FC N\u00fcrnberg",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T12:30:00Z"
-    },
-    {
-      "date": "2026-12-13",
-      "home": "Eintracht Braunschweig",
-      "away": "Karlsruher SC",
       "goals": null,
       "ht": null,
       "league_id": "de.2",
@@ -279095,6 +279095,28 @@
     },
     {
       "date": "2026-12-18",
+      "home": "1. FC N\u00fcrnberg",
+      "away": "VfL Osnabr\u00fcck",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-18T17:30:00Z"
+    },
+    {
+      "date": "2026-12-18",
+      "home": "Energie Cottbus",
+      "away": "Holstein Kiel",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-18T17:30:00Z"
+    },
+    {
+      "date": "2026-12-18",
       "home": "Telstar 1963",
       "away": "Willem II Tilburg",
       "goals": null,
@@ -279268,6 +279290,50 @@
       "league": "Germany \u2014 Bundesliga",
       "season": "2026-27",
       "kickoff": "2026-12-19T14:30:00Z"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "VfL Wolfsburg",
+      "away": "DSC Arminia Bielefeld",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-19T12:00:00Z"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "FC St. Pauli",
+      "away": "Hertha BSC",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-19T12:00:00Z"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "Karlsruher SC",
+      "away": "Dynamo Dresden",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-19T12:00:00Z"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "VfL Bochum",
+      "away": "1. FC Magdeburg",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2026-12-19T19:30:00Z"
     },
     {
       "date": "2026-12-19",
@@ -279537,28 +279603,6 @@
     },
     {
       "date": "2026-12-20",
-      "home": "VfL Wolfsburg",
-      "away": "DSC Arminia Bielefeld",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T12:30:00Z"
-    },
-    {
-      "date": "2026-12-20",
-      "home": "FC St. Pauli",
-      "away": "Hertha BSC",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T12:30:00Z"
-    },
-    {
-      "date": "2026-12-20",
       "home": "1. FC Heidenheim 1846",
       "away": "Eintracht Braunschweig",
       "goals": null,
@@ -279583,50 +279627,6 @@
       "date": "2026-12-20",
       "home": "SV Darmstadt 98",
       "away": "SpVgg Greuther F\u00fcrth",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T12:30:00Z"
-    },
-    {
-      "date": "2026-12-20",
-      "home": "1. FC N\u00fcrnberg",
-      "away": "VfL Osnabr\u00fcck",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T12:30:00Z"
-    },
-    {
-      "date": "2026-12-20",
-      "home": "VfL Bochum",
-      "away": "1. FC Magdeburg",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T12:30:00Z"
-    },
-    {
-      "date": "2026-12-20",
-      "home": "Karlsruher SC",
-      "away": "Dynamo Dresden",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T12:30:00Z"
-    },
-    {
-      "date": "2026-12-20",
-      "home": "Energie Cottbus",
-      "away": "Holstein Kiel",
       "goals": null,
       "ht": null,
       "league_id": "de.2",
@@ -281300,6 +281300,28 @@
     },
     {
       "date": "2027-01-15",
+      "home": "DSC Arminia Bielefeld",
+      "away": "Hannover 96",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2027-01-15T17:30:00Z"
+    },
+    {
+      "date": "2027-01-15",
+      "home": "SpVgg Greuther F\u00fcrth",
+      "away": "Karlsruher SC",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2027-01-15T17:30:00Z"
+    },
+    {
+      "date": "2027-01-15",
       "home": "SC Heerenveen",
       "away": "Sparta Rotterdam",
       "goals": null,
@@ -281574,6 +281596,50 @@
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27"
+    },
+    {
+      "date": "2027-01-16",
+      "home": "Holstein Kiel",
+      "away": "VfL Bochum",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2027-01-16T12:00:00Z"
+    },
+    {
+      "date": "2027-01-16",
+      "home": "1. FC Magdeburg",
+      "away": "1. FC Heidenheim 1846",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2027-01-16T12:00:00Z"
+    },
+    {
+      "date": "2027-01-16",
+      "home": "Eintracht Braunschweig",
+      "away": "FC St. Pauli",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2027-01-16T12:00:00Z"
+    },
+    {
+      "date": "2027-01-16",
+      "home": "Hertha BSC",
+      "away": "1. FC N\u00fcrnberg",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2027-01-16T19:30:00Z"
     },
     {
       "date": "2027-01-16",
@@ -281854,74 +281920,8 @@
     },
     {
       "date": "2027-01-17",
-      "home": "Hertha BSC",
-      "away": "1. FC N\u00fcrnberg",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T12:30:00Z"
-    },
-    {
-      "date": "2027-01-17",
       "home": "Dynamo Dresden",
       "away": "VfL Wolfsburg",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T12:30:00Z"
-    },
-    {
-      "date": "2027-01-17",
-      "home": "Holstein Kiel",
-      "away": "VfL Bochum",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T12:30:00Z"
-    },
-    {
-      "date": "2027-01-17",
-      "home": "DSC Arminia Bielefeld",
-      "away": "Hannover 96",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T12:30:00Z"
-    },
-    {
-      "date": "2027-01-17",
-      "home": "1. FC Magdeburg",
-      "away": "1. FC Heidenheim 1846",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T12:30:00Z"
-    },
-    {
-      "date": "2027-01-17",
-      "home": "Eintracht Braunschweig",
-      "away": "FC St. Pauli",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T12:30:00Z"
-    },
-    {
-      "date": "2027-01-17",
-      "home": "SpVgg Greuther F\u00fcrth",
-      "away": "Karlsruher SC",
       "goals": null,
       "ht": null,
       "league_id": "de.2",
@@ -282084,6 +282084,28 @@
       "league": "Germany \u2014 Bundesliga",
       "season": "2026-27",
       "kickoff": "2027-01-22T19:30:00Z"
+    },
+    {
+      "date": "2027-01-22",
+      "home": "Dynamo Dresden",
+      "away": "1. FC N\u00fcrnberg",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2027-01-22T17:30:00Z"
+    },
+    {
+      "date": "2027-01-22",
+      "home": "Eintracht Braunschweig",
+      "away": "1. FC Magdeburg",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2027-01-22T17:30:00Z"
     },
     {
       "date": "2027-01-22",
@@ -282350,6 +282372,39 @@
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27"
+    },
+    {
+      "date": "2027-01-23",
+      "home": "Hannover 96",
+      "away": "Energie Cottbus",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2027-01-23T12:00:00Z"
+    },
+    {
+      "date": "2027-01-23",
+      "home": "Hertha BSC",
+      "away": "VfL Bochum",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2027-01-23T12:00:00Z"
+    },
+    {
+      "date": "2027-01-23",
+      "home": "VfL Osnabr\u00fcck",
+      "away": "1. FC Heidenheim 1846",
+      "goals": null,
+      "ht": null,
+      "league_id": "de.2",
+      "league": "Germany \u2014 2. Bundesliga",
+      "season": "2026-27",
+      "kickoff": "2027-01-23T12:00:00Z"
     },
     {
       "date": "2027-01-23",
@@ -282630,41 +282685,8 @@
     },
     {
       "date": "2027-01-24",
-      "home": "Hannover 96",
-      "away": "Energie Cottbus",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T12:30:00Z"
-    },
-    {
-      "date": "2027-01-24",
       "home": "1. FC Kaiserslautern",
       "away": "VfL Wolfsburg",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T12:30:00Z"
-    },
-    {
-      "date": "2027-01-24",
-      "home": "Hertha BSC",
-      "away": "VfL Bochum",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T12:30:00Z"
-    },
-    {
-      "date": "2027-01-24",
-      "home": "Dynamo Dresden",
-      "away": "1. FC N\u00fcrnberg",
       "goals": null,
       "ht": null,
       "league_id": "de.2",
@@ -282696,30 +282718,8 @@
     },
     {
       "date": "2027-01-24",
-      "home": "Eintracht Braunschweig",
-      "away": "1. FC Magdeburg",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T12:30:00Z"
-    },
-    {
-      "date": "2027-01-24",
       "home": "SpVgg Greuther F\u00fcrth",
       "away": "FC St. Pauli",
-      "goals": null,
-      "ht": null,
-      "league_id": "de.2",
-      "league": "Germany \u2014 2. Bundesliga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T12:30:00Z"
-    },
-    {
-      "date": "2027-01-24",
-      "home": "VfL Osnabr\u00fcck",
-      "away": "1. FC Heidenheim 1846",
       "goals": null,
       "ht": null,
       "league_id": "de.2",
