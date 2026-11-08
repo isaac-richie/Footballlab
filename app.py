@@ -615,7 +615,7 @@ def fixture_rates(data, league_id, fixtures, today):
     return rows, rho, priced
 
 
-RECENT_DAYS = 2         # keep played-but-unscored games listed this long
+RECENT_DAYS = 0         # played-but-unscored games stay listed only on the day they were played
 
 
 def slate(data, league_id, limit=40):
@@ -630,8 +630,8 @@ def slate(data, league_id, limit=40):
             f['status'] = schedule.status(dict(goals=None, date=f['date'], kickoff=f.get('kickoff')))
         return result
     # Upcoming means not yet kicked off or still in play. Games that should be over but whose
-    # score has not arrived stay listed for RECENT_DAYS, marked 'awaiting_result', so a slow
-    # results feed never makes a weekend's games vanish. Today's games without a known kickoff
+    # score has not arrived stay listed for the rest of their day (RECENT_DAYS), marked
+    # 'awaiting_result', so tonight's games don't vanish at the final whistle; older ones drop off. Today's games without a known kickoff
     # time (the hosted, open-data Lab) stay listed as 'today' until their result arrives.
     recent = (dt.date.fromisoformat(today) - dt.timedelta(days=RECENT_DAYS)).isoformat()
     fixtures = sorted((m for m in data['matches'] if m['league_id'] == league_id and m['goals'] is None and not m.get('unconfirmed')

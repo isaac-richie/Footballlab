@@ -1422,14 +1422,15 @@ function renderBoard(){
   const s = state.slate, body = $('#board-body');
   if(!s) return;
   if(s.error){ body.innerHTML = `<div class="empty">${esc(s.error)}</div>`; $('#board-note').textContent = ''; return }
-  let list = s.fixtures.filter(f => !state.filter || (f.home + ' ' + f.away).toLowerCase().includes(state.filter));
+  // 'Upcoming' means still to play or in play; finished games waiting for a score live on Featured.
+  let list = s.fixtures.filter(f => f.status !== 'awaiting_result' && (!state.filter || (f.home + ' ' + f.away).toLowerCase().includes(state.filter)));
   const key = {home: f => -f.probabilities[0], away: f => -f.probabilities[2], over25: f => -f.over25, btts: f => -f.btts}[state.sort];
   if(key) list = [...list].sort((a, b) => key(a) - key(b));
-  if(!list.length){ body.innerHTML = `<div class="empty">${s.fixtures.length ? 'No fixtures match that filter.' : 'No upcoming fixtures in the source for this league.'}</div>`; return }
+  if(!list.length){ body.innerHTML = `<div class="empty">${state.filter ? 'No fixtures match that filter.' : 'No upcoming fixtures in the source for this league.'}</div>`; return }
   let html = '', last = null;
   list.forEach((f, idx) => {
     if(state.sort === 'date' && f.date !== last){ const dd = Math.round((new Date(f.date + 'T12:00:00') - new Date(state.data.today + 'T12:00:00')) / 864e5);
-      html += `<div class="day"><span>${esc(day(f.date))}</span><span class="ko">${dd <= 0 ? 'Today' : dd === 1 ? 'Tomorrow' : 'In ' + dd + ' days'}</span></div>`; last = f.date }
+      html += `<div class="day"><span>${esc(day(f.date))}</span><span class="ko">${dd < 0 ? 'Played' : dd === 0 ? 'Today' : dd === 1 ? 'Tomorrow' : 'In ' + dd + ' days'}</span></div>`; last = f.date }
     const p = f.probabilities;
     const mv = f.movement, mvTag = mv ? `<span class="move ${mv.change[0] >= 0 ? 'up' : 'down'}" title="Home probability moved since ${esc(new Date(mv.since).toLocaleString())}">${mv.change[0] >= 0 ? '▲' : '▼'}${Math.abs(mv.change[0] * 100).toFixed(1)}${mv.sharp ? ' sharp' : ''}</span>` : '';
     html += `<button class="fx${f.status === 'live' ? ' is-live' : ''}" style="--i:${state.noStagger ? 0 : Math.min(idx, 30)}${state.noStagger ? ';animation:none' : ''}" data-home="${esc(f.home)}" data-away="${esc(f.away)}" data-date="${esc(f.date)}">` +
@@ -1442,7 +1443,7 @@ function renderBoard(){
       `<span class="mini"><span>xG <b>${f.expected_goals[0].toFixed(1)}–${f.expected_goals[1].toFixed(1)}</b></span><span>O2.5 <b>${pct(f.over25)}</b></span><span>BTTS <b>${pct(f.btts)}</b></span><span>Top <b>${esc(f.top_score.score)}</b></span></span></button>`;
   });
   body.innerHTML = html;
-  $('#board-note').textContent = `${s.fixtures.length} fixtures, ${s.priced} priced from bookmaker odds. ${s.note} ● marks a team with fewer than 10 league matches in the past year.`;
+  $('#board-note').textContent = `${s.fixtures.filter(f => f.status !== 'awaiting_result').length} fixtures, ${s.priced} priced from bookmaker odds. ${s.note} ● marks a team with fewer than 10 league matches in the past year.`;
 }
 // Keep live minutes ticking without a reload.
 setInterval(() => { if(state.slate && (state.slate.fixtures || []).some(f => f.status === 'live') && !document.hidden){ state.noStagger = true; renderBoard(); state.noStagger = false } }, 60000);
