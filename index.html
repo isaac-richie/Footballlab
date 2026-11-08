@@ -540,11 +540,11 @@ html{background:var(--bg)}
 .ft-filter button b{margin-left:6px;opacity:.6;font-weight:700}
 .ft-filter button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#0b0f14}
 .ft-all{margin-top:34px}
-.ft-all-head{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
-.ft-all-head h2{margin:0;font-family:var(--display);text-transform:uppercase;letter-spacing:1px;font-size:26px}
+.ft-all-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:10px}
+.ft-all-head h2{margin:0;white-space:nowrap;font-family:var(--display);text-transform:uppercase;letter-spacing:1px;font-size:26px}
 .ft-all-head span{color:var(--muted);font-size:14px}
 .ga-day{font-family:var(--display);text-transform:uppercase;letter-spacing:1.2px;font-size:13px;color:var(--accent);margin:18px 0 6px}
-.ga{display:grid;grid-template-columns:86px minmax(0,1fr) 150px 120px;gap:12px;align-items:center;width:100%;text-align:left;padding:10px 14px;margin:0 0 6px;border-radius:14px;border:1px solid var(--line);background:var(--surface-2);color:var(--text);cursor:pointer;font:inherit;transition:transform .2s,border-color .2s;animation:rise .4s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i,0) * 18ms)}
+.ga{display:grid;grid-template-columns:120px minmax(0,1fr) 150px 120px;gap:12px;align-items:center;width:100%;text-align:left;padding:10px 14px;margin:0 0 6px;border-radius:14px;border:1px solid var(--line);background:var(--surface-2);color:var(--text);cursor:pointer;font:inherit;transition:transform .2s,border-color .2s;animation:rise .4s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i,0) * 18ms)}
 .ga:hover{border-color:color-mix(in srgb,var(--accent) 55%,var(--line));transform:translateX(3px)}
 .ga.is-live{border-color:#ff3b5c88}
 .ga .lg{font-family:var(--display);text-transform:uppercase;letter-spacing:.6px;font-size:11px;color:var(--muted)}
@@ -552,7 +552,16 @@ html{background:var(--bg)}
 .ga .tm span{display:flex;align-items:center;gap:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ga .tm .tb,.ga .tm .kit{width:20px;height:20px;flex-shrink:0}
 .ga .pk{font-size:13px;color:var(--muted);text-align:right}.ga .pk b{color:var(--text);font-family:var(--display);font-size:17px}
-@media (max-width:640px){.ga{grid-template-columns:70px minmax(0,1fr);row-gap:8px}.ga .tri-wrap{grid-column:1/-1}.ga .pk{display:none}}
+.ga .meta{display:flex;flex-direction:column;align-items:flex-start;gap:5px;min-width:0}
+.ga .meta .lg{width:auto;height:auto;margin:0;border-radius:0;display:block;line-height:1.3;font-size:12px}
+.ga .meta .st{white-space:normal;line-height:1.25;padding:3px 8px}
+@media (max-width:640px){
+  .ga{grid-template-columns:minmax(0,1fr);row-gap:10px;padding:12px 14px}
+  .ga .meta{flex-direction:row;align-items:center;justify-content:space-between;gap:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .ga .meta .lg{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ga .meta .st{white-space:nowrap;flex-shrink:0}
+  .ga .tm{gap:7px}.ga .tm span{font-size:15px}
+  .ga .pk{display:none}}
 .ft-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 @media (max-width:760px){.ft-grid{grid-template-columns:minmax(0,1fr)}}
 .ft-stage{position:relative;perspective:1600px}
@@ -1016,6 +1025,7 @@ footer a{color:var(--muted)}
 @media (max-width:760px){.vr-top{grid-template-columns:1fr}.vr-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .rec-h{margin:26px 0 10px;font-family:var(--display);text-transform:uppercase;letter-spacing:1px;font-size:18px;color:var(--muted)}
 @media (max-width:760px){.rk svg{width:78px;height:78px}.rk b{top:25px;font-size:19px}.rl{grid-template-columns:minmax(0,96px) 1fr 40px 26px}}
+.vip-code:empty{display:none}
 </style>
 </head>
 <body>
@@ -1149,7 +1159,7 @@ footer a{color:var(--muted)}
   <section data-panel="vip" hidden>
     <div class="view-head hero-head">
       <div><span class="eyebrow"><i></i>VIP picks</span><h1>VIP picks</h1>
-        <p>Our surest prediction from each of the most predictable games across every league, for the next three days.</p>
+        <p>Our surest picks for the next three days, from the Premier League, La Liga and the Bundesligas, where every result is checked automatically and goes on the record.</p>
         <div class="hero-stats" id="vip-stats"></div></div>
       <div class="seg" id="vip-n" role="group" aria-label="Number of picks"><button data-n="12">12</button><button data-n="15">15</button><button data-n="17" aria-pressed="true">17</button></div>
     </div>
@@ -1974,7 +1984,7 @@ function ftAll(){
     const p = g.probabilities, k = p.indexOf(Math.max(...p)), lab = [g.home, 'Draw', g.away][k];
     const side = t => `<span>${badgeImg(t, 'tb') || `<i class="kit" style="background:${kit(t).primary}"></i>`}${esc(t)}</span>`;
     html += `<button type="button" class="ga${g.status === 'live' ? ' is-live' : ''}" style="--i:${Math.min(i, 40)}" data-ga="${d.all.indexOf(g)}">
-      <span><span class="lg">${esc(g.league)}</span><br>${statusPill(g) || '<span class="st ko">TBC</span>'}</span>
+      <span class="meta"><span class="lg">${esc(g.league)}</span>${statusPill(g) || '<span class="st ko">TBC</span>'}</span>
       <span class="tm">${side(g.home)}${side(g.away)}</span>
       <span class="tri-wrap">${tri(p)}<span class="nums" style="display:flex;justify-content:space-between;font-size:12px;margin-top:4px"><span class="c-h">${Math.round(p[0]*100)}</span><span class="c-d">${Math.round(p[1]*100)}</span><span class="c-a">${Math.round(p[2]*100)}</span></span></span>
       <span class="pk">Pick <b>${esc(k === 1 ? 'Draw' : abbr(lab))}</b> ${pct(p[k])}</span></button>`;
@@ -2070,7 +2080,7 @@ async function loadVip(){
   try{
     const d = await api('/api/vip?n=' + state.vipN); state.vip = d;
     const legs = d.legs;
-    if(!legs.length){ $('#vip-code').innerHTML = ''; $('#vip-legs').innerHTML = '<div class="placeholder"><div><h3>No VIP slip right now</h3><p>Not enough confident games in the next three days. Check back closer to the weekend.</p></div></div>'; return }
+    if(!legs.length){ $('#vip-code').innerHTML = ''; $('#vip-legs').innerHTML = '<div class="placeholder"><div><h3>No VIP slip right now</h3><p>No confident games in the Premier League, La Liga or the Bundesligas in the next three days, often an international break. The next slip is posted the morning before their games return.</p></div></div>'; return }
     const avg = legs.reduce((t, l) => t + l.probability, 0) / legs.length;
     $('#vip-stats').innerHTML = `<span><b>${legs.length}</b> picks</span><span><b>${Math.round(avg * 100)}%</b> average confidence</span><span><b>${new Set(legs.map(l => l.league)).size}</b> leagues</span>`;
     $('#vip-code').hidden = true;   // booking codes are on hold for now
