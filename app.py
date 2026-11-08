@@ -786,10 +786,17 @@ def update_live_record(data):
 VIP_LEAGUES = ('en.1', 'es.1', 'de.1', 'de.2')
 
 
-def vip_slip(data, n=17, days=3, min_p=.70, max_p=.92, per_league=5):
+# Markets the VIP slip may use. 'Both teams score' is left out: walk-forward testing
+# (265 days, 2025-26) found its confident picks came in about 9 points below the
+# stated chance, and it barely beat the league's own BTTS rate.
+VIP_MARKETS = ('1x2', 'dc', 'ou15', 'ou25', 'ou35')
+
+
+def vip_slip(data, n=17, days=3, min_p=.75, max_p=.92, per_league=5):
     """The day's VIP slip: the surest pick from each of the most predictable games.
 
     Only VIP_LEAGUES are used: a pick we cannot grade would sit on the record as pending forever.
+    Only VIP_MARKETS, and nothing under 75% sure.
 
     One leg per game, most likely selections first, at most per_league legs from any
     league, and nothing below min_p or above max_p (near-certain legs pay nothing).
@@ -797,7 +804,7 @@ def vip_slip(data, n=17, days=3, min_p=.70, max_p=.92, per_league=5):
     import hashlib
     from parlay import build
     pool = parlay_candidates(data, [l for l in VIP_LEAGUES if l in LEAGUES], days=days, include_today=True)
-    ranked = build(pool, len(pool), min_p=min_p, max_p=max_p, mode='safest')['legs']
+    ranked = build(pool, len(pool), min_p=min_p, max_p=max_p, markets=VIP_MARKETS, mode='safest')['legs']
     legs, per = [], {}
     for leg in sorted(ranked, key=lambda c: -c['probability']):
         if per.get(leg['league_id'], 0) >= per_league:

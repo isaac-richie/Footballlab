@@ -77,6 +77,11 @@ class VipRecordTest(unittest.TestCase):
         s = record.vip_ledger()['summary']
         self.assertEqual((s['win_streak'], s['perfect_slips'], s['settled_slips']), (2, 1, 1))
 
+    def test_replay_rule_skips_btts_and_weak_picks(self):
+        leg = lambda fx, m, p: dict(fixture=fx, league_id='en.1', market=m, probability=p)
+        picks = record.vip_from([leg('A v B', 'btts', .88), leg('A v B', 'ou15', .80), leg('C v D', 'dc', .74), leg('E v F', 'dc', .76)])
+        self.assertEqual([(p['fixture'], p['market']) for p in picks], [('A v B', 'ou15'), ('E v F', 'dc')])
+
     def test_missing_file_gives_empty_ledger(self):
         s = record.vip_ledger()['summary']
         self.assertEqual((s['slips'], s['picks'], s['hit_rate']), (0, 0, None))

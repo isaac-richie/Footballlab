@@ -27,7 +27,7 @@ FILE = ROOT / 'reports' / 'record.json'
 # Kept beside the forecast ledger so the daily job (which commits reports/prospective) saves it too.
 LIVE = ROOT / 'reports' / 'prospective' / 'vip' / 'record-live.json'
 REPLAY_DAYS = 42
-VIP_MIN, VIP_MAX, VIP_PER_LEAGUE, VIP_SIZE = .70, .92, 3, 17   # VIP_SIZE: the largest slip the site offers
+VIP_MIN, VIP_MAX, VIP_PER_LEAGUE, VIP_SIZE = .75, .92, 3, 17   # VIP_SIZE: the largest slip the site offers
 
 
 def outcome(goals):
@@ -79,7 +79,7 @@ def vip_from(legs):
     """The same selection rule as the VIP picks page, applied to one day's legs."""
     best = {}
     for leg in legs:
-        if VIP_MIN <= leg['probability'] <= VIP_MAX and leg['probability'] > best.get(leg['fixture'], {}).get('probability', 0):
+        if leg['market'] != 'btts' and VIP_MIN <= leg['probability'] <= VIP_MAX and leg['probability'] > best.get(leg['fixture'], {}).get('probability', 0):
             best[leg['fixture']] = leg
     picks, per = [], {}
     for leg in sorted(best.values(), key=lambda c: -c['probability']):
