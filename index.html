@@ -427,6 +427,37 @@ html{background:var(--bg)}
 .view-head h1{text-transform:uppercase;letter-spacing:.5px;font-weight:800}
 .nav a{text-transform:uppercase;letter-spacing:.8px;font-weight:700;font-size:14px}
 .chip{text-transform:uppercase;letter-spacing:.6px;font-weight:700;font-size:14px}
+/* Record page, plain-language layout */
+.rx-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px 26px;align-items:center;padding:22px!important;border-radius:22px!important;
+  background:linear-gradient(135deg,color-mix(in srgb,#ffd166 13%,var(--surface)),var(--surface))!important;box-shadow:inset 0 0 0 1px #ffd16640}
+.rx-score{display:flex;align-items:center;gap:18px;min-width:0}
+.rx-ring{width:112px;height:112px;flex:none}.rx-ring svg{width:112px;height:112px}.rx-ring b{font-size:30px}
+.rx-eye{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#ffd166;font-weight:800}
+.rx-hero h2{margin:4px 0 4px;font-family:var(--display);text-transform:uppercase;font-size:30px;line-height:1.05;letter-spacing:.3px}
+.rx-hero p{margin:0;color:var(--muted);font-size:13.5px}
+.rx-cal{display:flex;flex-direction:column;gap:8px}
+.rx-bar{display:grid;grid-template-columns:70px 1fr 46px;align-items:center;gap:10px;font-size:13px;font-weight:650}
+.rx-bar i{height:12px;border-radius:8px;background:var(--surface-3);overflow:hidden}.rx-bar em{display:block;height:100%;border-radius:inherit}
+.rx-bar.said em{background:color-mix(in srgb,var(--muted) 70%,transparent)}.rx-bar.came em{background:#ffd166}
+.rx-bar b{font-family:var(--display);font-size:18px;text-align:right}
+.rx-cal p{color:var(--text)!important;font-weight:600;margin-top:4px!important}
+.rx-cal small{font-size:12px;color:var(--muted);line-height:1.45}
+.rx-tiles{grid-column:1/-1}
+.rx-empty{grid-template-columns:1fr}
+.rx-how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}
+.rx-how>div{display:grid;grid-template-columns:30px 1fr;gap:2px 10px;padding:14px;border-radius:16px;background:var(--surface);border:1px solid var(--line-2)}
+.rx-how span{grid-row:span 2;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,#ffd166 22%,transparent);color:#ffd166;font-family:var(--display);font-weight:800;font-size:16px}
+.rx-how b{font-size:14px}.rx-how small{font-size:12.5px;color:var(--muted);line-height:1.4}
+.rx-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;margin-bottom:6px}.rx-head h4{margin:0}
+.rx-key{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted)}
+.rx-key span{display:inline-flex;align-items:center;gap:5px}.rx-key i{width:9px;height:9px;border-radius:50%;background:var(--surface-3)}
+.rx-key .won{background:var(--accent)}.rx-key .lost{background:#ff5c74}.rx-key .pending{background:#ffc94d}.rx-key .void{background:var(--faint)}
+.vr-dots i.pending{background:#ffc94d99}
+.rx-lead{margin:-4px 0 12px;color:var(--muted);font-size:13.5px}
+.rk-two{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.rx-nerd{margin-top:14px}.rx-nerd p{font-size:13px;color:var(--muted)}
+@media (max-width:760px){.rx-hero{grid-template-columns:1fr;padding:18px!important}.rx-ring,.rx-ring svg{width:92px;height:92px}.rx-ring b{font-size:25px}
+  .rx-hero h2{font-size:25px}.rx-how{grid-template-columns:1fr}}
 /* VIP win rate card on the VIP page */
 .vwr{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:16px;margin-bottom:14px;padding:16px 18px!important;text-decoration:none;color:var(--text);
   border-radius:20px!important;background:linear-gradient(135deg,color-mix(in srgb,#ffd166 14%,var(--surface)),var(--surface))!important;box-shadow:inset 0 0 0 1px #ffd16640}
@@ -1153,12 +1184,12 @@ footer a{color:var(--muted)}
     <div class="view-head">
       <div>
         <span class="eyebrow"><i></i>Our record</span><h1>Track record</h1>
-        <p>Every finished game, graded against what we said before kickoff. Watch the weekly trend to see if we're getting sharper.</p>
+        <p>Every VIP pick is posted before kickoff and checked against the final score. Nothing gets edited or deleted, so you see the losses as well as the wins.</p>
       </div>
-      <button class="ghost" id="test" type="button">Run backtest for this league</button>
     </div>
     <div id="record"><div class="card"><div class="skel" style="height:220px"></div></div></div>
-    <h3 class="rec-h">Deeper checks</h3>
+    <h3 class="rec-h">Model lab <small style="font-size:12px;letter-spacing:.4px;text-transform:none;font-family:inherit">technical checks of the forecasting model</small></h3>
+    <button class="ghost" id="test" type="button" style="margin-bottom:12px">Run backtest for this league</button>
     <div id="benchmark" style="margin-bottom:14px"></div>
     <div id="prospective" class="card"><div class="skel" style="height:70px"></div></div>
     <div id="evaluation" style="margin-top:14px"></div>
@@ -2304,16 +2335,17 @@ async function loadBenchmark(){
 }
 /* ---------- Track record ---------- */
 const LG_SHORT = id => ((state.leagueNames && state.leagueNames[id]) || (state.data && state.data.leagues && state.data.leagues[id]) || id).split(' — ').pop();
+// League ids whose names the server may not send (leagues missing from this install).
+const LG_FALLBACK = {'sa.1': 'Saudi Pro League', 'ucl': 'Champions League', 'tr.1': 'Süper Lig', 'sco.1': 'Scottish Premiership', 'be.1': 'Belgian Pro League'};
 async function loadRecord(){
   let d;
-  try{ d = await api('/api/record') }catch(e){ $('#record').innerHTML = `<div class="card"><p class="note">${esc(e.message)}</p></div>`; return }
-  state.leagueNames = d.league_names || state.leagueNames;
-  const o = d.overall, v = d.vip, live = d.live || {};
+  try{ d = await getRecord() }catch(e){ $('#record').innerHTML = `<div class="card"><p class="note">${esc(e.message)}</p></div>`; return }
+  state.leagueNames = {...LG_FALLBACK, ...(state.leagueNames || {}), ...(d.league_names || {})};
+  const o = d.overall, v = d.vip;
   const pc = x => x == null ? '–' : Math.round(x * 100) + '%';
   const ring = (x, label, sub, colour) => `<div class="rk"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle class="p" cx="18" cy="18" r="15.5" style="stroke:${colour};stroke-dashoffset:${(97.4 * (1 - (x || 0))).toFixed(1)}"/></svg><b>${pc(x)}</b><small>${label}</small><em>${sub}</em></div>`;
-  const maxW = Math.max(...d.trend.map(t => t.games), 1);
-  const trend = d.trend.map(t => `<div class="rt-col" title="Week of ${esc(day(t.week))}: ${t.games} games, ${pc(t.pick_hit_rate)} picks right${t.vip_hit_rate != null ? ', VIP ' + pc(t.vip_hit_rate) : ''}">
-      <div class="rt-bars"><i class="pick" style="height:${(t.pick_hit_rate || 0) * 100}%"></i>${t.vip_hit_rate != null ? `<i class="vip" style="height:${t.vip_hit_rate * 100}%"></i>` : ''}</div>
+  const trend = d.trend.map(t => `<div class="rt-col" title="Week of ${esc(day(t.week))}: ${t.games} games, ${pc(t.pick_hit_rate)} called right">
+      <div class="rt-bars"><i class="pick" style="height:${(t.pick_hit_rate || 0) * 100}%"></i></div>
       <b>${pc(t.pick_hit_rate)}</b><small>${esc(new Date(t.week + 'T12:00:00').toLocaleDateString(undefined, {day: 'numeric', month: 'short'}))}</small><em>${t.games} games</em></div>`).join('');
   const leagues = Object.entries(d.by_league).filter(([, m]) => m.games).sort((a, b) => b[1].pick_hit_rate - a[1].pick_hit_rate)
     .map(([id, m]) => `<div class="rl"><span>${esc(LG_SHORT(id))}</span><span class="rl-bar"><i style="width:${m.pick_hit_rate * 100}%"></i></span><b>${pc(m.pick_hit_rate)}</b><small>${m.games}</small></div>`).join('');
@@ -2321,41 +2353,67 @@ async function loadRecord(){
   const latest = d.latest.slice(0, 20).map(g => `<div class="rg ${g.hit ? 'ok' : 'no'}"><span class="rg-mark">${g.hit ? '✓' : '✗'}</span>
       <span class="rg-main"><small>${esc(LG_SHORT(g.league_id))} · ${esc(day(g.date))}</small><b>${esc(g.home)} <em>${g.goals[0]}–${g.goals[1]}</em> ${esc(g.away)}</b>
       <span>We said ${esc(outcomeTxt(g, g.pick))} · ${pc(g.probabilities[g.pick])}</span></span></div>`).join('');
-  const vipDays = v.days.map(x => `<span class="rv${x.all_won ? ' all' : ''}" title="${x.won} of ${x.picks} VIP picks came in"><b>${x.won}/${x.picks}</b><small>${esc(day(x.date))}</small></span>`).join('');
+  const vipDays = v.days.map(x => `<span class="rv${x.all_won ? ' all' : ''}" title="${x.won} of ${x.picks} came in"><b>${x.won}/${x.picks}</b><small>${esc(day(x.date))}</small></span>`).join('');
   $('#record').innerHTML = `
-    <div class="card rec-top">
-      <div class="rk-row">${ring(o.pick_hit_rate, 'Picks right', o.games + ' games', 'var(--accent)')}${ring(v.hit_rate, 'VIP picks right', v.won + ' of ' + v.picks + ' replayed', '#ffd166')}${ring(o.confident_hit_rate, 'Confident picks', o.confident_games + ' games at 60%+', 'var(--away)')}</div>
-      <p class="rec-line"><b>${pc(o.sharper_than_guessing)}</b> sharper than guessing from the base rates (log loss ${o.log_loss} vs ${o.baseline_log_loss}). A blind guess between home, draw and away is right about 33% of the time.</p>
-    </div>
     ${vipLedgerHtml(d.vip_ledger)}
-    <div class="grid g2" style="margin-top:14px">
-      <div class="card"><h4>Week by week</h4><div class="rt">${trend}</div><p class="note" style="margin:8px 0 0"><i class="lg pick"></i> picks right <i class="lg vip"></i> VIP picks right</p></div>
-      <div class="card"><h4>By league</h4><div class="rls">${leagues}</div></div>
+    <h3 class="rec-h">All our match predictions</h3>
+    <p class="rx-lead">Not just VIP: every game we forecast, and whether the result we rated most likely (home win, draw or away win) happened.</p>
+    <div class="card rec-top">
+      <div class="rk-row rk-two">${ring(o.pick_hit_rate, 'Results called right', o.games + ' games', 'var(--accent)')}${ring(o.confident_hit_rate, 'When we were 60%+ sure', o.confident_games + ' games', 'var(--away)')}</div>
+      <p class="rec-line">For comparison, a random guess between home, draw and away is right about <b>33%</b> of the time.</p>
     </div>
     <div class="grid g2" style="margin-top:14px">
-      <div class="card"><h4>Latest results</h4><div class="rgs">${latest}</div></div>
-      <div class="card"><h4>VIP picks by day</h4><div class="rvs">${vipDays || '<p class="note">No VIP days yet.</p>'}</div>
-        <h4 style="margin-top:18px">Live record</h4><p class="note" style="margin:0">${live.frozen ? `${live.frozen} forecasts frozen before kickoff since ${esc(new Date(live.since).toLocaleDateString())}; ${live.graded} graded${live.pick_hit_rate != null ? `, ${pc(live.pick_hit_rate)} right` : ''}${live.vip_hit_rate != null ? `, VIP ${pc(live.vip_hit_rate)}` : ''}. These are never revised, so this is the true running score.` : 'Starts with the next update.'}</p></div>
+      <div class="card"><h4>Week by week</h4><div class="rt">${trend}</div><p class="note" style="margin:8px 0 0">Share of games where our most likely result happened.</p></div>
+      <div class="card"><h4>By league</h4><div class="rls">${leagues}</div><p class="note" style="margin:8px 0 0">Small numbers on the right are games counted.</p></div>
     </div>
-    <p class="note">${esc(d.method)} Window: ${esc(day(d.first_day))} – ${esc(day(d.last_day))}. Updated ${esc(new Date(d.generated_at).toLocaleString())}.</p>`;
+    <div class="card" style="margin-top:14px"><h4>Latest games we called</h4><div class="rgs">${latest}</div></div>
+    <details class="more rx-nerd"><summary>For the stats nerds</summary>
+      <p><b>${pc(o.sharper_than_guessing)}</b> sharper than guessing from base rates: log loss ${o.log_loss} against ${o.baseline_log_loss} (lower is better).</p>
+      <h4>Earlier VIP picks, re-checked after the fact</h4>
+      <p class="note" style="margin-top:0">Before live saving began, the VIP rule was re-run on past days using only information from before each game: ${v.won} of ${v.picks} came in (${pc(v.hit_rate)}). These were not posted at the time, so they are kept apart from the VIP record above.</p>
+      <div class="rvs">${vipDays || '<p class="note">None.</p>'}</div>
+      <p class="note">${esc(d.method)} Window: ${esc(day(d.first_day))} – ${esc(day(d.last_day))}. Updated ${esc(new Date(d.generated_at).toLocaleString())}.</p>
+    </details>`;
 }
 function vipLedgerHtml(x){
-  if(!x || !x.summary || !x.summary.slips) return `<div class="card" id="vip-record" style="margin-top:14px"><h4>VIP picks record</h4><p class="note" style="margin:0">Every VIP slip is saved here before kickoff and graded when the results come in. The first slip is recorded with the next daily update.</p></div>`;
+  const how = `<div class="rx-how">
+      <div><span>1</span><b>Posted before kickoff</b><small>Every morning we save the day's VIP slip, before any of its games start.</small></div>
+      <div><span>2</span><b>Locked, never edited</b><small>Saved picks can't be changed or deleted, so losses stay up too.</small></div>
+      <div><span>3</span><b>Checked against the score</b><small>Each pick turns green or red automatically when its game ends.</small></div>
+    </div>`;
+  if(!x || !x.summary || !x.summary.slips) return `<div class="card rx-hero rx-empty"><div><small class="rx-eye">VIP win rate</small><h2>Tracking has started</h2>
+      <p>The first VIP slip is saved with the next morning's update. Results appear here as the games finish.</p></div></div>${how}`;
   const s = x.summary, pc = v => v == null ? '–' : Math.round(v * 100) + '%';
-  const label = {won: '✓', lost: '✗', pending: '…', void: '–'};
-  const word = {won: 'Won', lost: 'Lost', pending: 'Awaiting result', void: 'Void'};
-  const cal = s.settled ? `Our picks said <b>${pc(s.average_confidence)}</b> on average and <b>${pc(s.hit_rate)}</b> came in: about <b>${s.expected_wins}</b> wins expected, <b>${s.won}</b> landed.${s.win_streak > 1 ? ` Current run: <b>${s.win_streak}</b> winners in a row.` : ''}` : 'No results in yet: the first picks are still to be played.';
+  const label = {won: '✓', lost: '✗', pending: '•', void: '–'};
+  const word = {won: 'Won', lost: 'Lost', pending: 'Still to play', void: 'Void: game postponed'};
+  let verdict = 'No results in yet. The first picks are still to be played.';
+  if(s.settled && s.settled < 50){
+    verdict = `Early days: ${s.settled} pick${s.settled === 1 ? '' : 's'} graded so far. A handful of results can swing these numbers a lot, so the comparison means more after a few weeks.`;
+  }else if(s.settled){
+    const gap = s.hit_rate - s.average_confidence;
+    verdict = gap >= .03 ? 'Better than we said: more picks won than our percentages promised.'
+      : gap > -.03 ? 'Right on target: picks won about as often as our percentages said.'
+      : 'Below what we said so far. Fewer picks won than our percentages promised, and we are working on it.';
+  }
+  const bar = (lbl, val, cls) => `<div class="rx-bar ${cls}"><span>${lbl}</span><i><em style="width:${(val || 0) * 100}%"></em></i><b>${pc(val)}</b></div>`;
   const days = x.days.map((d, i) => `<details class="vr-day${d.all_won ? ' all' : ''}"${i === 0 ? ' open' : ''}>
-      <summary><b>${esc(day(d.date))}</b><span class="vr-dots">${d.picks.map(p => `<i class="${p.status}"></i>`).join('')}</span><span>${d.won} won · ${d.lost} lost${d.pending ? ' · ' + d.pending + ' to play' : ''}${d.void ? ' · ' + d.void + ' void' : ''}</span><em>${d.all_won ? 'Perfect slip' : d.settled ? 'Settled' : 'In play'}</em></summary>
+      <summary><b>${esc(day(d.date))}</b><span class="vr-dots">${d.picks.map(p => `<i class="${p.status}"></i>`).join('')}</span><span>${d.won} won · ${d.lost} lost${d.pending ? ' · ' + d.pending + ' to play' : ''}${d.void ? ' · ' + d.void + ' void' : ''}</span><em>${d.all_won ? 'Perfect slip' : d.settled ? 'Finished' : 'In play'}</em></summary>
       <div class="vr-picks">${d.picks.map(p => `<div class="vr-p ${p.status}" title="${word[p.status]}"><span class="rg-mark">${label[p.status]}</span>
         <span class="rg-main"><small>${esc(LG_SHORT(p.league_id))} · ${esc(day(p.date))}</small><b>${esc(p.home)}${p.goals ? ` <em>${p.goals[0]}–${p.goals[1]}</em> ` : ' v '}${esc(p.away)}</b><span>${esc(bookieText(p))} · ${word[p.status]}</span></span>
-        <strong>${Math.round(p.probability * 100)}%<small>@${(1 / p.probability).toFixed(2)}</small></strong></div>`).join('')}</div></details>`).join('');
-  return `<div class="card" id="vip-record" style="margin-top:14px"><h4>VIP picks record · saved before kickoff</h4>
-    <div class="vr-top"><div class="vr-big"><b>${pc(s.hit_rate)}</b><small>${s.won} of ${s.settled} VIP picks won</small></div>
-      <div class="vr-stats"><div class="w"><b>${s.won}</b><small>Won</small></div><div class="l"><b>${s.lost}</b><small>Lost</small></div><div><b>${s.pending}</b><small>To play</small></div><div><b>${s.perfect_slips}/${s.settled_slips}</b><small>Perfect slips</small></div></div></div>
-    <p class="vr-cal">${cal}</p>
-    <div class="vr-days">${days}</div>
-    <p class="note" style="margin:10px 0 0">${esc(x.method)} Recorded since ${esc(day(s.since))}.</p></div>`;
+        <strong>${Math.round(p.probability * 100)}%<small>our chance</small></strong></div>`).join('')}</div></details>`).join('');
+  return `<div class="card rx-hero">
+      <div class="rx-score"><div class="vwr-ring rx-ring"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle class="p" cx="18" cy="18" r="15.5" style="stroke-dashoffset:${(97.4 * (1 - (s.hit_rate || 0))).toFixed(1)}"/></svg><b>${s.settled ? pc(s.hit_rate) : '–'}</b></div>
+        <div><small class="rx-eye">VIP win rate</small><h2>${s.settled ? `${s.won} of ${s.settled} picks won` : 'Waiting for results'}</h2>
+          <p>${s.slips} slip${s.slips === 1 ? '' : 's'} posted since ${esc(day(s.since))}${s.win_streak > 1 ? ` · on a run of ${s.win_streak} winners` : ''}</p></div></div>
+      <div class="rx-cal">${bar('We said', s.settled ? s.average_confidence : null, 'said')}${bar('Came in', s.settled ? s.hit_rate : null, 'came')}
+        <p>${verdict}</p><small>"We said" is the average chance we gave the picks. When the two bars match, the % on each pick means what it says.</small></div>
+      <div class="vr-stats rx-tiles"><div class="w"><b>${s.won}</b><small>Won</small></div><div class="l"><b>${s.lost}</b><small>Lost</small></div><div><b>${s.pending}</b><small>Still to play</small></div><div><b>${s.perfect_slips}/${s.settled_slips}</b><small>Perfect slips</small></div></div>
+    </div>
+    ${how}
+    <div class="card" id="vip-record"><div class="rx-head"><h4>Every VIP slip</h4>
+      <span class="rx-key"><span><i class="won"></i>Won</span><span><i class="lost"></i>Lost</span><span><i class="pending"></i>Still to play</span><span><i class="void"></i>Postponed</span></span></div>
+      <p class="note" style="margin:0 0 4px">Tap a day to see its picks. Newest first.</p>
+      <div class="vr-days">${days}</div></div>`;
 }
 async function loadProspective(){
   state.prospectiveLoaded = true; loadBenchmark(); loadRecord();
