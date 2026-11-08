@@ -315,13 +315,6 @@ pre.json{white-space:pre-wrap;word-break:break-word;font-size:11.5px;color:var(-
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.28s}
 .versus,.fx .teams{view-transition-name:var(--vt,none)}
 
-/* Season */
-.season-table td{padding:8px 10px;vertical-align:middle}
-.season-table th{cursor:pointer;user-select:none;white-space:nowrap}
-.season-table th[aria-sort]{color:var(--accent)}
-.season-table .team{display:flex;align-items:center;gap:10px;font-weight:550;white-space:nowrap}
-.season-table .pos{color:var(--faint);width:28px}
-.season-table tr>:nth-child(2){position:sticky;left:0;background:var(--surface);z-index:1}
 .range{position:relative;height:6px;background:var(--surface-3);border-radius:9px;min-width:90px}
 .range i{position:absolute;top:0;bottom:0;background:color-mix(in srgb,var(--accent) 45%,transparent);border-radius:9px}
 .range b{position:absolute;top:-3px;width:3px;height:12px;background:var(--accent);border-radius:2px;margin-left:-1.5px}
@@ -332,8 +325,6 @@ pre.json{white-space:pre-wrap;word-break:break-word;font-size:11.5px;color:var(-
 .zone-title td:first-child{box-shadow:inset 3px 0 var(--accent)}
 .zone-europe td:first-child{box-shadow:inset 3px 0 var(--away)}
 .zone-rel td:first-child{box-shadow:inset 3px 0 #f07272}
-.sim-loading{padding:40px 20px;text-align:center;color:var(--muted)}
-.sim-loading .bar{height:4px;border-radius:4px;max-width:320px;margin:16px auto 0;background:linear-gradient(90deg,transparent,var(--accent),transparent);background-size:50% 100%;background-repeat:no-repeat;animation:sweep 1.1s ease-in-out infinite;background-color:var(--surface-3)}
 @keyframes sweep{from{background-position:-50% 0}to{background-position:150% 0}}
 
 /* Builder + slip */
@@ -423,7 +414,7 @@ html{background:var(--bg)}
 @media (prefers-reduced-motion:reduce){.view-head h1,.hero .side strong{animation:none}.tri::after{display:none}}
 /* ===== Floodlights x Matchday Programme ===== */
 :root{--display:'Barlow Condensed','Arial Narrow','Helvetica Neue',sans-serif}
-.view-head h1,.brand,.nav a,.chip,.day,.score b,.mid .ls,.side strong,.tri-labels b,.kpi b,.season-table .team,.ticker,.stub b{font-family:var(--display)}
+.view-head h1,.brand,.nav a,.chip,.day,.score b,.mid .ls,.side strong,.tri-labels b,.kpi b,.ticker,.stub b{font-family:var(--display)}
 .view-head h1{text-transform:uppercase;letter-spacing:.5px;font-weight:800}
 .nav a{text-transform:uppercase;letter-spacing:.8px;font-weight:700;font-size:14px}
 .chip{text-transform:uppercase;letter-spacing:.6px;font-weight:700;font-size:14px}
@@ -637,11 +628,11 @@ details[open]>summary::after{transform:rotate(-135deg) translateY(-2px)}
 @media (max-width:760px){
   .top .nav{display:none}
   .top .wrap{height:54px}
-  .tabbar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));overflow:hidden;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:40;
+  .tabbar{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;overflow:hidden;position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:40;
     padding:6px;border-radius:22px;border:1px solid var(--line-2);background:color-mix(in srgb,var(--bg) 78%,transparent);
     backdrop-filter:saturate(1.6) blur(18px);-webkit-backdrop-filter:saturate(1.6) blur(18px);box-shadow:0 18px 40px -12px #000a}
   .tabbar a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 0 5px;border-radius:16px;color:var(--muted);text-decoration:none;
-    font-family:var(--display);text-transform:uppercase;letter-spacing:.2px;font-size:9px;font-weight:700;transition:color .2s,background .25s;min-width:0}
+    font-family:var(--display);text-transform:uppercase;letter-spacing:.4px;font-size:10.5px;font-weight:700;transition:color .2s,background .25s;min-width:0}
   .tabbar span{max-width:100%;overflow:hidden;text-overflow:clip;white-space:nowrap}
   .tabbar svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s cubic-bezier(.2,1.5,.4,1)}
   .tabbar svg .f{fill:currentColor;stroke:none;opacity:.14;transition:opacity .25s}
@@ -1051,8 +1042,6 @@ footer a{color:var(--muted)}
       <a href="#vip" data-view="vip">VIP</a>
       <a href="#fixtures" data-view="fixtures">Fixtures</a>
       <a href="#match" data-view="match">Match</a>
-      <a href="#season" data-view="season">Season</a>
-      <a href="#parlay" data-view="parlay">Parlay</a>
       <a href="#performance" data-view="performance">Record</a>
     </nav>
     <div class="spacer"></div>
@@ -1066,8 +1055,6 @@ footer a{color:var(--muted)}
   <a href="#vip" data-view="vip"><svg viewBox="0 0 24 24"><path class="f" d="M3 8l4.5 3.5L12 5l4.5 6.5L21 8l-2 11H5z"/><path d="M3 8l4.5 3.5L12 5l4.5 6.5L21 8l-2 11H5zM5 19h14"/></svg><span>VIP</span></a>
   <a href="#fixtures" data-view="fixtures"><svg viewBox="0 0 24 24"><rect class="f" x="3" y="4.5" width="18" height="16" rx="3.5"/><rect x="3" y="4.5" width="18" height="16" rx="3.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><circle cx="12" cy="15" r="3"/><path d="M12 13.2l1.1.8-.4 1.3h-1.4l-.4-1.3z"/></svg><span>Fixtures</span></a>
   <a href="#match" data-view="match"><svg viewBox="0 0 24 24"><circle class="f" cx="12" cy="12" r="9.2"/><circle cx="12" cy="12" r="9.2"/><path d="M12 7.6l3.3 2.4-1.3 3.9h-4l-1.3-3.9z"/><path d="M12 7.6V3.2M15.3 10l4.3-1.4M14 13.9l2.7 3.7M10 13.9l-2.7 3.7M8.7 10 4.4 8.6"/></svg><span>Match</span></a>
-  <a href="#season" data-view="season"><svg viewBox="0 0 24 24"><path class="f" d="M7 3.5h10v5a5 5 0 0 1-10 0z"/><path d="M7 3.5h10v5a5 5 0 0 1-10 0zM7 5.5H4.2a3.3 3.3 0 0 0 3.3 4.2M17 5.5h2.8a3.3 3.3 0 0 1-3.3 4.2M12 13.5v3.5M8 20.5h8M9.5 17h5v3.5h-5z"/></svg><span>Season</span></a>
-  <a href="#parlay" data-view="parlay"><svg viewBox="0 0 24 24"><path class="f" d="M5 3h14v18l-2.3-1.6L14.3 21 12 19.4 9.7 21l-2.4-1.6L5 21z"/><path d="M5 3h14v18l-2.3-1.6L14.3 21 12 19.4 9.7 21l-2.4-1.6L5 21z"/><path d="M8.2 8l1.2 1.2L11.6 7M8.2 13l1.2 1.2 2.2-2.2M13.8 8.2h2.4M13.8 13.2h2.4"/></svg><span>Parlay</span></a>
   <a href="#performance" data-view="performance"><svg viewBox="0 0 24 24"><path class="f" d="M4 20.5V14l5-4 4 3 7-7v14.5z"/><path d="M4 14l5-4 4 3 7-7M15.5 6H20v4.5M3 20.5h18"/></svg><span>Record</span></a>
 </nav>
 
@@ -1158,16 +1145,6 @@ footer a{color:var(--muted)}
   </section>
 
   <!-- SEASON -->
-  <section data-panel="season" hidden>
-    <div class="view-head">
-      <div>
-        <span class="eyebrow"><i></i>Projections</span><h1>Season projection</h1>
-        <p>The rest of the season played out thousands of times. Click a column to sort.</p>
-      </div>
-    </div>
-    <div class="card" style="padding:0;overflow:hidden" id="season-out"><div class="sim-loading">Preparing simulation…</div></div>
-    <p class="note" id="season-note"></p>
-  </section>
 
   <!-- VIP -->
   <section data-panel="vip" hidden>
@@ -1184,24 +1161,6 @@ footer a{color:var(--muted)}
   </section>
 
   <!-- PARLAY -->
-  <section data-panel="parlay" hidden>
-    <div class="view-head"><div><span class="eyebrow"><i></i>Build a slip</span><h1>Parlay builder</h1><p>One leg per fixture across leagues, priced from the same forecasts as everything else. Lock legs you like, then shuffle the rest.</p></div></div>
-    <div class="match-layout">
-      <div class="card form-card">
-        <h4>Build</h4>
-        <div class="field"><span>Legs</span><div class="seg" id="pl-n"><button data-v="3" aria-pressed="true">3</button><button data-v="5">5</button><button data-v="10">10</button></div></div>
-        <div class="field"><span>Style</span><div class="seg" id="pl-mode"><button data-v="safest" aria-pressed="true">Safest</button><button data-v="balanced">Balanced</button></div></div>
-        <div class="field"><span>Leagues</span><div class="chips" id="pl-leagues"></div></div>
-        <div class="field"><span>Markets</span><div class="chips" id="pl-markets"></div></div>
-        <label class="field"><span>Leg probability: <b id="pl-range-l">50% to 95%</b></span>
-          <div style="display:flex;gap:8px"><input id="pl-min" type="range" min="5" max="95" value="50" aria-label="Minimum leg probability"><input id="pl-max" type="range" min="10" max="99" value="95" aria-label="Maximum leg probability"></div></label>
-        <label class="field"><span>Fixtures within</span><select id="pl-days"><option value="3">3 days</option><option value="7" selected>7 days</option><option value="14">14 days</option></select></label>
-        <button class="primary" id="pl-build" type="button">Build parlay</button>
-        <button class="ghost" id="pl-shuffle" type="button" style="width:100%;margin-top:8px">Shuffle unlocked legs</button>
-      </div>
-      <div id="pl-out"><div class="placeholder"><div><h3>Set your filters and build</h3><p>Safest picks the most likely leg in each fixture. Balanced samples sensible alternatives, so every shuffle is different.</p></div></div></div>
-    </div>
-  </section>
 
   <!-- PERFORMANCE -->
   <section data-panel="performance" hidden>
@@ -1305,13 +1264,12 @@ $('#theme').onclick = () => {
 function showView(){
   { const v = (location.hash || '#featured').slice(1) || 'featured'; $('#leagues').hidden = $('#strip').hidden = v === 'featured' || v === 'vip' || $('#strip').classList.contains('empty'); }
   const v = (location.hash || '#featured').slice(1).split('/')[0];
-  const view = ['featured','vip','fixtures','match','season','parlay','performance'].includes(v) ? v : 'featured';
+  const view = ['featured','vip','fixtures','match','performance'].includes(v) ? v : 'featured';
   if(view === 'featured' && !state.ftLoaded) loadFeatured();
   if(view === 'vip' && !state.vipLoaded) loadVip();
   $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== view);
   $$('.nav a, .tabbar a').forEach(a => a.dataset.view === view ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
   if(view === 'performance' && !state.prospectiveLoaded) loadProspective();
-  if(view === 'season' && state.seasonLeague !== state.league) loadSeason();
   if(view === 'match') requestAnimationFrame(moveInk);
 }
 window.addEventListener('hashchange', () => transition(showView));
@@ -1416,7 +1374,7 @@ async function loadLeague(){
     const item = r => `<span>${esc(abbr(r.home))}<b>${r.goals[0]}–${r.goals[1]}</b>${esc(abbr(r.away))}</span>`;
     $('#ticker-run').innerHTML = tk.map(item).join('') + tk.map(item).join('');   // doubled for a seamless loop
     fillTeams(data.teams, data.today);
-    renderBoard(); loadOddsStatus(); plSetup(data.leagues);
+    renderBoard(); loadOddsStatus();
   }catch(e){ if(token === state.rev) $('#strip').innerHTML = `<span class="error">${esc(e.message)}</span>` }
 }
 function renderLeagues(leagues){
@@ -1430,7 +1388,6 @@ $('#leagues').onclick = e => {
   state.league = b.dataset.league; store.set('fl-league', state.league);
   $$('#leagues .chip').forEach(c => c.setAttribute('aria-pressed', c === b));
   state.current = null; $('#out').innerHTML = placeholder(); loadLeague();
-  if(!$('[data-panel="season"]').hidden) loadSeason();
 };
 function renderStrip(d){
   const q = d.quality, ok = q.status === 'research_only';
@@ -2110,59 +2067,6 @@ async function loadVip(){
 $('#vip-n').onclick = e => { const b = e.target.closest('[data-n]'); if(!b) return; state.vipN = +b.dataset.n;
   $$('#vip-n button').forEach(x => x.setAttribute('aria-pressed', x === b)); loadVip() };
 
-/* ---------- Parlay builder ---------- */
-const PL = {n: 3, mode: 'safest', leagues: new Set(), markets: new Set(['dc', 'ou15', 'ou25', 'btts']), locked: new Set(), result: null, seed: 0};
-const PL_MARKETS = {'1x2': 'Result', dc: 'Double chance', ou15: 'O/U 1.5', ou25: 'O/U 2.5', ou35: 'O/U 3.5', btts: 'BTTS'};
-function plSetup(leagues){
-  if(!PL.leagues.size) Object.keys(leagues).forEach(k => k !== 'it.2' && PL.leagues.add(k));
-  $('#pl-leagues').innerHTML = Object.entries(leagues).map(([id, name]) => `<button type="button" class="leg" data-pl-league="${id}" aria-pressed="${PL.leagues.has(id)}">${esc(name.split(' — ')[1] || name)}</button>`).join('');
-  $('#pl-markets').innerHTML = Object.entries(PL_MARKETS).map(([id, n]) => `<button type="button" class="leg" data-pl-market="${id}" aria-pressed="${PL.markets.has(id)}">${n}</button>`).join('');
-}
-document.addEventListener('click', e => {
-  const l = e.target.closest('[data-pl-league]'), m = e.target.closest('[data-pl-market]');
-  const tog = (set, k, el) => { set.has(k) ? set.delete(k) : set.add(k); el.setAttribute('aria-pressed', set.has(k)) };
-  if(l) tog(PL.leagues, l.dataset.plLeague, l); if(m) tog(PL.markets, m.dataset.plMarket, m);
-});
-for(const [id, key] of [['#pl-n', 'n'], ['#pl-mode', 'mode']]) $(id).onclick = e => { const b = e.target.closest('[data-v]'); if(!b) return; PL[key] = key === 'n' ? +b.dataset.v : b.dataset.v; $$(id + ' button').forEach(x => x.setAttribute('aria-pressed', x === b)) };
-const plRange = () => { let a = +$('#pl-min').value, b = +$('#pl-max').value; if(a >= b){ b = Math.min(99, a + 5); $('#pl-max').value = b } $('#pl-range-l').textContent = `${a}% to ${b}%` };
-$('#pl-min').oninput = $('#pl-max').oninput = plRange;
-async function plBuild(opts = {}){
-  const out = $('#pl-out');
-  if(!PL.leagues.size){ out.innerHTML = '<div class="error">Pick at least one league.</div>'; return }
-  out.innerHTML = '<div class="card"><div class="skel" style="height:200px"></div></div>';
-  try{
-    const r = await api('/api/parlay', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({
-      leagues: [...PL.leagues], legs: PL.n, mode: PL.mode, markets: [...PL.markets], min_p: $('#pl-min').value / 100, max_p: $('#pl-max').value / 100,
-      days: +$('#pl-days').value, locked: [...PL.locked], exclude: opts.exclude || [], seed: PL.mode === 'safest' && !opts.shuffle ? 0 : PL.seed})});
-    PL.result = r; plRender();
-  }catch(err){ out.innerHTML = `<div class="error">${esc(err.message)}</div>` }
-}
-function plRender(){
-  const r = PL.result, out = $('#pl-out');
-  if(!r.legs.length){ out.innerHTML = '<div class="placeholder"><div><h3>No legs match</h3><p>Widen the probability range, add markets or leagues, or look further ahead.</p></div></div>'; return }
-  const src = r.legs.every(l => l.source === 'model') ? 'model' : 'mixed';
-  out.innerHTML = `<div class="card hero"><div class="hero-top"><span>${r.legs.length}-leg parlay${r.complete ? '' : ` · only ${r.legs.length} of ${r.requested} found`}</span>${srcBadge(src === 'model' ? 'model' : 'football-data')}</div>
-    <div class="kpis" style="margin-top:0"><div class="kpi"><small>Combined chance</small><b>${pct(r.probability)}</b></div><div class="kpi"><small>Fair odds</small><b>${r.fair_odds ? r.fair_odds.toFixed(2) : '–'}</b></div>
-    <div class="kpi"><small>Legs locked</small><b>${r.legs.filter(l => PL.locked.has(l.id)).length}</b></div><div class="kpi"><small>Fixtures available</small><b>${r.fixtures_available}</b></div></div></div>
-    <div class="card" style="margin-top:14px;padding:6px 18px">${r.legs.map((l, i) => `<div class="prow" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1.4fr) 64px auto;padding:12px 0">
-      <span class="pl"><b>${esc(l.home)}</b> v ${esc(l.away)}<br><small class="note" style="margin:0">${esc(day(l.date))} · ${esc(l.market_label)}</small></span>
-      <span>${esc(l.selection)}<br><small class="note" style="margin:0">fair ${l.fair_odds.toFixed(2)}</small></span><b>${pct(l.probability)}</b>
-      <span style="display:flex;gap:6px;justify-content:flex-end"><button class="leg" data-lock="${esc(l.id)}" aria-pressed="${PL.locked.has(l.id)}" title="Keep this leg when shuffling">${PL.locked.has(l.id) ? 'Locked' : 'Lock'}</button>
-      <button class="leg" data-replace="${esc(l.fixture)}" title="Swap for a different fixture">Replace</button><button class="leg" data-remove="${i}" aria-label="Remove leg">✕</button></span></div>`).join('')}</div>
-    <div style="display:flex;gap:8px;margin-top:14px"><button class="primary" id="pl-slip" type="button" style="width:auto">Add to slip</button></div>
-    <p class="note">${esc(r.note)} Built from ${src === 'model' ? 'the score model only (no bookmaker prices found for these fixtures)' : 'bookmaker-implied prices where available'}.</p>`;
-}
-$('#pl-out').addEventListener('click', e => {
-  const lk = e.target.closest('[data-lock]'), rp = e.target.closest('[data-replace]'), rm = e.target.closest('[data-remove]');
-  if(lk){ PL.locked.has(lk.dataset.lock) ? PL.locked.delete(lk.dataset.lock) : PL.locked.add(lk.dataset.lock); plRender() }
-  if(rp){ for(const l of PL.result.legs) if(l.fixture !== rp.dataset.replace) PL.locked.add(l.id); PL.seed++; plBuild({exclude: [rp.dataset.replace], shuffle: true}) }
-  if(rm){ const [gone] = PL.result.legs.splice(+rm.dataset.remove, 1); PL.locked.delete(gone.id); const p = PL.result.legs.reduce((m, l) => m * l.probability, 1);
-    Object.assign(PL.result, {probability: p, fair_odds: PL.result.legs.length ? 1 / p : null}); plRender() }
-  if(e.target.closest('#pl-slip')){ for(const l of PL.result.legs){ state.slip = state.slip.filter(x => x.key !== l.fixture); state.slip.push({key: l.fixture, home: l.home, away: l.away, date: l.date, legs: [l.selection], p: l.probability, source: l.source}) } saveSlip(); openSlip(true) }
-});
-$('#pl-build').onclick = () => plBuild();
-$('#pl-shuffle').onclick = () => { PL.seed = (PL.seed + 1) || 1; if(PL.mode === 'safest'){ PL.mode = 'balanced'; $$('#pl-mode button').forEach(x => x.setAttribute('aria-pressed', x.dataset.v === 'balanced')) } plBuild({shuffle: true}) };
-
 /* ---------- Bet builder ---------- */
 function legDefs(d){
   const H = d.home, A = d.away, L = [];
@@ -2265,43 +2169,6 @@ function movementCard(d){
 }
 const no_vig = o => { const s = o.reduce((m, x) => m + 1 / x, 0); return o.map(x => 1 / x / s) };
 
-/* ---------- Season ---------- */
-async function loadSeason(){
-  const league = state.league; state.seasonLeague = league;
-  $('#season-out').innerHTML = '<div class="sim-loading"><b style="color:var(--text)">Simulating 5,000 seasons…</b><div class="bar"></div></div>'; $('#season-note').textContent = '';
-  try{
-    const d = await api('/api/season?league=' + encodeURIComponent(league));
-    if(league !== state.league) return;
-    state.season = d; state.seasonSort = state.seasonSort || 'expected_points'; renderSeason();
-  }catch(e){ if(league === state.league){ $('#season-out').innerHTML = `<div class="sim-loading">${esc(e.message)}</div>` } }
-}
-function renderSeason(){
-  const d = state.season, z = d.zones, n = d.teams.length, k = state.seasonSort;
-  const val = (t, key) => key === 'points' ? t.current.points : t[key] ?? -1;
-  const list = [...d.teams].sort((a, b) => k === 'relegation' ? val(b, k) - val(a, k) : val(b, k) - val(a, k));
-  const maxPts = Math.max(...d.teams.map(t => t.points_range[1])), minPts = Math.min(...d.teams.map(t => t.current.points));
-  const span = Math.max(1, maxPts - minPts), xp = v => ((v - minPts) / span * 100).toFixed(1);
-  const cell = p => `<td class="r prob${p < .0005 ? ' zero' : ''}">${p === null ? '–' : p < .0005 ? '–' : p > .9995 ? '>99.9%' : pct(p)}</td>`;
-  const col = (key, label, cls = 'r') => `<th class="${cls}" data-ssort="${key}"${k === key ? ' aria-sort="descending"' : ''}>${label}</th>`;
-  const rowsHtml = list.map((t, i) => {
-    const byExp = [...d.teams].sort((a, b) => b.expected_points - a.expected_points).indexOf(t) + 1;
-    const zone = byExp <= z.title ? 'zone-title' : z.europe && byExp <= z.europe ? 'zone-europe' : byExp > n - z.relegation ? 'zone-rel' : '';
-    const max = Math.max(...t.positions);
-    return `<tr class="${zone}" data-team="${esc(t.current.team)}"><td class="pos">${i + 1}</td><td><span class="team">${crest(t.current.team, true)}${esc(t.current.team)}</span></td>
-      <td class="r">${t.current.played}</td><td class="r">${t.current.points}</td>
-      <td class="r"><b>${t.expected_points.toFixed(1)}</b></td>
-      <td class="hide-sm"><div class="range" title="80% of simulations: ${t.points_range[0]} to ${t.points_range[1]} points"><i style="left:${xp(t.points_range[0])}%;right:${100 - xp(t.points_range[1])}%"></i><b style="left:${xp(t.expected_points)}%"></b></div></td>
-      ${cell(t.title)}${z.europe ? cell(t.europe) : ''}${z.playoff ? cell(t.playoff) : ''}${cell(t.relegation)}
-      <td class="hide-sm"><div class="dist" title="Chance of each finishing position, 1st to ${n}th">${t.positions.map((p, j) => `<i style="background:color-mix(in srgb, ${j < z.title ? 'var(--accent)' : z.europe && j < z.europe ? 'var(--away)' : j >= n - z.relegation ? '#f07272' : 'var(--muted)'} ${Math.round(6 + 90 * p / max)}%, var(--surface-2))"></i>`).join('')}</div></td></tr>`;
-  }).join('');
-  const html = `<div class="scroll"><table class="table season-table"><tr><th></th><th>Team</th><th class="r">P</th>${col('points', 'Pts')}${col('expected_points', 'Proj. pts')}<th class="hide-sm">80% range</th>
-    ${col('title', z.title > 1 ? 'Promotion' : 'Title')}${z.europe ? col('europe', 'Top ' + z.europe) : ''}${z.playoff ? col('playoff', 'Play-off') : ''}${col('relegation', 'Relegated')}<th class="hide-sm">Finishing position</th></tr>${rowsHtml}</table></div>`;
-  const tbl = $('#season-out');
-  if(tbl.querySelector('.season-table')) flip(tbl, 'tr[data-team]', el => el.dataset.team, () => tbl.innerHTML = html);
-  else tbl.innerHTML = html;
-  $('#season-note').textContent = `${d.season} · ${d.played} played, ${d.remaining} remaining, ${d.priced_fixtures} priced from bookmaker odds. ${d.method} Results in the data run to ${d.stale_results}; refresh the data for an up-to-date table.`;
-}
-$('#season-out').onclick = e => { const h = e.target.closest('[data-ssort]'); if(h){ state.seasonSort = h.dataset.ssort; renderSeason() } };
 
 function evidence(d){
   const b = d.analysis, f = d.fit, jev = d.jev_review || {status:'unavailable', reason:'No review returned.'};
