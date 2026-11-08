@@ -2547,7 +2547,18 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
     ['bpOSxM0rNPM', 'Arctic Monkeys', 'Do I Wanna Know', 35, '#e63946'], ['SDTZ7iX4vTQ', 'Foster The People', 'Pumped Up Kicks', 35, '#2a9d8f'],
     ['F90Cw4l-8NY', 'Bastille', 'Pompeii', 35, '#c2f25e'], ['Xu3FTEmN-eg', 'Chemical Brothers', 'Galvanize', 35, '#f4a261'],
     ['dX3k_QDnzHE', 'M83', 'Midnight City', 60, '#ffd166'], ['Dst9gZkq1a8', 'Travis Scott', 'Goosebumps', 35, '#ef476f'],
-    ['9ClYy0MxsU0', 'Stormzy', 'Vossi Bop', 35, '#06d6a0'], ['pSY3i5XHHXo', 'Dave', 'Sprinter', 35, '#8338ec']];
+    ['9ClYy0MxsU0', 'Stormzy', 'Vossi Bop', 35, '#06d6a0'], ['pSY3i5XHHXo', 'Dave', 'Sprinter', 35, '#8338ec'],
+    // FIFA / EA FC soundtracks 2016-25 (official artist/label uploads, checked embeddable). 7th field: the game.
+    ['0-7IHOXkiV8', 'KALEO', 'Way Down We Go', 30, '#ffb703', 0, 'FIFA 16'], ['fB63ztKnGvo', 'Disclosure ft. Sam Smith', 'Omen', 30, '#8338ec', 0, 'FIFA 16'],
+    ['_-PgPZ3F9P4', 'Of Monsters and Men', 'Crystals', 30, '#2a9d8f', 0, 'FIFA 16'], ['fzQ6gRAEoy0', 'Porter Robinson & Madeon', 'Shelter', 30, '#ef476f', 0, 'FIFA 17'],
+    ['RrJZJtY6u7o', 'Two Door Cinema Club', 'Are We Ready? (Wreck)', 30, '#4cc9f0', 0, 'FIFA 17'], ['U9DZkj8Rq6g', 'Saint Motel', 'Move', 30, '#06d6a0', 0, 'FIFA 17'],
+    ['Hha0bwVvGmY', 'Portugal. The Man', 'Live In The Moment', 30, '#f4a261', 0, 'FIFA 18'], ['GOJUNJ1o394', 'alt-J', 'Deadcrush', 30, '#c2f25e', 0, 'FIFA 18'],
+    ['4bNZK-zgmUc', 'Lorde', 'Supercut', 30, '#ff6b6b', 0, 'FIFA 18'], ['CZvP7PwUAwM', 'Tash Sultana', 'Jungle', 30, '#3a86ff', 0, 'FIFA 18'],
+    ['coLerbRvgsQ', 'Billie Eilish', 'you should see me in a crown', 30, '#ffb703', 0, 'FIFA 19'], ['F1B9Fk_SgI0', 'Childish Gambino', 'Feels Like Summer', 30, '#8338ec', 0, 'FIFA 19'],
+    ['L12ORqw6R7A', 'Sam Fender', 'Play God', 30, '#2a9d8f', 0, 'FIFA 19'], ['ZBBS4imv1qo', 'Major Lazer & J Balvin ft. El Alfa', 'Que Calor', 30, '#ef476f', 0, 'FIFA 20'],
+    ['ETxuFyAL1RU', 'Dominic Fike', 'Phone Numbers', 30, '#4cc9f0', 0, 'FIFA 20'], ['mRD0-GxqHVo', 'Glass Animals', 'Heat Waves', 30, '#06d6a0', 0, 'FIFA 21'],
+    ['EtbwTgY3AIk', 'Fireboy DML', 'Scatter', 30, '#f4a261', 0, 'FIFA 21'], ['KN8nJFLu1Rk', 'Tame Impala', 'Is It True', 30, '#c2f25e', 0, 'FIFA 21'],
+    ['wAjHQXrIj9o', 'Bad Bunny ft. Bomba Estéreo', 'Ojitos Lindos', 30, '#ff6b6b', 0, 'FIFA 23'], ['eYsldLTYyrM', 'Rema & Shallipopi', 'BENIN BOYS', 30, '#3a86ff', 0, 'FC 25']];
   const PLAY_SECONDS = 90, FADE_MS = 3500, MIX_DELAY_MS = 1200, MIX_IN_MS = 2800;
   // Genres for browsing and for 'play only this' filtering.
   const AFRO = /Young Jonn|Asake|Burna Boy|Maphorisa|T\.I Blaze|Seyi Vibez|Wizkid|Davido|Rema|Ayra Starr|CKay|Kizz Daniel|Fireboy|Olamide|Omah Lay|Shallipopi|Victony|ODUMODU|Odumodu|BNXN|Joeboy|Adekunle Gold|Teni|Shoday|Fola|Tiwa Savage|Mavo/i;
@@ -2555,11 +2566,12 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
   const ANTHEMS = /Waka Waka|Wavin|We Are The Champions|We Are One|^Colors$|La Copa|Seven Nation Army/i;
   const GAME = /Blur|Kasabian|^Jet$|Gorillaz|Arctic Monkeys|Bastille|Foster The People|M83|Chemical Brothers|Fall Out Boy|Avicii/i;
   const NCS = /Janji|Elektronomia|Jim Yosef|Lost Sky|Different Heaven|Cartoon|DEAF KEV|Disfigure|Syn Cole|Electro-Light|Max Brhon/i;
-  const genreOf = ([, artist, song]) => ANTHEMS.test(song) ? 'Anthems' : AFRO.test(artist) ? 'Afrobeats' : AMAPIANO.test(artist) ? 'Amapiano'
+  const FIFA_GAMES = 'FIFA soundtracks';
+  const genreOf = ([, artist, song, , , , game]) => game ? FIFA_GAMES : ANTHEMS.test(song) ? 'Anthems' : AFRO.test(artist) ? 'Afrobeats' : AMAPIANO.test(artist) ? 'Amapiano'
     : GAME.test(artist) ? 'Game classics' : NCS.test(artist) ? 'NCS' : 'Global';
   const NEW = 'New 2025–26';
   const inGenre = (t, g) => g === 'All' || (g === NEW ? (t[5] || 0) >= 2025 : genreOf(t) === g);
-  const GENRES = ['All', NEW, 'Afrobeats', 'Amapiano', 'Anthems', 'Game classics', 'Global', 'NCS'];
+  const GENRES = ['All', NEW, FIFA_GAMES, 'Afrobeats', 'Amapiano', 'Anthems', 'Game classics', 'Global', 'NCS'];
   const art = (id, size) => `https://i.ytimg.com/vi/${id}/${size || 'hqdefault'}.jpg`;
   const store = {get(k){ try{ return localStorage.getItem(k) }catch{ return null } }, set(k, v){ try{ localStorage.setItem(k, v) }catch{} }};
   // iOS ignores volume set by a page, so there the music starts muted until the listener taps play.
@@ -2718,8 +2730,8 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
   ['pointerdown', 'keydown', 'touchend', 'wheel'].forEach(e => addEventListener(e, kick, {passive: true}));
   function renderList(){
     const q = query.trim().toLowerCase();
-    const rows = TRACKS.map((t, k) => [t, k]).filter(([t]) => inGenre(t, genre) && (!q || (t[1] + ' ' + t[2]).toLowerCase().includes(q)));
-    $m('mx-list').innerHTML = rows.map(([[vid, a, s], k], n) => `<li data-k="${k}"${k === idx ? ' class="on"' : ''}><button type="button" data-k="${k}"><img src="${art(vid, 'default')}" alt="" loading="lazy"><span class="t"><b>${s}</b><small>${a}</small></span><span class="eqs"><i></i><i></i><i></i></span></button></li>`).join('')
+    const rows = TRACKS.map((t, k) => [t, k]).filter(([t]) => inGenre(t, genre) && (!q || (t[1] + ' ' + t[2] + ' ' + (t[6] || '')).toLowerCase().includes(q)));
+    $m('mx-list').innerHTML = rows.map(([[vid, a, s, , , , game], k], n) => `<li data-k="${k}"${k === idx ? ' class="on"' : ''}><button type="button" data-k="${k}"><img src="${art(vid, 'default')}" alt="" loading="lazy"><span class="t"><b>${s}</b><small>${a}${game ? ' · ' + game : ''}</small></span><span class="eqs"><i></i><i></i><i></i></span></button></li>`).join('')
       || '<li class="mx-none">No tracks match.</li>';
     $m('mx-genres').innerHTML = GENRES.map(g => `<button type="button" data-g="${g}" aria-pressed="${g === genre}">${g}${g === 'All' ? '' : ` <small>${TRACKS.filter(t => inGenre(t, g)).length}</small>`}</button>`).join('');
   }
