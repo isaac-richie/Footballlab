@@ -35,9 +35,17 @@ ALIASES = {'FC Internazionale Milano': 'Inter Milan', 'FC Bayern München': 'Bay
            'Athletic Club': 'Athletic Bilbao', 'Hamburger SV': 'Hamburg', 'RB Leipzig': 'RB Leipzig', 'SSC Napoli': 'Napoli', 'AS Monaco FC': 'Monaco', '1. FSV Mainz 05': 'Mainz', 'Brighton & Hove Albion FC': 'Brighton', 'Nottingham Forest FC': 'Nottingham Forest',
            'DSC Arminia Bielefeld': 'Arminia Bielefeld', 'Real Sociedad de Fútbol': 'Real Sociedad',
            'Angers SCO': 'Angers', 'Paris Saint-Germain FC': 'Paris SG', 'AC Milan': 'AC Milan', 'ACF Fiorentina': 'Fiorentina',
-           'Mantova 1911 SSD': 'Mantova', 'Verona': 'Hellas Verona'}
+           'Mantova 1911 SSD': 'Mantova', 'Verona': 'Hellas Verona',
+           # Eredivisie / Belgium: TheSportsDB's short names
+           'AZ': 'AZ Alkmaar', 'KVC Westerlo': 'Westerlo', 'Oud-Heverlee Leuven': 'OH Leuven',
+           'Sint-Truidense VV': 'Sint-Truiden', 'Union Saint-Gilloise': 'Union SG',
+           'Club Brugge KV': 'Club Brugge', 'Sporting Charleroi': 'Charleroi', 'SBV Excelsior': 'Excelsior',
+           'SC Cambuur-Leeuwarden': 'Cambuur', 'Willem II Tilburg': 'Willem II',
+           'CD Nacional': 'Nacional', 'Sporting Clube de Braga': 'Braga'}
 # Clubs the free name search cannot find (it returns one team: a women's or netball side).
-TEAM_IDS = {'Brighton & Hove Albion FC': '133619', 'Nottingham Forest FC': '133720', 'Paris Saint-Germain FC': '133714'}
+TEAM_IDS = {'Brighton & Hove Albion FC': '133619', 'Nottingham Forest FC': '133720', 'Paris Saint-Germain FC': '133714',
+            'Oud-Heverlee Leuven': '133775', 'Sint-Truidense VV': '135461', 'Union Saint-Gilloise': '138141',
+            'CD Nacional': '134109', 'Willem II Tilburg': '133827'}
 LOOKUP = 'https://www.thesportsdb.com/api/v1/json/123/lookupteam.php?id='
 NOISE = r'\b(FC|CF|AFC|SC|AC|SSC|AS|RC|OGC|VfB|VfL|TSG|FSV|SV|US|UD|CD|RCD|SD|Calcio|Club|de|1\.|\d{4})\b'
 
