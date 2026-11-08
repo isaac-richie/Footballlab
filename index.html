@@ -824,7 +824,21 @@ footer a{color:var(--muted)}
 .mx-yt{position:fixed;left:-9999px;top:0;width:200px;height:112px;pointer-events:none}
 .mx{--disc:#c2f25e;position:fixed;left:16px;bottom:16px;z-index:45}
 .mx[hidden]{display:none}
-.mx-pill{display:flex;align-items:center;gap:10px;max-width:min(300px,calc(100vw - 32px));padding:6px 14px 6px 6px;border-radius:999px;cursor:pointer;color:var(--text);text-align:left;
+.mx-dock{display:flex;align-items:center;gap:8px}
+.mx-list-ic{display:grid;place-items:center;width:30px;height:30px;flex-shrink:0;border-radius:50%;background:color-mix(in srgb,var(--disc) 16%,transparent);color:var(--disc)}
+.mx-list-ic svg,.mx-skip svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.mx-skip{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;border-radius:50%;cursor:pointer;color:var(--text);
+  border:1px solid var(--line-2);background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);
+  box-shadow:0 14px 34px -14px #000c;transition:transform .2s,color .2s;animation:rise .5s .08s both}
+.mx-skip svg{width:18px;height:18px}.mx-skip svg path:first-child{fill:currentColor}
+.mx-skip:hover{color:var(--disc);transform:translateY(-2px)}.mx-skip:active{transform:scale(.92)}
+.mx.open .mx-skip{display:none}
+.mx-hint{position:absolute;left:4px;bottom:calc(100% + 10px);width:max-content;max-width:min(260px,calc(100vw - 40px));margin:0;padding:9px 13px;border-radius:14px;
+  background:var(--disc);color:#0b0f14;font-size:13px;font-weight:700;line-height:1.35;box-shadow:0 12px 28px -10px #000c;animation:rise .45s both}
+.mx-hint span{font-weight:500;opacity:.8}
+.mx-hint::after{content:'';position:absolute;left:22px;bottom:-6px;width:12px;height:12px;background:inherit;transform:rotate(45deg);border-radius:2px}
+.mx-hint[hidden]{display:none}
+.mx-pill{display:flex;align-items:center;gap:10px;max-width:min(300px,calc(100vw - 84px));padding:6px 6px 6px 6px;border-radius:999px;cursor:pointer;color:var(--text);text-align:left;
   border:1px solid var(--line-2);background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);
   box-shadow:0 14px 34px -14px #000c,0 0 0 1px color-mix(in srgb,var(--disc) 15%,transparent);transition:transform .25s cubic-bezier(.2,1.4,.4,1),box-shadow .3s;animation:rise .5s both}
 .mx-pill:hover{transform:translateY(-2px)}
@@ -2462,11 +2476,15 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
 
 <!-- Music: NCS (NoCopyrightSounds) classics streamed from their official YouTube channel. -->
 <div class="mx" id="mx" hidden>
-  <button type="button" class="mx-pill" id="mx-open" aria-expanded="false" aria-controls="mx-sheet">
+  <p class="mx-hint" id="mx-hint" hidden>Tap for the full playlist <span>· skip, go back or pick any song</span></p>
+  <div class="mx-dock">
+  <button type="button" class="mx-pill" id="mx-open" aria-expanded="false" aria-controls="mx-sheet" aria-label="Open the music player and playlist">
     <span class="mx-disc sm"><svg class="mx-ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18.5"/><circle class="p" id="mx-ring" cx="20" cy="20" r="18.5"/></svg><span class="vinyl"><i></i></span><img class="art" id="mx-art-sm" alt=""></span>
     <span class="mx-txt"><small id="mx-sub">Now playing</small><span class="mx-marq"><b id="mx-title">—</b></span></span>
-    <span class="mx-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="mx-list-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h11M4 12h11M4 18h7M18 15v-9l3 1.5M18 15a2 2 0 1 1-2-2 2 2 0 0 1 2 2"/></svg></span>
   </button>
+  <button type="button" class="mx-skip" id="mx-skip" aria-label="Next track"><svg viewBox="0 0 24 24"><path d="M6 5l9 7-9 7zM17 5v14"/></svg></button>
+  </div>
   <section class="mx-sheet" id="mx-sheet" aria-label="Music" hidden>
     <header><span class="mx-badge">Matchday mix</span><button type="button" class="mx-x" id="mx-close" aria-label="Close player">✕</button></header>
     <div class="mx-hero">
@@ -2579,6 +2597,10 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
   let VOLUME = +(store.get('mx-vol') ?? 25);
   let muted = (store.get('mx-muted') ?? (IOS ? '1' : '0')) === '1';
   let idx = Math.floor(Math.random() * TRACKS.length), players = [], live = 0, timer = null, started = false, slotStart = 0, paused = false, pausedAt = 0;
+  // One-time hint so listeners discover the full player (skip, back, playlist).
+  let hintTimer = null;
+  function hideHint(){ clearTimeout(hintTimer); const h = $m('mx-hint'); if(h && !h.hidden){ h.hidden = true; store.set('mx-hinted', '1') } }
+  function showHint(){ if(store.get('mx-hinted')) return; setTimeout(() => { const h = $m('mx-hint'); if(!h || !sheet || !sheet.hidden) return; h.hidden = false; hintTimer = setTimeout(hideHint, 7000) }, 1500) }
   let genre = store.get('mx-genre') || 'All', shuffle = store.get('mx-shuffle') !== '0', query = '', played = [], upNext = null;
   if(!GENRES.includes(genre)) genre = 'All';
   const pool = () => TRACKS.map((t, k) => k).filter(k => inGenre(TRACKS[k], genre));
@@ -2692,7 +2714,7 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
   }
   function begin(){
     if(!pool().includes(idx)) idx = pool()[0] ?? idx;
-    started = true; ui.hidden = false; ui.classList.toggle('ios', IOS); $m('mx-ios').hidden = !IOS; $m('mx-volrow').hidden = IOS;
+    started = true; ui.hidden = false; showHint(); ui.classList.toggle('ios', IOS); $m('mx-ios').hidden = !IOS; $m('mx-volrow').hidden = IOS;
     play(live, true);
   }
   // 60-second slot progress: ring on the pill, bar and countdown in the sheet.
@@ -2745,12 +2767,12 @@ api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() =>
     navigator.mediaSession.setActionHandler('play', () => { if(paused || muted) togglePlay() }); navigator.mediaSession.setActionHandler('pause', () => { if(!paused && !muted) togglePlay() });
   }catch{} }
   $m('mx-list').onclick = e => { const b = e.target.closest('button[data-k]'); if(b && +b.dataset.k !== idx) go(0, +b.dataset.k) };
-  const openSheet = open => { sheet.hidden = !open; ui.classList.toggle('open', open); $m('mx-open').setAttribute('aria-expanded', open) };
+  const openSheet = open => { hideHint(); sheet.hidden = !open; ui.classList.toggle('open', open); $m('mx-open').setAttribute('aria-expanded', open) };
   $m('mx-open').onclick = () => { if(IOS && muted && sheet.hidden){ togglePlay() } openSheet(sheet.hidden) };
   $m('mx-close').onclick = () => openSheet(false);
   document.addEventListener('keydown', e => { if(e.key === 'Escape' && !sheet.hidden) openSheet(false) });
   document.addEventListener('pointerdown', e => { if(!sheet.hidden && !ui.contains(e.target)) openSheet(false) });
-  $m('mx-play').onclick = togglePlay; $m('mx-next').onclick = () => go(1); $m('mx-prev').onclick = () => go(-1);
+  $m('mx-play').onclick = togglePlay; $m('mx-next').onclick = () => go(1); $m('mx-skip').onclick = () => { hideHint(); go(1) }; $m('mx-prev').onclick = () => go(-1);
   const vol = $m('mx-vol'); vol.value = VOLUME;
   vol.addEventListener('input', () => {
     VOLUME = +vol.value; store.set('mx-vol', VOLUME);
