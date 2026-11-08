@@ -112,11 +112,12 @@ def refresh():
                 failures.append(dict(url=url, league_id=league_id, error=str(exc)))
     if not successes:
         raise RuntimeError('No source succeeded; existing data has not been replaced.')
-    try:
-        patched = patch_bundesliga(matches, sources)
-        print(json.dumps(dict(bundesliga_patched_from_openligadb=patched)))
-    except Exception as exc:
-        failures.append(dict(url=OPENLIGADB_SOURCE.replace('bl2', 'bl1'), league_id='de.1', error=str(exc)))
+    for league_id, (shortcut, trusted) in OPENLIGADB_PATCH.items():
+        try:
+            patched = patch_openligadb(matches, sources, league_id, shortcut, trusted)
+            print(json.dumps({f'{league_id}_patched_from_openligadb': patched}))
+        except Exception as exc:
+            failures.append(dict(url=f'https://api.openligadb.de/getmatchdata/{shortcut}', league_id=league_id, error=str(exc)))
     unique = {(m['league_id'], m['date'], m['home'], m['away']): m for m in matches}
     payload = dict(fetched_at=dt.datetime.now(dt.timezone.utc).isoformat(),
                    license='per-source', sources=list(sources.values()), failures=failures,
@@ -134,44 +135,62 @@ def current_teams(data, league_id):
     return sorted({t for m in rows if m['season'] == season for t in (m['home'], m['away'])})
 
 
-def patch_bundesliga(matches, sources):
-    """OpenFootball's Bundesliga lags by weeks; OpenLigaDB (ODbL) is current.
+# Leagues whose open OpenLigaDB (ODbL) feed corrects OpenFootball's lagging schedule and fills its
+# missing scores. bl1 is OpenLigaDB's own; pl and la1 are community-maintained, so scores are only
+# filled where the feed agrees with OpenFootball on games both have scored (see patch_openligadb).
+OPENLIGADB_PATCH = {'de.1': ('bl1', True), 'en.1': ('pl', False), 'es.1': ('la1', False)}   # (feed, trusted)
 
-    Fill missing scores and correct dates for this season's Bundesliga games from
-    OpenLigaDB. Games are matched by their home/away pairing, which happens once a
-    season, after pairing the two sources' team names by similarity.
+
+def patch_openligadb(matches, sources, league_id, shortcut, trusted=False, raw=None, today=None, min_overlap=20, min_agree=.95):
+    """Correct this season's dates/kickoffs and fill missing scores for one league from OpenLigaDB.
+
+    Games are matched by their home/away pairing, which happens once a season, after pairing
+    the two sources' team names by similarity; every team must pair up or nothing is changed.
+    Existing scores are never overwritten. Missing scores are filled only when the feed agrees
+    with OpenFootball on at least min_agree of at least min_overlap games scored by both, unless
+    the feed is trusted (OpenLigaDB's own Bundesliga data).
+    A later refresh rebuilds the season from OpenFootball first, so its scores win when it updates.
     """
     from live_odds import similarity
-    today = dt.date.today()
+    today = today or dt.date.today()
     year = today.year if today.month >= 7 else today.year - 1
     season = f'{year}-{str(year + 1)[-2:]}'
-    url = OPENLIGADB_SOURCE.replace('bl2', 'bl1') + str(year)
-    with urlopen(url, timeout=25) as response:
-        raw = response.read()
-    fresh = normalize_openligadb(raw, 'de.1', LEAGUES['de.1'], season)
-    ours = [m for m in matches if m['league_id'] == 'de.1' and m['season'] == season]
+    url = f'https://api.openligadb.de/getmatchdata/{shortcut}/{year}'
+    if raw is None:
+        with urlopen(url, timeout=25) as response:
+            raw = response.read()
+    fresh = normalize_openligadb(raw, league_id, LEAGUES.get(league_id, league_id), season)
+    ours = [m for m in matches if m['league_id'] == league_id and m['season'] == season]
     our_teams = sorted({t for m in ours for t in (m['home'], m['away'])})
+    their_teams = sorted({t for m in fresh for t in (m['home'], m['away'])})
     names = {}
-    for t in sorted({t for m in fresh for t in (m['home'], m['away'])}):
+    for t in their_teams:
         best = max(our_teams, key=lambda o: similarity(t, o), default=None)
         if best and similarity(t, best) >= 0.6 and best not in names.values():
             names[t] = best
+    if len(names) != len(their_teams) or len(their_teams) != len(our_teams):
+        raise ValueError(f'{shortcut}: only {len(names)} of {len(their_teams)} teams pair up; nothing changed')
     by_pair = {(m['home'], m['away']): m for m in ours}
-    patched = 0
-    for f in fresh:
-        m = by_pair.get((names.get(f['home']), names.get(f['away'])))
-        if not m:
+    pairs = [(by_pair.get((names[f['home']], names[f['away']])), f) for f in fresh]
+    both = [(m, f) for m, f in pairs if m and m['goals'] is not None and f['goals'] is not None]
+    agree = sum(list(m['goals']) == list(f['goals']) for m, f in both)
+    fill_scores = trusted or (len(both) >= min_overlap and agree >= min_agree * len(both))
+    dates = scores = 0
+    for m, f in pairs:
+        if not m or m['goals'] is not None:
             continue
-        if m['date'] != f['date'] and m['goals'] is None:
-            m['date'] = f['date']; patched += 1
-        if f.get('kickoff') and m['goals'] is None:
+        if m['date'] != f['date']:
+            m['date'] = f['date']; dates += 1
+        if f.get('kickoff'):
             m['kickoff'] = f['kickoff']
-        if f['goals'] is not None and m['goals'] is None:
-            m['goals'], m['ht'], m['goals_source'] = f['goals'], f['ht'], 'openligadb'; patched += 1
-    sources[url] = dict(url=url, league_id='de.1', matches=len(fresh), sha256=hashlib.sha256(raw).hexdigest(),
+        if fill_scores and f['goals'] is not None:
+            m['goals'], m['ht'], m['goals_source'] = f['goals'], f['ht'], 'openligadb'; scores += 1
+    sources[url] = dict(url=url, league_id=league_id, matches=len(fresh), sha256=hashlib.sha256(raw).hexdigest(),
                         checked_at=dt.datetime.now(dt.timezone.utc).isoformat(), license='ODbL-1.0',
-                        license_url='https://opendatacommons.org/licenses/odbl/1-0/', role='fills missing Bundesliga results')
-    return patched
+                        license_url='https://opendatacommons.org/licenses/odbl/1-0/',
+                        role='corrects dates and kickoffs' + (', fills missing results' if fill_scores else ''),
+                        agreement=dict(both_scored=len(both), agree=agree))
+    return dict(dates=dates, scores=scores, overlap=len(both), agree=agree, scores_trusted=fill_scores)
 
 
 def backfill_halftime():
