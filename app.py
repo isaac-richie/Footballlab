@@ -615,6 +615,9 @@ def fixture_rates(data, league_id, fixtures, today):
     return rows, rho, priced
 
 
+RECENT_DAYS = 2         # keep played-but-unscored games listed this long
+
+
 def slate(data, league_id, limit=40):
     """Forecast every upcoming fixture in a league from one fit at today's cutoff."""
     if league_id not in LEAGUES:
@@ -622,11 +625,19 @@ def slate(data, league_id, limit=40):
     today = dt.date.today().isoformat()
     key = _cache_key(data, league_id, today)
     if key in _slate_cache:
-        return _slate_cache[key]
-    # Upcoming means not yet kicked off or still in play. Today's games without a known
-    # kickoff time (the hosted, open-data Lab) stay listed as 'today' until their result arrives.
-    fixtures = [m for m in data['matches'] if m['league_id'] == league_id and m['goals'] is None and not m.get('unconfirmed')
-                and m['date'] >= today and schedule.status(m) in ('scheduled', 'live')][:limit]
+        result = _slate_cache[key]
+        for f in result['fixtures']:                      # cached for the day; status moves with the clock
+            f['status'] = schedule.status(dict(goals=None, date=f['date'], kickoff=f.get('kickoff')))
+        return result
+    # Upcoming means not yet kicked off or still in play. Games that should be over but whose
+    # score has not arrived stay listed for RECENT_DAYS, marked 'awaiting_result', so a slow
+    # results feed never makes a weekend's games vanish. Today's games without a known kickoff
+    # time (the hosted, open-data Lab) stay listed as 'today' until their result arrives.
+    recent = (dt.date.fromisoformat(today) - dt.timedelta(days=RECENT_DAYS)).isoformat()
+    fixtures = sorted((m for m in data['matches'] if m['league_id'] == league_id and m['goals'] is None and not m.get('unconfirmed')
+                       and (m['date'] >= today and schedule.status(m) in ('scheduled', 'live')
+                            or m['date'] >= recent and schedule.status(m) == 'awaiting_result')),
+                      key=lambda m: (m['date'], m.get('kickoff') or ''))[:limit]
     rows, rho, priced = fixture_rates(data, league_id, fixtures, today)
     recent = {t: sum(t in (m['home'], m['away']) and
                      (dt.date.fromisoformat(today) - dt.date.fromisoformat(m['date'])).days <= 365 for m in rows)
@@ -647,7 +658,7 @@ def slate(data, league_id, limit=40):
     result = dict(league_id=league_id, league=LEAGUES[league_id], analysis_date=today, model=MODEL['version'],
                   dixon_coles_rho=rho, quality=coverage(data, league_id, today), fixtures=items,
                   priced=sum(i['source'] != 'model' for i in items),
-                  note='Fixtures after today only. Bookmaker-priced where odds exist, otherwise the model.')
+                  note='Upcoming fixtures, plus games from the last two days whose score is not in yet. Bookmaker-priced where odds exist, otherwise the model.')
     if len(_slate_cache) > 16:
         _slate_cache.clear()
     _slate_cache[key] = result

@@ -79,6 +79,9 @@ def featured(data, leagues, slate_fn, history_fn, period='week', limit=10):
             continue
         rows = history_fn(data, today.isoformat(), league_id)
         for f in s['fixtures']:
+            # Games to watch: upcoming and live games, plus today's finished ones awaiting a score.
+            if f.get('status') == 'awaiting_result' and f['date'] != today.isoformat():
+                continue
             candidates.append((league_id, name, f, rows))
     if not candidates:
         return dict(period=period, games=[], note='No upcoming fixtures in the data.')
