@@ -737,7 +737,21 @@ def build_record(data):
     return report
 
 
-def vip_slip(data, n=12, days=3, min_p=.70, max_p=.92, per_league=3):
+def update_live_record(data):
+    """Freeze today's VIP slip and upcoming forecasts, grade finished ones (no replay; quick)."""
+    import record
+    live = record.freeze_and_grade(data, list(LEAGUES), slate, vip_slip, MODEL['version'])
+    try:
+        saved = json.loads(record.FILE.read_text())
+    except (OSError, ValueError):
+        saved = {}
+    if saved:
+        saved['live'] = live
+        atomic_write(record.FILE, json.dumps(saved))
+    return dict(live=live, vip=record.vip_ledger()['summary'])
+
+
+def vip_slip(data, n=17, days=3, min_p=.70, max_p=.92, per_league=3):
     """The day's VIP slip: the surest pick from each of the most predictable games.
 
     One leg per game, most likely selections first, at most per_league legs from any
@@ -896,13 +910,15 @@ class Handler(BaseHTTPRequestHandler):
         elif path == '/api/record':
             import record
             saved = record.load()
+            if saved:
+                saved['league_names'] = LEAGUES
             self.send_json(saved or dict(error='No record yet. Run: python3 app.py record'), 200 if saved else 404)
         elif path == '/api/vip':
             q = parse_qs(urlparse(self.path).query)
             try:
-                n = max(5, min(15, int(q.get('n', ['12'])[0])))
+                n = max(5, min(17, int(q.get('n', ['17'])[0])))
             except ValueError:
-                n = 12
+                n = 17
             self.send_json(vip_slip(load(), n))
         elif path == '/api/featured':
             from featured import featured
@@ -976,7 +992,7 @@ if __name__ == '__main__':
     from config import load_environment
     load_environment()
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=['refresh', 'serve', 'backtest', 'import-stats', 'backfill-halftime', 'refresh-odds', 'fetch-badges', 'fetch-saudi', 'fetch-ucl', 'record'])
+    parser.add_argument('command', choices=['refresh', 'serve', 'backtest', 'import-stats', 'backfill-halftime', 'refresh-odds', 'fetch-badges', 'fetch-saudi', 'fetch-ucl', 'record', 'vip-record'])
     parser.add_argument('path', nargs='?', help='CSV path for import-stats')
     parser.add_argument('--port', type=int, default=8765)
     args = parser.parse_args()
@@ -984,6 +1000,8 @@ if __name__ == '__main__':
         refresh()
     elif args.command == 'record':
         print(json.dumps(build_record(load()), indent=1)[:2000])
+    elif args.command == 'vip-record':
+        print(json.dumps(update_live_record(load()), indent=1))
     elif args.command == 'fetch-ucl':
         import ucl
         print(json.dumps(ucl.fetch()))

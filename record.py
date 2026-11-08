@@ -24,9 +24,10 @@ from quality import atomic_write
 
 ROOT = Path(__file__).resolve().parent
 FILE = ROOT / 'reports' / 'record.json'
-LIVE = ROOT / 'reports' / 'record-live.json'
+# Kept beside the forecast ledger so the daily job (which commits reports/prospective) saves it too.
+LIVE = ROOT / 'reports' / 'prospective' / 'vip' / 'record-live.json'
 REPLAY_DAYS = 42
-VIP_MIN, VIP_MAX, VIP_PER_LEAGUE, VIP_SIZE = .70, .92, 3, 12
+VIP_MIN, VIP_MAX, VIP_PER_LEAGUE, VIP_SIZE = .70, .92, 3, 17   # VIP_SIZE: the largest slip the site offers
 
 
 def outcome(goals):
@@ -176,16 +177,26 @@ def load():
     except (OSError, ValueError):
         return None
     saved.pop('days', None)
+    saved['vip_ledger'] = vip_ledger()
     return saved
 
 
-def freeze_and_grade(data, leagues, slate_fn, vip_fn, model_version):
-    """Live record: freeze upcoming forecasts once (never revised), grade the frozen ones that have finished."""
+VOID_AFTER_DAYS = 7      # a pick with no result this long after its date (postponed, renamed) is void
+
+
+def freeze_and_grade(data, leagues, slate_fn, vip_fn, model_version, today=None):
+    """Live record: freeze upcoming forecasts once (never revised), grade the frozen ones that have finished.
+
+    Each day's VIP slip (all VIP_SIZE picks, as published that day) is frozen the first
+    time this runs that day and is never edited afterwards; only its results are filled in.
+    """
     try:
         live = json.loads(LIVE.read_text())
     except (OSError, ValueError):
         live = dict(games={}, vip={})
-    today = dt.date.today()
+    live.setdefault('games', {}); live.setdefault('vip', {}); live.setdefault('vip_meta', {})
+    today = today or dt.date.today()
+    now = dt.datetime.now(dt.timezone.utc).isoformat()
     horizon = (today + dt.timedelta(days=3)).isoformat()
     for league_id in leagues:
         try:
@@ -197,22 +208,16 @@ def freeze_and_grade(data, leagues, slate_fn, vip_fn, model_version):
             if f['date'] <= horizon and key not in live['games'] and f.get('status', 'scheduled') == 'scheduled':
                 live['games'][key] = dict(date=f['date'], league_id=league_id, home=f['home'], away=f['away'],
                                           probabilities=[round(x, 4) for x in f['probabilities']], source=f['source'],
-                                          model=model_version, frozen_at=dt.datetime.now(dt.timezone.utc).isoformat())
-    slip = vip_fn(data)
+                                          model=model_version, frozen_at=now)
     day = today.isoformat()
-    if day not in live['vip'] and slip['legs']:
-        live['vip'][day] = [dict(league_id=l['league_id'], date=l['date'], home=l['home'], away=l['away'], market=l['market'],
-                                 selection=l['selection'], probability=round(l['probability'], 4)) for l in slip['legs']]
-    results = {(m['league_id'], m['date'], m['home'], m['away']): m['goals'] for m in data['matches'] if m['goals'] is not None}
-    for g in live['games'].values():
-        goals = results.get((g['league_id'], g['date'], g['home'], g['away']))
-        if goals and 'goals' not in g:
-            g['goals'] = list(goals)
-    for legs in live['vip'].values():
-        for l in legs:
-            goals = results.get((l['league_id'], l['date'], l['home'], l['away']))
-            if goals and 'won' not in l:
-                l['goals'], l['won'] = list(goals), leg_won(l, goals)
+    if day not in live['vip']:
+        slip = vip_fn(data, VIP_SIZE)            # the full slip: every smaller slip is its top picks
+        if slip['legs']:
+            live['vip'][day] = [dict(league_id=l['league_id'], date=l['date'], home=l['home'], away=l['away'], market=l['market'],
+                                     selection=l['selection'], probability=round(l['probability'], 4),
+                                     source=l.get('source'), kickoff=l.get('kickoff')) for l in slip['legs']]
+            live['vip_meta'][day] = dict(code=slip.get('code'), frozen_at=now, model=model_version)
+    grade(live, data, today)
     atomic_write(LIVE, json.dumps(live))
     graded = [g for g in live['games'].values() if 'goals' in g]
     legs = [l for v in live['vip'].values() for l in v if 'won' in l]
@@ -221,3 +226,78 @@ def freeze_and_grade(data, leagues, slate_fn, vip_fn, model_version):
                 pick_hit_rate=round(hits / len(graded), 4) if graded else None,
                 vip_legs_graded=len(legs), vip_hit_rate=round(sum(l['won'] for l in legs) / len(legs), 4) if legs else None,
                 since=min((g['frozen_at'] for g in live['games'].values()), default=None))
+
+
+def grade(live, data, today):
+    """Fill in results for frozen forecasts and VIP picks; mark long-overdue picks void."""
+    results = {(m['league_id'], m['date'], m['home'], m['away']): m['goals'] for m in data['matches'] if m.get('goals') is not None}
+    for g in live['games'].values():
+        goals = results.get((g['league_id'], g['date'], g['home'], g['away']))
+        if goals and 'goals' not in g:
+            g['goals'] = list(goals)
+    cutoff = (today - dt.timedelta(days=VOID_AFTER_DAYS)).isoformat()
+    latest = {}                                  # newest result per league: a late feed is not a postponement
+    for (league_id, date, _, _) in results:
+        latest[league_id] = max(latest.get(league_id, ''), date)
+    for legs in live['vip'].values():
+        for l in legs:
+            goals = results.get((l['league_id'], l['date'], l['home'], l['away']))
+            if goals and 'won' not in l:
+                l['goals'], l['won'] = list(goals), leg_won(l, goals)
+                l.pop('void', None)
+            elif not goals and 'won' not in l:
+                l['void'] = l['date'] < cutoff and latest.get(l['league_id'], '') > l['date']
+
+
+def status_of(leg):
+    return 'won' if leg.get('won') is True else 'lost' if leg.get('won') is False else 'void' if leg.get('void') else 'pending'
+
+
+def vip_ledger(live=None, max_days=60):
+    """Every frozen VIP slip with each pick's result, plus running totals, for the Record page."""
+    if live is None:
+        try:
+            live = json.loads(LIVE.read_text())
+        except (OSError, ValueError):
+            live = {}
+    vip, meta = live.get('vip', {}), live.get('vip_meta', {})
+    days, settled_days = [], []
+    for day in sorted(vip, reverse=True):
+        picks = [dict(l, status=status_of(l)) for l in vip[day]]
+        won = sum(p['status'] == 'won' for p in picks); lost = sum(p['status'] == 'lost' for p in picks)
+        pending = sum(p['status'] == 'pending' for p in picks)
+        row = dict(date=day, code=meta.get(day, {}).get('code'), frozen_at=meta.get(day, {}).get('frozen_at'),
+                   picks=picks, won=won, lost=lost, pending=pending, void=len(picks) - won - lost - pending,
+                   settled=pending == 0, all_won=pending == 0 and lost == 0 and won > 0)
+        days.append(row)
+        if row['settled'] and won + lost:
+            settled_days.append(row)
+    all_picks = [p for d in days for p in d['picks']]
+    settled = [p for p in all_picks if p['status'] in ('won', 'lost')]
+    won = sum(p['status'] == 'won' for p in settled)
+    streak = 0                                  # consecutive winning picks, most recent kickoff first
+    for p in sorted(settled, key=lambda p: (p['date'], p.get('kickoff') or ''), reverse=True):
+        if p['status'] != 'won':
+            break
+        streak += 1
+    def group(key):
+        out = {}
+        for p in settled:
+            g = out.setdefault(p[key], dict(picks=0, won=0, expected=0.0))
+            g['picks'] += 1; g['won'] += p['status'] == 'won'; g['expected'] += p['probability']
+        return {k: dict(picks=v['picks'], won=v['won'], hit_rate=round(v['won'] / v['picks'], 4),
+                        average_confidence=round(v['expected'] / v['picks'], 4)) for k, v in out.items()}
+    summary = dict(slips=len(days), picks=len(all_picks), settled=len(settled), won=won, lost=len(settled) - won,
+                   pending=sum(p['status'] == 'pending' for p in all_picks), void=sum(p['status'] == 'void' for p in all_picks),
+                   hit_rate=round(won / len(settled), 4) if settled else None,
+                   average_confidence=round(sum(p['probability'] for p in settled) / len(settled), 4) if settled else None,
+                   expected_wins=round(sum(p['probability'] for p in settled), 1),
+                   perfect_slips=sum(d['all_won'] for d in settled_days), settled_slips=len(settled_days),
+                   win_streak=streak, since=min(vip) if vip else None,
+                   by_market=group('market'), by_league=group('league_id'))
+    return dict(summary=summary, days=days[:max_days],
+                method=f'Each day\'s VIP slip (all {VIP_SIZE} picks, so every slip size on the VIP page is covered) is saved the first time the daily update runs, '
+                       'before those games kick off, and is never edited. Results are filled in as they arrive. '
+                       f'A pick still without a result {VOID_AFTER_DAYS} days after its date, when later games in its league have results '
+                       '(usually a postponement), is void '
+                       'and left out of the hit rate.')

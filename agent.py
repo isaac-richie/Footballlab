@@ -96,6 +96,13 @@ if __name__ == '__main__':
                 refresh()
             report = run(args.days)
             print(json.dumps(dict(run_id=report['run_id'], state=report['state'], fixtures=len(report['fixtures']))))
+            # VIP record: freeze today's VIP slip and grade earlier ones. A failure here must not
+            # undo the forecast run above, so it is reported and the run still succeeds.
+            try:
+                from app import update_live_record
+                print(json.dumps(dict(vip_record=update_live_record(load())['vip'])))
+            except Exception as exc:
+                print(json.dumps(dict(vip_record_error=str(exc))))
         except Exception as exc:
             atomic_write(REPORTS/'last_failure.json', json.dumps(dict(at=dt.datetime.now(dt.timezone.utc).isoformat(), error=str(exc))))
             raise
