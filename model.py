@@ -9,12 +9,12 @@ import math
 
 
 SPEC = {
-    'version': 'poisson-attack-defence-dixon-coles-2.0-exact-calibrated',
+    'version': 'poisson-attack-defence-dixon-coles-2.1-shrunk-totals',
     'family': 'Poisson scores with Dixon-Coles low-score dependence correction',
     'features': ['league baseline', 'home advantage', 'team attack', 'team defence'],
     'targets': 'closing-price implied goals (90%) blended with scorelines, 60-day half-life, where prices exist; '
                'otherwise scorelines with a 365-day half-life',
-    'ridge': '0.005 with prices, 0.01 without',
+    'ridge': '0.005 with prices, 0.01 without; without prices, goal totals come from a second fit at ridge 0.1',
     'optimizer': 'block Newton, solved to convergence; no pinned reference team',
     'calibration': 'temperature 0.91 and draw shift 0.12 on the model\'s own 1X2 (0.94/0.09 without prices), fitted on 2023-25 forecasts',
     'margin_removal': 'power method',

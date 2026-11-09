@@ -31,6 +31,14 @@ MARKET_WEIGHT = 0.9
 HALF_LIFE_DAYS = 60
 RIDGE = 0.005
 GOALS_HALF_LIFE_DAYS, GOALS_RIDGE = 365, 0.01      # leagues with no prices
+# Goal totals for leagues with no prices come from a second, more heavily shrunk fit:
+# how many goals a team's games produce is noisier than who wins them. Weekly
+# walk-forward refits on scorelines only (Aug 2025 - Nov 2026, six leagues, 2,608
+# games) cut over 1.5/2.5/3.5 and both-teams-score log loss by 0.67% (better in all
+# six leagues and all three periods) with 1X2 unchanged, and its 75%+ goal picks came
+# in at the rate stated (79.7% said, 79.5% won) where the single fit overpromised
+# (80.9% said, 79.2% won). Ridge 0.06-0.2 all did about as well; 0.1 is mid-plateau.
+TOTALS_RIDGE = 0.1
 # Temperature on log-probabilities and a draw log-odds shift, fitted on 2023-25
 # prequential forecasts: the shrunken ratings are slightly too timid and too
 # short of draws. Only for the model's own numbers; market prices are left alone.
@@ -92,12 +100,28 @@ def fit(rows, asof, teams=(), start=None):
     priced = sum(shifted[i] is not rows[i] for i in recent) > len(recent) / 2
     if priced:
         expected, meta = fit_ratings(shifted, asof, teams, HALF_LIFE_DAYS, RIDGE, start=start)
+        rho, rho_meta = fit_dixon_coles(rows, asof, expected)
     else:
         expected, meta = fit_ratings(rows, asof, teams, GOALS_HALF_LIFE_DAYS, GOALS_RIDGE, start=start)
-    rho, rho_meta = fit_dixon_coles(rows, asof, expected)
+        rho, rho_meta = fit_dixon_coles(rows, asof, expected)
+        totals, _ = fit_ratings(rows, asof, teams, GOALS_HALF_LIFE_DAYS, TOTALS_RIDGE)
+        expected = with_totals(expected, totals)
+        meta['totals_ridge'] = TOTALS_RIDGE
     meta.update(dixon_coles_rho=rho, **rho_meta, targets='market-implied goals' if priced else 'scorelines',
                 calibration=CALIBRATION['market' if priced else 'goals'])
     return expected, rho, meta
+
+
+def with_totals(expected, totals):
+    """expected's home/away balance, scaled so the two rates add up to totals' expected goals."""
+    def combined(home, away, season=None):
+        lh, la = expected(home, away, season)
+        th, ta = totals(home, away, season)
+        k = (th + ta) / (lh + la)
+        return max(.05, min(6, lh * k)), max(.05, min(6, la * k))
+    combined.season_aware = getattr(expected, 'season_aware', False)
+    combined.state = getattr(expected, 'state', None)
+    return combined
 
 
 def _year_before(asof):
