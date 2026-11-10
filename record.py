@@ -27,7 +27,13 @@ FILE = ROOT / 'reports' / 'record.json'
 # Kept beside the forecast ledger so the daily job (which commits reports/prospective) saves it too.
 LIVE = ROOT / 'reports' / 'prospective' / 'vip' / 'record-live.json'
 REPLAY_DAYS = 42
-VIP_MIN, VIP_MAX, VIP_PER_LEAGUE, VIP_SIZE = .75, .92, 3, 17   # VIP_SIZE: the largest slip the site offers
+VIP_MAX, VIP_PER_LEAGUE, VIP_SIZE = .92, 3, 17   # VIP_SIZE: the largest slip the site offers
+# Goals only. For each game the VIP pick is the first of these that reaches its floor:
+# (market, selection or None for any, minimum probability). Three seasons of walk-forward
+# weekly slips (Premier League, La Liga, Bundesliga; scorelines only): Over 2.5 at 65%+
+# won 74% at fair odds near 1.42 and Over 1.5 at 78%+ won 83% near 1.22; 82.6% of all
+# picks won, about 12 picks a week.
+VIP_PRIORITY = (('ou25', 'Over 2.5', .65), ('ou15', 'Over 1.5', .78))
 
 
 def outcome(goals):
@@ -75,14 +81,24 @@ def _forecasts_for_day(data, day, leagues, fixture_rates, distribution, legs_for
     return games, legs
 
 
+def vip_pick(legs):
+    """One game's VIP pick from all its candidate legs, or None: the first VIP_PRIORITY tier it reaches."""
+    for market, selection, floor in VIP_PRIORITY:
+        ok = [l for l in legs if l['market'] == market and (selection is None or l['selection'] == selection)
+              and floor <= l['probability'] <= VIP_MAX]
+        if ok:
+            return max(ok, key=lambda l: l['probability'])
+    return None
+
+
 def vip_from(legs):
     """The same selection rule as the VIP picks page, applied to one day's legs."""
-    best = {}
+    by_fixture = {}
     for leg in legs:
-        if leg['market'] != 'btts' and VIP_MIN <= leg['probability'] <= VIP_MAX and leg['probability'] > best.get(leg['fixture'], {}).get('probability', 0):
-            best[leg['fixture']] = leg
+        by_fixture.setdefault(leg['fixture'], []).append(leg)
+    best = [p for p in map(vip_pick, by_fixture.values()) if p]
     picks, per = [], {}
-    for leg in sorted(best.values(), key=lambda c: -c['probability']):
+    for leg in sorted(best, key=lambda c: -c['probability']):
         if per.get(leg['league_id'], 0) < VIP_PER_LEAGUE:
             per[leg['league_id']] = per.get(leg['league_id'], 0) + 1
             picks.append(leg)

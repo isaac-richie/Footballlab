@@ -77,10 +77,17 @@ class VipRecordTest(unittest.TestCase):
         s = record.vip_ledger()['summary']
         self.assertEqual((s['win_streak'], s['perfect_slips'], s['settled_slips']), (2, 1, 1))
 
-    def test_replay_rule_skips_btts_and_weak_picks(self):
-        leg = lambda fx, m, p: dict(fixture=fx, league_id='en.1', market=m, probability=p)
-        picks = record.vip_from([leg('A v B', 'btts', .88), leg('A v B', 'ou15', .80), leg('C v D', 'dc', .74), leg('E v F', 'dc', .76)])
-        self.assertEqual([(p['fixture'], p['market']) for p in picks], [('A v B', 'ou15'), ('E v F', 'dc')])
+    def test_vip_rule_is_goals_only(self):
+        leg = lambda fx, m, sel, p: dict(fixture=fx, league_id='en.1', market=m, selection=sel, probability=p)
+        picks = record.vip_from([
+            leg('A v B', 'btts', 'Both teams score', .88), leg('A v B', 'dc', 'A or draw', .90),
+            leg('A v B', 'ou15', 'Over 1.5', .85), leg('A v B', 'ou25', 'Over 2.5', .66),      # Over 2.5 wins the game
+            leg('C v D', 'ou25', 'Over 2.5', .60), leg('C v D', 'ou15', 'Over 1.5', .80), leg('C v D', 'dc', 'C or draw', .91),
+            leg('E v F', 'ou25', 'Under 2.5', .70), leg('E v F', 'ou15', 'Over 1.5', .70), leg('E v F', 'dc', 'E or draw', .82),
+            leg('G v H', 'ou15', 'Over 1.5', .77), leg('G v H', 'dc', 'G or draw', .79),      # nothing reaches its floor
+            leg('I v J', 'ou15', 'Over 1.5', .95)])                                            # near-certain: no value
+        self.assertEqual(sorted((p['fixture'], p['selection']) for p in picks),
+                         [('A v B', 'Over 2.5'), ('C v D', 'Over 1.5')])
 
     def test_missing_file_gives_empty_ledger(self):
         s = record.vip_ledger()['summary']
