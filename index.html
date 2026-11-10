@@ -1150,7 +1150,7 @@ footer a{color:var(--muted)}
   <section data-panel="vip" hidden>
     <div class="view-head hero-head">
       <div><span class="eyebrow"><i></i>VIP picks</span><h1>VIP picks</h1>
-        <p>Our surest picks for the next three days, from the Premier League, La Liga and the Bundesligas, where every result is checked automatically and goes on the record.</p>
+        <p>Our surest picks for the next three days, from the Premier League, La Liga and the Bundesliga, where every result is checked automatically and goes on the record.</p>
         <div class="hero-stats" id="vip-stats"></div></div>
       <div class="seg" id="vip-n" role="group" aria-label="Number of picks"><button data-n="12">12</button><button data-n="15">15</button><button data-n="17" aria-pressed="true">17</button></div>
     </div>
@@ -2052,7 +2052,7 @@ async function loadVip(){
   try{
     const d = await api('/api/vip?n=' + state.vipN); state.vip = d;
     const legs = d.legs;
-    if(!legs.length){ $('#vip-code').innerHTML = ''; $('#vip-legs').innerHTML = '<div class="placeholder"><div><h3>No VIP slip right now</h3><p>No confident games in the Premier League, La Liga or the Bundesligas in the next three days, often an international break. The next slip is posted the morning before their games return.</p></div></div>'; return }
+    if(!legs.length){ $('#vip-code').innerHTML = ''; $('#vip-legs').innerHTML = '<div class="placeholder"><div><h3>No VIP slip right now</h3><p>No confident games in the Premier League, La Liga or the Bundesliga in the next three days, often an international break. The next slip is posted the morning before their games return.</p></div></div>'; return }
     const avg = legs.reduce((t, l) => t + l.probability, 0) / legs.length;
     $('#vip-stats').innerHTML = `<span><b>${legs.length}</b> picks</span><span><b>${Math.round(avg * 100)}%</b> average confidence</span><span><b>${new Set(legs.map(l => l.league)).size}</b> leagues</span>`;
     $('#vip-code').hidden = true;   // booking codes are on hold for now

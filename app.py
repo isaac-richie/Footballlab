@@ -783,7 +783,10 @@ def update_live_record(data):
 
 # Leagues whose final scores reach the hosted Lab automatically (OpenFootball + OpenLigaDB).
 # VIP picks come only from these, so every pick on the public record gets graded.
-VIP_LEAGUES = ('en.1', 'es.1', 'de.1', 'de.2')
+# The 2. Bundesliga also has a results feed but is left out: over three seasons of
+# walk-forward slips its picks won 80.4% against a stated 84.1% (470 picks), while the
+# other three won at or above their stated chance. No model setting closed that gap.
+VIP_LEAGUES = ('en.1', 'es.1', 'de.1')
 
 
 # Markets the VIP slip may use. 'Both teams score' is left out: walk-forward testing
@@ -792,7 +795,7 @@ VIP_LEAGUES = ('en.1', 'es.1', 'de.1', 'de.2')
 VIP_MARKETS = ('1x2', 'dc', 'ou15', 'ou25', 'ou35')
 
 
-def vip_slip(data, n=17, days=3, min_p=.75, max_p=.92, per_league=5):
+def vip_slip(data, n=17, days=3, min_p=.75, max_p=.92, per_league=6):
     """The day's VIP slip: the surest pick from each of the most predictable games.
 
     Only VIP_LEAGUES are used: a pick we cannot grade would sit on the record as pending forever.
