@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-10T13:40:50.451592+00:00",
+  "fetched_at": "2026-11-11T12:53:01.607815+00:00",
   "license": "per-source",
   "sources": [
     {
@@ -7,7 +7,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "fbdfd426fa18fa2f8630b77de87c082734da495ac4668d6d72f29f76b73b9564",
-      "checked_at": "2026-11-10T13:40:28.660651+00:00",
+      "checked_at": "2026-11-11T12:52:44.848354+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -15,7 +15,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "7beb67dd49d7132bf9f7baea540342439b97ed4a7b21ffb90d3231a402c54d02",
-      "checked_at": "2026-11-10T13:40:28.845895+00:00",
+      "checked_at": "2026-11-11T12:52:44.973477+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -23,7 +23,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "a3e94b23cac768e4191e99312f4d48471c4000c5c2fe766b0325cee935754061",
-      "checked_at": "2026-11-10T13:40:29.042799+00:00",
+      "checked_at": "2026-11-11T12:52:45.123369+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -31,7 +31,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "f1b9901cffb6b073f389e730213b5f8efe6a9a73b2f86058794f2d0f1dcc54dc",
-      "checked_at": "2026-11-10T13:40:29.416523+00:00",
+      "checked_at": "2026-11-11T12:52:45.269163+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -39,7 +39,7 @@
       "league_id": "fr.1",
       "matches": 380,
       "sha256": "8abb493061d32faaf413c403b440c043723d9743a9e69d6472bf5410e2d4e039",
-      "checked_at": "2026-11-10T13:40:29.605942+00:00",
+      "checked_at": "2026-11-11T12:52:45.375726+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -47,7 +47,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "8d09f0f9846981626cdfec48903e1f21e7c79aabe6f92535c9e092e8e79b808b",
-      "checked_at": "2026-11-10T13:40:32.619319+00:00",
+      "checked_at": "2026-11-11T12:52:47.102011+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -55,7 +55,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "0204c66c919c2cd5cc3d1ba26be4f68592e4e173843162a9e6755182ccf83778",
-      "checked_at": "2026-11-10T13:40:32.756087+00:00",
+      "checked_at": "2026-11-11T12:52:47.272311+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -63,7 +63,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "d775fdd375af6998233fbfcd5b33d176cb9d016a981682626c5ce2f95b0c2f88",
-      "checked_at": "2026-11-10T13:40:32.971971+00:00",
+      "checked_at": "2026-11-11T12:52:47.424958+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -71,7 +71,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "b0c052dc75836dfc6b0d3781d35b828851db7377c9f6ccb39643dbbe1964f3bd",
-      "checked_at": "2026-11-10T13:40:33.158563+00:00",
+      "checked_at": "2026-11-11T12:52:47.551714+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -79,7 +79,7 @@
       "league_id": "fr.1",
       "matches": 380,
       "sha256": "6301ac1ba1fa0f5b72345759711beac3b3be3c989725cc1c6ef9307ffef692c7",
-      "checked_at": "2026-11-10T13:40:33.372977+00:00",
+      "checked_at": "2026-11-11T12:52:47.672003+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -87,7 +87,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "03e13eafbf78dfe00d7e89dd3bf6643986eb6e8fd86c7664aeb8c5bc0bed88d0",
-      "checked_at": "2026-11-10T13:40:35.503529+00:00",
+      "checked_at": "2026-11-11T12:52:49.391589+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -95,7 +95,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "e4c1e1a958f224ba3c815c898982ab495b9577315cc58ee7a5e7b532960f738b",
-      "checked_at": "2026-11-10T13:40:35.603151+00:00",
+      "checked_at": "2026-11-11T12:52:49.523023+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -103,7 +103,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "47734fc8d2ec34c5529ca814c97d1c86ecddc4a2c8095506d9b12f29cb283308",
-      "checked_at": "2026-11-10T13:40:35.710215+00:00",
+      "checked_at": "2026-11-11T12:52:49.631267+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -111,7 +111,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "d104edde48a5e254545eac3d3ed379a09801e1ebcef5c6480e28bc36fcfa202d",
-      "checked_at": "2026-11-10T13:40:35.796943+00:00",
+      "checked_at": "2026-11-11T12:52:49.747239+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -119,7 +119,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "fa328cecf4c12232ac77a5d477059eebe16b68b3712ec87800b89efda8ddfb70",
-      "checked_at": "2026-11-10T13:40:35.990344+00:00",
+      "checked_at": "2026-11-11T12:52:49.886652+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -127,7 +127,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "c3d18f552d83382cd4b6b21127adbbfe38e7f8618ddc979fb5404f2df07d0a75",
-      "checked_at": "2026-11-10T13:40:38.818790+00:00",
+      "checked_at": "2026-11-11T12:52:51.644535+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -135,7 +135,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "da5bfa1b3634e1039d9e71aec50bdc847f8761189e3de235a4e730e0dc64ca38",
-      "checked_at": "2026-11-10T13:40:38.959036+00:00",
+      "checked_at": "2026-11-11T12:52:51.768527+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -143,7 +143,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "7d9bb936de3ccaeec54d57371512a58a5eeb21277e7d5f0882911a834d22b659",
-      "checked_at": "2026-11-10T13:40:39.071880+00:00",
+      "checked_at": "2026-11-11T12:52:51.987448+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -151,7 +151,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "f473d6595e6c29ebedc08b09177aed6a6b2ff0fa8378b82f51dea469139f44c3",
-      "checked_at": "2026-11-10T13:40:39.172976+00:00",
+      "checked_at": "2026-11-11T12:52:52.116729+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -159,7 +159,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "90e9974afe6597452622387ad218f6b0011a5f91f1b426f05152f5b9c105e355",
-      "checked_at": "2026-11-10T13:40:39.262083+00:00",
+      "checked_at": "2026-11-11T12:52:52.306095+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -167,7 +167,7 @@
       "league_id": "it.2",
       "matches": 390,
       "sha256": "7592d38014c83fa37477901fd288c9f7268e11cfb254f1dd9458e304970373b0",
-      "checked_at": "2026-11-10T13:40:39.437503+00:00",
+      "checked_at": "2026-11-11T12:52:52.640324+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -175,7 +175,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1",
-      "checked_at": "2026-11-10T13:40:41.599352+00:00",
+      "checked_at": "2026-11-11T12:52:54.056239+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -183,7 +183,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "b40397d8e62c640138548d57a1a9f76150549213d2a07fcbbb90ed0eabc6ccea",
-      "checked_at": "2026-11-10T13:40:41.892783+00:00",
+      "checked_at": "2026-11-11T12:52:54.189556+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -191,7 +191,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "28f7773dea86345aeb0cbb4aff2f90231033f7ed855219e70fdd1cf45d4d7e7f",
-      "checked_at": "2026-11-10T13:40:42.187617+00:00",
+      "checked_at": "2026-11-11T12:52:54.244115+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -199,7 +199,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "17d0999db6281e6365823acdbce41a4f01dd469eac63e1f897e4e47c02906672",
-      "checked_at": "2026-11-10T13:40:42.480438+00:00",
+      "checked_at": "2026-11-11T12:52:54.377444+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -207,7 +207,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "3e9403445dd96f4bb7f740de22d4ea7e3ea7d640777a12eab621ae4d4dbf3bc7",
-      "checked_at": "2026-11-10T13:40:42.585981+00:00",
+      "checked_at": "2026-11-11T12:52:54.495882+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -215,7 +215,7 @@
       "league_id": "it.2",
       "matches": 380,
       "sha256": "74e38be319c2c30b82abcd9aabd5468a79d36408e7f6f2b066eb8bf7938a06b5",
-      "checked_at": "2026-11-10T13:40:42.717400+00:00",
+      "checked_at": "2026-11-11T12:52:54.627676+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -223,7 +223,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
-      "checked_at": "2026-11-10T13:40:44.243462+00:00",
+      "checked_at": "2026-11-11T12:52:56.086037+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -231,7 +231,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "4b1a9906e3f2b279a1f25497a38f2f58e21ec19ea726b882fa646da7c07bc0e0",
-      "checked_at": "2026-11-10T13:40:44.326630+00:00",
+      "checked_at": "2026-11-11T12:52:56.184915+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -239,7 +239,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "721a6c220fecb8208287e41401fa2fce652cd23765ce58a39bf98cdaa3d528ad",
-      "checked_at": "2026-11-10T13:40:44.370893+00:00",
+      "checked_at": "2026-11-11T12:52:56.273521+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -247,7 +247,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "07fab65d4a1de8ce4c8472da9ccf4d1d2b145ecd5abdc5b6d4250a5c119d7681",
-      "checked_at": "2026-11-10T13:40:44.409128+00:00",
+      "checked_at": "2026-11-11T12:52:56.355875+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -255,15 +255,15 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "f875275f835e378fc8c4e7d48c7a2f327e7d426237bd057fe652fd47f30b5a4f",
-      "checked_at": "2026-11-10T13:40:44.685858+00:00",
+      "checked_at": "2026-11-11T12:52:56.436682+00:00",
       "license": "CC0-1.0"
     },
     {
       "url": "https://api.openligadb.de/getmatchdata/bl1/2026",
       "league_id": "de.1",
       "matches": 306,
-      "sha256": "e270b037a5bd4ea030849548bae3b0a04a7f076c4a34d7e263a947099fb388c8",
-      "checked_at": "2026-11-10T13:40:47.648332+00:00",
+      "sha256": "820ff0480721b41ed829ad00e6ce359d99c2787ca133ca02c143e29d81b9385f",
+      "checked_at": "2026-11-11T12:52:58.849785+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
       "role": "corrects dates and kickoffs, fills missing results",
@@ -309,7 +309,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "6918998992aae77f498a1f39622f17032dde29649f0827822b9017699ee8212a",
-      "checked_at": "2026-11-10T13:40:32.084917+00:00",
+      "checked_at": "2026-11-11T12:52:46.814232+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -317,7 +317,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "053899d21effad8bc15aa74852631324276819673ad29ea9c3ed74ac02af2a51",
-      "checked_at": "2026-11-10T13:40:32.467343+00:00",
+      "checked_at": "2026-11-11T12:52:46.958297+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -325,7 +325,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "4c033f836ad98581c5055456d363a57d80d612a0e6605cf63c053ada1bfa19c1",
-      "checked_at": "2026-11-10T13:40:35.013821+00:00",
+      "checked_at": "2026-11-11T12:52:49.185783+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -333,7 +333,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "fdec06d71d3fe491d8fac75a7680c1ea8dc0e952f5d071e4722cd1fa77f76a06",
-      "checked_at": "2026-11-10T13:40:35.173724+00:00",
+      "checked_at": "2026-11-11T12:52:49.326466+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -341,7 +341,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "7fca2acdd40027c59890e68cc5b8cba667eebed353c2e4870315ae02f3ef5380",
-      "checked_at": "2026-11-10T13:40:38.369680+00:00",
+      "checked_at": "2026-11-11T12:52:51.378697+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -349,7 +349,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "70ae548487e9c3afb38d4af97f5896f90ec268b6aea9cb95e0da4765af0cee75",
-      "checked_at": "2026-11-10T13:40:38.526231+00:00",
+      "checked_at": "2026-11-11T12:52:51.582807+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -357,7 +357,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "e6398379f3d68eb2863cc7dcac12c60219ab186614366bb86560039638b2f6c5",
-      "checked_at": "2026-11-10T13:40:40.919300+00:00",
+      "checked_at": "2026-11-11T12:52:53.903089+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -365,7 +365,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "67b38b62062641055946f99f0f393e44ac22a7df3021d4fc7ba1bb6adf94df30",
-      "checked_at": "2026-11-10T13:40:44.051758+00:00",
+      "checked_at": "2026-11-11T12:52:55.808344+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -373,7 +373,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "c35c7b249ce7f3eb21c543d89ca32a3654cb218ed79c22ce6a9765fead5334da",
-      "checked_at": "2026-11-10T13:40:44.158281+00:00",
+      "checked_at": "2026-11-11T12:52:55.978700+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -389,7 +389,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "970507a228aa4ccd2968d52a9862b0d2844148bc548bc7ffe5e83d1c0d8f0517",
-      "checked_at": "2026-11-10T13:40:46.099957+00:00",
+      "checked_at": "2026-11-11T12:52:57.683975+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -397,7 +397,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "57cac2d6caab5a303d0b846ce523462b4571da10766a128ac0a5102bd0182e7e",
-      "checked_at": "2026-11-10T13:40:46.389265+00:00",
+      "checked_at": "2026-11-11T12:52:57.780114+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -405,7 +405,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "204a047e80abae556e9aed6afede82335d93866a49b479f585313ae5e7a9ecff",
-      "checked_at": "2026-11-10T13:40:41.293483+00:00",
+      "checked_at": "2026-11-11T12:52:53.998087+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -421,7 +421,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "29bd4acfb7d6171119748748531427239c7d8c4b3fe7a26fc1e36777a5b101b6",
-      "checked_at": "2026-11-10T13:40:49.163530+00:00",
+      "checked_at": "2026-11-11T12:53:00.166239+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
       "role": "corrects dates and kickoffs, fills missing results",
@@ -435,7 +435,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "eae81a12449c4a9cc2a1dcfca6bbc4cd2e35692daacd81a3447ea39ef635a3d7",
-      "checked_at": "2026-11-10T13:40:50.445565+00:00",
+      "checked_at": "2026-11-11T12:53:01.602719+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
       "role": "corrects dates and kickoffs, fills missing results",
@@ -449,7 +449,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "563ee175daae3b2443ee99e48084e417cfcb2868499787f033ae2fec7cda4039",
-      "checked_at": "2026-11-10T13:40:31.915773+00:00",
+      "checked_at": "2026-11-11T12:52:46.669200+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -457,8 +457,8 @@
       "url": "https://api.openligadb.de/getmatchdata/bl2/2022",
       "league_id": "de.2",
       "matches": 306,
-      "sha256": "8435c7a8a4e4541602b43f23f142873a1b353674344495cd707ad92aa35b2f6a",
-      "checked_at": "2026-11-10T13:40:34.890670+00:00",
+      "sha256": "088b921003894473cf229750eeef2a476c84eb25c5831384a72d1801e456c906",
+      "checked_at": "2026-11-11T12:52:48.996848+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -467,7 +467,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "a01a006edb8e310a432dc7eaf62d94298b4c19d8680dad8a934a1fe12e21b655",
-      "checked_at": "2026-11-10T13:40:38.067644+00:00",
+      "checked_at": "2026-11-11T12:52:51.219976+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -476,7 +476,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "93f8d0a04dc80adf2b477aeeee555f0a03cbefb4adab1a46b9aa42dc71bf3112",
-      "checked_at": "2026-11-10T13:40:40.834588+00:00",
+      "checked_at": "2026-11-11T12:52:53.720405+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -484,8 +484,8 @@
       "url": "https://api.openligadb.de/getmatchdata/bl2/2025",
       "league_id": "de.2",
       "matches": 306,
-      "sha256": "26ca6f436c5916b78ce6f2bb06a69cae57b7ef0a073d3a9a446f66f1b67afbba",
-      "checked_at": "2026-11-10T13:40:43.964464+00:00",
+      "sha256": "10299998a380e632c4b93746af9615203f38111e1e03d2e5bb5646659b6544cc",
+      "checked_at": "2026-11-11T12:52:55.756485+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -494,7 +494,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "f87b6ebedf073a47184287692b07ce52e133997f0c2ef8568f5d6950ca681204",
-      "checked_at": "2026-11-10T13:40:46.001181+00:00",
+      "checked_at": "2026-11-11T12:52:57.545160+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     }
