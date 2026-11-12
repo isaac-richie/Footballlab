@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-11T12:53:01.607815+00:00",
+  "fetched_at": "2026-11-12T13:55:21.850765+00:00",
   "license": "per-source",
   "sources": [
     {
@@ -7,7 +7,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "fbdfd426fa18fa2f8630b77de87c082734da495ac4668d6d72f29f76b73b9564",
-      "checked_at": "2026-11-11T12:52:44.848354+00:00",
+      "checked_at": "2026-11-12T13:55:07.536603+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -15,7 +15,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "7beb67dd49d7132bf9f7baea540342439b97ed4a7b21ffb90d3231a402c54d02",
-      "checked_at": "2026-11-11T12:52:44.973477+00:00",
+      "checked_at": "2026-11-12T13:55:07.622082+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -23,7 +23,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "a3e94b23cac768e4191e99312f4d48471c4000c5c2fe766b0325cee935754061",
-      "checked_at": "2026-11-11T12:52:45.123369+00:00",
+      "checked_at": "2026-11-12T13:55:07.815148+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -31,7 +31,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "f1b9901cffb6b073f389e730213b5f8efe6a9a73b2f86058794f2d0f1dcc54dc",
-      "checked_at": "2026-11-11T12:52:45.269163+00:00",
+      "checked_at": "2026-11-12T13:55:07.998796+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -39,7 +39,7 @@
       "league_id": "fr.1",
       "matches": 380,
       "sha256": "8abb493061d32faaf413c403b440c043723d9743a9e69d6472bf5410e2d4e039",
-      "checked_at": "2026-11-11T12:52:45.375726+00:00",
+      "checked_at": "2026-11-12T13:55:08.103831+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -47,7 +47,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "8d09f0f9846981626cdfec48903e1f21e7c79aabe6f92535c9e092e8e79b808b",
-      "checked_at": "2026-11-11T12:52:47.102011+00:00",
+      "checked_at": "2026-11-12T13:55:09.584500+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -55,7 +55,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "0204c66c919c2cd5cc3d1ba26be4f68592e4e173843162a9e6755182ccf83778",
-      "checked_at": "2026-11-11T12:52:47.272311+00:00",
+      "checked_at": "2026-11-12T13:55:09.651865+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -63,7 +63,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "d775fdd375af6998233fbfcd5b33d176cb9d016a981682626c5ce2f95b0c2f88",
-      "checked_at": "2026-11-11T12:52:47.424958+00:00",
+      "checked_at": "2026-11-12T13:55:09.767744+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -71,7 +71,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "b0c052dc75836dfc6b0d3781d35b828851db7377c9f6ccb39643dbbe1964f3bd",
-      "checked_at": "2026-11-11T12:52:47.551714+00:00",
+      "checked_at": "2026-11-12T13:55:09.855215+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -79,7 +79,7 @@
       "league_id": "fr.1",
       "matches": 380,
       "sha256": "6301ac1ba1fa0f5b72345759711beac3b3be3c989725cc1c6ef9307ffef692c7",
-      "checked_at": "2026-11-11T12:52:47.672003+00:00",
+      "checked_at": "2026-11-12T13:55:09.996412+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -87,7 +87,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "03e13eafbf78dfe00d7e89dd3bf6643986eb6e8fd86c7664aeb8c5bc0bed88d0",
-      "checked_at": "2026-11-11T12:52:49.391589+00:00",
+      "checked_at": "2026-11-12T13:55:11.387359+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -95,7 +95,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "e4c1e1a958f224ba3c815c898982ab495b9577315cc58ee7a5e7b532960f738b",
-      "checked_at": "2026-11-11T12:52:49.523023+00:00",
+      "checked_at": "2026-11-12T13:55:11.462956+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -103,7 +103,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "47734fc8d2ec34c5529ca814c97d1c86ecddc4a2c8095506d9b12f29cb283308",
-      "checked_at": "2026-11-11T12:52:49.631267+00:00",
+      "checked_at": "2026-11-12T13:55:11.550791+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -111,7 +111,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "d104edde48a5e254545eac3d3ed379a09801e1ebcef5c6480e28bc36fcfa202d",
-      "checked_at": "2026-11-11T12:52:49.747239+00:00",
+      "checked_at": "2026-11-12T13:55:11.626818+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -119,7 +119,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "fa328cecf4c12232ac77a5d477059eebe16b68b3712ec87800b89efda8ddfb70",
-      "checked_at": "2026-11-11T12:52:49.886652+00:00",
+      "checked_at": "2026-11-12T13:55:11.704422+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -127,7 +127,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "c3d18f552d83382cd4b6b21127adbbfe38e7f8618ddc979fb5404f2df07d0a75",
-      "checked_at": "2026-11-11T12:52:51.644535+00:00",
+      "checked_at": "2026-11-12T13:55:12.941999+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -135,7 +135,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "da5bfa1b3634e1039d9e71aec50bdc847f8761189e3de235a4e730e0dc64ca38",
-      "checked_at": "2026-11-11T12:52:51.768527+00:00",
+      "checked_at": "2026-11-12T13:55:13.031141+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -143,7 +143,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "7d9bb936de3ccaeec54d57371512a58a5eeb21277e7d5f0882911a834d22b659",
-      "checked_at": "2026-11-11T12:52:51.987448+00:00",
+      "checked_at": "2026-11-12T13:55:13.109337+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -151,7 +151,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "f473d6595e6c29ebedc08b09177aed6a6b2ff0fa8378b82f51dea469139f44c3",
-      "checked_at": "2026-11-11T12:52:52.116729+00:00",
+      "checked_at": "2026-11-12T13:55:13.195341+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -159,7 +159,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "90e9974afe6597452622387ad218f6b0011a5f91f1b426f05152f5b9c105e355",
-      "checked_at": "2026-11-11T12:52:52.306095+00:00",
+      "checked_at": "2026-11-12T13:55:13.306483+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -167,7 +167,7 @@
       "league_id": "it.2",
       "matches": 390,
       "sha256": "7592d38014c83fa37477901fd288c9f7268e11cfb254f1dd9458e304970373b0",
-      "checked_at": "2026-11-11T12:52:52.640324+00:00",
+      "checked_at": "2026-11-12T13:55:13.386819+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -175,7 +175,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1",
-      "checked_at": "2026-11-11T12:52:54.056239+00:00",
+      "checked_at": "2026-11-12T13:55:15.116549+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -183,7 +183,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "b40397d8e62c640138548d57a1a9f76150549213d2a07fcbbb90ed0eabc6ccea",
-      "checked_at": "2026-11-11T12:52:54.189556+00:00",
+      "checked_at": "2026-11-12T13:55:15.420756+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -191,7 +191,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "28f7773dea86345aeb0cbb4aff2f90231033f7ed855219e70fdd1cf45d4d7e7f",
-      "checked_at": "2026-11-11T12:52:54.244115+00:00",
+      "checked_at": "2026-11-12T13:55:15.476418+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -199,7 +199,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "17d0999db6281e6365823acdbce41a4f01dd469eac63e1f897e4e47c02906672",
-      "checked_at": "2026-11-11T12:52:54.377444+00:00",
+      "checked_at": "2026-11-12T13:55:15.573202+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -207,7 +207,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "3e9403445dd96f4bb7f740de22d4ea7e3ea7d640777a12eab621ae4d4dbf3bc7",
-      "checked_at": "2026-11-11T12:52:54.495882+00:00",
+      "checked_at": "2026-11-12T13:55:15.734816+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -215,7 +215,7 @@
       "league_id": "it.2",
       "matches": 380,
       "sha256": "74e38be319c2c30b82abcd9aabd5468a79d36408e7f6f2b066eb8bf7938a06b5",
-      "checked_at": "2026-11-11T12:52:54.627676+00:00",
+      "checked_at": "2026-11-12T13:55:15.814345+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -223,7 +223,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
-      "checked_at": "2026-11-11T12:52:56.086037+00:00",
+      "checked_at": "2026-11-12T13:55:17.008714+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -231,7 +231,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "4b1a9906e3f2b279a1f25497a38f2f58e21ec19ea726b882fa646da7c07bc0e0",
-      "checked_at": "2026-11-11T12:52:56.184915+00:00",
+      "checked_at": "2026-11-12T13:55:17.129598+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -239,7 +239,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "721a6c220fecb8208287e41401fa2fce652cd23765ce58a39bf98cdaa3d528ad",
-      "checked_at": "2026-11-11T12:52:56.273521+00:00",
+      "checked_at": "2026-11-12T13:55:17.168390+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -247,7 +247,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "07fab65d4a1de8ce4c8472da9ccf4d1d2b145ecd5abdc5b6d4250a5c119d7681",
-      "checked_at": "2026-11-11T12:52:56.355875+00:00",
+      "checked_at": "2026-11-12T13:55:17.200242+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -255,7 +255,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "f875275f835e378fc8c4e7d48c7a2f327e7d426237bd057fe652fd47f30b5a4f",
-      "checked_at": "2026-11-11T12:52:56.436682+00:00",
+      "checked_at": "2026-11-12T13:55:17.238462+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -263,7 +263,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "820ff0480721b41ed829ad00e6ce359d99c2787ca133ca02c143e29d81b9385f",
-      "checked_at": "2026-11-11T12:52:58.849785+00:00",
+      "checked_at": "2026-11-12T13:55:19.596810+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
       "role": "corrects dates and kickoffs, fills missing results",
@@ -309,7 +309,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "6918998992aae77f498a1f39622f17032dde29649f0827822b9017699ee8212a",
-      "checked_at": "2026-11-11T12:52:46.814232+00:00",
+      "checked_at": "2026-11-12T13:55:09.336422+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -317,7 +317,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "053899d21effad8bc15aa74852631324276819673ad29ea9c3ed74ac02af2a51",
-      "checked_at": "2026-11-11T12:52:46.958297+00:00",
+      "checked_at": "2026-11-12T13:55:09.507453+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -325,7 +325,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "4c033f836ad98581c5055456d363a57d80d612a0e6605cf63c053ada1bfa19c1",
-      "checked_at": "2026-11-11T12:52:49.185783+00:00",
+      "checked_at": "2026-11-12T13:55:11.199504+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -333,7 +333,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "fdec06d71d3fe491d8fac75a7680c1ea8dc0e952f5d071e4722cd1fa77f76a06",
-      "checked_at": "2026-11-11T12:52:49.326466+00:00",
+      "checked_at": "2026-11-12T13:55:11.302392+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -341,7 +341,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "7fca2acdd40027c59890e68cc5b8cba667eebed353c2e4870315ae02f3ef5380",
-      "checked_at": "2026-11-11T12:52:51.378697+00:00",
+      "checked_at": "2026-11-12T13:55:12.768059+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -349,7 +349,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "70ae548487e9c3afb38d4af97f5896f90ec268b6aea9cb95e0da4765af0cee75",
-      "checked_at": "2026-11-11T12:52:51.582807+00:00",
+      "checked_at": "2026-11-12T13:55:12.855273+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -357,7 +357,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "e6398379f3d68eb2863cc7dcac12c60219ab186614366bb86560039638b2f6c5",
-      "checked_at": "2026-11-11T12:52:53.903089+00:00",
+      "checked_at": "2026-11-12T13:55:14.696551+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -365,7 +365,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "67b38b62062641055946f99f0f393e44ac22a7df3021d4fc7ba1bb6adf94df30",
-      "checked_at": "2026-11-11T12:52:55.808344+00:00",
+      "checked_at": "2026-11-12T13:55:16.868894+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -373,7 +373,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "c35c7b249ce7f3eb21c543d89ca32a3654cb218ed79c22ce6a9765fead5334da",
-      "checked_at": "2026-11-11T12:52:55.978700+00:00",
+      "checked_at": "2026-11-12T13:55:16.967791+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -389,7 +389,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "970507a228aa4ccd2968d52a9862b0d2844148bc548bc7ffe5e83d1c0d8f0517",
-      "checked_at": "2026-11-11T12:52:57.683975+00:00",
+      "checked_at": "2026-11-12T13:55:18.506362+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -397,7 +397,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "57cac2d6caab5a303d0b846ce523462b4571da10766a128ac0a5102bd0182e7e",
-      "checked_at": "2026-11-11T12:52:57.780114+00:00",
+      "checked_at": "2026-11-12T13:55:18.537151+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -405,7 +405,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "204a047e80abae556e9aed6afede82335d93866a49b479f585313ae5e7a9ecff",
-      "checked_at": "2026-11-11T12:52:53.998087+00:00",
+      "checked_at": "2026-11-12T13:55:15.028474+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -421,7 +421,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "29bd4acfb7d6171119748748531427239c7d8c4b3fe7a26fc1e36777a5b101b6",
-      "checked_at": "2026-11-11T12:53:00.166239+00:00",
+      "checked_at": "2026-11-12T13:55:20.936805+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
       "role": "corrects dates and kickoffs, fills missing results",
@@ -449,7 +449,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "563ee175daae3b2443ee99e48084e417cfcb2868499787f033ae2fec7cda4039",
-      "checked_at": "2026-11-11T12:52:46.669200+00:00",
+      "checked_at": "2026-11-12T13:55:09.247674+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -457,8 +457,8 @@
       "url": "https://api.openligadb.de/getmatchdata/bl2/2022",
       "league_id": "de.2",
       "matches": 306,
-      "sha256": "088b921003894473cf229750eeef2a476c84eb25c5831384a72d1801e456c906",
-      "checked_at": "2026-11-11T12:52:48.996848+00:00",
+      "sha256": "b05ce1a790e16cccb7bd50a29dbb51aae88d822a551c1d30ec730322682ab34c",
+      "checked_at": "2026-11-12T13:55:11.112719+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -467,7 +467,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "a01a006edb8e310a432dc7eaf62d94298b4c19d8680dad8a934a1fe12e21b655",
-      "checked_at": "2026-11-11T12:52:51.219976+00:00",
+      "checked_at": "2026-11-12T13:55:12.660805+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -476,7 +476,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "93f8d0a04dc80adf2b477aeeee555f0a03cbefb4adab1a46b9aa42dc71bf3112",
-      "checked_at": "2026-11-11T12:52:53.720405+00:00",
+      "checked_at": "2026-11-12T13:55:14.560497+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -484,8 +484,8 @@
       "url": "https://api.openligadb.de/getmatchdata/bl2/2025",
       "league_id": "de.2",
       "matches": 306,
-      "sha256": "10299998a380e632c4b93746af9615203f38111e1e03d2e5bb5646659b6544cc",
-      "checked_at": "2026-11-11T12:52:55.756485+00:00",
+      "sha256": "80d7b806d0c96cd3e006f280a0e1838e9155ea75f23d8099e58587b90ab8ef5f",
+      "checked_at": "2026-11-12T13:55:16.832731+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -493,8 +493,8 @@
       "url": "https://api.openligadb.de/getmatchdata/bl2/2026",
       "league_id": "de.2",
       "matches": 306,
-      "sha256": "f87b6ebedf073a47184287692b07ce52e133997f0c2ef8568f5d6950ca681204",
-      "checked_at": "2026-11-11T12:52:57.545160+00:00",
+      "sha256": "f3d4bcf007fb59263909534d1758404ef81e4056a5e3448135be918bf7c11495",
+      "checked_at": "2026-11-12T13:55:18.322325+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     }
@@ -519,6 +519,11 @@
       "url": "https://raw.githubusercontent.com/openfootball/football.json/master/2026-27/it.2.json",
       "league_id": "it.2",
       "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://api.openligadb.de/getmatchdata/la1",
+      "league_id": "es.1",
+      "error": "la1: only 16 of 20 teams pair up; nothing changed"
     }
   ],
   "matches": [
@@ -271338,19 +271343,12 @@
       "date": "2026-10-09",
       "home": "M\u00e1laga CF",
       "away": "RCD Espanyol de Barcelona",
-      "goals": [
-        1,
-        1
-      ],
-      "ht": [
-        0,
-        1
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-09T19:00:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-09T19:00:00Z"
     },
     {
       "date": "2026-10-09",
@@ -271558,57 +271556,47 @@
     },
     {
       "date": "2026-10-10",
-      "home": "Deportivo Alav\u00e9s",
-      "away": "Club Atl\u00e9tico de Madrid",
-      "goals": [
-        1,
-        2
-      ],
-      "ht": [
-        1,
-        1
-      ],
+      "home": "Rayo Vallecano de Madrid",
+      "away": "Athletic Club",
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-10T14:15:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-10T12:00:00Z"
+    },
+    {
+      "date": "2026-10-10",
+      "home": "Deportivo Alav\u00e9s",
+      "away": "Club Atl\u00e9tico de Madrid",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27",
+      "kickoff": "2026-10-10T14:15:00Z"
     },
     {
       "date": "2026-10-10",
       "home": "FC Barcelona",
       "away": "Getafe CF",
-      "goals": [
-        3,
-        0
-      ],
-      "ht": [
-        2,
-        0
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-10T16:30:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-10T16:30:00Z"
     },
     {
       "date": "2026-10-10",
       "home": "Real Madrid CF",
       "away": "Villarreal CF",
-      "goals": [
-        1,
-        0
-      ],
-      "ht": [
-        0,
-        0
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-10T19:00:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-10T19:00:00Z"
     },
     {
       "date": "2026-10-10",
@@ -272009,73 +271997,45 @@
       "date": "2026-10-11",
       "home": "Elche CF",
       "away": "RC Celta de Vigo",
-      "goals": [
-        0,
-        0
-      ],
-      "ht": [
-        0,
-        0
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-11T12:00:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-11T12:00:00Z"
     },
     {
       "date": "2026-10-11",
       "home": "Real Sociedad de F\u00fatbol",
       "away": "RC Deportivo La Coru\u00f1a",
-      "goals": [
-        3,
-        2
-      ],
-      "ht": [
-        2,
-        0
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-11T14:15:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-11T14:15:00Z"
     },
     {
       "date": "2026-10-11",
       "home": "Real Betis Balompi\u00e9",
       "away": "CA Osasuna",
-      "goals": [
-        5,
-        2
-      ],
-      "ht": [
-        2,
-        0
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-11T16:30:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-11T16:30:00Z"
     },
     {
       "date": "2026-10-11",
       "home": "Real Racing Club de Santander",
       "away": "Valencia CF",
-      "goals": [
-        2,
-        2
-      ],
-      "ht": [
-        1,
-        1
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-11T19:00:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-11T19:00:00Z"
     },
     {
       "date": "2026-10-11",
@@ -272351,19 +272311,12 @@
       "date": "2026-10-12",
       "home": "Levante UD",
       "away": "Sevilla FC",
-      "goals": [
-        3,
-        3
-      ],
-      "ht": [
-        0,
-        1
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-12T19:00:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-12T19:00:00Z"
     },
     {
       "date": "2026-10-12",
@@ -272402,19 +272355,12 @@
       "date": "2026-10-16",
       "home": "RC Deportivo La Coru\u00f1a",
       "away": "Levante UD",
-      "goals": [
-        1,
-        1
-      ],
-      "ht": [
-        0,
-        0
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-16T19:00:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-16T19:00:00Z"
     },
     {
       "date": "2026-10-16",
@@ -272595,73 +272541,45 @@
       "date": "2026-10-17",
       "home": "RCD Espanyol de Barcelona",
       "away": "Club Atl\u00e9tico de Madrid",
-      "goals": [
-        0,
-        1
-      ],
-      "ht": [
-        0,
-        0
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-17T12:00:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-17T12:00:00Z"
     },
     {
       "date": "2026-10-17",
       "home": "Villarreal CF",
       "away": "Elche CF",
-      "goals": [
-        0,
-        0
-      ],
-      "ht": [
-        0,
-        0
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-17T14:15:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-17T14:15:00Z"
     },
     {
       "date": "2026-10-17",
       "home": "Real Betis Balompi\u00e9",
       "away": "FC Barcelona",
-      "goals": [
-        2,
-        5
-      ],
-      "ht": [
-        1,
-        2
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-17T16:30:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-17T16:30:00Z"
     },
     {
       "date": "2026-10-17",
       "home": "Valencia CF",
       "away": "Athletic Club",
-      "goals": [
-        0,
-        0
-      ],
-      "ht": [
-        0,
-        0
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-17T19:00:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-17T19:00:00Z"
     },
     {
       "date": "2026-10-17",
@@ -273014,73 +272932,45 @@
       "date": "2026-10-18",
       "home": "CA Osasuna",
       "away": "Real Racing Club de Santander",
-      "goals": [
-        2,
-        0
-      ],
-      "ht": [
-        1,
-        0
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-18T12:00:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-18T12:00:00Z"
     },
     {
       "date": "2026-10-18",
       "home": "RC Celta de Vigo",
       "away": "Deportivo Alav\u00e9s",
-      "goals": [
-        2,
-        1
-      ],
-      "ht": [
-        0,
-        0
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-18T14:15:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-18T14:15:00Z"
     },
     {
       "date": "2026-10-18",
       "home": "M\u00e1laga CF",
       "away": "Real Sociedad de F\u00fatbol",
-      "goals": [
-        2,
-        5
-      ],
-      "ht": [
-        0,
-        2
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-18T16:30:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-18T16:30:00Z"
     },
     {
       "date": "2026-10-18",
       "home": "Real Madrid CF",
       "away": "Sevilla FC",
-      "goals": [
-        4,
-        1
-      ],
-      "ht": [
-        2,
-        0
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-18T19:00:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-18T19:00:00Z"
     },
     {
       "date": "2026-10-18",
@@ -273345,19 +273235,12 @@
       "date": "2026-10-19",
       "home": "Getafe CF",
       "away": "Rayo Vallecano de Madrid",
-      "goals": [
-        1,
-        1
-      ],
-      "ht": [
-        0,
-        1
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-19T19:00:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-19T19:00:00Z"
     },
     {
       "date": "2026-10-19",
@@ -273385,19 +273268,12 @@
       "date": "2026-10-21",
       "home": "Levante UD",
       "away": "Athletic Club",
-      "goals": [
-        3,
-        1
-      ],
-      "ht": [
-        2,
-        0
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-21T18:00:00Z",
-      "goals_source": "openligadb"
+      "kickoff": "2026-10-21T18:00:00Z"
     },
     {
       "date": "2026-10-23",
@@ -273413,24 +273289,6 @@
       ],
       "league_id": "en.1",
       "league": "England \u2014 Premier League",
-      "season": "2026-27",
-      "kickoff": "2026-10-23T19:00:00Z",
-      "goals_source": "openligadb"
-    },
-    {
-      "date": "2026-10-23",
-      "home": "Deportivo Alav\u00e9s",
-      "away": "M\u00e1laga CF",
-      "goals": [
-        1,
-        1
-      ],
-      "ht": [
-        0,
-        1
-      ],
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
       "season": "2026-27",
       "kickoff": "2026-10-23T19:00:00Z",
       "goals_source": "openligadb"
@@ -273601,78 +273459,6 @@
       "league": "England \u2014 Premier League",
       "season": "2026-27",
       "kickoff": "2026-10-24T16:30:00Z",
-      "goals_source": "openligadb"
-    },
-    {
-      "date": "2026-10-24",
-      "home": "Rayo Vallecano de Madrid",
-      "away": "Elche CF",
-      "goals": [
-        0,
-        3
-      ],
-      "ht": [
-        0,
-        2
-      ],
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-10-24T12:00:00Z",
-      "goals_source": "openligadb"
-    },
-    {
-      "date": "2026-10-24",
-      "home": "Valencia CF",
-      "away": "Villarreal CF",
-      "goals": [
-        1,
-        2
-      ],
-      "ht": [
-        0,
-        0
-      ],
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-10-24T16:30:00Z",
-      "goals_source": "openligadb"
-    },
-    {
-      "date": "2026-10-24",
-      "home": "Club Atl\u00e9tico de Madrid",
-      "away": "RC Deportivo La Coru\u00f1a",
-      "goals": [
-        1,
-        0
-      ],
-      "ht": [
-        0,
-        0
-      ],
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-10-24T19:30:00Z",
-      "goals_source": "openligadb"
-    },
-    {
-      "date": "2026-10-24",
-      "home": "Real Racing Club de Santander",
-      "away": "RCD Espanyol de Barcelona",
-      "goals": [
-        2,
-        1
-      ],
-      "ht": [
-        0,
-        0
-      ],
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-10-24T14:15:00Z",
       "goals_source": "openligadb"
     },
     {
@@ -274075,75 +273861,103 @@
     },
     {
       "date": "2026-10-25",
-      "home": "Athletic Club",
-      "away": "Getafe CF",
-      "goals": [
-        4,
-        0
-      ],
-      "ht": [
-        2,
-        0
-      ],
+      "home": "Rayo Vallecano de Madrid",
+      "away": "Elche CF",
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-10-25T13:00:00Z",
-      "goals_source": "openligadb"
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Deportivo Alav\u00e9s",
+      "away": "M\u00e1laga CF",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Athletic Club",
+      "away": "Getafe CF",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Sevilla FC",
+      "away": "CA Osasuna",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Valencia CF",
+      "away": "Villarreal CF",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
     },
     {
       "date": "2026-10-25",
       "home": "FC Barcelona",
       "away": "Real Madrid CF",
-      "goals": [
-        1,
-        2
-      ],
-      "ht": [
-        0,
-        1
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-10-25T20:00:00Z",
-      "goals_source": "openligadb"
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Club Atl\u00e9tico de Madrid",
+      "away": "RC Deportivo La Coru\u00f1a",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
     },
     {
       "date": "2026-10-25",
       "home": "RC Celta de Vigo",
       "away": "Real Betis Balompi\u00e9",
-      "goals": [
-        0,
-        0
-      ],
-      "ht": [
-        0,
-        0
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-10-25T15:15:00Z",
-      "goals_source": "openligadb"
+      "season": "2026-27"
     },
     {
       "date": "2026-10-25",
       "home": "Real Sociedad de F\u00fatbol",
       "away": "Levante UD",
-      "goals": [
-        2,
-        1
-      ],
-      "ht": [
-        2,
-        1
-      ],
+      "goals": null,
+      "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-10-25T17:30:00Z",
-      "goals_source": "openligadb"
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-10-25",
+      "home": "Real Racing Club de Santander",
+      "away": "RCD Espanyol de Barcelona",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
     },
     {
       "date": "2026-10-25",
@@ -274454,24 +274268,6 @@
     },
     {
       "date": "2026-10-26",
-      "home": "Sevilla FC",
-      "away": "CA Osasuna",
-      "goals": [
-        2,
-        0
-      ],
-      "ht": [
-        1,
-        0
-      ],
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-10-26T20:00:00Z",
-      "goals_source": "openligadb"
-    },
-    {
-      "date": "2026-10-26",
       "home": "CD Santa Clara",
       "away": "Sport Lisboa e Benfica",
       "goals": null,
@@ -274590,17 +274386,6 @@
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
       "kickoff": "2026-10-29T19:45:00Z"
-    },
-    {
-      "date": "2026-10-30",
-      "home": "Villarreal CF",
-      "away": "RCD Espanyol de Barcelona",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-10-30T20:00:00Z"
     },
     {
       "date": "2026-10-30",
@@ -274830,50 +274615,6 @@
       "season": "2026-27",
       "kickoff": "2026-10-31T20:00:00Z",
       "goals_source": "openligadb"
-    },
-    {
-      "date": "2026-10-31",
-      "home": "Real Betis Balompi\u00e9",
-      "away": "M\u00e1laga CF",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-10-31T17:30:00Z"
-    },
-    {
-      "date": "2026-10-31",
-      "home": "Levante UD",
-      "away": "Club Atl\u00e9tico de Madrid",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-10-31T13:00:00Z"
-    },
-    {
-      "date": "2026-10-31",
-      "home": "FC Barcelona",
-      "away": "Deportivo Alav\u00e9s",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-10-31T20:00:00Z"
-    },
-    {
-      "date": "2026-10-31",
-      "home": "Rayo Vallecano de Madrid",
-      "away": "RC Celta de Vigo",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-10-31T15:15:00Z"
     },
     {
       "date": "2026-10-31",
@@ -275225,14 +274966,33 @@
     },
     {
       "date": "2026-11-01",
+      "home": "Real Betis Balompi\u00e9",
+      "away": "M\u00e1laga CF",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-01",
+      "home": "Villarreal CF",
+      "away": "RCD Espanyol de Barcelona",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-01",
       "home": "Elche CF",
       "away": "Valencia CF",
       "goals": null,
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-01T17:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-01",
@@ -275242,8 +275002,37 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-01T20:00:00Z"
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-01",
+      "home": "Levante UD",
+      "away": "Club Atl\u00e9tico de Madrid",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-01",
+      "home": "RC Deportivo La Coru\u00f1a",
+      "away": "CA Osasuna",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-01",
+      "home": "FC Barcelona",
+      "away": "Deportivo Alav\u00e9s",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
     },
     {
       "date": "2026-11-01",
@@ -275253,8 +275042,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-01T13:00:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-01",
@@ -275264,8 +275052,17 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-01T15:15:00Z"
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-01",
+      "home": "Rayo Vallecano de Madrid",
+      "away": "RC Celta de Vigo",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
     },
     {
       "date": "2026-11-01",
@@ -275550,17 +275347,6 @@
     },
     {
       "date": "2026-11-02",
-      "home": "RC Deportivo La Coru\u00f1a",
-      "away": "CA Osasuna",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-02T20:00:00Z"
-    },
-    {
-      "date": "2026-11-02",
       "home": "US Sassuolo Calcio",
       "away": "ACF Fiorentina",
       "goals": null,
@@ -275620,17 +275406,6 @@
       "season": "2026-27",
       "kickoff": "2026-11-06T20:00:00Z",
       "goals_source": "openligadb"
-    },
-    {
-      "date": "2026-11-06",
-      "home": "Sevilla FC",
-      "away": "Deportivo Alav\u00e9s",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-06T20:00:00Z"
     },
     {
       "date": "2026-11-06",
@@ -275799,50 +275574,6 @@
       "season": "2026-27",
       "kickoff": "2026-11-07T15:00:00Z",
       "goals_source": "openligadb"
-    },
-    {
-      "date": "2026-11-07",
-      "home": "CA Osasuna",
-      "away": "Athletic Club",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-07T17:30:00Z"
-    },
-    {
-      "date": "2026-11-07",
-      "home": "Valencia CF",
-      "away": "Real Madrid CF",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-07T20:00:00Z"
-    },
-    {
-      "date": "2026-11-07",
-      "home": "M\u00e1laga CF",
-      "away": "Real Racing Club de Santander",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-07T13:00:00Z"
-    },
-    {
-      "date": "2026-11-07",
-      "home": "RCD Espanyol de Barcelona",
-      "away": "RC Deportivo La Coru\u00f1a",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-07T15:15:00Z"
     },
     {
       "date": "2026-11-07",
@@ -276232,8 +275963,37 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-08T13:00:00Z"
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-08",
+      "home": "CA Osasuna",
+      "away": "Athletic Club",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-08",
+      "home": "Sevilla FC",
+      "away": "Deportivo Alav\u00e9s",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-08",
+      "home": "Valencia CF",
+      "away": "Real Madrid CF",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
     },
     {
       "date": "2026-11-08",
@@ -276243,8 +276003,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-08T17:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-08",
@@ -276254,8 +276013,27 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-08T15:15:00Z"
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-08",
+      "home": "M\u00e1laga CF",
+      "away": "Real Racing Club de Santander",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-08",
+      "home": "RCD Espanyol de Barcelona",
+      "away": "RC Deportivo La Coru\u00f1a",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
     },
     {
       "date": "2026-11-08",
@@ -276265,8 +276043,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-08T20:00:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-08",
@@ -276276,8 +276053,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-08T17:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-08",
@@ -276617,17 +276393,6 @@
     },
     {
       "date": "2026-11-20",
-      "home": "Athletic Club",
-      "away": "RCD Espanyol de Barcelona",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-20T20:00:00Z"
-    },
-    {
-      "date": "2026-11-20",
       "home": "FC Bayern M\u00fcnchen",
       "away": "1. FC K\u00f6ln",
       "goals": null,
@@ -276744,50 +276509,6 @@
       "ht": null,
       "league_id": "en.1",
       "league": "England \u2014 Premier League",
-      "season": "2026-27",
-      "kickoff": "2026-11-21T17:30:00Z"
-    },
-    {
-      "date": "2026-11-21",
-      "home": "Rayo Vallecano de Madrid",
-      "away": "Valencia CF",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-21T15:15:00Z"
-    },
-    {
-      "date": "2026-11-21",
-      "home": "Real Madrid CF",
-      "away": "RC Celta de Vigo",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-21T20:00:00Z"
-    },
-    {
-      "date": "2026-11-21",
-      "home": "Deportivo Alav\u00e9s",
-      "away": "RC Deportivo La Coru\u00f1a",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-21T13:00:00Z"
-    },
-    {
-      "date": "2026-11-21",
-      "home": "Sevilla FC",
-      "away": "Real Betis Balompi\u00e9",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
       "season": "2026-27",
       "kickoff": "2026-11-21T17:30:00Z"
     },
@@ -277079,14 +276800,23 @@
     },
     {
       "date": "2026-11-22",
+      "home": "Athletic Club",
+      "away": "RCD Espanyol de Barcelona",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-22",
       "home": "FC Barcelona",
       "away": "Villarreal CF",
       "goals": null,
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-22T13:00:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-22",
@@ -277096,8 +276826,17 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-22T15:15:00Z"
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-22",
+      "home": "Rayo Vallecano de Madrid",
+      "away": "Valencia CF",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
     },
     {
       "date": "2026-11-22",
@@ -277107,8 +276846,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-22T17:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-22",
@@ -277118,8 +276856,47 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-22T20:00:00Z"
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-22",
+      "home": "Real Madrid CF",
+      "away": "RC Celta de Vigo",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-22",
+      "home": "Deportivo Alav\u00e9s",
+      "away": "RC Deportivo La Coru\u00f1a",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-22",
+      "home": "Sevilla FC",
+      "away": "Real Betis Balompi\u00e9",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
+    },
+    {
+      "date": "2026-11-22",
+      "home": "Levante UD",
+      "away": "Elche CF",
+      "goals": null,
+      "ht": null,
+      "league_id": "es.1",
+      "league": "Spain \u2014 La Liga",
+      "season": "2026-27"
     },
     {
       "date": "2026-11-22",
@@ -277305,17 +277082,6 @@
       "ht": null,
       "league_id": "en.1",
       "league": "England \u2014 Premier League",
-      "season": "2026-27",
-      "kickoff": "2026-11-23T20:00:00Z"
-    },
-    {
-      "date": "2026-11-23",
-      "home": "Levante UD",
-      "away": "Elche CF",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
       "season": "2026-27",
       "kickoff": "2026-11-23T20:00:00Z"
     },
@@ -277756,8 +277522,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-29T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-29",
@@ -277767,8 +277532,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-29T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-29",
@@ -277778,8 +277542,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-29T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-29",
@@ -277789,8 +277552,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-29T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-29",
@@ -277800,8 +277562,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-29T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-29",
@@ -277811,8 +277572,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-29T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-29",
@@ -277822,8 +277582,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-29T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-29",
@@ -277833,8 +277592,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-29T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-29",
@@ -277844,8 +277602,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-29T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-29",
@@ -277855,8 +277612,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-11-29T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-11-29",
@@ -278672,8 +278428,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-06",
@@ -278683,8 +278438,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-06",
@@ -278694,8 +278448,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-06",
@@ -278705,8 +278458,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-06",
@@ -278716,8 +278468,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-06",
@@ -278727,8 +278478,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-06",
@@ -278738,8 +278488,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-06",
@@ -278749,8 +278498,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-06",
@@ -278760,8 +278508,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-06",
@@ -278771,8 +278518,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-06T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-06",
@@ -279062,17 +278808,6 @@
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27"
-    },
-    {
-      "date": "2026-12-09",
-      "home": "Rayo Vallecano de Madrid",
-      "away": "Athletic Club",
-      "goals": null,
-      "ht": null,
-      "league_id": "es.1",
-      "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-09T19:00:00Z"
     },
     {
       "date": "2026-12-11",
@@ -279426,8 +279161,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-13",
@@ -279437,8 +279171,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-13",
@@ -279448,8 +279181,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-13",
@@ -279459,8 +279191,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-13",
@@ -279470,8 +279201,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-13",
@@ -279481,8 +279211,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-13",
@@ -279492,8 +279221,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-13",
@@ -279503,8 +279231,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-13",
@@ -279514,8 +279241,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-13",
@@ -279525,8 +279251,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-13T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-13",
@@ -280144,8 +279869,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-20",
@@ -280155,8 +279879,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-20",
@@ -280166,8 +279889,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-20",
@@ -280177,8 +279899,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-20",
@@ -280188,8 +279909,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-20",
@@ -280199,8 +279919,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-20",
@@ -280210,8 +279929,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-20",
@@ -280221,8 +279939,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-20",
@@ -280232,8 +279949,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-20",
@@ -280243,8 +279959,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2026-12-20T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2026-12-20",
@@ -281076,8 +280791,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-03T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-03",
@@ -281087,8 +280801,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-03T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-03",
@@ -281098,8 +280811,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-03T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-03",
@@ -281109,8 +280821,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-03T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-03",
@@ -281120,8 +280831,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-03T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-03",
@@ -281131,8 +280841,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-03T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-03",
@@ -281142,8 +280851,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-03T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-03",
@@ -281153,8 +280861,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-03T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-03",
@@ -281164,8 +280871,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-03T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-03",
@@ -281175,8 +280881,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-03T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-03",
@@ -281639,8 +281344,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-10T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-10",
@@ -281650,8 +281354,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-10T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-10",
@@ -281661,8 +281364,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-10T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-10",
@@ -281672,8 +281374,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-10T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-10",
@@ -281683,8 +281384,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-10T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-10",
@@ -281694,8 +281394,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-10T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-10",
@@ -281705,8 +281404,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-10T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-10",
@@ -281716,8 +281414,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-10T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-10",
@@ -281727,8 +281424,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-10T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-10",
@@ -281738,8 +281434,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-10T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-10",
@@ -282502,8 +282197,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-17",
@@ -282513,8 +282207,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-17",
@@ -282524,8 +282217,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-17",
@@ -282535,8 +282227,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-17",
@@ -282546,8 +282237,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-17",
@@ -282557,8 +282247,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-17",
@@ -282568,8 +282257,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-17",
@@ -282579,8 +282267,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-17",
@@ -282590,8 +282277,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-17",
@@ -282601,8 +282287,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-17T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-17",
@@ -283277,8 +282962,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-24",
@@ -283288,8 +282972,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-24",
@@ -283299,8 +282982,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-24",
@@ -283310,8 +282992,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-24",
@@ -283321,8 +283002,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-24",
@@ -283332,8 +283012,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-24",
@@ -283343,8 +283022,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-24",
@@ -283354,8 +283032,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-24",
@@ -283365,8 +283042,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-24",
@@ -283376,8 +283052,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-24T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-24",
@@ -284052,8 +283727,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-31T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-31",
@@ -284063,8 +283737,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-31T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-31",
@@ -284074,8 +283747,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-31T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-31",
@@ -284085,8 +283757,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-31T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-31",
@@ -284096,8 +283767,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-31T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-31",
@@ -284107,8 +283777,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-31T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-31",
@@ -284118,8 +283787,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-31T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-31",
@@ -284129,8 +283797,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-31T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-31",
@@ -284140,8 +283807,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-31T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-31",
@@ -284151,8 +283817,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-01-31T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-01-31",
@@ -284794,8 +284459,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-07",
@@ -284805,8 +284469,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-07",
@@ -284816,8 +284479,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-07",
@@ -284827,8 +284489,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-07",
@@ -284838,8 +284499,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-07",
@@ -284849,8 +284509,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-07",
@@ -284860,8 +284519,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-07",
@@ -284871,8 +284529,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-07",
@@ -284882,8 +284539,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-07",
@@ -284893,8 +284549,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-07",
@@ -285593,8 +285248,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-14",
@@ -285604,8 +285258,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-14",
@@ -285615,8 +285268,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-14",
@@ -285626,8 +285278,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-14",
@@ -285637,8 +285288,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-14",
@@ -285648,8 +285298,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-14",
@@ -285659,8 +285308,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-14",
@@ -285670,8 +285318,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-14",
@@ -285681,8 +285328,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-14",
@@ -285692,8 +285338,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-14",
@@ -286381,8 +286026,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-21",
@@ -286392,8 +286036,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-21",
@@ -286403,8 +286046,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-21",
@@ -286414,8 +286056,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-21",
@@ -286425,8 +286066,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-21",
@@ -286436,8 +286076,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-21",
@@ -286447,8 +286086,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-21",
@@ -286458,8 +286096,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-21",
@@ -286469,8 +286106,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-21",
@@ -286480,8 +286116,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-21",
@@ -287159,8 +286794,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-28T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-28",
@@ -287170,8 +286804,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-28T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-28",
@@ -287181,8 +286814,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-28T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-28",
@@ -287192,8 +286824,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-28T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-28",
@@ -287203,8 +286834,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-28T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-28",
@@ -287214,8 +286844,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-28T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-28",
@@ -287225,8 +286854,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-28T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-28",
@@ -287236,8 +286864,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-28T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-28",
@@ -287247,8 +286874,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-28T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-28",
@@ -287258,8 +286884,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-02-28T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-02-28",
@@ -288156,8 +287781,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-07",
@@ -288167,8 +287791,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-07",
@@ -288178,8 +287801,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-07",
@@ -288189,8 +287811,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-07",
@@ -288200,8 +287821,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-07",
@@ -288211,8 +287831,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-07",
@@ -288222,8 +287841,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-07",
@@ -288233,8 +287851,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-07",
@@ -288244,8 +287861,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-07",
@@ -288255,8 +287871,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-07T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-07",
@@ -288944,8 +288559,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-14",
@@ -288955,8 +288569,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-14",
@@ -288966,8 +288579,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-14",
@@ -288977,8 +288589,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-14",
@@ -288988,8 +288599,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-14",
@@ -288999,8 +288609,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-14",
@@ -289010,8 +288619,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-14",
@@ -289021,8 +288629,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-14",
@@ -289032,8 +288639,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-14",
@@ -289043,8 +288649,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-14T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-14",
@@ -289722,8 +289327,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-21",
@@ -289733,8 +289337,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-21",
@@ -289744,8 +289347,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-21",
@@ -289755,8 +289357,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-21",
@@ -289766,8 +289367,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-21",
@@ -289777,8 +289377,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-21",
@@ -289788,8 +289387,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-21",
@@ -289799,8 +289397,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-21",
@@ -289810,8 +289407,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-21",
@@ -289821,8 +289417,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-03-21T14:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-03-21",
@@ -290411,8 +290006,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-04T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-04",
@@ -290422,8 +290016,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-04T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-04",
@@ -290433,8 +290026,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-04T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-04",
@@ -290444,8 +290036,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-04T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-04",
@@ -290455,8 +290046,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-04T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-04",
@@ -290466,8 +290056,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-04T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-04",
@@ -290477,8 +290066,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-04T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-04",
@@ -290488,8 +290076,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-04T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-04",
@@ -290499,8 +290086,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-04T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-04",
@@ -290510,8 +290096,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-04T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-04",
@@ -291199,8 +290784,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-11T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-11",
@@ -291210,8 +290794,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-11T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-11",
@@ -291221,8 +290804,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-11T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-11",
@@ -291232,8 +290814,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-11T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-11",
@@ -291243,8 +290824,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-11T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-11",
@@ -291254,8 +290834,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-11T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-11",
@@ -291265,8 +290844,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-11T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-11",
@@ -291276,8 +290854,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-11T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-11",
@@ -291287,8 +290864,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-11T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-11",
@@ -291298,8 +290874,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-11T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-11",
@@ -291897,8 +291472,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-18T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-18",
@@ -291908,8 +291482,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-18T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-18",
@@ -291919,8 +291492,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-18T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-18",
@@ -291930,8 +291502,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-18T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-18",
@@ -291941,8 +291512,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-18T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-18",
@@ -291952,8 +291522,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-18T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-18",
@@ -291963,8 +291532,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-18T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-18",
@@ -291974,8 +291542,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-18T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-18",
@@ -291985,8 +291552,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-18T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-18",
@@ -291996,8 +291562,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-18T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-18",
@@ -292296,8 +291861,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-21T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-21",
@@ -292307,8 +291871,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-21T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-21",
@@ -292318,8 +291881,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-21T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-21",
@@ -292329,8 +291891,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-21T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-21",
@@ -292340,8 +291901,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-21T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-21",
@@ -292351,8 +291911,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-21T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-21",
@@ -292362,8 +291921,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-21T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-21",
@@ -292373,8 +291931,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-21T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-21",
@@ -292384,8 +291941,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-21T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-21",
@@ -292395,8 +291951,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-04-21T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-04-24",
@@ -293374,8 +292929,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-02T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-02",
@@ -293385,8 +292939,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-02T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-02",
@@ -293396,8 +292949,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-02T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-02",
@@ -293407,8 +292959,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-02T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-02",
@@ -293418,8 +292969,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-02T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-02",
@@ -293429,8 +292979,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-02T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-02",
@@ -293440,8 +292989,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-02T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-02",
@@ -293451,8 +292999,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-02T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-02",
@@ -293462,8 +293009,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-02T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-02",
@@ -293473,8 +293019,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-02T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-02",
@@ -294053,8 +293598,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-09T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-09",
@@ -294064,8 +293608,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-09T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-09",
@@ -294075,8 +293618,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-09T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-09",
@@ -294086,8 +293628,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-09T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-09",
@@ -294097,8 +293638,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-09T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-09",
@@ -294108,8 +293648,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-09T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-09",
@@ -294119,8 +293658,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-09T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-09",
@@ -294130,8 +293668,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-09T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-09",
@@ -294141,8 +293678,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-09T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-09",
@@ -294152,8 +293688,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-09T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-09",
@@ -294672,8 +294207,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-16T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-16",
@@ -294683,8 +294217,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-16T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-16",
@@ -294694,8 +294227,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-16T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-16",
@@ -294705,8 +294237,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-16T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-16",
@@ -294716,8 +294247,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-16T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-16",
@@ -294727,8 +294257,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-16T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-16",
@@ -294738,8 +294267,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-16T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-16",
@@ -294749,8 +294277,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-16T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-16",
@@ -294760,8 +294287,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-16T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-16",
@@ -294771,8 +294297,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-16T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-16",
@@ -295559,8 +295084,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-23T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-23",
@@ -295570,8 +295094,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-23T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-23",
@@ -295581,8 +295104,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-23T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-23",
@@ -295592,8 +295114,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-23T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-23",
@@ -295603,8 +295124,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-23T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-23",
@@ -295614,8 +295134,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-23T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-23",
@@ -295625,8 +295144,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-23T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-23",
@@ -295636,8 +295154,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-23T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-23",
@@ -295647,8 +295164,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-23T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-23",
@@ -295658,8 +295174,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-23T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-23",
@@ -296167,8 +295682,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-30T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-30",
@@ -296178,8 +295692,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-30T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-30",
@@ -296189,8 +295702,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-30T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-30",
@@ -296200,8 +295712,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-30T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-30",
@@ -296211,8 +295722,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-30T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-30",
@@ -296222,8 +295732,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-30T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-30",
@@ -296233,8 +295742,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-30T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-30",
@@ -296244,8 +295752,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-30T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-30",
@@ -296255,8 +295762,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-30T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-30",
@@ -296266,8 +295772,7 @@
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27",
-      "kickoff": "2027-05-30T13:30:00Z"
+      "season": "2026-27"
     },
     {
       "date": "2027-05-30",
