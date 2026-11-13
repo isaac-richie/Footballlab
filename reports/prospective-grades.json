@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-12T13:55:22.447404+00:00",
-  "data_hash": "0e3f9de475fc85fbf0603f9adc1c92995303a3fd6127605585fbd8b5a8339fed",
-  "registered": 332,
-  "pending": 0,
+  "generated_at": "2026-11-13T13:19:57.629581+00:00",
+  "data_hash": "ff4ce96d2fdaf69576359e9c34f09b3aa3fdbe4fb6aca5518c4decc4a121e79f",
+  "registered": 336,
+  "pending": 4,
   "missing_result": 198,
   "overall": {
     "matches": 134,
@@ -11,8 +11,8 @@
     "over25_brier": 0.23771249388303,
     "btts_brier": 0.24649601957024803
   },
-  "eligible_registered": 129,
-  "eligible_pending": 0,
+  "eligible_registered": 132,
+  "eligible_pending": 3,
   "eligible_overall": {
     "matches": 65,
     "log_loss": 0.9825975591880902,
@@ -280,6 +280,20 @@
         "btts_brier": 0.3734095539950435
       },
       "result_hash": "0360925bbb4f2c538f8dc4a24d57f11ed353cd2bcdecda1dccb6c653885f5922"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-20",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "FC Bayern M\u00fcnchen",
+        "away": "1. FC K\u00f6ln"
+      },
+      "cohort": "first",
+      "registered_at": "2026-11-13T13:19:57.244104+00:00",
+      "run_id": "20261113T131957244114Z",
+      "status": "pending",
+      "readiness": "research_only"
     },
     {
       "fixture": {
@@ -1651,6 +1665,20 @@
     },
     {
       "fixture": {
+        "date": "2026-11-20",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "DSC Arminia Bielefeld",
+        "away": "1. FC Magdeburg"
+      },
+      "cohort": "first",
+      "registered_at": "2026-11-13T13:19:57.244104+00:00",
+      "run_id": "20261113T131957244114Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
         "date": "2026-11-07",
         "league_id": "en.1",
         "league": "England \u2014 Premier League",
@@ -1849,6 +1877,20 @@
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
       "status": "missing_result",
+      "readiness": "review_required"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-20",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "ES Troyes AC",
+        "away": "Le Havre AC"
+      },
+      "cohort": "first",
+      "registered_at": "2026-11-13T13:19:57.244104+00:00",
+      "run_id": "20261113T131957244114Z",
+      "status": "pending",
       "readiness": "review_required"
     },
     {
@@ -5823,6 +5865,20 @@
     },
     {
       "fixture": {
+        "date": "2026-11-20",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "SV Darmstadt 98",
+        "away": "1. FC Heidenheim 1846"
+      },
+      "cohort": "first",
+      "registered_at": "2026-11-13T13:19:57.244104+00:00",
+      "run_id": "20261113T131957244114Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
         "date": "2026-10-10",
         "league_id": "it.1",
         "league": "Italy \u2014 Serie A",
@@ -6431,6 +6487,20 @@
     },
     {
       "fixture": {
+        "date": "2026-11-20",
+        "league_id": "de.1",
+        "league": "Germany \u2014 Bundesliga",
+        "home": "FC Bayern M\u00fcnchen",
+        "away": "1. FC K\u00f6ln"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-13T13:19:57.244104+00:00",
+      "run_id": "20261113T131957244114Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
         "date": "2026-11-07",
         "league_id": "de.2",
         "league": "Germany \u2014 2. Bundesliga",
@@ -6936,6 +7006,20 @@
         "btts_brier": 0.45156928770199317
       },
       "result_hash": "53ed6b44f15847976ee0f7e968255f0c7f58704a9f6d95d4b03f7cd66a1d3728"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-20",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "DSC Arminia Bielefeld",
+        "away": "1. FC Magdeburg"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-13T13:19:57.244104+00:00",
+      "run_id": "20261113T131957244114Z",
+      "status": "pending",
+      "readiness": "research_only"
     },
     {
       "fixture": {
@@ -8774,6 +8858,20 @@
         "btts_brier": 0.3449830844739613
       },
       "result_hash": "2a3ae05955b834bae855c4d1cdb7aba899fa5a03c35835882bd4bee1f50a6e19"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-20",
+        "league_id": "de.2",
+        "league": "Germany \u2014 2. Bundesliga",
+        "home": "SV Darmstadt 98",
+        "away": "1. FC Heidenheim 1846"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-13T13:19:57.244104+00:00",
+      "run_id": "20261113T131957244114Z",
+      "status": "pending",
+      "readiness": "research_only"
     },
     {
       "fixture": {
