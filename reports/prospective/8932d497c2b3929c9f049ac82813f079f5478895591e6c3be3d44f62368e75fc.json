@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-11-21",
+    "league_id": "en.1",
+    "league": "England \u2014 Premier League",
+    "home": "Chelsea FC",
+    "away": "Leeds United FC"
+  },
+  "registered_at": "2026-11-14T12:24:09.991597+00:00",
+  "run_id": "20261114T122409991607Z",
+  "data_hash": "496f68d58b3aa4df06d9f0d2ab814e97b5e1ae486e20c15e362452e701e332d4",
+  "code_hash": "bf7936ae9e0c617383cd081c08cdf6c197a55bcbb14c962a8a5338c9b089f2f9",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-2.1-shrunk-totals",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "targets": "closing-price implied goals (90%) blended with scorelines, 60-day half-life, where prices exist; otherwise scorelines with a 365-day half-life",
+    "ridge": "0.005 with prices, 0.01 without; without prices, goal totals come from a second fit at ridge 0.1",
+    "optimizer": "block Newton, solved to convergence; no pinned reference team",
+    "calibration": "temperature 0.91 and draw shift 0.12 on the model's own 1X2 (0.94/0.09 without prices), fitted on 2023-25 forecasts",
+    "margin_removal": "power method",
+    "holdout": "2025-27, 3,330 matches in 8 leagues: 1X2 log loss 0.9873 (previous model 0.9975), tools/accuracy_lab.py"
+  },
+  "readiness": {
+    "league_id": "en.1",
+    "season": "2026-27",
+    "records": 2280,
+    "completed": 2000,
+    "upcoming": 280,
+    "latest_result": "2026-11-08",
+    "current_records": 380,
+    "unresolved_past": 0,
+    "likely_postponed": 0,
+    "source_checked_at": "2026-11-14T12:23:58.610142+00:00",
+    "status": "research_only",
+    "issues": []
+  },
+  "probabilities": [
+    0.506175631348484,
+    0.262680668521785,
+    0.2311437001297319
+  ],
+  "expected_goals": [
+    1.7075009709584323,
+    1.1149381360287032
+  ],
+  "over25": 0.5320432537648859,
+  "btts": 0.5586193133532797,
+  "decision": "withhold",
+  "pricing_source": "model",
+  "model_probabilities": [
+    0.506175631348484,
+    0.262680668521785,
+    0.2311437001297319
+  ]
+}
