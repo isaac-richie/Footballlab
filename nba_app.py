@@ -60,7 +60,7 @@ def _status(g, now):
 
 def _price(r, rest, g, entered=None):
     b2b = (rest.get((g['id'], 0), 0), rest.get((g['id'], 1), 0)) if g.get('id') else (0, 0)
-    model = M.expected(r, g['home'], g['away'], g.get('neutral', False), b2b)
+    model = M.stretch(M.expected(r, g['home'], g['away'], g.get('neutral', False), b2b), M.MODEL_WIDTH.get('stretch', 1.0))
     line = entered or _line(g)
     priced = M.implied(line, model) if line else None
     source = 'entered' if entered and priced else 'line' if priced else 'model'

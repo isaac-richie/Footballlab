@@ -35,7 +35,7 @@ SETTINGS = dict(half_life=50, ridge=4.0, carry=1.0, window=400, b2b=True)
 #           and close games are not equally predictable)
 # Model ratings miss by more than a closing line does, so each source has its own
 # width; both are tuned on the log loss of every priced market (tools/nba_calib.py).
-MODEL_WIDTH = dict(margin=14.7, total=18.0, link=0.0, slope=0.0)
+MODEL_WIDTH = dict(margin=14.7, total=18.0, link=0.0, slope=0.0, stretch=1.0)
 # LINE_WIDTH tuned on 2023-25 (tools/nba_calib.py). Margin 12.0 and 12.5 tied there; the wider one
 # is kept because 2025-26 showed 12.0 slightly overconfident on spreads and moneyline.
 LINE_WIDTH = dict(margin=12.5, total=17.6, link=0.1, slope=-0.1)
@@ -172,6 +172,13 @@ def _bvn(mh, ma, sd, rho, lo_h, hi_h, lo_a, hi_a):
             p *= r
             r *= step2
     return {c: p / total for c, p in out.items()}
+
+
+def stretch(means, k):
+    """Scale the expected margin by k, keeping the total. Ridge ratings pull every team
+    toward average, so their margins come out too small; `stretch` in MODEL_WIDTH undoes it."""
+    c, e = (means[0] + means[1]) / 2, (means[0] - means[1]) / 2 * k
+    return c + e, c - e
 
 
 def team_params(mh, ma, width):
