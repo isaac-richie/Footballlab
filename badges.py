@@ -145,6 +145,41 @@ def fetch(teams, pause=3, log=print):
     return index
 
 
+NBA_LOGO = 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/{abbr}.png&h=120&w=120'
+
+
+def fetch_nba(log=print):
+    """NBA team logos from ESPN's logo server, keyed by the team names in nba_data.json.
+
+    No search is needed: ESPN's own abbreviation names the file. Cached with the club
+    badges (private Lab only) and kept out of the committed badge_urls.json map.
+    """
+    import nba
+    DIR.mkdir(parents=True, exist_ok=True)
+    index = load_index()
+    teams = {}
+    for g in nba.load()['games']:
+        teams[g['home']], teams[g['away']] = g['home_abbr'], g['away_abbr']
+    got = 0
+    for name, abbr in sorted(teams.items()):
+        if index.get(name, {}).get('file') and (DIR / index[name]['file']).exists():
+            continue
+        url = NBA_LOGO.format(abbr=abbr.lower())
+        file = hashlib.sha1(('nba:' + name).encode()).hexdigest()[:12] + '.png'
+        try:
+            raw = _get(url)
+            if not raw.startswith(b'\x89PNG'):
+                raise ValueError('not a PNG')
+            (DIR / file).write_bytes(raw)
+            index[name] = {'file': file, 'matched': abbr, 'source': url, 'sport': 'nba'}
+            got += 1
+        except Exception as exc:
+            log(f'{name}: logo download failed ({exc})')
+        time.sleep(.2)
+    atomic_write(INDEX, json.dumps(index, indent=1, ensure_ascii=False))
+    return dict(teams=len(teams), downloaded=got, cached=sum(1 for n in teams if index.get(n, {}).get('file')))
+
+
 MAP = ROOT / 'badge_urls.json'   # committed: names -> TheSportsDB image addresses (no images)
 
 
@@ -154,7 +189,7 @@ def remote(source):
 
 def write_map():
     """Save where each badge lives on TheSportsDB's image server, for hosts without the local cache."""
-    links = {n: remote(v['source']) for n, v in sorted(load_index().items()) if v.get('source')}
+    links = {n: remote(v['source']) for n, v in sorted(load_index().items()) if v.get('source') and v.get('sport') != 'nba'}
     atomic_write(MAP, json.dumps(links, indent=0, ensure_ascii=False))
     return len(links)
 

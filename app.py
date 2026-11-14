@@ -931,6 +931,15 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_json(slate(load(), query.get('league', ['en.1'])[0]))
             except ValueError as exc:
                 self.send_json(dict(error=str(exc)), 400)
+        elif path == '/api/nba/slate':
+            import nba_app
+            self.send_json(nba_app.slate())
+        elif path == '/api/nba/predict':
+            import nba_app
+            try:
+                self.send_json(nba_app.predict({k: v[0] for k, v in parse_qs(urlparse(self.path).query).items()}))
+            except ValueError as exc:
+                self.send_json(dict(error=str(exc)), 400)
         elif path == '/api/benchmark':
             path_ = ROOT / 'reports' / 'benchmark.json'
             self.send_json(json.loads(path_.read_text()) if path_.exists() else dict(error='No benchmark yet'))
@@ -1016,6 +1025,15 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json(result)
             except (ValueError, TypeError) as exc:
                 return self.send_json(dict(error=str(exc)), 400)
+        if urlparse(self.path).path == '/api/nba/refresh':
+            import nba_app
+            if os.environ.get('VERCEL'):
+                return self.send_json(dict(error='Refresh runs on the private Lab only.'), 400)
+            try:
+                return self.send_json(nba_app.refresh())
+            except Exception as exc:
+                log.exception('NBA refresh failed')
+                return self.send_json(dict(error=f'NBA refresh failed: {exc}'), 502)
         if urlparse(self.path).path == '/api/odds/refresh':
             league = parse_qs(urlparse(self.path).query).get('league', [None])[0]
             result = live_odds.refresh(load(), [league] if league in LEAGUES else None, force=True)
@@ -1037,7 +1055,8 @@ if __name__ == '__main__':
     from config import load_environment
     load_environment()
     parser = argparse.ArgumentParser()
-    parser.add_argument('command', choices=['refresh', 'serve', 'backtest', 'import-stats', 'backfill-halftime', 'refresh-odds', 'fetch-badges', 'fetch-saudi', 'fetch-ucl', 'record', 'vip-record'])
+    parser.add_argument('command', choices=['refresh', 'serve', 'backtest', 'import-stats', 'backfill-halftime', 'refresh-odds', 'fetch-badges', 'fetch-saudi', 'fetch-ucl', 'fetch-nba', 'record', 'vip-record'])
+    parser.add_argument('--lines', action='store_true', help='fetch-nba: back-fill lines for every stored game')
     parser.add_argument('path', nargs='?', help='CSV path for import-stats')
     parser.add_argument('--port', type=int, default=8765)
     args = parser.parse_args()
@@ -1050,6 +1069,10 @@ if __name__ == '__main__':
     elif args.command == 'fetch-ucl':
         import ucl
         print(json.dumps(ucl.fetch()))
+    elif args.command == 'fetch-nba':
+        import nba, badges
+        print(json.dumps(nba.fetch(lines='all' if args.lines else 'recent')))
+        print(json.dumps(dict(logos=badges.fetch_nba())))
     elif args.command == 'fetch-saudi':
         print(json.dumps(saudi.fetch()))
     elif args.command == 'fetch-badges':
@@ -1061,6 +1084,7 @@ if __name__ == '__main__':
                         for t in (m['home'], m['away'])})
         index = badges.fetch(teams)
         print(json.dumps(dict(teams=len(teams), with_badge=sum(1 for v in index.values() if v.get('file')))))
+        print(json.dumps(dict(nba=badges.fetch_nba())))
     elif args.command == 'refresh-odds':
         data = load()
         print(json.dumps(dict(football_data=odds_data.fetch(data['matches']))))
@@ -1077,5 +1101,7 @@ if __name__ == '__main__':
     else:
         load()
         setup_logging()
+        import nba_app
+        nba_app.warm()
         print(f'Football Lab: http://127.0.0.1:{args.port}', flush=True)
         ThreadingHTTPServer(('127.0.0.1', args.port), Handler).serve_forever()

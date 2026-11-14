@@ -1031,6 +1031,91 @@ footer a{color:var(--muted)}
 .rec-h{margin:26px 0 10px;font-family:var(--display);text-transform:uppercase;letter-spacing:1px;font-size:18px;color:var(--muted)}
 @media (max-width:760px){.rk svg{width:78px;height:78px}.rk b{top:25px;font-size:19px}.rl{grid-template-columns:minmax(0,96px) 1fr 40px 26px}}
 .vip-code:empty{display:none}
+
+/* ---------- Basketball ---------- */
+.sport{flex-shrink:0}
+body:not([data-sport="basketball"]) .bk-only,body[data-sport="basketball"] .fb-only{display:none}
+.sport button{display:inline-flex;align-items:center;gap:6px}
+.sport .ico{font-size:14px;line-height:1}
+body[data-sport="basketball"] :is(.nav,.tabbar) a:is([data-view="featured"],[data-view="vip"],[data-view="performance"]){display:none}
+body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body[data-sport="basketball"] #ticker,body[data-sport="basketball"] #slip-fab{display:none!important}
+.bx-head,.bx{display:grid;grid-template-columns:minmax(190px,1.5fr) minmax(170px,1.3fr) 92px 92px 92px 26px;gap:14px;align-items:center;padding:0 18px}
+.bx-head{height:38px;font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--faint);border-bottom:1px solid var(--line)}
+.bx-head span:nth-child(n+3){text-align:right}
+.bx{width:100%;border:0;background:none;text-align:left;min-height:66px;border-top:1px solid var(--line);transition:background .12s;animation:rowIn .4s ease both;animation-delay:calc(var(--i,0) * 18ms);color:inherit}
+.day+.bx{border-top:0}
+.bx:hover{background:var(--surface-2)}
+.bx .teams{display:flex;flex-direction:column;gap:2px;min-width:0;line-height:1.3}
+.bx .teams>span{display:flex;align-items:center;gap:8px;font-weight:600;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.bx .teams small{color:var(--faint);font-size:11.5px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.bx .num{text-align:right;font-weight:650;font-size:13.5px;line-height:1.25}
+.bx .num small{display:block;font-weight:500;font-size:11px;color:var(--faint)}
+.bx .go{color:var(--faint);text-align:right;font-size:16px}
+.bx:hover .go{color:var(--accent)}
+.bx .lbl{display:none}
+.tag{display:inline-block;font-size:10px;font-weight:650;letter-spacing:.3px;padding:1px 6px;border-radius:999px;border:1px solid var(--line-2);color:var(--muted);text-transform:uppercase}
+.tag.warn{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 45%,transparent)}
+.jersey{display:inline-grid;place-items:center;flex-shrink:0;width:26px;height:26px;border-radius:8px;font:800 9.5px/1 var(--display);letter-spacing:.2px;box-shadow:0 1px 3px #0005}
+.jersey.lg{width:64px;height:64px;border-radius:18px;font-size:19px}
+.jersey.logo{background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--team) 30%,#ffffff14),#ffffff08);border:1px solid var(--line);box-shadow:none;padding:3px}
+.jersey.logo.lg{padding:8px}
+.jersey .nl{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 1px 3px #0006)}
+.duo{display:flex;height:8px;border-radius:999px;overflow:hidden;background:var(--surface-3)}
+.duo i{display:block;height:100%}
+.duo.big{height:12px;margin-top:4px}
+.duo-n{display:flex;justify-content:space-between;font-size:12px;margin-top:5px;font-weight:650}
+.bk-score{font:800 44px/1 var(--display);letter-spacing:-1px;text-align:center}
+.bk-score em{font-style:normal;opacity:.45;margin:0 6px}
+.bk-vs{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;margin:6px 0 20px}
+.bk-vs .side{display:flex;flex-direction:column;gap:8px;align-items:flex-start;min-width:0}
+.bk-vs .side.away{align-items:flex-end;text-align:right}
+.bk-vs .side strong{font:700 19px/1.15 var(--display);text-transform:uppercase;letter-spacing:.2px}
+.bk-vs .side small{color:var(--muted);font-size:12px}
+.bk-vs .mid{text-align:center}
+.bk-vs .mid small{display:block;color:var(--muted);font-size:11.5px;margin-top:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;margin-top:12px;gap:8px}
+.two>div:last-child{text-align:right}
+.two span{display:block;font-size:12px;color:var(--muted)}
+.two b{font:700 26px/1.1 var(--display)}
+.two small{color:var(--faint);font-size:11.5px}
+.cgrid{display:grid;grid-template-columns:auto 1fr 1fr;gap:8px;align-items:stretch;font-size:13px}
+.cgrid .h{font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--faint);align-self:end;text-align:center}
+.cgrid .r{color:var(--muted);align-self:center;font-weight:550;padding-right:6px}
+.cgrid .c{border-radius:12px;padding:12px;text-align:center;border:1px solid var(--line)}
+.cgrid .c b{display:block;font-size:17px;font-weight:700}
+.cgrid .c small{color:var(--muted);font-size:11px}
+.form-row{display:grid;grid-template-columns:62px minmax(0,1fr) 70px 22px;gap:8px;align-items:center;padding:6px 0;border-top:1px solid var(--line);font-size:12.5px}
+.form-row:first-of-type{border-top:0}
+.form-row .res{font-weight:800;text-align:center;border-radius:6px;padding:1px 0;font-size:11px}
+.form-row .res.W{background:color-mix(in srgb,var(--accent) 22%,transparent);color:var(--accent)}
+.form-row .res.L{background:color-mix(in srgb,var(--away) 18%,transparent);color:var(--away)}
+.form-row span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.form-row b{text-align:right}
+.streak{display:flex;gap:3px;margin:2px 0 10px}
+.streak i{width:14px;height:6px;border-radius:3px;background:var(--surface-3)}
+.streak i.W{background:var(--accent)}.streak i.L{background:var(--away);opacity:.7}
+.rk3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:6px}
+.rk3>div{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.rk3 small{display:block;font-size:10.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.5px}
+.rk3 b{font:700 20px/1.2 var(--display)}
+.rk3 span{display:block;font-size:11px;color:var(--muted)}
+.bk-lab{margin-top:14px}
+@media (max-width:1000px){
+  .bx-head{display:none}
+  .bx{grid-template-columns:minmax(0,1fr) 110px;grid-template-areas:"teams win" "spread total" "proj proj";row-gap:8px;padding:12px 16px}
+  .bx .teams{grid-area:teams}.bx .win{grid-area:win}.bx .c-spread{grid-area:spread;text-align:left}.bx .c-total{grid-area:total}.bx .c-proj{grid-area:proj;text-align:left;display:flex;gap:6px;align-items:baseline}
+  .bx .c-proj small{display:inline}
+  .bx .go{display:none}
+  .bx .lbl{display:inline;font-weight:500;color:var(--faint);font-size:11px;margin-right:4px}
+}
+@media (max-width:760px){
+  .sport .lab{display:none}
+  .sport button{padding:5px 9px}
+  .bk-score{font-size:34px}
+  .jersey.lg{width:50px;height:50px;font-size:15px;border-radius:14px}
+  .bk-vs .side strong{font-size:15px}
+  .cgrid{font-size:12px}.cgrid .c{padding:9px 6px}.cgrid .c b{font-size:15px}
+}
 </style>
 </head>
 <body>
@@ -1045,6 +1130,7 @@ footer a{color:var(--muted)}
       <a href="#performance" data-view="performance">Record</a>
     </nav>
     <div class="spacer"></div>
+    <div class="seg sport" id="sport" role="group" aria-label="Sport"><button type="button" data-sport="football" aria-pressed="true"><span class="ico" aria-hidden="true">⚽</span><span class="lab">Football</span></button><button type="button" data-sport="basketball" aria-pressed="false"><span class="ico" aria-hidden="true">🏀</span><span class="lab">Basketball</span></button></div>
     <span class="fresh" id="fresh"></span>
     <button class="icon-btn" id="fx-toggle" type="button" aria-label="Background effects" title="Background effects" aria-pressed="true">✦</button>
     <button class="icon-btn" id="theme" type="button" aria-label="Toggle colour theme" title="Toggle theme">◐</button>
@@ -1178,9 +1264,61 @@ footer a{color:var(--muted)}
     <div id="evaluation" style="margin-top:14px"></div>
   </section>
 
+  <!-- BASKETBALL: FIXTURES -->
+  <section data-panel="b-fixtures" hidden>
+    <div class="view-head">
+      <div>
+        <span class="eyebrow"><i></i>NBA</span><h1>Upcoming games</h1>
+        <p>Every NBA game in the next seven days. Win chance, spread and total come from the bookmaker line where it is posted, and from our points model otherwise. Open a game for the full breakdown.</p>
+      </div>
+      <div class="toolbar">
+        <button class="ghost" id="nba-refresh" type="button">Refresh scores &amp; lines</button>
+        <input class="search" id="nba-search" type="search" placeholder="Filter by team" aria-label="Filter by team">
+        <div class="seg" id="nba-sort" role="group" aria-label="Sort games">
+          <button data-sort="date" aria-pressed="true">Date</button>
+          <button data-sort="fav">Favourite</button>
+          <button data-sort="close">Closest</button>
+          <button data-sort="total">Total</button>
+        </div>
+      </div>
+    </div>
+    <div class="board">
+      <div class="bx-head"><span>Game</span><span>Win chance</span><span>Spread</span><span>Total</span><span>Projected</span><span></span></div>
+      <div id="nba-body"><div class="empty">Loading games…</div></div>
+    </div>
+    <p class="note" id="nba-note"></p>
+    <div id="nba-lab" class="bk-lab"></div>
+  </section>
+
+  <!-- BASKETBALL: MATCH -->
+  <section data-panel="b-match" hidden>
+    <div class="match-layout">
+      <form class="card form-card" id="nba-form">
+        <h4>Build the matchup</h4>
+        <label class="field"><span>Home</span><select id="nba-home" required aria-label="Home team"></select></label>
+        <button type="button" class="ghost" id="nba-swap" style="width:100%;margin-bottom:12px">⇅ Swap home and away</button>
+        <label class="field"><span>Away</span><select id="nba-away" required aria-label="Away team"></select></label>
+        <details class="fold">
+          <summary>Use your own line</summary>
+          <div class="odds-row" style="grid-template-columns:1fr 1fr;margin-top:10px">
+            <label class="field"><span>Home spread</span><input id="nba-spread" type="number" step="0.5" inputmode="decimal" placeholder="-4.5"></label>
+            <label class="field"><span>Total points</span><input id="nba-total" type="number" step="0.5" min="120" max="320" inputmode="decimal" placeholder="226.5"></label>
+          </div>
+          <p class="hint">Points only, priced at even money on both sides. Every market is then derived from your line. Leave blank to use the bookmaker line or our model.</p>
+        </details>
+        <button class="primary" type="submit" id="nba-go">Analyse game</button>
+      </form>
+      <div id="nba-out">
+        <div class="placeholder"><div><div style="font-size:42px">🏀</div><h3>Pick a game</h3><p>Choose two teams or open a game from the board. You get moneyline, spread, totals, team totals, winning margin, combos and form.</p></div></div>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <span>Research forecasts from score history only. No lineups, injuries or shot-based xG. Probabilities are not guarantees.</span>
-    <span>Data: <a href="https://github.com/openfootball/football.json">OpenFootball (CC0)</a> · <a href="https://www.openligadb.de/">OpenLigaDB (ODbL)</a></span>
+    <span class="fb-only">Research forecasts from score history only. No lineups, injuries or shot-based xG. Probabilities are not guarantees.</span>
+    <span class="fb-only">Data: <a href="https://github.com/openfootball/football.json">OpenFootball (CC0)</a> · <a href="https://www.openligadb.de/">OpenLigaDB (ODbL)</a></span>
+    <span class="bk-only">NBA forecasts from scores and bookmaker lines only. No injuries, rest days beyond back-to-backs, or lineups. Probabilities are not guarantees.</span>
+    <span class="bk-only">Data: ESPN public scoreboard and odds feeds (private research use)</span>
   </footer>
 </div>
 
@@ -1264,6 +1402,14 @@ $('#theme').onclick = () => {
 function showView(){
   { const v = (location.hash || '#featured').slice(1) || 'featured'; $('#leagues').hidden = $('#strip').hidden = v === 'featured' || v === 'vip' || $('#strip').classList.contains('empty'); }
   const v = (location.hash || '#featured').slice(1).split('/')[0];
+  if(document.body.dataset.sport === 'basketball'){
+    // Basketball has its own board and match panels; every other view falls back to the board.
+    const bview = v === 'match' ? 'match' : 'fixtures';
+    $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== 'b-' + bview);
+    $$('.nav a, .tabbar a').forEach(a => a.dataset.view === bview ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
+    if(window.nbaShow) nbaShow(bview);
+    return;
+  }
   const view = ['featured','vip','fixtures','match','performance'].includes(v) ? v : 'featured';
   if(view === 'featured' && !state.ftLoaded) loadFeatured();
   if(view === 'vip' && !state.vipLoaded) loadVip();
@@ -1391,7 +1537,7 @@ $('#leagues').onclick = e => {
 };
 function renderStrip(d){
   const q = d.quality, ok = q.status === 'research_only';
-  $('#fresh').innerHTML = `<i style="${ok ? '' : 'background:var(--warn)'}"></i>Data fetched ${esc(new Date(d.fetched_at).toLocaleDateString(undefined, {day:'numeric', month:'short'}))}`;
+  if(document.body.dataset.sport !== 'basketball') $('#fresh').innerHTML = `<i style="${ok ? '' : 'background:var(--warn)'}"></i>Data fetched ${esc(new Date(d.fetched_at).toLocaleDateString(undefined, {day:'numeric', month:'short'}))}`;
   // Say nothing when the data is fine; one plain sentence when results are behind.
   const latest = q.latest_result ? new Date(q.latest_result + 'T12:00:00') : null;
   const days = latest ? Math.round((Date.now() - latest) / 864e5) : null;
@@ -2340,6 +2486,264 @@ $('#test').onclick = async () => {
 
 // Badges first so the first render already shows them; the page works without them.
 api('/api/badges').then(b => { BADGES = b || {} }).catch(() => {}).finally(() => { showView(); loadLeague(); loadSlip() });
+</script>
+<script>
+/* ---------- Basketball (NBA) ---------- */
+// Team colours only (primary, secondary), keyed by ESPN abbreviation. No logos or marks.
+const NBA_COLORS = {ATL:['#e03a3e','#ffffff'], BOS:['#007a33','#ffffff'], BKN:['#111111','#ffffff'], CHA:['#1d1160','#00788c'], CHI:['#ce1141','#111111'],
+  CLE:['#860038','#fdbb30'], DAL:['#00538c','#ffffff'], DEN:['#0e2240','#fec524'], DET:['#c8102e','#1d42ba'], GS:['#1d428a','#ffc72c'], HOU:['#ce1141','#ffffff'],
+  IND:['#002d62','#fdbb30'], LAC:['#c8102e','#1d428a'], LAL:['#552583','#fdb927'], MEM:['#5d76a9','#12173f'], MIA:['#98002e','#f9a01b'], MIL:['#00471b','#eee1c6'],
+  MIN:['#0c2340','#78be20'], NO:['#0c2340','#c8102e'], NY:['#006bb6','#f58426'], OKC:['#007ac1','#ef3b24'], ORL:['#0077c0','#ffffff'], PHI:['#006bb6','#ed174c'],
+  PHX:['#1d1160','#e56020'], POR:['#e03a3e','#111111'], SAC:['#5a2d81','#ffffff'], SA:['#c4ced4','#111111'], TOR:['#ce1141','#111111'], UTAH:['#002b5c','#f9a01b'],
+  WSH:['#002b5c','#e31837']};
+const nb = {loaded: false, loading: null, slate: null, sort: 'date', filter: '', current: null, tab: 'overview', abbr: {}, gameId: null, rev: 0};
+const nAbbr = name => nb.abbr[name] || name.split(' ').pop().slice(0, 3).toUpperCase();
+function jersey(name, lg){
+  const a = nAbbr(name), c = NBA_COLORS[a] || [kit(name).primary, '#ffffff'];
+  if(BADGES[name]) return `<span class="jersey logo${lg ? ' lg' : ''}" style="--team:${c[0]}" aria-hidden="true">${badgeImg(name, 'nl')}</span>`;
+  return `<span class="jersey${lg ? ' lg' : ''}" style="background:linear-gradient(140deg,${c[0]} 0 62%,${c[1]} 62% 100%);color:${inkOn(c[0])}" aria-hidden="true">${esc(a)}</span>`;
+}
+const favLine = (home, away, s) => s < 0 ? `${nAbbr(home)} ${line(s)}` : s > 0 ? `${nAbbr(away)} ${line(-s)}` : 'Pick ’em';
+const NSRC = {line: 'Bookie line', entered: 'Your line', model: 'Our model'};
+const nSrc = (s, book) => `<span class="src ${s === 'model' ? 'model' : 'market'}" title="${s === 'line' && book ? esc(book) + ', margin removed' : ''}"><i></i>${NSRC[s] || s}</span>`;
+function nStatus(f){
+  if(f.status === 'live') return '<span class="st live"><i></i>Live</span>';
+  if(f.status === 'awaiting_result') return '<span class="st done">Final soon</span>';
+  return f.tipoff ? `<span class="st ko">${esc(koTime(f.tipoff))}</span>` : '';
+}
+function duo(p, big){
+  return `<div class="duo${big ? ' big' : ''}" role="img" aria-label="Home ${pct(p[0])}, away ${pct(p[1])}"><i style="width:${p[0] * 100}%;background:var(--home)"></i><i style="width:${p[1] * 100}%;background:var(--away)"></i></div>`;
+}
+
+/* Sport switch */
+function setSport(sport, initial){
+  document.body.dataset.sport = sport; store.set('fl-sport', sport);
+  $$('#sport button').forEach(b => b.setAttribute('aria-pressed', b.dataset.sport === sport));
+  const v = (location.hash || '').slice(1).split('/')[0];
+  if(sport === 'basketball' && !['fixtures', 'match'].includes(v)) history.replaceState(null, '', '#fixtures');
+  if(sport === 'football' && state.data && typeof renderStrip === 'function') renderStrip(state.data);
+  if(sport === 'basketball' && nb.slate) nbFresh();
+  if(!initial) transition(showView);
+}
+$('#sport').onclick = e => { const b = e.target.closest('[data-sport]'); if(b && b.dataset.sport !== document.body.dataset.sport) setSport(b.dataset.sport) };
+setSport(store.get('fl-sport') === 'basketball' ? 'basketball' : 'football', true);
+
+function nbaShow(view){
+  if(!nb.loaded && !nb.loading) loadNba();
+  if(view === 'match') requestAnimationFrame(nbInk);
+}
+function nbFresh(){
+  const s = nb.slate; if(!s || !s.fetched_at) return;
+  const age = (Date.now() - new Date(s.fetched_at)) / 36e5;
+  $('#fresh').innerHTML = `<i style="${age < 24 ? '' : 'background:var(--warn)'}"></i>NBA data ${esc(new Date(s.fetched_at).toLocaleString(undefined, {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'}))}`;
+}
+async function loadNba(){
+  $('#nba-body').innerHTML = '<div class="empty">Loading games…</div>';
+  nb.loading = api('/api/nba/slate').then(s => {
+    nb.slate = s; nb.loaded = true; nb.abbr = s.abbrs || {};
+    for(const f of s.fixtures){ nb.abbr[f.home] = f.home_abbr; nb.abbr[f.away] = f.away_abbr }
+    const keep = [$('#nba-home').value, $('#nba-away').value], teams = s.teams || [];
+    for(const id of ['#nba-home', '#nba-away']) $(id).replaceChildren(...teams.map(t => new Option(t, t)));
+    if(teams.includes(keep[0]) && teams.includes(keep[1])){ $('#nba-home').value = keep[0]; $('#nba-away').value = keep[1] } else $('#nba-away').selectedIndex = Math.min(1, teams.length - 1);
+    if(document.body.dataset.sport === 'basketball') nbFresh();
+    renderNbaBoard(); renderNbaLab();
+  }).catch(e => { $('#nba-body').innerHTML = `<div class="empty">${esc(e.message)}</div>` }).finally(() => { nb.loading = null });
+  return nb.loading;
+}
+$('#nba-refresh').onclick = async () => {
+  const b = $('#nba-refresh'); b.disabled = true; b.textContent = 'Refreshing…';
+  try{ await api('/api/nba/refresh', {method: 'POST'}); await loadNba() }
+  catch(e){ alert(e.message) }
+  finally{ b.disabled = false; b.textContent = 'Refresh scores & lines' }
+};
+$('#nba-search').oninput = e => { nb.filter = e.target.value.trim().toLowerCase(); renderNbaBoard() };
+$('#nba-sort').onclick = e => {
+  const b = e.target.closest('[data-sort]'); if(!b) return;
+  nb.sort = b.dataset.sort; $$('#nba-sort button').forEach(x => x.setAttribute('aria-pressed', x === b));
+  nb.still = true; flip($('#nba-body'), '.bx', el => el.dataset.id, renderNbaBoard); nb.still = false;
+};
+function renderNbaBoard(){
+  const s = nb.slate, body = $('#nba-body'); if(!s) return;
+  if(s.error){ body.innerHTML = `<div class="empty">${esc(s.error)}</div>`; return }
+  let list = s.fixtures.filter(f => f.status !== 'awaiting_result' && (!nb.filter || (f.home + ' ' + f.away).toLowerCase().includes(nb.filter)));
+  const key = {fav: f => -Math.max(...f.moneyline), close: f => Math.abs(f.moneyline[0] - .5), total: f => -f.expected_total}[nb.sort];
+  if(key) list = [...list].sort((a, b) => key(a) - key(b));
+  if(!list.length){ body.innerHTML = `<div class="empty">${nb.filter ? 'No games match that filter.' : 'No NBA games in the next seven days.'}</div>`; $('#nba-note').textContent = ''; return }
+  let html = '', last = null;
+  list.forEach((f, i) => {
+    if(nb.sort === 'date' && f.date !== last){ const dd = Math.round((new Date(f.date + 'T12:00:00') - new Date(s.today + 'T12:00:00')) / 864e5);
+      html += `<div class="day"><span>${esc(day(f.date))}</span><span class="ko">${dd === 0 ? 'Today' : dd === 1 ? 'Tomorrow' : 'In ' + dd + ' days'}</span></div>`; last = f.date }
+    const p = f.moneyline, fav = f.spread_line <= 0 ? f.cover : 1 - f.cover;
+    const tags = (f.source !== 'model' ? nSrc(f.source, f.book) : '') + (f.b2b[0] ? `<span class="tag warn" title="${esc(f.home)} played yesterday">${esc(nAbbr(f.home))} B2B</span>` : '') +
+      (f.b2b[1] ? `<span class="tag warn" title="${esc(f.away)} played yesterday">${esc(nAbbr(f.away))} B2B</span>` : '') + (f.kind && f.kind !== 'regular' ? `<span class="tag">${esc(f.kind)}</span>` : '') + (f.neutral ? '<span class="tag">Neutral</span>' : '');
+    html += `<button class="bx" style="--i:${nb.still ? 0 : Math.min(i, 30)}${nb.still ? ';animation:none' : ''}" data-id="${esc(f.id)}" data-home="${esc(f.home)}" data-away="${esc(f.away)}">` +
+      `<span class="teams"><span>${jersey(f.home)}${esc(f.home)}</span><span>${jersey(f.away)}${esc(f.away)}</span><small>${nb.sort !== 'date' ? esc(day(f.date)) + ' · ' : ''}${nStatus(f)}${tags}</small></span>` +
+      `<span class="win">${duo(p)}<span class="duo-n"><span class="c-h">${Math.round(p[0] * 100)}%</span><span class="c-a">${Math.round(p[1] * 100)}%</span></span></span>` +
+      `<span class="num c-spread"><span class="lbl">Spread</span>${esc(favLine(f.home, f.away, f.spread_line))}<small>covers ${pct(fav)}</small></span>` +
+      `<span class="num c-total"><span class="lbl">Total</span>O/U ${f.total_line}<small>over ${pct(f.over)}</small></span>` +
+      `<span class="num c-proj"><span class="lbl">Projected</span>${Math.round(f.expected_points[0])}–${Math.round(f.expected_points[1])}<small>total ${f.expected_total.toFixed(1)}</small></span><span class="go">›</span></button>`;
+  });
+  body.innerHTML = html;
+  $('#nba-note').textContent = `${list.length} games, ${s.priced} priced from bookmaker lines. ${s.note} B2B: the team played the day before.${s.latest_result ? ' Latest result in the data: ' + day(s.latest_result) + '.' : ''}`;
+}
+function renderNbaLab(){
+  const l = nb.slate && nb.slate.lab, el = $('#nba-lab');
+  if(!l || !l.points || !l.points.close){ el.innerHTML = ''; return }
+  const c = l.points.close, pr = l.probabilities || {};
+  el.innerHTML = card('How accurate is this?', `<div class="kpis" style="margin-top:4px">
+      <div class="kpi"><small>Margin error: model</small><b>${c.model_margin_rmse.toFixed(1)}</b><span>pts</span></div>
+      <div class="kpi"><small>Margin error: closing line</small><b>${c.line_margin_rmse.toFixed(1)}</b><span>pts</span></div>
+      <div class="kpi"><small>Total error: model</small><b>${c.model_total_rmse.toFixed(1)}</b><span>pts</span></div>
+      <div class="kpi"><small>Total error: closing line</small><b>${c.line_total_rmse.toFixed(1)}</b><span>pts</span></div></div>
+    <p class="note">Every game of the 2025-26 season predicted from earlier games only (${c.games.toLocaleString()} games with a closing line), with settings chosen on the two seasons before. Typical miss in points (root mean square). ${pr.model_ml_logloss_same_games ? `Moneyline log loss: model ${pr.model_ml_logloss_same_games.toFixed(4)}, closing line ${pr.close_ml_logloss.toFixed(4)} (lower is better).` : ''} The line is sharper, so games are priced from it whenever it is posted.</p>`, 'held-out season');
+}
+$('#nba-body').onclick = e => {
+  const b = e.target.closest('.bx'); if(!b) return;
+  $('#nba-home').value = b.dataset.home; $('#nba-away').value = b.dataset.away; nb.gameId = b.dataset.id;
+  $('#nba-spread').value = $('#nba-total').value = '';
+  history.pushState(null, '', '#match'); transition(showView);
+  analyseNba();
+};
+$('#nba-swap').onclick = () => { nb.gameId = null; [$('#nba-home').value, $('#nba-away').value] = [$('#nba-away').value, $('#nba-home').value] };
+for(const id of ['#nba-home', '#nba-away']) $(id).addEventListener('change', () => { nb.gameId = null });
+$('#nba-form').onsubmit = e => { e.preventDefault(); analyseNba() };
+
+async function analyseNba(){
+  const token = ++nb.rev, home = $('#nba-home').value, away = $('#nba-away').value, out = $('#nba-out');
+  if(!home || !away) return;
+  if(home === away){ out.innerHTML = '<div class="error">Choose two different teams.</div>'; return }
+  const q = new URLSearchParams({home, away});
+  if(nb.gameId) q.set('game_id', nb.gameId);
+  if($('#nba-spread').value) q.set('spread', $('#nba-spread').value);
+  if($('#nba-total').value) q.set('total', $('#nba-total').value);
+  out.innerHTML = `<div class="card hero"><div class="hero-top"><span>Pricing the game…</span></div><div class="bk-vs"><div class="side">${jersey(home, true)}<strong>${esc(home)}</strong></div><div class="mid"><div class="skel" style="width:120px;height:40px"></div></div><div class="side away">${jersey(away, true)}<strong>${esc(away)}</strong></div></div><div class="skel" style="height:60px"></div></div>`;
+  $('#nba-go').disabled = true; $('#nba-go').textContent = 'Analysing…';
+  try{
+    const d = await api('/api/nba/predict?' + q);
+    if(token !== nb.rev) return;
+    nb.current = d; renderNbaMatch();
+  }catch(e){ if(token === nb.rev) out.innerHTML = `<div class="error">${esc(e.message)}</div>` }
+  finally{ $('#nba-go').disabled = false; $('#nba-go').textContent = 'Analyse game' }
+}
+const NTABS = [['overview', 'Overview'], ['points', 'Points'], ['spreads', 'Spreads'], ['combos', 'Combos'], ['form', 'Form']];
+function nbInk(){
+  const tabs = $('#nba-out .tabs'), ink = tabs && tabs.querySelector('.tab-ink'), on = tabs && tabs.querySelector('[aria-selected="true"]');
+  if(ink && on){ ink.style.left = on.offsetLeft + 'px'; ink.style.width = on.offsetWidth + 'px' }
+}
+window.addEventListener('resize', nbInk);
+const two = p => [p[0] / Math.max(1e-9, p[0] + p[2]), p[2] / Math.max(1e-9, p[0] + p[2])];
+function renderNbaMatch(){
+  const d = nb.current, m = d.markets, H = d.home, A = d.away, ml = m.moneyline, g = d.game || {};
+  const rec = side => { const f = d.form[side]; const w = f.filter(x => x.result === 'W').length; return f.length ? `${w}-${f.length - w} in last ${f.length}` : '' };
+  const cov = two(m.spread), ov = two(m.total), favHome = m.main_spread <= 0;
+  const when = g.tipoff ? new Date(g.tipoff).toLocaleString(undefined, {weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'}) : 'No scheduled game: neutral matchup as of today';
+  const restTags = (d.rest.home_b2b ? `<span class="tag warn">${esc(nAbbr(H))} on a back-to-back</span> ` : '') + (d.rest.away_b2b ? `<span class="tag warn">${esc(nAbbr(A))} on a back-to-back</span>` : '');
+  const ms = d.model.summary;
+  const compare = d.source === 'model'
+    ? `<div class="callout" style="margin:16px 0 0"><span class="ico">i</span><span><b>Model only.</b> No bookmaker line is posted for this game yet (they usually appear the day before). Enter your own line on the left to price every market from it.</span></div>`
+    : `<div class="compare"><span></span><span class="hd">${esc(nAbbr(H))} win</span><span class="hd">${esc(favLine(H, A, m.main_spread))}</span><span class="hd">Over ${m.main_total}</span>
+        <span>${d.source === 'entered' ? 'Your line says' : 'Bookies say'}</span><b>${pct(ml[0])}</b><b>${pct(favHome ? cov[0] : cov[1])}</b><b>${pct(ov[0])}</b>
+        <span>Our model says</span>${[[ms.moneyline[0], ml[0]], [favHome ? ms.cover : 1 - ms.cover, favHome ? cov[0] : cov[1]], [ms.over, ov[0]]].map(([x, r]) => `<b>${pct(x)}<span class="diff">${(x - r > 0 ? '+' : '') + ((x - r) * 100).toFixed(1)}</span></b>`).join('')}</div>
+      <p class="note">${d.source === 'entered' ? 'Priced from your line at even money.' : `${esc(d.book || 'Bookmaker')} line with the margin removed.`} Our model projects ${Math.round(ms.expected_points ? ms.expected_points[0] : d.model.expected_points[0])}–${Math.round(d.model.expected_points[1])}. In testing the closing line beat the model, so trust the first row.</p>`;
+  $('#nba-out').innerHTML = `<div class="card hero">
+      <div class="hero-top"><span>NBA${g.kind && g.kind !== 'regular' ? ' · ' + esc(g.kind) : ''} · ${esc(when)}</span><span>${nSrc(d.source, d.book)} ${restTags}</span></div>
+      <div class="bk-vs">
+        <div class="side">${jersey(H, true)}<strong>${esc(H)}</strong><small>Home · ${esc(rec('home'))}</small></div>
+        <div class="mid"><div class="bk-score">${Math.round(m.expected_points[0])}<em>–</em>${Math.round(m.expected_points[1])}</div><small>projected score</small></div>
+        <div class="side away">${jersey(A, true)}<strong>${esc(A)}</strong><small>Away · ${esc(rec('away'))}</small></div>
+      </div>
+      ${duo(ml, true)}
+      <div class="two"><div><span>${esc(H)} win</span><b class="c-h" data-count="${ml[0]}" data-fmt="pct">${pct(ml[0])}</b><small> true odds ${fair(ml[0])}</small></div>
+        <div><span>${esc(A)} win</span><b class="c-a" data-count="${ml[1]}" data-fmt="pct">${pct(ml[1])}</b><small> true odds ${fair(ml[1])}</small></div></div>
+      <div class="kpis">
+        <div class="kpi"><small>Spread · ${esc(favLine(H, A, m.main_spread))}</small><b>${pct(favHome ? cov[0] : cov[1])}</b><span>covers</span></div>
+        <div class="kpi"><small>Total · O/U ${m.main_total}</small><b>${pct(ov[0])}</b><span>over</span></div>
+        <div class="kpi"><small>Points expected</small><b>${m.expected_total.toFixed(1)}</b><span>± ${m.total_sd.toFixed(0)}</span></div>
+        <div class="kpi"><small>Overtime chance</small><b>${pct(m.overtime)}</b></div>
+      </div>
+      ${compare}
+    </div>
+    <div class="tabs" role="tablist">${NTABS.map(([k, l]) => `<button role="tab" data-ntab="${k}" aria-selected="${nb.tab === k}">${l}</button>`).join('')}<span class="tab-ink"></span></div>
+    <div id="nba-panel" class="panel" role="tabpanel"></div>`;
+  renderNbaTab(); countUp($('#nba-out .hero')); requestAnimationFrame(nbInk);
+}
+$('#nba-out').addEventListener('click', e => {
+  const t = e.target.closest('[data-ntab]'); if(!t) return;
+  nb.tab = t.dataset.ntab; $$('#nba-out .tabs button').forEach(b => b.setAttribute('aria-selected', b === t)); nbInk(); renderNbaTab();
+});
+function renderNbaTab(){
+  const panel = $('#nba-panel'); if(!panel) return;
+  panel.innerHTML = ({overview: nbOverview, points: nbPoints, spreads: nbSpreads, combos: nbCombos, form: nbForm})[nb.tab](nb.current);
+  panel.style.animation = 'none'; panel.offsetHeight; panel.style.animation = '';
+}
+function nbOverview(d){
+  const m = d.markets, H = d.home, A = d.away, S = m.main_spread, cov = m.spread, tot = m.total;
+  let html = '<div class="grid g2">' +
+    card('Moneyline', rows([[H, m.moneyline[0], 'var(--home)'], [A, m.moneyline[1], 'var(--away)']], {highlight: false}) + '<p class="note">Overtime included: there is always a winner.</p>') +
+    card('After four quarters', rows([[`${H} ahead`, m.regulation[0], 'var(--home)'], ['Level: overtime', m.regulation[1], 'var(--draw)'], [`${A} ahead`, m.regulation[2], 'var(--away)']], {highlight: false}), '3-way, no overtime') +
+    card(`Spread · ${H} ${line(S)}`, rows([[`${H} ${line(S)}`, cov[0], 'var(--home)'], ...(cov[1] > 0 ? [['Push (stake back)', cov[1], 'var(--draw)']] : []), [`${A} ${line(-S)}`, cov[2], 'var(--away)']], {highlight: false})) +
+    card(`Total points · ${m.main_total}`, rows([[`Over ${m.main_total}`, tot[0]], ...(tot[1] > 0 ? [['Push', tot[1]]] : []), [`Under ${m.main_total}`, tot[2]]], {highlight: false}), `expected ${m.expected_total.toFixed(1)}`) +
+    card('Most likely final scores', `<div class="scores">${m.likely_scores.slice(0, 5).map(s => `<div class="score"><b>${esc(s.score)}</b><span>${pct(s.probability)}</span></div>`).join('')}</div><p class="note">Exact scores are long shots in basketball: even the most likely one is under 1%.</p>`) +
+    nbLineCard(d) + '</div>';
+  return html;
+}
+function nbLineCard(d){
+  const l = d.line; if(!l || !(l.open || l.close)) return card('Bookmaker line', '<p class="note" style="margin:0">No line posted yet. Lines usually appear the day before tip-off.</p>');
+  const r = (lab, f) => `<tr><td>${lab}</td><td class="r">${l.open ? f(l.open) : '–'}</td><td class="r">${l.close ? f(l.close) : '–'}</td></tr>`;
+  const n = v => v == null ? '–' : v;
+  return card('Line movement', `<div class="scroll"><table class="table"><tr><th></th><th class="r">Open</th><th class="r">Latest</th></tr>` +
+    r(`${esc(nAbbr(d.home))} spread`, x => x.spread == null ? '–' : line(x.spread)) + r('Total', x => n(x.total)) +
+    r(`${esc(nAbbr(d.home))} moneyline`, x => n(x.moneyline && x.moneyline[0])) + r(`${esc(nAbbr(d.away))} moneyline`, x => n(x.moneyline && x.moneyline[1])) +
+    `</table></div><p class="note">${esc(d.book || l.book || 'Sportsbook')} via ESPN, decimal odds. A line that moves toward one side often reflects team news.</p>`, 'open vs latest');
+}
+function nbPoints(d){
+  const m = d.markets, H = d.home, A = d.away, main = m.main_total;
+  const ladder = Object.entries(m.totals).filter(([l]) => Math.abs(Number(l) - main) <= 10.5);
+  const bands = Object.entries(m.total_bands), maxB = Math.max(...bands.map(b => b[1]));
+  const hist = `<div class="hist">${bands.map(([k, p]) => `<div><b>${Math.round(p * 100)}</b><i style="height:${p / maxB * 100}%"></i><span>${esc(k.split('-')[0])}</span></div>`).join('')}</div>`;
+  const team = side => rows(Object.entries(m.team_totals[side]).map(([l, p]) => [`Over ${l}`, p]), {highlight: false});
+  return '<div class="grid g2">' +
+    card('Total points ladder', '<div class="phead"><span>Line</span><span></span><span>Over</span><span>Under</span></div>' +
+      ladder.map(([l, p]) => `<div class="prow${Number(l) === main ? ' hi' : ''}"><span class="pl">${l}</span><span class="pb"><i style="width:${p[0] * 100}%;background:var(--accent)"></i></span><b>${pct(p[0])}</b><small>${pct(p[2])}</small></div>`).join(''), 'main line highlighted') +
+    card('Where the total lands', hist + '<p class="note">Chance (%) of the final total in each 5-point band, overtime included.</p>', `expected ${m.expected_total.toFixed(1)} ± ${m.total_sd.toFixed(0)}`) +
+    card(`${H} points`, team('home'), 'expected ' + m.expected_points[0].toFixed(1)) +
+    card(`${A} points`, team('away'), 'expected ' + m.expected_points[1].toFixed(1)) +
+    card('Odd or even total', rows([['Odd', m.odd_even.odd], ['Even', m.odd_even.even]])) +
+    '</div>';
+}
+function nbSpreads(d){
+  const m = d.markets, H = d.home, A = d.away;
+  const lad = Object.entries(m.spreads).sort((a, b) => Number(a[0]) - Number(b[0]));
+  const tbl = `<div class="scroll"><table class="table"><tr><th>${esc(nAbbr(H))} line</th><th class="r">${esc(nAbbr(H))} covers</th><th class="r">Push</th><th class="r">${esc(nAbbr(A))} covers</th><th class="r">True odds</th></tr>` +
+    lad.map(([l, p]) => `<tr${Number(l) === m.main_spread ? ' style="background:color-mix(in srgb,var(--accent) 10%,transparent)"' : ''}><td>${line(Number(l))}</td><td class="r">${pct(p[0])}</td><td class="r">${p[1] ? pct(p[1]) : '–'}</td><td class="r">${pct(p[2])}</td><td class="r">${fair(p[0] / (p[0] + p[2]))} / ${fair(p[2] / (p[0] + p[2]))}</td></tr>`).join('') + '</table></div>';
+  const wm = side => rows(Object.entries(m.winning_margin[side]).map(([k, p]) => [`by ${k}`, p, side === 'home' ? 'var(--home)' : 'var(--away)']));
+  return '<div class="grid g2">' + card('Alternative spreads', tbl + '<p class="note">True odds exclude pushes (stake returned). Main line highlighted.</p>', `expected margin ${line(Math.round(m.expected_margin * 10) / 10)}`) +
+    '<div class="grid" style="gap:14px">' + card(`${H} win by`, wm('home')) + card(`${A} win by`, wm('away')) + '</div></div>';
+}
+function nbCombos(d){
+  const m = d.markets, c = m.combos, H = nAbbr(d.home), A = nAbbr(d.away), T = c.total_line, S = c.spread_line;
+  const cell = (p, indep) => `<div class="c" style="background:color-mix(in srgb,var(--accent) ${Math.round(6 + 44 * p)}%,var(--surface-2))"><b>${pct(p)}</b><small>true odds ${fair(p)}</small>${indep != null ? `<br><small title="What you would get by multiplying the two single chances">alone: ${pct(indep)}</small>` : ''}</div>`;
+  const ov = two(m.total)[0], cv = two(m.spread)[0], mlh = m.moneyline[0];
+  const grid = (rowsDef, x) => `<div class="cgrid"><span></span><span class="h">Over ${T}</span><span class="h">Under ${T}</span>${rowsDef.map(([lab, o, u, pr]) => `<span class="r">${esc(lab)}</span>${cell(o, pr * ov)}${cell(u, pr * (1 - ov))}`).join('')}</div>`;
+  return '<div class="grid g2">' +
+    card('Winner + total', grid([[`${H} win`, c.moneyline_total.home_over, c.moneyline_total.home_under, mlh], [`${A} win`, c.moneyline_total.away_over, c.moneyline_total.away_under, 1 - mlh]])) +
+    card('Spread + total', grid([[`${H} ${line(S)}`, c.spread_total.home_over, c.spread_total.home_under, cv], [`${A} ${line(-S)}`, c.spread_total.away_over, c.spread_total.away_under, 1 - cv]])) +
+    '</div><p class="note">Combos come from one joint grid of both scores, so they keep the link between the winner and the total. "Alone" multiplies the two single chances as if they were unrelated. Bookmakers price same-game combos with a bigger margin than single bets.</p>';
+}
+function nbForm(d){
+  const side = (k, name) => {
+    const f = d.form[k], r = d.ratings[k];
+    const rk = r ? `<div class="rk3"><div><small>Offence</small><b>#${r.offence}</b><span>${r.off_pts.toFixed(1)} pts</span></div><div><small>Defence</small><b>#${r.defence}</b><span>${r.def_pts.toFixed(1)} allowed</span></div><div><small>Overall</small><b>#${r.net}</b><span>of 30</span></div></div>` : '';
+    const streak = `<div class="streak">${f.slice().reverse().map(x => `<i class="${x.result}" title="${x.result} vs ${esc(x.opponent)}"></i>`).join('')}</div>`;
+    const list = f.map(x => `<div class="form-row"><span>${esc(day(x.date))}</span><span>${x.home ? 'vs' : '@'} ${esc(x.opponent)}</span><b>${x.scored}–${x.allowed}${x.ot ? ' OT' : ''}</b><span class="res ${x.result}">${x.result}</span></div>`).join('');
+    return card(name, rk + streak + (list || '<p class="note">No games yet.</p>'), 'ratings for a neutral 48 minutes');
+  };
+  const h2h = d.head_to_head.length ? d.head_to_head.map(x => `<div class="form-row"><span>${esc(day(x.date))}</span><span>${esc(nAbbr(x.home))} vs ${esc(nAbbr(x.away))}</span><b>${x.score[0]}–${x.score[1]}</b><span></span></div>`).join('') : '<p class="note">No meetings in the stored seasons.</p>';
+  const e = d.rest.effect;
+  return '<div class="grid g2">' + side('home', d.home) + side('away', d.away) +
+    card('Head to head', h2h, 'latest first') +
+    card('How the model sees it', `<p class="note" style="margin-top:0">League average ${d.ratings.level.toFixed(1)} points per team in regulation; home court worth ${d.ratings.home_edge.toFixed(1)} points. A team on the second night of a back-to-back scores ${Math.abs(e[0]).toFixed(1)} ${e[0] < 0 ? 'fewer' : 'more'} points and allows ${Math.abs(e[1]).toFixed(1)} ${e[1] > 0 ? 'more' : 'fewer'}. Fitted on ${d.ratings.games.toLocaleString()} earlier games, recent ones counting most (half-life ${d.method.settings.half_life} days). No injuries or lineups.</p>`) + '</div>';
+}
 </script>
 
 <!-- Music: NCS (NoCopyrightSounds) classics streamed from their official YouTube channel. -->
