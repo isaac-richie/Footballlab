@@ -10,11 +10,14 @@ Status as of 15 November 2026. What works is described in the README, under "Bas
 - **No injury, lineup or rest information** beyond back-to-backs, except what past closing lines carry into the ratings.
 - **Playoffs are not modelled separately.**
 
+## Built, collecting
+
+- **Forward ledger** (`nba_ledger.py`): every board game is frozen before tip-off (first forecast and last before tip-off) and graded on the final score. Started 15 November 2026 with 60 games. Needs a few hundred graded games before its numbers mean much. It runs only while the local Lab is open or `python3 app.py fetch-nba` runs, and stays private (git-ignored) because it holds line-derived prices.
+
 ## Not built
 
 - **Hosted site**: ESPN data has no published reuse terms, so `nba_data.json` is not committed or deployed. The hosted Lab shows "Basketball forecasts are not available here yet". Basketball works on the local Lab only.
 - **VIP picks and the public record** stay football-only until NBA picks build a forward record.
-- **No forward (prospective) ledger** for NBA forecasts yet, so all accuracy so far is backtested.
 - **Bet slip and bet builder** do not take NBA picks.
 - **Half and quarter markets** (1st-half spread and total, quarter winners): quarter scores are stored, but no model uses them yet.
 - **Only one sportsbook** (ESPN BET via ESPN). The Odds API path used for football (several books, best price) is not wired for NBA (`basketball_nba`).

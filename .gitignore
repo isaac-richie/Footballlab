@@ -39,3 +39,5 @@ ucl_data.json
 reports/ucl_params.json
 nba_data.json
 reports/nba_lab.records.json
+reports/nba_prospective/
+reports/nba_prospective-grades.json

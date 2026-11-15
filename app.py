@@ -1073,6 +1073,8 @@ if __name__ == '__main__':
         import nba, badges
         print(json.dumps(nba.fetch(lines='all' if args.lines else 'recent')))
         print(json.dumps(dict(logos=badges.fetch_nba())))
+        import nba_ledger
+        print(json.dumps(dict(ledger=nba_ledger.run())))
     elif args.command == 'fetch-saudi':
         print(json.dumps(saudi.fetch()))
     elif args.command == 'fetch-badges':

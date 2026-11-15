@@ -2586,9 +2586,16 @@ function renderNbaBoard(){
   body.innerHTML = html;
   $('#nba-note').textContent = `${list.length} games, ${s.priced} priced from bookmaker lines. ${s.note} B2B: the team played the day before.${s.latest_result ? ' Latest result in the data: ' + day(s.latest_result) + '.' : ''}`;
 }
+function nbaLedger(){
+  const g = nb.slate && nb.slate.ledger; if(!g) return '';
+  const names = {moneyline: 'Winner', spread: 'Spread', total: 'Total'};
+  const rows = Object.entries(g.shown || {}).map(([k, v]) => `<div class="kpi"><small>${names[k] || esc(k)} · ${v.picks} picks</small><b>${pct(v.won)}</b><span>won · said ${pct(v.predicted)}</span></div>`).join('');
+  return card('Forward record', `${rows ? `<div class="kpis" style="margin-top:4px">${rows}</div>` : ''}
+    <p class="note">Each game's forecast is saved before tip-off and graded on the final score: ${g.graded} graded, ${g.pending} waiting. "Won" counts the likelier side of each pick; it should sit close to "said". ${g.graded < 200 ? 'Too few games yet to read much into.' : ''}</p>`, 'live, not backtested');
+}
 function renderNbaLab(){
   const l = nb.slate && nb.slate.lab, el = $('#nba-lab');
-  if(!l || !l.points || !l.points.close){ el.innerHTML = ''; return }
+  if(!l || !l.points || !l.points.close){ el.innerHTML = nbaLedger(); return }
   const c = l.points.close, pr = l.probabilities || {};
   el.innerHTML = card('How accurate is this?', `<div class="kpis" style="margin-top:4px">
       <div class="kpi"><small>Margin error: model</small><b>${c.model_margin_rmse.toFixed(1)}</b><span>pts</span></div>
@@ -2596,6 +2603,7 @@ function renderNbaLab(){
       <div class="kpi"><small>Total error: model</small><b>${c.model_total_rmse.toFixed(1)}</b><span>pts</span></div>
       <div class="kpi"><small>Total error: closing line</small><b>${c.line_total_rmse.toFixed(1)}</b><span>pts</span></div></div>
     <p class="note">Every game of the 2025-26 season predicted from earlier games only (${c.games.toLocaleString()} games with a closing line), with settings chosen on the two seasons before. Typical miss in points (root mean square). ${pr.model_ml_logloss_same_games ? `Moneyline log loss: model ${pr.model_ml_logloss_same_games.toFixed(4)}, closing line ${pr.close_ml_logloss.toFixed(4)} (lower is better).` : ''} The line is sharper, so games are priced from it whenever it is posted.</p>`, 'held-out season');
+  el.innerHTML += nbaLedger();
 }
 $('#nba-body').onclick = e => {
   const b = e.target.closest('.bx'); if(!b) return;

@@ -129,9 +129,10 @@ def slate(days=7):
     today = dt.date.today().isoformat()
     now = dt.datetime.now(dt.timezone.utc)
     out = [dict(x['row'], status=_status(x['game'], now)) for x in _board(data, rest, today, days)]
+    _freeze(out, now)
     recent = sorted((g for g in data['games'] if g['status'] == 'final'), key=lambda g: (g['date'], g['id']))[-16:][::-1]
     return dict(today=today, fetched_at=data.get('fetched_at'), fixtures=out, priced=sum(f['source'] != 'model' for f in out),
-                teams=teams(data), lab=_lab(),
+                teams=teams(data), lab=_lab(), ledger=_ledger_summary(),
                 abbrs={n: a for g in data['games'] for n, a in ((g['home'], g['home_abbr']), (g['away'], g['away_abbr'])) if a},
                 recent=[dict(date=g['date'], home=g['home_abbr'], away=g['away_abbr'], score=g['score'], ot=len((g.get('periods') or [[0] * 4])[0]) > 4) for g in recent],
                 latest_result=recent[0]['date'] if recent else None,
@@ -139,6 +140,40 @@ def slate(days=7):
 
 
 _refreshing = threading.Event()
+_frozen = {}
+
+
+def _freeze(rows, now):
+    """Write board forecasts to the forward ledger, at most every ten minutes."""
+    import os
+    if os.environ.get('VERCEL') or now - _frozen.get('at', dt.datetime.min.replace(tzinfo=dt.timezone.utc)) < dt.timedelta(minutes=10):
+        return
+    _frozen['at'] = now
+    try:
+        import nba_ledger
+        nba_ledger.register(rows, now, _version())
+    except Exception:
+        pass
+
+
+def _version():
+    from quality import digest
+    return digest(dict(settings=M.SETTINGS, model=M.MODEL_WIDTH, line=M.LINE_WIDTH))[:12]
+
+
+def _ledger_summary():
+    import nba_ledger
+    return nba_ledger.summary()
+
+
+def _grade():
+    try:
+        import nba_ledger
+        rep = nba_ledger.report(nba.load()['games'])
+        from quality import atomic_write
+        atomic_write(nba_ledger.GRADES, json.dumps(rep, indent=1))
+    except Exception:
+        pass
 
 
 def _auto_refresh(data):
@@ -156,10 +191,12 @@ def _auto_refresh(data):
     def run():
         try:
             nba.fetch(log=lambda *_: None, lines='recent')
+            _grade()
         except Exception:
             pass
         finally:
             _refreshing.clear()
+            _cache.clear()
     threading.Thread(target=run, daemon=True).start()
 
 
@@ -283,4 +320,6 @@ def refresh():
     finally:
         _refreshing.clear()
     _cache.clear()
+    _grade()
+    _frozen.clear()
     return out
