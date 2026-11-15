@@ -84,4 +84,4 @@ Status: review_required
 Prospective ledger: 395 registered, 134 graded, 63 pending.
 These are uncalibrated research forecasts, not recommendations.
 
-Run: 20261115T125406859693Z · data: a69b7032c772f88e88157cf08e57f216f7b0416edcaaab7d5637e1fa14b24447 · code: fb06f1281791114a650c5c413cc4781f61689fa32e2016ae47bce28b7ce29268
+Run: 20261115T141518153805Z · data: 63837ebff38e292792e8ce711559b32088f147353e788a671d4624815fd27c71 · code: 8a6557742e41394410182c70225b8ecf173e7c569a14d248d745524ccfea122b
