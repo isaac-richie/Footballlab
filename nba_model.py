@@ -25,7 +25,16 @@ N = NormalDist()
 
 # Fixed settings, chosen on 2023-24 and 2024-25 with earlier games only and checked
 # once on 2025-26 (tools/nba_lab.py; summary in reports/nba_lab.json).
-SETTINGS = dict(half_life=50, ridge=4.0, carry=1.0, window=400, b2b=True)
+#   market  share of each past game's target taken from its closing line (the regulation
+#           points the spread and total implied) instead of the score. Lines already
+#           hold injuries and rest, and are far less noisy than one result, so ratings
+#           fitted to them follow a team's real strength faster. Games with no stored
+#           line use the score alone.
+#   gap     days taken off the age of games played before the summer break, so last
+#           season still counts in October; `carry` then scales those games.
+# Chosen on 2023-25: margin RMS error 14.24 -> 14.06 and total 18.44 -> 18.20; on the
+# 2025-26 hold-out 14.61 -> 14.43 and 18.94 -> 18.88 (closing line: 14.07 and 18.23).
+SETTINGS = dict(half_life=15, ridge=0.5, carry=0.5, gap=115, market=0.7, window=400, b2b=True)
 # Width of the regulation score distribution, in margin/total terms:
 #   margin  sd of the home-minus-away margin around its expectation
 #   total   sd of the combined score
@@ -57,6 +66,19 @@ def regulation(game):
     if game.get('score') and not p:
         return None
     return None
+
+
+def target(game, market=0.0):
+    """(home, away) regulation points a past game teaches the ratings: the score,
+    blended with what its closing line expected when one is stored."""
+    reg = regulation(game)
+    close = (game.get('line') or {}).get('close') or {}
+    if not market or close.get('spread') is None or close.get('total') is None:
+        return reg
+    imp = implied(close, reg)
+    if not imp:
+        return reg
+    return market * imp[0] + (1 - market) * reg[0], market * imp[1] + (1 - market) * reg[1]
 
 
 def back_to_back(games):
@@ -103,6 +125,7 @@ def fit(games, asof, rest=None, settings=None):
     if len(rows) < 100:
         raise ValueError('Too few earlier NBA games to fit ratings.')
     season_now = max(g['season'] for g in rows)
+    summer = dt.date(day.year if day.month >= 8 else day.year - 1, 8, 1).isoformat()
     teams = sorted({t for g in rows for t in (g['home'], g['away'])})
     idx = {t: i for i, t in enumerate(teams)}
     T = len(teams)
@@ -113,8 +136,11 @@ def fit(games, asof, rest=None, settings=None):
     wsum = 0.0
     for g in rows:
         age = (day - dt.date.fromisoformat(g['date'])).days
-        w = 0.5 ** (age / s['half_life']) * (s['carry'] if g['season'] < season_now else 1.0)
-        h, a = regulation(g)
+        earlier = g['date'] < summer          # played before this season's summer break
+        if earlier:
+            age = max(0, age - s.get('gap', 0))
+        w = 0.5 ** (age / s['half_life']) * (s['carry'] if earlier or g['season'] < season_now else 1.0)
+        h, a = target(g, s.get('market', 0))
         home_edge = 0 if g['neutral'] else 0.5
         for side, pts in ((0, h), (1, a)):
             me, opp = (g['home'], g['away']) if side == 0 else (g['away'], g['home'])

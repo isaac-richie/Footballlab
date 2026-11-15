@@ -118,8 +118,13 @@ def slate(days=7):
     data, rest = _data()
     if not data or not data['games']:
         import os
-        return dict(error='Basketball forecasts are not available here yet.' if os.environ.get('VERCEL')
-                    else 'No NBA data yet. Run: python3 app.py fetch-nba', fixtures=[])
+        if os.environ.get('VERCEL'):
+            return dict(error='Basketball forecasts are not available here yet.', fixtures=[])
+        # nba_data.json is never committed, so a fresh copy of the Lab starts without it:
+        # download it in the background instead of leaving the board empty.
+        started = _first_fetch()
+        return dict(error='Downloading NBA results and lines for the first time. This takes about five minutes; '
+                          'press Refresh then.' if started else 'No NBA data yet. Run: python3 app.py fetch-nba', fixtures=[])
     _auto_refresh(data)
     today = dt.date.today().isoformat()
     now = dt.datetime.now(dt.timezone.utc)
@@ -156,6 +161,25 @@ def _auto_refresh(data):
         finally:
             _refreshing.clear()
     threading.Thread(target=run, daemon=True).start()
+
+
+def _first_fetch():
+    """Start the first full download unless one is running; False when it cannot start."""
+    if _refreshing.is_set():
+        return True
+    _refreshing.set()
+    def run():
+        try:
+            import badges
+            nba.fetch(log=lambda *_: None, lines='recent', workers=8)
+            badges.fetch_nba()
+        except Exception:
+            pass
+        finally:
+            _refreshing.clear()
+            _cache.clear()
+    threading.Thread(target=run, daemon=True).start()
+    return True
 
 
 def warm():

@@ -54,6 +54,23 @@ class FitTests(unittest.TestCase):
         b = M.fit(later, '2026-01-10')
         self.assertEqual(a['offence'], b['offence'])
 
+    def test_closing_line_shapes_the_target(self):
+        g = dict(score=[130, 100], periods=[[30, 30, 35, 35], [25, 25, 25, 25]],
+                 line=dict(close=dict(spread=-4.0, total=224.0, spread_prices=[1.91, 1.91], total_prices=[1.91, 1.91], moneyline=[None, None])))
+        self.assertEqual(M.target(g, 0), (130, 100))
+        h, a = M.target(g, 1.0)                       # the line alone: home by 4, about 224 in total
+        self.assertAlmostEqual(h - a, 4.0, delta=.2)
+        self.assertAlmostEqual(h + a, 224.0, delta=1.5)
+        h, a = M.target(g, .7)                        # 70% line, 30% the 30-point blowout
+        self.assertAlmostEqual(h - a, .7 * 4 + .3 * 30, delta=.2)
+        self.assertEqual(M.target(dict(g, line=None), .7), (130, 100))   # no line stored: the score
+
+    def test_last_season_still_counts_after_the_summer(self):
+        games, off, dfn = season(n_days=120, start='2025-01-01')       # ends in April 2025
+        early = M.fit(games, '2025-10-25', settings=dict(half_life=15, ridge=.5, gap=0, market=0, b2b=False))
+        bridged = M.fit(games, '2025-10-25', settings=dict(half_life=15, ridge=.5, gap=115, market=0, b2b=False))
+        self.assertGreater(bridged['effective_weight'], 50 * early['effective_weight'])
+
     def test_too_few_games(self):
         games, _, _ = season(n_days=3)
         with self.assertRaises(ValueError):

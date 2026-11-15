@@ -18,6 +18,10 @@ Needs reports/nba_lab.records.json from tools/nba_lab.py.
 
     python3 tools/nba_calib.py                # both sources
     python3 tools/nba_calib.py --only model   # one source
+    python3 tools/nba_calib.py --check        # no tuning: score the settings in nba_model.py
+
+Besides the 2025-26 hold-out, the season in progress is scored too. No setting was
+ever chosen on it, so it is the cleanest check, on fewer games.
 """
 import json
 import math
@@ -135,7 +139,9 @@ def score(rows):
                 bins.append(dict(bin=f'{int(lo * 100)}-{int(hi * 100)}%', picks=n, predicted=round(pred, 4), won=round(hit, 4),
                                  gap=round(hit - pred, 4), z=round((hit - pred) / se, 2) if se else None))
         sure = [(max(p, 1 - p), y if p >= .5 else not y) for p, y in sub if max(p, 1 - p) >= .7]
+        side = [(max(p, 1 - p), y if p >= .5 else not y) for p, y in sub]
         out[fam] = dict(picks=len(sub), log_loss=round(ll, 5), calibration=bins,
+                        likelier_side=dict(predicted=round(sum(p for p, _ in side) / len(side), 4), won=round(sum(y for _, y in side) / len(side), 4)),
                         sure_70_plus=dict(picks=len(sure), predicted=round(sum(p for p, _ in sure) / max(1, len(sure)), 4),
                                           won=round(sum(y for _, y in sure) / max(1, len(sure)), 4)))
     return out
@@ -183,6 +189,8 @@ def main():
     report = dict(method=__doc__.strip().split('\n\n')[0])
     with Pool(initializer=_load) as pool:
         only = sys.argv[sys.argv.index('--only') + 1] if '--only' in sys.argv else None
+        check = '--check' in sys.argv
+        now = tuple(s for s in sorted({r['season'] for r in _RECS}) if s > max(HOLD))
         try:
             report.update(json.loads((ROOT / 'reports' / 'nba_calib.json').read_text()))   # keep the other source's result
         except (OSError, ValueError):
@@ -191,15 +199,19 @@ def main():
             if only and source != only:
                 continue
             before_t, before_h = evaluate(pool, [start], source, TUNE)[0], evaluate(pool, [start], source, HOLD)[0]
-            best, history = tune(pool, start, source, log, rounds=1 if source == 'model' else 2)
-            after_t, after_h = evaluate(pool, [best], source, TUNE)[0], evaluate(pool, [best], source, HOLD)[0]
+            best, history = (dict(start), []) if check else tune(pool, start, source, log, rounds=1 if source == 'model' else 2)
+            after_t, after_h = (before_t, before_h) if check else (evaluate(pool, [best], source, TUNE)[0], evaluate(pool, [best], source, HOLD)[0])
+            current = evaluate(pool, [best], source, now)[0] if now else None
             report[source] = dict(start=start, chosen=best, search=history,
-                                  tuning=dict(before=before_t, after=after_t), holdout=dict(before=before_h, after=after_h))
+                                  tuning=dict(before=before_t, after=after_t), holdout=dict(before=before_h, after=after_h),
+                                  current_season=current)
             log(f'{source}: chosen {best}')
-            for fam in FAMILIES:
-                b, a = before_h.get(fam), after_h.get(fam)
-                if b and a:
-                    log(f'  holdout {fam:10s} log loss {b["log_loss"]:.5f} -> {a["log_loss"]:.5f}; 70%+ picks: said {a["sure_70_plus"]["predicted"]:.3f}, won {a["sure_70_plus"]["won"]:.3f} ({a["sure_70_plus"]["picks"]})')
+            for name, before, after in (('holdout', before_h, after_h), ('current', current, current)):
+                for fam in FAMILIES:
+                    b, a = (before or {}).get(fam), (after or {}).get(fam)
+                    if b and a:
+                        log(f'  {name} {fam:10s} log loss {b["log_loss"]:.5f} -> {a["log_loss"]:.5f}; likelier side: said {a["likelier_side"]["predicted"]:.3f}, won {a["likelier_side"]["won"]:.3f}; '
+                            f'70%+ picks: said {a["sure_70_plus"]["predicted"]:.3f}, won {a["sure_70_plus"]["won"]:.3f} ({a["sure_70_plus"]["picks"]})')
     atomic_write(ROOT / 'reports' / 'nba_calib.json', json.dumps(report, indent=1))
 
 

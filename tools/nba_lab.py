@@ -1,6 +1,6 @@
 """Walk-forward accuracy lab for the NBA points model.
 
-Every week of the evaluated seasons is predicted from a fit on earlier games only.
+Every game day of the evaluated seasons is predicted from a fit on earlier games only.
 Settings are searched on 2023-24 and 2024-25; 2025-26 is scored once with the
 chosen settings, against ESPN BET's opening and closing lines where stored.
 Summary goes to reports/nba_lab.json; per-game records (they hold bookmaker
@@ -34,9 +34,9 @@ def weeks(games, season):
     start -= dt.timedelta(days=start.weekday())
     end = dt.date.fromisoformat(days[-1])
     out = []
-    while start <= end:
-        out.append((start.isoformat(), (start + dt.timedelta(days=7)).isoformat()))
-        start += dt.timedelta(days=7)
+    while start <= end:                  # one fit per game day, as the app does
+        out.append((start.isoformat(), (start + dt.timedelta(days=1)).isoformat()))
+        start += dt.timedelta(days=1)
     return out
 
 
@@ -209,10 +209,10 @@ def main():
     games = data['games']
     rest = M.back_to_back(games)
     quick = '--quick' in sys.argv
-    # First pass (30-120 day half-lives, ridge 1-25, carry .25-1) put the optimum near
-    # ridge 4 and half-life 45-60 days; this grid refines around it.
-    grid = [dict(M.SETTINGS)] if quick else [dict(M.SETTINGS, half_life=h, ridge=l, carry=c, b2b=b)
-                                             for h, l, c, b in itertools.product((40, 50, 60, 75), (2.0, 3.0, 4.0, 6.0), (.5, 1.0), (True, False))]
+    # Scores alone favoured ridge 4 and a 50-day half-life. With closing lines as most of
+    # the target the ratings can move much faster; this grid searches around that optimum.
+    grid = [dict(M.SETTINGS)] if quick else [dict(M.SETTINGS, half_life=h, ridge=l, market=m, gap=g)
+                                             for h, l, m, g in itertools.product((10, 15, 25), (.25, .5, 1.0), (.5, .7, .85), (0, 115))]
     search = []
     for s in grid:
         recs = predict_seasons(games, TUNE, s, rest)
