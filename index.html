@@ -1301,7 +1301,7 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
         <p>Every NBA game in the next seven days, with win chance, projected score, spread and total from our points model. Open a game for the full breakdown.</p>
       </div>
       <div class="toolbar">
-        <button class="ghost" id="nba-refresh" type="button">Refresh scores &amp; lines</button>
+        <button class="ghost" id="nba-refresh" type="button" hidden>Refresh scores &amp; lines</button>
         <input class="search" id="nba-search" type="search" placeholder="Filter by team" aria-label="Filter by team">
         <div class="seg" id="nba-sort" role="group" aria-label="Sort games">
           <button data-sort="date" aria-pressed="true">Date</button>
@@ -1346,8 +1346,8 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
   <footer>
     <span class="fb-only">Research forecasts from score history only. No lineups, injuries or shot-based xG. Probabilities are not guarantees.</span>
     <span class="fb-only">Data: <a href="https://github.com/openfootball/football.json">OpenFootball (CC0)</a> · <a href="https://www.openligadb.de/">OpenLigaDB (ODbL)</a></span>
-    <span class="bk-only" id="nba-foot1">NBA forecasts from scores and bookmaker lines only. No injuries, rest days beyond back-to-backs, or lineups. Probabilities are not guarantees.</span>
-    <span class="bk-only" id="nba-foot2">Data: ESPN public scoreboard and odds feeds (private research use)</span>
+    <span class="bk-only" id="nba-foot1">NBA forecasts from past results. No injuries or lineups. Probabilities are not guarantees.</span>
+    <span class="bk-only" id="nba-foot2"></span>
   </footer>
 </div>
 
@@ -2597,6 +2597,7 @@ async function loadNba(){
     if(document.body.dataset.sport === 'basketball') nbFresh();
     $('#nba-refresh').hidden = !!s.public;     // the hosted site updates once a day
     if(s.public) nbPublicFoot();
+    else { $('#nba-foot1').textContent = 'NBA forecasts from scores and bookmaker lines only. No injuries, rest days beyond back-to-backs, or lineups. Probabilities are not guarantees.'; $('#nba-foot2').textContent = 'Data: ESPN public scoreboard and odds feeds (private research use)' }
     renderNbaBoard(); renderNbaLab();
   }).catch(e => { $('#nba-body').innerHTML = `<div class="empty">${esc(e.message)}</div>` }).finally(() => { nb.loading = null });
   return nb.loading;

@@ -41,6 +41,7 @@
   /* ---------- Which scene for this page ---------- */
   function sceneFor(){
     if(document.body && document.body.dataset.scene) return document.body.dataset.scene;
+    if(document.body && document.body.dataset.sport === 'basketball') return 'court';
     const path = location.pathname, hash = (location.hash || '').slice(1);
     if(/\/match\//.test(path)) return 'goal';
     if(/\/social\//.test(path)) return 'dusk';
@@ -228,7 +229,60 @@
     return {seats, towers, horizon};
   }
 
-  const PAINTERS = {stadium: paintStadium, dusk: paintStadium, aerial: paintAerial, goal: paintGoal};
+  function paintCourt(g, cw, ch, P, rand){
+    // An arena from above: hardwood court, painted keys and arcs, crowd all round.
+    const seats = [], portrait = ch > cw;
+    g.fillStyle = P.light ? '#3a3f4a' : '#07090d'; g.fillRect(0, 0, cw, ch);
+    const m = Math.min(cw, ch) * 0.12;
+    crowd(g, [[0, 0], [cw, 0], [cw, m * .8], [0, m * .8]], P, rand, .85, () => .9, seats);
+    crowd(g, [[0, ch - m * .8], [cw, ch - m * .8], [cw, ch], [0, ch]], P, rand, .85, () => .9, seats);
+    crowd(g, [[0, 0], [m * .8, 0], [m * .8, ch], [0, ch]], P, rand, .85, () => .9, seats);
+    crowd(g, [[cw - m * .8, 0], [cw, 0], [cw, ch], [cw - m * .8, ch]], P, rand, .85, () => .9, seats);
+    const x0 = m * .8, y0 = m * .8, w = cw - m * 1.6, h = ch - m * 1.6;
+    const wood = P.light ? ['#d9a86a', '#cf9c5e'] : ['#8a5a2b', '#7f5226'];
+    g.fillStyle = wood[0]; g.fillRect(x0, y0, w, h);
+    // floorboards along the court's length
+    const n = Math.round((portrait ? w : h) / 9);
+    for(let i = 0; i < n; i += 2){ g.fillStyle = wood[1];
+      if(portrait) g.fillRect(x0 + w * i / n, y0, w / n, h); else g.fillRect(x0, y0 + h * i / n, w, h / n) }
+    g.globalAlpha = .06; g.fillStyle = '#000';
+    for(let k = 0; k < 140; k++){ const a = rand(), b = rand(); g.fillRect(x0 + a * w, y0 + b * h, portrait ? 2 : 40 + rand() * 60, portrait ? 40 + rand() * 60 : 2) }
+    g.globalAlpha = 1;
+    // court lines: u across (-1..1), v along (0..1), 94 x 50 ft
+    const L = portrait ? h * .9 : w * .9, Wd = L * 50 / 94, cx = cw / 2, cy = ch / 2;
+    const ft = L / 94;
+    const pt = (u, v) => portrait ? [cx + u * Wd / 2, cy + (v - .5) * L] : [cx + (v - .5) * L, cy + u * Wd / 2];
+    g.strokeStyle = P.light ? 'rgba(255,255,255,.9)' : 'rgba(255,255,255,.65)'; g.lineWidth = Math.max(1.6, Math.min(cw, ch) / 420);
+    const line = pts => { g.beginPath(); pts.forEach((q, i) => { const [x, y] = pt(...q); i ? g.lineTo(x, y) : g.moveTo(x, y) }); g.stroke() };
+    line([[-1, 0], [1, 0], [1, 1], [-1, 1], [-1, 0]]); line([[-1, .5], [1, .5]]);
+    const circ = (u, v, r, a0 = 0, a1 = Math.PI * 2, fill) => { const [x, y] = pt(u, v); g.beginPath();
+      const rot = portrait ? 0 : -Math.PI / 2; g.arc(x, y, r, a0 + rot, a1 + rot); fill ? (g.fillStyle = fill, g.fill()) : g.stroke() };
+    circ(0, .5, 6 * ft);
+    for(const end of [0, 1]){
+      const v = d => end ? 1 - d / 94 : d / 94, ku = 8 / 25;
+      // painted key
+      const k = [[-ku, v(0)], [ku, v(0)], [ku, v(19)], [-ku, v(19)]].map(q => pt(...q));
+      g.fillStyle = hexA(P.accent, P.light ? .35 : .22); g.beginPath(); k.forEach(([x, y], i) => i ? g.lineTo(x, y) : g.moveTo(x, y)); g.closePath(); g.fill(); g.stroke();
+      // free-throw circle
+      { const [fx, fy] = pt(0, v(19)), mid = portrait ? (end ? -Math.PI / 2 : Math.PI / 2) : (end ? Math.PI : 0); g.beginPath(); g.arc(fx, fy, 6 * ft, mid - Math.PI / 2, mid + Math.PI / 2); g.stroke() }
+      // three-point line: corners then the arc around the basket
+      const bv = v(5.25), r = 23.75 * ft, cu = 22 / 25, cornerD = 14;
+      line([[-cu, v(0)], [-cu, v(cornerD)]]); line([[cu, v(0)], [cu, v(cornerD)]]);
+      const [bx, by] = pt(0, bv), span = Math.acos(22 / 23.75);
+      const mid = portrait ? (end ? -Math.PI / 2 : Math.PI / 2) : (end ? Math.PI : 0), half3 = Math.PI / 2 - span;
+      g.beginPath(); g.arc(bx, by, r, mid - half3, mid + half3);
+      g.stroke();
+      // rim
+      circ(0, bv, .75 * ft * 1.6, 0, Math.PI * 2);
+    }
+    circ(0, .5, 2 * ft, 0, Math.PI * 2, hexA(P.accent, .5));
+    const corners = [[m * .4, m * .4], [cw - m * .4, m * .4], [m * .4, ch - m * .4], [cw - m * .4, ch - m * .4]];
+    if(!P.light) corners.forEach(([x, y]) => lightPool(g, x + (cw / 2 - x) * .35, y + (ch / 2 - y) * .35, Math.max(cw, ch) * .45, .08, 'rgba(255,236,205,A)'));
+    corners.forEach(([x, y]) => lampBank(g, x, y, Math.max(.6, Math.min(cw, ch) / 1400), P));
+    return {seats, towers: corners, horizon: 0};
+  }
+
+  const PAINTERS = {stadium: paintStadium, dusk: paintStadium, aerial: paintAerial, goal: paintGoal, court: paintCourt};
   const OVERSCAN = 1.1;   // painted larger than the screen so the camera can drift
   let scene = null, prev = null, fade = 1;
 
@@ -345,6 +399,8 @@
   // Repaint when the theme changes.
   const repaint = () => { if(scene){ const n = scene.name; scene = null; setScene(n, true) } };
   new MutationObserver(repaint).observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
+  const watchSport = () => document.body && new MutationObserver(() => setScene(sceneFor())).observe(document.body, {attributes: true, attributeFilter: ['data-sport']});
+  document.body ? watchSport() : document.addEventListener('DOMContentLoaded', watchSport);
   matchMedia('(prefers-color-scheme: light)').addEventListener('change', repaint);
 
   window.LivingPitch = {

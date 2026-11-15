@@ -201,6 +201,10 @@ def urls():
         out.update(json.loads(MAP.read_text()))
     except (OSError, ValueError):
         pass
+    try:   # NBA logos on TheSportsDB's image server (committed map), for the hosted site
+        out.update(json.loads((ROOT / 'nba_badges.json').read_text()))
+    except (OSError, ValueError):
+        pass
     for n, v in load_index().items():
         if v.get('file') and (DIR / v['file']).exists():
             out[n] = '/badge/' + v['file']
