@@ -1038,7 +1038,16 @@ body:not([data-sport="basketball"]) .bk-only,body[data-sport="basketball"] .fb-o
 .sport button{display:inline-flex;align-items:center;gap:6px}
 .sport .ico{font-size:14px;line-height:1}
 body[data-sport="basketball"] :is(.nav,.tabbar) a[data-view="vip"]{display:none}
-.bp-hero{display:grid;gap:10px}.bp-hero .big{font-size:clamp(28px,6vw,44px);font-weight:800;line-height:1.05}button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center;padding:12px 0;border-top:1px solid var(--line,rgba(255,255,255,.08))}button.bp-row:first-child{border-top:0}.bp-row:hover b{text-decoration:underline}.bp-row{display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center;padding:12px 0;border-top:1px solid var(--line,rgba(255,255,255,.08))}.bp-row:first-child{border-top:0}.bp-row b{font-size:17px}.bp-row .p{font-size:22px;font-weight:800;text-align:right}.bp-row small,.bp-hero small{opacity:.75}
+button.bp-hero{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;gap:14px}
+.bp-match{display:flex;align-items:center;gap:6px;font-weight:700;font-size:13px;opacity:.85}.bp-match i{font-style:normal;opacity:.5;margin:0 2px}.bp-match small{margin-left:auto;font-weight:500}
+.bp-team{display:flex;align-items:center;gap:12px}.bp-team .big{font-size:clamp(22px,5.5vw,34px);font-weight:800;line-height:1.1}
+.bp-meter{display:flex;align-items:center;gap:12px}.bp-meter b{font-size:34px;font-weight:800;color:var(--accent,#c6f36b)}.bp-bar{flex:1;height:8px;border-radius:999px;background:var(--surface-3,rgba(255,255,255,.1));overflow:hidden}.bp-bar i{display:block;height:100%;background:var(--accent,#c6f36b);border-radius:999px}
+.bp-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:13px}
+.bp-hit{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:var(--surface-3,rgba(255,255,255,.08));opacity:.9;width:max-content}.bp-hit b{color:var(--accent,#c6f36b)}
+.bp-day{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.6;padding:14px 0 4px}.bp-day:first-child{padding-top:0}
+button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line,rgba(255,255,255,.08))}.bp-day+button.bp-row{border-top:0}
+.bp-mid{display:grid;gap:3px;min-width:0}.bp-mid b{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.bp-row:hover b{text-decoration:underline}
+.bp-row .p{font-size:24px;font-weight:800}.bp-row .p small{font-size:14px;opacity:.7}.bp-mid>small,.bp-hero small{opacity:.75}
 body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body[data-sport="basketball"] #ticker,body[data-sport="basketball"] #slip-fab{display:none!important}
 .bx-head,.bx{display:grid;grid-template-columns:minmax(190px,1.5fr) minmax(170px,1.3fr) 92px 92px 92px 26px;gap:14px;align-items:center;padding:0 18px}
 .bx-head{height:38px;font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--faint);border-bottom:1px solid var(--line)}
@@ -1271,7 +1280,7 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
       <span class="eyebrow"><i></i>NBA</span><h1>Today's picks</h1>
       <p>The strongest winner calls for the next two game days. Each one shows how picks at that confidence did on a full season the model never saw.</p>
     </div></div>
-    <div id="nbp-body"><div class="empty">Loading picks…</div></div>
+    <div id="nbp-body"><div class="empty">Loading picks… the first visit of the day can take about 15 seconds while the ratings are worked out.</div></div>
     <p class="note" id="nbp-note"></p>
   </section>
 
@@ -2569,10 +2578,7 @@ async function loadNba(){
     if(teams.includes(keep[0]) && teams.includes(keep[1])){ $('#nba-home').value = keep[0]; $('#nba-away').value = keep[1] } else $('#nba-away').selectedIndex = Math.min(1, teams.length - 1);
     if(document.body.dataset.sport === 'basketball') nbFresh();
     $('#nba-refresh').hidden = !!s.public;     // the hosted site updates once a day
-    if(s.public){
-      $('#nba-foot1').textContent = 'NBA forecasts from final scores only. No injuries, lineups or betting lines. Probabilities are not guarantees.';
-      $('#nba-foot2').textContent = 'Data: balldontlie (scores and schedule)';
-    }
+    if(s.public) nbPublicFoot();
     renderNbaBoard(); renderNbaLab();
   }).catch(e => { $('#nba-body').innerHTML = `<div class="empty">${esc(e.message)}</div>` }).finally(() => { nb.loading = null });
   return nb.loading;
@@ -2620,9 +2626,13 @@ function nbaLedger(){
   return card('Forward record', `${rows ? `<div class="kpis" style="margin-top:4px">${rows}</div>` : ''}
     <p class="note">Each game's forecast is saved before tip-off and graded on the final score: ${g.graded} graded, ${g.pending} waiting. "Won" counts the likelier side of each pick; it should sit close to "said". ${g.graded < 200 ? 'Too few games yet to read much into.' : ''}</p>`, 'live, not backtested');
 }
+function nbPublicFoot(){
+  $('#nba-foot1').textContent = 'NBA forecasts from final scores only. No injuries, lineups or betting lines. Probabilities are not guarantees.';
+  $('#nba-foot2').textContent = 'Data: balldontlie (scores and schedule)';
+}
 async function loadNbaPicks(){
   nb.picksLoading = true;
-  try{ nb.picks = await api('/api/nba/picks'); renderNbaPicks() }
+  try{ nb.picks = await api('/api/nba/picks'); if(nb.picks.public) nbPublicFoot(); renderNbaPicks() }
   catch(e){ $('#nbp-body').innerHTML = `<div class="empty">${esc(e.message)}</div>` }
   finally{ nb.picksLoading = false }
 }
@@ -2632,16 +2642,25 @@ function renderNbaPicks(){
   const d = nb.picks, el = $('#nbp-body'); if(!d) return;
   if(d.error){ el.innerHTML = `<div class="empty">${esc(d.error)}</div>`; return }
   if(!d.picks.length){ el.innerHTML = '<div class="empty">No pick reaches 60% in the next two game days.</div>'; return }
-  const [top, ...rest] = d.picks, src = x => x.source === 'line' ? ' · from the bookmaker line' : '';
+  const [top, ...rest] = d.picks;
   const open = x => `data-id="${esc(x.id)}" data-home="${esc(x.home)}" data-away="${esc(x.away)}"`;
-  el.innerHTML = card('Pick of the day', `<button class="bp-hero" type="button" ${open(top)} style="all:unset;cursor:pointer;display:grid;gap:10px">
-      <small>${esc(nbTip(top))} · ${esc(top.away_abbr)} @ ${esc(top.home_abbr)}${src(top)}</small>
-      <div class="big">${esc(top.team)} to win</div>
-      <div><b style="font-size:28px">${pct(top.probability)}</b> <small>against ${esc(top.opponent)}${top.at_home ? ' at home' : ' away'} · projected ${Math.round(top.projected[0])}–${Math.round(top.projected[1])}</small></div>
-      <small>${nbRec(top.record)}</small></button>`, 'safest call') +
-    (rest.length ? card('More picks', rest.map(x => `<button class="bp-row" type="button" ${open(x)}>
-      <div><b>${esc(x.team)}</b> <small>vs ${esc(x.opponent)} · ${esc(nbTip(x))}${src(x)}</small><br><small>${nbRec(x.record)}</small></div>
-      <div class="p">${pct(x.probability)}</div></button>`).join(''), `${rest.length} more`) : '');
+  const time = x => x.tipoff ? new Date(x.tipoff).toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}) : '';
+  const score = x => { const [h, a] = x.projected.map(Math.round); return x.at_home ? `${h}–${a}` : `${a}–${h}` };
+  const hit = r => r ? `<span class="bp-hit" title="${esc(nbRec(r))}">${esc(r.bin)} picks hit <b>${pct(r.won)}</b></span>` : '';
+  const pm = Math.round(top.probability * 100);
+  let html = card('Pick of the day', `<button class="bp-hero" type="button" ${open(top)}>
+      <div class="bp-match">${jersey(top.away)}<span>${esc(top.away_abbr)}</span><i>@</i>${jersey(top.home)}<span>${esc(top.home_abbr)}</span><small>${esc(nbTip(top))}</small></div>
+      <div class="bp-team">${jersey(top.team)}<div><div class="big">${esc(top.team)}</div><small>to beat ${esc(top.opponent)} · ${top.at_home ? 'home' : 'away'}</small></div></div>
+      <div class="bp-meter"><b>${pm}%</b><span class="bp-bar"><i style="width:${pm}%"></i></span></div>
+      <div class="bp-foot"><span>Projected <b>${score(top)}</b></span>${hit(top.record)}</div></button>`, 'safest call');
+  let last = null, rows = '';
+  for(const x of rest){
+    if(x.date !== last){ rows += `<div class="bp-day">${esc(day(x.date))}</div>`; last = x.date }
+    rows += `<button class="bp-row" type="button" ${open(x)}>${jersey(x.team)}
+      <div class="bp-mid"><b>${esc(x.team)}</b><small>${x.at_home ? 'vs' : '@'} ${esc(x.at_home ? x.away_abbr : x.home_abbr)} · ${esc(time(x))}</small>${hit(x.record)}</div>
+      <div class="p">${Math.round(x.probability * 100)}<small>%</small></div></button>`;
+  }
+  el.innerHTML = html + (rest.length ? card('More picks', rows, `${rest.length} more`) : '');
   $('#nbp-note').textContent = d.note + ' Tap a pick for the full match breakdown.';
 }
 $('#nbp-body').addEventListener('click', e => {
