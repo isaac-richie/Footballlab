@@ -1,19 +1,19 @@
-# Football Lab research run — 2026-11-14
+# Football Lab research run — 2026-11-15
 
-35 fixtures in the next 7 days (excluding today).
+63 fixtures in the next 7 days (excluding today).
 Status: review_required
 
 ## Coverage
 
 - England — Premier League: research_only — Initial freshness checks passed; research only
 - Spain — La Liga: review_required — Completed results are missing or more than 30 days old; 20 recent current-season fixtures have no result yet
-- Italy — Serie A: review_required — Completed results are missing or more than 30 days old; 20 recent current-season fixtures have no result yet
+- Italy — Serie A: review_required — Completed results are missing or more than 30 days old; 17 recent current-season fixtures have no result yet
 - Germany — Bundesliga: research_only — Initial freshness checks passed; research only
-- France — Ligue 1: review_required — Completed results are missing or more than 30 days old; 16 recent current-season fixtures have no result yet
+- France — Ligue 1: review_required — Completed results are missing or more than 30 days old; 12 recent current-season fixtures have no result yet
 - Italy — Serie B: review_required — Current-season fixtures missing; Completed results are missing or more than 30 days old; Current source freshness unverified
 - Germany — 2. Bundesliga: research_only — Initial freshness checks passed; research only
-- Netherlands — Eredivisie: review_required — Completed results are missing or more than 30 days old; 18 recent current-season fixtures have no result yet
-- Portugal — Primeira Liga: review_required — Completed results are missing or more than 30 days old; 17 recent current-season fixtures have no result yet
+- Netherlands — Eredivisie: review_required — Completed results are missing or more than 30 days old; 13 recent current-season fixtures have no result yet
+- Portugal — Primeira Liga: review_required — Completed results are missing or more than 30 days old; 15 recent current-season fixtures have no result yet
 
 ## Forecasts
 
@@ -52,8 +52,36 @@ Status: review_required
 - 2026-11-21 · Netherlands — Eredivisie · FC Utrecht v SC Cambuur-Leeuwarden: review_required; 1X2 66.0%/20.5%/13.4%; expected goals 2.34–1.05; O2.5 65.6%; BTTS 59.4%; decision withhold.
 - 2026-11-21 · Netherlands — Eredivisie · Telstar 1963 v PEC Zwolle: review_required; 1X2 52.3%/25.7%/21.9%; expected goals 1.87–1.19; O2.5 58.8%; BTTS 60.2%; decision withhold.
 - 2026-11-21 · Netherlands — Eredivisie · FC Groningen v SC Heerenveen: review_required; 1X2 41.5%/27.9%/30.7%; expected goals 1.60–1.37; O2.5 56.6%; BTTS 61.0%; decision withhold.
+- 2026-11-22 · England — Premier League · Liverpool FC v Manchester United FC: research_only; 1X2 55.5%/23.9%/20.6%; expected goals 1.95–1.16; O2.5 59.7%; BTTS 59.5%; decision withhold.
+- 2026-11-22 · England — Premier League · Hull City AFC v Brighton & Hove Albion FC: research_only; 1X2 31.0%/28.1%/40.9%; expected goals 1.26–1.47; O2.5 50.9%; BTTS 56.2%; decision withhold.
+- 2026-11-22 · Spain — La Liga · Athletic Club v RCD Espanyol de Barcelona: review_required; 1X2 53.8%/26.1%/20.1%; expected goals 1.61–0.91; O2.5 45.9%; BTTS 48.2%; decision withhold.
+- 2026-11-22 · Spain — La Liga · FC Barcelona v Villarreal CF: review_required; 1X2 71.4%/16.5%/12.1%; expected goals 2.61–1.07; O2.5 71.1%; BTTS 60.8%; decision withhold.
+- 2026-11-22 · Spain — La Liga · Real Racing Club de Santander v Real Sociedad de Fútbol: review_required; 1X2 33.0%/25.4%/41.6%; expected goals 1.41–1.59; O2.5 57.3%; BTTS 60.5%; decision withhold.
+- 2026-11-22 · Spain — La Liga · Rayo Vallecano de Madrid v Valencia CF: review_required; 1X2 47.1%/27.8%/25.1%; expected goals 1.45–1.01; O2.5 44.2%; BTTS 49.1%; decision withhold.
+- 2026-11-22 · Spain — La Liga · CA Osasuna v Málaga CF: review_required; 1X2 57.6%/25.2%/17.3%; expected goals 1.68–0.84; O2.5 45.8%; BTTS 46.4%; decision withhold.
+- 2026-11-22 · Spain — La Liga · Getafe CF v Club Atlético de Madrid: review_required; 1X2 24.8%/29.4%/45.9%; expected goals 0.93–1.34; O2.5 39.2%; BTTS 45.1%; decision withhold.
+- 2026-11-22 · Spain — La Liga · Real Madrid CF v RC Celta de Vigo: review_required; 1X2 69.6%/19.0%/11.4%; expected goals 2.19–0.82; O2.5 57.9%; BTTS 49.6%; decision withhold.
+- 2026-11-22 · Spain — La Liga · Deportivo Alavés v RC Deportivo La Coruña: review_required; 1X2 41.3%/28.1%/30.6%; expected goals 1.38–1.16; O2.5 46.0%; BTTS 51.6%; decision withhold.
+- 2026-11-22 · Spain — La Liga · Sevilla FC v Real Betis Balompié: review_required; 1X2 35.1%/27.7%/37.2%; expected goals 1.29–1.34; O2.5 48.4%; BTTS 53.8%; decision withhold.
+- 2026-11-22 · Spain — La Liga · Levante UD v Elche CF: review_required; 1X2 47.3%/25.2%/27.5%; expected goals 1.68–1.25; O2.5 55.7%; BTTS 58.3%; decision withhold.
+- 2026-11-22 · Italy — Serie A · US Sassuolo Calcio v Genoa CFC: review_required; 1X2 43.2%/28.0%/28.8%; expected goals 1.43–1.13; O2.5 46.7%; BTTS 52.1%; decision withhold.
+- 2026-11-22 · Italy — Serie A · AC Milan v Frosinone Calcio: review_required; 1X2 51.6%/26.1%/22.3%; expected goals 1.63–1.02; O2.5 49.1%; BTTS 51.8%; decision withhold.
+- 2026-11-22 · Italy — Serie A · Bologna FC 1909 v Udinese Calcio: review_required; 1X2 46.4%/27.8%/25.7%; expected goals 1.47–1.05; O2.5 45.5%; BTTS 50.4%; decision withhold.
+- 2026-11-22 · Italy — Serie A · Atalanta BC v FC Internazionale Milano: review_required; 1X2 28.0%/25.5%/46.5%; expected goals 1.26–1.67; O2.5 55.8%; BTTS 58.6%; decision withhold.
+- 2026-11-22 · Germany — Bundesliga · FC Augsburg v 1. FSV Mainz 05: research_only; 1X2 39.5%/26.7%/33.8%; expected goals 1.59–1.47; O2.5 58.6%; BTTS 62.3%; decision withhold.
+- 2026-11-22 · Germany — Bundesliga · SV Werder Bremen v Hamburger SV: research_only; 1X2 50.5%/25.9%/23.5%; expected goals 1.77–1.18; O2.5 56.1%; BTTS 58.4%; decision withhold.
+- 2026-11-22 · France — Ligue 1 · Paris FC v Angers SCO: review_required; 1X2 58.8%/25.4%/15.7%; expected goals 1.73–0.82; O2.5 46.6%; BTTS 46.7%; decision withhold.
+- 2026-11-22 · France — Ligue 1 · FC Lorient v Stade Rennais FC 1901: review_required; 1X2 34.3%/26.6%/39.1%; expected goals 1.44–1.54; O2.5 56.9%; BTTS 60.8%; decision withhold.
+- 2026-11-22 · France — Ligue 1 · Olympique de Marseille v Le Mans FC: review_required; 1X2 55.7%/23.4%/20.9%; expected goals 1.98–1.19; O2.5 61.1%; BTTS 60.5%; decision withhold.
+- 2026-11-22 · Germany — 2. Bundesliga · 1. FC Kaiserslautern v Dynamo Dresden: research_only; 1X2 49.4%/26.0%/24.6%; expected goals 1.71–1.18; O2.5 54.8%; BTTS 57.5%; decision withhold.
+- 2026-11-22 · Germany — 2. Bundesliga · Karlsruher SC v VfL Osnabrück: research_only; 1X2 54.7%/23.5%/21.8%; expected goals 1.99–1.23; O2.5 62.1%; BTTS 61.7%; decision withhold.
+- 2026-11-22 · Germany — 2. Bundesliga · Energie Cottbus v Hertha BSC: research_only; 1X2 35.5%/26.4%/38.1%; expected goals 1.49–1.55; O2.5 58.0%; BTTS 61.7%; decision withhold.
+- 2026-11-22 · Netherlands — Eredivisie · FC Twente '65 v Willem II Tilburg: review_required; 1X2 76.5%/16.8%/6.7%; expected goals 2.47–0.69; O2.5 61.2%; BTTS 46.3%; decision withhold.
+- 2026-11-22 · Netherlands — Eredivisie · Sparta Rotterdam v AZ: review_required; 1X2 23.6%/27.0%/49.4%; expected goals 1.19–1.75; O2.5 55.8%; BTTS 58.8%; decision withhold.
+- 2026-11-22 · Netherlands — Eredivisie · AFC Ajax v ADO Den Haag: review_required; 1X2 78.5%/15.2%/6.3%; expected goals 2.67–0.74; O2.5 66.3%; BTTS 49.2%; decision withhold.
+- 2026-11-22 · Netherlands — Eredivisie · Go Ahead Eagles v Fortuna Sittard: review_required; 1X2 53.7%/24.9%/21.3%; expected goals 1.96–1.22; O2.5 61.1%; BTTS 61.6%; decision withhold.
 
-Prospective ledger: 367 registered, 134 graded, 35 pending.
+Prospective ledger: 395 registered, 134 graded, 63 pending.
 These are uncalibrated research forecasts, not recommendations.
 
-Run: 20261114T122409991607Z · data: 496f68d58b3aa4df06d9f0d2ab814e97b5e1ae486e20c15e362452e701e332d4 · code: bf7936ae9e0c617383cd081c08cdf6c197a55bcbb14c962a8a5338c9b089f2f9
+Run: 20261115T125406859693Z · data: a69b7032c772f88e88157cf08e57f216f7b0416edcaaab7d5637e1fa14b24447 · code: fb06f1281791114a650c5c413cc4781f61689fa32e2016ae47bce28b7ce29268

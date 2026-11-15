@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-11-22",
+    "league_id": "es.1",
+    "league": "Spain \u2014 La Liga",
+    "home": "Real Madrid CF",
+    "away": "RC Celta de Vigo"
+  },
+  "registered_at": "2026-11-15T12:54:06.859682+00:00",
+  "run_id": "20261115T125406859693Z",
+  "data_hash": "a69b7032c772f88e88157cf08e57f216f7b0416edcaaab7d5637e1fa14b24447",
+  "code_hash": "fb06f1281791114a650c5c413cc4781f61689fa32e2016ae47bce28b7ce29268",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-2.1-shrunk-totals",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "targets": "closing-price implied goals (90%) blended with scorelines, 60-day half-life, where prices exist; otherwise scorelines with a 365-day half-life",
+    "ridge": "0.005 with prices, 0.01 without; without prices, goal totals come from a second fit at ridge 0.1",
+    "optimizer": "block Newton, solved to convergence; no pinned reference team",
+    "calibration": "temperature 0.91 and draw shift 0.12 on the model's own 1X2 (0.94/0.09 without prices), fitted on 2023-25 forecasts",
+    "margin_removal": "power method",
+    "holdout": "2025-27, 3,330 matches in 8 leagues: 1X2 log loss 0.9873 (previous model 0.9975), tools/accuracy_lab.py"
+  },
+  "readiness": {
+    "league_id": "es.1",
+    "season": "2026-27",
+    "records": 2280,
+    "completed": 1959,
+    "upcoming": 260,
+    "latest_result": "2026-09-20",
+    "current_records": 380,
+    "unresolved_past": 20,
+    "likely_postponed": 31,
+    "source_checked_at": "2026-11-15T12:53:48.427204+00:00",
+    "status": "review_required",
+    "issues": [
+      "Completed results are missing or more than 30 days old",
+      "20 recent current-season fixtures have no result yet"
+    ]
+  },
+  "probabilities": [
+    0.6963928490743889,
+    0.18989039495751953,
+    0.11371675596809191
+  ],
+  "expected_goals": [
+    2.1941262513317756,
+    0.8152291034072341
+  ],
+  "over25": 0.5788669306015388,
+  "btts": 0.4958082578639448,
+  "decision": "withhold",
+  "pricing_source": "model",
+  "model_probabilities": [
+    0.6963928490743889,
+    0.18989039495751953,
+    0.11371675596809191
+  ]
+}

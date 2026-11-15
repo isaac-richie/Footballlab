@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-11-22",
+    "league_id": "de.2",
+    "league": "Germany \u2014 2. Bundesliga",
+    "home": "Karlsruher SC",
+    "away": "VfL Osnabr\u00fcck"
+  },
+  "registered_at": "2026-11-15T12:54:06.859682+00:00",
+  "run_id": "20261115T125406859693Z",
+  "data_hash": "a69b7032c772f88e88157cf08e57f216f7b0416edcaaab7d5637e1fa14b24447",
+  "code_hash": "fb06f1281791114a650c5c413cc4781f61689fa32e2016ae47bce28b7ce29268",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-2.1-shrunk-totals",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "targets": "closing-price implied goals (90%) blended with scorelines, 60-day half-life, where prices exist; otherwise scorelines with a 365-day half-life",
+    "ridge": "0.005 with prices, 0.01 without; without prices, goal totals come from a second fit at ridge 0.1",
+    "optimizer": "block Newton, solved to convergence; no pinned reference team",
+    "calibration": "temperature 0.91 and draw shift 0.12 on the model's own 1X2 (0.94/0.09 without prices), fitted on 2023-25 forecasts",
+    "margin_removal": "power method",
+    "holdout": "2025-27, 3,330 matches in 8 leagues: 1X2 log loss 0.9873 (previous model 0.9975), tools/accuracy_lab.py"
+  },
+  "readiness": {
+    "league_id": "de.2",
+    "season": "2026-27",
+    "records": 1836,
+    "completed": 1629,
+    "upcoming": 207,
+    "latest_result": "2026-11-08",
+    "current_records": 306,
+    "unresolved_past": 0,
+    "likely_postponed": 0,
+    "source_checked_at": "2026-11-15T12:53:49.791272+00:00",
+    "status": "research_only",
+    "issues": []
+  },
+  "probabilities": [
+    0.5468631498174856,
+    0.2346536274933187,
+    0.21848322268919587
+  ],
+  "expected_goals": [
+    1.9860453637862492,
+    1.2321279876095768
+  ],
+  "over25": 0.621135094320099,
+  "btts": 0.6172567459361861,
+  "decision": "withhold",
+  "pricing_source": "model",
+  "model_probabilities": [
+    0.5468631498174856,
+    0.2346536274933187,
+    0.21848322268919587
+  ]
+}
