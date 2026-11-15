@@ -1,17 +1,14 @@
 # Basketball (NBA): not finished yet
 
-Status as of 14 November 2026. What works is described in the README, under "Basketball (NBA)". This file lists what is still open.
-
-## In progress
-
-- **Model-only calibration.** Games with no bookmaker line yet are priced from team ratings alone, with `MODEL_WIDTH` still at its first guesses (`stretch` 1.0). On 2025-26 the ratings were under-confident on favourites: picks they called 84% won 89%. `python3 tools/nba_calib.py --only model` is tuning a margin stretch plus the margin, total, link and slope widths on 2023-25. The chosen values still need to go into `nba_model.py`, then a hold-out check on 2025-26.
+Status as of 15 November 2026. What works is described in the README, under "Basketball (NBA)". This file lists what is still open.
 
 ## Known accuracy gaps
 
-- **Line-priced spreads and moneyline run slightly over-confident** on 2025-26 (70%+ picks: spreads said 75.8%, won 74.2%; moneyline said 81.6%, won 79.8%). Totals and combos are on target. Margin width 12.5 was kept as the cautious choice; a margin sd that varies by season or by team might close the rest.
-- **The model alone is weaker than the closing line**: margin RMS error 14.6 against 14.1, total 19.0 against 18.2. The app prices from the line whenever one exists. Nothing yet beats the line.
-- **No injury, lineup or rest information** beyond back-to-backs. Star absences move NBA lines a lot, and the ratings only see them through results.
-- **Playoffs are not modelled separately** (slower pace, shorter rotations). They are fitted together with regular-season games.
+- **Model-only spreads and totals run over-confident** (games with no line posted yet). On 2025-26, 70%+ picks said 76% and won 72% on spreads, 74%/70% on totals. Moneyline (80%/82%) and team totals are on target. Widths were tuned on 2023-25 for the line-informed ratings (stretch 1.15, margin 14.2, total 21.5).
+- **The model alone is weaker than the closing line**: margin RMS error 14.4 against 14.1 on 2025-26, total 18.9 against 18.2. It is about 49% against the spread and total, so it does not beat the line. The app prices from the line whenever one exists.
+- **Line-priced picks are on target** on 2025-26 and 2026-27 to date (70%+ spreads said 75.5%, won 75.4%).
+- **No injury, lineup or rest information** beyond back-to-backs, except what past closing lines carry into the ratings.
+- **Playoffs are not modelled separately.**
 
 ## Not built
 
@@ -25,4 +22,3 @@ Status as of 14 November 2026. What works is described in the README, under "Bas
 - **Results ticker** is hidden in basketball mode.
 - **Other leagues**: WNBA, EuroLeague and NCAA are not covered.
 - **First load**: the board takes about 4 to 5 seconds to price before it is cached (warmed when the server starts).
-- **PROJECT_STATUS.md** has not been updated for basketball.

@@ -1,20 +1,29 @@
 {
- "generated_at": "2026-11-10T07:00:45.718758+00:00",
+ "generated_at": "2026-11-15T01:59:59.121883+00:00",
  "chosen": {
-  "half_life": 50,
-  "ridge": 4.0,
-  "carry": 1.0,
+  "half_life": 15,
+  "ridge": 0.5,
+  "carry": 0.5,
+  "gap": 115,
+  "market": 0.7,
   "window": 400,
   "b2b": true
  },
  "residuals_tuning": {
-  "sd": 11.429365526839499,
-  "rho": 0.2227724135778075,
+  "sd": 11.227152904655558,
+  "rho": 0.2190232171382795,
   "bias": [
-   -0.26472511785262726,
-   -0.2936097295373677
+   0.060555449624671194,
+   -0.02639278767512479
   ],
   "games": 2640
+ },
+ "line_constants_tuning": {
+  "games": 2639,
+  "sd": 10.89341213792835,
+  "rho": 0.20878762174512427,
+  "margin_rmse": 13.703309579969599,
+  "total_rmse": 16.937680436900802
  },
  "overtime_tuning": {
   "periods": 140,
@@ -24,122 +33,196 @@
   "games_to_ot": 0.048484848484848485,
   "second_ot_share": 0.09375
  },
+ "margin_shape_tuning": {
+  "-6": {
+   "observed": 69,
+   "predicted": 57.82045874604695,
+   "ratio": 1.193349231334443
+  },
+  "-5": {
+   "observed": 53,
+   "predicted": 59.508322013714405,
+   "ratio": 0.8906317336218205
+  },
+  "-4": {
+   "observed": 53,
+   "predicted": 61.01034416979968,
+   "ratio": 0.8687051469910437
+  },
+  "-3": {
+   "observed": 58,
+   "predicted": 62.31015935518642,
+   "ratio": 0.9308273418044523
+  },
+  "-2": {
+   "observed": 65,
+   "predicted": 63.393373209113186,
+   "ratio": 1.0253437655949795
+  },
+  "-1": {
+   "observed": 57,
+   "predicted": 64.24782775352587,
+   "ratio": 0.8871895283163389
+  },
+  "0": {
+   "observed": 128,
+   "predicted": 64.86382824045467,
+   "ratio": 1.9733648702555022
+  },
+  "1": {
+   "observed": 36,
+   "predicted": 65.23432603166428,
+   "ratio": 0.5518567016776698
+  },
+  "2": {
+   "observed": 65,
+   "predicted": 65.35505267771237,
+   "ratio": 0.994567326271417
+  },
+  "3": {
+   "observed": 59,
+   "predicted": 65.22460172328454,
+   "ratio": 0.9045666579967415
+  },
+  "4": {
+   "observed": 52,
+   "predicted": 64.84445585361765,
+   "ratio": 0.8019189815916844
+  },
+  "5": {
+   "observed": 68,
+   "predicted": 64.21895891045362,
+   "ratio": 1.0588773339477306
+  },
+  "6": {
+   "observed": 63,
+   "predicted": 63.355233267956486,
+   "ratio": 0.9943929925022287
+  }
+ },
  "model_constants": {
-  "SD": 11.6,
-  "RHO": 0.2,
-  "SD_LINE": 10.6,
-  "RHO_LINE": 0.25,
+  "MODEL_WIDTH": {
+   "margin": 14.7,
+   "total": 18.0,
+   "link": 0.0,
+   "slope": 0.0,
+   "stretch": 1.0
+  },
+  "LINE_WIDTH": {
+   "margin": 12.5,
+   "total": 17.6,
+   "link": 0.1,
+   "slope": -0.1
+  },
   "OT": {
-   "mean": 5.6,
-   "sd": 2.9,
-   "rho": 0.22
+   "mean": 11.0,
+   "sd": 3.8,
+   "rho": 0.07
   },
   "MARGIN_SHAPE": {
-   "0": 2.1,
-   "1": 0.72,
-   "-1": 0.72,
-   "2": 0.95,
-   "-2": 0.95
+   "0": 2.0,
+   "1": 0.7,
+   "-1": 0.7
   }
  },
  "tuning": {
   "points": {
    "model": {
-    "margin_rmse": 14.279424033087844,
-    "total_rmse": 18.52681008834525,
+    "margin_rmse": 14.05838938470545,
+    "total_rmse": 18.196873278494568,
     "games": 2640
    },
    "open": {
     "games": 2618,
     "line_margin_rmse": 14.021483026022786,
     "line_total_rmse": 18.32160336140427,
-    "model_margin_rmse": 14.298177817819981,
-    "model_total_rmse": 18.544996276066158
+    "model_margin_rmse": 14.074768673640714,
+    "model_total_rmse": 18.21698040563606
    },
    "close": {
     "games": 2639,
     "line_margin_rmse": 13.727553244297704,
     "line_total_rmse": 17.619773633263776,
-    "model_margin_rmse": 14.278070852130506,
-    "model_total_rmse": 18.51888668115015
+    "model_margin_rmse": 14.058062350945887,
+    "model_total_rmse": 18.190850374882928
    }
   },
   "probabilities": {
    "games": 2640,
-   "model_ml_logloss": 0.6141086557309773,
-   "model_ml_brier": 0.21303938128231212,
+   "model_ml_logloss": 0.6038817709239213,
+   "model_ml_brier": 0.20831832578895176,
    "with_close_moneyline": 2640,
    "close_ml_logloss": 0.5848153285716636,
    "close_ml_brier": 0.20045684393916952,
-   "model_ml_logloss_same_games": 0.6141086557309773,
-   "priced_from_close_ml_logloss": 0.5846290970442128,
+   "model_ml_logloss_same_games": 0.6038817709239213,
+   "priced_from_close_ml_logloss": 0.5836768433815759,
    "spread_games": 2617,
-   "model_cover_logloss": 0.7165133455325051,
+   "model_cover_logloss": 0.7084105690493836,
    "close_cover_logloss": 0.692716001209606,
    "total_games": 2629,
-   "model_over_logloss": 0.722577042118336,
+   "model_over_logloss": 0.7118684950079345,
    "close_over_logloss": 0.6928727155262641,
-   "priced_over_logloss": 0.692970024110706,
+   "priced_over_logloss": 0.6932267121050427,
    "calibration": [
     {
      "bin": "0-10%",
      "games": 2,
-     "predicted": 0.08812193602758267,
+     "predicted": 0.08727563181339718,
      "observed": 0.0
     },
     {
      "bin": "10-20%",
-     "games": 39,
-     "predicted": 0.16518158980766812,
-     "observed": 0.1282051282051282
+     "games": 32,
+     "predicted": 0.16261123257668061,
+     "observed": 0.09375
     },
     {
      "bin": "20-30%",
-     "games": 132,
-     "predicted": 0.2593481678228963,
-     "observed": 0.16666666666666666
+     "games": 174,
+     "predicted": 0.25745000019375686,
+     "observed": 0.16091954022988506
     },
     {
      "bin": "30-40%",
-     "games": 322,
-     "predicted": 0.35209797241796725,
-     "observed": 0.2950310559006211
+     "games": 325,
+     "predicted": 0.35537554632077223,
+     "observed": 0.3046153846153846
     },
     {
      "bin": "40-50%",
-     "games": 492,
-     "predicted": 0.45477442236594545,
-     "observed": 0.4634146341463415
+     "games": 447,
+     "predicted": 0.45207233192671886,
+     "observed": 0.44966442953020136
     },
     {
      "bin": "50-60%",
-     "games": 627,
-     "predicted": 0.5505467581792908,
-     "observed": 0.5486443381180224
+     "games": 640,
+     "predicted": 0.5512697801031492,
+     "observed": 0.55
     },
     {
      "bin": "60-70%",
-     "games": 516,
-     "predicted": 0.6471495157393969,
-     "observed": 0.6531007751937985
+     "games": 491,
+     "predicted": 0.6475589490452083,
+     "observed": 0.6496945010183299
     },
     {
      "bin": "70-80%",
-     "games": 349,
-     "predicted": 0.7450794378109934,
-     "observed": 0.7822349570200573
+     "games": 365,
+     "predicted": 0.7456503570876118,
+     "observed": 0.810958904109589
     },
     {
      "bin": "80-90%",
-     "games": 150,
-     "predicted": 0.8369018210628199,
-     "observed": 0.8466666666666667
+     "games": 152,
+     "predicted": 0.8373636563156452,
+     "observed": 0.875
     },
     {
      "bin": "90-100%",
-     "games": 11,
-     "predicted": 0.9181277045356289,
-     "observed": 1.0
+     "games": 12,
+     "predicted": 0.914880108964942,
+     "observed": 0.9166666666666666
     }
    ]
   }
@@ -147,104 +230,104 @@
  "holdout": {
   "points": {
    "model": {
-    "margin_rmse": 14.614245249981641,
-    "total_rmse": 19.022148934783353,
+    "margin_rmse": 14.433628053889219,
+    "total_rmse": 18.878256941215202,
     "games": 1322
    },
    "open": {
     "games": 1322,
     "line_margin_rmse": 14.325598365601573,
     "line_total_rmse": 18.5342733592695,
-    "model_margin_rmse": 14.614245249981641,
-    "model_total_rmse": 19.022148934783353
+    "model_margin_rmse": 14.433628053889219,
+    "model_total_rmse": 18.878256941215202
    },
    "close": {
     "games": 1322,
     "line_margin_rmse": 14.066260423422642,
     "line_total_rmse": 18.230464851837148,
-    "model_margin_rmse": 14.614245249981641,
-    "model_total_rmse": 19.022148934783353
+    "model_margin_rmse": 14.433628053889219,
+    "model_total_rmse": 18.878256941215202
    }
   },
   "probabilities": {
    "games": 1322,
-   "model_ml_logloss": 0.6022112728728855,
-   "model_ml_brier": 0.20723494213021054,
+   "model_ml_logloss": 0.593649630857076,
+   "model_ml_brier": 0.20351380729572063,
    "with_close_moneyline": 1322,
    "close_ml_logloss": 0.5759757375944247,
    "close_ml_brier": 0.19743366867462286,
-   "model_ml_logloss_same_games": 0.6022112728728855,
-   "priced_from_close_ml_logloss": 0.5784847910125733,
+   "model_ml_logloss_same_games": 0.593649630857076,
+   "priced_from_close_ml_logloss": 0.5778452185464656,
    "spread_games": 1322,
-   "model_cover_logloss": 0.7175873976753865,
+   "model_cover_logloss": 0.7080831231549105,
    "close_cover_logloss": 0.6927355383241268,
    "total_games": 1322,
-   "model_over_logloss": 0.717742449462832,
+   "model_over_logloss": 0.71444907325037,
    "close_over_logloss": 0.692615509525994,
-   "priced_over_logloss": 0.6925456799492122,
+   "priced_over_logloss": 0.692459172970836,
    "calibration": [
     {
      "bin": "10-20%",
-     "games": 23,
-     "predicted": 0.17415134448814507,
-     "observed": 0.13043478260869565
+     "games": 31,
+     "predicted": 0.17150996311133188,
+     "observed": 0.06451612903225806
     },
     {
      "bin": "20-30%",
-     "games": 89,
-     "predicted": 0.25995786409006066,
-     "observed": 0.19101123595505617
+     "games": 94,
+     "predicted": 0.26068877500301535,
+     "observed": 0.18085106382978725
     },
     {
      "bin": "30-40%",
-     "games": 160,
-     "predicted": 0.35692813093859066,
-     "observed": 0.28125
+     "games": 146,
+     "predicted": 0.3553077221335026,
+     "observed": 0.2876712328767123
     },
     {
      "bin": "40-50%",
-     "games": 236,
-     "predicted": 0.45269686151754696,
-     "observed": 0.4576271186440678
+     "games": 248,
+     "predicted": 0.4502139989878934,
+     "observed": 0.46774193548387094
     },
     {
      "bin": "50-60%",
-     "games": 308,
-     "predicted": 0.5482444660729685,
-     "observed": 0.5616883116883117
+     "games": 275,
+     "predicted": 0.5485906073474738,
+     "observed": 0.5636363636363636
     },
     {
      "bin": "60-70%",
-     "games": 254,
-     "predicted": 0.6515752032248172,
-     "observed": 0.7165354330708661
+     "games": 247,
+     "predicted": 0.6450770579498583,
+     "observed": 0.6842105263157895
     },
     {
      "bin": "70-80%",
-     "games": 171,
-     "predicted": 0.7458763324582446,
-     "observed": 0.783625730994152
+     "games": 183,
+     "predicted": 0.7460055695308272,
+     "observed": 0.8087431693989071
     },
     {
      "bin": "80-90%",
-     "games": 79,
-     "predicted": 0.8394992212769451,
-     "observed": 0.8860759493670886
+     "games": 88,
+     "predicted": 0.8376807793565678,
+     "observed": 0.8636363636363636
     },
     {
      "bin": "90-100%",
-     "games": 2,
-     "predicted": 0.9136301601453609,
-     "observed": 1.0
+     "games": 10,
+     "predicted": 0.9115127111292415,
+     "observed": 0.9
     }
    ]
   },
   "residuals": {
-   "sd": 11.69512459678327,
-   "rho": 0.22212707369094636,
+   "sd": 11.557329549139252,
+   "rho": 0.22349071614227417,
    "bias": [
-    -0.21267676131458335,
-    -0.1143828985228945
+    -0.016259788743315542,
+    0.15262925792833204
    ],
    "games": 1322
   }
@@ -252,89 +335,89 @@
  "current_season": {
   "points": {
    "model": {
-    "margin_rmse": 15.31571794734791,
-    "total_rmse": 18.337714317252654,
-    "games": 154
+    "margin_rmse": 15.130519037225369,
+    "total_rmse": 18.368684677475855,
+    "games": 183
    },
    "open": {
-    "games": 154,
-    "line_margin_rmse": 14.443913021637293,
-    "line_total_rmse": 18.52104804753826,
-    "model_margin_rmse": 15.31571794734791,
-    "model_total_rmse": 18.337714317252654
+    "games": 183,
+    "line_margin_rmse": 14.577051730664536,
+    "line_total_rmse": 18.53718018416846,
+    "model_margin_rmse": 15.130519037225369,
+    "model_total_rmse": 18.368684677475855
    },
    "close": {
-    "games": 154,
-    "line_margin_rmse": 14.28751612013498,
-    "line_total_rmse": 18.105122328928204,
-    "model_margin_rmse": 15.31571794734791,
-    "model_total_rmse": 18.337714317252654
+    "games": 183,
+    "line_margin_rmse": 14.409648786215314,
+    "line_total_rmse": 17.98933351235057,
+    "model_margin_rmse": 15.130519037225369,
+    "model_total_rmse": 18.368684677475855
    }
   },
   "probabilities": {
-   "games": 154,
-   "model_ml_logloss": 0.6240108994631431,
-   "model_ml_brier": 0.2171463116688088,
-   "with_close_moneyline": 154,
-   "close_ml_logloss": 0.540504315807335,
-   "close_ml_brier": 0.18283837978815606,
-   "model_ml_logloss_same_games": 0.6240108994631431,
-   "priced_from_close_ml_logloss": 0.5469242693830543,
-   "spread_games": 154,
-   "model_cover_logloss": 0.7211039522941477,
-   "close_cover_logloss": 0.6922249070878964,
-   "total_games": 154,
-   "model_over_logloss": 0.7102029959377514,
-   "close_over_logloss": 0.6915596043699339,
-   "priced_over_logloss": 0.6911001093052659,
+   "games": 183,
+   "model_ml_logloss": 0.5900367304793321,
+   "model_ml_brier": 0.20245704758252636,
+   "with_close_moneyline": 183,
+   "close_ml_logloss": 0.5338469157759024,
+   "close_ml_brier": 0.1799119152074512,
+   "model_ml_logloss_same_games": 0.5900367304793321,
+   "priced_from_close_ml_logloss": 0.5339479708043728,
+   "spread_games": 183,
+   "model_cover_logloss": 0.7141250299876972,
+   "close_cover_logloss": 0.6919340526561722,
+   "total_games": 183,
+   "model_over_logloss": 0.7079593894284376,
+   "close_over_logloss": 0.6918888099529001,
+   "priced_over_logloss": 0.6909849827977688,
    "calibration": [
     {
      "bin": "10-20%",
-     "games": 1,
-     "predicted": 0.17952922083755846,
+     "games": 5,
+     "predicted": 0.16748027021035544,
      "observed": 0.0
     },
     {
      "bin": "20-30%",
-     "games": 10,
-     "predicted": 0.2505735383960191,
-     "observed": 0.3
+     "games": 13,
+     "predicted": 0.26590324140778177,
+     "observed": 0.3076923076923077
     },
     {
      "bin": "30-40%",
-     "games": 21,
-     "predicted": 0.352871306240862,
-     "observed": 0.23809523809523808
+     "games": 22,
+     "predicted": 0.3487852429367345,
+     "observed": 0.18181818181818182
     },
     {
      "bin": "40-50%",
-     "games": 28,
-     "predicted": 0.45885438694516195,
-     "observed": 0.39285714285714285
+     "games": 34,
+     "predicted": 0.4550875269134542,
+     "observed": 0.29411764705882354
     },
     {
      "bin": "50-60%",
-     "games": 36,
-     "predicted": 0.5522571197692264,
-     "observed": 0.5277777777777778
+     "games": 43,
+     "predicted": 0.5488722365379202,
+     "observed": 0.6976744186046512
     },
     {
      "bin": "60-70%",
-     "games": 37,
-     "predicted": 0.6510114308124222,
-     "observed": 0.7027027027027027
+     "games": 30,
+     "predicted": 0.6495673030956512,
+     "observed": 0.6
     },
     {
      "bin": "70-80%",
-     "games": 13,
-     "predicted": 0.7454452275271757,
-     "observed": 0.6923076923076923
+     "games": 25,
+     "predicted": 0.7398011894314471,
+     "observed": 0.76
     },
     {
      "bin": "80-90%",
-     "games": 8,
-     "predicted": 0.8282050182131447,
-     "observed": 0.875
+     "games": 11,
+     "predicted": 0.84063048494502,
+     "observed": 1.0
     }
    ]
   }
@@ -342,14 +425,16 @@
  "search": [
   {
    "settings": {
-    "half_life": 50,
-    "ridge": 4.0,
-    "carry": 1.0,
+    "half_life": 15,
+    "ridge": 0.5,
+    "carry": 0.5,
+    "gap": 115,
+    "market": 0.7,
     "window": 400,
     "b2b": true
    },
-   "margin_rmse": 14.279424033087844,
-   "total_rmse": 18.52681008834525,
+   "margin_rmse": 14.05838938470545,
+   "total_rmse": 18.196873278494568,
    "games": 2640
   }
  ]

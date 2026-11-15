@@ -44,7 +44,10 @@ SETTINGS = dict(half_life=15, ridge=0.5, carry=0.5, gap=115, market=0.7, window=
 #           and close games are not equally predictable)
 # Model ratings miss by more than a closing line does, so each source has its own
 # width; both are tuned on the log loss of every priced market (tools/nba_calib.py).
-MODEL_WIDTH = dict(margin=14.7, total=18.0, link=0.0, slope=0.0, stretch=1.0)
+# MODEL_WIDTH tuned on 2023-25 for the line-informed ratings (tools/nba_calib.py --only model).
+# On 2025-26 moneyline and team totals are on target; 70%+ spread and total picks still run
+# about 4 points over-confident (said 76%, won 72%), so prefer posted lines where they exist.
+MODEL_WIDTH = dict(margin=14.2, total=21.5, link=0.05, slope=-0.1, stretch=1.15)
 # LINE_WIDTH tuned on 2023-25 (tools/nba_calib.py). Margin 12.0 and 12.5 tied there; the wider one
 # is kept because 2025-26 showed 12.0 slightly overconfident on spreads and moneyline.
 LINE_WIDTH = dict(margin=12.5, total=17.6, link=0.1, slope=-0.1)
