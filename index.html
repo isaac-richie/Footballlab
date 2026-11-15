@@ -1598,7 +1598,7 @@ function renderBoard(){
   if(!s) return;
   if(s.error){ body.innerHTML = `<div class="empty">${esc(s.error)}</div>`; $('#board-note').textContent = ''; return }
   // 'Upcoming' means still to play or in play; finished games waiting for a score live on Featured.
-  let list = s.fixtures.filter(f => f.status !== 'awaiting_result' && (!state.filter || (f.home + ' ' + f.away).toLowerCase().includes(state.filter)));
+  let list = s.fixtures.filter(f => (f.status !== 'awaiting_result' || nLive(f)) && (!state.filter || (f.home + ' ' + f.away).toLowerCase().includes(state.filter)));
   const key = {home: f => -f.probabilities[0], away: f => -f.probabilities[2], over25: f => -f.over25, btts: f => -f.btts}[state.sort];
   if(key) list = [...list].sort((a, b) => key(a) - key(b));
   if(!list.length){ body.innerHTML = `<div class="empty">${state.filter ? 'No fixtures match that filter.' : 'No upcoming fixtures in the source for this league.'}</div>`; return }
@@ -2535,7 +2535,11 @@ function jersey(name, lg){
 const favLine = (home, away, s) => s < 0 ? `${nAbbr(home)} ${line(s)}` : s > 0 ? `${nAbbr(away)} ${line(-s)}` : 'Pick ’em';
 const NSRC = {line: 'Bookie line', entered: 'Your line', model: 'Our model'};
 const nSrc = (s, book) => `<span class="src ${s === 'model' ? 'model' : 'market'}" title="${s === 'line' && book ? esc(book) + ', margin removed' : ''}"><i></i>${NSRC[s] || s}</span>`;
+function nLive(f){ const m = nb.live || {}; return m[f.id] || m[f.date + '|' + f.home_abbr] || null }
 function nStatus(f){
+  const L = nLive(f), sc = L && (f.away_abbr ? `${esc(f.away_abbr)} ${L.score[1]} – ${L.score[0]} ${esc(f.home_abbr)}` : `${L.score[1]}–${L.score[0]}`);
+  if(L && L.status === 'live') return `<span class="st live"><i></i>${esc(L.clock || 'Live')} · ${sc}</span>`;
+  if(L && L.status === 'final') return `<span class="st done">Final · ${sc}</span>`;
   if(f.status === 'live') return '<span class="st live"><i></i>Live</span>';
   if(f.status === 'awaiting_result') return '<span class="st done">Final soon</span>';
   return f.tipoff ? `<span class="st ko">${esc(koTime(f.tipoff))}</span>` : '';
@@ -2552,6 +2556,7 @@ function setSport(sport, initial){
   if(sport === 'basketball' && !['fixtures', 'match', 'featured', 'performance'].includes(v)) history.replaceState(null, '', '#featured');
   if(sport === 'football' && state.data && typeof renderStrip === 'function') renderStrip(state.data);
   if(sport === 'basketball' && nb.slate) nbFresh();
+  if(sport === 'basketball' && !initial && typeof nbLivePoll === 'function') nbLivePoll();
   if(!initial) transition(showView);
 }
 $('#sport').onclick = e => { const b = e.target.closest('[data-sport]'); if(b && b.dataset.sport !== document.body.dataset.sport) setSport(b.dataset.sport) };
@@ -2598,7 +2603,7 @@ $('#nba-sort').onclick = e => {
 function renderNbaBoard(){
   const s = nb.slate, body = $('#nba-body'); if(!s) return;
   if(s.error){ body.innerHTML = `<div class="empty">${esc(s.error)}</div>`; return }
-  let list = s.fixtures.filter(f => f.status !== 'awaiting_result' && (!nb.filter || (f.home + ' ' + f.away).toLowerCase().includes(nb.filter)));
+  let list = s.fixtures.filter(f => (f.status !== 'awaiting_result' || nLive(f)) && (!nb.filter || (f.home + ' ' + f.away).toLowerCase().includes(nb.filter)));
   const key = {fav: f => -Math.max(...f.moneyline), close: f => Math.abs(f.moneyline[0] - .5), total: f => -f.expected_total}[nb.sort];
   if(key) list = [...list].sort((a, b) => key(a) - key(b));
   if(!list.length){ body.innerHTML = `<div class="empty">${nb.filter ? 'No games match that filter.' : 'No NBA games in the next seven days.'}</div>`; $('#nba-note').textContent = ''; return }
@@ -2630,6 +2635,15 @@ function nbPublicFoot(){
   $('#nba-foot1').textContent = 'NBA forecasts from final scores only. No injuries, lineups or betting lines. Probabilities are not guarantees.';
   $('#nba-foot2').textContent = 'Data: balldontlie (scores and schedule)';
 }
+async function nbLivePoll(){
+  if(document.body.dataset.sport !== 'basketball' || document.hidden) return;
+  try{
+    const r = await api('/api/nba/live'); const before = JSON.stringify(nb.live || {});
+    nb.live = r.games || {};
+    if(JSON.stringify(nb.live) !== before){ nb.still = true; renderNbaBoard(); nb.still = false; renderNbaPicks() }
+  }catch(e){}
+}
+setInterval(nbLivePoll, 60000); document.addEventListener('visibilitychange', nbLivePoll); setTimeout(nbLivePoll, 1500);
 async function loadNbaPicks(){
   nb.picksLoading = true;
   try{ nb.picks = await api('/api/nba/picks'); if(nb.picks.public) nbPublicFoot(); renderNbaPicks() }
@@ -2649,7 +2663,7 @@ function renderNbaPicks(){
   const hit = r => r ? `<span class="bp-hit" title="${esc(nbRec(r))}">${esc(r.bin)} picks hit <b>${pct(r.won)}</b></span>` : '';
   const pm = Math.round(top.probability * 100);
   let html = card('Pick of the day', `<button class="bp-hero" type="button" ${open(top)}>
-      <div class="bp-match">${jersey(top.away)}<span>${esc(top.away_abbr)}</span><i>@</i>${jersey(top.home)}<span>${esc(top.home_abbr)}</span><small>${esc(nbTip(top))}</small></div>
+      <div class="bp-match">${jersey(top.away)}<span>${esc(top.away_abbr)}</span><i>@</i>${jersey(top.home)}<span>${esc(top.home_abbr)}</span><small>${nLive(top) ? nStatus(top) : esc(nbTip(top))}</small></div>
       <div class="bp-team">${jersey(top.team)}<div><div class="big">${esc(top.team)}</div><small>to beat ${esc(top.opponent)} · ${top.at_home ? 'home' : 'away'}</small></div></div>
       <div class="bp-meter"><b>${pm}%</b><span class="bp-bar"><i style="width:${pm}%"></i></span></div>
       <div class="bp-foot"><span>Projected <b>${score(top)}</b></span>${hit(top.record)}</div></button>`, 'safest call');
@@ -2657,7 +2671,7 @@ function renderNbaPicks(){
   for(const x of rest){
     if(x.date !== last){ rows += `<div class="bp-day">${esc(day(x.date))}</div>`; last = x.date }
     rows += `<button class="bp-row" type="button" ${open(x)}>${jersey(x.team)}
-      <div class="bp-mid"><b>${esc(x.team)}</b><small>${x.at_home ? 'vs' : '@'} ${esc(x.at_home ? x.away_abbr : x.home_abbr)} · ${esc(time(x))}</small>${hit(x.record)}</div>
+      <div class="bp-mid"><b>${esc(x.team)}</b><small>${x.at_home ? 'vs' : '@'} ${esc(x.at_home ? x.away_abbr : x.home_abbr)} · ${nLive(x) ? nStatus(x) : esc(time(x))}</small>${hit(x.record)}</div>
       <div class="p">${Math.round(x.probability * 100)}<small>%</small></div></button>`;
   }
   el.innerHTML = html + (rest.length ? card('More picks', rows, `${rest.length} more`) : '');

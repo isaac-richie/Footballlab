@@ -861,10 +861,12 @@ class Handler(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         log.info('%s %s', self.address_string(), format % args)
 
-    def send_json(self, value, code=200):
+    def send_json(self, value, code=200, cache=None):
         raw = json.dumps(value, allow_nan=False).encode()
         self.send_response(code)
         self.send_header('Content-Type', 'application/json')
+        if cache:
+            self.send_header('Cache-Control', cache)
         self.send_header('Content-Length', str(len(raw)))
         self.end_headers()
         self.wfile.write(raw)
@@ -934,6 +936,9 @@ class Handler(BaseHTTPRequestHandler):
         elif path == '/api/nba/slate':
             import nba_app
             self.send_json(nba_app.slate())
+        elif path == '/api/nba/live':
+            import nba_live
+            self.send_json(nba_live.live(), cache='public, max-age=20, s-maxage=45, stale-while-revalidate=30')
         elif path == '/api/nba/picks':
             import nba_app
             self.send_json(nba_app.picks())
