@@ -14,6 +14,7 @@ import os
 import nba
 import nba_model as M
 import nba_public
+from quality import atomic_write
 
 ROOT = Path(__file__).resolve().parent
 _cache, _lock = {}, threading.Lock()
@@ -105,12 +106,44 @@ def _markets(means, spread=None, total=None, priced=False):
     return hit
 
 
-def _board(data, rest, today, days):
+BOARD_FILE = ROOT / 'reports' / 'nba_public_board.json'   # priced by the daily job, so the hosted site opens fast
+
+
+def _saved_board(data, today, days):
+    """The daily job's priced board when it was made from this data on or before today."""
+    try:
+        saved = json.loads(BOARD_FILE.read_text())
+    except (OSError, ValueError):
+        return None
+    if saved.get('fetched_at') != data.get('fetched_at') or saved.get('today', '9') > today or saved.get('days', 0) < days:
+        return None
+    end = (dt.date.fromisoformat(today) + dt.timedelta(days=days)).isoformat()
+    games = {g['id']: g for g in data['games']}
+    return [dict(game=games[r['id']], row=r) for r in saved['rows']
+            if r['id'] in games and today <= r['date'] <= end and games[r['id']]['status'] not in ('final', 'postponed')]
+
+
+def save_board(days=7):
+    """Price the board now and write it for the hosted site (run by the daily job)."""
+    data, rest = _data()
+    today = dt.date.today().isoformat()
+    rows = [x['row'] for x in _board(data, rest, today, days, saved=False)]
+    atomic_write(BOARD_FILE, json.dumps(dict(fetched_at=data.get('fetched_at'), today=today, days=days, rows=rows), separators=(',', ':')))
+    return len(rows)
+
+
+def _board(data, rest, today, days, saved=True):
     """The priced games for the next `days` days; cached per data version and day."""
     key = ('board', data.get('fetched_at'), today, days)
     with _lock:
         if key in _cache:
             return _cache[key]
+    if saved and public():
+        out = _saved_board(data, today, days)
+        if out is not None:
+            with _lock:
+                _cache[key] = out
+            return out
     r = _ratings(data, rest, today)
     end = (dt.date.fromisoformat(today) + dt.timedelta(days=days)).isoformat()
     out = []
@@ -125,6 +158,7 @@ def _board(data, rest, today, days):
         out.append(dict(game=g, row=dict(id=g['id'], date=g['date'], tipoff=g['tipoff'], home=g['home'], away=g['away'],
                         home_abbr=g['home_abbr'], away_abbr=g['away_abbr'], kind=g['kind'], neutral=g['neutral'],
                         source=source, book=(g.get('line') or {}).get('book') if line else None, b2b=list(b2b),
+                        alt_totals={k: v[0] for k, v in mk['totals'].items() if abs(float(k) - mk['main_total']) <= 12.5},
                         **_summary(mk), model=dict(moneyline=mm['moneyline'], expected_points=mm['expected_points'],
                                                    cover=ms['cover'], over=ms['over']))))
     with _lock:
@@ -399,28 +433,49 @@ def track(source, market, p):
     return None
 
 
+def total_pick(f, target=.70):
+    """One points pick for a game: the over or under line nearest the main total whose chance is at least `target`."""
+    alt = f.get('alt_totals') or {}
+    best = None
+    for k, over in alt.items():
+        line = float(k)
+        for side, p in (('over', over), ('under', 1 - over)):
+            if p < target:
+                continue
+            gap = abs(line - f['total_line'])
+            if best is None or gap < best[0] or (gap == best[0] and p > best[3]):
+                best = (gap, side, line, p)
+    return None if best is None else dict(side=best[1], line=best[2], probability=best[3])
+
+
 def picks(days=2, floor=.6):
-    """Winner picks for the next `days` game days, strongest first, each with its tested record."""
+    """Winner and total-points picks for the next `days` game days, strongest first, each with its tested record."""
     s = slate(days=7)
     if s.get('error'):
-        return dict(error=s['error'], picks=[])
+        return dict(error=s['error'], picks=[], totals=[])
     dates = sorted({f['date'] for f in s['fixtures'] if f['status'] == 'scheduled'})[:days]
-    out = []
+    out, totals = [], []
     for f in s['fixtures']:
         if f['date'] not in dates or f['status'] != 'scheduled':
             continue
-        if not validated(f['source']).get('moneyline'):
+        ok = validated(f['source'])
+        base = dict(id=f['id'], date=f['date'], tipoff=f['tipoff'], home=f['home'], away=f['away'], home_abbr=f['home_abbr'],
+                    away_abbr=f['away_abbr'], source=f['source'], book=f.get('book'), projected=f['expected_points'], b2b=f['b2b'])
+        if ok.get('total'):
+            t = total_pick(f)
+            if t:
+                totals.append(dict(base, market='total', **t, expected_total=f['expected_total'], record=track(f['source'], 'total', t['probability'])))
+        if not ok.get('moneyline'):
             continue
         side = 0 if f['moneyline'][0] >= f['moneyline'][1] else 1
         p = f['moneyline'][side]
         if p < floor:
             continue
         team, opp = (f['home'], f['away']) if side == 0 else (f['away'], f['home'])
-        out.append(dict(id=f['id'], date=f['date'], tipoff=f['tipoff'], home=f['home'], away=f['away'], home_abbr=f['home_abbr'],
-                        away_abbr=f['away_abbr'], team=team, opponent=opp, at_home=side == 0, probability=p, source=f['source'],
-                        book=f.get('book'), market='moneyline', projected=f['expected_points'], b2b=f['b2b'],
+        out.append(dict(base, team=team, opponent=opp, at_home=side == 0, probability=p, market='moneyline',
                         record=track(f['source'], 'moneyline', p)))
     out.sort(key=lambda x: -x['probability'])
-    return dict(today=s['today'], dates=dates, picks=out, public=s.get('public'), ledger=s.get('ledger'), lab=s.get('lab'),
-                note='Winner picks only: the market whose confident picks have matched their stated chance on a season the model never saw. '
+    totals.sort(key=lambda x: (x['date'], x['tipoff'] or ''))
+    return dict(today=s['today'], dates=dates, picks=out, totals=totals, public=s.get('public'), ledger=s.get('ledger'), lab=s.get('lab'),
+                note='Winner and total-points picks: the markets whose confident picks have matched their stated chance on a season the model never saw. '
                      'A 75% pick still loses one time in four.')

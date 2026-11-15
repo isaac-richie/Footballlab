@@ -1047,8 +1047,8 @@ button.bp-hero{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display
 .bp-day{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.6;padding:14px 0 4px}.bp-day:first-child{padding-top:0}
 button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line,rgba(255,255,255,.08))}.bp-day+button.bp-row{border-top:0}
 .bp-mid{display:grid;gap:3px;min-width:0}.bp-mid b{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.bp-row:hover b{text-decoration:underline}
-.bp-row .p{font-size:24px;font-weight:800}.bp-row .p small{font-size:14px;opacity:.7}.bp-mid>small,.bp-hero small{opacity:.75}
-body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body[data-sport="basketball"] #ticker,body[data-sport="basketball"] #slip-fab{display:none!important}
+.bp-row .p{font-size:24px;font-weight:800}.bp-tabs{margin-bottom:14px;display:inline-flex}button.bp-row{grid-template-columns:auto 1fr auto auto}.bp-add{display:grid;place-items:center;width:30px;height:30px;border-radius:999px;border:1px solid var(--line-2);font-weight:800;font-size:18px;color:var(--accent);cursor:pointer}.bp-add:hover{background:var(--accent);color:var(--accent-ink)}.bp-vip{display:grid;gap:10px}.bp-vip>div{display:flex;align-items:center;gap:10px}.bp-vip span{display:grid}.bp-vip small{opacity:.75}.c[data-cslip]{cursor:pointer}.c[data-cslip]:hover{outline:2px solid var(--accent)}.bp-tabs small{opacity:.6;margin-left:4px}.bp-pair{display:flex}.bp-pair .jersey+.jersey{margin-left:-10px}.bp-row .p small{font-size:14px;opacity:.7}.bp-mid>small,.bp-hero small{opacity:.75}
+body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body[data-sport="basketball"] #ticker{display:none!important}body:not([data-sport="basketball"]) #nba-ticker{display:none!important}
 .bx-head,.bx{display:grid;grid-template-columns:minmax(190px,1.5fr) minmax(170px,1.3fr) 92px 92px 92px 26px;gap:14px;align-items:center;padding:0 18px}
 .bx-head{height:38px;font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--faint);border-bottom:1px solid var(--line)}
 .bx-head span:nth-child(n+3){text-align:right}
@@ -1155,6 +1155,7 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
 </nav>
 
 <div class="ticker" id="ticker" aria-label="Latest results" hidden><span class="lbl">Results</span><div class="run" id="ticker-run"></div></div>
+<div class="ticker" id="nba-ticker" aria-label="Latest NBA results" hidden><span class="lbl">NBA</span><div class="run" id="nba-ticker-run"></div></div>
 <div class="wrap">
   <div class="leagues" id="leagues" role="group" aria-label="Competition"></div>
   <div class="strip" id="strip" role="status">Loading local data…</div>
@@ -1278,7 +1279,7 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
   <section data-panel="b-featured" hidden>
     <div class="view-head"><div>
       <span class="eyebrow"><i></i>NBA</span><h1>Today's picks</h1>
-      <p>The strongest winner calls for the next two game days. Each one shows how picks at that confidence did on a full season the model never saw.</p>
+      <p>The strongest winner and total-points calls for the next two game days. Each one shows how picks at that confidence did on a full season the model never saw.</p>
     </div></div>
     <div id="nbp-body"><div class="empty">Loading picks… the first visit of the day can take about 15 seconds while the ratings are worked out.</div></div>
     <p class="note" id="nbp-note"></p>
@@ -2311,11 +2312,16 @@ function addToSlip(){
   state.slip.push({key, home: d.home, away: d.away, date: d.pricing.fixture_date || d.analysis_date, legs: c.defs.map(l => l.label), p: c.joint, source: d.pricing.source});
   saveSlip(); const f = $('#slip-fab'); f.classList.remove('bump'); void f.offsetWidth; f.classList.add('bump');
 }
+function slipAdd(item){
+  state.slip = state.slip.filter(x => x.key !== item.key); state.slip.push(item);
+  saveSlip(); const f = $('#slip-fab'); f.classList.remove('bump'); void f.offsetWidth; f.classList.add('bump');
+}
+function nbSlipItem(x, legs, p, tag){ return {key: `nba|${x.id || x.date + x.home}|${tag}`, home: x.home, away: x.away, date: x.date, legs, p, source: 'model', sport: 'nba'} }
 function renderSlip(){
   $('#slip-fab').hidden = !state.slip.length; $('#slip-count').textContent = state.slip.length;
   if(!state.slip.length){ $('#slip-body').innerHTML = '<p class="note">Your slip is empty. Build a combination in a match and add it here.</p>'; $('#slip-foot').innerHTML = ''; return }
   $('#slip-body').innerHTML = state.slip.map((x, i) => `<div class="slip-item"><div class="slip-top"><span>${esc(day(x.date))} · ${esc(SRC[x.source] || x.source)}</span><button class="remove" data-remove="${i}" aria-label="Remove">✕</button></div>
-    <div style="display:flex;gap:8px;align-items:center;font-weight:600;margin-top:6px">${crest(x.home, true)}${esc(x.home)} <span style="color:var(--faint)">v</span> ${esc(x.away)}</div>
+    <div style="display:flex;gap:8px;align-items:center;font-weight:600;margin-top:6px">${x.sport === 'nba' ? jersey(x.home) : crest(x.home, true)}${esc(x.home)} <span style="color:var(--faint)">v</span> ${esc(x.away)}</div>
     <div class="legs">${x.legs.map(esc).join(' + ')}</div><div style="display:flex;justify-content:space-between;font-size:12.5px"><span style="color:var(--muted)">${pct(x.p)}</span><b>${(1 / x.p).toFixed(2)}</b></div></div>`).join('');
   const p = state.slip.reduce((m, x) => m * x.p, 1);
   $('#slip-foot').innerHTML = `<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="color:var(--muted)">${state.slip.length > 1 ? 'Accumulator fair price' : 'Fair price'}</span><span class="price" style="font-size:30px">${(1 / p).toFixed(2)}</span></div>
@@ -2598,6 +2604,8 @@ async function loadNba(){
     $('#nba-refresh').hidden = !!s.public;     // the hosted site updates once a day
     if(s.public) nbPublicFoot();
     else { $('#nba-foot1').textContent = 'NBA forecasts from scores and bookmaker lines only. No injuries, rest days beyond back-to-backs, or lineups. Probabilities are not guarantees.'; $('#nba-foot2').textContent = 'Data: ESPN public scoreboard and odds feeds (private research use)' }
+    const tk = s.recent || [], ti = r => `<span>${esc(r.away)}<b>${r.score[1]}–${r.score[0]}</b>${esc(r.home)}${r.ot ? ' OT' : ''}</span>`;
+    $('#nba-ticker').hidden = !tk.length; $('#nba-ticker-run').innerHTML = tk.map(ti).join('') + tk.map(ti).join('');
     renderNbaBoard(); renderNbaLab();
   }).catch(e => { $('#nba-body').innerHTML = `<div class="empty">${esc(e.message)}</div>` }).finally(() => { nb.loading = null });
   return nb.loading;
@@ -2670,12 +2678,18 @@ function renderNbaPicks(){
   const d = nb.picks, el = $('#nbp-body'); if(!d) return;
   if(d.error){ el.innerHTML = `<div class="empty">${esc(d.error)}</div>`; return }
   if(!d.picks.length){ el.innerHTML = '<div class="empty">No pick reaches 60% in the next two game days.</div>'; return }
+  const tab = nb.pickTab || 'winner', tabs = `<div class="seg bp-tabs" role="tablist">${[['winner', 'Winners', d.picks.length], ['total', 'Total points', (d.totals || []).length]].map(([k, l, n]) => `<button type="button" data-ptab="${k}" aria-pressed="${tab === k}">${l} <small>${n}</small></button>`).join('')}</div>`;
+  if(tab === 'total'){ el.innerHTML = tabs + renderNbaTotals(d); return }
   const [top, ...rest] = d.picks;
   const open = x => `data-id="${esc(x.id)}" data-home="${esc(x.home)}" data-away="${esc(x.away)}"`;
   const time = x => x.tipoff ? new Date(x.tipoff).toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}) : '';
   const score = x => { const [h, a] = x.projected.map(Math.round); return x.at_home ? `${h}–${a}` : `${a}–${h}` };
   const hit = r => r ? `<span class="bp-hit" title="${esc(nbRec(r))}">${esc(r.bin)} picks hit <b>${pct(r.won)}</b></span>` : '';
   const pm = Math.round(top.probability * 100);
+  const vip = d.picks.slice(0, 3), vp = vip.reduce((m, x) => m * x.probability, 1);
+  const vipCard = vip.length === 3 ? card('VIP slip', `<div class="bp-vip">${vip.map(x => `<div>${jersey(x.team)}<span><b>${esc(x.team)}</b><small>to win · ${pct(x.probability)}</small></span></div>`).join('')}</div>
+      <div class="bp-foot" style="margin-top:12px"><span>All three: <b>${pct(vp)}</b> · true odds <b>${(1 / vp).toFixed(2)}</b></span><button type="button" class="primary" id="nb-vip-add" style="width:auto;padding:8px 14px">Add all to slip</button></div>
+      <p class="note" style="margin:8px 0 0">Our three strongest winner calls. They are treated as independent games.</p>`, 'strongest 3') : '';
   let html = card('Pick of the day', `<button class="bp-hero" type="button" ${open(top)}>
       <div class="bp-match">${jersey(top.away)}<span>${esc(top.away_abbr)}</span><i>@</i>${jersey(top.home)}<span>${esc(top.home_abbr)}</span><small>${nLive(top) ? nStatus(top) : esc(nbTip(top))}</small></div>
       <div class="bp-team">${jersey(top.team)}<div><div class="big">${esc(top.team)}</div><small>to beat ${esc(top.opponent)} · ${top.at_home ? 'home' : 'away'}</small></div></div>
@@ -2686,12 +2700,33 @@ function renderNbaPicks(){
     if(x.date !== last){ rows += `<div class="bp-day">${esc(day(x.date))}</div>`; last = x.date }
     rows += `<button class="bp-row" type="button" ${open(x)}>${jersey(x.team)}
       <div class="bp-mid"><b>${esc(x.team)}</b><small>${x.at_home ? 'vs' : '@'} ${esc(x.at_home ? x.away_abbr : x.home_abbr)} · ${nLive(x) ? nStatus(x) : esc(time(x))}</small>${hit(x.record)}</div>
-      <div class="p">${Math.round(x.probability * 100)}<small>%</small></div></button>`;
+      <div class="p">${Math.round(x.probability * 100)}<small>%</small></div><span class="bp-add" role="button" tabindex="0" data-slip-win="${esc(x.id)}" title="Add to slip">+</span></button>`;
   }
-  el.innerHTML = html + (rest.length ? card('More picks', rows, `${rest.length} more`) : '');
+  el.innerHTML = tabs + html + vipCard + (rest.length ? card('More picks', rows, `${rest.length} more`) : '');
   $('#nbp-note').textContent = d.note + ' Tap a pick for the full match breakdown.';
 }
+function renderNbaTotals(d){
+  const list = d.totals || [];
+  if(!list.length) return '<div class="empty">No total-points pick reaches 70% in the next two game days.</div>';
+  const time = x => x.tipoff ? new Date(x.tipoff).toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}) : '';
+  const hit = r => r ? `<span class="bp-hit" title="${esc(nbRec(r))}">${esc(r.bin)} picks hit <b>${pct(r.won)}</b></span>` : '';
+  let last = null, rows = '';
+  for(const x of list){
+    if(x.date !== last){ rows += `<div class="bp-day">${esc(day(x.date))}</div>`; last = x.date }
+    rows += `<button class="bp-row bp-tot" type="button" data-id="${esc(x.id)}" data-home="${esc(x.home)}" data-away="${esc(x.away)}">
+      <span class="bp-pair">${jersey(x.away)}${jersey(x.home)}</span>
+      <div class="bp-mid"><b>${x.side === 'over' ? 'Over' : 'Under'} ${x.line} points</b><small>${esc(x.away_abbr)} @ ${esc(x.home_abbr)} · ${nLive(x) ? nStatus(x) : esc(time(x))} · we expect ${Math.round(x.expected_total)}</small>${hit(x.record)}</div>
+      <div class="p">${Math.round(x.probability * 100)}<small>%</small></div><span class="bp-add" role="button" tabindex="0" data-slip-tot="${esc(x.id)}" title="Add to slip">+</span></button>`;
+  }
+  return card('Total points', rows, 'both teams combined') +
+    '<p class="note">Lines are our own, set so each pick is about 70% likely. A bookmaker\'s line will differ: compare before you use it.</p>';
+}
 $('#nbp-body').addEventListener('click', e => {
+  const t = e.target.closest('[data-ptab]'); if(t){ nb.pickTab = t.dataset.ptab; renderNbaPicks(); return }
+  const d = nb.picks || {};
+  if(e.target.closest('#nb-vip-add')){ d.picks.slice(0, 3).forEach(x => slipAdd(nbSlipItem(x, [`${x.team} to win`], x.probability, 'ml'))); return }
+  const w = e.target.closest('[data-slip-win]'); if(w){ e.stopPropagation(); const x = d.picks.find(y => y.id === w.dataset.slipWin); if(x) slipAdd(nbSlipItem(x, [`${x.team} to win`], x.probability, 'ml')); return }
+  const o = e.target.closest('[data-slip-tot]'); if(o){ e.stopPropagation(); const x = (d.totals || []).find(y => y.id === o.dataset.slipTot); if(x) slipAdd(nbSlipItem(x, [`${x.side === 'over' ? 'Over' : 'Under'} ${x.line} points`], x.probability, 'tot')); return }
   const b = e.target.closest('[data-home]'); if(!b) return;
   const go = () => { $('#nba-home').value = b.dataset.home; $('#nba-away').value = b.dataset.away; nb.gameId = b.dataset.id; $('#nba-spread').value = $('#nba-total').value = ''; location.hash = '#match'; analyseNba() };
   nb.slate ? go() : (nb.loading || loadNba()).then(go);
@@ -2735,6 +2770,11 @@ $('#nba-swap').onclick = () => { nb.gameId = null; [$('#nba-home').value, $('#nb
 for(const id of ['#nba-home', '#nba-away']) $(id).addEventListener('change', () => { nb.gameId = null });
 $('#nba-form').onsubmit = e => { e.preventDefault(); analyseNba() };
 
+$('#nba-out').addEventListener('click', e => {
+  const c = e.target.closest('[data-cslip]'); if(!c || !c.dataset.cslip || !nb.current) return;
+  const d = nb.current, legs = c.dataset.cslip.split('|');
+  slipAdd({key: `nba|${d.home}|${d.away}|${c.dataset.cslip}`, home: d.home, away: d.away, date: d.date || (d.game || {}).date || new Date().toLocaleDateString('en-CA'), legs, p: Number(c.dataset.p), source: 'model', sport: 'nba'});
+});
 async function analyseNba(){
   const token = ++nb.rev, home = $('#nba-home').value, away = $('#nba-away').value, out = $('#nba-out');
   if(!home || !away) return;
@@ -2852,13 +2892,13 @@ function nbSpreads(d){
 }
 function nbCombos(d){
   const m = d.markets, c = m.combos, H = nAbbr(d.home), A = nAbbr(d.away), T = c.total_line, S = c.spread_line;
-  const cell = (p, indep) => `<div class="c" style="background:color-mix(in srgb,var(--accent) ${Math.round(6 + 44 * p)}%,var(--surface-2))"><b>${pct(p)}</b><small>true odds ${fair(p)}</small>${indep != null ? `<br><small title="What you would get by multiplying the two single chances">alone: ${pct(indep)}</small>` : ''}</div>`;
+  const cell = (p, indep, legs) => `<div class="c" data-cslip="${esc(legs || '')}" data-p="${p}" title="Tap to add to slip" style="background:color-mix(in srgb,var(--accent) ${Math.round(6 + 44 * p)}%,var(--surface-2))"><b>${pct(p)}</b><small>true odds ${fair(p)}</small>${indep != null ? `<br><small title="What you would get by multiplying the two single chances">alone: ${pct(indep)}</small>` : ''}</div>`;
   const ov = two(m.total)[0], cv = two(m.spread)[0], mlh = m.moneyline[0];
-  const grid = (rowsDef, x) => `<div class="cgrid"><span></span><span class="h">Over ${T}</span><span class="h">Under ${T}</span>${rowsDef.map(([lab, o, u, pr]) => `<span class="r">${esc(lab)}</span>${cell(o, pr * ov)}${cell(u, pr * (1 - ov))}`).join('')}</div>`;
+  const grid = (rowsDef, x) => `<div class="cgrid"><span></span><span class="h">Over ${T}</span><span class="h">Under ${T}</span>${rowsDef.map(([lab, o, u, pr]) => `<span class="r">${esc(lab)}</span>${cell(o, pr * ov, lab + '|Over ' + T)}${cell(u, pr * (1 - ov), lab + '|Under ' + T)}`).join('')}</div>`;
   return '<div class="grid g2">' +
     card('Winner + total', grid([[`${H} win`, c.moneyline_total.home_over, c.moneyline_total.home_under, mlh], [`${A} win`, c.moneyline_total.away_over, c.moneyline_total.away_under, 1 - mlh]])) +
     card('Spread + total', grid([[`${H} ${line(S)}`, c.spread_total.home_over, c.spread_total.home_under, cv], [`${A} ${line(-S)}`, c.spread_total.away_over, c.spread_total.away_under, 1 - cv]])) +
-    '</div><p class="note">Combos come from one joint grid of both scores, so they keep the link between the winner and the total. "Alone" multiplies the two single chances as if they were unrelated. Bookmakers price same-game combos with a bigger margin than single bets.</p>';
+    '</div><p class="note">Tap any cell to add that combination to your slip. Combos come from one joint grid of both scores, so they keep the link between the winner and the total. "Alone" multiplies the two single chances as if they were unrelated. Bookmakers price same-game combos with a bigger margin than single bets.</p>';
 }
 function nbForm(d){
   const side = (k, name) => {

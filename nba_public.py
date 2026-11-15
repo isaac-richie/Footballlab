@@ -151,5 +151,8 @@ if __name__ == '__main__':
     import config
     config.load_environment()
     print(json.dumps(fetch()))
+    os.environ.setdefault('NBA_PUBLIC', '1')
+    import nba_app
+    print(json.dumps(dict(board=nba_app.save_board())))
     import nba_ledger
     print(json.dumps(dict(ledger=nba_ledger.run(public=True))))
