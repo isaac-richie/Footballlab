@@ -1369,7 +1369,20 @@ const line = l => (l > 0 ? '+' : '') + (Number.isInteger(l) ? l.toFixed(1) : Str
 const day = d => new Date(d + 'T12:00:00').toLocaleDateString(undefined, {weekday:'short', day:'numeric', month:'short'});
 // Kickoff in the viewer's own time zone, and a live / full-time pill.
 const koTime = iso => iso ? new Date(iso).toLocaleTimeString(undefined, {hour:'2-digit', minute:'2-digit'}) : '';
+function fLive(f){ const m = state.live || {}; return m[f.date + '|' + f.home + '|' + f.away] || null }
+async function fLivePoll(){
+  if(document.body.dataset.sport === 'basketball' || document.hidden) return;
+  try{
+    const r = await api('/api/football/live'), before = JSON.stringify(state.live || {});
+    state.live = r.games || {};
+    if(JSON.stringify(state.live) !== before && state.slate){ state.noStagger = true; renderBoard(); state.noStagger = false }
+  }catch(e){}
+}
+setInterval(fLivePoll, 120000); document.addEventListener('visibilitychange', fLivePoll); setTimeout(fLivePoll, 2000);
 function statusPill(f){
+  const L = fLive(f);
+  if(L && L.status === 'live') return `<span class="st live" title="Live score"><i></i>${esc(L.clock)} · ${L.score[0]}–${L.score[1]}</span>`;
+  if(L && L.status === 'final') return `<span class="st done" title="Full time">FT · ${L.score[0]}–${L.score[1]}</span>`;
   if(f.status === 'live'){ const min = Math.max(1, Math.round((Date.now() - new Date(f.kickoff)) / 6e4)); const m = min > 105 ? '90+' : min > 45 && min <= 60 ? 'HT' : (min > 60 ? min - 15 : min) + "'";
     return `<span class="st live" title="In play now"><i></i>Live ${m}</span>` }
   if(f.status === 'awaiting_result') return '<span class="st done" title="Played, final score not in yet">Played · result soon</span>';
@@ -1598,7 +1611,7 @@ function renderBoard(){
   if(!s) return;
   if(s.error){ body.innerHTML = `<div class="empty">${esc(s.error)}</div>`; $('#board-note').textContent = ''; return }
   // 'Upcoming' means still to play or in play; finished games waiting for a score live on Featured.
-  let list = s.fixtures.filter(f => (f.status !== 'awaiting_result' || nLive(f)) && (!state.filter || (f.home + ' ' + f.away).toLowerCase().includes(state.filter)));
+  let list = s.fixtures.filter(f => (f.status !== 'awaiting_result' || fLive(f)) && (!state.filter || (f.home + ' ' + f.away).toLowerCase().includes(state.filter)));
   const key = {home: f => -f.probabilities[0], away: f => -f.probabilities[2], over25: f => -f.over25, btts: f => -f.btts}[state.sort];
   if(key) list = [...list].sort((a, b) => key(a) - key(b));
   if(!list.length){ body.innerHTML = `<div class="empty">${state.filter ? 'No fixtures match that filter.' : 'No upcoming fixtures in the source for this league.'}</div>`; return }

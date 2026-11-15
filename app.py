@@ -936,6 +936,15 @@ class Handler(BaseHTTPRequestHandler):
         elif path == '/api/nba/slate':
             import nba_app
             self.send_json(nba_app.slate())
+        elif path == '/api/football/live':
+            import football_live
+            near = {(dt.date.today() + dt.timedelta(days=d)).isoformat() for d in (-2, -1, 0, 1, 2)}
+            schedule = {}
+            for m in load()['matches']:
+                if m['date'] in near:
+                    schedule.setdefault(m['league_id'], []).append((m['date'], m['home'], m['away']))
+            value = football_live.live(schedule)
+            self.send_json(value, cache=f"public, max-age=60, s-maxage={value.get('ttl', 600)}, stale-while-revalidate=120")
         elif path == '/api/nba/live':
             import nba_live
             self.send_json(nba_live.live(), cache='public, max-age=20, s-maxage=45, stale-while-revalidate=30')
