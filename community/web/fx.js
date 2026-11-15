@@ -239,7 +239,7 @@
     crowd(g, [[0, 0], [m * .8, 0], [m * .8, ch], [0, ch]], P, rand, .85, () => .9, seats);
     crowd(g, [[cw - m * .8, 0], [cw, 0], [cw, ch], [cw - m * .8, ch]], P, rand, .85, () => .9, seats);
     const x0 = m * .8, y0 = m * .8, w = cw - m * 1.6, h = ch - m * 1.6;
-    const wood = P.light ? ['#d9a86a', '#cf9c5e'] : ['#8a5a2b', '#7f5226'];
+    const wood = P.light ? ['#e0b073', '#d6a466'] : ['#b47a3e', '#a86f36'];
     g.fillStyle = wood[0]; g.fillRect(x0, y0, w, h);
     // floorboards along the court's length
     const n = Math.round((portrait ? w : h) / 9);
@@ -294,10 +294,10 @@
     const anchors = PAINTERS[name](g, cw, ch, P, rng(seed));
     // readability: darken (or lighten) towards the content, plus a vignette
     const ov = g.createLinearGradient(0, 0, 0, ch);
-    const base = P.light ? '243,245,248' : '6,8,12';
+    const base = P.light ? '243,245,248' : '6,8,12', soft = name === 'court' ? -.12 : 0;
     // extra shade around the horizon, where headings and intro text usually sit
-    ov.addColorStop(0, `rgba(${base},${P.overlay[0]})`); ov.addColorStop(.32, `rgba(${base},${P.overlay[0] + .22})`);
-    ov.addColorStop(.55, `rgba(${base},${P.overlay[0] + .1})`); ov.addColorStop(1, `rgba(${base},${P.overlay[1]})`);
+    ov.addColorStop(0, `rgba(${base},${P.overlay[0] + soft})`); ov.addColorStop(.32, `rgba(${base},${P.overlay[0] + .22 + soft})`);
+    ov.addColorStop(.55, `rgba(${base},${P.overlay[0] + .1 + soft})`); ov.addColorStop(1, `rgba(${base},${P.overlay[1] + soft})`);
     g.fillStyle = ov; g.fillRect(0, 0, cw, ch);
     const vg = g.createRadialGradient(cw / 2, ch * .45, Math.min(cw, ch) * .3, cw / 2, ch * .45, Math.max(cw, ch) * .8);
     vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, P.light ? 'rgba(255,255,255,.35)' : 'rgba(0,0,0,.55)');
