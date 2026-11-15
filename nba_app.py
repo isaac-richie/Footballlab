@@ -331,6 +331,7 @@ def predict(q):
                 ratings=dict(home=ranks.get(home), away=ranks.get(away), level=r['level'], home_edge=r['home'], games=r['games'], asof=r['asof']),
                 form=dict(home=_form(data, home, g.get('date') or today), away=_form(data, away, g.get('date') or today)),
                 head_to_head=h2h, fetched_at=data.get('fetched_at'),
+                validated=validated(source),
                 method=dict(width=M.LINE_WIDTH if source != 'model' else _width(), overtime=M.OT, settings=r['settings']))
 
 
@@ -349,3 +350,77 @@ def refresh():
     _grade()
     _frozen.clear()
     return out
+
+
+# ---------- Daily picks and validated markets ----------
+
+def _report(name):
+    try:
+        return json.loads((ROOT / 'reports' / name).read_text())
+    except (OSError, ValueError):
+        return {}
+
+
+def _tested():
+    """Hold-out market scores for the pricing this site uses, by source: {source: {market: score}}.
+
+    Local Lab: line-priced games from nba_calib.json['line'], model-only from ['model'].
+    Hosted site: the scores-only model from nba_public_lab.json.
+    """
+    key = ('tested', public())
+    if key in _cache:
+        return _cache[key]
+    if public():
+        out = dict(model=(_report('nba_public_lab.json').get('holdout') or {}).get('markets') or {})
+    else:
+        cal = _report('nba_calib.json')
+        out = {src: (((cal.get(name) or {}).get('holdout') or {}).get('after') or {}) for src, name in (('line', 'line'), ('model', 'model'))}
+        out['entered'] = out['line']
+    _cache[key] = out
+    return out
+
+
+def validated(source):
+    """Markets whose confident picks (70%+) landed within 3 points of what they said, on 400+ picks."""
+    ok = {}
+    for market, sc in (_tested().get(source) or {}).items():
+        sure = sc.get('sure_70_plus') or {}
+        ok[market] = bool(sure.get('picks', 0) >= 400 and abs(sure.get('won', 0) - sure.get('predicted', 0)) <= .03) \
+            if market != 'moneyline' else bool(sure.get('picks', 0) >= 200 and sure.get('won', 0) >= sure.get('predicted', 1) - .03)
+    return ok
+
+
+def track(source, market, p):
+    """How picks at this confidence did on the held-out season, or None."""
+    for b in ((_tested().get(source) or {}).get(market) or {}).get('calibration') or []:
+        lo, hi = (int(x) / 100 for x in b['bin'].rstrip('%').split('-'))
+        if lo <= p < hi or (hi >= 1 and p >= lo):
+            return dict(bin=b['bin'], picks=b['picks'], predicted=b['predicted'], won=b['won'])
+    return None
+
+
+def picks(days=2, floor=.6):
+    """Winner picks for the next `days` game days, strongest first, each with its tested record."""
+    s = slate(days=7)
+    if s.get('error'):
+        return dict(error=s['error'], picks=[])
+    dates = sorted({f['date'] for f in s['fixtures'] if f['status'] == 'scheduled'})[:days]
+    out = []
+    for f in s['fixtures']:
+        if f['date'] not in dates or f['status'] != 'scheduled':
+            continue
+        if not validated(f['source']).get('moneyline'):
+            continue
+        side = 0 if f['moneyline'][0] >= f['moneyline'][1] else 1
+        p = f['moneyline'][side]
+        if p < floor:
+            continue
+        team, opp = (f['home'], f['away']) if side == 0 else (f['away'], f['home'])
+        out.append(dict(id=f['id'], date=f['date'], tipoff=f['tipoff'], home=f['home'], away=f['away'], home_abbr=f['home_abbr'],
+                        away_abbr=f['away_abbr'], team=team, opponent=opp, at_home=side == 0, probability=p, source=f['source'],
+                        book=f.get('book'), market='moneyline', projected=f['expected_points'], b2b=f['b2b'],
+                        record=track(f['source'], 'moneyline', p)))
+    out.sort(key=lambda x: -x['probability'])
+    return dict(today=s['today'], dates=dates, picks=out, public=s.get('public'), ledger=s.get('ledger'), lab=s.get('lab'),
+                note='Winner picks only: the market whose confident picks have matched their stated chance on a season the model never saw. '
+                     'A 75% pick still loses one time in four.')

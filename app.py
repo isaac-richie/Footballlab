@@ -934,6 +934,9 @@ class Handler(BaseHTTPRequestHandler):
         elif path == '/api/nba/slate':
             import nba_app
             self.send_json(nba_app.slate())
+        elif path == '/api/nba/picks':
+            import nba_app
+            self.send_json(nba_app.picks())
         elif path == '/api/nba/predict':
             import nba_app
             try:

@@ -1037,7 +1037,8 @@ footer a{color:var(--muted)}
 body:not([data-sport="basketball"]) .bk-only,body[data-sport="basketball"] .fb-only{display:none}
 .sport button{display:inline-flex;align-items:center;gap:6px}
 .sport .ico{font-size:14px;line-height:1}
-body[data-sport="basketball"] :is(.nav,.tabbar) a:is([data-view="featured"],[data-view="vip"],[data-view="performance"]){display:none}
+body[data-sport="basketball"] :is(.nav,.tabbar) a[data-view="vip"]{display:none}
+.bp-hero{display:grid;gap:10px}.bp-hero .big{font-size:clamp(28px,6vw,44px);font-weight:800;line-height:1.05}button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center;padding:12px 0;border-top:1px solid var(--line,rgba(255,255,255,.08))}button.bp-row:first-child{border-top:0}.bp-row:hover b{text-decoration:underline}.bp-row{display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center;padding:12px 0;border-top:1px solid var(--line,rgba(255,255,255,.08))}.bp-row:first-child{border-top:0}.bp-row b{font-size:17px}.bp-row .p{font-size:22px;font-weight:800;text-align:right}.bp-row small,.bp-hero small{opacity:.75}
 body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body[data-sport="basketball"] #ticker,body[data-sport="basketball"] #slip-fab{display:none!important}
 .bx-head,.bx{display:grid;grid-template-columns:minmax(190px,1.5fr) minmax(170px,1.3fr) 92px 92px 92px 26px;gap:14px;align-items:center;padding:0 18px}
 .bx-head{height:38px;font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--faint);border-bottom:1px solid var(--line)}
@@ -1264,6 +1265,25 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
     <div id="evaluation" style="margin-top:14px"></div>
   </section>
 
+  <!-- BASKETBALL: PICKS -->
+  <section data-panel="b-featured" hidden>
+    <div class="view-head"><div>
+      <span class="eyebrow"><i></i>NBA</span><h1>Today's picks</h1>
+      <p>The strongest winner calls for the next two game days. Each one shows how picks at that confidence did on a full season the model never saw.</p>
+    </div></div>
+    <div id="nbp-body"><div class="empty">Loading picks…</div></div>
+    <p class="note" id="nbp-note"></p>
+  </section>
+
+  <!-- BASKETBALL: RECORD -->
+  <section data-panel="b-performance" hidden>
+    <div class="view-head"><div>
+      <span class="eyebrow"><i></i>NBA</span><h1>Track record</h1>
+      <p>How our NBA forecasts have done: a full held-out season, and every game since we started saving forecasts before tip-off.</p>
+    </div></div>
+    <div id="nbr-body" class="bk-lab"><div class="empty">Loading…</div></div>
+  </section>
+
   <!-- BASKETBALL: FIXTURES -->
   <section data-panel="b-fixtures" hidden>
     <div class="view-head">
@@ -1317,8 +1337,8 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
   <footer>
     <span class="fb-only">Research forecasts from score history only. No lineups, injuries or shot-based xG. Probabilities are not guarantees.</span>
     <span class="fb-only">Data: <a href="https://github.com/openfootball/football.json">OpenFootball (CC0)</a> · <a href="https://www.openligadb.de/">OpenLigaDB (ODbL)</a></span>
-    <span class="bk-only">NBA forecasts from scores and bookmaker lines only. No injuries, rest days beyond back-to-backs, or lineups. Probabilities are not guarantees.</span>
-    <span class="bk-only">Data: ESPN public scoreboard and odds feeds (private research use)</span>
+    <span class="bk-only" id="nba-foot1">NBA forecasts from scores and bookmaker lines only. No injuries, rest days beyond back-to-backs, or lineups. Probabilities are not guarantees.</span>
+    <span class="bk-only" id="nba-foot2">Data: ESPN public scoreboard and odds feeds (private research use)</span>
   </footer>
 </div>
 
@@ -1404,7 +1424,7 @@ function showView(){
   const v = (location.hash || '#featured').slice(1).split('/')[0];
   if(document.body.dataset.sport === 'basketball'){
     // Basketball has its own board and match panels; every other view falls back to the board.
-    const bview = v === 'match' ? 'match' : 'fixtures';
+    const bview = ['match', 'featured', 'performance'].includes(v) ? v : 'fixtures';
     $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== 'b-' + bview);
     $$('.nav a, .tabbar a').forEach(a => a.dataset.view === bview ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
     if(window.nbaShow) nbaShow(bview);
@@ -2520,7 +2540,7 @@ function setSport(sport, initial){
   document.body.dataset.sport = sport; store.set('fl-sport', sport);
   $$('#sport button').forEach(b => b.setAttribute('aria-pressed', b.dataset.sport === sport));
   const v = (location.hash || '').slice(1).split('/')[0];
-  if(sport === 'basketball' && !['fixtures', 'match'].includes(v)) history.replaceState(null, '', '#fixtures');
+  if(sport === 'basketball' && !['fixtures', 'match', 'featured', 'performance'].includes(v)) history.replaceState(null, '', '#featured');
   if(sport === 'football' && state.data && typeof renderStrip === 'function') renderStrip(state.data);
   if(sport === 'basketball' && nb.slate) nbFresh();
   if(!initial) transition(showView);
@@ -2530,6 +2550,8 @@ setSport(store.get('fl-sport') === 'basketball' ? 'basketball' : 'football', tru
 
 function nbaShow(view){
   if(!nb.loaded && !nb.loading) loadNba();
+  if(view === 'featured' && !nb.picks && !nb.picksLoading) loadNbaPicks();
+  if(view === 'performance') renderNbaRecord();
   if(view === 'match') requestAnimationFrame(nbInk);
 }
 function nbFresh(){
@@ -2539,7 +2561,7 @@ function nbFresh(){
 }
 async function loadNba(){
   $('#nba-body').innerHTML = '<div class="empty">Loading games…</div>';
-  nb.loading = api('/api/nba/slate').then(s => {
+  return nb.loading = api('/api/nba/slate').then(s => {
     nb.slate = s; nb.loaded = true; nb.abbr = s.abbrs || {};
     for(const f of s.fixtures){ nb.abbr[f.home] = f.home_abbr; nb.abbr[f.away] = f.away_abbr }
     const keep = [$('#nba-home').value, $('#nba-away').value], teams = s.teams || [];
@@ -2547,6 +2569,10 @@ async function loadNba(){
     if(teams.includes(keep[0]) && teams.includes(keep[1])){ $('#nba-home').value = keep[0]; $('#nba-away').value = keep[1] } else $('#nba-away').selectedIndex = Math.min(1, teams.length - 1);
     if(document.body.dataset.sport === 'basketball') nbFresh();
     $('#nba-refresh').hidden = !!s.public;     // the hosted site updates once a day
+    if(s.public){
+      $('#nba-foot1').textContent = 'NBA forecasts from final scores only. No injuries, lineups or betting lines. Probabilities are not guarantees.';
+      $('#nba-foot2').textContent = 'Data: balldontlie (scores and schedule)';
+    }
     renderNbaBoard(); renderNbaLab();
   }).catch(e => { $('#nba-body').innerHTML = `<div class="empty">${esc(e.message)}</div>` }).finally(() => { nb.loading = null });
   return nb.loading;
@@ -2593,6 +2619,40 @@ function nbaLedger(){
   const rows = Object.entries(g.shown || {}).map(([k, v]) => `<div class="kpi"><small>${names[k] || esc(k)} · ${v.picks} picks</small><b>${pct(v.won)}</b><span>won · said ${pct(v.predicted)}</span></div>`).join('');
   return card('Forward record', `${rows ? `<div class="kpis" style="margin-top:4px">${rows}</div>` : ''}
     <p class="note">Each game's forecast is saved before tip-off and graded on the final score: ${g.graded} graded, ${g.pending} waiting. "Won" counts the likelier side of each pick; it should sit close to "said". ${g.graded < 200 ? 'Too few games yet to read much into.' : ''}</p>`, 'live, not backtested');
+}
+async function loadNbaPicks(){
+  nb.picksLoading = true;
+  try{ nb.picks = await api('/api/nba/picks'); renderNbaPicks() }
+  catch(e){ $('#nbp-body').innerHTML = `<div class="empty">${esc(e.message)}</div>` }
+  finally{ nb.picksLoading = false }
+}
+function nbTip(x){ return x.tipoff ? new Date(x.tipoff).toLocaleString(undefined, {weekday: 'short', hour: '2-digit', minute: '2-digit'}) : day(x.date) }
+function nbRec(r){ return r ? `Our ${esc(r.bin)} picks won ${pct(r.won)} of ${r.picks.toLocaleString()} (said ${pct(r.predicted)})` : 'Not enough tested picks at this level yet' }
+function renderNbaPicks(){
+  const d = nb.picks, el = $('#nbp-body'); if(!d) return;
+  if(d.error){ el.innerHTML = `<div class="empty">${esc(d.error)}</div>`; return }
+  if(!d.picks.length){ el.innerHTML = '<div class="empty">No pick reaches 60% in the next two game days.</div>'; return }
+  const [top, ...rest] = d.picks, src = x => x.source === 'line' ? ' · from the bookmaker line' : '';
+  const open = x => `data-id="${esc(x.id)}" data-home="${esc(x.home)}" data-away="${esc(x.away)}"`;
+  el.innerHTML = card('Pick of the day', `<button class="bp-hero" type="button" ${open(top)} style="all:unset;cursor:pointer;display:grid;gap:10px">
+      <small>${esc(nbTip(top))} · ${esc(top.away_abbr)} @ ${esc(top.home_abbr)}${src(top)}</small>
+      <div class="big">${esc(top.team)} to win</div>
+      <div><b style="font-size:28px">${pct(top.probability)}</b> <small>against ${esc(top.opponent)}${top.at_home ? ' at home' : ' away'} · projected ${Math.round(top.projected[0])}–${Math.round(top.projected[1])}</small></div>
+      <small>${nbRec(top.record)}</small></button>`, 'safest call') +
+    (rest.length ? card('More picks', rest.map(x => `<button class="bp-row" type="button" ${open(x)}>
+      <div><b>${esc(x.team)}</b> <small>vs ${esc(x.opponent)} · ${esc(nbTip(x))}${src(x)}</small><br><small>${nbRec(x.record)}</small></div>
+      <div class="p">${pct(x.probability)}</div></button>`).join(''), `${rest.length} more`) : '');
+  $('#nbp-note').textContent = d.note + ' Tap a pick for the full match breakdown.';
+}
+$('#nbp-body').addEventListener('click', e => {
+  const b = e.target.closest('[data-home]'); if(!b) return;
+  const go = () => { $('#nba-home').value = b.dataset.home; $('#nba-away').value = b.dataset.away; nb.gameId = b.dataset.id; $('#nba-spread').value = $('#nba-total').value = ''; location.hash = '#match'; analyseNba() };
+  nb.slate ? go() : (nb.loading || loadNba()).then(go);
+});
+function renderNbaRecord(){
+  const el = $('#nbr-body');
+  if(!nb.slate){ el.innerHTML = '<div class="empty">Loading…</div>'; (nb.loading || loadNba()).then(renderNbaRecord); return }
+  el.innerHTML = $('#nba-lab').innerHTML || '<div class="empty">No record yet.</div>';
 }
 function nbaPublicLab(l){
   const h = l.holdout || {}, p = h.points, m = h.markets || {}, c = (l.current || {}).points;
@@ -2693,7 +2753,10 @@ $('#nba-out').addEventListener('click', e => {
 });
 function renderNbaTab(){
   const panel = $('#nba-panel'); if(!panel) return;
-  panel.innerHTML = ({overview: nbOverview, points: nbPoints, spreads: nbSpreads, combos: nbCombos, form: nbForm})[nb.tab](nb.current);
+  const v = nb.current.validated || {}, weak = {points: ['total', 'team_total'], spreads: ['spread'], combos: ['combo']}[nb.tab] || [];
+  const failed = weak.filter(k => k in v && !v[k]);
+  const warn = failed.length ? `<div class="card" style="border-color:var(--warn)"><p class="note" style="margin:0"><b>Not validated yet:</b> without a bookmaker line, our ${failed.map(k => ({total: 'totals', team_total: 'team totals', spread: 'spreads', combo: 'combos'})[k]).join(' and ')} have been over-confident on a season the model never saw (strong picks won about 4 points less often than stated). Treat them as rough guides until a line is posted.</p></div>` : '';
+  panel.innerHTML = warn + ({overview: nbOverview, points: nbPoints, spreads: nbSpreads, combos: nbCombos, form: nbForm})[nb.tab](nb.current);
   panel.style.animation = 'none'; panel.offsetHeight; panel.style.animation = '';
 }
 function nbOverview(d){
