@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718132",
+ "date": "2026-11-18",
+ "tipoff": "2026-11-19T00:00:00Z",
+ "home": "Indiana Pacers",
+ "away": "Houston Rockets",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.2762190887926171,
+ "spread_line": 8.5,
+ "cover": 0.5039031881250481,
+ "total_line": 223.5,
+ "over": 0.48582217872241584,
+ "expected": [
+  107.36532579059676,
+  115.73219315869429
+ ],
+ "model": {
+  "moneyline": 0.2762190887926171,
+  "cover": 0.5039031881250481,
+  "over": 0.48582217872241584,
+  "expected": [
+   107.36532579059676,
+   115.73219315869429
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718138",
+ "date": "2026-11-18",
+ "tipoff": "2026-11-19T01:00:00Z",
+ "home": "Oklahoma City Thunder",
+ "away": "Atlanta Hawks",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.7189869566689847,
+ "spread_line": -8.5,
+ "cover": 0.4904713944029481,
+ "total_line": 225.5,
+ "over": 0.4893478543918642,
+ "expected": [
+  116.71695181497597,
+  108.55034257496386
+ ],
+ "model": {
+  "moneyline": 0.7189869566689847,
+  "cover": 0.4904713944029481,
+  "over": 0.4893478543918642,
+  "expected": [
+   116.71695181497597,
+   108.55034257496386
+  ]
+ }
+}

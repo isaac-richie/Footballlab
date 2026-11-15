@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718144",
+ "date": "2026-11-19",
+ "tipoff": "2026-11-20T01:00:00Z",
+ "home": "Milwaukee Bucks",
+ "away": "Portland Trail Blazers",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.12845740428496008,
+ "spread_line": 15.5,
+ "cover": 0.4881190753937317,
+ "total_line": 230.5,
+ "over": 0.5067887603018444,
+ "expected": [
+  107.50368748485306,
+  123.48433931342413
+ ],
+ "model": {
+  "moneyline": 0.12845740428496008,
+  "cover": 0.4881190753937317,
+  "over": 0.5067887603018444,
+  "expected": [
+   107.50368748485306,
+   123.48433931342413
+  ]
+ }
+}

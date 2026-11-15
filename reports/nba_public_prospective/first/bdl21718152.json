@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718152",
+ "date": "2026-11-20",
+ "tipoff": "2026-11-21T01:00:00Z",
+ "home": "Oklahoma City Thunder",
+ "away": "New Orleans Pelicans",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.8791220041976299,
+ "spread_line": -16.5,
+ "cover": 0.4984555491186585,
+ "total_line": 227.5,
+ "over": 0.5022337162521889,
+ "expected": [
+  122.13601329072402,
+  105.63761072959247
+ ],
+ "model": {
+  "moneyline": 0.8791220041976299,
+  "cover": 0.4984555491186585,
+  "over": 0.5022337162521889,
+  "expected": [
+   122.13601329072402,
+   105.63761072959247
+  ]
+ }
+}

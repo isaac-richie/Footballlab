@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718111",
+ "date": "2026-11-15",
+ "tipoff": "2026-11-15T21:30:00Z",
+ "home": "LA Clippers",
+ "away": "Charlotte Hornets",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.6924964847120552,
+ "spread_line": -7.5,
+ "cover": 0.4892874123175415,
+ "total_line": 216.5,
+ "over": 0.4838003379581074,
+ "expected": [
+  111.54036026055759,
+  104.46052320489414
+ ],
+ "model": {
+  "moneyline": 0.6924964847120552,
+  "cover": 0.4892874123175415,
+  "over": 0.4838003379581074,
+  "expected": [
+   111.54036026055759,
+   104.46052320489414
+  ]
+ }
+}

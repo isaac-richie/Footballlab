@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718163",
+ "date": "2026-11-22",
+ "tipoff": "2026-11-22T23:00:00Z",
+ "home": "Miami Heat",
+ "away": "Oklahoma City Thunder",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.39507644750186643,
+ "spread_line": 3.5,
+ "cover": 0.4821567263985966,
+ "total_line": 230.5,
+ "over": 0.4843195197484467,
+ "expected": [
+  113.1495839163884,
+  116.8975584151143
+ ],
+ "model": {
+  "moneyline": 0.39507644750186643,
+  "cover": 0.4821567263985966,
+  "over": 0.4843195197484467,
+  "expected": [
+   113.1495839163884,
+   116.8975584151143
+  ]
+ }
+}

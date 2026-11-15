@@ -26,6 +26,10 @@ from quality import atomic_write, digest
 ROOT = Path(__file__).resolve().parent
 LEDGER = ROOT / 'reports' / 'nba_prospective'
 GRADES = ROOT / 'reports' / 'nba_prospective-grades.json'
+# The hosted site's record: scores-only forecasts, nothing from bookmakers, so it is
+# committed and published (frozen by the daily job before the US evening games).
+PUBLIC_LEDGER = ROOT / 'reports' / 'nba_public_prospective'
+PUBLIC_GRADES = ROOT / 'reports' / 'nba_public_prospective-grades.json'
 BINS = [(.5, .6), (.6, .7), (.7, .8), (.8, .9), (.9, 1.01)]
 
 
@@ -150,10 +154,13 @@ def report(games, directory=LEDGER):
     return out
 
 
-def run(days=7):
-    """Freeze the current board, grade everything, write the private grades file."""
+def run(days=7, public=False):
+    """Freeze the current board, grade everything, write the grades file."""
     import nba
     import nba_app
+    import nba_public
+    if public:
+        os.environ.setdefault('NBA_PUBLIC', '1')
     data, rest = nba_app._data()
     if not data or not data['games']:
         return dict(error='no NBA data')
@@ -161,16 +168,17 @@ def run(days=7):
     now = dt.datetime.now(dt.timezone.utc)
     version = nba_app._version()
     rows = [dict(x['row'], status=nba_app._status(x['game'], now)) for x in nba_app._board(data, rest, today, days)]
-    new, updated = register(rows, now, version)
-    rep = report(nba.load()['games'])
-    atomic_write(GRADES, json.dumps(rep, indent=1))
+    ledger, grades = (PUBLIC_LEDGER, PUBLIC_GRADES) if public else (LEDGER, GRADES)
+    new, updated = register(rows, now, version, ledger)
+    rep = report((nba_public.load() if public else nba.load())['games'], ledger)
+    atomic_write(grades, json.dumps(rep, indent=1))
     return dict(new=new, updated=updated, graded=rep['last']['graded'], pending=rep['last']['pending'])
 
 
-def summary():
+def summary(public=False):
     """Short view for the board, or None before anything is graded."""
     try:
-        rep = json.loads(GRADES.read_text())
+        rep = json.loads((PUBLIC_GRADES if public else GRADES).read_text())
     except (OSError, ValueError):
         return None
     last = rep['last']

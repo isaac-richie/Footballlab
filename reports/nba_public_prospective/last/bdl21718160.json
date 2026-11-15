@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718160",
+ "date": "2026-11-21",
+ "tipoff": "2026-11-22T01:00:00Z",
+ "home": "San Antonio Spurs",
+ "away": "New Orleans Pelicans",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.9515927493625097,
+ "spread_line": -23.5,
+ "cover": 0.49707843079192615,
+ "total_line": 232.5,
+ "over": 0.505057135833162,
+ "expected": [
+  128.11612563947375,
+  104.70311103982732
+ ],
+ "model": {
+  "moneyline": 0.9515927493625097,
+  "cover": 0.49707843079192615,
+  "over": 0.505057135833162,
+  "expected": [
+   128.11612563947375,
+   104.70311103982732
+  ]
+ }
+}

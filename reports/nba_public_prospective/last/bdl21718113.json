@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718113",
+ "date": "2026-11-15",
+ "tipoff": "2026-11-15T23:00:00Z",
+ "home": "Boston Celtics",
+ "away": "Dallas Mavericks",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.8020139379677655,
+ "spread_line": -11.5,
+ "cover": 0.5110009867618125,
+ "total_line": 222.5,
+ "over": 0.4911817335587227,
+ "expected": [
+  117.12937379623119,
+  105.17273474155024
+ ],
+ "model": {
+  "moneyline": 0.8020139379677655,
+  "cover": 0.5110009867618125,
+  "over": 0.4911817335587227,
+  "expected": [
+   117.12937379623119,
+   105.17273474155024
+  ]
+ }
+}

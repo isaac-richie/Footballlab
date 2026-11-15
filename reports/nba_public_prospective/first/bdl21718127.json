@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718127",
+ "date": "2026-11-17",
+ "tipoff": "2026-11-18T01:00:00Z",
+ "home": "Minnesota Timberwolves",
+ "away": "Portland Trail Blazers",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.5915160043506268,
+ "spread_line": -3.5,
+ "cover": 0.5041144559314475,
+ "total_line": 229.5,
+ "over": 0.48552436072278476,
+ "expected": [
+  116.19013425057695,
+  112.93052412185502
+ ],
+ "model": {
+  "moneyline": 0.5915160043506268,
+  "cover": 0.5041144559314475,
+  "over": 0.48552436072278476,
+  "expected": [
+   116.19013425057695,
+   112.93052412185502
+  ]
+ }
+}

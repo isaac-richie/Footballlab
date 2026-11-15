@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718114",
+ "date": "2026-11-15",
+ "tipoff": "2026-11-15T23:00:00Z",
+ "home": "Toronto Raptors",
+ "away": "New York Knicks",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.4429853866117421,
+ "spread_line": 2.5,
+ "cover": 0.4990466005385025,
+ "total_line": 217.5,
+ "over": 0.4981477079939815,
+ "expected": [
+  107.8548633947146,
+  109.87332672532446
+ ],
+ "model": {
+  "moneyline": 0.4429853866117421,
+  "cover": 0.4990466005385025,
+  "over": 0.4981477079939815,
+  "expected": [
+   107.8548633947146,
+   109.87332672532446
+  ]
+ }
+}

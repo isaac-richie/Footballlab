@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718109",
+ "date": "2026-11-15",
+ "tipoff": "2026-11-15T18:00:00Z",
+ "home": "Philadelphia 76ers",
+ "away": "Indiana Pacers",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.6658485985338946,
+ "spread_line": -6.5,
+ "cover": 0.48968398073172276,
+ "total_line": 223.5,
+ "over": 0.4887491314589471,
+ "expected": [
+  114.64559821039715,
+  108.61209568340583
+ ],
+ "model": {
+  "moneyline": 0.6658485985338946,
+  "cover": 0.48968398073172276,
+  "over": 0.4887491314589471,
+  "expected": [
+   114.64559821039715,
+   108.61209568340583
+  ]
+ }
+}

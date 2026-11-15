@@ -9,25 +9,43 @@ import json
 import threading
 from pathlib import Path
 
+import os
+
 import nba
 import nba_model as M
+import nba_public
 
 ROOT = Path(__file__).resolve().parent
 _cache, _lock = {}, threading.Lock()
 
 
+def public():
+    """True when the board runs on the licensed scores-only feed: always on the hosted
+    site, and locally when there is no private ESPN file."""
+    return bool(os.environ.get('VERCEL') or os.environ.get('NBA_PUBLIC')) or (not nba.FILE.exists() and nba_public.FILE.exists())
+
+
+def _source():
+    return (nba_public.FILE, nba_public.load) if public() else (nba.FILE, nba.load)
+
+
+def _width():
+    return M.PUBLIC_WIDTH if public() else M.MODEL_WIDTH
+
+
 def _data():
+    file, loader = _source()
     try:
-        stamp = nba.FILE.stat().st_mtime
+        stamp = file.stat().st_mtime
     except OSError:
         return None, None
     hit = _cache.get('data')
-    if hit and hit[0] == stamp:
+    if hit and hit[0] == (file, stamp):
         return hit[1], hit[2]
-    data = nba.load()
+    data = loader()
     rest = M.back_to_back([g for g in data['games'] if g['status'] != 'postponed'])
     _cache.clear()
-    _cache['data'] = (stamp, data, rest)
+    _cache['data'] = ((file, stamp), data, rest)
     return data, rest
 
 
@@ -35,7 +53,7 @@ def _ratings(data, rest, today):
     key = ('fit', data.get('fetched_at'), today)
     with _lock:
         if key not in _cache:
-            _cache[key] = M.fit(data['games'], today, rest)
+            _cache[key] = M.fit(data['games'], today, rest, M.PUBLIC_SETTINGS if data.get('source_id') == nba_public.SOURCE else None)
         return _cache[key]
 
 
@@ -60,7 +78,7 @@ def _status(g, now):
 
 def _price(r, rest, g, entered=None):
     b2b = (rest.get((g['id'], 0), 0), rest.get((g['id'], 1), 0)) if g.get('id') else (0, 0)
-    model = M.stretch(M.expected(r, g['home'], g['away'], g.get('neutral', False), b2b), M.MODEL_WIDTH.get('stretch', 1.0))
+    model = M.stretch(M.expected(r, g['home'], g['away'], g.get('neutral', False), b2b), _width().get('stretch', 1.0))
     line = entered or _line(g)
     priced = M.implied(line, model) if line else None
     source = 'entered' if entered and priced else 'line' if priced else 'model'
@@ -80,10 +98,10 @@ def _markets(means, spread=None, total=None, priced=False):
 
     priced: the expectations come from a line, so the line's tighter spread applies.
     """
-    key = ('mk', round(means[0], 3), round(means[1], 3), spread, total, priced)
+    key = ('mk', round(means[0], 3), round(means[1], 3), spread, total, priced, public())
     hit = _cache.get(key)
     if hit is None:
-        hit = _cache[key] = M.markets(M.distribution(*means, width=M.LINE_WIDTH if priced else M.MODEL_WIDTH), spread, total)
+        hit = _cache[key] = M.markets(M.distribution(*means, width=M.LINE_WIDTH if priced else _width()), spread, total)
     return hit
 
 
@@ -117,9 +135,8 @@ def _board(data, rest, today, days):
 def slate(days=7):
     data, rest = _data()
     if not data or not data['games']:
-        import os
         if os.environ.get('VERCEL'):
-            return dict(error='Basketball forecasts are not available here yet.', fixtures=[])
+            return dict(error='Basketball forecasts are being prepared. Check back soon.', fixtures=[])
         # nba_data.json is never committed, so a fresh copy of the Lab starts without it:
         # download it in the background instead of leaving the board empty.
         started = _first_fetch()
@@ -136,7 +153,9 @@ def slate(days=7):
                 abbrs={n: a for g in data['games'] for n, a in ((g['home'], g['home_abbr']), (g['away'], g['away_abbr'])) if a},
                 recent=[dict(date=g['date'], home=g['home_abbr'], away=g['away_abbr'], score=g['score'], ot=len((g.get('periods') or [[0] * 4])[0]) > 4) for g in recent],
                 latest_result=recent[0]['date'] if recent else None,
-                note='Priced from ESPN BET lines (margin removed) where posted; model ratings otherwise.')
+                public=public(),
+                note='Priced by our points model from scores alone (data: balldontlie).' if public() else
+                     'Priced from ESPN BET lines (margin removed) where posted; model ratings otherwise.')
 
 
 _refreshing = threading.Event()
@@ -145,8 +164,7 @@ _frozen = {}
 
 def _freeze(rows, now):
     """Write board forecasts to the forward ledger, at most every ten minutes."""
-    import os
-    if os.environ.get('VERCEL') or now - _frozen.get('at', dt.datetime.min.replace(tzinfo=dt.timezone.utc)) < dt.timedelta(minutes=10):
+    if public() or now - _frozen.get('at', dt.datetime.min.replace(tzinfo=dt.timezone.utc)) < dt.timedelta(minutes=10):
         return
     _frozen['at'] = now
     try:
@@ -163,7 +181,7 @@ def _version():
 
 def _ledger_summary():
     import nba_ledger
-    return nba_ledger.summary()
+    return nba_ledger.summary(public())
 
 
 def _grade():
@@ -178,8 +196,7 @@ def _grade():
 
 def _auto_refresh(data):
     """Local Lab only: re-read scores and lines in the background when over 3 hours old."""
-    import os
-    if os.environ.get('VERCEL') or _refreshing.is_set():
+    if public() or _refreshing.is_set():
         return
     try:
         age = dt.datetime.now(dt.timezone.utc) - dt.datetime.fromisoformat(data['fetched_at'])
@@ -238,10 +255,17 @@ def teams(data):
 
 def _lab():
     try:
-        rep = json.loads((ROOT / 'reports' / 'nba_lab.json').read_text())
+        rep = json.loads((ROOT / 'reports' / ('nba_public_lab.json' if public() else 'nba_lab.json')).read_text())
     except (OSError, ValueError):
         return None
     hold = rep.get('holdout') or {}
+    if public():
+        def part(x):
+            x = x or {}
+            m = x.get('markets') or {}
+            return dict(seasons=x.get('seasons'), points=x.get('points'),
+                        markets={k: dict(log_loss=v['log_loss'], sure=v['sure_70_plus'], side=v.get('likelier_side')) for k, v in m.items()})
+        return dict(public=True, generated_at=rep.get('generated_at'), holdout=part(hold), current=part(rep.get('current_season')))
     return dict(generated_at=rep.get('generated_at'), points=hold.get('points'), probabilities={k: v for k, v in (hold.get('probabilities') or {}).items() if k != 'calibration'})
 
 
@@ -307,11 +331,13 @@ def predict(q):
                 ratings=dict(home=ranks.get(home), away=ranks.get(away), level=r['level'], home_edge=r['home'], games=r['games'], asof=r['asof']),
                 form=dict(home=_form(data, home, g.get('date') or today), away=_form(data, away, g.get('date') or today)),
                 head_to_head=h2h, fetched_at=data.get('fetched_at'),
-                method=dict(width=M.LINE_WIDTH if source != 'model' else M.MODEL_WIDTH, overtime=M.OT, settings=r['settings']))
+                method=dict(width=M.LINE_WIDTH if source != 'model' else _width(), overtime=M.OT, settings=r['settings']))
 
 
 def refresh():
     """Re-read recent days and lines for nearby games (about a minute at most)."""
+    if public():
+        raise RuntimeError('Scores update once a day on this site.')
     if _refreshing.is_set():
         raise RuntimeError('A refresh is already running; try again in a minute.')
     _refreshing.set()

@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718143",
+ "date": "2026-11-19",
+ "tipoff": "2026-11-20T01:00:00Z",
+ "home": "Memphis Grizzlies",
+ "away": "Golden State Warriors",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.561226319726986,
+ "spread_line": -2.5,
+ "cover": 0.5051964125643393,
+ "total_line": 232.5,
+ "over": 0.49243184359494274,
+ "expected": [
+  117.30565386856154,
+  115.13537315125417
+ ],
+ "model": {
+  "moneyline": 0.561226319726986,
+  "cover": 0.5051964125643393,
+  "over": 0.49243184359494274,
+  "expected": [
+   117.30565386856154,
+   115.13537315125417
+  ]
+ }
+}

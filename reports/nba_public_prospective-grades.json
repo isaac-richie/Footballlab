@@ -1,0 +1,25 @@
+{
+ "generated_at": "2026-11-15T08:04:53.016021+00:00",
+ "data_hash": "749d30a40dfbf5bd906b1f83bf2fa80e829717c3d867125c1c0053b099fccea0",
+ "first": {
+  "cohort": "first",
+  "graded": 0,
+  "pending": 60,
+  "void": 0,
+  "shown": {},
+  "model_only": {},
+  "by_source": {},
+  "recent": []
+ },
+ "last": {
+  "cohort": "last",
+  "graded": 0,
+  "pending": 60,
+  "void": 0,
+  "shown": {},
+  "model_only": {},
+  "by_source": {},
+  "recent": []
+ },
+ "method": "Each game is frozen before its listed tip-off: the first forecast seen and the last one before tip-off. Grades come from ESPN final scores (overtime included) and are recomputed on every run. Pushes are left out. \"shown\" is what the board displayed (line-priced where a line was posted); \"model_only\" is the ratings alone."
+}

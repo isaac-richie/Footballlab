@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718151",
+ "date": "2026-11-20",
+ "tipoff": "2026-11-21T01:00:00Z",
+ "home": "Chicago Bulls",
+ "away": "Washington Wizards",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.55872763172251,
+ "spread_line": -2.5,
+ "cover": 0.5026839476611742,
+ "total_line": 237.5,
+ "over": 0.4959733888829287,
+ "expected": [
+  119.85278805109134,
+  117.7713891801676
+ ],
+ "model": {
+  "moneyline": 0.55872763172251,
+  "cover": 0.5026839476611742,
+  "over": 0.4959733888829287,
+  "expected": [
+   119.85278805109134,
+   117.7713891801676
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718131",
+ "date": "2026-11-18",
+ "tipoff": "2026-11-19T00:00:00Z",
+ "home": "Cleveland Cavaliers",
+ "away": "Memphis Grizzlies",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.5038018567631647,
+ "spread_line": -0.5,
+ "cover": 0.5038019703036812,
+ "total_line": 236.5,
+ "over": 0.4989141147387975,
+ "expected": [
+  118.44416924110513,
+  118.30993113631405
+ ],
+ "model": {
+  "moneyline": 0.5038018567631647,
+  "cover": 0.5038019703036812,
+  "over": 0.4989141147387975,
+  "expected": [
+   118.44416924110513,
+   118.30993113631405
+  ]
+ }
+}

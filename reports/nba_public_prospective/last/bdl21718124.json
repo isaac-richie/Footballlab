@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718124",
+ "date": "2026-11-16",
+ "tipoff": "2026-11-17T01:00:00Z",
+ "home": "New Orleans Pelicans",
+ "away": "Golden State Warriors",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.2453338267091156,
+ "spread_line": 9.5,
+ "cover": 0.49502698932570116,
+ "total_line": 233.5,
+ "over": 0.49504569683521377,
+ "expected": [
+  111.90457655572436,
+  121.61708075147806
+ ],
+ "model": {
+  "moneyline": 0.2453338267091156,
+  "cover": 0.49502698932570116,
+  "over": 0.49504569683521377,
+  "expected": [
+   111.90457655572436,
+   121.61708075147806
+  ]
+ }
+}

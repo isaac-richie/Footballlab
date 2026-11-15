@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718170",
+ "date": "2026-11-22",
+ "tipoff": "2026-11-23T01:30:00Z",
+ "home": "Golden State Warriors",
+ "away": "Boston Celtics",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.5079655807255219,
+ "spread_line": -0.5,
+ "cover": 0.5079656917762599,
+ "total_line": 220.5,
+ "over": 0.4891319997173654,
+ "expected": [
+  110.2837707796005,
+  110.00259870638266
+ ],
+ "model": {
+  "moneyline": 0.5079655807255219,
+  "cover": 0.5079656917762599,
+  "over": 0.4891319997173654,
+  "expected": [
+   110.2837707796005,
+   110.00259870638266
+  ]
+ }
+}

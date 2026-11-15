@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718150",
+ "date": "2026-11-20",
+ "tipoff": "2026-11-21T00:30:00Z",
+ "home": "Detroit Pistons",
+ "away": "Toronto Raptors",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.6262438091668769,
+ "spread_line": -4.5,
+ "cover": 0.50862124411981,
+ "total_line": 225.5,
+ "over": 0.4970693262149531,
+ "expected": [
+  115.09912119751567,
+  110.56595134950149
+ ],
+ "model": {
+  "moneyline": 0.6262438091668769,
+  "cover": 0.50862124411981,
+  "over": 0.4970693262149531,
+  "expected": [
+   115.09912119751567,
+   110.56595134950149
+  ]
+ }
+}

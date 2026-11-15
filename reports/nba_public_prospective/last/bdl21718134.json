@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718134",
+ "date": "2026-11-18",
+ "tipoff": "2026-11-19T00:00:00Z",
+ "home": "Orlando Magic",
+ "away": "Philadelphia 76ers",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.484916883775499,
+ "spread_line": 0.5,
+ "cover": 0.48491699572172015,
+ "total_line": 220.5,
+ "over": 0.4897625990928569,
+ "expected": [
+  109.89199566466617,
+  110.42438546946305
+ ],
+ "model": {
+  "moneyline": 0.484916883775499,
+  "cover": 0.48491699572172015,
+  "over": 0.4897625990928569,
+  "expected": [
+   109.89199566466617,
+   110.42438546946305
+  ]
+ }
+}

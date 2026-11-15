@@ -51,6 +51,11 @@ MODEL_WIDTH = dict(margin=14.2, total=21.5, link=0.05, slope=-0.1, stretch=1.15)
 # LINE_WIDTH tuned on 2023-25 (tools/nba_calib.py). Margin 12.0 and 12.5 tied there; the wider one
 # is kept because 2025-26 showed 12.0 slightly overconfident on spreads and moneyline.
 LINE_WIDTH = dict(margin=12.5, total=17.6, link=0.1, slope=-0.1)
+# Scores-only ratings for the hosted site (balldontlie: no bookmaker lines to learn from).
+# Without lines the slower, more shrunk fit wins walk-forward (2023-25 margin RMS 14.24),
+# so the margin is stretched more and the widths are wider; tools/nba_public_lab.py checks them.
+PUBLIC_SETTINGS = dict(SETTINGS, half_life=50, ridge=4.0, carry=1.0, gap=0, market=0.0)
+PUBLIC_WIDTH = dict(margin=14.2, total=18.5, link=0.0, slope=0.0, stretch=1.1)
 SD, RHO = 11.6, 0.20      # equal-variance summary of MODEL_WIDTH, kept for reports
 OT = dict(mean=11.0, sd=3.8, rho=0.07)   # points per team per overtime period (2023-25: 140 periods)
 PERIOD_RATIO = 5 / 48

@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718149",
+ "date": "2026-11-20",
+ "tipoff": "2026-11-21T00:30:00Z",
+ "home": "Cleveland Cavaliers",
+ "away": "Indiana Pacers",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.6935562294095469,
+ "spread_line": -7.5,
+ "cover": 0.4906158360839424,
+ "total_line": 231.5,
+ "over": 0.4848411584080688,
+ "expected": [
+  119.09500482206724,
+  111.96737742468457
+ ],
+ "model": {
+  "moneyline": 0.6935562294095469,
+  "cover": 0.4906158360839424,
+  "over": 0.4848411584080688,
+  "expected": [
+   119.09500482206724,
+   111.96737742468457
+  ]
+ }
+}

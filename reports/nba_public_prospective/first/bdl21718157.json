@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718157",
+ "date": "2026-11-21",
+ "tipoff": "2026-11-22T00:30:00Z",
+ "home": "New York Knicks",
+ "away": "Portland Trail Blazers",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.532430387134932,
+ "spread_line": -1.5,
+ "cover": 0.508418931417496,
+ "total_line": 220.5,
+ "over": 0.4948025297475241,
+ "expected": [
+  110.85107850956402,
+  109.7054884181697
+ ],
+ "model": {
+  "moneyline": 0.532430387134932,
+  "cover": 0.508418931417496,
+  "over": 0.4948025297475241,
+  "expected": [
+   110.85107850956402,
+   109.7054884181697
+  ]
+ }
+}

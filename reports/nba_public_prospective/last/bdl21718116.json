@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718116",
+ "date": "2026-11-15",
+ "tipoff": "2026-11-16T01:00:00Z",
+ "home": "Milwaukee Bucks",
+ "away": "Atlanta Hawks",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.2974664513726938,
+ "spread_line": 7.5,
+ "cover": 0.49918704143278264,
+ "total_line": 231.5,
+ "over": 0.5006461255876855,
+ "expected": [
+  112.16056131729164,
+  119.65116051809751
+ ],
+ "model": {
+  "moneyline": 0.2974664513726938,
+  "cover": 0.49918704143278264,
+  "over": 0.5006461255876855,
+  "expected": [
+   112.16056131729164,
+   119.65116051809751
+  ]
+ }
+}

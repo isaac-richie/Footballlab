@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718115",
+ "date": "2026-11-15",
+ "tipoff": "2026-11-16T00:00:00Z",
+ "home": "Washington Wizards",
+ "away": "Houston Rockets",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.2104634015893259,
+ "spread_line": 11.5,
+ "cover": 0.5064252223318535,
+ "total_line": 223.5,
+ "over": 0.49987820279251166,
+ "expected": [
+  106.19725068932188,
+  117.5341266427298
+ ],
+ "model": {
+  "moneyline": 0.2104634015893259,
+  "cover": 0.5064252223318535,
+  "over": 0.49987820279251166,
+  "expected": [
+   106.19725068932188,
+   117.5341266427298
+  ]
+ }
+}

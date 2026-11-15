@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718158",
+ "date": "2026-11-21",
+ "tipoff": "2026-11-22T01:00:00Z",
+ "home": "Dallas Mavericks",
+ "away": "LA Clippers",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.6426875414521795,
+ "spread_line": -5.5,
+ "cover": 0.4951412625669268,
+ "total_line": 229.5,
+ "over": 0.49923598797039886,
+ "expected": [
+  117.45730580063234,
+  112.3071771904278
+ ],
+ "model": {
+  "moneyline": 0.6426875414521795,
+  "cover": 0.4951412625669268,
+  "over": 0.49923598797039886,
+  "expected": [
+   117.45730580063234,
+   112.3071771904278
+  ]
+ }
+}

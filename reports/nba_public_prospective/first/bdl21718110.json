@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718110",
+ "date": "2026-11-15",
+ "tipoff": "2026-11-15T21:00:00Z",
+ "home": "Phoenix Suns",
+ "away": "Los Angeles Lakers",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.3635872879866927,
+ "spread_line": 4.5,
+ "cover": 0.48069152029622697,
+ "total_line": 233.5,
+ "over": 0.5031606589167585,
+ "expected": [
+  114.5191870672978,
+  119.43404358975583
+ ],
+ "model": {
+  "moneyline": 0.3635872879866927,
+  "cover": 0.48069152029622697,
+  "over": 0.5031606589167585,
+  "expected": [
+   114.5191870672978,
+   119.43404358975583
+  ]
+ }
+}

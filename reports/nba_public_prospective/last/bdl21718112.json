@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718112",
+ "date": "2026-11-15",
+ "tipoff": "2026-11-15T22:00:00Z",
+ "home": "Utah Jazz",
+ "away": "San Antonio Spurs",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.14301892922331028,
+ "spread_line": 15.5,
+ "cover": 0.5148915408793201,
+ "total_line": 222.5,
+ "over": 0.50520822569799,
+ "expected": [
+  103.94765412796563,
+  118.978611051652
+ ],
+ "model": {
+  "moneyline": 0.14301892922331028,
+  "cover": 0.5148915408793201,
+  "over": 0.50520822569799,
+  "expected": [
+   103.94765412796563,
+   118.978611051652
+  ]
+ }
+}

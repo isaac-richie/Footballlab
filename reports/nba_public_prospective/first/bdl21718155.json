@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718155",
+ "date": "2026-11-20",
+ "tipoff": "2026-11-21T03:00:00Z",
+ "home": "Los Angeles Lakers",
+ "away": "Sacramento Kings",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.8786037835061393,
+ "spread_line": -16.5,
+ "cover": 0.4975767103232276,
+ "total_line": 232.5,
+ "over": 0.4956575807187886,
+ "expected": [
+  124.46193182162976,
+  107.99580044664918
+ ],
+ "model": {
+  "moneyline": 0.8786037835061393,
+  "cover": 0.4975767103232276,
+  "over": 0.4956575807187886,
+  "expected": [
+   124.46193182162976,
+   107.99580044664918
+  ]
+ }
+}

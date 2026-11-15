@@ -23,6 +23,19 @@
         "community/web"
       ],
       "port": 8790
+    },
+    {
+      "name": "football-lab-hosted-mode",
+      "runtimeExecutable": "env",
+      "runtimeArgs": [
+        "NBA_PUBLIC=1",
+        "python3",
+        "app.py",
+        "serve",
+        "--port",
+        "8766"
+      ],
+      "port": 8766
     }
   ]
 }

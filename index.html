@@ -1269,7 +1269,7 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
     <div class="view-head">
       <div>
         <span class="eyebrow"><i></i>NBA</span><h1>Upcoming games</h1>
-        <p>Every NBA game in the next seven days. Win chance, spread and total come from the bookmaker line where it is posted, and from our points model otherwise. Open a game for the full breakdown.</p>
+        <p>Every NBA game in the next seven days, with win chance, projected score, spread and total from our points model. Open a game for the full breakdown.</p>
       </div>
       <div class="toolbar">
         <button class="ghost" id="nba-refresh" type="button">Refresh scores &amp; lines</button>
@@ -2546,6 +2546,7 @@ async function loadNba(){
     for(const id of ['#nba-home', '#nba-away']) $(id).replaceChildren(...teams.map(t => new Option(t, t)));
     if(teams.includes(keep[0]) && teams.includes(keep[1])){ $('#nba-home').value = keep[0]; $('#nba-away').value = keep[1] } else $('#nba-away').selectedIndex = Math.min(1, teams.length - 1);
     if(document.body.dataset.sport === 'basketball') nbFresh();
+    $('#nba-refresh').hidden = !!s.public;     // the hosted site updates once a day
     renderNbaBoard(); renderNbaLab();
   }).catch(e => { $('#nba-body').innerHTML = `<div class="empty">${esc(e.message)}</div>` }).finally(() => { nb.loading = null });
   return nb.loading;
@@ -2593,8 +2594,19 @@ function nbaLedger(){
   return card('Forward record', `${rows ? `<div class="kpis" style="margin-top:4px">${rows}</div>` : ''}
     <p class="note">Each game's forecast is saved before tip-off and graded on the final score: ${g.graded} graded, ${g.pending} waiting. "Won" counts the likelier side of each pick; it should sit close to "said". ${g.graded < 200 ? 'Too few games yet to read much into.' : ''}</p>`, 'live, not backtested');
 }
+function nbaPublicLab(l){
+  const h = l.holdout || {}, p = h.points, m = h.markets || {}, c = (l.current || {}).points;
+  if(!p) return '';
+  const sure = k => m[k] && m[k].sure && m[k].sure.picks ? `<div class="kpi"><small>${{moneyline: 'Winner', spread: 'Spread', total: 'Total'}[k]} picks at 70%+</small><b>${pct(m[k].sure.won)}</b><span>won · said ${pct(m[k].sure.predicted)}</span></div>` : '';
+  return card('How accurate is this?', `<div class="kpis" style="margin-top:4px">
+      <div class="kpi"><small>Winner picked</small><b>${pct(p.winner_accuracy)}</b><span>of ${p.games.toLocaleString()} games</span></div>
+      <div class="kpi"><small>Typical margin miss</small><b>${p.margin_rmse.toFixed(1)}</b><span>pts</span></div>
+      ${sure('moneyline')}${sure('spread')}${sure('total')}</div>
+    <p class="note">Every game of the 2025-26 season predicted from earlier games only, with settings chosen on 2024-25. ${c ? `This season so far: winner picked ${pct(c.winner_accuracy)} of ${c.games} games.` : ''} Forecasts use final scores only: no injuries, lineups or betting lines. Spreads and totals are our own lines, not a bookmaker's. Probabilities are estimates, not guarantees.</p>`, 'held-out season');
+}
 function renderNbaLab(){
   const l = nb.slate && nb.slate.lab, el = $('#nba-lab');
+  if(l && l.public){ el.innerHTML = nbaPublicLab(l) + nbaLedger(); return }
   if(!l || !l.points || !l.points.close){ el.innerHTML = nbaLedger(); return }
   const c = l.points.close, pr = l.probabilities || {};
   el.innerHTML = card('How accurate is this?', `<div class="kpis" style="margin-top:4px">

@@ -14,9 +14,10 @@ Status as of 15 November 2026. What works is described in the README, under "Bas
 
 - **Forward ledger** (`nba_ledger.py`): every board game is frozen before tip-off (first forecast and last before tip-off) and graded on the final score. Started 15 November 2026 with 60 games. Needs a few hundred graded games before its numbers mean much. It runs only while the local Lab is open or `python3 app.py fetch-nba` runs, and stays private (git-ignored) because it holds line-derived prices.
 
+- **Hosted site** (15 November 2026): runs on balldontlie scores and schedule (`nba_public.py`, `nba_public.json`, committed), priced by the scores-only model (`PUBLIC_SETTINGS`, `PUBLIC_WIDTH`). Checked walk-forward on 2025-26: winner 68.3%, 70%+ winner picks said 78.4% won 80.7%, spreads 73.5%/74.4%, totals 73.6%/73.7% (`tools/nba_public_lab.py`). The daily GitHub job refreshes it and freezes the public forward record before the US evening games. Needs the `BALLDONTLIE_API_KEY` repository secret. balldontlie's reuse terms are not yet confirmed in writing.
+
 ## Not built
 
-- **Hosted site**: ESPN data has no published reuse terms, so `nba_data.json` is not committed or deployed. The hosted Lab shows "Basketball forecasts are not available here yet". Basketball works on the local Lab only.
 - **VIP picks and the public record** stay football-only until NBA picks build a forward record.
 - **Bet slip and bet builder** do not take NBA picks.
 - **Half and quarter markets** (1st-half spread and total, quarter winners): quarter scores are stored, but no model uses them yet.

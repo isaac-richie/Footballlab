@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718140",
+ "date": "2026-11-18",
+ "tipoff": "2026-11-19T01:00:00Z",
+ "home": "Dallas Mavericks",
+ "away": "Golden State Warriors",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.4650311180026627,
+ "spread_line": 1.5,
+ "cover": 0.4890394796642687,
+ "total_line": 228.5,
+ "over": 0.4879874286000519,
+ "expected": [
+  113.49739340385689,
+  114.73329519489342
+ ],
+ "model": {
+  "moneyline": 0.4650311180026627,
+  "cover": 0.4890394796642687,
+  "over": 0.4879874286000519,
+  "expected": [
+   113.49739340385689,
+   114.73329519489342
+  ]
+ }
+}

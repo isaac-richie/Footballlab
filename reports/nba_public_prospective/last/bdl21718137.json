@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718137",
+ "date": "2026-11-18",
+ "tipoff": "2026-11-19T01:00:00Z",
+ "home": "New Orleans Pelicans",
+ "away": "Detroit Pistons",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.30542500385312304,
+ "spread_line": 7.5,
+ "cover": 0.5082143526934654,
+ "total_line": 233.5,
+ "over": 0.4931867070373254,
+ "expected": [
+  113.14527924700313,
+  120.3145040194407
+ ],
+ "model": {
+  "moneyline": 0.30542500385312304,
+  "cover": 0.5082143526934654,
+  "over": 0.4931867070373254,
+  "expected": [
+   113.14527924700313,
+   120.3145040194407
+  ]
+ }
+}

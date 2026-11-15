@@ -1,0 +1,726 @@
+{
+ "generated_at": "2026-11-15T07:59:59.018764+00:00",
+ "settings": {
+  "half_life": 50,
+  "ridge": 4.0,
+  "carry": 1.0,
+  "gap": 0,
+  "market": 0.0,
+  "window": 400,
+  "b2b": true
+ },
+ "width": {
+  "margin": 14.2,
+  "total": 18.5,
+  "link": 0.0,
+  "slope": 0.0,
+  "stretch": 1.1
+ },
+ "search": [
+  {
+   "margin": 14.2,
+   "total": 18.5,
+   "link": 0.0,
+   "slope": 0.0,
+   "stretch": 1.1,
+   "loss": 3.12132
+  },
+  {
+   "margin": 14.2,
+   "total": 19.5,
+   "link": 0.0,
+   "slope": 0.0,
+   "stretch": 1.1,
+   "loss": 3.12181
+  },
+  {
+   "margin": 14.2,
+   "total": 18.5,
+   "link": 0.0,
+   "slope": 0.0,
+   "stretch": 1.2,
+   "loss": 3.12239
+  },
+  {
+   "margin": 15.2,
+   "total": 18.5,
+   "link": 0.0,
+   "slope": 0.0,
+   "stretch": 1.2,
+   "loss": 3.12271
+  },
+  {
+   "margin": 14.2,
+   "total": 19.5,
+   "link": 0.0,
+   "slope": 0.0,
+   "stretch": 1.2,
+   "loss": 3.12282
+  },
+  {
+   "margin": 15.2,
+   "total": 18.5,
+   "link": 0.0,
+   "slope": 0.0,
+   "stretch": 1.1,
+   "loss": 3.12285
+  },
+  {
+   "margin": 14.2,
+   "total": 18.5,
+   "link": 0.0,
+   "slope": 0.0,
+   "stretch": 1.0,
+   "loss": 3.12286
+  },
+  {
+   "margin": 15.2,
+   "total": 19.5,
+   "link": 0.0,
+   "slope": 0.0,
+   "stretch": 1.2,
+   "loss": 3.12326
+  }
+ ],
+ "method": "Walk-forward check of the hosted site's NBA model (scores only, balldontlie data).",
+ "tuning": {
+  "seasons": [
+   2025
+  ],
+  "points": {
+   "games": 1213,
+   "winner_accuracy": 0.6611706512778236,
+   "margin_rmse": 14.358631963504752,
+   "total_rmse": 18.337415580239714
+  },
+  "markets": {
+   "moneyline": {
+    "picks": 1213,
+    "log_loss": 0.60588,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 424,
+      "predicted": 0.5504,
+      "won": 0.5212,
+      "gap": -0.0292,
+      "z": -1.21
+     },
+     {
+      "bin": "60-70%",
+      "picks": 374,
+      "predicted": 0.6495,
+      "won": 0.6711,
+      "gap": 0.0216,
+      "z": 0.88
+     },
+     {
+      "bin": "70-80%",
+      "picks": 257,
+      "predicted": 0.7459,
+      "won": 0.7432,
+      "gap": -0.0027,
+      "z": -0.1
+     },
+     {
+      "bin": "80-90%",
+      "picks": 131,
+      "predicted": 0.8435,
+      "won": 0.8702,
+      "gap": 0.0268,
+      "z": 0.84
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.6623,
+     "won": 0.6612
+    },
+    "sure_70_plus": {
+     "picks": 415,
+     "predicted": 0.7882,
+     "won": 0.7952
+    }
+   },
+   "spread": {
+    "picks": 8491,
+    "log_loss": 0.63416,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 2922,
+      "predicted": 0.5502,
+      "won": 0.5527,
+      "gap": 0.0025,
+      "z": 0.27
+     },
+     {
+      "bin": "60-70%",
+      "picks": 2998,
+      "predicted": 0.6489,
+      "won": 0.6611,
+      "gap": 0.0122,
+      "z": 1.39
+     },
+     {
+      "bin": "70-80%",
+      "picks": 2571,
+      "predicted": 0.7346,
+      "won": 0.7433,
+      "gap": 0.0086,
+      "z": 0.99
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.6409,
+     "won": 0.6487
+    },
+    "sure_70_plus": {
+     "picks": 2571,
+     "predicted": 0.7346,
+     "won": 0.7433
+    }
+   },
+   "total": {
+    "picks": 10917,
+    "log_loss": 0.64018,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 3639,
+      "predicted": 0.5442,
+      "won": 0.526,
+      "gap": -0.0183,
+      "z": -2.21
+     },
+     {
+      "bin": "60-70%",
+      "picks": 4852,
+      "predicted": 0.653,
+      "won": 0.6603,
+      "gap": 0.0074,
+      "z": 1.08
+     },
+     {
+      "bin": "70-80%",
+      "picks": 2426,
+      "predicted": 0.7359,
+      "won": 0.7453,
+      "gap": 0.0093,
+      "z": 1.04
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.6352,
+     "won": 0.6344
+    },
+    "sure_70_plus": {
+     "picks": 2426,
+     "predicted": 0.7359,
+     "won": 0.7453
+    }
+   },
+   "team_total": {
+    "picks": 12130,
+    "log_loss": 0.62261,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 2659,
+      "predicted": 0.525,
+      "won": 0.5295,
+      "gap": 0.0045,
+      "z": 0.47
+     },
+     {
+      "bin": "60-70%",
+      "picks": 4619,
+      "predicted": 0.6325,
+      "won": 0.6343,
+      "gap": 0.0018,
+      "z": 0.26
+     },
+     {
+      "bin": "70-80%",
+      "picks": 4852,
+      "predicted": 0.7479,
+      "won": 0.7572,
+      "gap": 0.0093,
+      "z": 1.49
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.6551,
+     "won": 0.6605
+    },
+    "sure_70_plus": {
+     "picks": 4852,
+     "predicted": 0.7479,
+     "won": 0.7572
+    }
+   },
+   "combo": {
+    "picks": 12130,
+    "log_loss": 0.61849,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 3106,
+      "predicted": 0.5522,
+      "won": 0.5512,
+      "gap": -0.001,
+      "z": -0.11
+     },
+     {
+      "bin": "60-70%",
+      "picks": 3311,
+      "predicted": 0.6468,
+      "won": 0.6481,
+      "gap": 0.0014,
+      "z": 0.17
+     },
+     {
+      "bin": "70-80%",
+      "picks": 5713,
+      "predicted": 0.7462,
+      "won": 0.7479,
+      "gap": 0.0017,
+      "z": 0.3
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.6694,
+     "won": 0.6703
+    },
+    "sure_70_plus": {
+     "picks": 5713,
+     "predicted": 0.7462,
+     "won": 0.7479
+    }
+   }
+  }
+ },
+ "holdout": {
+  "seasons": [
+   2026
+  ],
+  "points": {
+   "games": 1322,
+   "winner_accuracy": 0.6830559757942511,
+   "margin_rmse": 14.60782881853378,
+   "total_rmse": 18.94195554025884
+  },
+  "markets": {
+   "moneyline": {
+    "picks": 1322,
+    "log_loss": 0.59815,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 483,
+      "predicted": 0.5491,
+      "won": 0.5714,
+      "gap": 0.0224,
+      "z": 0.99
+     },
+     {
+      "bin": "60-70%",
+      "picks": 383,
+      "predicted": 0.6477,
+      "won": 0.6762,
+      "gap": 0.0286,
+      "z": 1.17
+     },
+     {
+      "bin": "70-80%",
+      "picks": 285,
+      "predicted": 0.7452,
+      "won": 0.7825,
+      "gap": 0.0372,
+      "z": 1.44
+     },
+     {
+      "bin": "80-90%",
+      "picks": 152,
+      "predicted": 0.8408,
+      "won": 0.8487,
+      "gap": 0.0079,
+      "z": 0.27
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.6587,
+     "won": 0.6831
+    },
+    "sure_70_plus": {
+     "picks": 456,
+     "predicted": 0.7842,
+     "won": 0.807
+    }
+   },
+   "spread": {
+    "picks": 9254,
+    "log_loss": 0.63442,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 3201,
+      "predicted": 0.5502,
+      "won": 0.5598,
+      "gap": 0.0096,
+      "z": 1.1
+     },
+     {
+      "bin": "60-70%",
+      "picks": 3251,
+      "predicted": 0.649,
+      "won": 0.6589,
+      "gap": 0.0099,
+      "z": 1.18
+     },
+     {
+      "bin": "70-80%",
+      "picks": 2802,
+      "predicted": 0.7347,
+      "won": 0.7438,
+      "gap": 0.009,
+      "z": 1.08
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.6408,
+     "won": 0.6503
+    },
+    "sure_70_plus": {
+     "picks": 2802,
+     "predicted": 0.7347,
+     "won": 0.7438
+    }
+   },
+   "total": {
+    "picks": 11898,
+    "log_loss": 0.64169,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 3966,
+      "predicted": 0.5442,
+      "won": 0.5499,
+      "gap": 0.0057,
+      "z": 0.72
+     },
+     {
+      "bin": "60-70%",
+      "picks": 5288,
+      "predicted": 0.6529,
+      "won": 0.6564,
+      "gap": 0.0034,
+      "z": 0.53
+     },
+     {
+      "bin": "70-80%",
+      "picks": 2644,
+      "predicted": 0.7359,
+      "won": 0.7371,
+      "gap": 0.0012,
+      "z": 0.15
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.6351,
+     "won": 0.6388
+    },
+    "sure_70_plus": {
+     "picks": 2644,
+     "predicted": 0.7359,
+     "won": 0.7371
+    }
+   },
+   "team_total": {
+    "picks": 13220,
+    "log_loss": 0.62895,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 2888,
+      "predicted": 0.5249,
+      "won": 0.5118,
+      "gap": -0.0132,
+      "z": -1.42
+     },
+     {
+      "bin": "60-70%",
+      "picks": 5044,
+      "predicted": 0.6324,
+      "won": 0.638,
+      "gap": 0.0056,
+      "z": 0.82
+     },
+     {
+      "bin": "70-80%",
+      "picks": 5288,
+      "predicted": 0.7479,
+      "won": 0.7443,
+      "gap": -0.0036,
+      "z": -0.6
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.6551,
+     "won": 0.653
+    },
+    "sure_70_plus": {
+     "picks": 5288,
+     "predicted": 0.7479,
+     "won": 0.7443
+    }
+   },
+   "combo": {
+    "picks": 13220,
+    "log_loss": 0.62244,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 3330,
+      "predicted": 0.5523,
+      "won": 0.536,
+      "gap": -0.0163,
+      "z": -1.89
+     },
+     {
+      "bin": "60-70%",
+      "picks": 3615,
+      "predicted": 0.6468,
+      "won": 0.631,
+      "gap": -0.0158,
+      "z": -1.99
+     },
+     {
+      "bin": "70-80%",
+      "picks": 6275,
+      "predicted": 0.7461,
+      "won": 0.745,
+      "gap": -0.0011,
+      "z": -0.2
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.6701,
+     "won": 0.6612
+    },
+    "sure_70_plus": {
+     "picks": 6275,
+     "predicted": 0.7461,
+     "won": 0.745
+    }
+   }
+  }
+ },
+ "current_season": {
+  "seasons": [
+   2027
+  ],
+  "points": {
+   "games": 188,
+   "winner_accuracy": 0.6861702127659575,
+   "margin_rmse": 15.494239744343751,
+   "total_rmse": 18.339955100324325
+  },
+  "markets": {
+   "moneyline": {
+    "picks": 188,
+    "log_loss": 0.61638,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 69,
+      "predicted": 0.5508,
+      "won": 0.6087,
+      "gap": 0.0579,
+      "z": 0.97
+     },
+     {
+      "bin": "60-70%",
+      "picks": 54,
+      "predicted": 0.6464,
+      "won": 0.6852,
+      "gap": 0.0388,
+      "z": 0.6
+     },
+     {
+      "bin": "70-80%",
+      "picks": 42,
+      "predicted": 0.7403,
+      "won": 0.6905,
+      "gap": -0.0499,
+      "z": -0.74
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.6579,
+     "won": 0.6862
+    },
+    "sure_70_plus": {
+     "picks": 65,
+     "predicted": 0.7812,
+     "won": 0.7692
+    }
+   },
+   "spread": {
+    "picks": 1316,
+    "log_loss": 0.63533,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 459,
+      "predicted": 0.5506,
+      "won": 0.5686,
+      "gap": 0.018,
+      "z": 0.78
+     },
+     {
+      "bin": "60-70%",
+      "picks": 458,
+      "predicted": 0.6492,
+      "won": 0.6638,
+      "gap": 0.0145,
+      "z": 0.65
+     },
+     {
+      "bin": "70-80%",
+      "picks": 399,
+      "predicted": 0.7344,
+      "won": 0.7393,
+      "gap": 0.0049,
+      "z": 0.22
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.6407,
+     "won": 0.6535
+    },
+    "sure_70_plus": {
+     "picks": 399,
+     "predicted": 0.7344,
+     "won": 0.7393
+    }
+   },
+   "total": {
+    "picks": 1692,
+    "log_loss": 0.63636,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 564,
+      "predicted": 0.5444,
+      "won": 0.5532,
+      "gap": 0.0088,
+      "z": 0.42
+     },
+     {
+      "bin": "60-70%",
+      "picks": 752,
+      "predicted": 0.6529,
+      "won": 0.6569,
+      "gap": 0.004,
+      "z": 0.23
+     },
+     {
+      "bin": "70-80%",
+      "picks": 376,
+      "predicted": 0.7359,
+      "won": 0.7527,
+      "gap": 0.0168,
+      "z": 0.74
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.6352,
+     "won": 0.6436
+    },
+    "sure_70_plus": {
+     "picks": 376,
+     "predicted": 0.7359,
+     "won": 0.7527
+    }
+   },
+   "team_total": {
+    "picks": 1880,
+    "log_loss": 0.63332,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 409,
+      "predicted": 0.5242,
+      "won": 0.489,
+      "gap": -0.0352,
+      "z": -1.42
+     },
+     {
+      "bin": "60-70%",
+      "picks": 719,
+      "predicted": 0.6323,
+      "won": 0.6189,
+      "gap": -0.0134,
+      "z": -0.74
+     },
+     {
+      "bin": "70-80%",
+      "picks": 752,
+      "predicted": 0.7479,
+      "won": 0.7394,
+      "gap": -0.0085,
+      "z": -0.54
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.655,
+     "won": 0.6388
+    },
+    "sure_70_plus": {
+     "picks": 752,
+     "predicted": 0.7479,
+     "won": 0.7394
+    }
+   },
+   "combo": {
+    "picks": 1880,
+    "log_loss": 0.62378,
+    "calibration": [
+     {
+      "bin": "50-60%",
+      "picks": 463,
+      "predicted": 0.5518,
+      "won": 0.5421,
+      "gap": -0.0097,
+      "z": -0.42
+     },
+     {
+      "bin": "60-70%",
+      "picks": 521,
+      "predicted": 0.6459,
+      "won": 0.6238,
+      "gap": -0.0221,
+      "z": -1.05
+     },
+     {
+      "bin": "70-80%",
+      "picks": 896,
+      "predicted": 0.7458,
+      "won": 0.7444,
+      "gap": -0.0014,
+      "z": -0.1
+     }
+    ],
+    "likelier_side": {
+     "predicted": 0.6703,
+     "won": 0.6612
+    },
+    "sure_70_plus": {
+     "picks": 896,
+     "predicted": 0.7458,
+     "won": 0.7444
+    }
+   }
+  }
+ }
+}

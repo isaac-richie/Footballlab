@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718121",
+ "date": "2026-11-16",
+ "tipoff": "2026-11-17T00:30:00Z",
+ "home": "Brooklyn Nets",
+ "away": "Philadelphia 76ers",
+ "kind": "regular",
+ "registered_at": "2026-11-15T08:04:45.802511+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.4577697291832577,
+ "spread_line": 1.5,
+ "cover": 0.48176516081552306,
+ "total_line": 225.5,
+ "over": 0.4952532534848442,
+ "expected": [
+  112.0489677514435,
+  113.5423077307816
+ ],
+ "model": {
+  "moneyline": 0.4577697291832577,
+  "cover": 0.48176516081552306,
+  "over": 0.4952532534848442,
+  "expected": [
+   112.0489677514435,
+   113.5423077307816
+  ]
+ }
+}
