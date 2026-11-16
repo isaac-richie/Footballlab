@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718171",
+ "date": "2026-11-23",
+ "tipoff": "2026-11-24T00:00:00Z",
+ "home": "Charlotte Hornets",
+ "away": "Memphis Grizzlies",
+ "kind": "regular",
+ "registered_at": "2026-11-16T13:54:42.942575+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.26253918617845196,
+ "spread_line": 8.5,
+ "cover": 0.4875547364640787,
+ "total_line": 219.5,
+ "over": 0.4890143800622593,
+ "expected": [
+  105.14736369579093,
+  114.09626613105208
+ ],
+ "model": {
+  "moneyline": 0.26253918617845196,
+  "cover": 0.4875547364640787,
+  "over": 0.4890143800622593,
+  "expected": [
+   105.14736369579093,
+   114.09626613105208
+  ]
+ }
+}

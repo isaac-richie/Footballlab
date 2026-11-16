@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718175",
+ "date": "2026-11-23",
+ "tipoff": "2026-11-24T00:30:00Z",
+ "home": "Minnesota Timberwolves",
+ "away": "Brooklyn Nets",
+ "kind": "regular",
+ "registered_at": "2026-11-16T13:54:42.942575+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.859879589653623,
+ "spread_line": -15.5,
+ "cover": 0.490268575541967,
+ "total_line": 224.5,
+ "over": 0.4857149171942448,
+ "expected": [
+  119.60914813646737,
+  104.39503782546957
+ ],
+ "model": {
+  "moneyline": 0.859879589653623,
+  "cover": 0.490268575541967,
+  "over": 0.4857149171942448,
+  "expected": [
+   119.60914813646737,
+   104.39503782546957
+  ]
+ }
+}

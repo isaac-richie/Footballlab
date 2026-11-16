@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718180",
+ "date": "2026-11-23",
+ "tipoff": "2026-11-24T03:00:00Z",
+ "home": "Sacramento Kings",
+ "away": "San Antonio Spurs",
+ "kind": "regular",
+ "registered_at": "2026-11-16T13:54:42.942575+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.11234293944619002,
+ "spread_line": 17.5,
+ "cover": 0.5122968978981496,
+ "total_line": 225.5,
+ "over": 0.49604788441689274,
+ "expected": [
+  104.18195057213022,
+  121.29252539812542
+ ],
+ "model": {
+  "moneyline": 0.11234293944619002,
+  "cover": 0.5122968978981496,
+  "over": 0.49604788441689274,
+  "expected": [
+   104.18195057213022,
+   121.29252539812542
+  ]
+ }
+}

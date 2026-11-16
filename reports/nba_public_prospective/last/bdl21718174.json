@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718174",
+ "date": "2026-11-23",
+ "tipoff": "2026-11-24T00:30:00Z",
+ "home": "Toronto Raptors",
+ "away": "Milwaukee Bucks",
+ "kind": "regular",
+ "registered_at": "2026-11-16T13:54:42.942575+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.8219827447752478,
+ "spread_line": -13.5,
+ "cover": 0.4841017369589009,
+ "total_line": 224.5,
+ "over": 0.5046537785442444,
+ "expected": [
+  118.96500526689164,
+  105.9617643090229
+ ],
+ "model": {
+  "moneyline": 0.8219827447752478,
+  "cover": 0.4841017369589009,
+  "over": 0.5046537785442444,
+  "expected": [
+   118.96500526689164,
+   105.9617643090229
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718172",
+ "date": "2026-11-23",
+ "tipoff": "2026-11-24T00:00:00Z",
+ "home": "Philadelphia 76ers",
+ "away": "Portland Trail Blazers",
+ "kind": "regular",
+ "registered_at": "2026-11-16T13:54:42.942575+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.40293469166170637,
+ "spread_line": 3.5,
+ "cover": 0.49021609563035934,
+ "total_line": 229.5,
+ "over": 0.49555597225786874,
+ "expected": [
+  113.06880387348394,
+  116.53003908263518
+ ],
+ "model": {
+  "moneyline": 0.40293469166170637,
+  "cover": 0.49021609563035934,
+  "over": 0.49555597225786874,
+  "expected": [
+   113.06880387348394,
+   116.53003908263518
+  ]
+ }
+}

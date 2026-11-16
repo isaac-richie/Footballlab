@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718177",
+ "date": "2026-11-23",
+ "tipoff": "2026-11-24T01:00:00Z",
+ "home": "New Orleans Pelicans",
+ "away": "Phoenix Suns",
+ "kind": "regular",
+ "registered_at": "2026-11-16T13:54:42.942575+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.3804177597922188,
+ "spread_line": 4.5,
+ "cover": 0.4982905650338133,
+ "total_line": 237.5,
+ "over": 0.4876876687423119,
+ "expected": [
+  116.4652430524259,
+  120.75360274141663
+ ],
+ "model": {
+  "moneyline": 0.3804177597922188,
+  "cover": 0.4982905650338133,
+  "over": 0.4876876687423119,
+  "expected": [
+   116.4652430524259,
+   120.75360274141663
+  ]
+ }
+}

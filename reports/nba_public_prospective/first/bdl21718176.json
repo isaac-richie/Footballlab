@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718176",
+ "date": "2026-11-23",
+ "tipoff": "2026-11-24T01:00:00Z",
+ "home": "Chicago Bulls",
+ "away": "Cleveland Cavaliers",
+ "kind": "regular",
+ "registered_at": "2026-11-16T13:54:42.942575+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.2773937518041501,
+ "spread_line": 8.5,
+ "cover": 0.5050599164874561,
+ "total_line": 244.5,
+ "over": 0.4848332766576652,
+ "expected": [
+  117.8569502398116,
+  126.18237495855844
+ ],
+ "model": {
+  "moneyline": 0.2773937518041501,
+  "cover": 0.5050599164874561,
+  "over": 0.4848332766576652,
+  "expected": [
+   117.8569502398116,
+   126.18237495855844
+  ]
+ }
+}
