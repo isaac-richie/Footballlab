@@ -1,4 +1,4 @@
-# Football Lab research run — 2026-11-16
+# Football Lab research run — 2026-11-17
 
 66 fixtures in the next 7 days (excluding today).
 Status: review_required
@@ -7,13 +7,13 @@ Status: review_required
 
 - England — Premier League: research_only — Initial freshness checks passed; research only
 - Spain — La Liga: review_required — Completed results are missing or more than 30 days old; 10 recent current-season fixtures have no result yet
-- Italy — Serie A: review_required — Completed results are missing or more than 30 days old; 12 recent current-season fixtures have no result yet
+- Italy — Serie A: review_required — Completed results are missing or more than 30 days old; 10 recent current-season fixtures have no result yet
 - Germany — Bundesliga: research_only — Initial freshness checks passed; research only
 - France — Ligue 1: review_required — Completed results are missing or more than 30 days old; 9 recent current-season fixtures have no result yet
 - Italy — Serie B: review_required — Current-season fixtures missing; Completed results are missing or more than 30 days old; Current source freshness unverified
 - Germany — 2. Bundesliga: research_only — Initial freshness checks passed; research only
 - Netherlands — Eredivisie: review_required — Completed results are missing or more than 30 days old; 9 recent current-season fixtures have no result yet
-- Portugal — Primeira Liga: review_required — Completed results are missing or more than 30 days old; 11 recent current-season fixtures have no result yet
+- Portugal — Primeira Liga: review_required — Completed results are missing or more than 30 days old; 9 recent current-season fixtures have no result yet
 
 ## Forecasts
 
@@ -87,4 +87,4 @@ Status: review_required
 Prospective ledger: 398 registered, 134 graded, 66 pending.
 These are uncalibrated research forecasts, not recommendations.
 
-Run: 20261116T135418694487Z · data: c3f6f34738dd5558ccdc7a26d7e978feaf5d35e4ae7b31e0f893ba1a5004de1f · code: 8a6557742e41394410182c70225b8ecf173e7c569a14d248d745524ccfea122b
+Run: 20261117T144541669982Z · data: ba48896476f1d79a66cba1158f03b8d9c9e9a45994f101967d62f399be44142c · code: 8a6557742e41394410182c70225b8ecf173e7c569a14d248d745524ccfea122b

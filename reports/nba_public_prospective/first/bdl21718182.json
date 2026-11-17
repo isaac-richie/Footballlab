@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718182",
+ "date": "2026-11-24",
+ "tipoff": "2026-11-25T01:00:00Z",
+ "home": "Washington Wizards",
+ "away": "Boston Celtics",
+ "kind": "regular",
+ "registered_at": "2026-11-17T14:46:01.040832+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.16353770261194917,
+ "spread_line": 13.5,
+ "cover": 0.4932995110211746,
+ "total_line": 223.5,
+ "over": 0.48693566458348536,
+ "expected": [
+  104.64029311908182,
+  118.44701310480146
+ ],
+ "model": {
+  "moneyline": 0.16353770261194917,
+  "cover": 0.4932995110211746,
+  "over": 0.48693566458348536,
+  "expected": [
+   104.64029311908182,
+   118.44701310480146
+  ]
+ }
+}

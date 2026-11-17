@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718183",
+ "date": "2026-11-24",
+ "tipoff": "2026-11-25T03:00:00Z",
+ "home": "Denver Nuggets",
+ "away": "Dallas Mavericks",
+ "kind": "regular",
+ "registered_at": "2026-11-17T14:46:01.040832+00:00",
+ "version": "68366d6010e7",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.628802714668808,
+ "spread_line": -4.5,
+ "cover": 0.5113025919237526,
+ "total_line": 227.5,
+ "over": 0.5020336603794379,
+ "expected": [
+  116.26520881881034,
+  111.63621526498416
+ ],
+ "model": {
+  "moneyline": 0.628802714668808,
+  "cover": 0.5113025919237526,
+  "over": 0.5020336603794379,
+  "expected": [
+   116.26520881881034,
+   111.63621526498416
+  ]
+ }
+}
