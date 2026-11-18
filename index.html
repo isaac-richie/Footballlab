@@ -1590,6 +1590,74 @@ h1,h2,h3,.view-head h1,.intro h1,.sect-head h2,.ft-all-head h2,.mx-empty h3,.rec
   .mtabs{gap:18px!important;margin:14px 0!important}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* ---- How it works: a long read in the house style ---- */
+.how-link{display:inline-block;margin-top:16px;font-size:14px;font-weight:600;color:var(--text);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
+.how-link:hover{color:var(--accent)}
+.how-link.inline{margin:0 0 0 4px;font-size:inherit}
+.wl-more{font-size:14px;font-weight:600;color:var(--text);text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
+footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+.how{max-width:860px;margin:0 auto;padding:40px 0 8px}
+.how-head{padding-bottom:28px;border-bottom:1px solid var(--text)}
+.how-head h1{font-size:clamp(40px,6vw,76px)!important;line-height:.98!important;font-weight:400!important;letter-spacing:-.035em!important;margin:0 0 18px}
+.how-lede{font-size:19px;line-height:1.55;color:var(--muted);margin:0;max-width:680px}
+.how-toc{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px}
+.how-toc a{font-size:13.5px;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line-2);padding-bottom:2px}
+.how-toc a:hover{color:var(--text);border-color:var(--accent)}
+.how-sec{padding:34px 0 30px;border-bottom:1px solid var(--line-2);scroll-margin-top:110px}
+.how-sec h2{display:flex;align-items:baseline;gap:14px;margin:0 0 18px;font-size:clamp(26px,3.2vw,36px)!important;line-height:1.1!important}
+.how-sec h2 span{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:0;font-weight:500}
+.how-p{font-size:16px;line-height:1.65;color:var(--muted);margin:0 0 16px;max-width:720px}
+.how-p a,.how-safe a{color:var(--text);text-decoration-color:var(--accent);text-underline-offset:3px}
+.how-steps{list-style:none;counter-reset:hs;margin:0;padding:0}
+.how-steps li{counter-increment:hs;position:relative;padding:16px 0 16px 52px;border-top:1px solid var(--line);font-size:16px;line-height:1.65;color:var(--muted)}
+.how-steps li::before{content:counter(hs,decimal-leading-zero);position:absolute;left:0;top:21px;font-family:var(--mono);font-size:13px;color:var(--accent)}
+.how-steps li b{display:block;font-family:var(--serif);font-size:20px;font-weight:600;color:var(--text);letter-spacing:-.01em;margin-bottom:2px}
+.how-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border-top:1px solid var(--text);margin:8px 0 18px}
+.how-fig{display:flex;flex-direction:column;gap:2px;padding:16px 18px 16px 0}
+.how-fig+.how-fig{padding-left:18px;border-left:1px solid var(--line-2)}
+.how-fig b{font-family:var(--mono);font-size:clamp(34px,4.6vw,48px);font-weight:500;letter-spacing:-.04em;line-height:1;color:var(--text)}
+.how-fig:first-child b{color:var(--accent)}
+.how-fig span{font-size:14px;font-weight:600;color:var(--text);margin-top:6px}
+.how-fig small{font-size:12.5px;color:var(--faint);line-height:1.45}
+.how-vs{display:grid;gap:8px;margin:4px 0 26px;max-width:620px}
+.how-vs div{display:grid;grid-template-columns:170px minmax(0,1fr) 46px;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+.how-vs i{height:10px;background:var(--surface-3);position:relative}
+.how-vs i::after{content:'';position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--draw)}
+.how-vs div:first-child i::after{background:var(--accent)}
+.how-vs b{font-family:var(--mono);font-weight:500;color:var(--text);text-align:right}
+.how-sub{font-size:22px!important;margin:10px 0 6px}
+.how-live{margin-top:6px}
+.how-livebar{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px;margin:0 0 22px;padding:12px 14px;border:1px solid var(--line-2);border-radius:4px;font-size:14px;color:var(--muted)}
+.how-livebar i{width:8px;height:8px;background:var(--ok);flex:none;align-self:center}
+.how-livebar b{color:var(--text);font-family:var(--mono);font-weight:550}
+.how-livebar a{margin-left:auto;color:var(--text);font-weight:600;text-decoration-color:var(--accent);text-underline-offset:3px}
+.how-terms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;margin:0 0 24px}
+.how-terms div{padding:14px 0;border-top:1px solid var(--line)}
+.how-terms dt{font-family:var(--serif);font-size:18px;font-weight:600;letter-spacing:-.01em;margin-bottom:4px}
+.how-terms dd{margin:0;font-size:14.5px;line-height:1.6;color:var(--muted)}
+.how-eg{padding:20px 22px;border:1px solid var(--text);border-radius:4px;background:var(--surface)}
+.how-eg .kicker{margin-bottom:8px}
+.how-eg p{margin:0;font-family:var(--serif);font-size:19px;line-height:1.55}
+.how-eg b{font-family:var(--mono);font-weight:550;font-size:.9em;color:var(--accent)}
+.how-eg em{font-style:italic;color:var(--accent)}
+.how-limits{list-style:none;margin:0 0 18px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px}
+.how-limits li{padding:14px 0;border-top:1px solid var(--line);font-size:14.5px;line-height:1.6;color:var(--muted)}
+.how-limits b{display:block;font-family:var(--serif);font-size:18px;font-weight:600;color:var(--text);margin-bottom:4px;letter-spacing:-.01em}
+.how-safe{font-size:13px;color:var(--faint);margin:0}
+.how-cta{display:flex;flex-wrap:wrap;gap:10px;padding:30px 0 10px}
+.how-cta .wl-ok{text-decoration:none;display:inline-flex;align-items:center;border-radius:4px}
+@media (max-width:760px){
+  .how{padding-top:22px}
+  .how-lede{font-size:16.5px}
+  .how-terms,.how-limits{grid-template-columns:minmax(0,1fr)}
+  .how-fig+.how-fig{padding-left:0;border-left:0;border-top:1px solid var(--line-2)}
+  .how-vs div{grid-template-columns:110px minmax(0,1fr) 40px}
+  .how-eg p{font-size:17px}
+  .how-steps li{padding-left:38px}
+  .how-sec{scroll-margin-top:70px}
+  .how-livebar a{margin-left:0}
+}
 </style>
 </head>
 <body>
@@ -1633,13 +1701,14 @@ h1,h2,h3,.view-head h1,.intro h1,.sect-head h2,.ft-all-head h2,.mx-empty h3,.rec
         <li><b>Read the chances.</b> Each percentage is how often we expect that to happen. Tap the game for goals, scores and our plain-English read.</li>
         <li><b>Spot the value.</b> Compare our fair odds with your bookie's. If they pay more than fair, the price is in your favour.</li>
       </ol>
-      <div class="wl-foot"><a class="wl-go" href="#vip" id="welcome-vip">See today's VIP picks</a><button type="button" class="wl-ok" id="welcome-ok">Got it</button><span>Probabilities, not promises. 18+.</span></div>
+      <div class="wl-foot"><a class="wl-go" href="#vip" id="welcome-vip">See today's VIP picks</a><button type="button" class="wl-ok" id="welcome-ok">Got it</button><a class="wl-more" href="#how" id="welcome-how">How we work out the chances →</a><span>Probabilities, not promises. 18+.</span></div>
     </aside>
     <div class="intro">
       <div class="intro-copy">
         <span class="eyebrow"><i></i>Football predictions you can check</span>
         <h1>Know the chances <em>before you bet.</em></h1>
         <p class="intro-lede">Football Lab works out the chance of every result, goal line and scoreline for this week's games. Our best picks go on the record before kickoff, win or lose.</p>
+        <a class="how-link" href="#how">How we work out the chances →</a>
         <div class="hero-stats" id="ft-stats"></div>
       </div>
       <div class="intro-cards">
@@ -1754,7 +1823,7 @@ h1,h2,h3,.view-head h1,.intro h1,.sect-head h2,.ft-all-head h2,.mx-empty h3,.rec
     <div class="view-head">
       <div>
         <span class="eyebrow"><i></i>Our record</span><h1>Every pick, win or lose</h1>
-        <p>Every VIP pick is saved before kickoff and checked against the final score. Nothing is edited or deleted, so you see the losses as well as the wins.</p>
+        <p>Every VIP pick is saved before kickoff and checked against the final score. Nothing is edited or deleted, so you see the losses as well as the wins. <a class="how-link inline" href="#how/proof">How we test the model →</a></p>
       </div>
     </div>
     <div id="record"><div class="card"><div class="skel" style="height:220px"></div></div></div>
@@ -1763,6 +1832,74 @@ h1,h2,h3,.view-head h1,.intro h1,.sect-head h2,.ft-all-head h2,.mx-empty h3,.rec
     <div id="benchmark" style="margin-bottom:14px"></div>
     <div id="prospective" class="card"><div class="skel" style="height:70px"></div></div>
     <div id="evaluation" style="margin-top:14px"></div>
+  </section>
+
+  <!-- HOW IT WORKS: reached from links (welcome card, front page, record, footer), not the main nav -->
+  <section data-panel="how" hidden>
+    <article class="how">
+      <header class="how-head">
+        <span class="kicker">How it works</span>
+        <h1>How we work out the chances</h1>
+        <p class="how-lede">No pundit's hunch and no gut feeling. Football Lab turns past results and bookmaker prices into the chance of every outcome, then puts its picks on a public record so you can judge it on results.</p>
+        <nav class="how-toc" aria-label="On this page"><a href="#how/method">The method</a><a href="#how/proof">The proof</a><a href="#how/read">Reading the numbers</a><a href="#how/limits">What we can't know</a></nav>
+      </header>
+
+      <section class="how-sec" id="how-method">
+        <h2><span>01</span>From results to a percentage</h2>
+        <ol class="how-steps">
+          <li><b>Collect the data.</b> Every result for each league going back several seasons, with half-time scores where they exist, plus bookmaker prices posted before kickoff. The data is checked for bad scores and duplicates on every refresh.</li>
+          <li><b>Rate every team.</b> Each side gets an attack rating and a defence rating, learned only from games already played. Recent matches count most, so a team's rating moves as its form does.</li>
+          <li><b>Build every possible scoreline.</b> The ratings give each team's expected goals, which become a grid of every score from 0–0 upwards with its chance. Win, draw, goals, both teams to score, handicaps, half-time and combos are all read off that same grid, so they always agree with each other.</li>
+          <li><b>Start from the sharpest price.</b> Where bookmakers have posted odds, we strip out their cut and build the grid from their prices instead, because in testing they were a little sharper than our model alone. Where there are no prices, the model stands on its own.</li>
+        </ol>
+      </section>
+
+      <section class="how-sec" id="how-proof">
+        <h2><span>02</span>The proof</h2>
+        <p class="how-p">We test the model the hard way: it predicts games it has never seen, using only what was known before kickoff, and we count how often it was right.</p>
+        <div class="how-figs" id="how-figs">
+          <div class="how-fig"><b>52.0%</b><span>of results called right</span><small>3,330 matches in 8 leagues, seasons 2025-27, held back from tuning the model</small></div>
+          <div class="how-fig"><b>33%</b><span>a random pick</span><small>Choosing home, draw or away at random, for comparison</small></div>
+        </div>
+        <div class="how-vs" aria-hidden="true"><div><span>Our most likely result</span><i style="--w:52%"></i><b>52%</b></div><div><span>Random pick</span><i style="--w:33.3%"></i><b>33%</b></div></div>
+        <div class="how-live" id="how-live"><p class="note">Loading the latest record…</p></div>
+        <p class="how-p">Being right more often is only half of it. The other half is being honest about how sure we are: when we say 70%, it should happen about 7 times in 10, not 9. That is what <a href="#performance">our record</a> tracks, losses included.</p>
+      </section>
+
+      <section class="how-sec" id="how-read">
+        <h2><span>03</span>Reading the numbers</h2>
+        <dl class="how-terms">
+          <div><dt>A percentage</dt><dd>How often we expect it to happen. 60% means about 6 times in 10, so it also fails about 4 times in 10.</dd></div>
+          <div><dt>Fair odds</dt><dd>The price that matches our chance with no bookmaker cut: 1 divided by the chance. 50% is fair odds of 2.00; 25% is 4.00.</dd></div>
+          <div><dt>Value</dt><dd>When your bookie pays more than our fair odds, the price is in your favour. It is still not a sure thing; it means the bet is priced better than its chance.</dd></div>
+          <div><dt>Over 2.5 goals</dt><dd>Three or more goals in the match. Under 2.5 is two or fewer.</dd></div>
+          <div><dt>Both teams score</dt><dd>Each side scores at least once, whatever the result.</dd></div>
+          <div><dt>Expected goals</dt><dd>The average number of goals a team would score if the game were played many times. Not shot-based xG.</dd></div>
+        </dl>
+        <div class="how-eg">
+          <span class="kicker">Worked example</span>
+          <p>We give Chelsea a <b>50%</b> chance to win, so their fair odds are <b>2.00</b>. Your bookie offers <b>2.20</b>. That price pays out as if Chelsea win about 45% of the time, below our 50%, so it is <em>value</em>. At <b>1.80</b> it would not be.</p>
+        </div>
+      </section>
+
+      <section class="how-sec" id="how-limits">
+        <h2><span>04</span>What we can't know</h2>
+        <ul class="how-limits">
+          <li><b>Team news.</b> We don't see lineups, injuries, suspensions or rotation. If a star is out, the bookie's price will move before ours does.</li>
+          <li><b>Every pick can lose.</b> An 80% pick still loses about 1 time in 5. Combining picks in one bet multiplies those risks.</li>
+          <li><b>Bookies are sharp.</b> In testing, their prices were slightly more accurate than our model alone, which is why we start from them. Beating them over time is hard.</li>
+          <li><b>The past isn't a promise.</b> Every figure here comes from games already played. Leagues change, and so can how well the model does.</li>
+        </ul>
+        <p class="how-safe">18+ only. Bet only what you can afford to lose. Free, confidential help: <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware</a>.</p>
+      </section>
+
+      <section class="how-sec how-src">
+        <h2><span>05</span>Where the data comes from</h2>
+        <p class="how-p">Football results from <a href="https://github.com/openfootball/football.json" target="_blank" rel="noopener">OpenFootball</a> (CC0) and <a href="https://www.openligadb.de/" target="_blank" rel="noopener">OpenLigaDB</a> (ODbL), with Saudi Pro League results from TheSportsDB. Historical bookmaker prices from football-data.co.uk and, where configured, live prices from The Odds API. NBA scores, schedules and lines from public scoreboard feeds. Every refresh is validated before it replaces older data.</p>
+      </section>
+
+      <footer class="how-cta"><a class="wl-go" href="#vip">See today's VIP picks</a><a class="wl-ok" href="#performance">Check our record</a><a class="wl-ok" href="#fixtures">Browse all games</a></footer>
+    </article>
   </section>
 
   <!-- BASKETBALL: PICKS -->
@@ -1842,6 +1979,7 @@ h1,h2,h3,.view-head h1,.intro h1,.sect-head h2,.ft-all-head h2,.mx-empty h3,.rec
     <span class="fb-only">Data: <a href="https://github.com/openfootball/football.json">OpenFootball (CC0)</a> · <a href="https://www.openligadb.de/">OpenLigaDB (ODbL)</a></span>
     <span class="bk-only" id="nba-foot1">NBA forecasts from past results. No injuries or lineups. Probabilities are not guarantees.</span>
     <span class="bk-only" id="nba-foot2"></span>
+    <a class="foot-how" href="#how">How it works</a>
   </footer>
 </div>
 
@@ -1924,7 +2062,7 @@ window.addEventListener('resize', moveInk);
   const w = $('#welcome'); if(!w) return;
   if(store.get('fl-welcome') !== 'done') w.hidden = false;
   const done = () => { w.hidden = true; store.set('fl-welcome', 'done') };
-  $('#welcome-x').onclick = done; $('#welcome-ok').onclick = done; $('#welcome-vip').addEventListener('click', done);
+  $('#welcome-x').onclick = done; $('#welcome-ok').onclick = done; $('#welcome-vip').addEventListener('click', done); $('#welcome-how').addEventListener('click', done);
 })();
 
 /* ---------- Theme ---------- */
@@ -1939,6 +2077,16 @@ $('#theme').onclick = () => {
 function showView(){
   { const v = (location.hash || '#featured').slice(1) || 'featured'; $('#leagues').hidden = $('#strip').hidden = v === 'featured' || v === 'vip' || $('#strip').classList.contains('empty'); }
   const v = (location.hash || '#featured').slice(1).split('/')[0];
+  // How it works: one page for both sports, reached from links rather than the nav.
+  if(v === 'how'){
+    $('#leagues').hidden = $('#strip').hidden = true;
+    $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== 'how');
+    $$('.nav a, .tabbar a').forEach(a => a.removeAttribute('aria-current'));
+    loadHow();
+    const sub = location.hash.split('/')[1], target = sub && document.getElementById('how-' + sub);
+    requestAnimationFrame(() => target ? target.scrollIntoView({block: 'start'}) : scrollTo(0, 0));
+    return;
+  }
   if(document.body.dataset.sport === 'basketball'){
     // Basketball has its own board and match panels; every other view falls back to the board.
     const bview = ['match', 'featured', 'performance'].includes(v) ? v : 'fixtures';
@@ -2593,6 +2741,24 @@ async function loadSetup(d){
 state.ftPeriod = 'week';
 // One fetch of the record, shared by the home ticker and the VIP page.
 function getRecord(){ return state.recordReq || (state.recordReq = api('/api/record').catch(e => { state.recordReq = null; throw e })) }
+// How it works: the live part of "The proof", from the same record the Record page uses.
+async function loadHow(){
+  if(state.howLoaded) return; state.howLoaded = true;
+  const el = $('#how-live');
+  let d; try{ d = await getRecord() }catch(e){ state.howLoaded = false; el.innerHTML = `<p class="note">The latest record is unavailable right now. <a href="#performance">Try the Record page</a>.</p>`; return }
+  const o = d.overall || {}, v = d.vip || {}, s = (d.vip_ledger || {}).summary || {}, pc = x => x == null ? '–' : (x * 100).toFixed(1) + '%';
+  const weeks = d.window_days ? Math.round(d.window_days / 7) : 6;
+  const live = s.settled ? `<b>${s.won} of ${s.settled}</b> VIP picks won since we started saving them before kickoff (${pc(s.won / s.settled)}).`
+    : s.picks ? `<b>${s.picks}</b> VIP pick${s.picks === 1 ? '' : 's'} saved before kickoff so far; results are added as games finish.` : '';
+  el.innerHTML = `<h3 class="how-sub">The last ${weeks} weeks, replayed</h3>
+    <p class="how-p">Every finished game re-forecast as of the day before kickoff, using only what was known then.</p>
+    <div class="how-figs">
+      ${o.games ? `<div class="how-fig"><b>${pc(o.pick_hit_rate)}</b><span>results called right</span><small>${o.games.toLocaleString()} games</small></div>` : ''}
+      ${o.confident_games ? `<div class="how-fig"><b>${pc(o.confident_hit_rate)}</b><span>when we were 60%+ sure</span><small>${o.confident_games.toLocaleString()} games</small></div>` : ''}
+      ${v.picks ? `<div class="how-fig"><b>${pc(v.hit_rate)}</b><span>VIP-style picks won</span><small>${v.won} of ${v.picks} picks, rated ${pc(v.average_confidence)} on average</small></div>` : ''}
+    </div>
+    ${live ? `<p class="how-livebar"><i></i>${live} <a href="#performance">See every pick</a></p>` : ''}`;
+}
 // VIP page: how the VIP picks have actually done, above today's slip.
 async function loadVipWinRate(){
   let d; try{ d = await getRecord() }catch{ return }
@@ -3117,7 +3283,7 @@ function setSport(sport, initial){
   document.body.dataset.sport = sport; store.set('fl-sport', sport);
   $$('#sport button').forEach(b => b.setAttribute('aria-pressed', b.dataset.sport === sport));
   const v = (location.hash || '').slice(1).split('/')[0];
-  if(sport === 'basketball' && !['fixtures', 'match', 'featured', 'performance'].includes(v)) history.replaceState(null, '', '#featured');
+  if(sport === 'basketball' && !['fixtures', 'match', 'featured', 'performance', 'how'].includes(v)) history.replaceState(null, '', '#featured');
   if(sport === 'football' && state.data && typeof renderStrip === 'function') renderStrip(state.data);
   if(sport === 'basketball' && nb.slate) nbFresh();
   if(sport === 'basketball' && !initial && typeof nbLivePoll === 'function') nbLivePoll();
