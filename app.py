@@ -22,6 +22,7 @@ import live_odds
 import schedule
 import saudi
 import market_ratings
+import nba_vip
 from stats import import_csv, load as load_stats, market_rates, own_count_rates, poisson_over
 from decision import assess
 from jev_reviewer import review as jev_review
@@ -863,7 +864,26 @@ def football_schedule(data, days=2):
     return schedule
 
 
-def vip_ticket(data, n=17, live_scores=None):
+def _nba_ticket_legs(today):
+    """Today's saved NBA VIP picks with live state. The local Lab saves and grades them on demand;
+    the hosted site only reads what the morning job saved (its disk is read-only)."""
+    try:
+        import nba_app
+        public = nba_app.public()
+        if not public:
+            nba_vip.run(public=False)
+        try:
+            import nba_live
+            live = nba_live.live().get('games', {})
+        except Exception:
+            live = {}
+        return nba_vip.ticket_legs(public, today, live, totals=[])
+    except Exception as exc:                                # NBA is an extra: never break the football ticket
+        log.warning('NBA VIP picks unavailable: %s', exc)
+        return [], False
+
+
+def vip_ticket(data, n=17, live_scores=None, nba_legs=None):
     """Today's VIP slip as a live ticket: the picks as saved before kickoff, each with its state.
 
     States: scheduled, live (score and minute), won or lost (final score; provisional until the
@@ -900,14 +920,20 @@ def vip_ticket(data, n=17, live_scores=None):
             lv = live_scores.get('|'.join((p['date'], p['home'], p['away'])))
             if lv and lv['status'] == 'live':
                 row.update(status='live', score=lv['score'], clock=lv['clock'])
+                nba_vip.settle_in_play(row, lv['score'])     # an Over 1.5 is won at the second goal
             elif lv and lv['status'] == 'final':
                 row.update(status='won' if record.leg_won(p, lv['score']) else 'lost', score=lv['score'], clock='FT', provisional=True)
             else:
                 row['status'] = 'scheduled'
-        rows.append(row)
+        rows.append(dict(row, sport='football'))
+    if nba_legs is None:
+        nba_legs, nba_saved = _nba_ticket_legs(today)
+    else:
+        nba_saved = True
+    rows = sorted(rows + nba_legs, key=lambda r: (r['date'], r.get('kickoff') or ''))
     count = lambda s: sum(r['status'] == s for r in rows)
     combined = math.prod(r['probability'] for r in rows) if rows else 0
-    return dict(date=today, **saved, legs=rows,
+    return dict(date=today, **saved, nba_saved=nba_saved, legs=rows,
                 summary=dict(picks=len(rows), won=count('won'), lost=count('lost'), live=count('live'),
                              scheduled=count('scheduled'), void=count('void')),
                 combined_probability=combined, combined_fair_odds=(1 / combined) if combined else None,
@@ -1195,6 +1221,7 @@ if __name__ == '__main__':
         print(json.dumps(dict(logos=badges.fetch_nba())))
         import nba_ledger
         print(json.dumps(dict(ledger=nba_ledger.run())))
+        print(json.dumps(dict(vip=nba_vip.run())))        # save today's NBA VIP picks, grade earlier ones
     elif args.command == 'fetch-saudi':
         print(json.dumps(saudi.fetch()))
     elif args.command == 'fetch-badges':

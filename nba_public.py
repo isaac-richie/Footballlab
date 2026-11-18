@@ -156,3 +156,5 @@ if __name__ == '__main__':
     print(json.dumps(dict(board=nba_app.save_board())))
     import nba_ledger
     print(json.dumps(dict(ledger=nba_ledger.run(public=True))))
+    import nba_vip
+    print(json.dumps(dict(vip=nba_vip.run(public=True))))   # save today's NBA VIP picks, grade earlier ones
