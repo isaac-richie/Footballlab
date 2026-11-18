@@ -61,25 +61,51 @@ def register(report, directory=REGISTRY):
     return created
 
 
+RESCHEDULE_DAYS = 45
+
+
+def find_match(fixture, matches, by_pair):
+    """The source match for a registered fixture: same date, else the same home/away pairing
+    in that league moved by at most RESCHEDULE_DAYS (a pairing happens once a season)."""
+    match = matches.get(fixture_id(fixture))
+    if match is not None:
+        return match
+    day = dt.date.fromisoformat(fixture['date'])
+    near = [m for m in by_pair.get((fixture['league_id'], fixture['home'], fixture['away']), [])
+            if abs((dt.date.fromisoformat(m['date']) - day).days) <= RESCHEDULE_DAYS]
+    return near[0] if len(near) == 1 else None
+
+
 def grade(data, directory=REGISTRY, today=None):
-    """Recompute grades; result corrections can change grades, never forecasts."""
+    """Recompute grades; result corrections can change grades, never forecasts.
+
+    A fixture moved to another date is graded on its new date, but only if the forecast was
+    still registered at least a calendar day before the date it was actually played."""
     today = today or dt.date.today().isoformat()
     directory = Path(directory)
     matches = {fixture_id(m): m for m in data['matches']}
+    by_pair = {}
+    for m in data['matches']:
+        by_pair.setdefault((m['league_id'], m['home'], m['away']), []).append(m)
     rows = []
     paths = [(path, 'first') for path in sorted(directory.glob('*.json'))]
     paths += [(path, 'eligible') for path in sorted((directory / 'eligible').glob('*.json'))]
     for path, cohort in paths:
         record = json.loads(path.read_text())
         fixture = record['fixture']
-        match = matches.get(fixture_id(fixture))
+        match = find_match(fixture, matches, by_pair)
+        played = match['date'] if match is not None else fixture['date']
         status = 'pending'
         result = None
-        if fixture['date'] < today:
+        if match is not None and record['registered_at'][:10] >= played:
+            status = 'void'          # moved earlier, to or before the day it was registered
+        elif played < today:
             status = 'missing_result' if match is None or match['goals'] is None else 'graded'
         row = {'fixture': fixture, 'cohort': cohort, 'registered_at': record['registered_at'],
                'run_id': record['run_id'], 'status': status,
                'readiness': record['readiness']['status']}
+        if played != fixture['date']:
+            row['played_on'] = played
         if status == 'graded':
             h, a = match['goals']
             outcome = 0 if h > a else 1 if h == a else 2
@@ -106,12 +132,13 @@ def grade(data, directory=REGISTRY, today=None):
             'data_hash': digest(data), 'registered': len(first),
             'pending': sum(row['status'] == 'pending' for row in first),
             'missing_result': sum(row['status'] == 'missing_result' for row in first),
+            'void': sum(row['status'] == 'void' for row in first),
             'overall': summary(graded), 'eligible_registered': len(eligible),
             'eligible_pending': sum(row['status'] == 'pending' for row in eligible),
             'eligible_overall': summary(eligible_graded),
             'by_league': {league: summary([r for r in graded if r['fixture']['league_id'] == league])
                           for league in leagues}, 'fixtures': rows,
-            'method': 'First forecast and first research-only forecast are frozen separately. Registration requires a calendar day before fixture date. Grades use current source results and may change if that source is corrected.'}
+            'method': 'First forecast and first research-only forecast are frozen separately. Registration requires a calendar day before fixture date; a fixture moved to another date is graded on the date it was played and void if that was not after registration. Grades use current source results and may change if that source is corrected.'}
 
 
 if __name__ == '__main__':

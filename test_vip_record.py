@@ -71,6 +71,18 @@ class VipRecordTest(unittest.TestCase):
         self.run_day(dict(matches=[match('2026-11-09', 'A', 'B', [0, 1]), match('2026-11-15', 'X', 'Y', [1, 0])]), slip(), today=later)
         self.assertEqual(record.vip_ledger()['days'][0]['picks'][0]['status'], 'lost')
 
+    def test_rescheduled_game_is_graded_on_its_new_date(self):
+        self.run_day(dict(matches=[]), slip(('2026-11-09', 'A', 'B', '1x2', 'A win', .75)))
+        later = TODAY + dt.timedelta(days=12)
+        self.run_day(dict(matches=[match('2026-11-10', 'A', 'B', [2, 0]), match('2026-11-15', 'X', 'Y', [1, 0])]), slip(), today=later)
+        self.assertEqual(record.vip_ledger()['days'][0]['picks'][0]['status'], 'won')
+
+    def test_game_moved_earlier_is_not_graded(self):
+        self.run_day(dict(matches=[]), slip(('2026-11-09', 'A', 'B', '1x2', 'A win', .75)))
+        later = TODAY + dt.timedelta(days=12)
+        self.run_day(dict(matches=[match('2026-11-07', 'A', 'B', [2, 0]), match('2026-11-15', 'X', 'Y', [1, 0])]), slip(), today=later)
+        self.assertEqual(record.vip_ledger()['days'][0]['picks'][0]['status'], 'void')
+
     def test_streak_and_perfect_slip(self):
         legs = slip(('2026-11-09', 'A', 'B', 'dc', 'A or draw', .8), ('2026-11-09', 'C', 'D', 'ou15', 'Over 1.5', .8))
         self.run_day(dict(matches=[match('2026-11-09', 'A', 'B', [1, 1]), match('2026-11-09', 'C', 'D', [3, 1])]), legs)
