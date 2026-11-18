@@ -92,7 +92,7 @@ class VipTicketTests(unittest.TestCase):
         live = {f'{today}|C|C B': dict(status='live', score=[1, 0], clock="55'"),
                 f'{today}|D|D B': dict(status='final', score=[0, 0], clock='FT')}
         with patch.object(record, 'vip_ledger', return_value=dict(days=[day])):
-            t = app.vip_ticket(dict(matches=[]), 17, live_scores=live)
+            t = app.vip_ticket(dict(matches=[]), 17, live_scores=live, nba_legs=[])
         by = {l['home']: l for l in t['legs']}
         self.assertTrue(t['saved'])
         self.assertEqual(by['A']['status'], 'won')                     # graded pick stays, with its score

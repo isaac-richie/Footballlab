@@ -1961,7 +1961,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       <div class="vb-copy">
         <span class="vb-kicker">VIP picks</span>
         <h1>Our strongest calls</h1>
-        <p>Games where goals look most likely in the Premier League, La Liga and Bundesliga over the next three days. We only pick <b>Over 2.5 goals</b> when we rate it 65% or better, otherwise <b>Over 1.5 goals</b> at 78% or better.</p>
+        <p>Games where goals look most likely in the Premier League, La Liga and Bundesliga over the next three days. We only pick <b>Over 2.5 goals</b> when we rate it 65% or better, otherwise <b>Over 1.5 goals</b> at 78% or better. Plus our three strongest <b>NBA total-points</b> calls each day.</p>
         <div class="hero-stats vb-stats" id="vip-stats"></div>
       </div>
       <a class="vwr card" id="vip-wr" href="#performance" hidden></a>
@@ -3139,6 +3139,7 @@ $('#ft-grid').addEventListener('click', async e => {
 state.vipN = 17;
 // Bookie wording for each pick, so SportyClaw or any bookie can read it.
 function bookieText(l){
+  if(l.sport === 'nba') return l.selection;
   const h = l.home, a = l.away;
   if(l.market === '1x2') return l.selection === 'Draw' ? 'Draw (X)' : l.selection.startsWith(h) ? `${h} to win (1)` : `${a} to win (2)`;
   if(l.market === 'dc') return l.selection === `${h} or draw` ? `${h} or draw (1X)` : l.selection === `${a} or draw` ? `${a} or draw (X2)` : `${h} or ${a} (12)`;
@@ -3148,10 +3149,10 @@ function bookieText(l){
 // The VIP ticket: today's slip as saved before kickoff, each pick moving from kickoff time to the
 // live score to won or lost. Refreshes quietly every minute while any of today's games can change.
 const VIP_STATE = {
-  scheduled: l => `<span class="vl-st sch">Not started${l.kickoff ? ' · kicks off ' + esc(koTime(l.kickoff)) : ''}</span>`,
-  live: l => `<span class="vl-st live"><i></i>Live ${esc(l.clock || '')} · ${l.score ? l.score.join('–') : '0–0'}</span>`,
-  won: l => `<span class="vl-st won">✓ Won · ${l.score ? l.score.join('–') : ''}${l.provisional ? ' <em>confirming</em>' : ''}</span>`,
-  lost: l => `<span class="vl-st lost">✗ Lost · ${l.score ? l.score.join('–') : ''}${l.provisional ? ' <em>confirming</em>' : ''}</span>`,
+  scheduled: l => `<span class="vl-st sch">Not started${l.kickoff ? ` · ${l.sport === 'nba' ? 'tips off' : 'kicks off'} ` + esc(koTime(l.kickoff)) : ''}</span>`,
+  live: l => `<span class="vl-st live"><i></i>Live ${esc(l.clock || '')} · ${l.score ? l.score.join('–') : '0–0'}${l.needs > 0 ? ` <em>${l.needs} more ${l.sport === 'nba' ? 'point' : 'goal'}${l.needs === 1 ? '' : 's'} needed</em>` : ''}</span>`,
+  won: l => `<span class="vl-st won">✓ Won · ${l.score ? l.score.join('–') : ''}${l.in_play ? ` <em>won in play · ${esc(l.clock || '')}</em>` : l.provisional ? ' <em>confirming</em>' : ''}</span>`,
+  lost: l => `<span class="vl-st lost">✗ Lost · ${l.score ? l.score.join('–') : ''}${l.in_play ? ` <em>decided in play · ${esc(l.clock || '')}</em>` : l.provisional ? ' <em>confirming</em>' : ''}</span>`,
   void: () => '<span class="vl-st void">Void · not played</span>'};
 const VIP_MARK = {won: '✓', lost: '✗', live: '<i></i>'};
 async function loadVip(quiet){
@@ -3177,11 +3178,12 @@ async function loadVip(quiet){
     $('#vip-all').hidden = !legs.some(l => l.status === 'scheduled');
     // One card per pick: club colours, crests with form, the pick, its chance and where it stands now.
     $('#vip-legs').innerHTML = legs.map((l, i) => { const f = l.last5 || [], open = l.status === 'scheduled';
-      return `<article class="vl vlx is-${l.status}" style="${clubVars(l.home, l.away)};--i:${quiet ? 0 : i}${quiet ? ';animation:none' : ''}">
+      const nba = l.sport === 'nba', badge = n => nba ? jersey(n) : crest(n, true);
+      return `<article class="vl vlx is-${l.status}${nba ? ' nba' : ''}" style="${nba ? clubVars(l.home, l.away, nbaPair) : clubVars(l.home, l.away)};--i:${quiet ? 0 : i}${quiet ? ';animation:none' : ''}">
       <div class="vl-n${VIP_MARK[l.status] ? ' mk' : ''}">${VIP_MARK[l.status] || String(i + 1).padStart(2, '0')}</div>
       <div class="vl-main"><div class="vl-meta">${esc(l.league)} · ${esc(day(l.date))}${l.kickoff ? ' · ' + esc(koTime(l.kickoff)) : ''}</div>
-        <div class="vl-teams"><span class="vl-team">${crest(l.home, true)}<b>${esc(l.home)}</b>${formChips(f[0])}</span><span class="vl-team">${crest(l.away, true)}<b>${esc(l.away)}</b>${formChips(f[1])}</span></div></div>
-      <div class="vl-call"><small>Our pick</small><strong>${esc(bookieText(l))}</strong>${(VIP_STATE[l.status] || VIP_STATE.scheduled)(l)}</div>
+        <div class="vl-teams"><span class="vl-team">${badge(l.home)}<b>${esc(l.home)}</b>${formChips(f[0])}</span><span class="vl-team">${badge(l.away)}<b>${esc(l.away)}</b>${formChips(f[1])}</span></div></div>
+      <div class="vl-call"><small>Our pick${nba ? ' · total points' : ''}</small><strong>${esc(bookieText(l))}</strong>${(VIP_STATE[l.status] || VIP_STATE.scheduled)(l)}</div>
       <div class="vl-p"><b>${Math.round(l.probability * 100)}<i>%</i></b><small>chance · fair ${l.fair_odds.toFixed(2)}</small></div>
       ${open ? `<button type="button" class="vl-add${state.slip.some(x => x.key === vipKey(l)) ? ' on' : ''}" data-vip="${i}" aria-label="Add ${esc(l.home)} v ${esc(l.away)} to the slip">+</button>` : '<span class="vl-add-off" aria-hidden="true"></span>'}
     </article>` }).join('');
@@ -3194,7 +3196,7 @@ setInterval(() => {
   if(d.legs.some(l => l.status === 'live' || (l.status === 'scheduled' && l.date <= today))) loadVip(true);
 }, 60000);
 const vipKey = l => `vip|${l.date}|${l.home}|${l.away}`;
-const vipItem = l => ({key: vipKey(l), home: l.home, away: l.away, date: l.date, legs: [bookieText(l)], p: l.probability, source: l.source || 'model'});
+const vipItem = l => ({key: vipKey(l), home: l.home, away: l.away, date: l.date, legs: [bookieText(l)], p: l.probability, source: l.source || 'model', ...(l.sport === 'nba' ? {sport: 'nba'} : {})});
 $('#vip-legs').addEventListener('click', e => {
   const b = e.target.closest('[data-vip]'); if(!b || !state.vip) return;
   slipAdd(vipItem(state.vip.legs[+b.dataset.vip])); b.classList.add('on');
