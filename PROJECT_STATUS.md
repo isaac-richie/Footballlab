@@ -75,7 +75,7 @@ python3 agent.py --days 7
 Updated: 15 November 2026. Open work is listed in `NBA_TODO.md`; the method is in the README under "Basketball (NBA)".
 
 - A Football / Basketball switch opens NBA Fixtures (next seven days) and Match views on the local Lab. `nba.py` reads results, quarter scores and one sportsbook's lines from ESPN's public feeds; `nba_model.py` fits team ratings and builds one final-score grid per game; `nba_app.py` serves the board and match pages.
-- The data file (`nba_data.json`) is never committed because the feeds have no published reuse terms. The local server downloads it by itself when it is missing. Basketball is not on the hosted site.
+- The data file (`nba_data.json`) is never committed because the feeds have no published reuse terms. The local server downloads it by itself when it is missing. The hosted site runs on balldontlie instead (see `NBA_TODO.md`).
 - Ratings now learn mostly from past closing lines (70%) and partly from scores. Walk-forward on the 2025-26 hold-out the ratings alone miss the margin by 14.4 points against 14.1 for the closing line. They do not beat the line against the spread or total, so posted lines price the game and the ratings fill in where no line exists yet.
 - Line-priced probabilities are well calibrated on 2025-26 and on 2026-27 to date (70%+ spread picks said 75.5%, won 75.4%).
 - All NBA accuracy is backtested. There is no forward ledger for NBA yet; that is the next piece of work.
