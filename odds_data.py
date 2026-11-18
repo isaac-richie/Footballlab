@@ -19,7 +19,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 from urllib.request import Request, urlopen
 
-from quality import atomic_write
+from quality import atomic_write, canonical_team
 
 ROOT = Path(__file__).resolve().parent
 MARKET = ROOT / 'market_data.json'
@@ -243,6 +243,8 @@ def index(market, matches=None):
     for r in market['records']:
         if not (r.get('home') and r.get('away')):
             continue
+        # Names were mapped when the file was built; aliases added since then still apply.
+        r['home'], r['away'] = canonical_team(r['league_id'], r['home']), canonical_team(r['league_id'], r['away'])
         date = r['date']
         dates = by_pair.get((r['league_id'], r['home'], r['away']))
         if dates:

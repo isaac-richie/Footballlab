@@ -50,8 +50,22 @@ TEAM_ALIASES = {
 }
 
 
+# Clubs that change division arrive from different feeds with different spellings
+# (OpenFootball vs OpenLigaDB, or a feed's own renames), so these apply in every league.
+# Checked 18 Nov 2026: each pair never appears in the same season, and the 2026-27 league
+# line-ups match the official promotions and relegations. Map to the current spelling.
+CROSS_LEAGUE_ALIASES = {
+    'FC St. Pauli 1910': 'FC St. Pauli',               # 2024-26 Bundesliga vs 2021-24, 2026-27 2. Bundesliga
+    'VfL Bochum 1848': 'VfL Bochum',                   # 2021-25 Bundesliga vs 2025-27 2. Bundesliga
+    'SpVgg Greuther Fürth 1903': 'SpVgg Greuther Fürth',
+    'Sassuolo Calcio': 'US Sassuolo Calcio',           # 2024-25 only (Serie B season)
+    'Pisa SC': 'AC Pisa 1909',
+}
+
+
 def canonical_team(league_id, name):
-    return TEAM_ALIASES.get(league_id, {}).get(name, name)
+    name = TEAM_ALIASES.get(league_id, {}).get(name, name)
+    return CROSS_LEAGUE_ALIASES.get(name, name)
 
 
 def canonicalize(matches):
