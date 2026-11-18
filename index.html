@@ -6,6 +6,14 @@
 <title>Football Lab · Know the chances before you bet</title>
 <meta name="description" content="Win, goal and scoreline chances for every upcoming game, VIP picks posted before kickoff, and a public record of every result.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%2315130F'/%3E%3Cpath d='M12 3a9 9 0 0 0 0 18z' fill='%23E8462B'/%3E%3Ccircle cx='12' cy='12' r='9' fill='none' stroke='%23F4EFE6' stroke-width='1.6'/%3E%3Cpath d='M12 3v18' stroke='%23F4EFE6' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F4EFE6" media="(prefers-color-scheme: light)">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Football Lab">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter:wght@400..700&family=JetBrains+Mono:wght@400..700&display=swap">
 <style>
@@ -1658,6 +1666,41 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   .how-sec{scroll-margin-top:70px}
   .how-livebar a{margin-left:0}
 }
+
+/* ---- Loading placeholders shaped like the finished header ---- */
+.sk-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.sk-row .skel{height:44px}
+.sk-kpis{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:18px}
+.sk-verdict{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px}
+.mh.sk .mh-lg{min-width:56px}
+.skel{border-radius:0!important}
+
+/* ---- Phone polish (Nov 2026) ---- */
+.top{padding-top:env(safe-area-inset-top)}
+@media (max-width:760px){
+  .sk-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sk-verdict{grid-template-columns:minmax(0,1fr)}
+  /* Music: a small disc above the tab bar, not a pill over the content */
+  .mx{left:12px!important;bottom:calc(80px + env(safe-area-inset-bottom))!important}
+  .mx-pill{padding:3px!important;gap:0!important;max-width:none!important}
+  .mx-pill .mx-txt,.mx-pill .mx-list-ic,.mx-pill .mx-eq,.mx-dock .mx-skip,.mx-hint{display:none!important}
+  /* The slip sits above the tab bar too, instead of hiding under it */
+  .slip-fab{right:12px!important;bottom:calc(80px + env(safe-area-inset-bottom))!important;padding:12px 16px!important}
+  /* Tap targets sized for thumbs */
+  .chip,.ft-filter button{min-height:40px}
+  .seg button{min-height:38px}
+  .mtabs button{min-height:44px}
+  .icon-btn{width:40px!important;height:40px!important}
+  .sport button{min-height:36px}
+  .fc-go,.primary,.wl-go,.wl-ok,.mh-change{min-height:44px}
+  .mtabs{top:calc(56px + env(safe-area-inset-top))!important}
+  /* Stats rows: even columns instead of a ragged wrap */
+  .hero-stats{display:grid!important;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr)}
+  .hero-stats span{display:flex!important;flex-direction:column;align-items:flex-start!important;gap:0!important;padding:2px 12px!important}
+  .hero-stats span:first-child{padding-left:0!important}
+  /* 16px inputs so iOS doesn't zoom the page on focus */
+  input,select,textarea{font-size:16px!important}
+}
 </style>
 </head>
 <body>
@@ -2066,12 +2109,20 @@ window.addEventListener('resize', moveInk);
 })();
 
 /* ---------- Theme ---------- */
-function applyTheme(t){ if(t) document.documentElement.dataset.theme = t; else delete document.documentElement.dataset.theme }
+function applyTheme(t){
+  if(t) document.documentElement.dataset.theme = t; else delete document.documentElement.dataset.theme;
+  // A chosen theme overrides the system one, so the phone's status bar follows it too.
+  if(t) $$('meta[name="theme-color"]').forEach(m => m.content = t === 'light' ? '#F4EFE6' : '#141210');
+}
 applyTheme(store.get('fl-theme'));
 $('#theme').onclick = () => {
   const dark = getComputedStyle(document.documentElement).colorScheme.includes('dark');
   const next = dark ? 'light' : 'dark'; applyTheme(next); store.set('fl-theme', next);
 };
+
+/* ---------- Installable app: register the service worker (served pages only) ---------- */
+if('serviceWorker' in navigator && /^https?:$/.test(location.protocol))
+  addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
 
 /* ---------- Views ---------- */
 function showView(){
@@ -2292,11 +2343,19 @@ $('#board-body').onclick = e => {
   });
   analyse(true);
 };
+// Loading state shaped like the finished header (top bar, teams, bar, Our read, stats) so nothing jumps.
+function skelBody(){
+  return `<div class="skel" style="height:12px"></div>
+    <div class="sk-row"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
+    <div class="verdict sk-verdict"><div><div class="skel" style="height:11px;width:90px"></div><div class="skel" style="height:15px;margin-top:12px"></div><div class="skel" style="height:15px;margin-top:8px"></div><div class="skel" style="height:15px;margin-top:8px;width:70%"></div></div>
+      <div><div class="skel" style="height:44px"></div><div class="skel" style="height:44px;margin-top:8px"></div><div class="skel" style="height:44px;margin-top:8px"></div></div></div>
+    <div class="sk-row sk-kpis"><div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>`;
+}
 function heroSkeleton(home, away){
-  return `<div class="card hero"><div class="hero-top"><span>Pricing the match…</span></div><div class="versus" style="--vt:match-head">
-    <div class="side"><small>Home</small><div class="who">${crest(home)}<strong>${esc(home)}</strong></div></div><div class="mid"><div class="skel" style="width:60px;height:30px;margin:auto"></div></div>
+  return `<div class="card hero mh sk" aria-busy="true"><div class="mh-top"><div class="mh-meta"><span class="mh-lg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>Working out the chances…</span></div></div><div class="versus" style="--vt:match-head">
+    <div class="side"><small>Home</small><div class="who">${crest(home)}<strong>${esc(home)}</strong></div></div><div class="mid"><div class="skel" style="width:84px;height:44px;margin:auto"></div></div>
     <div class="side away"><small>Away</small><div class="who">${crest(away)}<strong>${esc(away)}</strong></div></div></div>
-    <div class="skel" style="height:12px"></div><div class="skel" style="height:60px;margin-top:22px"></div></div>`;
+    ${skelBody()}</div>`;
 }
 
 /* ---------- Match ---------- */
@@ -2766,7 +2825,7 @@ async function loadVipWinRate(){
   if(!x || !x.summary || !x.summary.picks) return;
   const s = x.summary, pc = v => Math.round(v * 100) + '%';
   if(!s.settled){
-    el.innerHTML = `<div class="vwr-main" style="grid-column:1/3"><small>VIP win rate</small><strong>Tracking started</strong><span>${s.picks} picks saved before kickoff, waiting for results. Every pick is graded here as games finish.</span></div><span class="vwr-go">Full record →</span>`;
+    el.innerHTML = `<div class="vwr-main" style="grid-column:1/3"><small>VIP win rate</small><strong>Tracking started</strong><span>${s.picks} pick${s.picks === 1 ? '' : 's'} saved before kickoff, waiting for results. Every pick is graded here as games finish.</span></div><span class="vwr-go">Full record →</span>`;
     el.hidden = false; return;
   }
   const settled = x.days.flatMap(day => day.picks).filter(p => p.status === 'won' || p.status === 'lost')
@@ -3496,7 +3555,7 @@ async function analyseNba(){
   if($('#nba-spread').value) q.set('spread', $('#nba-spread').value);
   if($('#nba-total').value) q.set('total', $('#nba-total').value);
   matchMode(true, 'b-match');
-  out.innerHTML = `<div class="card hero"><div class="hero-top"><span>Pricing the game…</span></div><div class="bk-vs"><div class="side">${jersey(home, true)}<strong>${esc(home)}</strong></div><div class="mid"><div class="skel" style="width:120px;height:40px"></div></div><div class="side away">${jersey(away, true)}<strong>${esc(away)}</strong></div></div><div class="skel" style="height:60px"></div></div>`;
+  out.innerHTML = `<div class="card hero mh nbh sk" aria-busy="true"><div class="mh-top"><div class="mh-meta"><span class="mh-lg">NBA</span><span>Working out the chances…</span></div></div><div class="bk-vs"><div class="side">${jersey(home, true)}<strong>${esc(home)}</strong><small>Home</small></div><div class="mid"><div class="skel" style="width:120px;height:44px"></div></div><div class="side away">${jersey(away, true)}<strong>${esc(away)}</strong><small>Away</small></div></div>${skelBody()}</div>`;
   $('#nba-go').disabled = true; $('#nba-go').textContent = 'Working it out…';
   try{
     const d = await api('/api/nba/predict?' + q);

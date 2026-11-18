@@ -56,6 +56,14 @@ if not odds_data.MARKET.exists():                # no open current-season feed f
     for _lg in ('tr.1', 'sco.1', 'be.1'):
         LEAGUES.pop(_lg, None)
 OPEN_LEAGUES = [k for k in LEAGUES if k not in ('sa.1', 'ucl')]     # leagues with an open results feed
+# Installable-app files served from pwa/: URL -> (file, content type, cache header).
+PWA_FILES = {
+    '/manifest.webmanifest': ('manifest.webmanifest', 'application/manifest+json', 'max-age=3600'),
+    '/sw.js': ('sw.js', 'text/javascript; charset=utf-8', 'no-cache'),
+    '/icons/icon-192.png': ('icons/icon-192.png', 'image/png', 'max-age=604800'),
+    '/icons/icon-512.png': ('icons/icon-512.png', 'image/png', 'max-age=604800'),
+    '/apple-touch-icon.png': ('icons/apple-touch-icon.png', 'image/png', 'max-age=604800'),
+}
 
 
 def refresh():
@@ -878,6 +886,15 @@ class Handler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-Type', 'text/html; charset=utf-8')
             self.send_header('Cache-Control', 'no-cache')
+            self.end_headers()
+            self.wfile.write(raw)
+        elif path in PWA_FILES:
+            # Installable app: manifest, service worker and home-screen icons (pwa/).
+            name, ctype, cache = PWA_FILES[path]
+            raw = (ROOT / 'pwa' / name).read_bytes()
+            self.send_response(200)
+            self.send_header('Content-Type', ctype)
+            self.send_header('Cache-Control', cache)
             self.end_headers()
             self.wfile.write(raw)
         elif path in ('/logo-mark.svg', '/favicon.svg'):
