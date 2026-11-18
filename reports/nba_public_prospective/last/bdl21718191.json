@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718191",
+ "date": "2026-11-25",
+ "tipoff": "2026-11-26T03:00:00Z",
+ "home": "Golden State Warriors",
+ "away": "Sacramento Kings",
+ "kind": "regular",
+ "registered_at": "2026-11-18T14:26:56.084499+00:00",
+ "version": "165d0091f932",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.8188320486502864,
+ "spread_line": -12.5,
+ "cover": 0.5074670972411558,
+ "total_line": 225.5,
+ "over": 0.4985589338788976,
+ "expected": [
+  119.24189198198596,
+  106.40770580852123
+ ],
+ "model": {
+  "moneyline": 0.8188320486502864,
+  "cover": 0.5074670972411558,
+  "over": 0.4985589338788976,
+  "expected": [
+   119.24189198198596,
+   106.40770580852123
+  ]
+ }
+}

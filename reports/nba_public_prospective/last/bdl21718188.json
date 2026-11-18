@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718188",
+ "date": "2026-11-25",
+ "tipoff": "2026-11-26T01:00:00Z",
+ "home": "Memphis Grizzlies",
+ "away": "LA Clippers",
+ "kind": "regular",
+ "registered_at": "2026-11-18T14:26:56.084499+00:00",
+ "version": "165d0091f932",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.7697163797372071,
+ "spread_line": -10.5,
+ "cover": 0.4956490682636829,
+ "total_line": 234.5,
+ "over": 0.4959359090875538,
+ "expected": [
+  122.47245887560787,
+  112.07319713017199
+ ],
+ "model": {
+  "moneyline": 0.7697163797372071,
+  "cover": 0.4956490682636829,
+  "over": 0.4959359090875538,
+  "expected": [
+   122.47245887560787,
+   112.07319713017199
+  ]
+ }
+}

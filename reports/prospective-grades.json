@@ -1,15 +1,16 @@
 {
-  "generated_at": "2026-11-17T14:45:42.012987+00:00",
-  "data_hash": "ba48896476f1d79a66cba1158f03b8d9c9e9a45994f101967d62f399be44142c",
+  "generated_at": "2026-11-18T14:26:36.410884+00:00",
+  "data_hash": "b9e8fb5ceb4edfe5ed11275d7e4a85a3bad8913440146cfb19ce1a2a6b7de412",
   "registered": 398,
   "pending": 66,
-  "missing_result": 198,
+  "missing_result": 192,
+  "void": 0,
   "overall": {
-    "matches": 134,
-    "log_loss": 1.0059697690664768,
-    "brier": 0.6009978566441557,
-    "over25_brier": 0.23771249388303,
-    "btts_brier": 0.24649601957024803
+    "matches": 140,
+    "log_loss": 0.9998504450826236,
+    "brier": 0.5966109798839371,
+    "over25_brier": 0.23869387829968508,
+    "btts_brier": 0.2470581985544661
   },
   "eligible_registered": 154,
   "eligible_pending": 25,
@@ -36,11 +37,11 @@
       "btts_brier": 0.24553150400641707
     },
     "en.1": {
-      "matches": 44,
-      "log_loss": 1.0393197088919621,
-      "brier": 0.6249321938296958,
-      "over25_brier": 0.25634281255903496,
-      "btts_brier": 0.2640228903103407
+      "matches": 50,
+      "log_loss": 1.0181836089581147,
+      "brier": 0.6097768184388191,
+      "over25_brier": 0.2568550506845486,
+      "btts_brier": 0.26349376697734017
     },
     "es.1": {
       "matches": 0,
@@ -1206,8 +1207,21 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "played_on": "2026-11-08",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.1327935144490155,
+        "brier": 0.6939546474355129,
+        "over25_brier": 0.25936272353534917,
+        "btts_brier": 0.32186336798700355
+      },
+      "result_hash": "e4fa28d411b3453843f1ea5a0068263566e9c55754fadafa42001eb3709f24f0"
     },
     {
       "fixture": {
@@ -1804,8 +1818,21 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "played_on": "2026-11-08",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.627128830230325,
+        "brier": 0.3259885591677708,
+        "over25_brier": 0.15484303327244606,
+        "btts_brier": 0.15026520583900793
+      },
+      "result_hash": "d606760bbdac912dda6470c32d6b9125c318725beda75bffae31ffe9a18ebe31"
     },
     {
       "fixture": {
@@ -1982,8 +2009,21 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "played_on": "2026-11-08",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.7905944524778092,
+        "brier": 0.4479409850555383,
+        "over25_brier": 0.33600910394250255,
+        "btts_brier": 0.3753872917128455
+      },
+      "result_hash": "db3ef21543e0cc9ea0672d197aa61a54fe697f10723c8122a6f93d8f3a834723"
     },
     {
       "fixture": {
@@ -2156,8 +2196,21 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "played_on": "2026-11-08",
+      "result": {
+        "goals": [
+          1,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 0.722773338177663,
+        "brier": 0.397603533966373,
+        "over25_brier": 0.21014798898836168,
+        "btts_brier": 0.18047655378624752
+      },
+      "result_hash": "1a27d2f7a5081d2acd7d2e801b1055adc60c58957259af453250a9d54aa69670"
     },
     {
       "fixture": {
@@ -3370,8 +3423,21 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "played_on": "2026-11-06",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.5995913738982022,
+        "brier": 0.3163812217168278,
+        "over25_brier": 0.418059706698746,
+        "btts_brier": 0.3750287970928422
+      },
+      "result_hash": "7dd7edae9b4536294a1f6958f7789c9a385fe967d997e23e3cbda834a9515537"
     },
     {
       "fixture": {
@@ -5114,8 +5180,21 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "played_on": "2026-11-08",
+      "result": {
+        "goals": [
+          4,
+          4
+        ],
+        "outcome": 1,
+        "log_loss": 1.3062317474263856,
+        "brier": 0.8099554460923145,
+        "over25_brier": 0.18524622519248604,
+        "btts_brier": 0.1546599587940704
+      },
+      "result_hash": "64931b4a389c0b970595de3a906a4b4e378639a16ae3fe11a5a64fa9e1260845"
     },
     {
       "fixture": {
@@ -10196,5 +10275,5 @@
       "readiness": "research_only"
     }
   ],
-  "method": "First forecast and first research-only forecast are frozen separately. Registration requires a calendar day before fixture date. Grades use current source results and may change if that source is corrected."
+  "method": "First forecast and first research-only forecast are frozen separately. Registration requires a calendar day before fixture date; a fixture moved to another date is graded on the date it was played and void if that was not after registration. Grades use current source results and may change if that source is corrected."
 }

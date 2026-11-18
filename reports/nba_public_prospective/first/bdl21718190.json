@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718190",
+ "date": "2026-11-25",
+ "tipoff": "2026-11-26T01:30:00Z",
+ "home": "Houston Rockets",
+ "away": "Phoenix Suns",
+ "kind": "regular",
+ "registered_at": "2026-11-18T14:26:56.084499+00:00",
+ "version": "165d0091f932",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.748506817307802,
+ "spread_line": -9.5,
+ "cover": 0.4972068242993184,
+ "total_line": 229.5,
+ "over": 0.49414809694533635,
+ "expected": [
+  119.45930875582377,
+  110.02281642589719
+ ],
+ "model": {
+  "moneyline": 0.748506817307802,
+  "cover": 0.4972068242993184,
+  "over": 0.49414809694533635,
+  "expected": [
+   119.45930875582377,
+   110.02281642589719
+  ]
+ }
+}

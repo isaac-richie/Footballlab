@@ -1,4 +1,4 @@
-# Football Lab research run — 2026-11-17
+# Football Lab research run — 2026-11-18
 
 66 fixtures in the next 7 days (excluding today).
 Status: review_required
@@ -84,7 +84,7 @@ Status: review_required
 - 2026-11-23 · Italy — Serie A · AC Monza v ACF Fiorentina: review_required; 1X2 25.5%/26.7%/47.8%; expected goals 1.10–1.57; O2.5 49.6%; BTTS 53.3%; decision withhold.
 - 2026-11-23 · Italy — Serie A · Juventus FC v Venezia FC: review_required; 1X2 71.2%/20.1%/8.7%; expected goals 1.99–0.59; O2.5 47.4%; BTTS 38.4%; decision withhold.
 
-Prospective ledger: 398 registered, 134 graded, 66 pending.
+Prospective ledger: 398 registered, 140 graded, 66 pending.
 These are uncalibrated research forecasts, not recommendations.
 
-Run: 20261117T144541669982Z · data: ba48896476f1d79a66cba1158f03b8d9c9e9a45994f101967d62f399be44142c · code: 8a6557742e41394410182c70225b8ecf173e7c569a14d248d745524ccfea122b
+Run: 20261118T142636075310Z · data: b9e8fb5ceb4edfe5ed11275d7e4a85a3bad8913440146cfb19ce1a2a6b7de412 · code: 6333458015c597dca66acb09c5fbd9fd05f7c93985e4ef9519c84bd5dfb8bb71

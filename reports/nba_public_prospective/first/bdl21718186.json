@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718186",
+ "date": "2026-11-25",
+ "tipoff": "2026-11-26T00:30:00Z",
+ "home": "New York Knicks",
+ "away": "Cleveland Cavaliers",
+ "kind": "regular",
+ "registered_at": "2026-11-18T14:26:56.084499+00:00",
+ "version": "165d0091f932",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.6613100560590514,
+ "spread_line": -5.5,
+ "cover": 0.5150300383494599,
+ "total_line": 220.5,
+ "over": 0.5032784784929841,
+ "expected": [
+  113.39835961526258,
+  107.5406834890948
+ ],
+ "model": {
+  "moneyline": 0.6613100560590514,
+  "cover": 0.5150300383494599,
+  "over": 0.5032784784929841,
+  "expected": [
+   113.39835961526258,
+   107.5406834890948
+  ]
+ }
+}
