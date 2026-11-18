@@ -1690,6 +1690,63 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
 .kit-key{display:inline-flex;align-items:center;gap:8px}
 .kit-key i{width:26px!important;height:10px!important;background:linear-gradient(90deg,#c8102e 0 45%,var(--surface-3) 45% 65%,#034694 65%)!important}
 
+/* ---- Form at a glance: last five league results ---- */
+.f5{display:inline-flex;gap:2px;flex:none;margin-left:8px;vertical-align:middle}
+.f5 i{width:16px;height:16px;display:grid;place-items:center;font:700 9.5px/1 var(--mono);font-style:normal;color:var(--bg);border-radius:2px}
+.f5 .f5-W{background:var(--ok)}.f5 .f5-D{background:var(--draw)}.f5 .f5-L{background:var(--lost)}
+.f5.sm{gap:2px;margin-left:8px}.f5.sm i{width:6px;height:6px;border-radius:1px}
+.fc-team .f5{margin:2px 0 0}
+
+/* ---- VIP: the premium page ---- */
+.vip-band{position:relative;overflow:hidden;isolation:isolate;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:28px;align-items:end;
+  margin:26px 0 16px;padding:36px 34px 30px;border-radius:6px;background:var(--accent);color:var(--accent-ink)}
+.vip-band::after{content:'';position:absolute;z-index:-1;right:-90px;top:-110px;width:340px;height:340px;border-radius:50%;
+  border:34px solid color-mix(in srgb,var(--accent-ink) 9%,transparent);
+  background:linear-gradient(90deg,transparent calc(50% - 17px),color-mix(in srgb,var(--accent-ink) 9%,transparent) calc(50% - 17px) calc(50% + 17px),transparent calc(50% + 17px))}
+.vb-kicker{display:block;font:650 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.vip-band h1{color:var(--accent-ink)!important;font-size:clamp(40px,5.8vw,76px)!important;line-height:.94!important;font-weight:400!important;letter-spacing:-.035em!important;margin:12px 0 14px!important}
+.vip-band p{margin:0;max-width:560px;font-size:15.5px;line-height:1.55;color:color-mix(in srgb,var(--accent-ink) 82%,transparent)}
+.vip-band p b{color:var(--accent-ink)}
+.vb-stats{margin-top:20px!important}
+.vb-stats span{color:color-mix(in srgb,var(--accent-ink) 78%,transparent)!important;border-left-color:color-mix(in srgb,var(--accent-ink) 28%,transparent)!important}
+.vb-stats b{color:var(--accent-ink)!important;font-size:24px!important}
+.vip-band .vwr{margin:0!important;background:#15130F!important;border:0!important;color:#F2EDE4;box-shadow:0 18px 40px -22px #000!important}
+.vip-band .vwr-main strong{color:#F2EDE4}
+.vip-band .vwr-main span{color:#A79F93}.vip-band .vwr-main span b{color:#F2EDE4}
+.vip-band .vwr-ring circle{stroke:#2B2723}.vip-band .vwr-ring .p{stroke:#EF5436!important}.vip-band .vwr-ring b{color:#F2EDE4}
+.vip-band .vwr-go,.vip-band .vwr-main small{color:#EF5436!important}
+.vip-tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:0 0 16px}
+.vb-stamp{display:inline-flex;align-items:center;gap:8px;margin-right:auto;font-size:12.5px;font-weight:600;color:var(--muted)}
+.vb-stamp svg{width:18px;height:18px;fill:none;stroke:var(--ok);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.vip-all{width:auto!important;padding:10px 18px!important}
+.vip-legs{gap:10px!important}
+.vl.vlx{display:grid;grid-template-columns:40px minmax(0,1.3fr) minmax(0,1fr) 128px 42px;gap:18px;align-items:center;padding:16px 18px 16px 24px!important;
+  background:linear-gradient(var(--kh) 50%,var(--ka) 50%) left/5px 100% no-repeat,var(--surface)!important;border:1px solid var(--line-2)!important;border-radius:6px!important;box-shadow:none!important}
+.vl.vlx:hover{border-color:var(--text)!important}
+.vlx .vl-n{font-family:var(--mono)!important;font-size:13px!important;font-weight:500!important;color:var(--accent)!important}
+.vlx .vl-meta{font-size:11px!important;letter-spacing:.1em!important;color:var(--muted)}
+.vlx .vl-teams{display:flex;flex-direction:column;gap:7px;margin-top:8px}
+.vl-team{display:flex;align-items:center;gap:10px;min-width:0}
+.vl-team .crest{flex:none}
+.vl-team b{font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.vl-call small{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:650;margin-bottom:4px}
+.vl-call strong{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.15;letter-spacing:-.01em}
+.vlx .vl-p{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
+.vlx .vl-p b{position:static!important;font-family:var(--mono)!important;font-size:42px!important;font-weight:500!important;letter-spacing:-.05em!important;line-height:1;color:var(--accent)}
+.vlx .vl-p b i{font-style:normal;font-size:.5em;margin-left:1px}
+.vlx .vl-p small{font-size:11.5px;color:var(--muted);margin-top:6px}
+.vl-add{width:42px;height:42px;border-radius:4px;border:1px solid var(--line-2);background:none;color:var(--text);font-size:21px;line-height:1;cursor:pointer;transition:all .15s}
+.vl-add:hover{border-color:var(--accent);color:var(--accent)}
+.vl-add.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+@media (max-width:900px){.vip-band{grid-template-columns:minmax(0,1fr);padding:26px 20px 22px}}
+@media (max-width:760px){
+  .vl.vlx{grid-template-columns:24px minmax(0,1fr) auto;grid-template-areas:"n main p" "n call add";row-gap:12px;column-gap:12px;padding:14px 14px 14px 18px!important}
+  .vlx .vl-n{grid-area:n;align-self:start;padding-top:2px}.vlx .vl-main{grid-area:main}.vlx .vl-p{grid-area:p;align-self:start}
+  .vlx .vl-call{grid-area:call}.vl-add{grid-area:add;align-self:end}
+  .vlx .vl-p b{font-size:32px!important}.vl-call strong{font-size:19px}.vl-team b{font-size:15.5px}
+  .vb-stamp{margin-right:0;flex-basis:100%}
+}
+
 /* ---- Loading placeholders shaped like the finished header ---- */
 .sk-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
 .sk-row .skel{height:44px}
@@ -1870,13 +1927,20 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
 
   <!-- VIP -->
   <section data-panel="vip" hidden>
-    <div class="view-head hero-head">
-      <div><span class="eyebrow"><i></i>VIP picks</span><h1>Our strongest calls</h1>
-        <p>Games where goals look most likely in the Premier League, La Liga and Bundesliga over the next three days. We only pick <b>Over 2.5 goals</b> when we rate it 65% or better, otherwise <b>Over 1.5 goals</b> at 78% or better. Every pick goes on our public record before kickoff.</p>
-        <div class="hero-stats" id="vip-stats"></div></div>
+    <header class="vip-band">
+      <div class="vb-copy">
+        <span class="vb-kicker">VIP picks</span>
+        <h1>Our strongest calls</h1>
+        <p>Games where goals look most likely in the Premier League, La Liga and Bundesliga over the next three days. We only pick <b>Over 2.5 goals</b> when we rate it 65% or better, otherwise <b>Over 1.5 goals</b> at 78% or better.</p>
+        <div class="hero-stats vb-stats" id="vip-stats"></div>
+      </div>
+      <a class="vwr card" id="vip-wr" href="#performance" hidden></a>
+    </header>
+    <div class="vip-tools">
+      <span class="vb-stamp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.4 3.4 8.4 8 9 4.6-.6 8-4.6 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Saved before kickoff · never edited · graded on the final score</span>
       <div class="seg" id="vip-n" role="group" aria-label="Number of picks"><span class="seg-lbl">Picks</span><button data-n="12">12</button><button data-n="15">15</button><button data-n="17" aria-pressed="true">17</button></div>
+      <button type="button" class="primary vip-all" id="vip-all" hidden>Add all to slip</button>
     </div>
-    <a class="vwr card" id="vip-wr" href="#performance" hidden></a>
     <div class="vip-code card" id="vip-code"></div>
     <div class="vip-legs" id="vip-legs"><div class="card"><div class="skel" style="height:240px"></div></div></div>
     <p class="note">18+ only. These are probabilities, not guarantees: an 85% pick still loses about one time in seven, and combining many picks multiplies the risk. Bet only what you can afford to lose. <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware</a></p>
@@ -2217,6 +2281,12 @@ function rgbOf(c){
 }
 const apart = (x, y) => { const a = rgbOf(x), b = rgbOf(y); return Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]) > 110 };
 const kitPair = n => { const k = kit(n); return [k.primary, k.secondary] };
+// Last five league results as small W/D/L chips, oldest first. `sm` draws plain dots for tight rows.
+function formChips(res, sm){
+  if(!res || !res.length) return '';
+  const word = {W: 'win', D: 'draw', L: 'loss'};
+  return `<span class="f5${sm ? ' sm' : ''}" title="Last ${res.length} league games, oldest first: ${res.map(r => word[r]).join(', ')}">${res.map(r => `<i class="f5-${r}">${sm ? '' : r}</i>`).join('')}</span>`;
+}
 function clubVars(home, away, colours = kitPair){
   const [h] = colours(home), [a1, a2] = colours(away);
   const a = apart(h, a1) ? a1 : apart(h, a2) ? a2 : null;
@@ -2358,7 +2428,7 @@ function renderBoard(){
     const p = f.probabilities;
     const mv = f.movement, mvTag = mv ? `<span class="move ${mv.change[0] >= 0 ? 'up' : 'down'}" title="Home probability moved since ${esc(new Date(mv.since).toLocaleString())}">${mv.change[0] >= 0 ? '▲' : '▼'}${Math.abs(mv.change[0] * 100).toFixed(1)}${mv.sharp ? ' sharp' : ''}</span>` : '';
     html += `<button class="fx${f.status === 'live' ? ' is-live' : ''}" style="${clubVars(f.home, f.away)};--i:${state.noStagger ? 0 : Math.min(idx, 30)}${state.noStagger ? ';animation:none' : ''}" data-home="${esc(f.home)}" data-away="${esc(f.away)}" data-date="${esc(f.date)}">` +
-      `<span class="teams"><span>${badgeImg(f.home, 'tb') || `<i class="kit" style="background:${kit(f.home).primary}"></i>`}${esc(f.home)}${f.source !== 'model' ? srcBadge(f.source) : ''}${mvTag}</span><span>${badgeImg(f.away, 'tb') || `<i class="kit" style="background:${kit(f.away).primary}"></i>`}${esc(f.away)}${f.thin_history ? '<span class="flag" title="Thin recent history">●</span>' : ''}</span><small class="when">${state.sort !== 'date' ? esc(day(f.date)) + ' ' : ''}${statusPill(f) || 'Time TBC'}</small></span>` +
+      `<span class="teams"><span>${badgeImg(f.home, 'tb') || `<i class="kit" style="background:${kit(f.home).primary}"></i>`}${esc(f.home)}${formChips((f.last5 || [])[0], 1)}${f.source !== 'model' ? srcBadge(f.source) : ''}${mvTag}</span><span>${badgeImg(f.away, 'tb') || `<i class="kit" style="background:${kit(f.away).primary}"></i>`}${esc(f.away)}${formChips((f.last5 || [])[1], 1)}${f.thin_history ? '<span class="flag" title="Thin recent history">●</span>' : ''}</span><small class="when">${state.sort !== 'date' ? esc(day(f.date)) + ' ' : ''}${statusPill(f) || 'Time TBC'}</small></span>` +
       `<span class="bar">${tri(p)}<span class="nums"><span class="c-h">${Math.round(p[0]*100)}%</span><span class="c-d">${Math.round(p[1]*100)}%</span><span class="c-a">${Math.round(p[2]*100)}%</span></span></span>` +
       `<span class="num goals" title="Expected goals ${f.expected_goals[0].toFixed(1)}–${f.expected_goals[1].toFixed(1)}"><span><em>Over 2.5</em><b>${Math.round(f.over25 * 100)}%</b></span><span><em>Both score</em><b>${Math.round(f.btts * 100)}%</b></span></span>` +
       `<span class="num lscore"><b>${esc(f.top_score.score)}</b><small>${Math.round(f.top_score.probability * 100)}% chance</small></span>${(() => { const i = p.indexOf(Math.max(...p)), lab = [abbr(f.home), 'Draw', abbr(f.away)][i];
@@ -2983,9 +3053,9 @@ function ftCard(g, i, j){
   return `<article class="card ft fc${i === 0 ? ' top' : ''}" style="--i:${j};--j:${j};${clubVars(g.home, g.away)}">
     <header class="fc-head"><span class="fc-lg">${esc(g.league)}</span><span class="fc-rank${i === 0 ? ' hot' : ''}">${esc(rank)}</span></header>
     <div class="fc-face">
-      <div class="fc-team"><span class="fc-ring">${crest(g.home)}</span><b>${esc(g.home)}</b></div>
+      <div class="fc-team"><span class="fc-ring">${crest(g.home)}</span><b>${esc(g.home)}</b>${formChips((g.last5 || [])[0])}</div>
       <div class="fc-mid">${centre}</div>
-      <div class="fc-team"><span class="fc-ring away">${crest(g.away)}</span><b>${esc(g.away)}</b></div>
+      <div class="fc-team"><span class="fc-ring away">${crest(g.away)}</span><b>${esc(g.away)}</b>${formChips((g.last5 || [])[1])}</div>
     </div>
     <div class="fc-bar" role="img" aria-label="Home ${pct(p[0])}, draw ${pct(p[1])}, away ${pct(p[2])}">${seg(0, 'h')}${seg(1, 'd')}${seg(2, 'a')}</div>
     <div class="fc-keys"><span>Home</span><span>Draw</span><span>Away</span></div>
@@ -3055,15 +3125,26 @@ async function loadVip(){
     const avg = legs.reduce((t, l) => t + l.probability, 0) / legs.length;
     $('#vip-stats').innerHTML = `<span><b>${legs.length}</b> picks</span><span><b>${Math.round(avg * 100)}%</b> average chance</span><span><b>${new Set(legs.map(l => l.league)).size}</b> leagues</span>`;
     $('#vip-code').hidden = true;   // booking codes are on hold for now
-    $('#vip-legs').innerHTML = legs.map((l, i) => `<article class="vl" style="--i:${i}">
+    $('#vip-all').hidden = false;
+    // One card per pick: club colours, crests with last-five form, the pick in large type, its chance and fair odds.
+    $('#vip-legs').innerHTML = legs.map((l, i) => { const f = l.last5 || [];
+      return `<article class="vl vlx" style="${clubVars(l.home, l.away)};--i:${i}">
       <div class="vl-n">${String(i + 1).padStart(2, '0')}</div>
       <div class="vl-main"><div class="vl-meta">${esc(l.league)} · ${esc(day(l.date))}${l.kickoff ? ' · ' + esc(koTime(l.kickoff)) : ''}</div>
-        <div class="vl-teams"><span>${badgeImg(l.home, 'tb') || ''}${esc(l.home)}</span><span>${badgeImg(l.away, 'tb') || ''}${esc(l.away)}</span></div>
-        <div class="vl-pick">${esc(bookieText(l))}</div></div>
-      <div class="vl-p"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle class="p" cx="18" cy="18" r="15.5" style="stroke-dashoffset:${(97.4 * (1 - l.probability)).toFixed(1)}"/></svg><b>${Math.round(l.probability * 100)}%</b><small>@${l.fair_odds.toFixed(2)}</small></div>
-    </article>`).join('');
+        <div class="vl-teams"><span class="vl-team">${crest(l.home, true)}<b>${esc(l.home)}</b>${formChips(f[0])}</span><span class="vl-team">${crest(l.away, true)}<b>${esc(l.away)}</b>${formChips(f[1])}</span></div></div>
+      <div class="vl-call"><small>Our pick</small><strong>${esc(bookieText(l))}</strong></div>
+      <div class="vl-p"><b>${Math.round(l.probability * 100)}<i>%</i></b><small>chance · fair ${l.fair_odds.toFixed(2)}</small></div>
+      <button type="button" class="vl-add${state.slip.some(x => x.key === vipKey(l)) ? ' on' : ''}" data-vip="${i}" aria-label="Add ${esc(l.home)} v ${esc(l.away)} to the slip">+</button>
+    </article>` }).join('');
   }catch(e){ $('#vip-legs').innerHTML = `<div class="error">${esc(e.message)}</div>` }
 }
+const vipKey = l => `vip|${l.date}|${l.home}|${l.away}`;
+const vipItem = l => ({key: vipKey(l), home: l.home, away: l.away, date: l.date, legs: [bookieText(l)], p: l.probability, source: l.source || 'model'});
+$('#vip-legs').addEventListener('click', e => {
+  const b = e.target.closest('[data-vip]'); if(!b || !state.vip) return;
+  slipAdd(vipItem(state.vip.legs[+b.dataset.vip])); b.classList.add('on');
+});
+$('#vip-all').onclick = () => { if(!state.vip) return; state.vip.legs.forEach(l => slipAdd(vipItem(l))); $$('#vip-legs .vl-add').forEach(b => b.classList.add('on')) };
 $('#vip-n').onclick = e => { const b = e.target.closest('[data-n]'); if(!b) return; state.vipN = +b.dataset.n;
   $$('#vip-n button').forEach(x => x.setAttribute('aria-pressed', x === b)); loadVip() };
 

@@ -1,4 +1,5 @@
 import unittest
+import app
 from app import distribution, history, market_comparison, predict
 from model import fit_rates
 
@@ -61,3 +62,17 @@ class Tests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class LastFiveTests(unittest.TestCase):
+    def test_last_five_is_oldest_first_and_league_only(self):
+        m = lambda d, h, a, g, lg='en.1': dict(date=d, home=h, away=a, goals=g, league_id=lg)
+        data = dict(matches=[m('2026-10-01', 'A', 'B', [2, 0]), m('2026-10-08', 'B', 'A', [1, 1]),
+                             m('2026-10-15', 'A', 'C', [0, 3]), m('2026-10-20', 'A', 'B', [1, 0], 'de.1'),
+                             m('2026-10-22', 'C', 'A', None), m('2026-11-30', 'A', 'B', [5, 0])])
+        f = app.last_five(data, 'en.1', '2026-11-01')
+        self.assertEqual(f['A'], ['W', 'D', 'L'])      # other leagues, unplayed and future games left out
+        self.assertEqual(f['B'], ['L', 'D'])
+        self.assertEqual(f['C'], ['W'])
+        many = dict(matches=[m(f'2026-09-{d:02d}', 'A', 'B', [1, 0]) for d in range(1, 9)])
+        self.assertEqual(len(app.last_five(many, 'en.1', '2026-10-01')['A']), 5)

@@ -98,7 +98,7 @@ def featured(data, leagues, slate_fn, history_fn, period='week', limit=10):
         hp, ap = form_ppg(rows, f['home']), form_ppg(rows, f['away'])
         games.append(dict(league_id=league_id, league=name.split(' — ')[-1], date=f['date'], home=f['home'], away=f['away'],
                           probabilities=f['probabilities'], over25=f['over25'], btts=f['btts'], top_score=f['top_score'],
-                          expected_goals=f['expected_goals'], source=f['source'], kickoff=f.get('kickoff'), status=f.get('status'), form=[round(hp, 2), round(ap, 2)],
+                          expected_goals=f['expected_goals'], source=f['source'], kickoff=f.get('kickoff'), status=f.get('status'), form=[round(hp, 2), round(ap, 2)], last5=f.get('last5'),
                           hype=round(anticipation(hp, ap, f['probabilities']) * LEAGUE_WEIGHT.get(league_id, 1), 1), take=write_up(f, hp, ap)))
     games.sort(key=lambda g: -g['hype'])
     # Spread across the leagues: each league's biggest game first, then the best of the
