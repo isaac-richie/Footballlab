@@ -74,3 +74,23 @@ class QualityTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
+
+class TeamAliasTests(unittest.TestCase):
+    """One club, one name: a club that changes division must keep its history."""
+
+    def test_cross_league_aliases_apply_in_every_league(self):
+        from quality import canonical_team
+        for league in ('de.1', 'de.2'):
+            self.assertEqual(canonical_team(league, 'FC St. Pauli 1910'), 'FC St. Pauli')
+            self.assertEqual(canonical_team(league, 'VfL Bochum 1848'), 'VfL Bochum')
+        self.assertEqual(canonical_team('it.1', 'Pisa SC'), 'AC Pisa 1909')
+        self.assertEqual(canonical_team('nl.1', 'Willem II'), 'Willem II Tilburg')   # league table still applies
+        self.assertEqual(canonical_team('en.1', 'Arsenal FC'), 'Arsenal FC')        # unknown names pass through
+
+    def test_loaded_data_has_one_name_per_split_club(self):
+        if not app.DATA.exists():
+            self.skipTest('no local results file')
+        names = {t for m in app.load(fill_gaps=False)['matches'] for t in (m['home'], m['away'])}
+        for old in ('FC St. Pauli 1910', 'VfL Bochum 1848', 'SpVgg Greuther Fürth 1903', 'Sassuolo Calcio', 'Pisa SC'):
+            self.assertNotIn(old, names)

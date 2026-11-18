@@ -497,7 +497,7 @@ html{background:var(--bg)}
 /* Results ticker */
 .ticker{position:sticky;top:60px;z-index:29;overflow:hidden;white-space:nowrap;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:15px;letter-spacing:.6px;text-transform:uppercase}
 .ticker .lbl{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 14px;background:var(--accent);color:var(--accent-ink);font-weight:800;z-index:1}
-.ticker .run{display:inline-flex;gap:34px;padding:7px 0 7px 120px;animation:tick 60s linear infinite}
+.ticker .run{display:inline-flex;gap:34px;padding:7px 0 7px 200px;animation:tick 60s linear infinite}
 .ticker:hover .run{animation-play-state:paused}
 .ticker .run span b{color:var(--accent);margin:0 6px}
 @keyframes tick{to{transform:translateX(-50%)}}
@@ -1728,7 +1728,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   <a href="#performance" data-view="performance"><svg viewBox="0 0 24 24"><path class="f" d="M4 20.5V14l5-4 4 3 7-7v14.5z"/><path d="M4 14l5-4 4 3 7-7M15.5 6H20v4.5M3 20.5h18"/></svg><span>Record</span></a>
 </nav>
 
-<div class="ticker" id="ticker" aria-label="Latest results" hidden><span class="lbl">Results</span><div class="run" id="ticker-run"></div></div>
+<div class="ticker" id="ticker" aria-label="Latest results" hidden><span class="lbl" id="ticker-lbl">Results</span><div class="run" id="ticker-run"></div></div>
 <div class="ticker" id="nba-ticker" aria-label="Latest NBA results" hidden><span class="lbl">NBA</span><div class="run" id="nba-ticker-run"></div></div>
 <div class="wrap">
   <div class="leagues" id="leagues" role="group" aria-label="Competition"></div>
@@ -2254,6 +2254,8 @@ async function loadLeague(){
     renderStrip(data);
     const tk = data.recent || [];
     $('#ticker').hidden = !tk.length;
+    // Name the league: these are the selected league's results, not a mix of everything.
+    { const lg = (data.leagues[state.league] || '').split(' — ').pop(); $('#ticker-lbl').textContent = lg ? lg + ' results' : 'Results'; $('#ticker').setAttribute('aria-label', 'Latest ' + (lg || '') + ' results') }
     const item = r => `<span>${esc(abbr(r.home))}<b>${r.goals[0]}–${r.goals[1]}</b>${esc(abbr(r.away))}</span>`;
     $('#ticker-run').innerHTML = tk.map(item).join('') + tk.map(item).join('');   // doubled for a seamless loop
     fillTeams(data.teams, data.today);
