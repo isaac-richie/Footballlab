@@ -1738,6 +1738,36 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
 .vl-add{width:42px;height:42px;border-radius:4px;border:1px solid var(--line-2);background:none;color:var(--text);font-size:21px;line-height:1;cursor:pointer;transition:all .15s}
 .vl-add:hover{border-color:var(--accent);color:var(--accent)}
 .vl-add.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+/* Live ticket: a segment per pick, the running tally, and each pick's state */
+.ticket{margin:0 0 14px;padding:14px 16px;border:1px solid var(--line-2);border-radius:6px;background:var(--surface)}
+.tk-segs{display:flex;gap:3px;height:8px}
+.tk-segs i{flex:1;background:var(--surface-3)}
+.tk-segs .tk-won{background:var(--ok)}.tk-segs .tk-lost{background:var(--lost)}.tk-segs .tk-void{background:var(--faint)}
+.tk-segs .tk-live{background:var(--accent);animation:tkPulse 1.4s ease-in-out infinite}
+@keyframes tkPulse{50%{opacity:.35}}
+.tk-line{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;margin-top:10px;font-size:13.5px;color:var(--muted)}
+.tk-tally{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px}
+.tk-tally b{font-weight:650;color:var(--text)}
+.tk-tally b.tk-won{color:var(--ok)}.tk-tally b.tk-lost{color:var(--lost)}.tk-tally b.tk-live{color:var(--accent)}
+.tk-tally i{font-style:normal;color:var(--faint)}
+.tk-all b{font-family:var(--mono);font-weight:550;color:var(--text)}
+.vl-st{display:inline-flex;align-items:center;gap:7px;margin-top:8px;padding:4px 9px;border-radius:3px;font-size:12.5px;font-weight:650;line-height:1.2}
+.vl-st em{font-style:normal;font-weight:500;opacity:.75;margin-left:4px}
+.vl-st.sch{background:var(--surface-2);color:var(--muted)}
+.vl-st.live{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
+.vl-st.live i{width:7px;height:7px;background:var(--accent);animation:tkPulse 1.2s ease-in-out infinite}
+.vl-st.won{background:var(--ok-bg);color:var(--ok)}
+.vl-st.lost{background:color-mix(in srgb,var(--lost) 14%,transparent);color:var(--lost)}
+.vl-st.void{background:var(--surface-2);color:var(--faint)}
+.vlx .vl-n.mk{display:grid;place-items:center;width:30px;height:30px;font-size:15px!important;font-weight:700!important;border-radius:50%}
+.vlx.is-won .vl-n.mk{background:var(--ok);color:var(--bg)!important}
+.vlx.is-lost .vl-n.mk{background:var(--lost);color:#fff!important}
+.vlx.is-live .vl-n.mk i{width:10px;height:10px;border-radius:50%;background:var(--accent);animation:tkPulse 1.2s ease-in-out infinite}
+.vlx.is-live{border-color:color-mix(in srgb,var(--accent) 60%,var(--line-2))!important}
+.vlx.is-lost .vl-p b,.vlx.is-void .vl-p b{color:var(--faint)}
+.vlx.is-won .vl-p b{color:var(--ok)}
+.vl-add-off{width:42px}
+@media (prefers-reduced-motion:reduce){.tk-segs .tk-live,.vl-st.live i,.vlx.is-live .vl-n.mk i{animation:none}}
 @media (max-width:900px){.vip-band{grid-template-columns:minmax(0,1fr);padding:26px 20px 22px}}
 @media (max-width:760px){
   .vl.vlx{grid-template-columns:24px minmax(0,1fr) auto;grid-template-areas:"n main p" "n call add";row-gap:12px;column-gap:12px;padding:14px 14px 14px 18px!important}
@@ -1937,10 +1967,11 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       <a class="vwr card" id="vip-wr" href="#performance" hidden></a>
     </header>
     <div class="vip-tools">
-      <span class="vb-stamp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.4 3.4 8.4 8 9 4.6-.6 8-4.6 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Saved before kickoff · never edited · graded on the final score</span>
+      <span class="vb-stamp" id="vip-stamp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.4 3.4 8.4 8 9 4.6-.6 8-4.6 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Saved before kickoff · never edited · graded on the final score</span>
       <div class="seg" id="vip-n" role="group" aria-label="Number of picks"><span class="seg-lbl">Picks</span><button data-n="12">12</button><button data-n="15">15</button><button data-n="17" aria-pressed="true">17</button></div>
       <button type="button" class="primary vip-all" id="vip-all" hidden>Add all to slip</button>
     </div>
+    <div class="ticket" id="vip-ticket" hidden aria-live="polite"></div>
     <div class="vip-code card" id="vip-code"></div>
     <div class="vip-legs" id="vip-legs"><div class="card"><div class="skel" style="height:240px"></div></div></div>
     <p class="note">18+ only. These are probabilities, not guarantees: an 85% pick still loses about one time in seven, and combining many picks multiplies the risk. Bet only what you can afford to lose. <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware</a></p>
@@ -3114,37 +3145,61 @@ function bookieText(l){
   if(l.market === 'btts') return l.selection.startsWith('Not') ? 'Both teams to score: No' : 'Both teams to score: Yes';
   return l.selection + ' goals';
 }
-async function loadVip(){
+// The VIP ticket: today's slip as saved before kickoff, each pick moving from kickoff time to the
+// live score to won or lost. Refreshes quietly every minute while any of today's games can change.
+const VIP_STATE = {
+  scheduled: l => `<span class="vl-st sch">Not started${l.kickoff ? ' · kicks off ' + esc(koTime(l.kickoff)) : ''}</span>`,
+  live: l => `<span class="vl-st live"><i></i>Live ${esc(l.clock || '')} · ${l.score ? l.score.join('–') : '0–0'}</span>`,
+  won: l => `<span class="vl-st won">✓ Won · ${l.score ? l.score.join('–') : ''}${l.provisional ? ' <em>confirming</em>' : ''}</span>`,
+  lost: l => `<span class="vl-st lost">✗ Lost · ${l.score ? l.score.join('–') : ''}${l.provisional ? ' <em>confirming</em>' : ''}</span>`,
+  void: () => '<span class="vl-st void">Void · not played</span>'};
+const VIP_MARK = {won: '✓', lost: '✗', live: '<i></i>'};
+async function loadVip(quiet){
   loadVipWinRate();
   state.vipLoaded = true;
-  $('#vip-legs').innerHTML = '<div class="card"><div class="skel" style="height:240px"></div></div>';
+  if(!quiet) $('#vip-legs').innerHTML = '<div class="card"><div class="skel" style="height:240px"></div></div>';
   try{
-    const d = await api('/api/vip?n=' + state.vipN); state.vip = d;
+    const d = await api('/api/vip/ticket?n=' + state.vipN); state.vip = d;
     const legs = d.legs;
-    if(!legs.length){ $('#vip-code').innerHTML = ''; $('#vip-legs').innerHTML = '<div class="placeholder"><div><h3>No VIP slip right now</h3><p>No games with confident goal picks in the Premier League, La Liga or the Bundesliga in the next three days, often an international break. The next slip is posted the morning before their games return.</p></div></div>'; return }
-    const avg = legs.reduce((t, l) => t + l.probability, 0) / legs.length;
+    if(!legs.length){ $('#vip-ticket').hidden = true; $('#vip-all').hidden = true; $('#vip-code').innerHTML = ''; $('#vip-legs').innerHTML = '<div class="placeholder"><div><h3>No VIP slip right now</h3><p>No games with confident goal picks in the Premier League, La Liga or the Bundesliga in the next three days, often an international break. The next slip is posted the morning before their games return.</p></div></div>'; return }
+    const avg = legs.reduce((t, l) => t + l.probability, 0) / legs.length, s = d.summary;
     $('#vip-stats').innerHTML = `<span><b>${legs.length}</b> picks</span><span><b>${Math.round(avg * 100)}%</b> average chance</span><span><b>${new Set(legs.map(l => l.league)).size}</b> leagues</span>`;
+    $('#vip-stamp').lastChild.textContent = d.saved
+      ? `Saved before kickoff${d.frozen_at ? ' at ' + new Date(d.frozen_at).toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}) : ''} · never edited · graded on the final score`
+      : "Today's slip is saved when the morning run happens · graded on the final score";
+    // Ticket bar: one segment per pick in kickoff order, then the running tally and the whole slip's chance.
+    const parts = [[s.won, 'won'], [s.live, 'live'], [s.scheduled, 'to play'], [s.lost, 'lost'], [s.void, 'void']].filter(([n]) => n);
+    $('#vip-ticket').innerHTML = `<div class="tk-segs">${legs.map(l => `<i class="tk-${l.status}" title="${esc(l.home)} v ${esc(l.away)}: ${l.status}"></i>`).join('')}</div>
+      <div class="tk-line"><span class="tk-tally">${parts.map(([n, w], i) => `<b class="tk-${w.replace(' ', '-')}">${n} ${w}</b>`).join('<i>·</i>')}</span>
+        <span class="tk-all">All ${legs.length} together: <b>${pct(d.combined_probability)}</b> · fair <b>${d.combined_fair_odds ? d.combined_fair_odds.toFixed(2) : '–'}</b></span></div>`;
+    $('#vip-ticket').hidden = false;
     $('#vip-code').hidden = true;   // booking codes are on hold for now
-    $('#vip-all').hidden = false;
-    // One card per pick: club colours, crests with last-five form, the pick in large type, its chance and fair odds.
-    $('#vip-legs').innerHTML = legs.map((l, i) => { const f = l.last5 || [];
-      return `<article class="vl vlx" style="${clubVars(l.home, l.away)};--i:${i}">
-      <div class="vl-n">${String(i + 1).padStart(2, '0')}</div>
+    $('#vip-all').hidden = !legs.some(l => l.status === 'scheduled');
+    // One card per pick: club colours, crests with form, the pick, its chance and where it stands now.
+    $('#vip-legs').innerHTML = legs.map((l, i) => { const f = l.last5 || [], open = l.status === 'scheduled';
+      return `<article class="vl vlx is-${l.status}" style="${clubVars(l.home, l.away)};--i:${quiet ? 0 : i}${quiet ? ';animation:none' : ''}">
+      <div class="vl-n${VIP_MARK[l.status] ? ' mk' : ''}">${VIP_MARK[l.status] || String(i + 1).padStart(2, '0')}</div>
       <div class="vl-main"><div class="vl-meta">${esc(l.league)} · ${esc(day(l.date))}${l.kickoff ? ' · ' + esc(koTime(l.kickoff)) : ''}</div>
         <div class="vl-teams"><span class="vl-team">${crest(l.home, true)}<b>${esc(l.home)}</b>${formChips(f[0])}</span><span class="vl-team">${crest(l.away, true)}<b>${esc(l.away)}</b>${formChips(f[1])}</span></div></div>
-      <div class="vl-call"><small>Our pick</small><strong>${esc(bookieText(l))}</strong></div>
+      <div class="vl-call"><small>Our pick</small><strong>${esc(bookieText(l))}</strong>${(VIP_STATE[l.status] || VIP_STATE.scheduled)(l)}</div>
       <div class="vl-p"><b>${Math.round(l.probability * 100)}<i>%</i></b><small>chance · fair ${l.fair_odds.toFixed(2)}</small></div>
-      <button type="button" class="vl-add${state.slip.some(x => x.key === vipKey(l)) ? ' on' : ''}" data-vip="${i}" aria-label="Add ${esc(l.home)} v ${esc(l.away)} to the slip">+</button>
+      ${open ? `<button type="button" class="vl-add${state.slip.some(x => x.key === vipKey(l)) ? ' on' : ''}" data-vip="${i}" aria-label="Add ${esc(l.home)} v ${esc(l.away)} to the slip">+</button>` : '<span class="vl-add-off" aria-hidden="true"></span>'}
     </article>` }).join('');
-  }catch(e){ $('#vip-legs').innerHTML = `<div class="error">${esc(e.message)}</div>` }
+  }catch(e){ if(!quiet) $('#vip-legs').innerHTML = `<div class="error">${esc(e.message)}</div>` }
 }
+// Keep the ticket current while something on it can still change today.
+setInterval(() => {
+  const d = state.vip, today = new Date().toLocaleDateString('en-CA');
+  if(document.hidden || !d || document.body.dataset.sport === 'basketball' || !location.hash.startsWith('#vip')) return;
+  if(d.legs.some(l => l.status === 'live' || (l.status === 'scheduled' && l.date <= today))) loadVip(true);
+}, 60000);
 const vipKey = l => `vip|${l.date}|${l.home}|${l.away}`;
 const vipItem = l => ({key: vipKey(l), home: l.home, away: l.away, date: l.date, legs: [bookieText(l)], p: l.probability, source: l.source || 'model'});
 $('#vip-legs').addEventListener('click', e => {
   const b = e.target.closest('[data-vip]'); if(!b || !state.vip) return;
   slipAdd(vipItem(state.vip.legs[+b.dataset.vip])); b.classList.add('on');
 });
-$('#vip-all').onclick = () => { if(!state.vip) return; state.vip.legs.forEach(l => slipAdd(vipItem(l))); $$('#vip-legs .vl-add').forEach(b => b.classList.add('on')) };
+$('#vip-all').onclick = () => { if(!state.vip) return; state.vip.legs.filter(l => l.status === 'scheduled').forEach(l => slipAdd(vipItem(l))); $$('#vip-legs .vl-add').forEach(b => b.classList.add('on')) };
 $('#vip-n').onclick = e => { const b = e.target.closest('[data-n]'); if(!b) return; state.vipN = +b.dataset.n;
   $$('#vip-n button').forEach(x => x.setAttribute('aria-pressed', x === b)); loadVip() };
 

@@ -76,3 +76,28 @@ class LastFiveTests(unittest.TestCase):
         self.assertEqual(f['C'], ['W'])
         many = dict(matches=[m(f'2026-09-{d:02d}', 'A', 'B', [1, 0]) for d in range(1, 9)])
         self.assertEqual(len(app.last_five(many, 'en.1', '2026-10-01')['A']), 5)
+
+
+class VipTicketTests(unittest.TestCase):
+    def test_ticket_keeps_saved_picks_and_tracks_their_state(self):
+        import datetime as dt
+        from unittest.mock import patch
+        import record
+        today = dt.date.today().isoformat()
+        leg = lambda home, sel, status, p, goals=None: dict(league_id='en.1', date=today, home=home, away=home + ' B', market='ou15',
+                                                            selection=sel, probability=p, status=status, **({'goals': goals} if goals else {}))
+        day = dict(date=today, frozen_at=today + 'T07:00:00+00:00', picks=[
+            leg('A', 'Over 1.5', 'won', .8, [2, 1]), leg('C', 'Over 1.5', 'pending', .82),
+            leg('D', 'Over 1.5', 'pending', .85), leg('E', 'Over 1.5', 'pending', .79)])
+        live = {f'{today}|C|C B': dict(status='live', score=[1, 0], clock="55'"),
+                f'{today}|D|D B': dict(status='final', score=[0, 0], clock='FT')}
+        with patch.object(record, 'vip_ledger', return_value=dict(days=[day])):
+            t = app.vip_ticket(dict(matches=[]), 17, live_scores=live)
+        by = {l['home']: l for l in t['legs']}
+        self.assertTrue(t['saved'])
+        self.assertEqual(by['A']['status'], 'won')                     # graded pick stays, with its score
+        self.assertEqual((by['C']['status'], by['C']['clock']), ('live', "55'"))
+        self.assertEqual(by['D']['status'], 'lost'); self.assertTrue(by['D']['provisional'])   # 0-0 misses Over 1.5
+        self.assertEqual(by['E']['status'], 'scheduled')
+        self.assertEqual(t['summary'], dict(picks=4, won=1, lost=1, live=1, scheduled=1, void=0))
+        self.assertAlmostEqual(t['combined_probability'], .8 * .82 * .85 * .79)
