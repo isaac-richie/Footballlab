@@ -1667,6 +1667,29 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   .how-livebar a{margin-left:0}
 }
 
+/* ---- Club colours (Nov 2026): every game wears its two clubs' kits ---- */
+.tri .h{background:var(--kh,var(--home))!important}
+.tri .a{background:var(--ka,var(--away))!important}
+.tri i,.fc-bar i,.duo i{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--text) 16%,transparent)}
+.fc-bar i.h{background:var(--kh)!important}.fc-bar i.a{background:var(--ka)!important}.fc-bar i.d{background:var(--surface-3)!important}
+.fc-bar i.h em{color:var(--kh-ink)!important}.fc-bar i.a em{color:var(--ka-ink)!important}.fc-bar i.d em{color:var(--muted)!important}
+.fc-bar i:not(.fav){opacity:.5!important}
+.ft.fc{background:linear-gradient(90deg,var(--kh) 50%,var(--ka) 50%) top/100% 5px no-repeat,var(--surface)!important}
+.fc-ring,.fc-ring.away{width:86px!important;height:86px!important;border:2px solid var(--kh)!important;
+  background:radial-gradient(circle,color-mix(in srgb,var(--kh) 22%,transparent),transparent 72%)!important}
+.fc-ring.away{border-color:var(--ka)!important;background:radial-gradient(circle,color-mix(in srgb,var(--ka) 22%,transparent),transparent 72%)!important}
+.fc-ring .crest{width:62px!important;height:62px!important}
+.fx,.ga,.bx{background:linear-gradient(var(--kh,transparent) 50%,var(--ka,transparent) 50%) left/4px 100% no-repeat!important}
+.fx:hover,.ga:hover,.bx:hover{background:linear-gradient(var(--kh,transparent) 50%,var(--ka,transparent) 50%) left/4px 100% no-repeat,var(--surface)!important}
+.ga{padding-left:16px!important}
+.mh,.mh.nbh{background:linear-gradient(90deg,var(--kh,var(--line-2)) 50%,var(--ka,var(--line-2)) 50%) top/100% 6px no-repeat,var(--surface)!important}
+.mh .versus .crest,.nbh .bk-vs .jersey{box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--kh)}
+.mh .versus .side.away .crest,.nbh .bk-vs .side.away .jersey{box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--ka)}
+/* Numbers sit on club-coloured bars, so they use the text colour rather than fixed home/away hues */
+.fx .bar .nums .c-h,.fx .bar .nums .c-a,.ga .nums .c-h,.ga .nums .c-a,.mh .tri-labels .c-h,.mh .tri-labels .c-a,.nbh .two .c-h,.nbh .two .c-a,.bx .duo-n .c-h,.bx .duo-n .c-a{color:var(--text)!important}
+.kit-key{display:inline-flex;align-items:center;gap:8px}
+.kit-key i{width:26px!important;height:10px!important;background:linear-gradient(90deg,#c8102e 0 45%,var(--surface-3) 45% 65%,#034694 65%)!important}
+
 /* ---- Loading placeholders shaped like the finished header ---- */
 .sk-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
 .sk-row .skel{height:44px}
@@ -1801,7 +1824,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       </div>
     </div>
     <div class="legend" aria-label="How to read this table">
-      <span><i class="c-home"></i>Home win</span><span><i class="c-draw"></i>Draw</span><span><i class="c-away"></i>Away win</span>
+      <span class="kit-key"><i></i>Bars use each club's colours: home on the left, draw in grey, away on the right</span>
       <span class="sep"></span>
       <span><b>Over 2.5</b> 3 or more goals in the game</span><span><b>Both score</b> each team scores at least once</span>
     </div>
@@ -1983,7 +2006,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       </div>
     </div>
     <div class="legend" aria-label="How to read this table">
-      <span><i class="c-home"></i>Home win</span><span><i class="c-away"></i>Away win</span>
+      <span class="kit-key"><i></i>Bars use each team's colours: home on the left, away on the right</span>
       <span class="sep"></span>
       <span><b>Spread</b> the favourite must win by more than this</span><span><b>Total points</b> both teams combined, overtime included</span><span><b>B2B</b> played last night</span>
     </div>
@@ -2184,6 +2207,21 @@ function kit(name){
   return {primary: `hsl(${h} 62% 46%)`, secondary: '#ffffff'};
 }
 const inkOn = c => /^#(f|e|d)[0-9a-f]{5}$/i.test(c) || c === '#ffffff' || /^#(fd|fe|ff|f5)/i.test(c) ? '#0b0f14' : '#ffffff';
+// Club colours for one fixture as CSS variables (--kh, --ka and readable ink on each).
+// Clashing kits (red v red) fall back to the away side's second colour, then the theme's away colour.
+function rgbOf(c){
+  if(c[0] === '#'){ const n = parseInt(c.slice(1, 7), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255] }
+  const m = /hsl\((\d+)\s+(\d+)%\s+(\d+)%\)/.exec(c); if(!m) return [128, 128, 128];
+  const h = +m[1], s = m[2] / 100, l = m[3] / 100, a = s * Math.min(l, 1 - l), k = n => (n + h / 30) % 12;
+  return [0, 8, 4].map(n => Math.round((l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1))) * 255));
+}
+const apart = (x, y) => { const a = rgbOf(x), b = rgbOf(y); return Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]) > 110 };
+const kitPair = n => { const k = kit(n); return [k.primary, k.secondary] };
+function clubVars(home, away, colours = kitPair){
+  const [h] = colours(home), [a1, a2] = colours(away);
+  const a = apart(h, a1) ? a1 : apart(h, a2) ? a2 : null;
+  return `--kh:${h};--kh-ink:${inkOn(h)};--ka:${a || 'var(--away)'};--ka-ink:${a ? inkOn(a) : 'var(--bg)'}`;
+}
 // Broadcast codes where the first three letters would be ambiguous or odd.
 const CODES = {'manchester city': 'MCI', 'manchester united': 'MUN', 'nottingham': 'NFO', 'crystal palace': 'CRY', 'west ham': 'WHU', 'aston villa': 'AVL',
   'tottenham': 'TOT', 'brighton': 'BHA', 'wolverhampton': 'WOL', 'newcastle': 'NEW', 'leeds': 'LEE', 'real madrid': 'RMA', 'real betis': 'BET',
@@ -2319,7 +2357,7 @@ function renderBoard(){
       html += `<div class="day"><span>${esc(day(f.date))}</span><span class="ko">${dd < 0 ? 'Played' : dd === 0 ? 'Today' : dd === 1 ? 'Tomorrow' : 'In ' + dd + ' days'}</span></div>`; last = f.date }
     const p = f.probabilities;
     const mv = f.movement, mvTag = mv ? `<span class="move ${mv.change[0] >= 0 ? 'up' : 'down'}" title="Home probability moved since ${esc(new Date(mv.since).toLocaleString())}">${mv.change[0] >= 0 ? '▲' : '▼'}${Math.abs(mv.change[0] * 100).toFixed(1)}${mv.sharp ? ' sharp' : ''}</span>` : '';
-    html += `<button class="fx${f.status === 'live' ? ' is-live' : ''}" style="--i:${state.noStagger ? 0 : Math.min(idx, 30)}${state.noStagger ? ';animation:none' : ''}" data-home="${esc(f.home)}" data-away="${esc(f.away)}" data-date="${esc(f.date)}">` +
+    html += `<button class="fx${f.status === 'live' ? ' is-live' : ''}" style="${clubVars(f.home, f.away)};--i:${state.noStagger ? 0 : Math.min(idx, 30)}${state.noStagger ? ';animation:none' : ''}" data-home="${esc(f.home)}" data-away="${esc(f.away)}" data-date="${esc(f.date)}">` +
       `<span class="teams"><span>${badgeImg(f.home, 'tb') || `<i class="kit" style="background:${kit(f.home).primary}"></i>`}${esc(f.home)}${f.source !== 'model' ? srcBadge(f.source) : ''}${mvTag}</span><span>${badgeImg(f.away, 'tb') || `<i class="kit" style="background:${kit(f.away).primary}"></i>`}${esc(f.away)}${f.thin_history ? '<span class="flag" title="Thin recent history">●</span>' : ''}</span><small class="when">${state.sort !== 'date' ? esc(day(f.date)) + ' ' : ''}${statusPill(f) || 'Time TBC'}</small></span>` +
       `<span class="bar">${tri(p)}<span class="nums"><span class="c-h">${Math.round(p[0]*100)}%</span><span class="c-d">${Math.round(p[1]*100)}%</span><span class="c-a">${Math.round(p[2]*100)}%</span></span></span>` +
       `<span class="num goals" title="Expected goals ${f.expected_goals[0].toFixed(1)}–${f.expected_goals[1].toFixed(1)}"><span><em>Over 2.5</em><b>${Math.round(f.over25 * 100)}%</b></span><span><em>Both score</em><b>${Math.round(f.btts * 100)}%</b></span></span>` +
@@ -2476,7 +2514,7 @@ function renderMatch(){
   const action = d.decision.action, comp = d.league.split(' — ')[1] || d.league;
   matchMode(true);
   $('#out').innerHTML =
-    `<div class="card hero mh">
+    `<div class="card hero mh" style="${clubVars(d.home, d.away)}">
       <div class="mh-top">
         <div class="mh-meta"><span class="mh-lg">${esc(comp)}</span><span>${d.pricing.fixture_date ? 'Kickoff ' + esc(day(d.pricing.fixture_date)) : 'Forecast for ' + esc(day(d.analysis_date))}</span></div>
         <div class="mh-badges">${srcBadge(d.pricing.source)} ${jevBadge(d.jev_review)} <span class="badge ${ready ? 'ok' : 'warn'}" title="${ready ? 'Recent results and fixtures are all in place' : 'Some data is missing or out of date: see How sure are we?'}">${ready ? 'Data looks good' : 'Check the data'}</span>
@@ -2916,7 +2954,7 @@ function ftAll(){
     if(g.date !== last){ html += `<div class="ga-day">${esc(day(g.date))}</div>`; last = g.date }
     const p = g.probabilities, k = p.indexOf(Math.max(...p)), lab = [g.home, 'Draw', g.away][k];
     const side = t => `<span>${badgeImg(t, 'tb') || `<i class="kit" style="background:${kit(t).primary}"></i>`}${esc(t)}</span>`;
-    html += `<button type="button" class="ga${g.status === 'live' ? ' is-live' : ''}" style="--i:${Math.min(i, 40)}" data-ga="${d.all.indexOf(g)}">
+    html += `<button type="button" class="ga${g.status === 'live' ? ' is-live' : ''}" style="${clubVars(g.home, g.away)};--i:${Math.min(i, 40)}" data-ga="${d.all.indexOf(g)}">
       <span class="meta"><span class="lg">${esc(g.league)}</span>${statusPill(g) || '<span class="st ko">TBC</span>'}</span>
       <span class="tm">${side(g.home)}${side(g.away)}</span>
       <span class="tri-wrap">${tri(p)}<span class="nums" style="display:flex;justify-content:space-between;font-size:12px;margin-top:4px"><span class="c-h">${Math.round(p[0]*100)}</span><span class="c-d">${Math.round(p[1]*100)}</span><span class="c-a">${Math.round(p[2]*100)}</span></span></span>
@@ -2937,12 +2975,12 @@ $('#ft-all').onclick = e => { const b = e.target.closest('[data-ga]'); if(b) ope
 const ftPer = () => innerWidth < 760 ? 2 : 4;
 const ftPages = () => Math.ceil((state.ftGames || []).length / ftPer());
 function ftCard(g, i, j){
-  const p = g.probabilities, fav = p.indexOf(Math.max(...p)), kh = kit(g.home).primary, ka = kit(g.away).primary;
+  const p = g.probabilities, fav = p.indexOf(Math.max(...p));
   const rank = i === 0 ? (state.ftPeriod === 'day' ? 'Game of the day' : 'Game of the week') : '#' + (i + 1);
   const centre = g.status === 'live' ? `<span class="fc-live"><i></i>Live</span>`
     : `<b class="fc-ko">${esc(g.kickoff ? koTime(g.kickoff) : 'TBC')}</b><small>${esc(day(g.date))}</small>`;
   const seg = (k, cls) => `<i class="${cls}${fav === k ? ' fav' : ''}" style="flex:${Math.max(p[k], .08)}"><em>${Math.round(p[k] * 100)}</em></i>`;
-  return `<article class="card ft fc${i === 0 ? ' top' : ''}" style="--i:${j};--j:${j};--kh:${kh};--ka:${ka}">
+  return `<article class="card ft fc${i === 0 ? ' top' : ''}" style="--i:${j};--j:${j};${clubVars(g.home, g.away)}">
     <header class="fc-head"><span class="fc-lg">${esc(g.league)}</span><span class="fc-rank${i === 0 ? ' hot' : ''}">${esc(rank)}</span></header>
     <div class="fc-face">
       <div class="fc-team"><span class="fc-ring">${crest(g.home)}</span><b>${esc(g.home)}</b></div>
@@ -3318,6 +3356,7 @@ const NBA_COLORS = {ATL:['#e03a3e','#ffffff'], BOS:['#007a33','#ffffff'], BKN:['
   WSH:['#002b5c','#e31837']};
 const nb = {loaded: false, loading: null, slate: null, sort: 'date', filter: '', current: null, tab: 'overview', abbr: {}, gameId: null, rev: 0};
 const nAbbr = name => nb.abbr[name] || name.split(' ').pop().slice(0, 3).toUpperCase();
+const nbaPair = n => NBA_COLORS[nAbbr(n)] || kitPair(n);
 function jersey(name, lg){
   const a = nAbbr(name), c = NBA_COLORS[a] || [kit(name).primary, '#ffffff'];
   if(BADGES[name]) return `<span class="jersey logo${lg ? ' lg' : ''}" style="--team:${c[0]}" aria-hidden="true">${badgeImg(name, 'nl')}</span>`;
@@ -3336,7 +3375,7 @@ function nStatus(f){
   return f.tipoff ? `<span class="st ko">${esc(koTime(f.tipoff))}</span>` : '';
 }
 function duo(p, big){
-  return `<div class="duo${big ? ' big' : ''}" role="img" aria-label="Home ${pct(p[0])}, away ${pct(p[1])}"><i style="width:${p[0] * 100}%;background:var(--home)"></i><i style="width:${p[1] * 100}%;background:var(--away)"></i></div>`;
+  return `<div class="duo${big ? ' big' : ''}" role="img" aria-label="Home ${pct(p[0])}, away ${pct(p[1])}"><i style="width:${p[0] * 100}%;background:var(--kh,var(--home))"></i><i style="width:${p[1] * 100}%;background:var(--ka,var(--away))"></i></div>`;
 }
 
 /* Sport switch */
@@ -3408,7 +3447,7 @@ function renderNbaBoard(){
     const p = f.moneyline, fav = f.spread_line <= 0 ? f.cover : 1 - f.cover;
     const tags = (f.source !== 'model' ? nSrc(f.source, f.book) : '') + (f.b2b[0] ? `<span class="tag warn" title="${esc(f.home)} played yesterday">${esc(nAbbr(f.home))} B2B</span>` : '') +
       (f.b2b[1] ? `<span class="tag warn" title="${esc(f.away)} played yesterday">${esc(nAbbr(f.away))} B2B</span>` : '') + (f.kind && f.kind !== 'regular' ? `<span class="tag">${esc(f.kind)}</span>` : '') + (f.neutral ? '<span class="tag">Neutral</span>' : '');
-    html += `<button class="bx" style="--i:${nb.still ? 0 : Math.min(i, 30)}${nb.still ? ';animation:none' : ''}" data-id="${esc(f.id)}" data-home="${esc(f.home)}" data-away="${esc(f.away)}">` +
+    html += `<button class="bx" style="${clubVars(f.home, f.away, nbaPair)};--i:${nb.still ? 0 : Math.min(i, 30)}${nb.still ? ';animation:none' : ''}" data-id="${esc(f.id)}" data-home="${esc(f.home)}" data-away="${esc(f.away)}">` +
       `<span class="teams"><span>${jersey(f.home)}${esc(f.home)}</span><span>${jersey(f.away)}${esc(f.away)}</span><small>${nb.sort !== 'date' ? esc(day(f.date)) + ' · ' : ''}${nStatus(f)}${tags}</small></span>` +
       `<span class="win">${duo(p)}<span class="duo-n"><span class="c-h">${Math.round(p[0] * 100)}%</span><span class="c-a">${Math.round(p[1] * 100)}%</span></span></span>` +
       `<span class="num c-spread"><span class="lbl">Spread</span>${esc(favLine(f.home, f.away, f.spread_line))}<small>covers ${pct(fav)}</small></span>` +
@@ -3618,7 +3657,7 @@ function renderNbaMatch(){
         <span>Our model says</span>${[[ms.moneyline[0], ml[0]], [favHome ? ms.cover : 1 - ms.cover, favHome ? cov[0] : cov[1]], [ms.over, ov[0]]].map(([x, r]) => `<b>${pct(x)}<span class="diff">${(x - r > 0 ? '+' : '') + ((x - r) * 100).toFixed(1)}</span></b>`).join('')}</div>
       <p class="note">${d.source === 'entered' ? 'Priced from your line at even money.' : `${esc(d.book || 'Bookmaker')} line with the bookmaker's cut removed.`} Our model on its own projects ${Math.round(ms.expected_points ? ms.expected_points[0] : d.model.expected_points[0])}–${Math.round(d.model.expected_points[1])}. In testing the closing line beat the model, so trust the first row.</p>`;
   matchMode(true, 'b-match');
-  $('#nba-out').innerHTML = `<div class="card hero mh nbh">
+  $('#nba-out').innerHTML = `<div class="card hero mh nbh" style="${clubVars(H, A, nbaPair)}">
       <div class="mh-top">
         <div class="mh-meta"><span class="mh-lg">NBA${g.kind && g.kind !== 'regular' ? ' · ' + esc(g.kind) : ''}</span><span>${esc(when)}</span></div>
         <div class="mh-badges">${nSrc(d.source, d.book)} ${restTags}</div>
