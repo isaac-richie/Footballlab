@@ -626,6 +626,18 @@ def fixture_rates(data, league_id, fixtures, today):
 RECENT_DAYS = 0         # played-but-unscored games stay listed only on the day they were played
 
 
+def last_five(data, league_id, today, n=5):
+    """Each team's last n league results before today, oldest first, as 'W' / 'D' / 'L'."""
+    out = {}
+    played = sorted((m for m in data['matches'] if m['league_id'] == league_id and m['goals'] is not None and m['date'] < today),
+                    key=lambda m: (m['date'], m.get('kickoff') or ''))
+    for m in played:
+        h, a = m['goals']
+        out.setdefault(m['home'], []).append('W' if h > a else 'D' if h == a else 'L')
+        out.setdefault(m['away'], []).append('W' if a > h else 'D' if h == a else 'L')
+    return {team: results[-n:] for team, results in out.items()}
+
+
 def slate(data, league_id, limit=40):
     """Forecast every upcoming fixture in a league from one fit at today's cutoff."""
     if league_id not in LEAGUES:
@@ -651,6 +663,7 @@ def slate(data, league_id, limit=40):
                      (dt.date.fromisoformat(today) - dt.date.fromisoformat(m['date'])).days <= 365 for m in rows)
               for f in fixtures for t in (f['home'], f['away'])}
     movement = live_odds.movement_summary(league_id)
+    form5 = last_five(data, league_id, today)
     items = []
     for m, model_rates, rates, source, prices in priced:
         model = distribution(*model_rates, rho, m['_cal'])
@@ -662,7 +675,8 @@ def slate(data, league_id, limit=40):
                           best=prices.get('best') if prices and source != 'model' else None,
                           movement=movement.get('|'.join((m['date'], m['home'], m['away']))),
                           thin_history=league_id != 'ucl' and min(recent[m['home']], recent[m['away']]) < 10,
-                          kickoff=m.get('kickoff'), status=schedule.status(m)))
+                          kickoff=m.get('kickoff'), status=schedule.status(m),
+                          last5=[form5.get(m['home'], []), form5.get(m['away'], [])]))
     result = dict(league_id=league_id, league=LEAGUES[league_id], analysis_date=today, model=MODEL['version'],
                   dixon_coles_rho=rho, quality=coverage(data, league_id, today), fixtures=items,
                   priced=sum(i['source'] != 'model' for i in items),
@@ -824,9 +838,13 @@ def vip_slip(data, n=17, days=3, per_league=6):
             break
     legs.sort(key=lambda c: (c['date'], c['league_id']))
     kick = {(m['league_id'], m['date'], m['home'], m['away']): m.get('kickoff') for m in data['matches'] if m['goals'] is None}
+    form5 = {}
     for leg in legs:
         leg['league'] = LEAGUES[leg['league_id']].split(' — ')[-1]
         leg['kickoff'] = kick.get((leg['league_id'], leg['date'], leg['home'], leg['away']))
+        if leg['league_id'] not in form5:
+            form5[leg['league_id']] = last_five(data, leg['league_id'], dt.date.today().isoformat())
+        leg['last5'] = [form5[leg['league_id']].get(leg['home'], []), form5[leg['league_id']].get(leg['away'], [])]
     combined = math.prod(c['probability'] for c in legs) if legs else 0
     fingerprint = hashlib.sha1('|'.join(c['id'] for c in legs).encode()).hexdigest()[:4].upper()
     today = dt.date.today()
