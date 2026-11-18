@@ -21,6 +21,8 @@ ZONES = {  # positions are 1-based; relegation counts from the bottom
     'fr.1': dict(title=1, europe=4, playoff=16, relegation=2),
     'it.2': dict(title=2, europe=None, playoff=None, relegation=3),
     'de.2': dict(title=2, europe=None, playoff=16, relegation=2),
+    'nl.1': dict(title=1, europe=4, playoff=16, relegation=2),
+    'pt.1': dict(title=1, europe=4, playoff=16, relegation=2),
 }
 
 

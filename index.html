@@ -1046,7 +1046,7 @@ footer a{color:var(--muted)}
 body:not([data-sport="basketball"]) .bk-only,body[data-sport="basketball"] .fb-only{display:none}
 .sport button{display:inline-flex;align-items:center;gap:6px}
 .sport .ico{font-size:14px;line-height:1}
-body[data-sport="basketball"] :is(.nav,.tabbar) a[data-view="vip"]{display:none}
+body[data-sport="basketball"] :is(.nav,.tabbar) a[data-view="vip"],body[data-sport="basketball"] :is(.nav,.tabbar) a[data-view="season"]{display:none}
 button.bp-hero{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;gap:14px}
 .bp-match{display:flex;align-items:center;gap:6px;font-weight:700;font-size:13px;opacity:.85}.bp-match i{font-style:normal;opacity:.5;margin:0 2px}.bp-match small{margin-left:auto;font-weight:500}
 .bp-team{display:flex;align-items:center;gap:12px}.bp-team .big{font-size:clamp(22px,5.5vw,34px);font-weight:800;line-height:1.1}
@@ -1777,6 +1777,59 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   .vb-stamp{margin-right:0;flex-basis:100%}
 }
 
+/* ---- Favourite teams ---- */
+.fav-star{display:inline-grid;place-items:center;width:28px;height:28px;margin-left:4px;flex:none;border-radius:4px;cursor:pointer;
+  font-size:16px;line-height:1;color:var(--faint);transition:color .15s,background .15s}
+.fav-star:hover,.fav-star:focus-visible{color:var(--text);background:var(--surface-2)}
+.fav-star.on{color:var(--warn)}
+.fav-mark{color:var(--warn);margin-left:6px;font-size:12px}
+.fx.is-fav,.ga.is-fav{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--warn) 35%,transparent)}
+.your-teams{margin-bottom:28px}
+.your-teams .ga:first-child{border-top:1px solid var(--text)!important}
+.fc-team{position:relative}
+.fc-team .fav-star{margin:0}
+.mh .who .fav-star{margin-left:2px}
+
+/* ---- Season projections ---- */
+.sim-wait b{display:block;font-family:var(--serif);font-size:20px;font-weight:600}.sim-wait span{font-size:13px;color:var(--muted)}
+.sim-paused{padding:24px!important}
+.sim-paused h3{margin:6px 0 8px;font-size:clamp(22px,2.6vw,30px)!important}
+.sim-paused p{margin:0;max-width:640px;color:var(--muted);line-height:1.6}.sim-paused p b{color:var(--text)}
+.sc-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:16px}
+.sc-card{padding:18px 18px 16px;border:1px solid var(--line-2);border-radius:6px;
+  background:linear-gradient(90deg,var(--kh) 0 100%) top/100% 4px no-repeat,var(--surface)}
+.sc-card .kicker{margin-bottom:10px}
+.sc-team{display:flex;align-items:center;gap:10px;min-width:0}
+.sc-team b{font-family:var(--serif);font-size:19px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.sc-num{font-family:var(--mono);font-size:44px;font-weight:500;letter-spacing:-.05em;line-height:1;margin:14px 0 6px;color:var(--accent)}
+.sc-card small{font-size:12.5px;color:var(--muted)}
+.st-wrap{padding:0!important;overflow:hidden}
+.season-table{width:100%;border-collapse:collapse;font-size:13.5px}
+.season-table th{font-size:10.5px;font-weight:650;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);padding:12px 10px;text-align:left;border-bottom:1px solid var(--line-2);white-space:nowrap}
+.season-table th.r,.season-table td.r{text-align:right}
+.season-table td{padding:9px 10px;border-top:1px solid var(--line);vertical-align:middle}
+.season-table td.pos{width:34px;font-family:var(--mono);color:var(--faint);padding-left:16px}
+.season-table tr.z-title td.pos,.season-table tr.z-eur td.pos{color:var(--ok)}
+.season-table tr.z-rel td.pos,.season-table tr.z-po td.pos{color:var(--lost)}
+.season-table tr.z-title td:first-child,.season-table tr.z-eur td:first-child{box-shadow:inset 3px 0 0 var(--ok)}
+.season-table tr.z-rel td:first-child{box-shadow:inset 3px 0 0 var(--lost)}
+.season-table tr.z-po td:first-child{box-shadow:inset 3px 0 0 var(--warn)}
+.season-table tr.is-fav td{background:color-mix(in srgb,var(--warn) 7%,transparent)}
+.st-team{display:flex;align-items:center;gap:10px;white-space:nowrap}
+.st-team b{font-weight:600}
+.season-table td.r{font-family:var(--mono)}
+.season-table td.proj b{font-size:16px;font-weight:600}
+.season-table td.p{color:var(--muted)}
+.season-table td.rel{color:var(--lost)}
+.range{min-width:150px}
+.rg-bar{position:relative;display:block;height:8px;background:var(--surface-2)}
+.rg-bar i{position:absolute;top:0;bottom:0;background:color-mix(in srgb,var(--text) 26%,transparent)}
+.rg-bar em{position:absolute;top:-3px;width:2px;height:14px;margin-left:-1px;background:var(--accent)}
+.range small{display:block;margin-top:3px;font-family:var(--mono);font-size:11px;color:var(--faint)}
+.pos-strip{display:flex;gap:1px;height:16px;min-width:140px}
+.pos-strip i{flex:1;background:var(--accent)}
+@media (max-width:760px){.sc-num{font-size:36px}.season-table td,.season-table th{padding:8px 6px}.season-table td.pos{padding-left:10px}.st-team b{max-width:130px;overflow:hidden;text-overflow:ellipsis}}
+
 /* ---- Loading placeholders shaped like the finished header ---- */
 .sk-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
 .sk-row .skel{height:44px}
@@ -1821,6 +1874,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       <a href="#featured" data-view="featured">Home</a>
       <a href="#vip" data-view="vip">VIP picks</a>
       <a href="#fixtures" data-view="fixtures">All games</a>
+      <a href="#season" data-view="season">Season</a>
       <a href="#match" data-view="match">Analyse a match</a>
       <a href="#performance" data-view="performance">Our record</a>
     </nav>
@@ -1834,6 +1888,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   <a href="#featured" data-view="featured"><svg viewBox="0 0 24 24"><path class="f" d="M12 2.8l2.7 5.6 6.1.8-4.4 4.3 1.1 6.1L12 16.7l-5.5 2.9 1.1-6.1-4.4-4.3 6.1-.8z"/><path d="M12 2.8l2.7 5.6 6.1.8-4.4 4.3 1.1 6.1L12 16.7l-5.5 2.9 1.1-6.1-4.4-4.3 6.1-.8z"/><path d="M19.5 2.5v2.4M18.3 3.7h2.4"/></svg><span>Home</span></a>
   <a href="#vip" data-view="vip"><svg viewBox="0 0 24 24"><path class="f" d="M3 8l4.5 3.5L12 5l4.5 6.5L21 8l-2 11H5z"/><path d="M3 8l4.5 3.5L12 5l4.5 6.5L21 8l-2 11H5zM5 19h14"/></svg><span>VIP</span></a>
   <a href="#fixtures" data-view="fixtures"><svg viewBox="0 0 24 24"><rect class="f" x="3" y="4.5" width="18" height="16" rx="3.5"/><rect x="3" y="4.5" width="18" height="16" rx="3.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><circle cx="12" cy="15" r="3"/><path d="M12 13.2l1.1.8-.4 1.3h-1.4l-.4-1.3z"/></svg><span>Games</span></a>
+  <a href="#season" data-view="season"><svg viewBox="0 0 24 24"><path class="f" d="M7 3.5h10v5a5 5 0 0 1-10 0z"/><path d="M7 3.5h10v5a5 5 0 0 1-10 0zM7 5.5H4.2a3.3 3.3 0 0 0 3.3 4.2M17 5.5h2.8a3.3 3.3 0 0 1-3.3 4.2M12 13.5v3.5M8 20.5h8M9.5 17h5v3.5h-5z"/></svg><span>Season</span></a>
   <a href="#match" data-view="match"><svg viewBox="0 0 24 24"><circle class="f" cx="12" cy="12" r="9.2"/><circle cx="12" cy="12" r="9.2"/><path d="M12 7.6l3.3 2.4-1.3 3.9h-4l-1.3-3.9z"/><path d="M12 7.6V3.2M15.3 10l4.3-1.4M14 13.9l2.7 3.7M10 13.9l-2.7 3.7M8.7 10 4.4 8.6"/></svg><span>Analyse</span></a>
   <a href="#performance" data-view="performance"><svg viewBox="0 0 24 24"><path class="f" d="M4 20.5V14l5-4 4 3 7-7v14.5z"/><path d="M4 14l5-4 4 3 7-7M15.5 6H20v4.5M3 20.5h18"/></svg><span>Record</span></a>
 </nav>
@@ -1870,6 +1925,10 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
         <a class="ic" href="#match"><span class="ic-ico" aria-hidden="true">03</span><b>Break down any match</b><span>Goals, both teams to score, handicaps, half-time and correct score in one view.</span><i class="ic-go">Analyse a match →</i></a>
       </div>
     </div>
+    <section class="your-teams" id="your-teams" hidden>
+      <div class="view-head sect-head"><div><h2>Your teams</h2><p>Next games for the clubs you follow. Tap ☆ next to any club to follow or unfollow it.</p></div></div>
+      <div id="yt-list"></div>
+    </section>
     <div class="view-head sect-head">
       <div><h2>Games to watch</h2><p id="ft-sub">The biggest, closest games across every league.</p></div>
       <div class="seg" id="ft-period" role="group" aria-label="Period"><button data-p="day">Next matchday</button><button data-p="week" aria-pressed="true">This week</button></div>
@@ -1993,6 +2052,18 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
     <div id="benchmark" style="margin-bottom:14px"></div>
     <div id="prospective" class="card"><div class="skel" style="height:70px"></div></div>
     <div id="evaluation" style="margin-top:14px"></div>
+  </section>
+
+  <!-- SEASON: the rest of the season played out thousands of times -->
+  <section data-panel="season" hidden>
+    <div class="view-head">
+      <div>
+        <span class="eyebrow">Season projections</span><h1>How the season ends</h1>
+        <p>The rest of the <b id="season-league">league</b> season played out 5,000 times from our match forecasts. Pick a league above. Tap ☆ to follow a club.</p>
+      </div>
+    </div>
+    <div id="season-out"><div class="card"><div class="skel" style="height:320px"></div></div></div>
+    <p class="note" id="season-note"></p>
   </section>
 
   <!-- HOW IT WORKS: reached from links (welcome card, front page, record, footer), not the main nav -->
@@ -2218,6 +2289,73 @@ function moveInk(){
 window.addEventListener('resize', moveInk);
 
 
+/* ---------- Favourite teams: follow a club, see its games first (stored on this device) ---------- */
+let FAV = (() => { try{ const v = JSON.parse(store.get('fl-favs') || '{}'); return Array.isArray(v.teams) ? v : {teams: []} }catch{ return {teams: []} } })();
+const isFav = t => FAV.teams.includes(t);
+const star = t => `<span class="fav-star${isFav(t) ? ' on' : ''}" role="button" tabindex="0" data-fav="${esc(t)}" aria-pressed="${isFav(t)}" aria-label="${isFav(t) ? 'Unfollow' : 'Follow'} ${esc(t)}" title="${isFav(t) ? 'Following' : 'Follow'} ${esc(t)}">${isFav(t) ? '★' : '☆'}</span>`;
+const favMark = t => isFav(t) ? '<span class="fav-mark" title="A club you follow">★</span>' : '';
+function toggleFav(team){
+  FAV = {teams: isFav(team) ? FAV.teams.filter(x => x !== team) : [...FAV.teams, team]};
+  store.set('fl-favs', JSON.stringify(FAV));
+  $$(`[data-fav="${CSS.escape(team)}"]`).forEach(el => { const on = isFav(team); el.classList.toggle('on', on); el.textContent = on ? '★' : '☆';
+    el.setAttribute('aria-pressed', on); el.setAttribute('aria-label', `${on ? 'Unfollow' : 'Follow'} ${team}`); el.title = `${on ? 'Following' : 'Follow'} ${team}` });
+  if(typeof renderYourTeams === 'function') renderYourTeams();
+  if(state.slate && !$('[data-panel="fixtures"]').hidden){ state.noStagger = true; renderBoard(); state.noStagger = false }
+}
+// Capture phase, so a star inside a clickable row or card never opens the match.
+const favClick = e => { const s = e.target.closest('[data-fav]'); if(!s) return; e.preventDefault(); e.stopPropagation(); toggleFav(s.dataset.fav) };
+document.addEventListener('click', favClick, true);
+document.addEventListener('keydown', e => { if((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('[data-fav]')) favClick(e) }, true);
+
+/* ---------- Season projections ---------- */
+async function loadSeason(){
+  const league = state.league; state.seasonLeague = league;
+  $('#season-league').textContent = ((state.data && state.data.leagues[league]) || '').split(' — ').pop() || 'league';
+  $('#season-out').innerHTML = '<div class="card sim-wait"><b>Playing out the season 5,000 times…</b><span>Takes a few seconds.</span><div class="skel" style="height:240px;margin-top:16px"></div></div>';
+  $('#season-note').textContent = '';
+  try{
+    const d = await api('/api/season?league=' + encodeURIComponent(league));
+    if(league !== state.league) return;
+    state.season = d; renderSeason();
+  }catch(e){ if(league === state.league){ state.seasonLeague = null; $('#season-out').innerHTML = `<div class="card sim-paused"><span class="kicker">Not available</span><h3>No projection for this league right now</h3><p>${esc(e.message)}</p></div>` } }
+}
+const sp = x => x == null ? '–' : x >= .995 ? '>99%' : x > 0 && x < .005 ? '<1%' : x === 0 ? '–' : Math.round(x * 100) + '%';
+function renderSeason(){
+  const d = state.season, z = d.zones || {}, n = d.teams.length, lg = d.league.split(' — ').pop();
+  $('#season-league').textContent = lg;
+  if(!d.fresh){
+    $('#season-out').innerHTML = `<div class="card sim-paused"><span class="kicker">Paused</span><h3>Projections for ${esc(lg)} are paused</h3>
+      <p>The latest ${esc(lg)} result in our data is from <b>${esc(day(d.stale_results))}</b> (${d.results_age_days} days ago). A table built on games that old would mislead, so projections come back as soon as the results feed catches up.</p></div>`;
+    $('#season-note').textContent = ''; return;
+  }
+  const rows = [...d.teams].sort((a, b) => b.expected_points - a.expected_points);
+  const maxPts = Math.max(...rows.map(t => t.points_range[1])), minPts = Math.min(...rows.map(t => t.points_range[0]));
+  const x = v => ((v - minPts) / Math.max(1, maxPts - minPts) * 100).toFixed(1);
+  const t1 = rows.reduce((a, b) => (b.title > a.title ? b : a));
+  const race = z.europe ? rows.filter(t => t.europe > .05 && t.europe < .95).sort((a, b) => Math.abs(a.europe - .5) - Math.abs(b.europe - .5))[0] : null;
+  const risk = rows.reduce((a, b) => ((b.relegation || 0) > (a.relegation || 0) ? b : a));
+  const cardFor = (kick, t, value, line) => t ? `<div class="sc-card" style="${clubVars(t.current.team, t.current.team)}"><span class="kicker">${kick}</span>
+      <div class="sc-team">${crest(t.current.team, true)}<b>${esc(t.current.team)}</b>${star(t.current.team)}</div><div class="sc-num">${value}</div><small>${line}</small></div>` : '';
+  const cards = `<div class="sc-cards">
+    ${cardFor('Title favourite', t1, sp(t1.title), `to win the title · ${Math.round(t1.expected_points)} points projected`)}
+    ${race ? cardFor(`Race for the top ${z.europe}`, race, sp(race.europe), `to finish in the top ${z.europe} · the closest call`) : ''}
+    ${z.relegation && risk.relegation ? cardFor('Most at risk', risk, sp(risk.relegation), `to go down · ${Math.round(risk.expected_points)} points projected`) : ''}</div>`;
+  const zoneOf = i => i < (z.title || 0) ? 'z-title' : z.europe && i < z.europe ? 'z-eur' : z.relegation && i >= n - z.relegation ? 'z-rel' : z.playoff && i === z.playoff - 1 ? 'z-po' : '';
+  const strip = t => `<span class="pos-strip" title="Chance of each finishing position">${t.positions.map((q, i) => `<i style="opacity:${q ? Math.max(.08, Math.min(1, q * 2.4)).toFixed(2) : 0}" title="${i + 1}${['st','nd','rd'][i] || 'th'}: ${sp(q)}"></i>`).join('')}</span>`;
+  const body = rows.map((t, i) => `<tr class="${zoneOf(i)}${isFav(t.current.team) ? ' is-fav' : ''}">
+      <td class="pos">${i + 1}</td>
+      <td><span class="st-team">${crest(t.current.team, true)}<b>${esc(t.current.team)}</b>${star(t.current.team)}</span></td>
+      <td class="r">${t.current.played}</td><td class="r">${t.current.points}</td>
+      <td class="r proj"><b>${Math.round(t.expected_points)}</b></td>
+      <td class="range hide-sm"><span class="rg-bar"><i style="left:${x(t.points_range[0])}%;right:${(100 - x(t.points_range[1])).toFixed(1)}%"></i><em style="left:${x(t.expected_points)}%"></em></span><small>${t.points_range[0]}–${t.points_range[1]}</small></td>
+      <td class="r p">${sp(t.title)}</td>${z.europe ? `<td class="r p">${sp(t.europe)}</td>` : ''}${z.relegation ? `<td class="r p rel">${sp(t.relegation)}</td>` : ''}
+      <td class="hide-sm">${strip(t)}</td></tr>`).join('');
+  $('#season-out').innerHTML = cards + `<div class="card st-wrap"><div class="scroll"><table class="table season-table">
+    <thead><tr><th>#</th><th>Club</th><th class="r">P</th><th class="r">Pts</th><th class="r">Projected</th><th class="hide-sm">Likely range</th><th class="r">Title</th>${z.europe ? `<th class="r">Top ${z.europe}</th>` : ''}${z.relegation ? '<th class="r">Down</th>' : ''}<th class="hide-sm">Where they finish (1st → ${n}th)</th></tr></thead>
+    <tbody>${body}</tbody></table></div></div>`;
+  $('#season-note').textContent = `${d.runs.toLocaleString()} simulated seasons from ${d.remaining} remaining games, with results up to ${day(d.stale_results)}. Likely range covers 80% of simulations. ${d.method}`;
+}
+
 /* ---------- First-visit welcome: shown until closed once ---------- */
 (() => {
   const w = $('#welcome'); if(!w) return;
@@ -2264,7 +2402,10 @@ function showView(){
     if(window.nbaShow) nbaShow(bview);
     return;
   }
-  const view = ['featured','vip','fixtures','match','performance'].includes(v) ? v : 'featured';
+  const view = ['featured','vip','fixtures','match','season','performance'].includes(v) ? v : 'featured';
+  if(view === 'season' && state.seasonLeague !== state.league) loadSeason();
+  // Follow marks change while the table is off screen, so redraw it (without the entry animation) on the way in.
+  if(view === 'fixtures' && state.slate && state.boardFavs !== FAV.teams.join('|')){ state.boardFavs = FAV.teams.join('|'); state.noStagger = true; renderBoard(); state.noStagger = false }
   if(view === 'featured' && !state.ftLoaded) loadFeatured();
   if(view === 'vip' && !state.vipLoaded) loadVip();
   $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== view);
@@ -2413,6 +2554,7 @@ $('#leagues').onclick = e => {
   state.league = b.dataset.league; store.set('fl-league', state.league);
   $$('#leagues .chip').forEach(c => c.setAttribute('aria-pressed', c === b));
   state.current = null; matchMode(false); $('#out').innerHTML = placeholder(); loadLeague();
+  if(!$('[data-panel="season"]').hidden) loadSeason();
 };
 function renderStrip(d){
   const q = d.quality, ok = q.status === 'research_only';
@@ -2458,8 +2600,8 @@ function renderBoard(){
       html += `<div class="day"><span>${esc(day(f.date))}</span><span class="ko">${dd < 0 ? 'Played' : dd === 0 ? 'Today' : dd === 1 ? 'Tomorrow' : 'In ' + dd + ' days'}</span></div>`; last = f.date }
     const p = f.probabilities;
     const mv = f.movement, mvTag = mv ? `<span class="move ${mv.change[0] >= 0 ? 'up' : 'down'}" title="Home probability moved since ${esc(new Date(mv.since).toLocaleString())}">${mv.change[0] >= 0 ? '▲' : '▼'}${Math.abs(mv.change[0] * 100).toFixed(1)}${mv.sharp ? ' sharp' : ''}</span>` : '';
-    html += `<button class="fx${f.status === 'live' ? ' is-live' : ''}" style="${clubVars(f.home, f.away)};--i:${state.noStagger ? 0 : Math.min(idx, 30)}${state.noStagger ? ';animation:none' : ''}" data-home="${esc(f.home)}" data-away="${esc(f.away)}" data-date="${esc(f.date)}">` +
-      `<span class="teams"><span>${badgeImg(f.home, 'tb') || `<i class="kit" style="background:${kit(f.home).primary}"></i>`}${esc(f.home)}${formChips((f.last5 || [])[0], 1)}${f.source !== 'model' ? srcBadge(f.source) : ''}${mvTag}</span><span>${badgeImg(f.away, 'tb') || `<i class="kit" style="background:${kit(f.away).primary}"></i>`}${esc(f.away)}${formChips((f.last5 || [])[1], 1)}${f.thin_history ? '<span class="flag" title="Thin recent history">●</span>' : ''}</span><small class="when">${state.sort !== 'date' ? esc(day(f.date)) + ' ' : ''}${statusPill(f) || 'Time TBC'}</small></span>` +
+    html += `<button class="fx${f.status === 'live' ? ' is-live' : ''}${isFav(f.home) || isFav(f.away) ? ' is-fav' : ''}" style="${clubVars(f.home, f.away)};--i:${state.noStagger ? 0 : Math.min(idx, 30)}${state.noStagger ? ';animation:none' : ''}" data-home="${esc(f.home)}" data-away="${esc(f.away)}" data-date="${esc(f.date)}">` +
+      `<span class="teams"><span>${badgeImg(f.home, 'tb') || `<i class="kit" style="background:${kit(f.home).primary}"></i>`}${esc(f.home)}${favMark(f.home)}${formChips((f.last5 || [])[0], 1)}${f.source !== 'model' ? srcBadge(f.source) : ''}${mvTag}</span><span>${badgeImg(f.away, 'tb') || `<i class="kit" style="background:${kit(f.away).primary}"></i>`}${esc(f.away)}${favMark(f.away)}${formChips((f.last5 || [])[1], 1)}${f.thin_history ? '<span class="flag" title="Thin recent history">●</span>' : ''}</span><small class="when">${state.sort !== 'date' ? esc(day(f.date)) + ' ' : ''}${statusPill(f) || 'Time TBC'}</small></span>` +
       `<span class="bar">${tri(p)}<span class="nums"><span class="c-h">${Math.round(p[0]*100)}%</span><span class="c-d">${Math.round(p[1]*100)}%</span><span class="c-a">${Math.round(p[2]*100)}%</span></span></span>` +
       `<span class="num goals" title="Expected goals ${f.expected_goals[0].toFixed(1)}–${f.expected_goals[1].toFixed(1)}"><span><em>Over 2.5</em><b>${Math.round(f.over25 * 100)}%</b></span><span><em>Both score</em><b>${Math.round(f.btts * 100)}%</b></span></span>` +
       `<span class="num lscore"><b>${esc(f.top_score.score)}</b><small>${Math.round(f.top_score.probability * 100)}% chance</small></span>${(() => { const i = p.indexOf(Math.max(...p)), lab = [abbr(f.home), 'Draw', abbr(f.away)][i];
@@ -2623,9 +2765,9 @@ function renderMatch(){
         <button type="button" class="mh-change"><svg viewBox="0 0 24 24"><path d="M7 4v14M3.5 14.5 7 18l3.5-3.5M17 20V6M13.5 9.5 17 6l3.5 3.5"/></svg>Change match</button>
       </div>
       <div class="versus" style="--vt:match-head">
-        <div class="side"><small>Home</small><div class="who">${crest(d.home)}<strong>${esc(d.home)}</strong></div><div class="xg">Expected goals <b data-count="${d.expected_goals[0]}">${d.expected_goals[0].toFixed(2)}</b></div></div>
+        <div class="side"><small>Home</small><div class="who">${crest(d.home)}<strong>${esc(d.home)}</strong>${star(d.home)}</div><div class="xg">Expected goals <b data-count="${d.expected_goals[0]}">${d.expected_goals[0].toFixed(2)}</b></div></div>
         <div class="mid"><div class="ls">${esc(top.score)}</div><small>most likely score · ${pct(top.probability)}</small></div>
-        <div class="side away"><small>Away</small><div class="who">${crest(d.away)}<strong>${esc(d.away)}</strong></div><div class="xg">Expected goals <b data-count="${d.expected_goals[1]}">${d.expected_goals[1].toFixed(2)}</b></div></div>
+        <div class="side away"><small>Away</small><div class="who">${crest(d.away)}<strong>${esc(d.away)}</strong>${star(d.away)}</div><div class="xg">Expected goals <b data-count="${d.expected_goals[1]}">${d.expected_goals[1].toFixed(2)}</b></div></div>
       </div>
       ${tri(p, true)}
       <div class="tri-labels">
@@ -3031,7 +3173,7 @@ async function loadFeatured(){
         (live ? `<span class="live"><i></i><b>${live}</b> live now</span>` : `<span><b>${d.games.length}</b> picked for you</span>`) }
     if(!d.games.length){ $('#ft-grid').innerHTML = '<div class="placeholder"><div><h3>No games found</h3><p>There are no upcoming fixtures in the data for this period.</p></div></div>'; return }
     state.ftData = d; if(state.ftLeague !== 'all' && !(d.leagues || {})[state.ftLeague]) state.ftLeague = 'all';
-    ftFilters(); ftAll(); state.ftGames = ftFiltered(); state.ftPage = 0;
+    ftFilters(); ftAll(); renderYourTeams(); state.ftGames = ftFiltered(); state.ftPage = 0;
     ftRender(0, 0);
   }catch(e){ $('#ft-grid').innerHTML = `<div class="error">${esc(e.message)}</div>` }
 }
@@ -3047,22 +3189,36 @@ function ftFilters(){
   $('#ft-filter-top').innerHTML = [['all', 'All leagues'], ...Object.entries(d.leagues || {})].map(([id, name]) =>
     `<button type="button" data-lg="${id}" aria-pressed="${state.ftLeague === id}">${esc(name)}<b>${n(id)}</b></button>`).join('');
 }
+function gaRow(g, i){
+  const d = state.ftData, p = g.probabilities, k = p.indexOf(Math.max(...p)), lab = [g.home, 'Draw', g.away][k];
+  const side = t => `<span>${badgeImg(t, 'tb') || `<i class="kit" style="background:${kit(t).primary}"></i>`}${esc(t)}${favMark(t)}</span>`;
+  return `<button type="button" class="ga${g.status === 'live' ? ' is-live' : ''}${isFav(g.home) || isFav(g.away) ? ' is-fav' : ''}" style="${clubVars(g.home, g.away)};--i:${Math.min(i, 40)}" data-ga="${d.all.indexOf(g)}">
+      <span class="meta"><span class="lg">${esc(g.league)}</span>${statusPill(g) || '<span class="st ko">TBC</span>'}</span>
+      <span class="tm">${side(g.home)}${side(g.away)}</span>
+      <span class="tri-wrap">${tri(p)}<span class="nums" style="display:flex;justify-content:space-between;font-size:12px;margin-top:4px"><span class="c-h">${Math.round(p[0]*100)}</span><span class="c-d">${Math.round(p[1]*100)}</span><span class="c-a">${Math.round(p[2]*100)}</span></span></span>
+      <span class="pk">Our pick <b>${esc(k === 1 ? 'Draw' : abbr(lab))}</b> ${pct(p[k])}</span></button>`;
+}
 function ftAll(){
   const d = state.ftData, list = d.all.filter(g => state.ftLeague === 'all' || g.league_id === state.ftLeague);
   $('#ft-all-count').textContent = `${list.length} game${list.length === 1 ? '' : 's'} · ${d.label}`;
   let html = '', last = null;
   list.forEach((g, i) => {
     if(g.date !== last){ html += `<div class="ga-day">${esc(day(g.date))}</div>`; last = g.date }
-    const p = g.probabilities, k = p.indexOf(Math.max(...p)), lab = [g.home, 'Draw', g.away][k];
-    const side = t => `<span>${badgeImg(t, 'tb') || `<i class="kit" style="background:${kit(t).primary}"></i>`}${esc(t)}</span>`;
-    html += `<button type="button" class="ga${g.status === 'live' ? ' is-live' : ''}" style="${clubVars(g.home, g.away)};--i:${Math.min(i, 40)}" data-ga="${d.all.indexOf(g)}">
-      <span class="meta"><span class="lg">${esc(g.league)}</span>${statusPill(g) || '<span class="st ko">TBC</span>'}</span>
-      <span class="tm">${side(g.home)}${side(g.away)}</span>
-      <span class="tri-wrap">${tri(p)}<span class="nums" style="display:flex;justify-content:space-between;font-size:12px;margin-top:4px"><span class="c-h">${Math.round(p[0]*100)}</span><span class="c-d">${Math.round(p[1]*100)}</span><span class="c-a">${Math.round(p[2]*100)}</span></span></span>
-      <span class="pk">Our pick <b>${esc(k === 1 ? 'Draw' : abbr(lab))}</b> ${pct(p[k])}</span></button>`;
+    html += gaRow(g, i);
   });
   $('#ft-all').innerHTML = html || '<div class="empty">No games for this league in this period.</div>';
 }
+// Your teams: the followed clubs' games from this week's list, in date order.
+function renderYourTeams(){
+  const box = $('#your-teams'), d = state.ftData;
+  if(!box) return;
+  if(!FAV.teams.length || !d){ box.hidden = true; return }
+  const mine = d.all.filter(g => isFav(g.home) || isFav(g.away));
+  box.hidden = false;
+  $('#yt-list').innerHTML = mine.length ? mine.map((g, i) => gaRow(g, i)).join('')
+    : `<div class="empty">No games for ${FAV.teams.length === 1 ? esc(FAV.teams[0]) : 'your teams'} in the next 7 days.</div>`;
+}
+$('#yt-list').onclick = e => { const b = e.target.closest('[data-ga]'); if(b) openFeatured(state.ftData.all[+b.dataset.ga]) };
 $('#ft-filter-top').onclick = e => { const b = e.target.closest('[data-lg]'); if(!b || b.dataset.lg === state.ftLeague) return;
   state.ftLeague = b.dataset.lg; ftFilters(); state.ftGames = ftFiltered(); ftRender(0, 1); ftAll() };
 async function openFeatured(g){
@@ -3084,9 +3240,9 @@ function ftCard(g, i, j){
   return `<article class="card ft fc${i === 0 ? ' top' : ''}" style="--i:${j};--j:${j};${clubVars(g.home, g.away)}">
     <header class="fc-head"><span class="fc-lg">${esc(g.league)}</span><span class="fc-rank${i === 0 ? ' hot' : ''}">${esc(rank)}</span></header>
     <div class="fc-face">
-      <div class="fc-team"><span class="fc-ring">${crest(g.home)}</span><b>${esc(g.home)}</b>${formChips((g.last5 || [])[0])}</div>
+      <div class="fc-team"><span class="fc-ring">${crest(g.home)}</span><b>${esc(g.home)}</b>${formChips((g.last5 || [])[0])}${star(g.home)}</div>
       <div class="fc-mid">${centre}</div>
-      <div class="fc-team"><span class="fc-ring away">${crest(g.away)}</span><b>${esc(g.away)}</b>${formChips((g.last5 || [])[1])}</div>
+      <div class="fc-team"><span class="fc-ring away">${crest(g.away)}</span><b>${esc(g.away)}</b>${formChips((g.last5 || [])[1])}${star(g.away)}</div>
     </div>
     <div class="fc-bar" role="img" aria-label="Home ${pct(p[0])}, draw ${pct(p[1])}, away ${pct(p[2])}">${seg(0, 'h')}${seg(1, 'd')}${seg(2, 'a')}</div>
     <div class="fc-keys"><span>Home</span><span>Draw</span><span>Away</span></div>

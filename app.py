@@ -688,6 +688,9 @@ def slate(data, league_id, limit=40):
     return result
 
 
+SEASON_FRESH_DAYS = 16
+
+
 def season(data, league_id):
     """Simulate the rest of the current season."""
     from simulate import simulate
@@ -713,6 +716,11 @@ def season(data, league_id):
     result.update(league_id=league_id, league=LEAGUES[league_id], season=current, analysis_date=today,
                   priced_fixtures=sum(source != 'model' for *_, source, _ in priced),
                   stale_results=coverage(data, league_id, today)['latest_result'], unscheduled_added=len(added))
+    # Projections from a table that is weeks behind mislead, so the page only shows fresh ones.
+    # 16 days covers an international break with no games.
+    latest = result['stale_results']
+    result['results_age_days'] = (dt.date.fromisoformat(today) - dt.date.fromisoformat(latest)).days if latest else None
+    result['fresh'] = result['results_age_days'] is not None and result['results_age_days'] <= SEASON_FRESH_DAYS
     if added:
         result['method'] += (f' The full fixture list is not published yet, so {len(added)} unscheduled games were added '
                              'from the league format' + (' (33-game regular season; the post-split games are not modelled).'
