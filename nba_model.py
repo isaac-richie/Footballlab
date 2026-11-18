@@ -44,10 +44,14 @@ SETTINGS = dict(half_life=15, ridge=0.5, carry=0.5, gap=115, market=0.7, window=
 #           and close games are not equally predictable)
 # Model ratings miss by more than a closing line does, so each source has its own
 # width; both are tuned on the log loss of every priced market (tools/nba_calib.py).
-# MODEL_WIDTH tuned on 2023-25 for the line-informed ratings (tools/nba_calib.py --only model).
-# On 2025-26 moneyline and team totals are on target; 70%+ spread and total picks still run
-# about 4 points over-confident (said 76%, won 72%), so prefer posted lines where they exist.
-MODEL_WIDTH = dict(margin=14.2, total=21.5, link=0.05, slope=-0.1, stretch=1.15)
+# MODEL_WIDTH: used only when no bookmaker line is posted. The log-loss search on 2023-25
+# (tools/nba_calib.py --only model) chose margin 14.2 and total 21.5, but its 70%+ spread and
+# total picks ran 3 to 4 points over-confident, already on 2023-25 (said 76%, won 73%) and more
+# on 2025-26 (76/72). Overall log loss is nearly flat in both widths, so the widths were picked
+# on 2023-25 alone by a rule fixed before any hold-out was scored: the lowest summed log loss
+# whose 70%+ spread and total picks land within 2 points, with moneyline and team totals not
+# over-confident. Grid: margin 14.2-17.2, total 21.5-24.5. Summed log loss 3.1456 -> 3.1465.
+MODEL_WIDTH = dict(margin=15.2, total=24.5, link=0.05, slope=-0.1, stretch=1.15)
 # LINE_WIDTH tuned on 2023-25 (tools/nba_calib.py). Margin 12.0 and 12.5 tied there; the wider one
 # is kept because 2025-26 showed 12.0 slightly overconfident on spreads and moneyline.
 LINE_WIDTH = dict(margin=12.5, total=17.6, link=0.1, slope=-0.1)
