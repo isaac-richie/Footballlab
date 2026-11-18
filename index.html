@@ -1210,6 +1210,69 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
 .fx .goals span{justify-content:flex-start}
 .fx .goals em{width:76px;flex:none}
 @media (min-width:1001px){.board-head,.fx{grid-template-columns:minmax(200px,1.5fr) minmax(220px,1.7fr) 150px 104px 132px}}
+/* ================= Match breakdown (Nov 2026) ================= */
+/* Full width once a match is showing; the form returns on "Change match". */
+.match-layout.has-match{grid-template-columns:minmax(0,1fr)}
+.match-layout.has-match:not(.picking) .form-card{display:none}
+.match-layout.has-match.picking .form-card{position:static;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:0 20px;align-items:start;
+  border-color:color-mix(in srgb,var(--accent) 40%,var(--line-2));animation:cardIn .4s cubic-bezier(.16,1,.3,1) both}
+.match-layout.has-match.picking .form-card>h4{grid-column:1/-1}
+.match-layout.has-match.picking .form-card>.pick{grid-column:1;grid-row:2/span 3;margin:0}
+.match-layout.has-match.picking .form-card>:is(.date-row,.fold,.primary){grid-column:2}
+@media (max-width:760px){.match-layout.has-match.picking .form-card{display:block}}
+
+.mh{padding:22px 24px}
+.mh-top{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;margin-bottom:20px}
+.mh-meta{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);flex:1;min-width:0}
+.mh-lg{padding:4px 10px;border-radius:999px;background:var(--surface-3);color:var(--text);font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.8px;font-size:12.5px;white-space:nowrap}
+.mh-badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mh-change{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:10px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--text);font-size:12.5px;font-weight:650;white-space:nowrap;transition:border-color .2s,background .2s}
+.mh-change svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mh-change:hover,.mh-change.on{border-color:color-mix(in srgb,var(--accent) 55%,var(--line-2));color:var(--accent)}
+.mh .tri-labels span{font-family:var(--display);text-transform:uppercase;letter-spacing:.6px;font-size:12px}
+.mh .kpis{margin-top:14px}
+.mh .kpi b{font-family:var(--display);font-size:20px;letter-spacing:.2px}
+.mh-fair{margin:14px 0 0;font-size:12px;color:var(--faint);line-height:1.5}
+.mh-fair b{color:var(--muted)}
+
+/* Our read: a plain-English summary and the most likely side of the popular markets */
+.verdict{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;margin-top:22px;padding:18px;border-radius:16px;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 9%,var(--surface-2)),var(--surface-2) 55%);border:1px solid color-mix(in srgb,var(--accent) 22%,var(--line))}
+.vd-read .eyebrow{margin-bottom:6px}
+.vd-read p{margin:0;font-size:15px;line-height:1.6;color:var(--text)}
+.vd-read p b{color:var(--accent)}
+.vd-calls{display:flex;flex-direction:column;gap:6px}
+.vd-calls>small{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--faint);font-weight:600;margin-bottom:2px}
+.vd-call{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 12px;border-radius:11px;background:color-mix(in srgb,var(--bg) 45%,transparent);border:1px solid var(--line)}
+.vd-call>span:first-child{display:flex;flex-direction:column;min-width:0}
+.vd-call em{font-style:normal;font-size:11px;color:var(--muted)}
+.vd-call>span:first-child b{font-weight:650;font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vd-p{display:flex;flex-direction:column;align-items:flex-end;flex:none}
+.vd-p b{font-family:var(--display);font-size:19px;font-weight:800;color:var(--accent);line-height:1.1}
+.vd-p small{font-size:11px;color:var(--faint)}
+@media (max-width:900px){.verdict{grid-template-columns:minmax(0,1fr)}}
+
+/* Tabs: a pill bar that stays in reach while you scroll the cards */
+.mtabs{position:sticky;top:106px;z-index:20;gap:6px;margin:18px 0 16px;padding:8px;border:1px solid var(--line);border-radius:16px;
+  background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px)}
+.mtabs .tab-ink{display:none}
+.mtabs button{padding:8px 14px;border-radius:10px;border:0!important;margin:0;white-space:nowrap;font-weight:600;transition:background .2s,color .2s}
+.mtabs button:hover{background:var(--surface-2)}
+.mtabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink)}
+.why{margin:-4px 0 12px;font-size:12.5px;line-height:1.45;color:var(--muted)}
+
+@media (max-width:760px){
+  .mh{padding:16px}
+  .mh-top{margin-bottom:14px}
+  .mh-meta{flex-basis:100%;order:0}
+  .mh-badges{order:1;flex:1}
+  .mh-change{order:2}
+  .verdict{padding:14px;margin-top:18px}
+  .vd-read p{font-size:14px}
+  .mtabs{top:56px;border-radius:14px;padding:6px;margin:14px -4px 14px}
+  .mtabs button{padding:7px 11px;font-size:12.5px}
+}
+
 .seg-lbl{align-self:center;padding:0 8px 0 6px;font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--faint)}
 </style>
 </head>
@@ -1620,10 +1683,11 @@ function tri(p, big){
 }
 function rows(entries, {highlight = true, head = true} = {}){
   const max = Math.max(...entries.map(e => e[1]));
-  return (head ? '<div class="phead"><span>Outcome</span><span></span><span>Prob</span><span>True odds</span></div>' : '') +
+  return (head ? '<div class="phead"><span>Outcome</span><span></span><span>Chance</span><span>Fair odds</span></div>' : '') +
     entries.map(([label, p, color]) => `<div class="prow${highlight && p === max ? ' hi' : ''}"><span class="pl" title="${esc(label)}">${esc(label)}</span>` +
       `<span class="pb"><i style="width:${Math.max(0, Math.min(100, p*100))}%${color ? ';background:' + color : ''}"></i></span><b>${pct(p)}</b><small>${fair(p)}</small></div>`).join('');
 }
+const why = t => `<p class="why">${t}</p>`;
 const card = (title, body, sub = '') => `<article class="card"><h4>${esc(title)}${sub ? `<small>${esc(sub)}</small>` : ''}</h4>${body}</article>`;
 function heat(value, max, color = 'var(--accent)'){
   const k = max ? Math.round(8 + 72 * value / max) : 0;
@@ -1666,7 +1730,7 @@ async function loadLeague(){
     $('#ticker-run').innerHTML = tk.map(item).join('') + tk.map(item).join('');   // doubled for a seamless loop
     fillTeams(data.teams, data.today);
     renderBoard(); loadOddsStatus();
-    { const out = $('#out'); if(!out.children.length || out.querySelector('.mx-empty')) out.innerHTML = placeholder() }
+    { const out = $('#out'); if(!out.children.length || out.querySelector('.mx-empty')){ matchMode(false); out.innerHTML = placeholder() } }
   }catch(e){ if(token === state.rev) $('#strip').innerHTML = `<span class="error">${esc(e.message)}</span>` }
 }
 function renderLeagues(leagues){
@@ -1679,7 +1743,7 @@ $('#leagues').onclick = e => {
   const b = e.target.closest('[data-league]'); if(!b || b.dataset.league === state.league) return;
   state.league = b.dataset.league; store.set('fl-league', state.league);
   $$('#leagues .chip').forEach(c => c.setAttribute('aria-pressed', c === b));
-  state.current = null; $('#out').innerHTML = placeholder(); loadLeague();
+  state.current = null; matchMode(false); $('#out').innerHTML = placeholder(); loadLeague();
 };
 function renderStrip(d){
   const q = d.quality, ok = q.status === 'research_only';
@@ -1807,6 +1871,7 @@ async function analyse(keepSkeleton){
   if(odds.some(Boolean) && !odds.every(Boolean)){ out.innerHTML = '<div class="error">Enter odds for home, draw and away, or leave all three blank.</div>'; return }
   const ou = ['#oo', '#ou'].map(id => $(id).value);
   if(ou.some(Boolean) && (!ou.every(Boolean) || !odds.every(Boolean))){ out.innerHTML = '<div class="error">Over/under odds need both sides, plus the home, draw and away odds.</div>'; return }
+  matchMode(true);
   if(!keepSkeleton) out.innerHTML = heroSkeleton(home, away);
   $('#go').disabled = true; $('#go').textContent = 'Working it out…';
   try{
@@ -1818,7 +1883,7 @@ async function analyse(keepSkeleton){
     state.current = d; state.ah = null; state.at = null; state.legs = new Set();
     renderMatch();
     if(!keepSkeleton) out.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start'});
-  }catch(e){ if(token === state.rev) out.innerHTML = `<div class="error">${esc(e.message)}</div>` }
+  }catch(e){ if(token === state.rev){ matchMode(false); out.innerHTML = `<div class="error">${esc(e.message)}</div>` } }
   finally{ $('#go').disabled = false; $('#go').textContent = 'Analyse match' }
 }
 
@@ -1838,20 +1903,42 @@ function compareStrip(d){
   return `<div class="compare"><span></span><span class="hd">Home</span><span class="hd">Draw</span><span class="hd">Away</span>${row('Bookies say', p)}${row('Our model says', m, p)}</div>
     <p class="note">${esc(d.pricing.label)}. ${esc(d.pricing.note || '')} Bookies have been more accurate than our model in testing, so trust the first row.</p>`;
 }
-const TABS = [['overview','Overview'],['pitch','Pitch'],['goals','Goals'],['handicap','Handicaps'],['halftime','Half-time'],['combos','Combos'],['scores','Correct score'],['builder','Bet builder'],['odds','Odds & value'],['stats','Corners & cards'],['evidence','How sure are we?']];
+// Ordered by what bettors reach for most.
+const TABS = [['overview','Summary'],['goals','Goals'],['scores','Correct score'],['handicap','Handicaps'],['halftime','Half-time'],['combos','Combos'],['builder','Bet builder'],['odds','Odds & value'],['pitch','Pitch view'],['stats','Corners & cards'],['evidence','How sure are we?']];
+if(!TABS.some(t => t[0] === state.tab)) state.tab = 'overview';
+// Once a match is on screen the breakdown takes the full width; the form folds behind "Change match".
+function matchMode(on){ const l = $('.match-layout'); if(l){ l.classList.toggle('has-match', on); l.classList.remove('picking') } }
+// A short plain-English read of the match, plus the most likely side of the popular markets.
+function verdict(d){
+  const p = d.probabilities, H = d.home, A = d.away, top = d.scorelines[0];
+  const order = [...p].sort((a, b) => b - a), i = p.indexOf(order[0]), gap = order[0] - order[1];
+  const who = i === 1 ? `A draw is the single most likely result (${pct(p[1])}), so this one is wide open.`
+    : `${esc(i === 0 ? H : A)} ${gap >= .2 ? 'are clear favourites' : gap >= .08 ? 'are favourites' : 'just edge it'} at ${pct(p[i])}${i === 2 ? ' away from home' : ''}.`;
+  const tg = d.expected_goals[0] + d.expected_goals[1];
+  const goalsTxt = d.over25 >= .5 ? `Expect goals: about ${tg.toFixed(1)} in total, and 3 or more is more likely than not (${pct(d.over25)}).`
+    : `A tighter game: about ${tg.toFixed(1)} goals expected, and 2 or fewer is more likely (${pct(1 - d.over25)}).`;
+  const bttsTxt = d.btts >= .5 ? `Both teams scoring is likely (${pct(d.btts)}).` : `At least one side keeping a clean sheet is more likely (${pct(1 - d.btts)}).`;
+  const dc = d.double_chance, dcs = [[`${H} or draw`, dc.home_or_draw], [`${A} or draw`, dc.draw_or_away], [`${H} or ${A}`, dc.home_or_away]].sort((a, b) => b[1] - a[1])[0];
+  const o15 = d.total_goal_overs['1.5'];
+  const calls = [['Double chance', dcs[0], dcs[1]], ['Goals', o15 >= .5 ? 'Over 1.5' : 'Under 1.5', o15 >= .5 ? o15 : 1 - o15],
+    ['Goals', d.over25 >= .5 ? 'Over 2.5' : 'Under 2.5', Math.max(d.over25, 1 - d.over25)], ['Both teams score', d.btts >= .5 ? 'Yes' : 'No', Math.max(d.btts, 1 - d.btts)]];
+  return `<div class="verdict"><div class="vd-read"><span class="eyebrow"><i></i>Our read</span>
+      <p>${who} ${goalsTxt} ${bttsTxt} Most likely score: <b>${esc(top.score)}</b> (${pct(top.probability)}).</p></div>
+    <div class="vd-calls"><small>Most likely outcomes</small>${calls.map(([m, s, q]) =>
+      `<div class="vd-call"><span><em>${esc(m)}</em><b>${esc(s)}</b></span><span class="vd-p"><b>${pct(q)}</b><small>fair ${fair(q)}</small></span></div>`).join('')}</div></div>`;
+}
 function renderMatch(){
   const d = state.current, p = d.probabilities, top = d.scorelines[0], ready = d.readiness.status === 'research_only';
-  const action = d.decision.action;
+  const action = d.decision.action, comp = d.league.split(' — ')[1] || d.league;
+  matchMode(true);
   $('#out').innerHTML =
-    `<div class="card hero">
-      <div class="hero-top"><span>${esc(d.league.replace(' — ', ' · '))} · as of ${esc(d.analysis_date)}${d.pricing.fixture_date ? ' · kickoff ' + esc(day(d.pricing.fixture_date)) : ''}</span>
-        <span>${srcBadge(d.pricing.source)} ${jevBadge(d.jev_review)} <span class="badge ${ready ? 'ok' : 'warn'}">${ready ? 'Data looks good' : 'Check the data'}</span>
-        ${d.market ? ` <span class="badge ${action === 'research_candidate' ? 'accent' : 'neutral'}">${action === 'research_candidate' ? 'Worth a look' : 'No value found'}</span>` : ''}</span></div>
-      ${(() => { const kh = kit(d.home), ka = kit(d.away);
-        return `<div class="bug" aria-hidden="true"><span class="comp">${esc((d.league.split(' — ')[1] || d.league))}</span>
-          <span class="team" style="background:${kh.primary};color:${inkOn(kh.primary)}"><span class="bt">${badgeImg(d.home, 'bb')}${esc(abbr(d.home))}</span><span class="pct">${Math.round(p[0] * 100)}</span></span>
-          <span class="mid"><b>${Math.round(p[1] * 100)}</b><small>Draw %</small></span>
-          <span class="team" style="background:${ka.primary};color:${inkOn(ka.primary)}"><span class="pct">${Math.round(p[2] * 100)}</span><span class="bt">${esc(abbr(d.away))}${badgeImg(d.away, 'bb')}</span></span></div>` })()}
+    `<div class="card hero mh">
+      <div class="mh-top">
+        <div class="mh-meta"><span class="mh-lg">${esc(comp)}</span><span>${d.pricing.fixture_date ? 'Kickoff ' + esc(day(d.pricing.fixture_date)) : 'Forecast for ' + esc(day(d.analysis_date))}</span></div>
+        <div class="mh-badges">${srcBadge(d.pricing.source)} ${jevBadge(d.jev_review)} <span class="badge ${ready ? 'ok' : 'warn'}" title="${ready ? 'Recent results and fixtures are all in place' : 'Some data is missing or out of date: see How sure are we?'}">${ready ? 'Data looks good' : 'Check the data'}</span>
+          ${d.market ? ` <span class="badge ${action === 'research_candidate' ? 'accent' : 'neutral'}">${action === 'research_candidate' ? 'Worth a look' : 'No value found'}</span>` : ''}</div>
+        <button type="button" class="mh-change" id="mh-change"><svg viewBox="0 0 24 24"><path d="M7 4v14M3.5 14.5 7 18l3.5-3.5M17 20V6M13.5 9.5 17 6l3.5 3.5"/></svg>Change match</button>
+      </div>
       <div class="versus" style="--vt:match-head">
         <div class="side"><small>Home</small><div class="who">${crest(d.home)}<strong>${esc(d.home)}</strong></div><div class="xg">Expected goals <b data-count="${d.expected_goals[0]}">${d.expected_goals[0].toFixed(2)}</b></div></div>
         <div class="mid"><div class="ls">${esc(top.score)}</div><small>most likely score · ${pct(top.probability)}</small></div>
@@ -1859,25 +1946,33 @@ function renderMatch(){
       </div>
       ${tri(p, true)}
       <div class="tri-labels">
-        <div><span>Home win</span><b class="c-h" data-count="${p[0]}" data-fmt="pct">${pct(p[0])}</b><small>true odds ${fair(p[0])}</small></div>
-        <div><span>Draw</span><b class="c-d" data-count="${p[1]}" data-fmt="pct">${pct(p[1])}</b><small>true odds ${fair(p[1])}</small></div>
-        <div><span>Away win</span><b class="c-a" data-count="${p[2]}" data-fmt="pct">${pct(p[2])}</b><small>true odds ${fair(p[2])}</small></div>
+        <div><span>${esc(abbr(d.home))} win</span><b class="c-h" data-count="${p[0]}" data-fmt="pct">${pct(p[0])}</b><small>fair odds ${fair(p[0])}</small></div>
+        <div><span>Draw</span><b class="c-d" data-count="${p[1]}" data-fmt="pct">${pct(p[1])}</b><small>fair odds ${fair(p[1])}</small></div>
+        <div><span>${esc(abbr(d.away))} win</span><b class="c-a" data-count="${p[2]}" data-fmt="pct">${pct(p[2])}</b><small>fair odds ${fair(p[2])}</small></div>
       </div>
+      ${verdict(d)}
       <div class="kpis">
-        <div class="kpi"><small>Over 2.5</small><b data-count="${d.over25}" data-fmt="pct">${pct(d.over25)}</b><span>${fair(d.over25)}</span></div>
-        <div class="kpi"><small>Both teams score</small><b data-count="${d.btts}" data-fmt="pct">${pct(d.btts)}</b><span>${fair(d.btts)}</span></div>
-        <div class="kpi"><small>Goals expected</small><b>${(d.expected_goals[0] + d.expected_goals[1]).toFixed(2)}</b></div>
-        <div class="kpi"><small>How open is it?</small><b>${(d.analysis.normalized_entropy * 100).toFixed(0)}%</b><span>${d.analysis.normalized_entropy > .95 ? 'anyone\'s game' : d.analysis.normalized_entropy > .85 ? 'close call' : 'clear favourite'}</span></div>
+        ${(() => { const fg = d.first_goal, h = fg.home >= fg.away, cs = d.clean_sheets, hc = cs.home >= cs.away;
+          return `<div class="kpi"><small>First to score</small><b>${esc(abbr(h ? d.home : d.away))}</b><span>${pct(h ? fg.home : fg.away)}</span></div>
+        <div class="kpi"><small>Best clean-sheet chance</small><b>${esc(abbr(hc ? d.home : d.away))}</b><span>${pct(hc ? cs.home : cs.away)}</span></div>` })()}
+        <div class="kpi"><small>Goals expected</small><b>${(d.expected_goals[0] + d.expected_goals[1]).toFixed(1)}</b><span>in total</span></div>
+        <div class="kpi"><small>How open is it?</small><b>${d.analysis.normalized_entropy > .95 ? 'Anyone\'s game' : d.analysis.normalized_entropy > .85 ? 'Close call' : 'Clear favourite'}</b></div>
       </div>
       ${compareStrip(d)}
+      <p class="mh-fair"><b>Fair odds</b> are the price that matches our chance with no bookmaker cut. If your bookie pays more than the fair odds, you're getting value.</p>
     </div>
-    <div class="tabs" role="tablist">${TABS.map(([k, l]) => `<button role="tab" data-tab="${k}" aria-selected="${state.tab === k}">${l}</button>`).join('')}<span class="tab-ink"></span></div>
+    <div class="tabs mtabs" role="tablist">${TABS.map(([k, l]) => `<button role="tab" data-tab="${k}" aria-selected="${state.tab === k}">${l}</button>`).join('')}<span class="tab-ink"></span></div>
     <div id="panel" class="panel" role="tabpanel"></div>`;
   renderTab(); countUp($('#out .hero')); requestAnimationFrame(moveInk);
   const hero = $('#out .hero .versus'); if(hero && window.LivingPitch){ const r = hero.getBoundingClientRect();
     window.LivingPitch.burst(r.left + r.width / 2, r.top + r.height / 2, [getComputedStyle(document.documentElement).getPropertyValue('--home').trim(), getComputedStyle(document.documentElement).getPropertyValue('--away').trim()]) }
 }
 $('#out').addEventListener('click', e => {
+  if(e.target.closest('#mh-change')){
+    const l = $('.match-layout'), open = l.classList.toggle('picking');
+    $('#mh-change').classList.toggle('on', open);
+    if(open) $('#form').scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center'});
+    return }
   const t = e.target.closest('[data-tab]');
   if(t){ state.tab = t.dataset.tab; $$('.tabs button').forEach(b => b.setAttribute('aria-selected', b === t)); moveInk(); renderTab(); return }
   const leg = e.target.closest('[data-leg]');
@@ -1904,8 +1999,8 @@ function overview(d){
   const H = d.home, A = d.away, dc = d.double_chance, dnb = d.draw_no_bet, fg = d.first_goal;
   let html = '<div class="grid g2">' +
     card('Match result', rows([[H, d.probabilities[0], 'var(--home)'], ['Draw', d.probabilities[1], 'var(--draw)'], [A, d.probabilities[2], 'var(--away)']], {highlight:false})) +
-    card('Double chance', rows([[`${H} or draw`, dc.home_or_draw], [`${A} or draw`, dc.draw_or_away], [`${H} or ${A}`, dc.home_or_away]])) +
-    card('Draw no bet', rows([[H, dnb.home_win_if_settled], [A, dnb.away_win_if_settled]]) + `<p class="note">Stake returned on a draw (${pct(dnb.draw_push)}).</p>`) +
+    card('Double chance', why('Two of the three results win your bet. Safer, so the odds are shorter.') + rows([[`${H} or draw`, dc.home_or_draw], [`${A} or draw`, dc.draw_or_away], [`${H} or ${A}`, dc.home_or_away]])) +
+    card('Draw no bet', why('Back a team to win; if it ends a draw you get your stake back.') + rows([[H, dnb.home_win_if_settled], [A, dnb.away_win_if_settled]]) + `<p class="note">Stake returned on a draw (${pct(dnb.draw_push)}).</p>`) +
     card('Goals', rows([['Over 1.5', d.total_goal_overs['1.5']], ['Over 2.5', d.over25], ['Under 2.5', 1 - d.over25], ['Both teams score', d.btts], ['Not both score', 1 - d.btts]], {highlight:false})) +
     card('First team to score', rows([[H, fg.home, 'var(--home)'], [A, fg.away, 'var(--away)'], ['No goal', fg.no_goal, 'var(--draw)']], {highlight:false})) +
     card('Likely scores', `<div class="scores">${d.scorelines.map(s => `<div class="score"><b>${esc(s.score)}</b><span>${pct(s.probability)}</span></div>`).join('')}</div><p class="note">See the Correct score tab for the full grid.</p>`) +
@@ -1930,7 +2025,7 @@ function goals(d){
     card('Total goals', '<div class="phead"><span>Line</span><span></span><span>Over</span><span>Under</span></div>' +
       totals.map(([l, p]) => `<div class="prow"><span class="pl">${l}</span><span class="pb"><i style="width:${p*100}%;background:var(--accent)"></i></span><b>${pct(p)}</b><small>${pct(1 - p)}</small></div>`).join(''), 'true odds for over 2.5: ' + fair(d.over25)) +
     card('Exact total goals', hist, 'expected ' + (d.expected_goals[0] + d.expected_goals[1]).toFixed(2)) +
-    card('Goal ranges', rows(Object.entries(m.multigoals).map(([k, p]) => [`${k} goals`, p]))) +
+    card('Goal ranges', why('Total goals landing inside a range, e.g. 2–3 goals.') + rows(Object.entries(m.multigoals).map(([k, p]) => [`${k} goals`, p]))) +
     card('Odd or even', rows([['Odd total', m.odd_even.odd], ['Even total', m.odd_even.even]]) +
       '<h4 style="margin-top:18px">Clean sheet & win to nil</h4>' +
       rows([[`${H} clean sheet`, d.clean_sheets.home], [`${A} clean sheet`, d.clean_sheets.away], [`${H} win to nil`, d.win_to_nil.home], [`${A} win to nil`, d.win_to_nil.away]], {highlight:false, head:false})) +
@@ -1959,9 +2054,9 @@ function handicap(d){
   const homeCols = ['var(--home)', 'color-mix(in srgb,var(--home) 55%,var(--surface-3))', 'color-mix(in srgb,var(--away) 55%,var(--surface-3))', 'var(--away)'];
   const step = (kind, i, n) => [`<button type="button" data-kind="${kind}" data-step="-1" aria-label="Previous line" ${i === 0 ? 'disabled' : ''}>−</button>`, `<button type="button" data-kind="${kind}" data-step="1" aria-label="Next line" ${i === n - 1 ? 'disabled' : ''}>+</button>`];
   const [ahPrev, ahNext] = step('ah', state.ah, m.asian_handicap.length), [atPrev, atNext] = step('at', state.at, m.asian_total.length);
-  const ahCard = card('Asian handicap', `<div class="stepper">${ahPrev}<div class="lines"><div><small>${esc(H)} ${line(ah.line)}</small><b>${ah.home.fair_odds ? ah.home.fair_odds.toFixed(2) : '–'}</b> <span>fair</span></div><div><small>${esc(A)} ${line(-ah.line)}</small><b>${ah.away.fair_odds ? ah.away.fair_odds.toFixed(2) : '–'}</b> <span>fair</span></div></div>${ahNext}</div>` +
+  const ahCard = card('Asian handicap', why('One team starts with a goal head start or deficit. Use − and + to step through the lines.') + `<div class="stepper">${ahPrev}<div class="lines"><div><small>${esc(H)} ${line(ah.line)}</small><b>${ah.home.fair_odds ? ah.home.fair_odds.toFixed(2) : '–'}</b> <span>fair</span></div><div><small>${esc(A)} ${line(-ah.line)}</small><b>${ah.away.fair_odds ? ah.away.fair_odds.toFixed(2) : '–'}</b> <span>fair</span></div></div>${ahNext}</div>` +
     stack(ah.home, homeCols) + `<p class="note">Shown from ${esc(H)}'s side. On quarter lines (like −0.75) half your stake goes on each neighbouring line, so you can win or lose half. True odds account for refunds and half results.</p>`, 'step through lines');
-  const atCard = card('Asian total goals', `<div class="stepper">${atPrev}<div class="lines"><div><small>Over ${at.line}</small><b>${at.over.fair_odds ? at.over.fair_odds.toFixed(2) : '–'}</b> <span>fair</span></div><div><small>Under ${at.line}</small><b>${at.under.fair_odds ? at.under.fair_odds.toFixed(2) : '–'}</b> <span>fair</span></div></div>${atNext}</div>` +
+  const atCard = card('Asian total goals', why('Over/under on total goals, including quarter lines where part of your stake can be refunded.') + `<div class="stepper">${atPrev}<div class="lines"><div><small>Over ${at.line}</small><b>${at.over.fair_odds ? at.over.fair_odds.toFixed(2) : '–'}</b> <span>fair</span></div><div><small>Under ${at.line}</small><b>${at.under.fair_odds ? at.under.fair_odds.toFixed(2) : '–'}</b> <span>fair</span></div></div>${atNext}</div>` +
     stack(at.over, ['var(--accent)', 'color-mix(in srgb,var(--accent) 55%,var(--surface-3))', 'color-mix(in srgb,var(--muted) 55%,var(--surface-3))', 'var(--muted)']) + '<p class="note">Shown from the over side.</p>', 'step through lines');
   const allAh = `<details class="more"><summary>All handicap lines</summary><div class="scroll"><table class="table"><tr><th>${esc(H)}</th><th class="r">Fair</th><th class="r">Win</th><th class="r">Push / half</th><th class="r">${esc(A)} fair</th></tr>` +
     m.asian_handicap.map((r, i) => `<tr${i === state.ah ? ' style="background:var(--surface-2)"' : ''}><td>${line(r.line)}</td><td class="r">${r.home.fair_odds ? r.home.fair_odds.toFixed(2) : '–'}</td><td class="r">${pct(r.home.win)}</td><td class="r">${pct(r.home.push + r.home.half_win + r.home.half_loss)}</td><td class="r">${r.away.fair_odds ? r.away.fair_odds.toFixed(2) : '–'}</td></tr>`).join('') + '</table></div></details>';
@@ -1983,7 +2078,7 @@ function halftime(d){
   const share = h.first_half_share;
   return '<div class="grid g2">' +
     card('Half-time result', rows([[H, h.result_first_half[0], 'var(--home)'], ['Draw', h.result_first_half[1], 'var(--draw)'], [A, h.result_first_half[2], 'var(--away)']], {highlight:false}), `Expected goals ${h.expected_goals_first_half.map(x => x.toFixed(2)).join('–')}`) +
-    card('Half-time / full-time', grid) +
+    card('Half-time / full-time', why('Who leads at half-time (rows) and who wins at full-time (columns).') + grid) +
     card('First-half goals', rows(Object.entries(h.first_half_overs).map(([l, p]) => [`Over ${l}`, p]), {highlight:false})) +
     card('Second-half goals', rows(Object.entries(h.second_half_overs).map(([l, p]) => [`Over ${l}`, p]), {highlight:false})) +
     card('Highest-scoring half', rows([['First half', h.higher_first], ['Second half', h.higher_second], ['Equal', h.equal_halves]])) +
@@ -1998,10 +2093,10 @@ function combos(d){
   const rb = m.result_btts, rt = m.result_total, bt = m.btts_total, wm = m.winning_margin;
   const lineSeg = `<div class="seg" style="margin-bottom:12px">${['1.5','2.5','3.5'].map(l => `<button type="button" data-combo="${l}" aria-pressed="${l === L}">${l}</button>`).join('')}</div>`;
   return '<div class="grid g2">' +
-    card('Result and both teams score', rows([[`${H} & yes`, rb.home_yes], [`${H} & no`, rb.home_no], ['Draw & yes', rb.draw_yes], ['Draw & no', rb.draw_no], [`${A} & yes`, rb.away_yes], [`${A} & no`, rb.away_no]])) +
+    card('Result and both teams score', why('The result plus whether both sides score, in one bet.') + rows([[`${H} & yes`, rb.home_yes], [`${H} & no`, rb.home_no], ['Draw & yes', rb.draw_yes], ['Draw & no', rb.draw_no], [`${A} & yes`, rb.away_yes], [`${A} & no`, rb.away_no]])) +
     card(`Result and total ${L}`, lineSeg + rows([[`${H} & over`, rt[`home_over_${L}`]], [`${H} & under`, rt[`home_under_${L}`]], ['Draw & over', rt[`draw_over_${L}`]], ['Draw & under', rt[`draw_under_${L}`]], [`${A} & over`, rt[`away_over_${L}`]], [`${A} & under`, rt[`away_under_${L}`]]])) +
     card('Both teams score and total 2.5', rows([['Yes & over 2.5', bt.yes_over], ['Yes & under 2.5', bt.yes_under], ['No & over 2.5', bt.no_over], ['No & under 2.5', bt.no_under]])) +
-    card('Winning margin', rows([[`${H} by 3+`, wm['home_by_3+'], 'var(--home)'], [`${H} by 2`, wm.home_by_2, 'var(--home)'], [`${H} by 1`, wm.home_by_1, 'var(--home)'], ['Score draw', wm.score_draw, 'var(--draw)'], ['0–0', wm.no_goal_draw, 'var(--draw)'], [`${A} by 1`, wm.away_by_1, 'var(--away)'], [`${A} by 2`, wm.away_by_2, 'var(--away)'], [`${A} by 3+`, wm['away_by_3+'], 'var(--away)']], {highlight:false})) +
+    card('Winning margin', why('How many goals the winner wins by.') + rows([[`${H} by 3+`, wm['home_by_3+'], 'var(--home)'], [`${H} by 2`, wm.home_by_2, 'var(--home)'], [`${H} by 1`, wm.home_by_1, 'var(--home)'], ['Score draw', wm.score_draw, 'var(--draw)'], ['0–0', wm.no_goal_draw, 'var(--draw)'], [`${A} by 1`, wm.away_by_1, 'var(--away)'], [`${A} by 2`, wm.away_by_2, 'var(--away)'], [`${A} by 3+`, wm['away_by_3+'], 'var(--away)']], {highlight:false})) +
     '</div><p class="note">Combinations come from the same score grid, so correlation between outcomes is built in. Multiplying single-market probabilities would get these wrong.</p>';
 }
 
