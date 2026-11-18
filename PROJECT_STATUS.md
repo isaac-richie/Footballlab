@@ -33,6 +33,10 @@ The 26 September runner logged 172 fixtures through 26 October: 103 are research
 
 The refreshed retrospective report now covers 6,153 matches in six leagues; Serie B is excluded for insufficient continuous history. Dixon–Coles had lower 1X2 log loss than plain Poisson in three leagues and higher loss in three. It beat the expanding league-frequency baseline in all six. A separate temperature-scaling experiment trained on earlier selected seasons and evaluated on 2025/26 changed held-out log loss only modestly; every paired date-block 95% interval included no effect. Calibration therefore remains off in live predictions, and no model promotion is supported yet.
 
+## Result feed stall (18 November 2026)
+
+OpenFootball's auto-update stopped on 22 September 2026. La Liga, Serie A, Ligue 1, Eredivisie and Primeira Liga have no scores after 20 September in `data.json`, so their forward forecasts (192 at 17 November) cannot be graded and their ratings miss two months of form. Bundesliga and Premier League are unaffected (OpenLigaDB `bl1` and `pl` fill them). No open replacement was found: OpenLigaDB's `la1` feed currently mixes Dutch clubs into La Liga, `ERE` has no results, and there is no Serie A, Ligue 1 or Portugal feed. API-Football's free plan reaches only yesterday to tomorrow. The local Lab fills the gaps in memory from football-data.co.uk, whose reuse terms remain unverified, so those scores are not committed.
+
 ## Remaining priorities
 
 1. Keep the prospective runner active before fixtures, grade results, and accumulate enough forward matches for a meaningful score.

@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Football Lab</title>
+<title>Football Lab · Know the chances before you bet</title>
+<meta name="description" content="Win, goal and scoreline chances for every upcoming game, VIP picks posted before kickoff, and a public record of every result.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=swap">
@@ -1126,6 +1127,90 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
   .bk-vs .side strong{font-size:15px}
   .cgrid{font-size:12px}.cgrid .c{padding:9px 6px}.cgrid .c b{font-size:15px}
 }
+
+/* ================= Front door, clearer board and match start (Nov 2026) ================= */
+.nav a{white-space:nowrap}
+@media (max-width:1240px){.top .fresh{display:none}}
+@media (max-width:1100px){.nav a{padding:6px 10px}}
+
+/* Hero: one line on what this is, three cards on what you get */
+.intro{position:relative;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:32px;align-items:center;margin:30px 0 40px}
+.intro::before{content:'';position:absolute;left:-60px;top:-80px;width:min(620px,95vw);height:360px;pointer-events:none;z-index:-1;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--accent) 16%,transparent),transparent);filter:blur(14px)}
+.intro h1{margin:2px 0 16px;font-family:var(--display);text-transform:uppercase;font-weight:800;font-size:clamp(42px,6.4vw,78px);line-height:.9;letter-spacing:.2px}
+.intro h1 em{display:block;font-style:normal;color:var(--accent)}
+.intro-lede{margin:0;max-width:540px;font-size:17px;line-height:1.55;color:var(--muted)}
+.intro .hero-stats{margin-top:20px}
+.intro-cards{display:grid;gap:12px}
+.ic{display:grid;grid-template-columns:46px minmax(0,1fr);column-gap:16px;row-gap:3px;align-items:start;padding:16px 18px;border-radius:20px;text-decoration:none;color:var(--text);
+  background:linear-gradient(180deg,color-mix(in srgb,var(--surface-2) 92%,transparent),color-mix(in srgb,var(--surface) 92%,transparent));
+  border:1px solid var(--line-2);box-shadow:0 1px 0 #ffffff0d inset,0 18px 40px -26px #000;transition:transform .25s cubic-bezier(.16,1,.3,1),border-color .2s}
+.ic:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--accent) 50%,var(--line-2))}
+.ic-ico{grid-row:span 3;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:22px;
+  background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
+.ic-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ic b{font-family:var(--display);text-transform:uppercase;font-weight:800;font-size:20px;letter-spacing:.4px;line-height:1.1}
+.ic>span:not(.ic-ico){font-size:13.5px;line-height:1.45;color:var(--muted)}
+.ic-go{font-style:normal;font-size:12.5px;font-weight:700;color:var(--accent);margin-top:4px}
+.ic.gold{border-color:#ffd16638}
+.ic.gold .ic-ico{background:#ffd16622}
+.ic.gold .ic-go{color:#ffd166}
+.ic.gold:hover{border-color:#ffd16699}
+.sect-head{margin-bottom:14px}
+.sect-head h2{margin:0;font-family:var(--display);text-transform:uppercase;font-weight:800;font-size:clamp(28px,3.4vw,38px);line-height:1;letter-spacing:.3px}
+.sect-head p{margin:6px 0 0;color:var(--muted);font-size:13.5px}
+@media (max-width:900px){.intro{grid-template-columns:minmax(0,1fr);gap:22px;margin:18px 0 28px}.intro-lede{font-size:15.5px}}
+@media (max-width:760px){.ic{padding:14px;grid-template-columns:40px minmax(0,1fr);column-gap:12px}.ic-ico{width:40px;height:40px;border-radius:12px}.ic b{font-size:18px}}
+
+/* Board: a key for the colours and terms, fewer and clearer columns */
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:-2px 0 14px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:3px}
+.legend .c-home{background:var(--home)}.legend .c-draw{background:var(--draw)}.legend .c-away{background:var(--away)}
+.legend b{color:var(--text);font-weight:650}
+.legend .sep{width:1px;height:14px;background:var(--line-2)}
+.fx .goals{display:flex;flex-direction:column;gap:5px;text-align:left}
+.fx .goals span{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:13px}
+.fx .goals em{font-style:normal;font-weight:500;color:var(--muted)}
+.fx .goals b{font-weight:700}
+.fx .score{text-align:left}
+.fx .score b{font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:.5px}
+.fx .num.score small{text-transform:none;letter-spacing:0;font-size:11.5px}
+.fx .stub em{font-weight:600}
+@media (min-width:1001px){
+  .board-head,.fx{grid-template-columns:minmax(200px,1.5fr) minmax(220px,1.6fr) 180px 104px 132px}
+  .board-head{height:44px;font-size:11px;letter-spacing:.7px}
+  .board-head span:nth-child(n+3){text-align:left}
+  .board-head small{text-transform:none;letter-spacing:0;color:var(--faint);margin-left:4px;font-size:11px}
+  .fx{min-height:72px}
+}
+@media (max-width:760px){.legend{font-size:12px;gap:6px 12px}.legend .sep,.legend span:nth-child(n+5){display:none}}
+
+/* Match page before a match is chosen */
+.mx-empty{padding:28px;border-radius:22px;background:radial-gradient(120% 80% at 100% 0%,color-mix(in srgb,var(--accent) 9%,transparent),transparent 60%),var(--surface)}
+.mx-empty h3{margin:2px 0 10px;font-family:var(--display);text-transform:uppercase;font-weight:800;font-size:clamp(26px,3vw,36px);line-height:1;letter-spacing:.3px}
+.mx-empty>p{margin:0 0 20px;max-width:580px;font-size:14.5px;line-height:1.55;color:var(--muted)}
+.mx-empty>p b{color:var(--text)}
+.mx-what{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.mx-what div{display:flex;flex-direction:column;gap:4px;padding:14px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line)}
+.mx-what b{display:flex;align-items:center;gap:8px;font-family:var(--display);text-transform:uppercase;font-weight:800;font-size:16px;letter-spacing:.4px}
+.mx-what b::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.mx-what span{font-size:12.5px;line-height:1.45;color:var(--muted)}
+.mx-quick{margin-top:24px}
+.mx-quick-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.mxq{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;padding:12px 14px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface-2);text-align:left;font-weight:600;transition:border-color .2s,transform .2s}
+.mxq span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mxq span:nth-of-type(2){text-align:right}
+.mxq small{color:var(--faint);font-weight:500}
+.mxq em{grid-column:1/-1;font-style:normal;font-size:11.5px;font-weight:500;color:var(--muted)}
+.mxq:hover{border-color:color-mix(in srgb,var(--accent) 55%,var(--line-2));transform:translateY(-1px)}
+@media (max-width:760px){.mx-empty{padding:20px}.mx-what{grid-template-columns:repeat(2,minmax(0,1fr))}.mx-quick-list{grid-template-columns:minmax(0,1fr)}}
+
+.match-layout:has(.mx-empty) .form-card{position:static}
+.fx .goals span{justify-content:flex-start}
+.fx .goals em{width:76px;flex:none}
+@media (min-width:1001px){.board-head,.fx{grid-template-columns:minmax(200px,1.5fr) minmax(220px,1.7fr) 150px 104px 132px}}
+.seg-lbl{align-self:center;padding:0 8px 0 6px;font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--faint)}
 </style>
 </head>
 <body>
@@ -1133,11 +1218,11 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
   <div class="wrap">
     <div class="brand"><img class="logo-mark" src="/logo-mark.svg" alt="" width="30" height="30"><span>Football Lab</span></div>
     <nav class="nav" aria-label="Views">
-      <a href="#featured" data-view="featured">Featured</a>
-      <a href="#vip" data-view="vip">VIP</a>
-      <a href="#fixtures" data-view="fixtures">Fixtures</a>
-      <a href="#match" data-view="match">Match</a>
-      <a href="#performance" data-view="performance">Record</a>
+      <a href="#featured" data-view="featured">Home</a>
+      <a href="#vip" data-view="vip">VIP picks</a>
+      <a href="#fixtures" data-view="fixtures">All games</a>
+      <a href="#match" data-view="match">Analyse a match</a>
+      <a href="#performance" data-view="performance">Our record</a>
     </nav>
     <div class="spacer"></div>
     <div class="seg sport" id="sport" role="group" aria-label="Sport"><button type="button" data-sport="football" aria-pressed="true"><span class="ico" aria-hidden="true">⚽</span><span class="lab">Football</span></button><button type="button" data-sport="basketball" aria-pressed="false"><span class="ico" aria-hidden="true">🏀</span><span class="lab">Basketball</span></button></div>
@@ -1147,10 +1232,10 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
   </div>
 </header>
 <nav class="tabbar" aria-label="Views">
-  <a href="#featured" data-view="featured"><svg viewBox="0 0 24 24"><path class="f" d="M12 2.8l2.7 5.6 6.1.8-4.4 4.3 1.1 6.1L12 16.7l-5.5 2.9 1.1-6.1-4.4-4.3 6.1-.8z"/><path d="M12 2.8l2.7 5.6 6.1.8-4.4 4.3 1.1 6.1L12 16.7l-5.5 2.9 1.1-6.1-4.4-4.3 6.1-.8z"/><path d="M19.5 2.5v2.4M18.3 3.7h2.4"/></svg><span>Featured</span></a>
+  <a href="#featured" data-view="featured"><svg viewBox="0 0 24 24"><path class="f" d="M12 2.8l2.7 5.6 6.1.8-4.4 4.3 1.1 6.1L12 16.7l-5.5 2.9 1.1-6.1-4.4-4.3 6.1-.8z"/><path d="M12 2.8l2.7 5.6 6.1.8-4.4 4.3 1.1 6.1L12 16.7l-5.5 2.9 1.1-6.1-4.4-4.3 6.1-.8z"/><path d="M19.5 2.5v2.4M18.3 3.7h2.4"/></svg><span>Home</span></a>
   <a href="#vip" data-view="vip"><svg viewBox="0 0 24 24"><path class="f" d="M3 8l4.5 3.5L12 5l4.5 6.5L21 8l-2 11H5z"/><path d="M3 8l4.5 3.5L12 5l4.5 6.5L21 8l-2 11H5zM5 19h14"/></svg><span>VIP</span></a>
-  <a href="#fixtures" data-view="fixtures"><svg viewBox="0 0 24 24"><rect class="f" x="3" y="4.5" width="18" height="16" rx="3.5"/><rect x="3" y="4.5" width="18" height="16" rx="3.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><circle cx="12" cy="15" r="3"/><path d="M12 13.2l1.1.8-.4 1.3h-1.4l-.4-1.3z"/></svg><span>Fixtures</span></a>
-  <a href="#match" data-view="match"><svg viewBox="0 0 24 24"><circle class="f" cx="12" cy="12" r="9.2"/><circle cx="12" cy="12" r="9.2"/><path d="M12 7.6l3.3 2.4-1.3 3.9h-4l-1.3-3.9z"/><path d="M12 7.6V3.2M15.3 10l4.3-1.4M14 13.9l2.7 3.7M10 13.9l-2.7 3.7M8.7 10 4.4 8.6"/></svg><span>Match</span></a>
+  <a href="#fixtures" data-view="fixtures"><svg viewBox="0 0 24 24"><rect class="f" x="3" y="4.5" width="18" height="16" rx="3.5"/><rect x="3" y="4.5" width="18" height="16" rx="3.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><circle cx="12" cy="15" r="3"/><path d="M12 13.2l1.1.8-.4 1.3h-1.4l-.4-1.3z"/></svg><span>Games</span></a>
+  <a href="#match" data-view="match"><svg viewBox="0 0 24 24"><circle class="f" cx="12" cy="12" r="9.2"/><circle cx="12" cy="12" r="9.2"/><path d="M12 7.6l3.3 2.4-1.3 3.9h-4l-1.3-3.9z"/><path d="M12 7.6V3.2M15.3 10l4.3-1.4M14 13.9l2.7 3.7M10 13.9l-2.7 3.7M8.7 10 4.4 8.6"/></svg><span>Analyse</span></a>
   <a href="#performance" data-view="performance"><svg viewBox="0 0 24 24"><path class="f" d="M4 20.5V14l5-4 4 3 7-7v14.5z"/><path d="M4 14l5-4 4 3 7-7M15.5 6H20v4.5M3 20.5h18"/></svg><span>Record</span></a>
 </nav>
 
@@ -1162,8 +1247,21 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
 
   <!-- FEATURED -->
   <section data-panel="featured" hidden>
-    <div class="view-head hero-head">
-      <div><span class="eyebrow"><i></i>Matchday</span><h1>Games to watch</h1><p id="ft-sub">The biggest, closest games across every league.</p><div class="hero-stats" id="ft-stats"></div><a class="vip-cta" href="#vip"><span>👑</span><b>VIP picks</b><em>Our surest predictions</em><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="intro">
+      <div class="intro-copy">
+        <span class="eyebrow"><i></i>Football predictions you can check</span>
+        <h1>Know the chances <em>before you bet.</em></h1>
+        <p class="intro-lede">Football Lab works out the chance of every result, goal line and scoreline for this week's games. Our best picks go on the record before kickoff, win or lose.</p>
+        <div class="hero-stats" id="ft-stats"></div>
+      </div>
+      <div class="intro-cards">
+        <a class="ic" href="#fixtures"><span class="ic-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><b>Win chances for every game</b><span>Home, draw and away percentages for every fixture, plus goals and likely scores.</span><i class="ic-go">See all games →</i></a>
+        <a class="ic gold" href="#vip"><span class="ic-ico" aria-hidden="true">👑</span><b>VIP picks, on the record</b><span>Our strongest goal calls, posted before kickoff and marked won or lost.</span><i class="ic-go">Today's VIP picks →</i></a>
+        <a class="ic" href="#match"><span class="ic-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg></span><b>Break down any match</b><span>Goals, both teams to score, handicaps, half-time and correct score in one view.</span><i class="ic-go">Analyse a match →</i></a>
+      </div>
+    </div>
+    <div class="view-head sect-head">
+      <div><h2>Games to watch</h2><p id="ft-sub">The biggest, closest games across every league.</p></div>
       <div class="seg" id="ft-period" role="group" aria-label="Period"><button data-p="day">Next matchday</button><button data-p="week" aria-pressed="true">This week</button></div>
     </div>
     <a class="vtk" id="vtk" href="#performance" aria-label="VIP picks record" hidden><span class="vtk-lbl" id="vtk-lbl"></span><span class="vtk-win"><span class="vtk-run" id="vtk-run"></span></span></a>
@@ -1187,23 +1285,28 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
   <section data-panel="fixtures">
     <div class="view-head">
       <div>
-        <span class="eyebrow"><i></i>The board</span><h1>Upcoming fixtures</h1>
-        <p>Every scheduled match after today, forecast from one model fit. Open a fixture for the full market breakdown.</p>
+        <span class="eyebrow"><i></i>All games</span><h1>Every upcoming game</h1>
+        <p>Pick a league above, then tap any game for the full breakdown. Every number is the chance it happens.</p>
       </div>
       <div class="toolbar">
         <button class="ghost" id="live-refresh" type="button" hidden>Refresh live odds</button>
-        <input class="search" id="search" type="search" placeholder="Filter by team" aria-label="Filter by team">
-        <div class="seg" id="sort" role="group" aria-label="Sort fixtures">
+        <input class="search" id="search" type="search" placeholder="Search a team" aria-label="Search a team">
+        <div class="seg" id="sort" role="group" aria-label="Sort games">
           <button data-sort="date" aria-pressed="true">Date</button>
-          <button data-sort="home">Home %</button>
-          <button data-sort="away">Away %</button>
-          <button data-sort="over25">Over 2.5</button>
-          <button data-sort="btts">BTTS</button>
+          <button data-sort="home">Home win</button>
+          <button data-sort="away">Away win</button>
+          <button data-sort="over25">Most goals</button>
+          <button data-sort="btts">Both score</button>
         </div>
       </div>
     </div>
+    <div class="legend" aria-label="How to read this table">
+      <span><i class="c-home"></i>Home win</span><span><i class="c-draw"></i>Draw</span><span><i class="c-away"></i>Away win</span>
+      <span class="sep"></span>
+      <span><b>Over 2.5</b> 3 or more goals in the game</span><span><b>Both score</b> each team scores at least once</span>
+    </div>
     <div class="board" id="board">
-      <div class="board-head"><span>Match</span><span>Home · Draw · Away</span><span>xG</span><span>O 2.5</span><span>BTTS</span><span>Top score</span><span style="text-align:left">Ticket</span></div>
+      <div class="board-head"><span>Game</span><span>Who wins <small>home · draw · away</small></span><span>Goals</span><span>Likely score</span><span>Our pick</span></div>
       <div id="board-body"><div class="empty">Loading fixtures…</div></div>
     </div>
     <p class="note" id="board-note"></p>
@@ -1213,15 +1316,15 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
   <section data-panel="match" hidden>
     <div class="match-layout">
       <form class="card form-card" id="form">
-        <h4>Build the matchup</h4>
+        <h4>Choose the match</h4>
         <div class="pick">
           <label class="tile" id="tile-home"><span class="role">Home</span><span class="tile-crest" id="home-crest"></span><span class="tile-name" id="home-name">Choose</span><select id="home" required aria-label="Home team"></select></label>
           <button type="button" class="swap-orb" id="swap" aria-label="Swap home and away" title="Swap home and away"><svg viewBox="0 0 24 24"><path d="M7 4v14M3.5 14.5 7 18l3.5-3.5M17 20V6M13.5 9.5 17 6l3.5 3.5"/></svg></button>
           <label class="tile away" id="tile-away"><span class="role">Away</span><span class="tile-crest" id="away-crest"></span><span class="tile-name" id="away-name">Choose</span><select id="away" required aria-label="Away team"></select></label>
         </div>
-        <div class="date-row"><label for="date">Analysing as of</label><input id="date" type="date" required><button type="button" class="today" id="today">Today</button></div>
+        <div class="date-row"><label for="date">Forecast date</label><input id="date" type="date" required><button type="button" class="today" id="today">Today</button></div>
         <details class="fold" id="odds-fold">
-          <summary>Compare with bookmaker odds</summary>
+          <summary>Got odds from your bookie? Add them (optional)</summary>
           <div class="odds-row">
             <label class="field"><span>Home</span><input id="oh" type="number" step="any" min="1.01" inputmode="decimal" placeholder="1.85"></label>
             <label class="field"><span>Draw</span><input id="od" type="number" step="any" min="1.01" inputmode="decimal" placeholder="3.60"></label>
@@ -1231,12 +1334,11 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
             <label class="field"><span>Over 2.5</span><input id="oo" type="number" step="any" min="1.01" inputmode="decimal" placeholder="1.80"></label>
             <label class="field"><span>Under 2.5</span><input id="ou" type="number" step="any" min="1.01" inputmode="decimal" placeholder="2.05"></label>
           </div>
-          <p class="hint">Decimal odds. Margins are removed, then every market is priced from these. Live or stored bookmaker odds are used automatically when you leave this blank.</p>
+          <p class="hint">Decimal odds, e.g. 1.85. We strip out the bookmaker's cut and work out every market from your prices, so you can see where the value is. Leave blank and we use the latest bookmaker odds we have.</p>
         </details>
         <button class="primary" id="go" type="submit">Analyse match</button>
       </form>
       <div id="out">
-        <div class="placeholder"><div><div class="pitch-ico" style="margin:auto"></div><h3>Pick a matchup</h3><p>Choose two teams, or open a fixture from the board. You get 1X2, goals, Asian lines, half-time, combos and correct score.</p></div></div>
       </div>
     </div>
   </section>
@@ -1246,10 +1348,10 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
   <!-- VIP -->
   <section data-panel="vip" hidden>
     <div class="view-head hero-head">
-      <div><span class="eyebrow"><i></i>VIP picks</span><h1>VIP picks</h1>
-        <p>Games where goals are likely: Over 2.5 where we rate it 65% or better, otherwise Over 1.5 at 78% or better. Premier League, La Liga and Bundesliga, next three days, every result checked and put on the record.</p>
+      <div><span class="eyebrow"><i></i>VIP picks</span><h1>Our strongest calls</h1>
+        <p>Games where goals look most likely in the Premier League, La Liga and Bundesliga over the next three days. We only pick <b>Over 2.5 goals</b> when we rate it 65% or better, otherwise <b>Over 1.5 goals</b> at 78% or better. Every pick goes on our public record before kickoff.</p>
         <div class="hero-stats" id="vip-stats"></div></div>
-      <div class="seg" id="vip-n" role="group" aria-label="Number of picks"><button data-n="12">12</button><button data-n="15">15</button><button data-n="17" aria-pressed="true">17</button></div>
+      <div class="seg" id="vip-n" role="group" aria-label="Number of picks"><span class="seg-lbl">Picks</span><button data-n="12">12</button><button data-n="15">15</button><button data-n="17" aria-pressed="true">17</button></div>
     </div>
     <a class="vwr card" id="vip-wr" href="#performance" hidden></a>
     <div class="vip-code card" id="vip-code"></div>
@@ -1263,13 +1365,13 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
   <section data-panel="performance" hidden>
     <div class="view-head">
       <div>
-        <span class="eyebrow"><i></i>Our record</span><h1>Track record</h1>
-        <p>Every VIP pick is posted before kickoff and checked against the final score. Nothing gets edited or deleted, so you see the losses as well as the wins.</p>
+        <span class="eyebrow"><i></i>Our record</span><h1>Every pick, win or lose</h1>
+        <p>Every VIP pick is saved before kickoff and checked against the final score. Nothing is edited or deleted, so you see the losses as well as the wins.</p>
       </div>
     </div>
     <div id="record"><div class="card"><div class="skel" style="height:220px"></div></div></div>
-    <h3 class="rec-h">Model lab <small style="font-size:12px;letter-spacing:.4px;text-transform:none;font-family:inherit">technical checks of the forecasting model</small></h3>
-    <button class="ghost" id="test" type="button" style="margin-bottom:12px">Run backtest for this league</button>
+    <h3 class="rec-h">Under the hood <small style="font-size:12px;letter-spacing:.4px;text-transform:none;font-family:inherit">how accurate the model has been on past seasons</small></h3>
+    <button class="ghost" id="test" type="button" style="margin-bottom:12px">Test the model on this league's past seasons</button>
     <div id="benchmark" style="margin-bottom:14px"></div>
     <div id="prospective" class="card"><div class="skel" style="height:70px"></div></div>
     <div id="evaluation" style="margin-top:14px"></div>
@@ -1278,7 +1380,7 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
   <!-- BASKETBALL: PICKS -->
   <section data-panel="b-featured" hidden>
     <div class="view-head"><div>
-      <span class="eyebrow"><i></i>NBA</span><h1>Today's picks</h1>
+      <span class="eyebrow"><i></i>NBA picks</span><h1>Today's strongest calls</h1>
       <p>The strongest winner and total-points calls for the next two game days. Each one shows how picks at that confidence did on a full season the model never saw.</p>
     </div></div>
     <div id="nbp-body"><div class="empty">Loading picks… the first visit of the day can take about 15 seconds while the ratings are worked out.</div></div>
@@ -1288,7 +1390,7 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
   <!-- BASKETBALL: RECORD -->
   <section data-panel="b-performance" hidden>
     <div class="view-head"><div>
-      <span class="eyebrow"><i></i>NBA</span><h1>Track record</h1>
+      <span class="eyebrow"><i></i>NBA record</span><h1>How our NBA calls have done</h1>
       <p>How our NBA forecasts have done: a full held-out season, and every game since we started saving forecasts before tip-off.</p>
     </div></div>
     <div id="nbr-body" class="bk-lab"><div class="empty">Loading…</div></div>
@@ -1299,11 +1401,11 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
     <div class="view-head">
       <div>
         <span class="eyebrow"><i></i>NBA</span><h1>Upcoming games</h1>
-        <p>Every NBA game in the next seven days, with win chance, projected score, spread and total from our points model. Open a game for the full breakdown.</p>
+        <p>Every NBA game in the next seven days: each team's chance to win, the projected score, the points spread and the total. Tap a game for the full breakdown.</p>
       </div>
       <div class="toolbar">
         <button class="ghost" id="nba-refresh" type="button" hidden>Refresh scores &amp; lines</button>
-        <input class="search" id="nba-search" type="search" placeholder="Filter by team" aria-label="Filter by team">
+        <input class="search" id="nba-search" type="search" placeholder="Search a team" aria-label="Search a team">
         <div class="seg" id="nba-sort" role="group" aria-label="Sort games">
           <button data-sort="date" aria-pressed="true">Date</button>
           <button data-sort="fav">Favourite</button>
@@ -1324,7 +1426,7 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
   <section data-panel="b-match" hidden>
     <div class="match-layout">
       <form class="card form-card" id="nba-form">
-        <h4>Build the matchup</h4>
+        <h4>Choose the game</h4>
         <label class="field"><span>Home</span><select id="nba-home" required aria-label="Home team"></select></label>
         <button type="button" class="ghost" id="nba-swap" style="width:100%;margin-bottom:12px">⇅ Swap home and away</button>
         <label class="field"><span>Away</span><select id="nba-away" required aria-label="Away team"></select></label>
@@ -1339,13 +1441,13 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
         <button class="primary" type="submit" id="nba-go">Analyse game</button>
       </form>
       <div id="nba-out">
-        <div class="placeholder"><div><div style="font-size:42px">🏀</div><h3>Pick a game</h3><p>Choose two teams or open a game from the board. You get moneyline, spread, totals, team totals, winning margin, combos and form.</p></div></div>
+        <div class="placeholder"><div><div style="font-size:42px">🏀</div><h3>Break down any NBA game</h3><p>Pick two teams on the left, or open a game from Upcoming games. You get who wins, the points spread, total points, each team's points, winning margin and recent form.</p></div></div>
       </div>
     </div>
   </section>
 
   <footer>
-    <span class="fb-only">Research forecasts from score history only. No lineups, injuries or shot-based xG. Probabilities are not guarantees.</span>
+    <span class="fb-only">Chances are worked out from past results and bookmaker prices. We don't see team news, lineups or injuries, so no pick is ever a sure thing. 18+, bet responsibly.</span>
     <span class="fb-only">Data: <a href="https://github.com/openfootball/football.json">OpenFootball (CC0)</a> · <a href="https://www.openligadb.de/">OpenLigaDB (ODbL)</a></span>
     <span class="bk-only" id="nba-foot1">NBA forecasts from past results. No injuries or lineups. Probabilities are not guarantees.</span>
     <span class="bk-only" id="nba-foot2"></span>
@@ -1564,6 +1666,7 @@ async function loadLeague(){
     $('#ticker-run').innerHTML = tk.map(item).join('') + tk.map(item).join('');   // doubled for a seamless loop
     fillTeams(data.teams, data.today);
     renderBoard(); loadOddsStatus();
+    { const out = $('#out'); if(!out.children.length || out.querySelector('.mx-empty')) out.innerHTML = placeholder() }
   }catch(e){ if(token === state.rev) $('#strip').innerHTML = `<span class="error">${esc(e.message)}</span>` }
 }
 function renderLeagues(leagues){
@@ -1615,7 +1718,7 @@ function renderBoard(){
   let list = s.fixtures.filter(f => (f.status !== 'awaiting_result' || fLive(f)) && (!state.filter || (f.home + ' ' + f.away).toLowerCase().includes(state.filter)));
   const key = {home: f => -f.probabilities[0], away: f => -f.probabilities[2], over25: f => -f.over25, btts: f => -f.btts}[state.sort];
   if(key) list = [...list].sort((a, b) => key(a) - key(b));
-  if(!list.length){ body.innerHTML = `<div class="empty">${state.filter ? 'No fixtures match that filter.' : 'No upcoming fixtures in the source for this league.'}</div>`; return }
+  if(!list.length){ body.innerHTML = `<div class="empty">${state.filter ? 'No team matches that search.' : 'No upcoming games listed for this league yet.'}</div>`; return }
   let html = '', last = null;
   list.forEach((f, idx) => {
     if(state.sort === 'date' && f.date !== last){ const dd = Math.round((new Date(f.date + 'T12:00:00') - new Date(state.data.today + 'T12:00:00')) / 864e5);
@@ -1624,15 +1727,14 @@ function renderBoard(){
     const mv = f.movement, mvTag = mv ? `<span class="move ${mv.change[0] >= 0 ? 'up' : 'down'}" title="Home probability moved since ${esc(new Date(mv.since).toLocaleString())}">${mv.change[0] >= 0 ? '▲' : '▼'}${Math.abs(mv.change[0] * 100).toFixed(1)}${mv.sharp ? ' sharp' : ''}</span>` : '';
     html += `<button class="fx${f.status === 'live' ? ' is-live' : ''}" style="--i:${state.noStagger ? 0 : Math.min(idx, 30)}${state.noStagger ? ';animation:none' : ''}" data-home="${esc(f.home)}" data-away="${esc(f.away)}" data-date="${esc(f.date)}">` +
       `<span class="teams"><span>${badgeImg(f.home, 'tb') || `<i class="kit" style="background:${kit(f.home).primary}"></i>`}${esc(f.home)}${f.source !== 'model' ? srcBadge(f.source) : ''}${mvTag}</span><span>${badgeImg(f.away, 'tb') || `<i class="kit" style="background:${kit(f.away).primary}"></i>`}${esc(f.away)}${f.thin_history ? '<span class="flag" title="Thin recent history">●</span>' : ''}</span><small class="when">${state.sort !== 'date' ? esc(day(f.date)) + ' ' : ''}${statusPill(f) || 'Time TBC'}</small></span>` +
-      `<span class="bar">${tri(p)}<span class="nums"><span class="c-h">${Math.round(p[0]*100)}</span><span class="c-d">${Math.round(p[1]*100)}</span><span class="c-a">${Math.round(p[2]*100)}</span></span></span>` +
-      `<span class="num">${f.expected_goals[0].toFixed(2)}–${f.expected_goals[1].toFixed(2)}</span>` +
-      `<span class="num">${pct(f.over25)}</span><span class="num">${pct(f.btts)}</span>` +
-      `<span class="num">${esc(f.top_score.score)}<small>${pct(f.top_score.probability)}</small></span>${(() => { const i = p.indexOf(Math.max(...p)), lab = [abbr(f.home), 'Draw', abbr(f.away)][i];
-        return `<span class="stub"><small>Our pick</small><b>${esc(lab)}</b><em>${pct(p[i])}</em></span>` })()}` +
-      `<span class="mini"><span>xG <b>${f.expected_goals[0].toFixed(1)}–${f.expected_goals[1].toFixed(1)}</b></span><span>O2.5 <b>${pct(f.over25)}</b></span><span>BTTS <b>${pct(f.btts)}</b></span><span>Top <b>${esc(f.top_score.score)}</b></span></span></button>`;
+      `<span class="bar">${tri(p)}<span class="nums"><span class="c-h">${Math.round(p[0]*100)}%</span><span class="c-d">${Math.round(p[1]*100)}%</span><span class="c-a">${Math.round(p[2]*100)}%</span></span></span>` +
+      `<span class="num goals" title="Expected goals ${f.expected_goals[0].toFixed(1)}–${f.expected_goals[1].toFixed(1)}"><span><em>Over 2.5</em><b>${Math.round(f.over25 * 100)}%</b></span><span><em>Both score</em><b>${Math.round(f.btts * 100)}%</b></span></span>` +
+      `<span class="num score"><b>${esc(f.top_score.score)}</b><small>${Math.round(f.top_score.probability * 100)}% chance</small></span>${(() => { const i = p.indexOf(Math.max(...p)), lab = [abbr(f.home), 'Draw', abbr(f.away)][i];
+        return `<span class="stub"><small>Our pick</small><b>${esc(i === 1 ? 'Draw' : lab + ' win')}</b><em>${Math.round(p[i] * 100)}% chance</em></span>` })()}` +
+      `<span class="mini"><span>Over 2.5 <b>${Math.round(f.over25 * 100)}%</b></span><span>Both score <b>${Math.round(f.btts * 100)}%</b></span><span>Likely <b>${esc(f.top_score.score)}</b></span></span></button>`;
   });
   body.innerHTML = html;
-  $('#board-note').textContent = `${s.fixtures.filter(f => f.status !== 'awaiting_result').length} fixtures, ${s.priced} priced from bookmaker odds. ${s.note} ● marks a team with fewer than 10 league matches in the past year.`;
+  $('#board-note').textContent = `${s.fixtures.filter(f => f.status !== 'awaiting_result').length} games. ${s.priced} use bookmaker odds, the rest our own model. ${s.note} ● means a team has played fewer than 10 league games in the past year, so read that forecast with extra care.`;
 }
 // Keep live minutes ticking without a reload.
 setInterval(() => { if(state.slate && (state.slate.fixtures || []).some(f => f.status === 'live') && !document.hidden){ state.noStagger = true; renderBoard(); state.noStagger = false } }, 60000);
@@ -1657,7 +1759,24 @@ function heroSkeleton(home, away){
 }
 
 /* ---------- Match ---------- */
-const placeholder = () => '<div class="placeholder"><div><div class="pitch-ico" style="margin:auto"></div><h3>Pick a matchup</h3><p>Choose two teams, or open a fixture from the board. You get 1X2, goals, Asian lines, half-time, combos and correct score.</p></div></div>';
+// Empty match page: what you get, how to start, and a few upcoming games to open in one tap.
+const MX_WHAT = [['Who wins', 'Home, draw and away chances, plus double chance and draw no bet'], ['Goals', 'Over/under every line, exact totals and each team’s goals'],
+  ['Both teams score', 'Yes or no, and combined with the result or total'], ['Likely scores', 'The most likely final scores and a full correct-score grid'],
+  ['Handicaps', 'Asian and simple handicaps with fair odds for each line'], ['Half-time', 'Half-time result, HT/FT and which half has more goals']];
+function placeholder(){
+  const up = ((state.slate && state.slate.fixtures) || []).filter(f => f.status !== 'awaiting_result').slice(0, 4);
+  const quick = up.length ? `<div class="mx-quick"><h4>Or open an upcoming game</h4><div class="mx-quick-list">${up.map(f =>
+    `<button type="button" class="mxq" data-home="${esc(f.home)}" data-away="${esc(f.away)}" data-date="${esc(f.date)}"><span>${esc(f.home)}</span><small>v</small><span>${esc(f.away)}</span><em>${esc(day(f.date))}</em></button>`).join('')}</div></div>` : '';
+  return `<div class="mx-empty card"><span class="eyebrow"><i></i>Match analyser</span><h3>Every way this game could go, in one place</h3>
+    <p>Pick the home and away team on the left and press <b>Analyse match</b>. You'll get the chance of every outcome, worked out from the same model.</p>
+    <div class="mx-what">${MX_WHAT.map(([t, d]) => `<div><b>${t}</b><span>${d}</span></div>`).join('')}</div>${quick}</div>`;
+}
+$('#out').addEventListener('click', e => {
+  const b = e.target.closest('.mxq'); if(!b) return;
+  $('#home').value = b.dataset.home; $('#away').value = b.dataset.away; $('#date').value = state.data.today; state.fixtureDate = b.dataset.date;
+  for(const id of ['#oh', '#od', '#oa', '#oo', '#ou']) $(id).value = '';
+  paintPick(); analyse();
+});
 // The tiles mirror the two selects: crest, name and a glow in the club's kit colour.
 function paintPick(){
   for(const side of ['home', 'away']){
@@ -1685,11 +1804,11 @@ async function analyse(keepSkeleton){
   const token = ++state.rev, home = $('#home').value, away = $('#away').value, out = $('#out');
   if(home === away){ out.innerHTML = '<div class="error">Choose two different teams.</div>'; return }
   const odds = ['#oh', '#od', '#oa'].map(id => $(id).value);
-  if(odds.some(Boolean) && !odds.every(Boolean)){ out.innerHTML = '<div class="error">Enter all three 1X2 odds, or leave all three blank.</div>'; return }
+  if(odds.some(Boolean) && !odds.every(Boolean)){ out.innerHTML = '<div class="error">Enter odds for home, draw and away, or leave all three blank.</div>'; return }
   const ou = ['#oo', '#ou'].map(id => $(id).value);
-  if(ou.some(Boolean) && (!ou.every(Boolean) || !odds.every(Boolean))){ out.innerHTML = '<div class="error">Over/under odds need both sides and the three 1X2 odds.</div>'; return }
+  if(ou.some(Boolean) && (!ou.every(Boolean) || !odds.every(Boolean))){ out.innerHTML = '<div class="error">Over/under odds need both sides, plus the home, draw and away odds.</div>'; return }
   if(!keepSkeleton) out.innerHTML = heroSkeleton(home, away);
-  $('#go').disabled = true; $('#go').textContent = 'Analysing…';
+  $('#go').disabled = true; $('#go').textContent = 'Working it out…';
   try{
     const d = await api('/api/predict', {method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({league_id: state.league, home, away, date: $('#date').value, odds: odds.every(Boolean) ? odds : null,
@@ -1719,7 +1838,7 @@ function compareStrip(d){
   return `<div class="compare"><span></span><span class="hd">Home</span><span class="hd">Draw</span><span class="hd">Away</span>${row('Bookies say', p)}${row('Our model says', m, p)}</div>
     <p class="note">${esc(d.pricing.label)}. ${esc(d.pricing.note || '')} Bookies have been more accurate than our model in testing, so trust the first row.</p>`;
 }
-const TABS = [['overview','Overview'],['pitch','Pitch'],['goals','Goals'],['handicap','Handicaps'],['halftime','Half-time'],['combos','Combos'],['scores','Correct score'],['builder','Bet builder'],['odds','Odds & value'],['stats','Corners & cards'],['evidence','Evidence']];
+const TABS = [['overview','Overview'],['pitch','Pitch'],['goals','Goals'],['handicap','Handicaps'],['halftime','Half-time'],['combos','Combos'],['scores','Correct score'],['builder','Bet builder'],['odds','Odds & value'],['stats','Corners & cards'],['evidence','How sure are we?']];
 function renderMatch(){
   const d = state.current, p = d.probabilities, top = d.scorelines[0], ready = d.readiness.status === 'research_only';
   const action = d.decision.action;
@@ -1734,9 +1853,9 @@ function renderMatch(){
           <span class="mid"><b>${Math.round(p[1] * 100)}</b><small>Draw %</small></span>
           <span class="team" style="background:${ka.primary};color:${inkOn(ka.primary)}"><span class="pct">${Math.round(p[2] * 100)}</span><span class="bt">${esc(abbr(d.away))}${badgeImg(d.away, 'bb')}</span></span></div>` })()}
       <div class="versus" style="--vt:match-head">
-        <div class="side"><small>Home</small><div class="who">${crest(d.home)}<strong>${esc(d.home)}</strong></div><div class="xg">xG <b data-count="${d.expected_goals[0]}">${d.expected_goals[0].toFixed(2)}</b></div></div>
+        <div class="side"><small>Home</small><div class="who">${crest(d.home)}<strong>${esc(d.home)}</strong></div><div class="xg">Expected goals <b data-count="${d.expected_goals[0]}">${d.expected_goals[0].toFixed(2)}</b></div></div>
         <div class="mid"><div class="ls">${esc(top.score)}</div><small>most likely score · ${pct(top.probability)}</small></div>
-        <div class="side away"><small>Away</small><div class="who">${crest(d.away)}<strong>${esc(d.away)}</strong></div><div class="xg">xG <b data-count="${d.expected_goals[1]}">${d.expected_goals[1].toFixed(2)}</b></div></div>
+        <div class="side away"><small>Away</small><div class="who">${crest(d.away)}<strong>${esc(d.away)}</strong></div><div class="xg">Expected goals <b data-count="${d.expected_goals[1]}">${d.expected_goals[1].toFixed(2)}</b></div></div>
       </div>
       ${tri(p, true)}
       <div class="tri-labels">
@@ -1815,8 +1934,8 @@ function goals(d){
     card('Odd or even', rows([['Odd total', m.odd_even.odd], ['Even total', m.odd_even.even]]) +
       '<h4 style="margin-top:18px">Clean sheet & win to nil</h4>' +
       rows([[`${H} clean sheet`, d.clean_sheets.home], [`${A} clean sheet`, d.clean_sheets.away], [`${H} win to nil`, d.win_to_nil.home], [`${A} win to nil`, d.win_to_nil.away]], {highlight:false, head:false})) +
-    card(`${H} goals`, team('home') + '<div style="height:10px"></div>' + teamExact('home'), 'xG ' + d.expected_goals[0].toFixed(2)) +
-    card(`${A} goals`, team('away') + '<div style="height:10px"></div>' + teamExact('away'), 'xG ' + d.expected_goals[1].toFixed(2)) +
+    card(`${H} goals`, team('home') + '<div style="height:10px"></div>' + teamExact('home'), 'Expected ' + d.expected_goals[0].toFixed(2)) +
+    card(`${A} goals`, team('away') + '<div style="height:10px"></div>' + teamExact('away'), 'Expected ' + d.expected_goals[1].toFixed(2)) +
     '</div>';
 }
 
@@ -1863,7 +1982,7 @@ function halftime(d){
       labels.map(b => { const p = h.ht_ft[a + '/' + b]; return `<div class="cell" style="${heat(p, max)}" title="${esc(names[a])} at HT, ${esc(names[b])} at FT">${pct(p)}<br><small style="font-weight:500;opacity:.65">${fair(p)}</small></div>` }).join('')).join('') + '</div>';
   const share = h.first_half_share;
   return '<div class="grid g2">' +
-    card('Half-time result', rows([[H, h.result_first_half[0], 'var(--home)'], ['Draw', h.result_first_half[1], 'var(--draw)'], [A, h.result_first_half[2], 'var(--away)']], {highlight:false}), `xG ${h.expected_goals_first_half.map(x => x.toFixed(2)).join('–')}`) +
+    card('Half-time result', rows([[H, h.result_first_half[0], 'var(--home)'], ['Draw', h.result_first_half[1], 'var(--draw)'], [A, h.result_first_half[2], 'var(--away)']], {highlight:false}), `Expected goals ${h.expected_goals_first_half.map(x => x.toFixed(2)).join('–')}`) +
     card('Half-time / full-time', grid) +
     card('First-half goals', rows(Object.entries(h.first_half_overs).map(([l, p]) => [`Over ${l}`, p]), {highlight:false})) +
     card('Second-half goals', rows(Object.entries(h.second_half_overs).map(([l, p]) => [`Over ${l}`, p]), {highlight:false})) +
@@ -1971,8 +2090,8 @@ function pitch(d){
   const picture = `<g class="picture">
     <path class="arrow" pathLength="1" d="M300 ${PH / 2 - 80} C 520 ${PH / 2 - 160}, 760 ${PH / 2 - 150}, ${PW - 120} ${PH / 2 - 40}" stroke="var(--home)" stroke-width="${w(xg[0])}" opacity=".9"/>
     <path class="arrow" pathLength="1" d="M${PW - 300} ${PH / 2 + 80} C ${PW - 520} ${PH / 2 + 160}, 290 ${PH / 2 + 150}, 120 ${PH / 2 + 40}" stroke="var(--away)" stroke-width="${w(xg[1])}" opacity=".9"/>
-    <text class="label" x="300" y="${PH / 2 - 100}" text-anchor="middle"${up(300, PH / 2 - 100)}>xG ${xg[0].toFixed(2)}</text>
-    <text class="label" x="${PW - 300}" y="${PH / 2 + 120}" text-anchor="middle"${up(PW - 300, PH / 2 + 120)}>xG ${xg[1].toFixed(2)}</text>
+    <text class="label" x="300" y="${PH / 2 - 100}" text-anchor="middle"${up(300, PH / 2 - 100)}>Expected goals ${xg[0].toFixed(2)}</text>
+    <text class="label" x="${PW - 300}" y="${PH / 2 + 120}" text-anchor="middle"${up(PW - 300, PH / 2 + 120)}>Expected goals ${xg[1].toFixed(2)}</text>
     ${boxChips('home')}${boxChips('away')}</g>
     <g${up(PW / 2, PH / 2)}><text class="label" x="${PW / 2}" y="${PH / 2 + 2}" text-anchor="middle" style="font-size:34px">${esc(top.score)}</text>
     <text class="small" x="${PW / 2}" y="${PH / 2 + 30}" text-anchor="middle">most likely · ${pct(top.probability)}</text></g>
@@ -2113,7 +2232,7 @@ async function loadFeatured(){
   state.ftLoaded = true;
   try{
     const d = await api('/api/featured?period=' + state.ftPeriod);
-    $('#ft-sub').textContent = `${d.label} · the biggest, closest games across every league.`;
+    $('#ft-sub').textContent = `${d.label} · the biggest and closest games across every league. Tap one for the full breakdown.`;
     $('#ft-note').textContent = d.note;
     { const live = d.all.filter(g => g.status === 'live').length, leagues = Object.keys(d.leagues || {}).length;
       $('#ft-stats').innerHTML = `<span><b>${d.all.length}</b> games</span><span><b>${leagues}</b> leagues</span>` +
@@ -2148,7 +2267,7 @@ function ftAll(){
       <span class="meta"><span class="lg">${esc(g.league)}</span>${statusPill(g) || '<span class="st ko">TBC</span>'}</span>
       <span class="tm">${side(g.home)}${side(g.away)}</span>
       <span class="tri-wrap">${tri(p)}<span class="nums" style="display:flex;justify-content:space-between;font-size:12px;margin-top:4px"><span class="c-h">${Math.round(p[0]*100)}</span><span class="c-d">${Math.round(p[1]*100)}</span><span class="c-a">${Math.round(p[2]*100)}</span></span></span>
-      <span class="pk">Pick <b>${esc(k === 1 ? 'Draw' : abbr(lab))}</b> ${pct(p[k])}</span></button>`;
+      <span class="pk">Our pick <b>${esc(k === 1 ? 'Draw' : abbr(lab))}</b> ${pct(p[k])}</span></button>`;
   });
   $('#ft-all').innerHTML = html || '<div class="empty">No games for this league in this period.</div>';
 }
@@ -2180,7 +2299,7 @@ function ftCard(g, i, j){
     <div class="fc-bar" role="img" aria-label="Home ${pct(p[0])}, draw ${pct(p[1])}, away ${pct(p[2])}">${seg(0, 'h')}${seg(1, 'd')}${seg(2, 'a')}</div>
     <div class="fc-keys"><span>Home</span><span>Draw</span><span>Away</span></div>
     <p class="fc-take">${esc(g.take[0] || '')}</p>
-    <div class="fc-chips"><span>O2.5 <b>${Math.round(g.over25 * 100)}%</b></span><span>BTTS <b>${Math.round(g.btts * 100)}%</b></span><span>Likeliest <b>${esc(g.top_score.score)}</b></span></div>
+    <div class="fc-chips"><span title="3 or more goals">Over 2.5 goals <b>${Math.round(g.over25 * 100)}%</b></span><span title="Each team scores at least once">Both score <b>${Math.round(g.btts * 100)}%</b></span><span>Likely score <b>${esc(g.top_score.score)}</b></span></div>
     <button class="fc-go" type="button" data-ft="${i}">Full analysis<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
   </article>`;
 }
@@ -2243,7 +2362,7 @@ async function loadVip(){
     const legs = d.legs;
     if(!legs.length){ $('#vip-code').innerHTML = ''; $('#vip-legs').innerHTML = '<div class="placeholder"><div><h3>No VIP slip right now</h3><p>No games with confident goal picks in the Premier League, La Liga or the Bundesliga in the next three days, often an international break. The next slip is posted the morning before their games return.</p></div></div>'; return }
     const avg = legs.reduce((t, l) => t + l.probability, 0) / legs.length;
-    $('#vip-stats').innerHTML = `<span><b>${legs.length}</b> picks</span><span><b>${Math.round(avg * 100)}%</b> average confidence</span><span><b>${new Set(legs.map(l => l.league)).size}</b> leagues</span>`;
+    $('#vip-stats').innerHTML = `<span><b>${legs.length}</b> picks</span><span><b>${Math.round(avg * 100)}%</b> average chance</span><span><b>${new Set(legs.map(l => l.league)).size}</b> leagues</span>`;
     $('#vip-code').hidden = true;   // booking codes are on hold for now
     $('#vip-legs').innerHTML = legs.map((l, i) => `<article class="vl" style="--i:${i}">
       <div class="vl-n">${String(i + 1).padStart(2, '0')}</div>
@@ -2515,7 +2634,7 @@ async function loadProspective(){
 }
 $('#test').onclick = async () => {
   const b = $('#test'), league = state.league;
-  b.disabled = true; b.textContent = 'Running backtest…';
+  b.disabled = true; b.textContent = 'Testing on past seasons…';
   $('#evaluation').innerHTML = '<div class="card"><div class="skel" style="height:160px"></div></div>';
   try{
     const d = await api('/api/backtest?league=' + encodeURIComponent(league));
@@ -2529,7 +2648,7 @@ $('#test').onclick = async () => {
       card('When we say 60%, does it happen 60%?', Object.entries(d.calibration).map(([k, r]) => `<h4 style="margin-top:6px">${esc(k)}</h4>` + t(['Matches', 'Predicted', 'Observed', '95% range'], r.map(x => [x.matches, pct(x.predicted), pct(x.observed), x.observed_interval_95.map(pct).join('–')]))).join(''), 'what we said vs what happened') +
       `</div><p class="note">${esc(d.method)}</p>`;
   }catch(e){ if(league === state.league) $('#evaluation').innerHTML = `<div class="error">${esc(e.message)}</div>` }
-  finally{ b.disabled = false; b.textContent = 'Run backtest for this league' }
+  finally{ b.disabled = false; b.textContent = "Test the model on this league's past seasons" }
 };
 
 // Badges first so the first render already shows them; the page works without them.

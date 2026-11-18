@@ -197,6 +197,7 @@ def load():
     return saved
 
 
+RESCHEDULE_DAYS = 45    # a pairing happens once a season, so the same pair this close is the same game
 VOID_AFTER_DAYS = 7      # a pick with no result this long after its date (postponed, renamed) is void
 
 
@@ -255,9 +256,18 @@ def grade(live, data, today):
     latest = {}                                  # newest result per league: a late feed is not a postponement
     for (league_id, date, _, _) in results:
         latest[league_id] = max(latest.get(league_id, ''), date)
+    by_pair = {}
+    for (league_id, date, home, away), goals in results.items():
+        by_pair.setdefault((league_id, home, away), []).append((date, goals))
     for legs in live['vip'].values():
         for l in legs:
             goals = results.get((l['league_id'], l['date'], l['home'], l['away']))
+            if goals is None and 'won' not in l:
+                # Moved to a later date (never earlier: it could then have been played before the slip froze).
+                moved = [(d, g) for d, g in by_pair.get((l['league_id'], l['home'], l['away']), [])
+                         if l['date'] < d <= (dt.date.fromisoformat(l['date']) + dt.timedelta(days=RESCHEDULE_DAYS)).isoformat()]
+                if len(moved) == 1:
+                    (l['played_on'], goals), = moved
             if goals and 'won' not in l:
                 l['goals'], l['won'] = list(goals), leg_won(l, goals)
                 l.pop('void', None)
