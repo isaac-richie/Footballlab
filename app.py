@@ -127,6 +127,19 @@ def refresh():
             print(json.dumps({f'{league_id}_patched_from_openligadb': patched}))
         except Exception as exc:
             failures.append(dict(url=f'https://api.openligadb.de/getmatchdata/{shortcut}', league_id=league_id, error=str(exc)))
+    # The open feeds stalled in Sept 2026 for five leagues; API-Football fills the missing scores
+    # (never overwriting one). Whole seasons on a paid plan, yesterday and today on the free one.
+    try:
+        import apifootball_results
+        summary = apifootball_results.fill(matches)
+        print(json.dumps(dict(api_football=summary)))
+        if summary.get('filled'):
+            sources['https://v3.football.api-sports.io/fixtures'] = dict(
+                url='https://v3.football.api-sports.io/fixtures', league_id='multi', matches=sum(summary['filled'].values()),
+                checked_at=dt.datetime.now(dt.timezone.utc).isoformat(), license='API-Football terms of service',
+                note='Fills scores the open feeds have not published yet.')
+    except Exception as exc:
+        failures.append(dict(url='https://v3.football.api-sports.io/fixtures', league_id='multi', error=str(exc)))
     unique = {(m['league_id'], m['date'], m['home'], m['away']): m for m in matches}
     payload = dict(fetched_at=dt.datetime.now(dt.timezone.utc).isoformat(),
                    license='per-source', sources=list(sources.values()), failures=failures,
@@ -678,7 +691,9 @@ def slate(data, league_id, limit=40):
                           thin_history=league_id != 'ucl' and min(recent[m['home']], recent[m['away']]) < 10,
                           kickoff=m.get('kickoff'), status=schedule.status(m),
                           last5=[form5.get(m['home'], []), form5.get(m['away'], [])]))
+    age = results_age(data, league_id)
     result = dict(league_id=league_id, league=LEAGUES[league_id], analysis_date=today, model=MODEL['version'],
+                  results_age_days=age, fresh=age is not None and age <= SEASON_FRESH_DAYS,
                   dixon_coles_rho=rho, quality=coverage(data, league_id, today), fixtures=items,
                   priced=sum(i['source'] != 'model' for i in items),
                   note='Upcoming fixtures, plus games from the last two days whose score is not in yet. Bookmaker-priced where odds exist, otherwise the model.')
@@ -689,6 +704,20 @@ def slate(data, league_id, limit=40):
 
 
 SEASON_FRESH_DAYS = 16
+
+
+def results_age(data, league_id, today=None):
+    """Days since the league's latest result, or None when it has none."""
+    today = today or dt.date.today()
+    played = [m['date'] for m in data['matches'] if m['league_id'] == league_id and m['goals'] is not None and m['date'] <= today.isoformat()]
+    return (today - dt.date.fromisoformat(max(played))).days if played else None
+
+
+def league_fresh(data, league_id, today=None):
+    """A league's forecasts rest on current results: its latest one is within SEASON_FRESH_DAYS
+    (an international break). Stale leagues stay out of Games to watch and the VIP slip."""
+    age = results_age(data, league_id, today)
+    return age is not None and age <= SEASON_FRESH_DAYS
 
 
 def season(data, league_id):
@@ -832,7 +861,7 @@ def vip_slip(data, n=17, days=3, per_league=6):
     """
     import hashlib
     import record
-    pool = parlay_candidates(data, [l for l in VIP_LEAGUES if l in LEAGUES], days=days, include_today=True)
+    pool = parlay_candidates(data, [l for l in VIP_LEAGUES if l in LEAGUES and league_fresh(data, l)], days=days, include_today=True)
     by_fixture = {}
     for c in pool:
         by_fixture.setdefault(c['fixture'], []).append(c)
@@ -1131,7 +1160,9 @@ class Handler(BaseHTTPRequestHandler):
         elif path == '/api/featured':
             from featured import featured
             period = parse_qs(urlparse(self.path).query).get('period', ['week'])[0]
-            self.send_json(featured(load(), LEAGUES, slate, history, 'day' if period == 'day' else 'week'))
+            data = load()
+            fresh = {k: v for k, v in LEAGUES.items() if league_fresh(data, k)}
+            self.send_json(featured(data, fresh, slate, history, 'day' if period == 'day' else 'week'))
         elif path == '/api/season':
             try:
                 query = parse_qs(urlparse(self.path).query)

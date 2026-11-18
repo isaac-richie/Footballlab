@@ -1830,6 +1830,12 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
 .pos-strip i{flex:1;background:var(--accent)}
 @media (max-width:760px){.sc-num{font-size:36px}.season-table td,.season-table th{padding:8px 6px}.season-table td.pos{padding-left:10px}.st-team b{max-width:130px;overflow:hidden;text-overflow:ellipsis}}
 
+/* ---- Out-of-date results ---- */
+.stale-note{display:flex;flex-direction:column;gap:3px;margin:0 0 12px;padding:12px 16px;border:1px solid color-mix(in srgb,var(--warn) 50%,transparent);
+  border-left:4px solid var(--warn);border-radius:4px;background:var(--warn-bg);font-size:13.5px;color:var(--muted)}
+.stale-note b{color:var(--text)}
+.mh .stale-note{margin:16px 0 0}
+
 /* ---- Loading placeholders shaped like the finished header ---- */
 .sk-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
 .sk-row .skel{height:44px}
@@ -2307,6 +2313,16 @@ const favClick = e => { const s = e.target.closest('[data-fav]'); if(!s) return;
 document.addEventListener('click', favClick, true);
 document.addEventListener('keydown', e => { if((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('[data-fav]')) favClick(e) }, true);
 
+/* ---------- Out-of-date results: say so plainly ---------- */
+// When a league's results feed falls behind, its forecasts rest on an old table. Say it up front
+// (these leagues are also kept out of Games to watch and the VIP slip until they are current).
+function staleNote(s){
+  if(!s || s.fresh !== false) return '';
+  const lg = (s.league || '').split(' — ').pop();
+  return `<div class="stale-note" role="status"><b>${esc(lg)} results are ${s.results_age_days ? s.results_age_days + ' days' : ''} out of date.</b>
+    <span>Our results feed for this league is behind, so these forecasts don't include recent games. They're left out of Games to watch and VIP picks until it catches up.</span></div>`;
+}
+
 /* ---------- Season projections ---------- */
 async function loadSeason(){
   const league = state.league; state.seasonLeague = league;
@@ -2608,7 +2624,7 @@ function renderBoard(){
         return `<span class="stub"><small>Our pick</small><b>${esc(i === 1 ? 'Draw' : lab + ' win')}</b><em>${Math.round(p[i] * 100)}% chance</em></span>` })()}` +
       `<span class="mini"><span>Over 2.5 <b>${Math.round(f.over25 * 100)}%</b></span><span>Both score <b>${Math.round(f.btts * 100)}%</b></span><span>Likely <b>${esc(f.top_score.score)}</b></span></span></button>`;
   });
-  body.innerHTML = html;
+  body.innerHTML = staleNote(s) + html;
   $('#board-note').textContent = `${s.fixtures.filter(f => f.status !== 'awaiting_result').length} games. ${s.priced} use bookmaker odds, the rest our own model. ${s.note} ● means a team has played fewer than 10 league games in the past year, so read that forecast with extra care.`;
 }
 // Keep live minutes ticking without a reload.
@@ -2783,6 +2799,7 @@ function renderMatch(){
         <div class="kpi"><small>Goals expected</small><b>${(d.expected_goals[0] + d.expected_goals[1]).toFixed(1)}</b><span>in total</span></div>
         <div class="kpi"><small>How open is it?</small><b class="txt">${d.analysis.normalized_entropy > .95 ? 'Anyone\'s game' : d.analysis.normalized_entropy > .85 ? 'Close call' : 'Clear favourite'}</b></div>
       </div>
+      ${state.slate && state.slate.league_id === state.league ? staleNote(state.slate) : ''}
       ${compareStrip(d)}
       <p class="mh-fair"><b>Fair odds</b> are the price that matches our chance with no bookmaker cut. If your bookie pays more than the fair odds, you're getting value.</p>
     </div>
