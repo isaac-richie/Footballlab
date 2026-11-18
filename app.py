@@ -853,6 +853,67 @@ def vip_slip(data, n=17, days=3, per_league=6):
                 note='Fair odds are what each pick is worth by our numbers; your bookie will offer slightly less.')
 
 
+def football_schedule(data, days=2):
+    """{league_id: [(date, home, away)]} around today, for matching live scores to our fixtures."""
+    near = {(dt.date.today() + dt.timedelta(days=d)).isoformat() for d in range(-days, days + 1)}
+    schedule = {}
+    for m in data['matches']:
+        if m['date'] in near:
+            schedule.setdefault(m['league_id'], []).append((m['date'], m['home'], m['away']))
+    return schedule
+
+
+def vip_ticket(data, n=17, live_scores=None):
+    """Today's VIP slip as a live ticket: the picks as saved before kickoff, each with its state.
+
+    States: scheduled, live (score and minute), won or lost (final score; provisional until the
+    result feed grades it), void. Uses the slip frozen this morning (record.freeze_and_grade), so
+    finished games stay on the ticket; before today's slip is saved, the fresh slip is shown
+    and `saved` is false.
+    """
+    import record
+    today = dt.date.today().isoformat()
+    day = next((d for d in record.vip_ledger(max_days=3)['days'] if d['date'] == today), None)
+    if day:
+        picks = sorted(day['picks'], key=lambda p: -p['probability'])[:n]
+        saved = dict(saved=True, frozen_at=day.get('frozen_at'))
+    else:
+        picks = [dict(l, status='pending') for l in vip_slip(data, n)['legs']]
+        saved = dict(saved=False, frozen_at=None)
+    if live_scores is None:
+        try:
+            import football_live
+            live_scores = football_live.live(football_schedule(data)).get('games', {})
+        except Exception:                                  # live scores are a nice-to-have
+            live_scores = {}
+    form = {}
+    rows = []
+    for p in sorted(picks, key=lambda p: (p['date'], p.get('kickoff') or '', p['league_id'])):
+        if p['league_id'] not in form:
+            form[p['league_id']] = last_five(data, p['league_id'], today)
+        row = dict(league_id=p['league_id'], league=LEAGUES.get(p['league_id'], p['league_id']).split(' — ')[-1],
+                   date=p['date'], kickoff=p.get('kickoff'), home=p['home'], away=p['away'], market=p['market'],
+                   selection=p['selection'], probability=p['probability'], fair_odds=1 / p['probability'],
+                   source=p.get('source'), last5=[form[p['league_id']].get(p['home'], []), form[p['league_id']].get(p['away'], [])],
+                   status=p['status'], score=p.get('goals'), clock='FT' if p['status'] in ('won', 'lost') else None, provisional=False)
+        if p['status'] == 'pending':
+            lv = live_scores.get('|'.join((p['date'], p['home'], p['away'])))
+            if lv and lv['status'] == 'live':
+                row.update(status='live', score=lv['score'], clock=lv['clock'])
+            elif lv and lv['status'] == 'final':
+                row.update(status='won' if record.leg_won(p, lv['score']) else 'lost', score=lv['score'], clock='FT', provisional=True)
+            else:
+                row['status'] = 'scheduled'
+        rows.append(row)
+    count = lambda s: sum(r['status'] == s for r in rows)
+    combined = math.prod(r['probability'] for r in rows) if rows else 0
+    return dict(date=today, **saved, legs=rows,
+                summary=dict(picks=len(rows), won=count('won'), lost=count('lost'), live=count('live'),
+                             scheduled=count('scheduled'), void=count('void')),
+                combined_probability=combined, combined_fair_odds=(1 / combined) if combined else None,
+                note='Picks as saved before kickoff. Live scores refresh every few minutes; a result is final once the result feed confirms it.')
+
+
 def backtest(data, league_id):
     from evaluation import evaluate
     from evaluation_cache import cached_evaluate
@@ -1019,6 +1080,13 @@ class Handler(BaseHTTPRequestHandler):
             if saved:
                 saved['league_names'] = LEAGUES
             self.send_json(saved or dict(error='No record yet. Run: python3 app.py record'), 200 if saved else 404)
+        elif path == '/api/vip/ticket':
+            q = parse_qs(urlparse(self.path).query)
+            try:
+                n = max(5, min(17, int(q.get('n', ['17'])[0])))
+            except ValueError:
+                n = 17
+            self.send_json(vip_ticket(load(), n), cache='public, max-age=30, s-maxage=60, stale-while-revalidate=60')
         elif path == '/api/vip':
             q = parse_qs(urlparse(self.path).query)
             try:
