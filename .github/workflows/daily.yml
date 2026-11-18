@@ -48,9 +48,10 @@ jobs:
           git config user.name "football-lab-bot"
           git config user.email "football-lab-bot@users.noreply.github.com"
           git add data.json reports/prospective reports/prospective-grades.json reports/latest.md
-          git add nba_public.json reports/nba_public_board.json reports/nba_public_prospective reports/nba_public_prospective-grades.json 2>/dev/null || true
+          git add nba_public.json reports/nba_public_board.json reports/nba_public_prospective reports/nba_public_prospective-grades.json reports/nba_vip_public.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "Daily refresh $(date -u +%F)"
           git push
     env:
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
       BALLDONTLIE_API_KEY: ${{ secrets.BALLDONTLIE_API_KEY }}
+      API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}    # fills scores the open feeds miss (apifootball_results.py)
