@@ -12,6 +12,10 @@
   "team": "Philadelphia 76ers",
   "probability": 0.665848598533895
  },
- "total": null,
+ "total": {
+  "side": "under",
+  "line": 234.5,
+  "probability": 0.7048969256281024
+ },
  "rebuilt": true
 }

@@ -464,7 +464,7 @@ def total_pick(f, target=.70):
     return None if best is None else dict(side=best[1], line=best[2], probability=best[3])
 
 
-def picks(days=2, floor=.6):
+def picks(days=2, floor=.72, most=5):
     """Winner and total-points picks for the next `days` game days, strongest first, each with its tested record."""
     s = slate(days=7)
     if s.get('error'):
@@ -490,9 +490,9 @@ def picks(days=2, floor=.6):
         team, opp = (f['home'], f['away']) if side == 0 else (f['away'], f['home'])
         out.append(dict(base, team=team, opponent=opp, at_home=side == 0, probability=p, market='moneyline',
                         record=track(f['source'], 'moneyline', p)))
-    out.sort(key=lambda x: -x['probability'])
+    out = sorted(out, key=lambda x: -x['probability'])[:most]
     history = pick_history(data_games=_data()[0]['games'])
     totals.sort(key=lambda x: (x['date'], x['tipoff'] or ''))
     return dict(today=s['today'], dates=dates, picks=out, totals=totals, history=history, public=s.get('public'), ledger=s.get('ledger'), lab=s.get('lab'),
-                note='Winner and total-points picks: the markets whose confident picks have matched their stated chance on a season the model never saw. '
+                note='Total-points picks first, plus a few strong winner calls (72% and up): the markets whose confident picks have matched their stated chance on a season the model never saw. '
                      'A 75% pick still loses one time in four.')

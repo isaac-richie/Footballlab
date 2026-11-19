@@ -12,6 +12,10 @@
   "team": "Atlanta Hawks",
   "probability": 0.7025335486273061
  },
- "total": null,
+ "total": {
+  "side": "over",
+  "line": 222.5,
+  "probability": 0.7053005110708845
+ },
  "rebuilt": true
 }

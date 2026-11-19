@@ -12,6 +12,10 @@
   "team": "Memphis Grizzlies",
   "probability": 0.7942346042730042
  },
- "total": null,
+ "total": {
+  "side": "over",
+  "line": 224.5,
+  "probability": 0.7024682349523972
+ },
  "rebuilt": true
 }

@@ -1,0 +1,18 @@
+{
+ "schema": 1,
+ "id": "bdl21718135",
+ "date": "2026-11-18",
+ "tipoff": "2026-11-19T00:30:00Z",
+ "home": "Brooklyn Nets",
+ "away": "Chicago Bulls",
+ "home_abbr": "BKN",
+ "away_abbr": "CHI",
+ "saved_at": "2026-11-18T14:26:56.084499+00:00",
+ "winner": null,
+ "total": {
+  "side": "under",
+  "line": 251.5,
+  "probability": 0.7092762141791554
+ },
+ "rebuilt": true
+}

@@ -7,11 +7,8 @@
  "away": "Toronto Raptors",
  "home_abbr": "DET",
  "away_abbr": "TOR",
- "saved_at": "2026-11-19T07:24:38.078954+00:00",
- "winner": {
-  "team": "Detroit Pistons",
-  "probability": 0.6567908185102458
- },
+ "saved_at": "2026-11-19T07:31:28.621548+00:00",
+ "winner": null,
  "total": {
   "side": "under",
   "line": 231.5,

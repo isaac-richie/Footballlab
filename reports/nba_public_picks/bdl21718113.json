@@ -12,6 +12,10 @@
   "team": "Boston Celtics",
   "probability": 0.8020139379677649
  },
- "total": null,
+ "total": {
+  "side": "under",
+  "line": 233.5,
+  "probability": 0.7097104859421111
+ },
  "rebuilt": true
 }

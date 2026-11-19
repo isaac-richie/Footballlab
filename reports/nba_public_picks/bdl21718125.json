@@ -12,6 +12,10 @@
   "team": "Denver Nuggets",
   "probability": 0.7359639727792991
  },
- "total": null,
+ "total": {
+  "side": "over",
+  "line": 220.5,
+  "probability": 0.7026709472332172
+ },
  "rebuilt": true
 }

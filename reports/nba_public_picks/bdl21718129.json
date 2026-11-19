@@ -12,6 +12,10 @@
   "team": "Los Angeles Lakers",
   "probability": 0.8717885627396667
  },
- "total": null,
+ "total": {
+  "side": "over",
+  "line": 211.5,
+  "probability": 0.7050865513171194
+ },
  "rebuilt": true
 }

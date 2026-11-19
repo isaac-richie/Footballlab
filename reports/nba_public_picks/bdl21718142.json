@@ -12,6 +12,10 @@
   "team": "Phoenix Suns",
   "probability": 0.6790391206941279
  },
- "total": null,
+ "total": {
+  "side": "over",
+  "line": 221.5,
+  "probability": 0.7032391068621877
+ },
  "rebuilt": true
 }

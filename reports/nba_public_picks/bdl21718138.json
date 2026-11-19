@@ -12,6 +12,10 @@
   "team": "Oklahoma City Thunder",
   "probability": 0.7111213210518313
  },
- "total": null,
+ "total": {
+  "side": "under",
+  "line": 235.5,
+  "probability": 0.7087430055832169
+ },
  "rebuilt": true
 }

@@ -1,0 +1,18 @@
+{
+ "schema": 1,
+ "id": "bdl21718114",
+ "date": "2026-11-15",
+ "tipoff": "2026-11-15T23:00:00Z",
+ "home": "Toronto Raptors",
+ "away": "New York Knicks",
+ "home_abbr": "TOR",
+ "away_abbr": "NY",
+ "saved_at": "2026-11-15T15:21:58.239151+00:00",
+ "winner": null,
+ "total": {
+  "side": "under",
+  "line": 229.5,
+  "probability": 0.7126153046005692
+ },
+ "rebuilt": true
+}

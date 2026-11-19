@@ -12,6 +12,10 @@
   "team": "Minnesota Timberwolves",
   "probability": 0.6085406892957079
  },
- "total": null,
+ "total": {
+  "side": "under",
+  "line": 238.5,
+  "probability": 0.7053221604358813
+ },
  "rebuilt": true
 }

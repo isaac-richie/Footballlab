@@ -12,6 +12,10 @@
   "team": "Detroit Pistons",
   "probability": 0.6597586455017799
  },
- "total": null,
+ "total": {
+  "side": "under",
+  "line": 241.5,
+  "probability": 0.7112765137869475
+ },
  "rebuilt": true
 }

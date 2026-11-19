@@ -12,6 +12,10 @@
   "team": "San Antonio Spurs",
   "probability": 0.7428174135049557
  },
- "total": null,
+ "total": {
+  "side": "under",
+  "line": 233.5,
+  "probability": 0.7058516121566967
+ },
  "rebuilt": true
 }

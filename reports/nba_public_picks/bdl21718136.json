@@ -12,6 +12,10 @@
   "team": "Toronto Raptors",
   "probability": 0.6858693256341057
  },
- "total": null,
+ "total": {
+  "side": "over",
+  "line": 220.5,
+  "probability": 0.70266966808202
+ },
  "rebuilt": true
 }

@@ -2144,7 +2144,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   <section data-panel="b-featured" hidden>
     <div class="view-head"><div>
       <span class="eyebrow"><i></i>NBA picks</span><h1>Today's strongest calls</h1>
-      <p>The strongest winner and total-points calls for the next two game days. Each one shows how picks at that confidence did on a full season the model never saw.</p>
+      <p>Over/under total-points calls for the next two game days, plus a few strong winner calls. Each one shows how picks at that confidence did on a full season the model never saw.</p>
     </div></div>
     <div id="nbp-body"><div class="empty">Loading picks… the first visit of the day can take about 15 seconds while the ratings are worked out.</div></div>
     <p class="note" id="nbp-note"></p>
@@ -3800,8 +3800,8 @@ function nbRec(r){ return r ? `Our ${esc(r.bin)} picks won ${pct(r.won)} of ${r.
 function renderNbaPicks(){
   const d = nb.picks, el = $('#nbp-body'); if(!d) return;
   if(d.error){ el.innerHTML = `<div class="empty">${esc(d.error)}</div>`; return }
-  if(!d.picks.length){ el.innerHTML = '<div class="empty">No pick reaches 60% in the next two game days.</div>'; return }
-  const tab = nb.pickTab || 'winner', tabs = `<div class="seg bp-tabs" role="tablist">${[['winner', 'Winners', d.picks.length], ['total', 'Total points', (d.totals || []).length], ['results', 'Results', '']].map(([k, l, n]) => `<button type="button" data-ptab="${k}" aria-pressed="${tab === k}">${l} <small>${n}</small></button>`).join('')}</div>`;
+  if(!d.picks.length){ el.innerHTML = '<div class="empty">No winner call reaches 72% in the next two game days.</div>'; return }
+  const tab = nb.pickTab || 'total', tabs = `<div class="seg bp-tabs" role="tablist">${[['total', 'Over / Under', (d.totals || []).length], ['winner', 'To win', d.picks.length], ['results', 'Results', '']].map(([k, l, n]) => `<button type="button" data-ptab="${k}" aria-pressed="${tab === k}">${l} <small>${n}</small></button>`).join('')}</div>`;
   if(tab === 'total'){ el.innerHTML = tabs + renderNbaTotals(d); return }
   if(tab === 'results'){ el.innerHTML = tabs + nbHistory(d.history, 3); return }
   const [top, ...rest] = d.picks;
@@ -3831,7 +3831,7 @@ function renderNbaPicks(){
 }
 function renderNbaTotals(d){
   const list = d.totals || [];
-  if(!list.length) return '<div class="empty">No total-points pick reaches 70% in the next two game days.</div>';
+  if(!list.length) return '<div class="empty">No over/under pick reaches 70% in the next two game days.</div>';
   const time = x => x.tipoff ? new Date(x.tipoff).toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}) : '';
   const hit = r => r ? `<span class="bp-hit" title="${esc(nbRec(r))}">${esc(r.bin)} picks hit <b>${pct(r.won)}</b></span>` : '';
   let last = null, rows = '';
@@ -3842,7 +3842,8 @@ function renderNbaTotals(d){
       <div class="bp-mid"><b>${x.side === 'over' ? 'Over' : 'Under'} ${x.line} points</b><small>${esc(x.away_abbr)} @ ${esc(x.home_abbr)} · ${nLive(x) ? nStatus(x) : esc(time(x))} · we expect ${Math.round(x.expected_total)}</small>${hit(x.record)}</div>
       <div class="p">${Math.round(x.probability * 100)}<small>%</small></div><span class="bp-add" role="button" tabindex="0" data-slip-tot="${esc(x.id)}" title="Add to slip">+</span></button>`;
   }
-  return card('Total points', rows, 'both teams combined') +
+  const h = d.history || {}, o = h.over, u = h.under, rec = o && u && (o.won + o.lost + u.won + u.lost) ? `record: overs ${o.won}–${o.lost} · unders ${u.won}–${u.lost}` : 'both teams combined';
+  return card('Over / Under · total points', rows, rec) +
     '<p class="note">Lines are our own, set so each pick is about 70% likely. A bookmaker\'s line will differ: compare before you use it.</p>';
 }
 $('#nbp-body').addEventListener('click', e => {
@@ -3863,9 +3864,9 @@ function nbHistory(h, days){
     const [h, a] = L.score; return k === 'winner' ? (h > a) === (x.winner.team === x.home) : x.total.side === 'over' ? h + a > x.total.line : h + a < x.total.line };
   const sum = (w, l) => w + l ? `${w} won · ${l} lost · ${pct(w / (w + l))}` : 'nothing settled yet';
   const tot = h.winner.won + h.winner.lost + h.total.won + h.total.lost;
+  const kpi = (label, r) => `<div class="kpi"><small>${label}</small><b>${r.won}–${r.lost}</b><span>${r.won + r.lost ? pct(r.won / (r.won + r.lost)) + ' won' : '—'}</span></div>`;
   let html = card('Picks record', `<div class="kpis" style="margin-top:4px">
-      <div class="kpi"><small>Winner picks</small><b>${h.winner.won}–${h.winner.lost}</b><span>${h.winner.won + h.winner.lost ? pct(h.winner.won / (h.winner.won + h.winner.lost)) + ' won' : '—'}</span></div>
-      <div class="kpi"><small>Total-points picks</small><b>${h.total.won}–${h.total.lost}</b><span>${h.total.won + h.total.lost ? pct(h.total.won / (h.total.won + h.total.lost)) + ' won' : 'from 19 Nov'}</span></div></div>
+      ${kpi('Over / Under', h.total)}${kpi('Overs', h.over || {won: 0, lost: 0})}${kpi('Unders', h.under || {won: 0, lost: 0})}${kpi('To win', h.winner)}</div>
     <p class="note">Every pick on this page is saved before tip-off and marked on the final score. ${tot < 100 ? 'Still a small sample: read it after a few weeks.' : ''}</p>`, 'since 15 Nov');
   const today = (nb.picks && nb.picks.today) || new Date().toLocaleDateString('en-CA');
   for(const dd of h.days.filter(x => x.date < today || x.won + x.lost > 0).slice(0, days)){
@@ -3874,12 +3875,12 @@ function nbHistory(h, days){
       const L = live(x), sc = x.score || (L && L.score), score = sc ? `${esc(x.away_abbr || '')} ${sc[1]} – ${sc[0]} ${esc(x.home_abbr || '')}` : '';
       const line = (k, label) => { if(!x[k]) return ''; const o = outcome(x, k); o === true ? w++ : o === false ? l++ : 0;
         return `<div class="bp-hl"><span>${label}</span><small>${pct(x[k].probability)}</small>${mark(o)}</div>` };
-      return `<div class="bp-hrow"><div class="bp-hm">${jersey(x.away)}${jersey(x.home)}<span><b>${esc(x.away_abbr || '')} @ ${esc(x.home_abbr || '')}</b><small>${score || 'not played yet'}</small></span></div>
-        ${line('winner', x.winner ? esc(x.winner.team) + ' to win' : '')}${line('total', x.total ? (x.total.side === 'over' ? 'Over ' : 'Under ') + x.total.line + ' points' : '')}</div>`;
+      return `<div class="bp-hrow"><div class="bp-hm">${jersey(x.away)}${jersey(x.home)}<span><b>${esc(x.away_abbr || '')} @ ${esc(x.home_abbr || '')}${x.rebuilt ? ' <small title="Rebuilt from the forecast saved before tip-off">↺</small>' : ''}</b><small>${score || 'not played yet'}</small></span></div>
+        ${line('total', x.total ? (x.total.side === 'over' ? 'Over ' : 'Under ') + x.total.line + ' points' : '')}${line('winner', x.winner ? esc(x.winner.team) + ' to win' : '')}</div>`;
     }).join('');
     html += card(day(dd.date), rows, sum(w, l));
   }
-  return html + '<p class="note">Days before 19 November show winner picks rebuilt from the forecasts saved before tip-off; total-points picks are saved from 19 November.</p>';
+  return html + '<p class="note">15–18 November are rebuilt from the forecasts saved before each tip-off, with the same rules (marked ↺). From 19 November every pick is saved before tip-off as shown. Winner picks before 19 November used a 60% bar; from 19 November only a few strong calls (72%+) are listed.</p>';
 }
 function renderNbaRecord(){
   const el = $('#nbr-body');

@@ -12,6 +12,10 @@
   "team": "Cleveland Cavaliers",
   "probability": 0.7628218960702782
  },
- "total": null,
+ "total": {
+  "side": "under",
+  "line": 254.5,
+  "probability": 0.706537912826174
+ },
  "rebuilt": true
 }

@@ -12,6 +12,10 @@
   "team": "Houston Rockets",
   "probability": 0.727203449160071
  },
- "total": null,
+ "total": {
+  "side": "under",
+  "line": 238.5,
+  "probability": 0.7107994170450673
+ },
  "rebuilt": true
 }

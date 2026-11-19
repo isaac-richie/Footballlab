@@ -12,6 +12,10 @@
   "team": "LA Clippers",
   "probability": 0.6600421725030436
  },
- "total": null,
+ "total": {
+  "side": "under",
+  "line": 236.5,
+  "probability": 0.7016691838723814
+ },
  "rebuilt": true
 }

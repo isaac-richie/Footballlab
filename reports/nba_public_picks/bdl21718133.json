@@ -12,6 +12,10 @@
   "team": "Miami Heat",
   "probability": 0.8124344083528899
  },
- "total": null,
+ "total": {
+  "side": "under",
+  "line": 246.5,
+  "probability": 0.707400257606053
+ },
  "rebuilt": true
 }

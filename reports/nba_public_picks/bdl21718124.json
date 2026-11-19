@@ -12,6 +12,10 @@
   "team": "Golden State Warriors",
   "probability": 0.7505592848782467
  },
- "total": null,
+ "total": {
+  "side": "under",
+  "line": 244.5,
+  "probability": 0.7067421787466112
+ },
  "rebuilt": true
 }
