@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718110",
+ "date": "2026-11-15",
+ "tipoff": "2026-11-15T21:00:00Z",
+ "home": "Phoenix Suns",
+ "away": "Los Angeles Lakers",
+ "home_abbr": "PHX",
+ "away_abbr": "LAL",
+ "saved_at": "2026-11-15T15:21:58.239151+00:00",
+ "winner": {
+  "team": "Los Angeles Lakers",
+  "probability": 0.6364127120133072
+ },
+ "total": null,
+ "rebuilt": true
+}

@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718130",
+ "date": "2026-11-17",
+ "tipoff": "2026-11-18T03:30:00Z",
+ "home": "LA Clippers",
+ "away": "Utah Jazz",
+ "home_abbr": "LAC",
+ "away_abbr": "UTAH",
+ "saved_at": "2026-11-17T14:46:01.040832+00:00",
+ "winner": {
+  "team": "LA Clippers",
+  "probability": 0.6600421725030436
+ },
+ "total": null,
+ "rebuilt": true
+}

@@ -1056,7 +1056,7 @@ button.bp-hero{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display
 .bp-day{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.6;padding:14px 0 4px}.bp-day:first-child{padding-top:0}
 button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line,rgba(255,255,255,.08))}.bp-day+button.bp-row{border-top:0}
 .bp-mid{display:grid;gap:3px;min-width:0}.bp-mid b{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.bp-row:hover b{text-decoration:underline}
-.bp-row .p{font-size:24px;font-weight:800}.bp-tabs{margin-bottom:14px;display:inline-flex}button.bp-row{grid-template-columns:auto 1fr auto auto}.bp-add{display:grid;place-items:center;width:30px;height:30px;border-radius:999px;border:1px solid var(--line-2);font-weight:800;font-size:18px;color:var(--accent);cursor:pointer}.bp-add:hover{background:var(--accent);color:var(--accent-ink)}.bp-vip{display:grid;gap:10px}.bp-vip>div{display:flex;align-items:center;gap:10px}.bp-vip span{display:grid}.bp-vip small{opacity:.75}.c[data-cslip]{cursor:pointer}.c[data-cslip]:hover{outline:2px solid var(--accent)}.bp-tabs small{opacity:.6;margin-left:4px}.bp-pair{display:flex}.bp-pair .jersey+.jersey{margin-left:-10px}.bp-row .p small{font-size:14px;opacity:.7}.bp-mid>small,.bp-hero small{opacity:.75}
+.bp-row .p{font-size:24px;font-weight:800}.bp-tabs{margin-bottom:14px;display:inline-flex}.bp-hrow{padding:10px 0;border-top:1px solid var(--line)}.bp-hrow:first-child{border-top:0}.bp-hm{display:flex;align-items:center;gap:8px;margin-bottom:6px}.bp-hm span{display:grid;margin-left:6px}.bp-hm small{opacity:.7}.bp-hm .jersey+.jersey{margin-left:-10px}.bp-hl{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;font-size:14px;padding:3px 0}.bp-hl small{opacity:.7}.bp-res{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px}.bp-res.won{background:color-mix(in srgb,#3ccf7a 22%,transparent);color:#4fe08c}.bp-res.lost{background:color-mix(in srgb,#f05a5a 22%,transparent);color:#ff7a7a}.bp-res.wait{background:var(--surface-3);opacity:.8}button.bp-row{grid-template-columns:auto 1fr auto auto}.bp-add{display:grid;place-items:center;width:30px;height:30px;border-radius:999px;border:1px solid var(--line-2);font-weight:800;font-size:18px;color:var(--accent);cursor:pointer}.bp-add:hover{background:var(--accent);color:var(--accent-ink)}.bp-vip{display:grid;gap:10px}.bp-vip>div{display:flex;align-items:center;gap:10px}.bp-vip span{display:grid}.bp-vip small{opacity:.75}.c[data-cslip]{cursor:pointer}.c[data-cslip]:hover{outline:2px solid var(--accent)}.bp-tabs small{opacity:.6;margin-left:4px}.bp-pair{display:flex}.bp-pair .jersey+.jersey{margin-left:-10px}.bp-row .p small{font-size:14px;opacity:.7}.bp-mid>small,.bp-hero small{opacity:.75}
 body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body[data-sport="basketball"] #ticker{display:none!important}body:not([data-sport="basketball"]) #nba-ticker{display:none!important}
 .bx-head,.bx{display:grid;grid-template-columns:minmax(190px,1.5fr) minmax(170px,1.3fr) 92px 92px 92px 26px;gap:14px;align-items:center;padding:0 18px}
 .bx-head{height:38px;font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--faint);border-bottom:1px solid var(--line)}
@@ -3801,8 +3801,9 @@ function renderNbaPicks(){
   const d = nb.picks, el = $('#nbp-body'); if(!d) return;
   if(d.error){ el.innerHTML = `<div class="empty">${esc(d.error)}</div>`; return }
   if(!d.picks.length){ el.innerHTML = '<div class="empty">No pick reaches 60% in the next two game days.</div>'; return }
-  const tab = nb.pickTab || 'winner', tabs = `<div class="seg bp-tabs" role="tablist">${[['winner', 'Winners', d.picks.length], ['total', 'Total points', (d.totals || []).length]].map(([k, l, n]) => `<button type="button" data-ptab="${k}" aria-pressed="${tab === k}">${l} <small>${n}</small></button>`).join('')}</div>`;
+  const tab = nb.pickTab || 'winner', tabs = `<div class="seg bp-tabs" role="tablist">${[['winner', 'Winners', d.picks.length], ['total', 'Total points', (d.totals || []).length], ['results', 'Results', '']].map(([k, l, n]) => `<button type="button" data-ptab="${k}" aria-pressed="${tab === k}">${l} <small>${n}</small></button>`).join('')}</div>`;
   if(tab === 'total'){ el.innerHTML = tabs + renderNbaTotals(d); return }
+  if(tab === 'results'){ el.innerHTML = tabs + nbHistory(d.history, 3); return }
   const [top, ...rest] = d.picks;
   const open = x => `data-id="${esc(x.id)}" data-home="${esc(x.home)}" data-away="${esc(x.away)}"`;
   const time = x => x.tipoff ? new Date(x.tipoff).toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}) : '';
@@ -3854,10 +3855,39 @@ $('#nbp-body').addEventListener('click', e => {
   const go = () => { $('#nba-home').value = b.dataset.home; $('#nba-away').value = b.dataset.away; nb.gameId = b.dataset.id; $('#nba-spread').value = $('#nba-total').value = ''; location.hash = '#match'; analyseNba() };
   nb.slate ? go() : (nb.loading || loadNba()).then(go);
 });
+function nbHistory(h, days){
+  if(!h || !h.days || !h.days.length) return '<div class="empty">No saved picks yet. Results appear here the morning after each game day.</div>';
+  const mark = w => w === true ? '<span class="bp-res won">✓ Won</span>' : w === false ? '<span class="bp-res lost">✗ Lost</span>' : '<span class="bp-res wait">Waiting</span>';
+  const live = x => { const L = nLive(x); return !x.score && L && L.status === 'final' ? L : null };
+  const outcome = (x, k) => { if(x[k] && 'won' in x[k]) return x[k].won; const L = live(x); if(!L || !x[k]) return null;
+    const [h, a] = L.score; return k === 'winner' ? (h > a) === (x.winner.team === x.home) : x.total.side === 'over' ? h + a > x.total.line : h + a < x.total.line };
+  const sum = (w, l) => w + l ? `${w} won · ${l} lost · ${pct(w / (w + l))}` : 'nothing settled yet';
+  const tot = h.winner.won + h.winner.lost + h.total.won + h.total.lost;
+  let html = card('Picks record', `<div class="kpis" style="margin-top:4px">
+      <div class="kpi"><small>Winner picks</small><b>${h.winner.won}–${h.winner.lost}</b><span>${h.winner.won + h.winner.lost ? pct(h.winner.won / (h.winner.won + h.winner.lost)) + ' won' : '—'}</span></div>
+      <div class="kpi"><small>Total-points picks</small><b>${h.total.won}–${h.total.lost}</b><span>${h.total.won + h.total.lost ? pct(h.total.won / (h.total.won + h.total.lost)) + ' won' : 'from 19 Nov'}</span></div></div>
+    <p class="note">Every pick on this page is saved before tip-off and marked on the final score. ${tot < 100 ? 'Still a small sample: read it after a few weeks.' : ''}</p>`, 'since 15 Nov');
+  const today = (nb.picks && nb.picks.today) || new Date().toLocaleDateString('en-CA');
+  for(const dd of h.days.filter(x => x.date < today || x.won + x.lost > 0).slice(0, days)){
+    let w = 0, l = 0;
+    const rows = dd.picks.map(x => {
+      const L = live(x), sc = x.score || (L && L.score), score = sc ? `${esc(x.away_abbr || '')} ${sc[1]} – ${sc[0]} ${esc(x.home_abbr || '')}` : '';
+      const line = (k, label) => { if(!x[k]) return ''; const o = outcome(x, k); o === true ? w++ : o === false ? l++ : 0;
+        return `<div class="bp-hl"><span>${label}</span><small>${pct(x[k].probability)}</small>${mark(o)}</div>` };
+      return `<div class="bp-hrow"><div class="bp-hm">${jersey(x.away)}${jersey(x.home)}<span><b>${esc(x.away_abbr || '')} @ ${esc(x.home_abbr || '')}</b><small>${score || 'not played yet'}</small></span></div>
+        ${line('winner', x.winner ? esc(x.winner.team) + ' to win' : '')}${line('total', x.total ? (x.total.side === 'over' ? 'Over ' : 'Under ') + x.total.line + ' points' : '')}</div>`;
+    }).join('');
+    html += card(day(dd.date), rows, sum(w, l));
+  }
+  return html + '<p class="note">Days before 19 November show winner picks rebuilt from the forecasts saved before tip-off; total-points picks are saved from 19 November.</p>';
+}
 function renderNbaRecord(){
   const el = $('#nbr-body');
   if(!nb.slate){ el.innerHTML = '<div class="empty">Loading…</div>'; (nb.loading || loadNba()).then(renderNbaRecord); return }
-  el.innerHTML = $('#nba-lab').innerHTML || '<div class="empty">No record yet.</div>';
+  el.innerHTML = '<div id="nbr-picks"></div>' + ($('#nba-lab').innerHTML || '');
+  const fill = () => { const h = nb.picks && nb.picks.history; $('#nbr-picks').innerHTML = h ? nbHistory(h, 7) : '' };
+  if(nb.picks) fill();
+  else { if(!nb.picksLoading) loadNbaPicks(); (function wait(){ nb.picks ? fill() : setTimeout(wait, 400) })() }
 }
 function nbaPublicLab(l){
   const h = l.holdout || {}, p = h.points, m = h.markets || {}, c = (l.current || {}).points;

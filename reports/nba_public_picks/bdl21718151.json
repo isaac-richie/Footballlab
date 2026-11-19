@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718151",
+ "date": "2026-11-20",
+ "tipoff": "2026-11-21T01:00:00Z",
+ "home": "Chicago Bulls",
+ "away": "Washington Wizards",
+ "home_abbr": "CHI",
+ "away_abbr": "WSH",
+ "saved_at": "2026-11-19T07:24:38.078954+00:00",
+ "winner": null,
+ "total": {
+  "side": "under",
+  "line": 251.5,
+  "probability": 0.708156006893532
+ }
+}

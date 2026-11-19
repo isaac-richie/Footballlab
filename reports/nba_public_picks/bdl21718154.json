@@ -1,0 +1,20 @@
+{
+ "schema": 1,
+ "id": "bdl21718154",
+ "date": "2026-11-20",
+ "tipoff": "2026-11-21T03:00:00Z",
+ "home": "Denver Nuggets",
+ "away": "Houston Rockets",
+ "home_abbr": "DEN",
+ "away_abbr": "HOU",
+ "saved_at": "2026-11-19T07:24:38.078954+00:00",
+ "winner": {
+  "team": "Houston Rockets",
+  "probability": 0.6164423601377373
+ },
+ "total": {
+  "side": "under",
+  "line": 236.5,
+  "probability": 0.7024471445608751
+ }
+}

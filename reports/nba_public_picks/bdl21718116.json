@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718116",
+ "date": "2026-11-15",
+ "tipoff": "2026-11-16T01:00:00Z",
+ "home": "Milwaukee Bucks",
+ "away": "Atlanta Hawks",
+ "home_abbr": "MIL",
+ "away_abbr": "ATL",
+ "saved_at": "2026-11-15T15:21:58.239151+00:00",
+ "winner": {
+  "team": "Atlanta Hawks",
+  "probability": 0.7025335486273061
+ },
+ "total": null,
+ "rebuilt": true
+}

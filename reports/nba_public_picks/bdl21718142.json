@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718142",
+ "date": "2026-11-18",
+ "tipoff": "2026-11-19T03:00:00Z",
+ "home": "Sacramento Kings",
+ "away": "Phoenix Suns",
+ "home_abbr": "SAC",
+ "away_abbr": "PHX",
+ "saved_at": "2026-11-18T14:26:56.084499+00:00",
+ "winner": {
+  "team": "Phoenix Suns",
+  "probability": 0.6790391206941279
+ },
+ "total": null,
+ "rebuilt": true
+}

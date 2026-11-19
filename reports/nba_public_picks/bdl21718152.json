@@ -1,0 +1,20 @@
+{
+ "schema": 1,
+ "id": "bdl21718152",
+ "date": "2026-11-20",
+ "tipoff": "2026-11-21T01:00:00Z",
+ "home": "Oklahoma City Thunder",
+ "away": "New Orleans Pelicans",
+ "home_abbr": "OKC",
+ "away_abbr": "NO",
+ "saved_at": "2026-11-19T07:24:38.078954+00:00",
+ "winner": {
+  "team": "Oklahoma City Thunder",
+  "probability": 0.8445642286359613
+ },
+ "total": {
+  "side": "over",
+  "line": 216.5,
+  "probability": 0.703954417804449
+ }
+}

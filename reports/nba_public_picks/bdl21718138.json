@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718138",
+ "date": "2026-11-18",
+ "tipoff": "2026-11-19T01:00:00Z",
+ "home": "Oklahoma City Thunder",
+ "away": "Atlanta Hawks",
+ "home_abbr": "OKC",
+ "away_abbr": "ATL",
+ "saved_at": "2026-11-18T14:26:56.084499+00:00",
+ "winner": {
+  "team": "Oklahoma City Thunder",
+  "probability": 0.7111213210518313
+ },
+ "total": null,
+ "rebuilt": true
+}

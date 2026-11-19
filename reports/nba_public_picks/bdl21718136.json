@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718136",
+ "date": "2026-11-18",
+ "tipoff": "2026-11-19T00:30:00Z",
+ "home": "Toronto Raptors",
+ "away": "Washington Wizards",
+ "home_abbr": "TOR",
+ "away_abbr": "WSH",
+ "saved_at": "2026-11-18T14:26:56.084499+00:00",
+ "winner": {
+  "team": "Toronto Raptors",
+  "probability": 0.6858693256341057
+ },
+ "total": null,
+ "rebuilt": true
+}

@@ -1,0 +1,20 @@
+{
+ "schema": 1,
+ "id": "bdl21718149",
+ "date": "2026-11-20",
+ "tipoff": "2026-11-21T00:30:00Z",
+ "home": "Cleveland Cavaliers",
+ "away": "Indiana Pacers",
+ "home_abbr": "CLE",
+ "away_abbr": "IND",
+ "saved_at": "2026-11-19T07:24:38.078954+00:00",
+ "winner": {
+  "team": "Cleveland Cavaliers",
+  "probability": 0.6922753577984875
+ },
+ "total": {
+  "side": "under",
+  "line": 242.5,
+  "probability": 0.7103660048295315
+ }
+}

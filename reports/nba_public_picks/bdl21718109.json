@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718109",
+ "date": "2026-11-15",
+ "tipoff": "2026-11-15T18:00:00Z",
+ "home": "Philadelphia 76ers",
+ "away": "Indiana Pacers",
+ "home_abbr": "PHI",
+ "away_abbr": "IND",
+ "saved_at": "2026-11-15T15:21:58.239151+00:00",
+ "winner": {
+  "team": "Philadelphia 76ers",
+  "probability": 0.665848598533895
+ },
+ "total": null,
+ "rebuilt": true
+}

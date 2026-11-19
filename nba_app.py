@@ -433,6 +433,22 @@ def track(source, market, p):
     return None
 
 
+def pick_history(data_games, days=7):
+    """Saved picks of the last days with won/lost, finals from the data file and, for the latest games, the live feed."""
+    import nba_picks_ledger
+    games = data_games
+    if public():
+        try:
+            import nba_live
+            live = nba_live.live().get('games') or {}
+            fin = {k: v for k, v in live.items() if k.startswith('bdl') and v['status'] == 'final'}
+            if fin:
+                games = [dict(g, status='final', score=fin[g['id']]['score']) if g['id'] in fin and g['status'] != 'final' else g for g in games]
+        except Exception:
+            pass
+    return nba_picks_ledger.results(games, days=days)
+
+
 def total_pick(f, target=.70):
     """One points pick for a game: the over or under line nearest the main total whose chance is at least `target`."""
     alt = f.get('alt_totals') or {}
@@ -475,7 +491,8 @@ def picks(days=2, floor=.6):
         out.append(dict(base, team=team, opponent=opp, at_home=side == 0, probability=p, market='moneyline',
                         record=track(f['source'], 'moneyline', p)))
     out.sort(key=lambda x: -x['probability'])
+    history = pick_history(data_games=_data()[0]['games'])
     totals.sort(key=lambda x: (x['date'], x['tipoff'] or ''))
-    return dict(today=s['today'], dates=dates, picks=out, totals=totals, public=s.get('public'), ledger=s.get('ledger'), lab=s.get('lab'),
+    return dict(today=s['today'], dates=dates, picks=out, totals=totals, history=history, public=s.get('public'), ledger=s.get('ledger'), lab=s.get('lab'),
                 note='Winner and total-points picks: the markets whose confident picks have matched their stated chance on a season the model never saw. '
                      'A 75% pick still loses one time in four.')

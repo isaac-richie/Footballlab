@@ -1,0 +1,20 @@
+{
+ "schema": 1,
+ "id": "bdl21718155",
+ "date": "2026-11-20",
+ "tipoff": "2026-11-21T03:00:00Z",
+ "home": "Los Angeles Lakers",
+ "away": "Sacramento Kings",
+ "home_abbr": "LAL",
+ "away_abbr": "SAC",
+ "saved_at": "2026-11-19T07:24:38.078954+00:00",
+ "winner": {
+  "team": "Los Angeles Lakers",
+  "probability": 0.8739411099281761
+ },
+ "total": {
+  "side": "over",
+  "line": 224.5,
+  "probability": 0.7037640855596924
+ }
+}

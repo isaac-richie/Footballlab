@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718127",
+ "date": "2026-11-17",
+ "tipoff": "2026-11-18T01:00:00Z",
+ "home": "Minnesota Timberwolves",
+ "away": "Portland Trail Blazers",
+ "home_abbr": "MIN",
+ "away_abbr": "POR",
+ "saved_at": "2026-11-17T14:46:01.040832+00:00",
+ "winner": {
+  "team": "Minnesota Timberwolves",
+  "probability": 0.6085406892957079
+ },
+ "total": null,
+ "rebuilt": true
+}

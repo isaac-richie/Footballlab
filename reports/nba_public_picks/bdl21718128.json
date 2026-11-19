@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718128",
+ "date": "2026-11-17",
+ "tipoff": "2026-11-18T01:00:00Z",
+ "home": "San Antonio Spurs",
+ "away": "Detroit Pistons",
+ "home_abbr": "SA",
+ "away_abbr": "DET",
+ "saved_at": "2026-11-17T14:46:01.040832+00:00",
+ "winner": {
+  "team": "San Antonio Spurs",
+  "probability": 0.7428174135049557
+ },
+ "total": null,
+ "rebuilt": true
+}

@@ -1,0 +1,20 @@
+{
+ "schema": 1,
+ "id": "bdl21718146",
+ "date": "2026-11-19",
+ "tipoff": "2026-11-20T01:00:00Z",
+ "home": "San Antonio Spurs",
+ "away": "LA Clippers",
+ "home_abbr": "SA",
+ "away_abbr": "LAC",
+ "saved_at": "2026-11-19T07:24:38.078954+00:00",
+ "winner": {
+  "team": "San Antonio Spurs",
+  "probability": 0.866179778229779
+ },
+ "total": {
+  "side": "under",
+  "line": 235.5,
+  "probability": 0.7027226429731963
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "schema": 1,
+ "id": "bdl21718144",
+ "date": "2026-11-19",
+ "tipoff": "2026-11-20T01:00:00Z",
+ "home": "Milwaukee Bucks",
+ "away": "Portland Trail Blazers",
+ "home_abbr": "MIL",
+ "away_abbr": "POR",
+ "saved_at": "2026-11-19T07:24:38.078954+00:00",
+ "winner": {
+  "team": "Portland Trail Blazers",
+  "probability": 0.8831498946424161
+ },
+ "total": {
+  "side": "over",
+  "line": 217.5,
+  "probability": 0.7035855786348735
+ }
+}

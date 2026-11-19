@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718118",
+ "date": "2026-11-16",
+ "tipoff": "2026-11-17T00:00:00Z",
+ "home": "Boston Celtics",
+ "away": "Orlando Magic",
+ "home_abbr": "BOS",
+ "away_abbr": "ORL",
+ "saved_at": "2026-11-16T13:54:42.942575+00:00",
+ "winner": {
+  "team": "Boston Celtics",
+  "probability": 0.7898850871399281
+ },
+ "total": null,
+ "rebuilt": true
+}

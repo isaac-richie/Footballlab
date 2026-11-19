@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718148",
+ "date": "2026-11-20",
+ "tipoff": "2026-11-21T00:30:00Z",
+ "home": "Brooklyn Nets",
+ "away": "Orlando Magic",
+ "home_abbr": "BKN",
+ "away_abbr": "ORL",
+ "saved_at": "2026-11-19T07:24:38.078954+00:00",
+ "winner": null,
+ "total": {
+  "side": "under",
+  "line": 235.5,
+  "probability": 0.7072342283021975
+ }
+}

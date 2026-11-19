@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718120",
+ "date": "2026-11-16",
+ "tipoff": "2026-11-17T00:00:00Z",
+ "home": "Washington Wizards",
+ "away": "Memphis Grizzlies",
+ "home_abbr": "WSH",
+ "away_abbr": "MEM",
+ "saved_at": "2026-11-16T13:54:42.942575+00:00",
+ "winner": {
+  "team": "Memphis Grizzlies",
+  "probability": 0.7942346042730042
+ },
+ "total": null,
+ "rebuilt": true
+}

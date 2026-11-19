@@ -154,6 +154,8 @@ if __name__ == '__main__':
     os.environ.setdefault('NBA_PUBLIC', '1')
     import nba_app
     print(json.dumps(dict(board=nba_app.save_board())))
+    import nba_picks_ledger
+    print(json.dumps(dict(saved_picks=nba_picks_ledger.save(nba_app.picks()))))
     import nba_ledger
     print(json.dumps(dict(ledger=nba_ledger.run(public=True))))
     import nba_vip

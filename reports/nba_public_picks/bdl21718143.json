@@ -1,0 +1,20 @@
+{
+ "schema": 1,
+ "id": "bdl21718143",
+ "date": "2026-11-19",
+ "tipoff": "2026-11-20T01:00:00Z",
+ "home": "Memphis Grizzlies",
+ "away": "Golden State Warriors",
+ "home_abbr": "MEM",
+ "away_abbr": "GS",
+ "saved_at": "2026-11-19T07:24:38.078954+00:00",
+ "winner": {
+  "team": "Memphis Grizzlies",
+  "probability": 0.6130029527262805
+ },
+ "total": {
+  "side": "under",
+  "line": 242.5,
+  "probability": 0.7085436607155209
+ }
+}

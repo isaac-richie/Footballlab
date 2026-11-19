@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718119",
+ "date": "2026-11-16",
+ "tipoff": "2026-11-17T00:00:00Z",
+ "home": "Cleveland Cavaliers",
+ "away": "Chicago Bulls",
+ "home_abbr": "CLE",
+ "away_abbr": "CHI",
+ "saved_at": "2026-11-16T13:54:42.942575+00:00",
+ "winner": {
+  "team": "Cleveland Cavaliers",
+  "probability": 0.7628218960702782
+ },
+ "total": null,
+ "rebuilt": true
+}

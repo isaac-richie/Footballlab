@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718124",
+ "date": "2026-11-16",
+ "tipoff": "2026-11-17T01:00:00Z",
+ "home": "New Orleans Pelicans",
+ "away": "Golden State Warriors",
+ "home_abbr": "NO",
+ "away_abbr": "GS",
+ "saved_at": "2026-11-16T13:54:42.942575+00:00",
+ "winner": {
+  "team": "Golden State Warriors",
+  "probability": 0.7505592848782467
+ },
+ "total": null,
+ "rebuilt": true
+}

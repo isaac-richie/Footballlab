@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718133",
+ "date": "2026-11-18",
+ "tipoff": "2026-11-19T00:00:00Z",
+ "home": "Miami Heat",
+ "away": "Milwaukee Bucks",
+ "home_abbr": "MIA",
+ "away_abbr": "MIL",
+ "saved_at": "2026-11-18T14:26:56.084499+00:00",
+ "winner": {
+  "team": "Miami Heat",
+  "probability": 0.8124344083528899
+ },
+ "total": null,
+ "rebuilt": true
+}

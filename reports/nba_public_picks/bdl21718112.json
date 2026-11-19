@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718112",
+ "date": "2026-11-15",
+ "tipoff": "2026-11-15T22:00:00Z",
+ "home": "Utah Jazz",
+ "away": "San Antonio Spurs",
+ "home_abbr": "UTAH",
+ "away_abbr": "SA",
+ "saved_at": "2026-11-15T15:21:58.239151+00:00",
+ "winner": {
+  "team": "San Antonio Spurs",
+  "probability": 0.8569810707766896
+ },
+ "total": null,
+ "rebuilt": true
+}
