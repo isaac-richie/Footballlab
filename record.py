@@ -33,7 +33,12 @@ VIP_MAX, VIP_PER_LEAGUE, VIP_SIZE = .92, 3, 17   # VIP_SIZE: the largest slip th
 # weekly slips (Premier League, La Liga, Bundesliga; scorelines only): Over 2.5 at 65%+
 # won 74% at fair odds near 1.42 and Over 1.5 at 78%+ won 83% near 1.22; 82.6% of all
 # picks won, about 12 picks a week.
-VIP_PRIORITY = (('ou25', 'Over 2.5', .65), ('ou15', 'Over 1.5', .78))
+# Under 3.5 at 70%+ added 19 November 2026 (tools/goal_lines_check.py, production forecast
+# refit as of each match day, 9 leagues): floor chosen on 2024-25 (said 75.9%, won 77.1%,
+# 1,336 picks), then 2025-26 said 75.5% won 75.9% (1,416) and 2026-27 to date 74.6% / 75.7%
+# (181). Under 2.5 failed the same check (60%+ said 62-63%, won 51-55%) and is not used.
+VIP_PRIORITY = (('ou25', 'Over 2.5', .65), ('ou15', 'Over 1.5', .78), ('ou35', 'Under 3.5', .70))
+GOAL_CHECK = ROOT / 'reports' / 'goal_lines_check.json'
 
 
 def outcome(goals):
@@ -194,6 +199,11 @@ def load():
         return None
     saved.pop('days', None)
     saved['vip_ledger'] = vip_ledger()
+    try:                                    # long-run check of the goal-pick rule (tools/goal_lines_check.py)
+        g = json.loads(GOAL_CHECK.read_text())
+        saved['goal_check'] = dict(rule=g['rule'], seasons=g['vip_rule'], generated_at=g.get('generated_at'))
+    except (OSError, ValueError, KeyError):
+        pass
     return saved
 
 
@@ -298,6 +308,9 @@ def vip_ledger(live=None, max_days=60):
         days.append(row)
         if row['settled'] and won + lost:
             settled_days.append(row)
+    for d in days:
+        for p in d['picks']:
+            p['side'] = 'unders' if p['selection'].startswith('Under') else 'overs' if p['selection'].startswith('Over') else 'other'
     all_picks = [p for d in days for p in d['picks']]
     settled = [p for p in all_picks if p['status'] in ('won', 'lost')]
     won = sum(p['status'] == 'won' for p in settled)
@@ -320,7 +333,7 @@ def vip_ledger(live=None, max_days=60):
                    expected_wins=round(sum(p['probability'] for p in settled), 1),
                    perfect_slips=sum(d['all_won'] for d in settled_days), settled_slips=len(settled_days),
                    win_streak=streak, since=min(vip) if vip else None,
-                   by_market=group('market'), by_league=group('league_id'))
+                   by_market=group('market'), by_league=group('league_id'), by_side=group('side'))
     return dict(summary=summary, days=days[:max_days],
                 method=f'Each day\'s VIP slip (all {VIP_SIZE} picks, so every slip size on the VIP page is covered) is saved the first time the daily update runs, '
                        'before those games kick off, and is never edited. Results are filled in as they arrive. '

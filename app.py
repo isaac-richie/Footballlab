@@ -853,7 +853,7 @@ def vip_slip(data, n=17, days=3, per_league=6):
     """The day's VIP slip: the surest pick from each of the most predictable games.
 
     Only VIP_LEAGUES are used: a pick we cannot grade would sit on the record as pending forever.
-    Goals only: each game's pick follows record.VIP_PRIORITY (Over 2.5, then Over 1.5);
+    Goals only: each game's pick follows record.VIP_PRIORITY (Over 2.5, then Over 1.5, then Under 3.5);
     a game that reaches neither floor is left off, so the slip can be shorter than n.
 
     One leg per game, most likely selections first, at most per_league legs from any

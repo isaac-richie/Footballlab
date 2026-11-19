@@ -1056,7 +1056,7 @@ button.bp-hero{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display
 .bp-day{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.6;padding:14px 0 4px}.bp-day:first-child{padding-top:0}
 button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line,rgba(255,255,255,.08))}.bp-day+button.bp-row{border-top:0}
 .bp-mid{display:grid;gap:3px;min-width:0}.bp-mid b{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.bp-row:hover b{text-decoration:underline}
-.bp-row .p{font-size:24px;font-weight:800}.bp-tabs{margin-bottom:14px;display:inline-flex}.bp-hrow{padding:10px 0;border-top:1px solid var(--line)}.bp-hrow:first-child{border-top:0}.bp-hm{display:flex;align-items:center;gap:8px;margin-bottom:6px}.bp-hm span{display:grid;margin-left:6px}.bp-hm small{opacity:.7}.bp-hm .jersey+.jersey{margin-left:-10px}.bp-hl{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;font-size:14px;padding:3px 0}.bp-hl small{opacity:.7}.bp-res{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px}.bp-res.won{background:color-mix(in srgb,#3ccf7a 22%,transparent);color:#4fe08c}.bp-res.lost{background:color-mix(in srgb,#f05a5a 22%,transparent);color:#ff7a7a}.bp-res.wait{background:var(--surface-3);opacity:.8}button.bp-row{grid-template-columns:auto 1fr auto auto}.bp-add{display:grid;place-items:center;width:30px;height:30px;border-radius:999px;border:1px solid var(--line-2);font-weight:800;font-size:18px;color:var(--accent);cursor:pointer}.bp-add:hover{background:var(--accent);color:var(--accent-ink)}.bp-vip{display:grid;gap:10px}.bp-vip>div{display:flex;align-items:center;gap:10px}.bp-vip span{display:grid}.bp-vip .bp-pair{display:flex;flex:none}.bp-vip small{opacity:.75}.c[data-cslip]{cursor:pointer}.c[data-cslip]:hover{outline:2px solid var(--accent)}.bp-tabs small{opacity:.6;margin-left:4px}.bp-pair{display:flex}.bp-pair .jersey+.jersey{margin-left:-10px}.bp-row .p small{font-size:14px;opacity:.7}.bp-mid>small,.bp-hero small{opacity:.75}
+.bp-row .p{font-size:24px;font-weight:800}.bp-tabs{margin-bottom:14px;display:inline-flex}.gc-grid{display:grid;grid-template-columns:1.1fr repeat(2,1fr);gap:10px 14px;align-items:center;margin:8px 0}.gc-grid>b{font-size:12px;text-transform:uppercase;letter-spacing:.06em;opacity:.7}.gc-grid strong{display:block;font-size:22px}.gc-grid small{opacity:.7;font-size:11.5px}.bp-hrow{padding:10px 0;border-top:1px solid var(--line)}.bp-hrow:first-child{border-top:0}.bp-hm{display:flex;align-items:center;gap:8px;margin-bottom:6px}.bp-hm span{display:grid;margin-left:6px}.bp-hm small{opacity:.7}.bp-hm .jersey+.jersey{margin-left:-10px}.bp-hl{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;font-size:14px;padding:3px 0}.bp-hl small{opacity:.7}.bp-res{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px}.bp-res.won{background:color-mix(in srgb,#3ccf7a 22%,transparent);color:#4fe08c}.bp-res.lost{background:color-mix(in srgb,#f05a5a 22%,transparent);color:#ff7a7a}.bp-res.wait{background:var(--surface-3);opacity:.8}button.bp-row{grid-template-columns:auto 1fr auto auto}.bp-add{display:grid;place-items:center;width:30px;height:30px;border-radius:999px;border:1px solid var(--line-2);font-weight:800;font-size:18px;color:var(--accent);cursor:pointer}.bp-add:hover{background:var(--accent);color:var(--accent-ink)}.bp-vip{display:grid;gap:10px}.bp-vip>div{display:flex;align-items:center;gap:10px}.bp-vip span{display:grid}.bp-vip .bp-pair{display:flex;flex:none}.bp-vip small{opacity:.75}.c[data-cslip]{cursor:pointer}.c[data-cslip]:hover{outline:2px solid var(--accent)}.bp-tabs small{opacity:.6;margin-left:4px}.bp-pair{display:flex}.bp-pair .jersey+.jersey{margin-left:-10px}.bp-row .p small{font-size:14px;opacity:.7}.bp-mid>small,.bp-hero small{opacity:.75}
 body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body[data-sport="basketball"] #ticker{display:none!important}body:not([data-sport="basketball"]) #nba-ticker{display:none!important}
 .bx-head,.bx{display:grid;grid-template-columns:minmax(190px,1.5fr) minmax(170px,1.3fr) 92px 92px 92px 26px;gap:14px;align-items:center;padding:0 18px}
 .bx-head{height:38px;font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--faint);border-bottom:1px solid var(--line)}
@@ -3562,7 +3562,7 @@ async function loadRecord(){
       <span>We said ${esc(outcomeTxt(g, g.pick))} · ${pc(g.probabilities[g.pick])}</span></span></div>`).join('');
   const vipDays = v.days.map(x => `<span class="rv${x.all_won ? ' all' : ''}" title="${x.won} of ${x.picks} came in"><b>${x.won}/${x.picks}</b><small>${esc(day(x.date))}</small></span>`).join('');
   $('#record').innerHTML = `
-    ${vipLedgerHtml(d.vip_ledger)}
+    ${vipLedgerHtml(d.vip_ledger, d.goal_check)}
     <h3 class="rec-h">All our match predictions</h3>
     <p class="rx-lead">Not just VIP: every game we forecast, and whether the result we rated most likely (home win, draw or away win) happened.</p>
     <div class="card rec-top">
@@ -3582,14 +3582,23 @@ async function loadRecord(){
       <p class="note">${esc(d.method)} Window: ${esc(day(d.first_day))} – ${esc(day(d.last_day))}. Updated ${esc(new Date(d.generated_at).toLocaleString())}.</p>
     </details>`;
 }
-function vipLedgerHtml(x){
+function goalCheckHtml(g){
+  if(!g || !g.seasons) return '';
+  const pc = v => v == null ? '–' : (v * 100).toFixed(1) + '%', rows = [['all', 'All goal picks'], ['overs', 'Overs (2.5 and 1.5)'], ['unders', 'Unders (3.5)']];
+  const seasons = [['2025-26', 'Last season'], ['2026-27', 'This season']].filter(([k]) => g.seasons[k] && g.seasons[k].all.picks);
+  return `<div class="card"><div class="rx-head"><h4>How accurate are our goal picks?</h4><span class="note" style="margin:0">games the model had not seen</span></div>
+    <div class="gc-grid"><span></span>${seasons.map(([, l]) => `<b>${l}</b>`).join('')}
+    ${rows.map(([k, l]) => `<span>${l}</span>${seasons.map(([s]) => { const v = g.seasons[s][k]; return `<div><strong>${pc(v.won)}</strong><small>won · said ${pc(v.said)} · ${v.picks.toLocaleString()} picks</small></div>` }).join('')}`).join('')}</div>
+    <p class="note">Every finished match in nine leagues re-forecast as of its own matchday, using only what was known then, with today's VIP rule: Over 2.5 at 65%+, else Over 1.5 at 78%+, else Under 3.5 at 70%+. The rule was set on 2024-25 and not changed after. Under 2.5 failed this check (it won less often than it said), so we never pick it.</p></div>`;
+}
+function vipLedgerHtml(x, g){
   const how = `<div class="rx-how">
       <div><span>1</span><b>Posted before kickoff</b><small>Every morning we save the day's VIP slip, before any of its games start.</small></div>
       <div><span>2</span><b>Locked, never edited</b><small>Saved picks can't be changed or deleted, so losses stay up too.</small></div>
       <div><span>3</span><b>Checked against the score</b><small>Each pick turns green or red automatically when its game ends.</small></div>
     </div>`;
   if(!x || !x.summary || !x.summary.slips) return `<div class="card rx-hero rx-empty"><div><small class="rx-eye">VIP win rate</small><h2>Tracking has started</h2>
-      <p>The first VIP slip is saved with the next morning's update. Results appear here as the games finish.</p></div></div>${how}`;
+      <p>The first VIP slip is saved with the next morning's update. Results appear here as the games finish.</p></div></div>${how}${goalCheckHtml(g)}`;
   const s = x.summary, pc = v => v == null ? '–' : Math.round(v * 100) + '%';
   const label = {won: '✓', lost: '✗', pending: '•', void: '–'};
   const word = {won: 'Won', lost: 'Lost', pending: 'Still to play', void: 'Void: game postponed'};
@@ -3603,7 +3612,8 @@ function vipLedgerHtml(x){
       : 'Below what we said so far. Fewer picks won than our percentages promised, and we are working on it.';
   }
   const bar = (lbl, val, cls) => `<div class="rx-bar ${cls}"><span>${lbl}</span><i><em style="width:${(val || 0) * 100}%"></em></i><b>${pc(val)}</b></div>`;
-  const days = x.days.map((d, i) => `<details class="vr-day${d.all_won ? ' all' : ''}"${i === 0 ? ' open' : ''}>
+  const latest = x.days.find(d => d.won + d.lost > 0) || x.days[0];
+  const days = (latest ? [latest] : []).map((d, i) => `<details class="vr-day${d.all_won ? ' all' : ''}"${i === 0 ? ' open' : ''}>
       <summary><b>${esc(day(d.date))}</b><span class="vr-dots">${d.picks.map(p => `<i class="${p.status}"></i>`).join('')}</span><span>${d.won} won · ${d.lost} lost${d.pending ? ' · ' + d.pending + ' to play' : ''}${d.void ? ' · ' + d.void + ' void' : ''}</span><em>${d.all_won ? 'Perfect slip' : d.settled ? 'Finished' : 'In play'}</em></summary>
       <div class="vr-picks">${d.picks.map(p => `<div class="vr-p ${p.status}" title="${word[p.status]}"><span class="rg-mark">${label[p.status]}</span>
         <span class="rg-main"><small>${esc(LG_SHORT(p.league_id))} · ${esc(day(p.date))}</small><b>${esc(p.home)}${p.goals ? ` <em>${p.goals[0]}–${p.goals[1]}</em> ` : ' v '}${esc(p.away)}</b><span>${esc(bookieText(p))} · ${word[p.status]}</span></span>
@@ -3615,11 +3625,14 @@ function vipLedgerHtml(x){
       <div class="rx-cal">${bar('We said', s.settled ? s.average_confidence : null, 'said')}${bar('Came in', s.settled ? s.hit_rate : null, 'came')}
         <p>${verdict}</p><small>"We said" is the average chance we gave the picks. When the two bars match, the % on each pick means what it says.</small></div>
       <div class="vr-stats rx-tiles"><div class="w"><b>${s.won}</b><small>Won</small></div><div class="l"><b>${s.lost}</b><small>Lost</small></div><div><b>${s.pending}</b><small>Still to play</small></div><div><b>${s.perfect_slips}/${s.settled_slips}</b><small>Perfect slips</small></div></div>
+      ${(() => { const b = s.by_side || {}, t = (k, l) => { const v = b[k]; return `<div><b>${v ? v.won + '–' + (v.picks - v.won) : '0–0'}</b><small>${l}${v ? ' · ' + pc(v.hit_rate) : ''}</small></div>` };
+        return `<div class="vr-stats rx-tiles">${t('overs', 'Overs')}${t('unders', 'Unders')}</div>` })()}
     </div>
     ${how}
-    <div class="card" id="vip-record"><div class="rx-head"><h4>Every VIP slip</h4>
+    ${goalCheckHtml(g)}
+    <div class="card" id="vip-record"><div class="rx-head"><h4>Latest finished slip</h4>
       <span class="rx-key"><span><i class="won"></i>Won</span><span><i class="lost"></i>Lost</span><span><i class="pending"></i>Still to play</span><span><i class="void"></i>Postponed</span></span></div>
-      <p class="note" style="margin:0 0 4px">Tap a day to see its picks. Newest first.</p>
+      <p class="note" style="margin:0 0 4px">The most recent day with results. Every earlier slip stays saved and counts in the totals above.</p>
       <div class="vr-days">${days}</div></div>`;
 }
 async function loadProspective(){
