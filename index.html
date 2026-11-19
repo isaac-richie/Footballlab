@@ -3803,7 +3803,7 @@ function renderNbaPicks(){
   if(!d.picks.length){ el.innerHTML = '<div class="empty">No winner call reaches 72% in the next two game days.</div>'; return }
   const tab = nb.pickTab || 'total', tabs = `<div class="seg bp-tabs" role="tablist">${[['total', 'Over / Under', (d.totals || []).length], ['winner', 'To win', d.picks.length], ['results', 'Results', '']].map(([k, l, n]) => `<button type="button" data-ptab="${k}" aria-pressed="${tab === k}">${l} <small>${n}</small></button>`).join('')}</div>`;
   if(tab === 'total'){ el.innerHTML = tabs + renderNbaTotals(d); return }
-  if(tab === 'results'){ el.innerHTML = tabs + nbHistory(d.history, 3); return }
+  if(tab === 'results'){ el.innerHTML = tabs + nbHistory(d.history, 1); return }
   const [top, ...rest] = d.picks;
   const open = x => `data-id="${esc(x.id)}" data-home="${esc(x.home)}" data-away="${esc(x.away)}"`;
   const time = x => x.tipoff ? new Date(x.tipoff).toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'}) : '';
@@ -3880,13 +3880,13 @@ function nbHistory(h, days){
     }).join('');
     html += card(day(dd.date), rows, sum(w, l));
   }
-  return html + '<p class="note">15–18 November are rebuilt from the forecasts saved before each tip-off, with the same rules (marked ↺). From 19 November every pick is saved before tip-off as shown. Winner picks before 19 November used a 60% bar; from 19 November only a few strong calls (72%+) are listed.</p>';
+  return html + '<p class="note">Showing the latest finished day; every earlier pick stays saved and counts in the record above. 15–18 November are rebuilt from the forecasts saved before each tip-off, with the same rules (marked ↺). From 19 November every pick is saved before tip-off as shown. Winner picks before 19 November used a 60% bar; from 19 November only a few strong calls (72%+) are listed.</p>';
 }
 function renderNbaRecord(){
   const el = $('#nbr-body');
   if(!nb.slate){ el.innerHTML = '<div class="empty">Loading…</div>'; (nb.loading || loadNba()).then(renderNbaRecord); return }
   el.innerHTML = '<div id="nbr-picks"></div>' + ($('#nba-lab').innerHTML || '');
-  const fill = () => { const h = nb.picks && nb.picks.history; $('#nbr-picks').innerHTML = h ? nbHistory(h, 7) : '' };
+  const fill = () => { const h = nb.picks && nb.picks.history; $('#nbr-picks').innerHTML = h ? nbHistory(h, 1) : '' };
   if(nb.picks) fill();
   else { if(!nb.picksLoading) loadNbaPicks(); (function wait(){ nb.picks ? fill() : setTimeout(wait, 400) })() }
 }
