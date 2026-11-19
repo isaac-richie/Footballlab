@@ -972,7 +972,10 @@ def vip_ticket(data, n=17, live_scores=None, nba_legs=None):
         nba_legs, nba_saved = _nba_ticket_legs(today)
     else:
         nba_saved = True
-    rows = sorted(rows + nba_legs, key=lambda r: (r['date'], r.get('kickoff') or ''))
+    rows = rows + nba_legs
+    if n < 17:       # a ready-made accumulator: the n surest picks across both sports
+        rows = sorted(rows, key=lambda r: -r['probability'])[:n]
+    rows = sorted(rows, key=lambda r: (r['date'], r.get('kickoff') or ''))
     count = lambda s: sum(r['status'] == s for r in rows)
     combined = math.prod(r['probability'] for r in rows) if rows else 0
     return dict(date=today, **saved, nba_saved=nba_saved, legs=rows,

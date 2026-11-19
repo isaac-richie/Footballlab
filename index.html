@@ -539,7 +539,7 @@ html{background:var(--bg)}
 .ft-filter button{flex-shrink:0;white-space:nowrap;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);color:var(--muted);font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.8px;font-size:13px;cursor:pointer;transition:all .2s}
 .ft-filter button b{margin-left:6px;opacity:.6;font-weight:700}
 .ft-filter button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#0b0f14}
-.ft-all{margin-top:34px}
+.ft-all{margin-top:34px}.ga-more{display:block;width:100%;margin-top:12px}
 .ft-all-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:10px}
 .ft-all-head h2{margin:0;white-space:nowrap;font-family:var(--display);text-transform:uppercase;letter-spacing:1px;font-size:26px}
 .ft-all-head span{color:var(--muted);font-size:14px}
@@ -1431,14 +1431,20 @@ h1,h2,h3,.view-head h1,.intro h1,.sect-head h2,.ft-all-head h2,.mx-empty h3,.rec
 .wl-steps{list-style:none;counter-reset:wl;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line-2)}
 .wl-steps li{counter-increment:wl;padding:16px 20px 4px 0;font-size:14px;line-height:1.55;color:var(--muted)}
 .wl-steps li+li{padding-left:20px;border-left:1px solid var(--line-2)}
-.wl-steps li::before{content:counter(wl,decimal-leading-zero);display:block;font-family:var(--mono);font-size:12px;color:var(--accent);margin-bottom:6px}
+.wl-hint{display:none}.wl-steps li::before{content:counter(wl,decimal-leading-zero);display:block;font-family:var(--mono);font-size:12px;color:var(--accent);margin-bottom:6px}
 .wl-steps b{display:block;color:var(--text);font-size:17px;margin-bottom:4px}
 .wl-foot{display:flex;align-items:center;flex-wrap:wrap;gap:10px 16px;margin-top:18px}
 .wl-go{display:inline-flex;align-items:center;padding:10px 16px;border-radius:4px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:650;font-size:14px}
 .wl-ok{padding:9px 16px;border:1px solid var(--line-2);background:none;font-weight:600;font-size:14px;color:var(--text)}
 .wl-ok:hover{border-color:var(--text)}
 .wl-foot span{margin-left:auto;font-size:12px;color:var(--faint)}
-@media (max-width:760px){.welcome{padding:16px;margin-top:16px}.welcome h2{font-size:21px!important}.wl-steps li{padding:10px 0 2px!important;font-size:13.5px}.wl-steps li::before{display:inline!important;margin-right:8px}.wl-steps b{display:inline;font-size:15.5px}.wl-steps{grid-template-columns:minmax(0,1fr)}.wl-steps li+li{padding-left:0;border-left:0;border-top:1px solid var(--line-2)}.wl-foot span{margin-left:0;flex-basis:100%}}
+@media (max-width:760px){.welcome{padding:16px;margin-top:16px}.welcome h2{font-size:21px!important}/* phones: the three steps become swipeable cards */
+  .wl-steps{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;border-top:0;margin:14px -16px 0;padding:0 16px 6px;scrollbar-width:none}
+  .wl-steps::-webkit-scrollbar{display:none}
+  .wl-steps li,.wl-steps li+li{flex:0 0 80%;scroll-snap-align:start;padding:14px 16px!important;border:1px solid var(--line-2);border-radius:14px;background:var(--surface-2);font-size:13.5px}
+  .wl-steps li::before{font-size:22px;margin-bottom:8px}.wl-steps b{font-size:16px}
+  .wl-hint{display:block!important;font-size:12px;color:var(--muted);margin-top:6px}
+  .intro-cards{display:none!important}   /* the bottom menu already links to these */.wl-foot span{margin-left:0;flex-basis:100%}}
 
 .intro{gap:64px!important;margin:48px 0 52px!important;align-items:end!important}
 .intro h1{font-size:clamp(46px,7vw,96px)!important;line-height:.95!important;font-weight:400!important;letter-spacing:-.04em!important;margin:0 0 22px!important}
@@ -1912,10 +1918,11 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       <div class="wl-head"><span class="kicker">New here</span><h2 id="welcome-h">How Football Lab works, in three steps</h2>
         <button type="button" class="wl-x" id="welcome-x" aria-label="Close the welcome guide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
       <ol class="wl-steps">
-        <li><b>Pick a game.</b> Scroll to Games to watch below, or open All games and choose a league.</li>
+        <li><b>Pick a game.</b> Scroll to Games to watch below, or open Games and choose a league.</li>
         <li><b>Read the chances.</b> Each percentage is how often we expect that to happen. Tap the game for goals, scores and our plain-English read.</li>
         <li><b>Spot the value.</b> Compare our fair odds with your bookie's. If they pay more than fair, the price is in your favour.</li>
       </ol>
+      <span class="wl-hint">Swipe for the next step →</span>
       <div class="wl-foot"><a class="wl-go" href="#vip" id="welcome-vip">See today's VIP picks</a><button type="button" class="wl-ok" id="welcome-ok">Got it</button><a class="wl-more" href="#how" id="welcome-how">How we work out the chances →</a><span>Probabilities, not promises. 18+.</span></div>
     </aside>
     <div class="intro">
@@ -1951,7 +1958,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       </div>
     </div>
     <div class="ft-all">
-      <div class="ft-all-head"><h2>Every game</h2><span id="ft-all-count"></span></div>
+      <div class="ft-all-head"><h2>Coming up next</h2><span id="ft-all-count"></span></div>
       <div id="ft-all"></div>
     </div>
     <p class="note" id="ft-note"></p>
@@ -2034,7 +2041,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
     </header>
     <div class="vip-tools">
       <span class="vb-stamp" id="vip-stamp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.4 3.4 8.4 8 9 4.6-.6 8-4.6 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Saved before kickoff · never edited · graded on the final score</span>
-      <div class="seg" id="vip-n" role="group" aria-label="Number of picks"><span class="seg-lbl">Picks</span><button data-n="12">12</button><button data-n="15">15</button><button data-n="17" aria-pressed="true">17</button></div>
+      <div class="seg" id="vip-n" role="group" aria-label="Accumulator size"><span class="seg-lbl">Accumulator</span><button data-n="5">5</button><button data-n="6">6</button><button data-n="7">7</button><button data-n="8">8</button><button data-n="9">9</button><button data-n="17" aria-pressed="true">All</button></div>
       <button type="button" class="primary vip-all" id="vip-all" hidden>Add all to slip</button>
     </div>
     <div class="ticket" id="vip-ticket" hidden aria-live="polite"></div>
@@ -2399,7 +2406,8 @@ if('serviceWorker' in navigator && /^https?:$/.test(location.protocol))
 
 /* ---------- Views ---------- */
 function showView(){
-  { const v = (location.hash || '#featured').slice(1) || 'featured'; $('#leagues').hidden = $('#strip').hidden = v === 'featured' || v === 'vip' || $('#strip').classList.contains('empty'); }
+  { const v = (location.hash || '#featured').slice(1).split('/')[0] || 'featured', off = v === 'featured' || v === 'vip';
+    $('#leagues').hidden = off; $('#strip').hidden = off || $('#strip').classList.contains('empty'); }   // the warning strip only when results are behind
   const v = (location.hash || '#featured').slice(1).split('/')[0];
   // How it works: one page for both sports, reached from links rather than the nav.
   if(v === 'how'){
@@ -2583,6 +2591,8 @@ function renderStrip(d){
     ? `Results only go up to ${esc(latest.toLocaleDateString(undefined, {day: 'numeric', month: 'short'}))}, so the last ${days} days of form are missing.`
     : 'Some recent results are still missing.'}</span>`;
   $('#strip').classList.toggle('empty', ok);
+  const v = (location.hash || '#featured').slice(1).split('/')[0] || 'featured';
+  $('#strip').hidden = ok || v === 'featured' || v === 'vip';
 }
 function fillTeams(teams, today){
   const keep = [$('#home').value, $('#away').value];
@@ -3219,11 +3229,14 @@ function gaRow(g, i){
 function ftAll(){
   const d = state.ftData, list = d.all.filter(g => state.ftLeague === 'all' || g.league_id === state.ftLeague);
   $('#ft-all-count').textContent = `${list.length} game${list.length === 1 ? '' : 's'} · ${d.label}`;
+  // Home shows the next few games only; the full list opens on request (All games has every league in full).
+  const SHORT = 6, shown = state.ftAllOpen ? list : list.slice(0, SHORT);
   let html = '', last = null;
-  list.forEach((g, i) => {
+  shown.forEach((g, i) => {
     if(g.date !== last){ html += `<div class="ga-day">${esc(day(g.date))}</div>`; last = g.date }
     html += gaRow(g, i);
   });
+  if(list.length > SHORT) html += `<button type="button" class="ghost ga-more" id="ft-all-more">${state.ftAllOpen ? 'Show fewer' : `Show all ${list.length} games`}</button>`;
   $('#ft-all').innerHTML = html || '<div class="empty">No games for this league in this period.</div>';
 }
 // Your teams: the followed clubs' games from this week's list, in date order.
@@ -3245,7 +3258,9 @@ async function openFeatured(g){
   for(const id of ['#oh', '#od', '#oa', '#oo', '#ou']) $(id).value = '';
   location.hash = '#match'; analyse();
 }
-$('#ft-all').onclick = e => { const b = e.target.closest('[data-ga]'); if(b) openFeatured(state.ftData.all[+b.dataset.ga]) };
+$('#ft-all').onclick = e => {
+  if(e.target.closest('#ft-all-more')){ state.ftAllOpen = !state.ftAllOpen; ftAll(); if(!state.ftAllOpen) $('.ft-all').scrollIntoView({block: 'start'}); return }
+  const b = e.target.closest('[data-ga]'); if(b) openFeatured(state.ftData.all[+b.dataset.ga]) };
 // Pages of featured games: four a page on wide screens, two on phones.
 const ftPer = () => innerWidth < 760 ? 2 : 4;
 const ftPages = () => Math.ceil((state.ftGames || []).length / ftPer());
