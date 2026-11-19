@@ -37,6 +37,10 @@ The refreshed retrospective report now covers 6,153 matches in six leagues; Seri
 
 OpenFootball's auto-update stopped on 22 September 2026. La Liga, Serie A, Ligue 1, Eredivisie and Primeira Liga have no scores after 20 September in `data.json`, so their forward forecasts (192 at 17 November) cannot be graded and their ratings miss two months of form. Bundesliga and Premier League are unaffected (OpenLigaDB `bl1` and `pl` fill them). No open replacement was found: OpenLigaDB's `la1` feed currently mixes Dutch clubs into La Liga, `ERE` has no results, and there is no Serie A, Ligue 1 or Portugal feed. API-Football's free plan reaches only yesterday to tomorrow. The local Lab fills the gaps in memory from football-data.co.uk, whose reuse terms remain unverified, so those scores are not committed.
 
+## Goal-line calibration (checked 19 November 2026)
+
+Walk-forward over 7,988 matches in eight leagues (2023-24 to 2025-26, refit before every match date), the goal lines are calibrated within 2 points on every line, on the tuning seasons and the 2025-26 hold-out alike. VIP-style picks run slightly cautious, not over-confident: Over 1.5 at 78%+ said 82.4% and won 83.7% (2025-26: 81.8% / 82.8%); Over 2.5 at 65%+ said 68.7% and won 74.5% (2025-26: 69.7% / 74.3%). The six-week replay's 85.9% / 83.0% was 177 picks. There is a small, consistent lean towards too many 0-0s and slightly too few goals (+1 to +1.7 points on Over 0.5 to Over 2.5), in line with the 1X2 draw shift; it was left alone because the published picks err on the safe side and the gain would come at the cost of 1X2 accuracy.
+
 ## Remaining priorities
 
 1. Keep the prospective runner active before fixtures, grade results, and accumulate enough forward matches for a meaningful score.
