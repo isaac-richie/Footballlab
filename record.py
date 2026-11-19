@@ -39,6 +39,10 @@ VIP_MAX, VIP_PER_LEAGUE, VIP_SIZE = .92, 3, 17   # VIP_SIZE: the largest slip th
 # (181). Under 2.5 failed the same check (60%+ said 62-63%, won 51-55%) and is not used.
 VIP_PRIORITY = (('ou25', 'Over 2.5', .65), ('ou15', 'Over 1.5', .78), ('ou35', 'Under 3.5', .70))
 GOAL_CHECK = ROOT / 'reports' / 'goal_lines_check.json'
+# Plus one or two strong favourites to win, from games without a goal pick. Same check, 1X2:
+# favourites at 70%+ said 76.6% won 79.0% (2024-25, 290), 77.0% / 82.0% (2025-26, 228),
+# 76.7% / 75.0% (2026-27 to date, 40).
+VIP_WIN_FLOOR, VIP_WINS = .70, 2
 
 
 def outcome(goals):
@@ -96,6 +100,18 @@ def vip_pick(legs):
     return None
 
 
+def vip_favourites(by_fixture, taken, n=VIP_WINS):
+    """Up to n home or away wins at VIP_WIN_FLOOR..VIP_MAX from games not already on the slip, surest first."""
+    wins = []
+    for fx, legs in by_fixture.items():
+        if fx in taken:
+            continue
+        for l in legs:
+            if l['market'] == '1x2' and l['selection'] != 'Draw' and VIP_WIN_FLOOR <= l['probability'] <= VIP_MAX:
+                wins.append(l)
+    return sorted(wins, key=lambda l: -l['probability'])[:n]
+
+
 def vip_from(legs):
     """The same selection rule as the VIP picks page, applied to one day's legs."""
     by_fixture = {}
@@ -109,7 +125,7 @@ def vip_from(legs):
             picks.append(leg)
         if len(picks) == VIP_SIZE:
             break
-    return picks
+    return picks + vip_favourites(by_fixture, {p['fixture'] for p in picks})
 
 
 def replay(data, leagues, fixture_rates, distribution, legs_for, days=REPLAY_DAYS, cached=None):
@@ -310,7 +326,7 @@ def vip_ledger(live=None, max_days=60):
             settled_days.append(row)
     for d in days:
         for p in d['picks']:
-            p['side'] = 'unders' if p['selection'].startswith('Under') else 'overs' if p['selection'].startswith('Over') else 'other'
+            p['side'] = 'unders' if p['selection'].startswith('Under') else 'overs' if p['selection'].startswith('Over') else 'wins' if p['market'] == '1x2' else 'other'
     all_picks = [p for d in days for p in d['picks']]
     settled = [p for p in all_picks if p['status'] in ('won', 'lost')]
     won = sum(p['status'] == 'won' for p in settled)

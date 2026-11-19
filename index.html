@@ -2026,7 +2026,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       <div class="vb-copy">
         <span class="vb-kicker">VIP picks</span>
         <h1>Our strongest calls</h1>
-        <p>Games where goals look most likely in the Premier League, La Liga and Bundesliga over the next three days. We only pick <b>Over 2.5 goals</b> when we rate it 65% or better, otherwise <b>Over 1.5 goals</b> at 78% or better. Plus our three strongest <b>NBA total-points</b> calls each day.</p>
+        <p>Our surest goal calls over the next three days, from the leagues whose picks passed our accuracy check (England, Spain, Germany, Germany 2, Italy, Netherlands, Portugal) while their results are up to date. Each game gets <b>Over 2.5 goals</b> at 65%+, otherwise <b>Over 1.5</b> at 78%+, otherwise <b>Under 3.5</b> at 70%+, plus up to two <b>favourites to win</b> at 70%+. Plus our three strongest <b>NBA total-points</b> calls each day.</p>
         <div class="hero-stats vb-stats" id="vip-stats"></div>
       </div>
       <a class="vwr card" id="vip-wr" href="#performance" hidden></a>
@@ -3335,7 +3335,7 @@ async function loadVip(quiet){
   try{
     const d = await api('/api/vip/ticket?n=' + state.vipN); state.vip = d;
     const legs = d.legs;
-    if(!legs.length){ $('#vip-ticket').hidden = true; $('#vip-all').hidden = true; $('#vip-code').innerHTML = ''; $('#vip-legs').innerHTML = '<div class="placeholder"><div><h3>No VIP slip right now</h3><p>No games with confident goal picks in the Premier League, La Liga or the Bundesliga in the next three days, often an international break. The next slip is posted the morning before their games return.</p></div></div>'; return }
+    if(!legs.length){ $('#vip-ticket').hidden = true; $('#vip-all').hidden = true; $('#vip-code').innerHTML = ''; $('#vip-legs').innerHTML = '<div class="placeholder"><div><h3>No VIP slip right now</h3><p>No confident picks in our VIP leagues in the next three days, often an international break. The next slip is posted the morning before their games return.</p></div></div>'; return }
     const avg = legs.reduce((t, l) => t + l.probability, 0) / legs.length, s = d.summary;
     $('#vip-stats').innerHTML = `<span><b>${legs.length}</b> picks</span><span><b>${Math.round(avg * 100)}%</b> average chance</span><span><b>${new Set(legs.map(l => l.league)).size}</b> leagues</span>`;
     $('#vip-stamp').lastChild.textContent = d.saved
@@ -3589,7 +3589,7 @@ function goalCheckHtml(g){
   return `<div class="card"><div class="rx-head"><h4>How accurate are our goal picks?</h4><span class="note" style="margin:0">games the model had not seen</span></div>
     <div class="gc-grid"><span></span>${seasons.map(([, l]) => `<b>${l}</b>`).join('')}
     ${rows.map(([k, l]) => `<span>${l}</span>${seasons.map(([s]) => { const v = g.seasons[s][k]; return `<div><strong>${pc(v.won)}</strong><small>won · said ${pc(v.said)} · ${v.picks.toLocaleString()} picks</small></div>` }).join('')}`).join('')}</div>
-    <p class="note">Every finished match in nine leagues re-forecast as of its own matchday, using only what was known then, with today's VIP rule: Over 2.5 at 65%+, else Over 1.5 at 78%+, else Under 3.5 at 70%+. The rule was set on 2024-25 and not changed after. Under 2.5 failed this check (it won less often than it said), so we never pick it.</p></div>`;
+    <p class="note">Every finished match in nine leagues re-forecast as of its own matchday, using only what was known then, with today's VIP rule: Over 2.5 at 65%+, else Over 1.5 at 78%+, else Under 3.5 at 70%+. The rule was set on 2024-25 and not changed after. Under 2.5 failed this check (it won less often than it said), so we never pick it. The slip also carries up to two favourites to win at 70%+ (79–82% won on past seasons, 75% this season so far).</p></div>`;
 }
 function vipLedgerHtml(x, g){
   const how = `<div class="rx-how">
@@ -3626,7 +3626,7 @@ function vipLedgerHtml(x, g){
         <p>${verdict}</p><small>"We said" is the average chance we gave the picks. When the two bars match, the % on each pick means what it says.</small></div>
       <div class="vr-stats rx-tiles"><div class="w"><b>${s.won}</b><small>Won</small></div><div class="l"><b>${s.lost}</b><small>Lost</small></div><div><b>${s.pending}</b><small>Still to play</small></div><div><b>${s.perfect_slips}/${s.settled_slips}</b><small>Perfect slips</small></div></div>
       ${(() => { const b = s.by_side || {}, t = (k, l) => { const v = b[k]; return `<div><b>${v ? v.won + '–' + (v.picks - v.won) : '0–0'}</b><small>${l}${v ? ' · ' + pc(v.hit_rate) : ''}</small></div>` };
-        return `<div class="vr-stats rx-tiles">${t('overs', 'Overs')}${t('unders', 'Unders')}</div>` })()}
+        return `<div class="vr-stats rx-tiles">${t('overs', 'Overs')}${t('unders', 'Unders')}${t('wins', 'To win')}</div>` })()}
     </div>
     ${how}
     ${goalCheckHtml(g)}

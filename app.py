@@ -846,14 +846,18 @@ def update_live_record(data):
 # The 2. Bundesliga also has a results feed but is left out: over three seasons of
 # walk-forward slips its picks won 80.4% against a stated 84.1% (470 picks), while the
 # other three won at or above their stated chance. No model setting closed that gap.
-VIP_LEAGUES = ('en.1', 'es.1', 'de.1')
+# Goal picks checked per league on 2025-26 and 2026-27 (tools/goal_lines_check.py): these won at
+# least about what they said. Ligue 1 (said 77.0%, won 73.2%) and Serie B are left out. A league
+# only joins a slip while its results are current (league_fresh), so every pick can be graded.
+VIP_LEAGUES = ('en.1', 'es.1', 'de.1', 'it.1', 'nl.1', 'pt.1', 'de.2')
 
 
 def vip_slip(data, n=17, days=3, per_league=6):
     """The day's VIP slip: the surest pick from each of the most predictable games.
 
     Only VIP_LEAGUES are used: a pick we cannot grade would sit on the record as pending forever.
-    Goals only: each game's pick follows record.VIP_PRIORITY (Over 2.5, then Over 1.5, then Under 3.5);
+    Goals first: each game's pick follows record.VIP_PRIORITY (Over 2.5, then Over 1.5, then Under 3.5),
+    plus up to two strong favourites to win (record.vip_favourites) from other games;
     a game that reaches neither floor is left off, so the slip can be shorter than n.
 
     One leg per game, most likely selections first, at most per_league legs from any
@@ -874,6 +878,7 @@ def vip_slip(data, n=17, days=3, per_league=6):
         legs.append(leg)
         if len(legs) == n:
             break
+    legs += record.vip_favourites(by_fixture, {l['fixture'] for l in legs})
     legs.sort(key=lambda c: (c['date'], c['league_id']))
     kick = {(m['league_id'], m['date'], m['home'], m['away']): m.get('kickoff') for m in data['matches'] if m['goals'] is None}
     form5 = {}

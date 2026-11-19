@@ -36,6 +36,11 @@ def run_league(league_id):
         _, legs = record._forecasts_for_day(data, day, [league_id], app.fixture_rates, app.distribution, legs_for)
         by = {}
         for l in legs:
+            if l['market'] == '1x2':
+                key = 'home' if l['selection'] == f"{l['home']} win" else 'away' if l['selection'] == f"{l['away']} win" else 'draw'
+                by.setdefault((l['home'], l['away']), dict(league_id=league_id, date=day, home=l['home'], away=l['away'],
+                                                           goals=l['goals'], source=l['source'],
+                                                           season=season.get((day, l['home'], l['away']))))[key] = round(l['probability'], 4)
             if l['selection'] in LINES:
                 by.setdefault((l['home'], l['away']), dict(league_id=league_id, date=day, home=l['home'], away=l['away'],
                                                            goals=l['goals'], source=l['source'],
