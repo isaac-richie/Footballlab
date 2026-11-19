@@ -990,6 +990,11 @@ def backtest(data, league_id):
     from evaluation_cache import cached_evaluate
     if league_id not in LEAGUES:
         raise ValueError('Choose a supported league.')
+    if os.environ.get('VERCEL'):              # read-only disk: use the daily job's copy (tools/save_backtests.py)
+        try:
+            return json.loads((ROOT / 'reports' / 'backtest' / f'{league_id}.json').read_text())
+        except (OSError, ValueError):
+            pass
     return cached_evaluate(data, league_id, evaluate)
 
 

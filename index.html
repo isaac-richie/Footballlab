@@ -2782,6 +2782,9 @@ function verdict(d){
 function renderMatch(){
   const d = state.current, p = d.probabilities, top = d.scorelines[0], ready = d.readiness.status === 'research_only';
   const action = d.decision.action, comp = d.league.split(' — ')[1] || d.league;
+  // Corners & cards only where this league has the stats (the hosted site has none yet).
+  const tabs = TABS.filter(([k]) => k !== 'stats' || (d.count_markets && Object.keys(d.count_markets.markets || {}).length));
+  if(!tabs.some(([k]) => k === state.tab)) state.tab = 'overview';
   matchMode(true);
   $('#out').innerHTML =
     `<div class="card hero mh" style="${clubVars(d.home, d.away)}">
@@ -2814,7 +2817,7 @@ function renderMatch(){
       ${compareStrip(d)}
       <p class="mh-fair"><b>Fair odds</b> are the price that matches our chance with no bookmaker cut. If your bookie pays more than the fair odds, you're getting value.</p>
     </div>
-    <div class="tabs mtabs" role="tablist">${TABS.map(([k, l]) => `<button role="tab" data-tab="${k}" aria-selected="${state.tab === k}">${l}</button>`).join('')}<span class="tab-ink"></span></div>
+    <div class="tabs mtabs" role="tablist">${tabs.map(([k, l]) => `<button role="tab" data-tab="${k}" aria-selected="${state.tab === k}">${l}</button>`).join('')}<span class="tab-ink"></span></div>
     <div id="panel" class="panel" role="tabpanel"></div>`;
   renderTab(); countUp($('#out .hero')); requestAnimationFrame(moveInk);
   const hero = $('#out .hero .versus'); if(hero && window.LivingPitch){ const r = hero.getBoundingClientRect();
@@ -2968,7 +2971,7 @@ function scores(d){
 
 function oddsTab(d){
   const pr = d.pricing, H = d.home, A = d.away, names = {home: H, draw: 'Draw', away: A};
-  if(pr.source === 'model') return `<div class="callout"><span class="ico">i</span><span><b>No bookmaker prices for this fixture.</b> Fair odds below come from the model. Enter odds in the form, or add an ODDS_API_KEY to .env and refresh live odds.</span></div>` +
+  if(pr.source === 'model') return `<div class="callout"><span class="ico">i</span><span><b>No bookmaker prices for this fixture.</b> The fair odds below come from our model. Type your bookie's odds into the match form to see whether they pay more than fair.</span></div>` +
     card('Model fair odds', rows([[H, d.probabilities[0]], ['Draw', d.probabilities[1]], [A, d.probabilities[2]], ['Over 2.5', d.over25], ['Under 2.5', 1 - d.over25], ['Both teams score', d.btts]], {highlight:false}));
   let html = movementCard(d);
   if(html) html += '<div style="height:14px"></div>';
@@ -3084,7 +3087,7 @@ function renderPlayers(setup){
 }
 function setupInfo(setup, d){
   if(setup.status === 'unconfigured') return `<div class="callout"><span class="ico">i</span><span><b>Formations and lineups are off.</b> Add a free key from api-football.com to .env as API_FOOTBALL_KEY=… and restart. You'll get formations, starting XIs in kit colours, benches and injuries. The pitch above shows the match picture from our own numbers meanwhile.</span></div>`;
-  if(setup.status !== 'ok') return `<div class="callout"><span class="ico">!</span><span><b>Lineups unavailable.</b> ${esc(setup.reason || '')}</span></div>`;
+  if(setup.status !== 'ok') return `<div class="callout"><span class="ico">i</span><span><b>Lineups not available for this match yet.</b> The picture above shows our forecast; team sheets are added here when our data provider has them.</span></div>`;
   const label = t => t.source === 'confirmed' ? '<span class="badge ok">Confirmed lineup</span>' : t.source === 'last_match' ? `<span class="badge warn">Probable: last XI, ${esc(day(t.played_on))}</span>` : '<span class="badge neutral">No lineup yet</span>';
   const team = (t, name) => card(name, `<div class="form-chip" style="margin-bottom:10px"><span class="f">${esc(t.formation || '–')}</span>${label(t)}</div>` +
     (t.coach ? `<p class="note" style="margin:0 0 10px">Coach: <b style="color:var(--text)">${esc(t.coach)}</b></p>` : '') +

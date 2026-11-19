@@ -22,6 +22,8 @@ jobs:
           python-version: '3.12'
       - name: Refresh results, freeze forecasts, grade finished ones
         run: python3 agent.py --refresh --days 7
+      - name: Backtest summaries for the hosted Record page (read-only disk there)
+        run: python3 tools/save_backtests.py
       - name: NBA scores (balldontlie), freeze and grade the public forward record
         if: ${{ env.BALLDONTLIE_API_KEY != '' }}
         run: python3 nba_public.py
@@ -47,7 +49,7 @@ jobs:
         run: |
           git config user.name "football-lab-bot"
           git config user.email "football-lab-bot@users.noreply.github.com"
-          git add data.json reports/prospective reports/prospective-grades.json reports/latest.md
+          git add data.json reports/prospective reports/prospective-grades.json reports/latest.md reports/backtest
           git add nba_public.json reports/nba_public_board.json reports/nba_public_picks reports/nba_public_prospective reports/nba_public_prospective-grades.json reports/nba_vip_public.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "Daily refresh $(date -u +%F)"
           git push
