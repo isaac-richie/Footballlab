@@ -1,4 +1,4 @@
-# Football Lab research run — 2026-11-18
+# Football Lab research run — 2026-11-19
 
 66 fixtures in the next 7 days (excluding today).
 Status: review_required
@@ -87,4 +87,4 @@ Status: review_required
 Prospective ledger: 398 registered, 140 graded, 66 pending.
 These are uncalibrated research forecasts, not recommendations.
 
-Run: 20261118T142636075310Z · data: b9e8fb5ceb4edfe5ed11275d7e4a85a3bad8913440146cfb19ce1a2a6b7de412 · code: 6333458015c597dca66acb09c5fbd9fd05f7c93985e4ef9519c84bd5dfb8bb71
+Run: 20261119T143730997118Z · data: 7b09ad3c09eb37564f184d6e2cf4bf19fa9bd5cb2aac488ff4942599e99b01cd · code: ce77ae850b1d365c6af11ba08a3551d6b71012b1cfee3d4c640611edd74a4047

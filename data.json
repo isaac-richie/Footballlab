@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-18T14:26:25.695648+00:00",
+  "fetched_at": "2026-11-19T14:37:16.717504+00:00",
   "license": "per-source",
   "sources": [
     {
@@ -7,7 +7,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "fbdfd426fa18fa2f8630b77de87c082734da495ac4668d6d72f29f76b73b9564",
-      "checked_at": "2026-11-18T14:26:11.665481+00:00",
+      "checked_at": "2026-11-19T14:36:59.371371+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -15,7 +15,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "7beb67dd49d7132bf9f7baea540342439b97ed4a7b21ffb90d3231a402c54d02",
-      "checked_at": "2026-11-18T14:26:11.762302+00:00",
+      "checked_at": "2026-11-19T14:36:59.417805+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -23,7 +23,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "a3e94b23cac768e4191e99312f4d48471c4000c5c2fe766b0325cee935754061",
-      "checked_at": "2026-11-18T14:26:11.905999+00:00",
+      "checked_at": "2026-11-19T14:36:59.460164+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -31,7 +31,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "f1b9901cffb6b073f389e730213b5f8efe6a9a73b2f86058794f2d0f1dcc54dc",
-      "checked_at": "2026-11-18T14:26:12.006717+00:00",
+      "checked_at": "2026-11-19T14:36:59.503722+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -39,7 +39,7 @@
       "league_id": "fr.1",
       "matches": 380,
       "sha256": "8abb493061d32faaf413c403b440c043723d9743a9e69d6472bf5410e2d4e039",
-      "checked_at": "2026-11-18T14:26:12.051773+00:00",
+      "checked_at": "2026-11-19T14:36:59.582705+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -47,7 +47,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "8d09f0f9846981626cdfec48903e1f21e7c79aabe6f92535c9e092e8e79b808b",
-      "checked_at": "2026-11-18T14:26:13.351032+00:00",
+      "checked_at": "2026-11-19T14:37:01.649026+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -55,7 +55,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "0204c66c919c2cd5cc3d1ba26be4f68592e4e173843162a9e6755182ccf83778",
-      "checked_at": "2026-11-18T14:26:13.392507+00:00",
+      "checked_at": "2026-11-19T14:37:01.687175+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -63,7 +63,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "d775fdd375af6998233fbfcd5b33d176cb9d016a981682626c5ce2f95b0c2f88",
-      "checked_at": "2026-11-18T14:26:13.462894+00:00",
+      "checked_at": "2026-11-19T14:37:01.724307+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -71,7 +71,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "b0c052dc75836dfc6b0d3781d35b828851db7377c9f6ccb39643dbbe1964f3bd",
-      "checked_at": "2026-11-18T14:26:13.567190+00:00",
+      "checked_at": "2026-11-19T14:37:01.756199+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -79,7 +79,7 @@
       "league_id": "fr.1",
       "matches": 380,
       "sha256": "6301ac1ba1fa0f5b72345759711beac3b3be3c989725cc1c6ef9307ffef692c7",
-      "checked_at": "2026-11-18T14:26:13.609487+00:00",
+      "checked_at": "2026-11-19T14:37:01.795377+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -87,7 +87,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "03e13eafbf78dfe00d7e89dd3bf6643986eb6e8fd86c7664aeb8c5bc0bed88d0",
-      "checked_at": "2026-11-18T14:26:15.037952+00:00",
+      "checked_at": "2026-11-19T14:37:03.743407+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -95,7 +95,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "e4c1e1a958f224ba3c815c898982ab495b9577315cc58ee7a5e7b532960f738b",
-      "checked_at": "2026-11-18T14:26:15.121539+00:00",
+      "checked_at": "2026-11-19T14:37:03.801767+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -103,7 +103,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "47734fc8d2ec34c5529ca814c97d1c86ecddc4a2c8095506d9b12f29cb283308",
-      "checked_at": "2026-11-18T14:26:15.177168+00:00",
+      "checked_at": "2026-11-19T14:37:03.842215+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -111,7 +111,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "d104edde48a5e254545eac3d3ed379a09801e1ebcef5c6480e28bc36fcfa202d",
-      "checked_at": "2026-11-18T14:26:15.279638+00:00",
+      "checked_at": "2026-11-19T14:37:03.876286+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -119,7 +119,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "fa328cecf4c12232ac77a5d477059eebe16b68b3712ec87800b89efda8ddfb70",
-      "checked_at": "2026-11-18T14:26:15.397667+00:00",
+      "checked_at": "2026-11-19T14:37:03.914041+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -127,7 +127,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "c3d18f552d83382cd4b6b21127adbbfe38e7f8618ddc979fb5404f2df07d0a75",
-      "checked_at": "2026-11-18T14:26:17.068410+00:00",
+      "checked_at": "2026-11-19T14:37:06.393878+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -135,7 +135,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "da5bfa1b3634e1039d9e71aec50bdc847f8761189e3de235a4e730e0dc64ca38",
-      "checked_at": "2026-11-18T14:26:17.127621+00:00",
+      "checked_at": "2026-11-19T14:37:06.477640+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -143,7 +143,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "7d9bb936de3ccaeec54d57371512a58a5eeb21277e7d5f0882911a834d22b659",
-      "checked_at": "2026-11-18T14:26:17.279436+00:00",
+      "checked_at": "2026-11-19T14:37:06.517956+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -151,7 +151,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "f473d6595e6c29ebedc08b09177aed6a6b2ff0fa8378b82f51dea469139f44c3",
-      "checked_at": "2026-11-18T14:26:17.447460+00:00",
+      "checked_at": "2026-11-19T14:37:06.570840+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -159,7 +159,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "90e9974afe6597452622387ad218f6b0011a5f91f1b426f05152f5b9c105e355",
-      "checked_at": "2026-11-18T14:26:17.548878+00:00",
+      "checked_at": "2026-11-19T14:37:06.614857+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -167,7 +167,7 @@
       "league_id": "it.2",
       "matches": 390,
       "sha256": "7592d38014c83fa37477901fd288c9f7268e11cfb254f1dd9458e304970373b0",
-      "checked_at": "2026-11-18T14:26:17.667492+00:00",
+      "checked_at": "2026-11-19T14:37:06.764279+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -175,7 +175,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1",
-      "checked_at": "2026-11-18T14:26:19.042088+00:00",
+      "checked_at": "2026-11-19T14:37:08.661140+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -183,7 +183,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "b40397d8e62c640138548d57a1a9f76150549213d2a07fcbbb90ed0eabc6ccea",
-      "checked_at": "2026-11-18T14:26:19.196209+00:00",
+      "checked_at": "2026-11-19T14:37:08.696538+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -191,7 +191,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "28f7773dea86345aeb0cbb4aff2f90231033f7ed855219e70fdd1cf45d4d7e7f",
-      "checked_at": "2026-11-18T14:26:19.288946+00:00",
+      "checked_at": "2026-11-19T14:37:08.732479+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -199,7 +199,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "17d0999db6281e6365823acdbce41a4f01dd469eac63e1f897e4e47c02906672",
-      "checked_at": "2026-11-18T14:26:19.435351+00:00",
+      "checked_at": "2026-11-19T14:37:08.767335+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -207,7 +207,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "3e9403445dd96f4bb7f740de22d4ea7e3ea7d640777a12eab621ae4d4dbf3bc7",
-      "checked_at": "2026-11-18T14:26:19.598445+00:00",
+      "checked_at": "2026-11-19T14:37:08.806581+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -215,7 +215,7 @@
       "league_id": "it.2",
       "matches": 380,
       "sha256": "74e38be319c2c30b82abcd9aabd5468a79d36408e7f6f2b066eb8bf7938a06b5",
-      "checked_at": "2026-11-18T14:26:19.737528+00:00",
+      "checked_at": "2026-11-19T14:37:08.936622+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -223,7 +223,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
-      "checked_at": "2026-11-18T14:26:21.003237+00:00",
+      "checked_at": "2026-11-19T14:37:10.898910+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -231,7 +231,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "4b1a9906e3f2b279a1f25497a38f2f58e21ec19ea726b882fa646da7c07bc0e0",
-      "checked_at": "2026-11-18T14:26:21.102068+00:00",
+      "checked_at": "2026-11-19T14:37:10.930585+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -239,7 +239,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "721a6c220fecb8208287e41401fa2fce652cd23765ce58a39bf98cdaa3d528ad",
-      "checked_at": "2026-11-18T14:26:21.201208+00:00",
+      "checked_at": "2026-11-19T14:37:10.967739+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -247,7 +247,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "07fab65d4a1de8ce4c8472da9ccf4d1d2b145ecd5abdc5b6d4250a5c119d7681",
-      "checked_at": "2026-11-18T14:26:21.242078+00:00",
+      "checked_at": "2026-11-19T14:37:11.135620+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -255,7 +255,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "f875275f835e378fc8c4e7d48c7a2f327e7d426237bd057fe652fd47f30b5a4f",
-      "checked_at": "2026-11-18T14:26:21.317875+00:00",
+      "checked_at": "2026-11-19T14:37:11.165653+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -263,7 +263,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "820ff0480721b41ed829ad00e6ce359d99c2787ca133ca02c143e29d81b9385f",
-      "checked_at": "2026-11-18T14:26:23.552995+00:00",
+      "checked_at": "2026-11-19T14:37:13.787809+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
       "role": "corrects dates and kickoffs, fills missing results",
@@ -309,7 +309,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "6918998992aae77f498a1f39622f17032dde29649f0827822b9017699ee8212a",
-      "checked_at": "2026-11-18T14:26:13.226988+00:00",
+      "checked_at": "2026-11-19T14:37:01.337516+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -317,7 +317,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "053899d21effad8bc15aa74852631324276819673ad29ea9c3ed74ac02af2a51",
-      "checked_at": "2026-11-18T14:26:13.335391+00:00",
+      "checked_at": "2026-11-19T14:37:01.462383+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -325,7 +325,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "4c033f836ad98581c5055456d363a57d80d612a0e6605cf63c053ada1bfa19c1",
-      "checked_at": "2026-11-18T14:26:14.906989+00:00",
+      "checked_at": "2026-11-19T14:37:03.502317+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -333,7 +333,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "fdec06d71d3fe491d8fac75a7680c1ea8dc0e952f5d071e4722cd1fa77f76a06",
-      "checked_at": "2026-11-18T14:26:15.013690+00:00",
+      "checked_at": "2026-11-19T14:37:03.629038+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -341,7 +341,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "7fca2acdd40027c59890e68cc5b8cba667eebed353c2e4870315ae02f3ef5380",
-      "checked_at": "2026-11-18T14:26:16.835115+00:00",
+      "checked_at": "2026-11-19T14:37:06.144577+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -349,7 +349,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "70ae548487e9c3afb38d4af97f5896f90ec268b6aea9cb95e0da4765af0cee75",
-      "checked_at": "2026-11-18T14:26:17.018315+00:00",
+      "checked_at": "2026-11-19T14:37:06.265383+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -357,7 +357,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "e6398379f3d68eb2863cc7dcac12c60219ab186614366bb86560039638b2f6c5",
-      "checked_at": "2026-11-18T14:26:18.863395+00:00",
+      "checked_at": "2026-11-19T14:37:08.432491+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -365,7 +365,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "67b38b62062641055946f99f0f393e44ac22a7df3021d4fc7ba1bb6adf94df30",
-      "checked_at": "2026-11-18T14:26:20.895345+00:00",
+      "checked_at": "2026-11-19T14:37:10.726042+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -373,7 +373,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "c35c7b249ce7f3eb21c543d89ca32a3654cb218ed79c22ce6a9765fead5334da",
-      "checked_at": "2026-11-18T14:26:20.946027+00:00",
+      "checked_at": "2026-11-19T14:37:10.864411+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -389,7 +389,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "970507a228aa4ccd2968d52a9862b0d2844148bc548bc7ffe5e83d1c0d8f0517",
-      "checked_at": "2026-11-18T14:26:22.395292+00:00",
+      "checked_at": "2026-11-19T14:37:12.434502+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -397,7 +397,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "57cac2d6caab5a303d0b846ce523462b4571da10766a128ac0a5102bd0182e7e",
-      "checked_at": "2026-11-18T14:26:22.437485+00:00",
+      "checked_at": "2026-11-19T14:37:12.542108+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -405,7 +405,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "204a047e80abae556e9aed6afede82335d93866a49b479f585313ae5e7a9ecff",
-      "checked_at": "2026-11-18T14:26:19.027392+00:00",
+      "checked_at": "2026-11-19T14:37:08.570831+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -421,7 +421,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "29bd4acfb7d6171119748748531427239c7d8c4b3fe7a26fc1e36777a5b101b6",
-      "checked_at": "2026-11-18T14:26:24.776329+00:00",
+      "checked_at": "2026-11-19T14:37:15.417201+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
       "role": "corrects dates and kickoffs, fills missing results",
@@ -449,7 +449,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "563ee175daae3b2443ee99e48084e417cfcb2868499787f033ae2fec7cda4039",
-      "checked_at": "2026-11-18T14:26:13.178220+00:00",
+      "checked_at": "2026-11-19T14:37:01.301789+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -458,7 +458,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "b05ce1a790e16cccb7bd50a29dbb51aae88d822a551c1d30ec730322682ab34c",
-      "checked_at": "2026-11-18T14:26:14.817713+00:00",
+      "checked_at": "2026-11-19T14:37:03.465491+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -467,7 +467,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "a01a006edb8e310a432dc7eaf62d94298b4c19d8680dad8a934a1fe12e21b655",
-      "checked_at": "2026-11-18T14:26:16.692809+00:00",
+      "checked_at": "2026-11-19T14:37:06.107810+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -476,7 +476,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "93f8d0a04dc80adf2b477aeeee555f0a03cbefb4adab1a46b9aa42dc71bf3112",
-      "checked_at": "2026-11-18T14:26:18.753994+00:00",
+      "checked_at": "2026-11-19T14:37:08.391747+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -485,7 +485,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "80d7b806d0c96cd3e006f280a0e1838e9155ea75f23d8099e58587b90ab8ef5f",
-      "checked_at": "2026-11-18T14:26:20.803167+00:00",
+      "checked_at": "2026-11-19T14:37:10.685917+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -494,7 +494,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "9bcb3f8cf748d308bcf3495d895bb18c2a69e5c979b3e83d9cfed6f6b4920dce",
-      "checked_at": "2026-11-18T14:26:22.312197+00:00",
+      "checked_at": "2026-11-19T14:37:12.401884+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     }
@@ -1473,7 +1473,7 @@
     {
       "date": "2021-08-14",
       "home": "VfL Wolfsburg",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         0
@@ -1507,7 +1507,7 @@
     {
       "date": "2021-08-14",
       "home": "VfB Stuttgart",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         5,
         1
@@ -2661,7 +2661,7 @@
     },
     {
       "date": "2021-08-21",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "1. FSV Mainz 05",
       "goals": [
         2,
@@ -2678,7 +2678,7 @@
     },
     {
       "date": "2021-08-21",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "Arminia Bielefeld",
       "goals": [
         1,
@@ -3962,7 +3962,7 @@
     {
       "date": "2021-08-28",
       "home": "1. FSV Mainz 05",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         3,
         0
@@ -4013,7 +4013,7 @@
     {
       "date": "2021-08-28",
       "home": "1. FC K\u00f6ln",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         1
@@ -5088,7 +5088,7 @@
     },
     {
       "date": "2021-09-11",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "VfL Wolfsburg",
       "goals": [
         0,
@@ -5544,7 +5544,7 @@
     },
     {
       "date": "2021-09-12",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Hertha BSC",
       "goals": [
         1,
@@ -6066,7 +6066,7 @@
     {
       "date": "2021-09-17",
       "home": "Hertha BSC",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         2,
         1
@@ -6383,7 +6383,7 @@
     {
       "date": "2021-09-18",
       "home": "FC Bayern M\u00fcnchen",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         7,
         0
@@ -7939,7 +7939,7 @@
     },
     {
       "date": "2021-09-24",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "FC Bayern M\u00fcnchen",
       "goals": [
         1,
@@ -8854,7 +8854,7 @@
     },
     {
       "date": "2021-09-26",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "VfB Stuttgart",
       "goals": [
         0,
@@ -9257,7 +9257,7 @@
     {
       "date": "2021-10-01",
       "home": "1. FC K\u00f6ln",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         3,
         1
@@ -9653,7 +9653,7 @@
     {
       "date": "2021-10-02",
       "home": "RB Leipzig",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         0
@@ -10836,8 +10836,8 @@
     },
     {
       "date": "2021-10-16",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
-      "away": "VfL Bochum 1848",
+      "home": "SpVgg Greuther F\u00fcrth",
+      "away": "VfL Bochum",
       "goals": [
         0,
         1
@@ -12010,7 +12010,7 @@
     {
       "date": "2021-10-23",
       "home": "RB Leipzig",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         4,
         1
@@ -12516,7 +12516,7 @@
     },
     {
       "date": "2021-10-24",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Eintracht Frankfurt",
       "goals": [
         2,
@@ -13610,7 +13610,7 @@
     {
       "date": "2021-10-30",
       "home": "SC Freiburg",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         3,
         1
@@ -14097,7 +14097,7 @@
     {
       "date": "2021-10-31",
       "home": "Borussia M\u00f6nchengladbach",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         1
@@ -14943,7 +14943,7 @@
     },
     {
       "date": "2021-11-06",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "TSG 1899 Hoffenheim",
       "goals": [
         2,
@@ -15467,7 +15467,7 @@
     },
     {
       "date": "2021-11-07",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "Eintracht Frankfurt",
       "goals": [
         1,
@@ -16136,7 +16136,7 @@
     {
       "date": "2021-11-20",
       "home": "Bayer 04 Leverkusen",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         0
@@ -16153,7 +16153,7 @@
     {
       "date": "2021-11-20",
       "home": "Borussia M\u00f6nchengladbach",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         4,
         0
@@ -17313,7 +17313,7 @@
     },
     {
       "date": "2021-11-27",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "SC Freiburg",
       "goals": [
         2,
@@ -17330,7 +17330,7 @@
     },
     {
       "date": "2021-11-27",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "TSG 1899 Hoffenheim",
       "goals": [
         3,
@@ -19061,7 +19061,7 @@
     {
       "date": "2021-12-04",
       "home": "Bayer 04 Leverkusen",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         7,
         1
@@ -19112,7 +19112,7 @@
     {
       "date": "2021-12-04",
       "home": "FC Augsburg",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         3
@@ -20394,7 +20394,7 @@
     },
     {
       "date": "2021-12-11",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Borussia Dortmund",
       "goals": [
         1,
@@ -20827,7 +20827,7 @@
     },
     {
       "date": "2021-12-12",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "1. FC Union Berlin",
       "goals": [
         1,
@@ -21318,7 +21318,7 @@
     {
       "date": "2021-12-14",
       "home": "Arminia Bielefeld",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         0
@@ -21403,7 +21403,7 @@
     {
       "date": "2021-12-15",
       "home": "Borussia Dortmund",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         3,
         0
@@ -21824,7 +21824,7 @@
     },
     {
       "date": "2021-12-18",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "1. FC Union Berlin",
       "goals": [
         0,
@@ -21841,7 +21841,7 @@
     },
     {
       "date": "2021-12-18",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "FC Augsburg",
       "goals": [
         0,
@@ -24036,7 +24036,7 @@
     },
     {
       "date": "2022-01-08",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "VfB Stuttgart",
       "goals": [
         0,
@@ -24370,7 +24370,7 @@
     },
     {
       "date": "2022-01-09",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "VfL Wolfsburg",
       "goals": [
         1,
@@ -24940,7 +24940,7 @@
     {
       "date": "2022-01-15",
       "home": "1. FSV Mainz 05",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         0
@@ -25342,7 +25342,7 @@
     {
       "date": "2022-01-16",
       "home": "Arminia Bielefeld",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         2,
         2
@@ -26332,7 +26332,7 @@
     },
     {
       "date": "2022-01-22",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "1. FSV Mainz 05",
       "goals": [
         2,
@@ -26349,7 +26349,7 @@
     },
     {
       "date": "2022-01-22",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "1. FC K\u00f6ln",
       "goals": [
         2,
@@ -27386,7 +27386,7 @@
     {
       "date": "2022-02-04",
       "home": "Hertha BSC",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         1
@@ -28099,7 +28099,7 @@
     {
       "date": "2022-02-06",
       "home": "VfL Wolfsburg",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         4,
         1
@@ -29021,7 +29021,7 @@
     },
     {
       "date": "2022-02-12",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "FC Bayern M\u00fcnchen",
       "goals": [
         4,
@@ -29038,7 +29038,7 @@
     },
     {
       "date": "2022-02-12",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "Hertha BSC",
       "goals": [
         2,
@@ -30342,7 +30342,7 @@
     {
       "date": "2022-02-19",
       "home": "VfB Stuttgart",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         1
@@ -30784,7 +30784,7 @@
     {
       "date": "2022-02-20",
       "home": "FC Bayern M\u00fcnchen",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         4,
         1
@@ -31746,7 +31746,7 @@
     },
     {
       "date": "2022-02-26",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "1. FC K\u00f6ln",
       "goals": [
         1,
@@ -32134,7 +32134,7 @@
     },
     {
       "date": "2022-02-27",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "RB Leipzig",
       "goals": [
         0,
@@ -32986,8 +32986,8 @@
     },
     {
       "date": "2022-03-05",
-      "home": "VfL Bochum 1848",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "VfL Bochum",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         2,
         1
@@ -34708,7 +34708,7 @@
     {
       "date": "2022-03-13",
       "home": "Eintracht Frankfurt",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         1
@@ -34724,7 +34724,7 @@
     },
     {
       "date": "2022-03-13",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "RB Leipzig",
       "goals": [
         1,
@@ -35242,7 +35242,7 @@
     },
     {
       "date": "2022-03-18",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Borussia M\u00f6nchengladbach",
       "goals": [
         0,
@@ -35531,7 +35531,7 @@
     },
     {
       "date": "2022-03-19",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "SC Freiburg",
       "goals": [
         0,
@@ -36644,7 +36644,7 @@
     {
       "date": "2022-04-02",
       "home": "Eintracht Frankfurt",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         0,
         0
@@ -36692,7 +36692,7 @@
     {
       "date": "2022-04-02",
       "home": "TSG 1899 Hoffenheim",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         2
@@ -38056,7 +38056,7 @@
     },
     {
       "date": "2022-04-09",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "Borussia M\u00f6nchengladbach",
       "goals": [
         0,
@@ -38546,7 +38546,7 @@
     },
     {
       "date": "2022-04-10",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Bayer 04 Leverkusen",
       "goals": [
         0,
@@ -39323,7 +39323,7 @@
     {
       "date": "2022-04-16",
       "home": "SC Freiburg",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         0
@@ -39711,7 +39711,7 @@
     {
       "date": "2022-04-17",
       "home": "TSG 1899 Hoffenheim",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         0,
         0
@@ -40797,7 +40797,7 @@
     },
     {
       "date": "2022-04-23",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "Bayer 04 Leverkusen",
       "goals": [
         1,
@@ -41253,7 +41253,7 @@
     },
     {
       "date": "2022-04-24",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "FC Augsburg",
       "goals": [
         0,
@@ -41710,7 +41710,7 @@
     {
       "date": "2022-04-29",
       "home": "1. FC Union Berlin",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         1,
         1
@@ -42101,7 +42101,7 @@
     {
       "date": "2022-04-30",
       "home": "Borussia Dortmund",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         4
@@ -43046,7 +43046,7 @@
     },
     {
       "date": "2022-05-06",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Arminia Bielefeld",
       "goals": [
         2,
@@ -43434,7 +43434,7 @@
     },
     {
       "date": "2022-05-07",
-      "home": "SpVgg Greuther F\u00fcrth 1903",
+      "home": "SpVgg Greuther F\u00fcrth",
       "away": "Borussia Dortmund",
       "goals": [
         1,
@@ -44837,7 +44837,7 @@
     {
       "date": "2022-05-14",
       "home": "1. FC Union Berlin",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         2
@@ -44905,7 +44905,7 @@
     {
       "date": "2022-05-14",
       "home": "FC Augsburg",
-      "away": "SpVgg Greuther F\u00fcrth 1903",
+      "away": "SpVgg Greuther F\u00fcrth",
       "goals": [
         2,
         1
@@ -47229,7 +47229,7 @@
     },
     {
       "date": "2022-08-06",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "1. FSV Mainz 05",
       "goals": [
         1,
@@ -48320,7 +48320,7 @@
     {
       "date": "2022-08-13",
       "home": "TSG 1899 Hoffenheim",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         2
@@ -50009,7 +50009,7 @@
     },
     {
       "date": "2022-08-21",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "FC Bayern M\u00fcnchen",
       "goals": [
         0,
@@ -50463,7 +50463,7 @@
     {
       "date": "2022-08-26",
       "home": "SC Freiburg",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         0
@@ -52634,7 +52634,7 @@
     },
     {
       "date": "2022-09-03",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "SV Werder Bremen",
       "goals": [
         0,
@@ -53867,7 +53867,7 @@
     {
       "date": "2022-09-10",
       "home": "FC Schalke 04",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         1
@@ -55557,7 +55557,7 @@
     },
     {
       "date": "2022-09-18",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "1. FC K\u00f6ln",
       "goals": [
         1,
@@ -56311,7 +56311,7 @@
     {
       "date": "2022-10-01",
       "home": "RB Leipzig",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         4,
         0
@@ -57508,7 +57508,7 @@
     },
     {
       "date": "2022-10-08",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Eintracht Frankfurt",
       "goals": [
         3,
@@ -58769,7 +58769,7 @@
     {
       "date": "2022-10-15",
       "home": "VfB Stuttgart",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         4,
         1
@@ -60719,7 +60719,7 @@
     },
     {
       "date": "2022-10-23",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "1. FC Union Berlin",
       "goals": [
         2,
@@ -61550,7 +61550,7 @@
     {
       "date": "2022-10-29",
       "home": "VfL Wolfsburg",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         4,
         0
@@ -62847,7 +62847,7 @@
     {
       "date": "2022-11-05",
       "home": "Borussia Dortmund",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         0
@@ -63840,7 +63840,7 @@
     },
     {
       "date": "2022-11-08",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Borussia M\u00f6nchengladbach",
       "goals": [
         2,
@@ -64705,7 +64705,7 @@
     {
       "date": "2022-11-12",
       "home": "FC Augsburg",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         0,
         1
@@ -68911,7 +68911,7 @@
     },
     {
       "date": "2023-01-21",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Hertha BSC",
       "goals": [
         3,
@@ -69702,7 +69702,7 @@
     {
       "date": "2023-01-25",
       "home": "Bayer 04 Leverkusen",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         0
@@ -70144,7 +70144,7 @@
     {
       "date": "2023-01-28",
       "home": "1. FSV Mainz 05",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         5,
         2
@@ -71516,7 +71516,7 @@
     },
     {
       "date": "2023-02-04",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "TSG 1899 Hoffenheim",
       "goals": [
         5,
@@ -72907,7 +72907,7 @@
     {
       "date": "2023-02-11",
       "home": "FC Bayern M\u00fcnchen",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         0
@@ -74152,7 +74152,7 @@
     },
     {
       "date": "2023-02-18",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "SC Freiburg",
       "goals": [
         0,
@@ -75382,7 +75382,7 @@
     {
       "date": "2023-02-25",
       "home": "SV Werder Bremen",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         0
@@ -76749,7 +76749,7 @@
     },
     {
       "date": "2023-03-04",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "FC Schalke 04",
       "goals": [
         0,
@@ -77627,7 +77627,7 @@
     {
       "date": "2023-03-10",
       "home": "1. FC K\u00f6ln",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         0,
         2
@@ -79300,7 +79300,7 @@
     },
     {
       "date": "2023-03-18",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "RB Leipzig",
       "goals": [
         1,
@@ -80128,7 +80128,7 @@
     {
       "date": "2023-03-31",
       "home": "Eintracht Frankfurt",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         1
@@ -82429,7 +82429,7 @@
     },
     {
       "date": "2023-04-09",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "VfB Stuttgart",
       "goals": [
         2,
@@ -83636,7 +83636,7 @@
     {
       "date": "2023-04-16",
       "home": "1. FC Union Berlin",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         1
@@ -84459,7 +84459,7 @@
     },
     {
       "date": "2023-04-22",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "VfL Wolfsburg",
       "goals": [
         1,
@@ -85708,7 +85708,7 @@
     },
     {
       "date": "2023-04-28",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Borussia Dortmund",
       "goals": [
         1,
@@ -87457,7 +87457,7 @@
     {
       "date": "2023-05-06",
       "home": "Borussia M\u00f6nchengladbach",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         0
@@ -88657,7 +88657,7 @@
     },
     {
       "date": "2023-05-13",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "FC Augsburg",
       "goals": [
         3,
@@ -89986,7 +89986,7 @@
     {
       "date": "2023-05-20",
       "home": "Hertha BSC",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         1
@@ -91231,7 +91231,7 @@
     },
     {
       "date": "2023-05-27",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Bayer 04 Leverkusen",
       "goals": [
         3,
@@ -94396,7 +94396,7 @@
     {
       "date": "2023-08-19",
       "home": "VfB Stuttgart",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         5,
         0
@@ -95607,7 +95607,7 @@
     },
     {
       "date": "2023-08-26",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Borussia Dortmund",
       "goals": [
         1,
@@ -96877,7 +96877,7 @@
     {
       "date": "2023-09-02",
       "home": "FC Augsburg",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         2
@@ -98091,7 +98091,7 @@
     },
     {
       "date": "2023-09-16",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Eintracht Frankfurt",
       "goals": [
         1,
@@ -99275,7 +99275,7 @@
     {
       "date": "2023-09-23",
       "home": "FC Bayern M\u00fcnchen",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         7,
         0
@@ -100987,7 +100987,7 @@
     },
     {
       "date": "2023-09-30",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Borussia M\u00f6nchengladbach",
       "goals": [
         1,
@@ -102211,7 +102211,7 @@
     {
       "date": "2023-10-07",
       "home": "RB Leipzig",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         0,
         0
@@ -103457,7 +103457,7 @@
     {
       "date": "2023-10-21",
       "home": "SC Freiburg",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         1
@@ -104235,7 +104235,7 @@
     },
     {
       "date": "2023-10-27",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "1. FSV Mainz 05",
       "goals": [
         2,
@@ -105465,7 +105465,7 @@
     {
       "date": "2023-11-03",
       "home": "SV Darmstadt 98",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         2
@@ -107129,7 +107129,7 @@
     },
     {
       "date": "2023-11-11",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "1. FC K\u00f6ln",
       "goals": [
         1,
@@ -108716,7 +108716,7 @@
     {
       "date": "2023-11-26",
       "home": "1. FC Heidenheim 1846",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         0,
         0
@@ -109440,7 +109440,7 @@
     },
     {
       "date": "2023-12-02",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "VfL Wolfsburg",
       "goals": [
         3,
@@ -110622,7 +110622,7 @@
     {
       "date": "2023-12-08",
       "home": "TSG 1899 Hoffenheim",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         1
@@ -112167,7 +112167,7 @@
     },
     {
       "date": "2023-12-16",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "1. FC Union Berlin",
       "goals": [
         3,
@@ -113227,7 +113227,7 @@
     {
       "date": "2023-12-20",
       "home": "Bayer 04 Leverkusen",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         4,
         0
@@ -115664,7 +115664,7 @@
     },
     {
       "date": "2024-01-14",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "SV Werder Bremen",
       "goals": [
         1,
@@ -116307,7 +116307,7 @@
     },
     {
       "date": "2024-01-20",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "VfB Stuttgart",
       "goals": [
         1,
@@ -117613,7 +117613,7 @@
     {
       "date": "2024-01-28",
       "home": "Borussia Dortmund",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         1
@@ -118625,7 +118625,7 @@
     },
     {
       "date": "2024-02-03",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "FC Augsburg",
       "goals": [
         1,
@@ -119903,7 +119903,7 @@
     {
       "date": "2024-02-10",
       "home": "Eintracht Frankfurt",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         1
@@ -121686,7 +121686,7 @@
     },
     {
       "date": "2024-02-18",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "FC Bayern M\u00fcnchen",
       "goals": [
         3,
@@ -122486,7 +122486,7 @@
     {
       "date": "2024-02-24",
       "home": "Borussia M\u00f6nchengladbach",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         5,
         2
@@ -123734,7 +123734,7 @@
     },
     {
       "date": "2024-03-02",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "RB Leipzig",
       "goals": [
         1,
@@ -125487,7 +125487,7 @@
     },
     {
       "date": "2024-03-10",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "SC Freiburg",
       "goals": [
         1,
@@ -126267,7 +126267,7 @@
     {
       "date": "2024-03-16",
       "home": "1. FSV Mainz 05",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         0
@@ -127891,7 +127891,7 @@
     },
     {
       "date": "2024-03-31",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "SV Darmstadt 98",
       "goals": [
         2,
@@ -128951,7 +128951,7 @@
     {
       "date": "2024-04-06",
       "home": "1. FC K\u00f6ln",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         1
@@ -130136,7 +130136,7 @@
     },
     {
       "date": "2024-04-13",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "1. FC Heidenheim 1846",
       "goals": [
         1,
@@ -131259,7 +131259,7 @@
     {
       "date": "2024-04-20",
       "home": "VfL Wolfsburg",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         0
@@ -132275,7 +132275,7 @@
     },
     {
       "date": "2024-04-26",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "TSG 1899 Hoffenheim",
       "goals": [
         3,
@@ -134309,7 +134309,7 @@
     {
       "date": "2024-05-05",
       "home": "1. FC Union Berlin",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         4
@@ -135475,7 +135475,7 @@
     },
     {
       "date": "2024-05-12",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Bayer 04 Leverkusen",
       "goals": [
         0,
@@ -136411,7 +136411,7 @@
     {
       "date": "2024-05-18",
       "home": "SV Werder Bremen",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         4,
         1
@@ -139751,7 +139751,7 @@
     },
     {
       "date": "2024-08-17",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "Spezia Calcio",
       "goals": [
         2,
@@ -140256,7 +140256,7 @@
     {
       "date": "2024-08-18",
       "home": "US Catanzaro",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         1,
         1
@@ -141120,7 +141120,7 @@
     {
       "date": "2024-08-24",
       "home": "RB Leipzig",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         0
@@ -141323,7 +141323,7 @@
     },
     {
       "date": "2024-08-24",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "Palermo FC",
       "goals": [
         2,
@@ -141357,7 +141357,7 @@
     },
     {
       "date": "2024-08-24",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "Cesena FC",
       "goals": [
         2,
@@ -141943,7 +141943,7 @@
     },
     {
       "date": "2024-08-25",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "1. FC Heidenheim 1846",
       "goals": [
         0,
@@ -142340,7 +142340,7 @@
     {
       "date": "2024-08-27",
       "home": "SSC Bari",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         1,
         1
@@ -142374,7 +142374,7 @@
     {
       "date": "2024-08-27",
       "home": "AS Cittadella",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         0,
         3
@@ -142668,7 +142668,7 @@
     {
       "date": "2024-08-30",
       "home": "1. FC Union Berlin",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         1,
         0
@@ -143256,7 +143256,7 @@
     },
     {
       "date": "2024-08-31",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Borussia M\u00f6nchengladbach",
       "goals": [
         0,
@@ -143389,7 +143389,7 @@
     },
     {
       "date": "2024-08-31",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "AC Reggiana 1919",
       "goals": [
         2,
@@ -143406,7 +143406,7 @@
     },
     {
       "date": "2024-08-31",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "US Cremonese",
       "goals": [
         1,
@@ -145009,7 +145009,7 @@
     {
       "date": "2024-09-14",
       "home": "SC Freiburg",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         1
@@ -145765,7 +145765,7 @@
     {
       "date": "2024-09-15",
       "home": "FC Augsburg",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         3,
         1
@@ -145881,7 +145881,7 @@
     {
       "date": "2024-09-15",
       "home": "Carrarese Calcio",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         0,
         2
@@ -145932,7 +145932,7 @@
     {
       "date": "2024-09-15",
       "home": "US Salernitana 1919",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         2,
         3
@@ -146947,7 +146947,7 @@
     },
     {
       "date": "2024-09-21",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Holstein Kiel",
       "goals": [
         2,
@@ -147033,7 +147033,7 @@
     {
       "date": "2024-09-21",
       "home": "Cosenza Calcio",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         0,
         1
@@ -147063,7 +147063,7 @@
     },
     {
       "date": "2024-09-21",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "Brescia Calcio",
       "goals": [
         2,
@@ -147666,7 +147666,7 @@
     },
     {
       "date": "2024-09-22",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "RB Leipzig",
       "goals": [
         0,
@@ -148284,7 +148284,7 @@
     {
       "date": "2024-09-27",
       "home": "Borussia Dortmund",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         4,
         2
@@ -148862,7 +148862,7 @@
     {
       "date": "2024-09-28",
       "home": "SC Freiburg",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         0,
         3
@@ -149025,7 +149025,7 @@
     },
     {
       "date": "2024-09-28",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "Spezia Calcio",
       "goals": [
         0,
@@ -149666,7 +149666,7 @@
     {
       "date": "2024-09-29",
       "home": "Juve Stabia",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         2,
         0
@@ -150701,7 +150701,7 @@
     },
     {
       "date": "2024-10-05",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "VfL Wolfsburg",
       "goals": [
         1,
@@ -150718,7 +150718,7 @@
     },
     {
       "date": "2024-10-05",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "1. FSV Mainz 05",
       "goals": [
         0,
@@ -150803,7 +150803,7 @@
     },
     {
       "date": "2024-10-05",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "Cesena FC",
       "goals": [
         3,
@@ -150820,7 +150820,7 @@
     },
     {
       "date": "2024-10-05",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "AS Cittadella",
       "goals": [
         6,
@@ -151869,7 +151869,7 @@
     {
       "date": "2024-10-18",
       "home": "Borussia Dortmund",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         2,
         1
@@ -152421,7 +152421,7 @@
     {
       "date": "2024-10-19",
       "home": "TSG 1899 Hoffenheim",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         1
@@ -152605,7 +152605,7 @@
     {
       "date": "2024-10-19",
       "home": "FC S\u00fcdtirol",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         1,
         2
@@ -152622,7 +152622,7 @@
     {
       "date": "2024-10-19",
       "home": "Brescia Calcio",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         2,
         5
@@ -154128,7 +154128,7 @@
     },
     {
       "date": "2024-10-26",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "VfL Wolfsburg",
       "goals": [
         0,
@@ -154295,7 +154295,7 @@
     },
     {
       "date": "2024-10-26",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "Modena FC",
       "goals": [
         2,
@@ -154890,7 +154890,7 @@
     },
     {
       "date": "2024-10-27",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "FC Bayern M\u00fcnchen",
       "goals": [
         0,
@@ -155041,7 +155041,7 @@
     {
       "date": "2024-10-27",
       "home": "Frosinone Calcio",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         0,
         0
@@ -155389,7 +155389,7 @@
     {
       "date": "2024-10-29",
       "home": "Juve Stabia",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         2,
         2
@@ -155668,7 +155668,7 @@
     },
     {
       "date": "2024-10-30",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "US Catanzaro",
       "goals": [
         0,
@@ -156252,7 +156252,7 @@
     {
       "date": "2024-11-02",
       "home": "Eintracht Frankfurt",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         7,
         2
@@ -156269,7 +156269,7 @@
     {
       "date": "2024-11-02",
       "home": "TSG 1899 Hoffenheim",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         0,
         2
@@ -157121,7 +157121,7 @@
     {
       "date": "2024-11-03",
       "home": "US Cremonese",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         1,
         3
@@ -157171,7 +157171,7 @@
     },
     {
       "date": "2024-11-03",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "Mantova 1911 SSD",
       "goals": [
         1,
@@ -158117,7 +158117,7 @@
     },
     {
       "date": "2024-11-09",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Bayer 04 Leverkusen",
       "goals": [
         1,
@@ -158134,7 +158134,7 @@
     },
     {
       "date": "2024-11-09",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "FC Bayern M\u00fcnchen",
       "goals": [
         0,
@@ -158250,7 +158250,7 @@
     },
     {
       "date": "2024-11-09",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "Sampdoria",
       "goals": [
         3,
@@ -158268,7 +158268,7 @@
     {
       "date": "2024-11-09",
       "home": "FC S\u00fcdtirol",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         0,
         1
@@ -159916,7 +159916,7 @@
     {
       "date": "2024-11-23",
       "home": "VfB Stuttgart",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         0
@@ -160052,7 +160052,7 @@
     {
       "date": "2024-11-23",
       "home": "Carrarese Calcio",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         1,
         0
@@ -160099,7 +160099,7 @@
     },
     {
       "date": "2024-11-23",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "US Salernitana 1919",
       "goals": [
         4,
@@ -160624,7 +160624,7 @@
     {
       "date": "2024-11-24",
       "home": "Borussia M\u00f6nchengladbach",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         2,
         0
@@ -161065,7 +161065,7 @@
     },
     {
       "date": "2024-11-29",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "Holstein Kiel",
       "goals": [
         3,
@@ -161100,7 +161100,7 @@
     {
       "date": "2024-11-29",
       "home": "AC Reggiana 1919",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         0,
         2
@@ -161610,7 +161610,7 @@
     {
       "date": "2024-11-30",
       "home": "FC Augsburg",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         0
@@ -162484,7 +162484,7 @@
     },
     {
       "date": "2024-12-01",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "Cosenza Calcio",
       "goals": [
         2,
@@ -163669,7 +163669,7 @@
     {
       "date": "2024-12-07",
       "home": "Bayer 04 Leverkusen",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         2,
         1
@@ -163719,7 +163719,7 @@
     },
     {
       "date": "2024-12-07",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "SV Werder Bremen",
       "goals": [
         0,
@@ -163856,7 +163856,7 @@
     {
       "date": "2024-12-07",
       "home": "Mantova 1911 SSD",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         2,
         3
@@ -164614,7 +164614,7 @@
     },
     {
       "date": "2024-12-08",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "Sampdoria",
       "goals": [
         5,
@@ -164985,7 +164985,7 @@
     },
     {
       "date": "2024-12-13",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "SSC Bari",
       "goals": [
         2,
@@ -165419,7 +165419,7 @@
     {
       "date": "2024-12-14",
       "home": "1. FC Union Berlin",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         0,
         2
@@ -165449,7 +165449,7 @@
     },
     {
       "date": "2024-12-14",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "SV Werder Bremen",
       "goals": [
         0,
@@ -165532,7 +165532,7 @@
     {
       "date": "2024-12-14",
       "home": "Frosinone Calcio",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         1,
         2
@@ -167228,7 +167228,7 @@
     {
       "date": "2024-12-21",
       "home": "VfB Stuttgart",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         0,
         1
@@ -167380,7 +167380,7 @@
     },
     {
       "date": "2024-12-21",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "Palermo FC",
       "goals": [
         2,
@@ -167432,7 +167432,7 @@
     {
       "date": "2024-12-21",
       "home": "Modena FC",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         1,
         0
@@ -168014,7 +168014,7 @@
     },
     {
       "date": "2024-12-22",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "1. FC Heidenheim 1846",
       "goals": [
         2,
@@ -168668,8 +168668,8 @@
     },
     {
       "date": "2024-12-26",
-      "home": "Pisa SC",
-      "away": "Sassuolo Calcio",
+      "home": "AC Pisa 1909",
+      "away": "US Sassuolo Calcio",
       "goals": [
         3,
         1
@@ -169410,7 +169410,7 @@
     },
     {
       "date": "2024-12-29",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "Cosenza Calcio",
       "goals": [
         2,
@@ -169479,7 +169479,7 @@
     {
       "date": "2024-12-29",
       "home": "Sampdoria",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         0,
         1
@@ -171107,7 +171107,7 @@
     {
       "date": "2025-01-11",
       "home": "1. FSV Mainz 05",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         0
@@ -171123,7 +171123,7 @@
     },
     {
       "date": "2025-01-11",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "Eintracht Frankfurt",
       "goals": [
         0,
@@ -171645,7 +171645,7 @@
     {
       "date": "2025-01-12",
       "home": "US Salernitana 1919",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         1,
         2
@@ -171941,7 +171941,7 @@
     },
     {
       "date": "2025-01-13",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "Carrarese Calcio",
       "goals": [
         2,
@@ -172247,8 +172247,8 @@
     },
     {
       "date": "2025-01-15",
-      "home": "VfL Bochum 1848",
-      "away": "FC St. Pauli 1910",
+      "home": "VfL Bochum",
+      "away": "FC St. Pauli",
       "goals": [
         1,
         0
@@ -172888,7 +172888,7 @@
     {
       "date": "2025-01-18",
       "home": "1. FC Heidenheim 1846",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         0,
         2
@@ -172904,7 +172904,7 @@
     },
     {
       "date": "2025-01-18",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "RB Leipzig",
       "goals": [
         3,
@@ -173732,7 +173732,7 @@
     {
       "date": "2025-01-19",
       "home": "US Catanzaro",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         0,
         0
@@ -173762,7 +173762,7 @@
     },
     {
       "date": "2025-01-19",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "FC S\u00fcdtirol",
       "goals": [
         5,
@@ -174185,7 +174185,7 @@
     {
       "date": "2025-01-24",
       "home": "Spezia Calcio",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         2,
         1
@@ -174746,7 +174746,7 @@
     {
       "date": "2025-01-25",
       "home": "Borussia M\u00f6nchengladbach",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         0
@@ -175433,7 +175433,7 @@
     },
     {
       "date": "2025-01-26",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "1. FC Union Berlin",
       "goals": [
         3,
@@ -175552,7 +175552,7 @@
     },
     {
       "date": "2025-01-26",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "US Salernitana 1919",
       "goals": [
         1,
@@ -175978,7 +175978,7 @@
     {
       "date": "2025-01-31",
       "home": "Palermo FC",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         1,
         2
@@ -176481,7 +176481,7 @@
     },
     {
       "date": "2025-02-01",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "SC Freiburg",
       "goals": [
         0,
@@ -176498,7 +176498,7 @@
     },
     {
       "date": "2025-02-01",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "FC Augsburg",
       "goals": [
         1,
@@ -176665,7 +176665,7 @@
     },
     {
       "date": "2025-02-01",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "Juve Stabia",
       "goals": [
         2,
@@ -178289,7 +178289,7 @@
     {
       "date": "2025-02-08",
       "home": "Mantova 1911 SSD",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         0,
         3
@@ -178305,7 +178305,7 @@
     },
     {
       "date": "2025-02-08",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "AS Cittadella",
       "goals": [
         0,
@@ -178804,7 +178804,7 @@
     {
       "date": "2025-02-09",
       "home": "Holstein Kiel",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         2
@@ -178821,7 +178821,7 @@
     {
       "date": "2025-02-09",
       "home": "RB Leipzig",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         2,
         0
@@ -179882,7 +179882,7 @@
     },
     {
       "date": "2025-02-15",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Borussia Dortmund",
       "goals": [
         2,
@@ -179899,7 +179899,7 @@
     },
     {
       "date": "2025-02-15",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "SC Freiburg",
       "goals": [
         0,
@@ -180049,7 +180049,7 @@
     },
     {
       "date": "2025-02-15",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "Brescia Calcio",
       "goals": [
         2,
@@ -180823,7 +180823,7 @@
     {
       "date": "2025-02-16",
       "home": "Cesena FC",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         1,
         1
@@ -181228,7 +181228,7 @@
     {
       "date": "2025-02-21",
       "home": "Sampdoria",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         0,
         0
@@ -181763,7 +181763,7 @@
     {
       "date": "2025-02-22",
       "home": "VfL Wolfsburg",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         1
@@ -181780,7 +181780,7 @@
     {
       "date": "2025-02-22",
       "home": "1. FSV Mainz 05",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         2,
         0
@@ -181898,7 +181898,7 @@
     },
     {
       "date": "2025-02-22",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "Juve Stabia",
       "goals": [
         3,
@@ -183537,7 +183537,7 @@
     },
     {
       "date": "2025-03-01",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "Borussia Dortmund",
       "goals": [
         0,
@@ -183554,7 +183554,7 @@
     },
     {
       "date": "2025-03-01",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "TSG 1899 Hoffenheim",
       "goals": [
         0,
@@ -183758,8 +183758,8 @@
     },
     {
       "date": "2025-03-01",
-      "home": "Sassuolo Calcio",
-      "away": "Pisa SC",
+      "home": "US Sassuolo Calcio",
+      "away": "AC Pisa 1909",
       "goals": [
         1,
         0
@@ -185263,7 +185263,7 @@
     {
       "date": "2025-03-08",
       "home": "FC Bayern M\u00fcnchen",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         2,
         3
@@ -185280,7 +185280,7 @@
     {
       "date": "2025-03-08",
       "home": "VfL Wolfsburg",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         1,
         1
@@ -186092,7 +186092,7 @@
     },
     {
       "date": "2025-03-09",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "SSC Bari",
       "goals": [
         1,
@@ -186110,7 +186110,7 @@
     {
       "date": "2025-03-09",
       "home": "Spezia Calcio",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         3,
         2
@@ -186449,7 +186449,7 @@
     },
     {
       "date": "2025-03-14",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "TSG 1899 Hoffenheim",
       "goals": [
         1,
@@ -187073,7 +187073,7 @@
     {
       "date": "2025-03-15",
       "home": "AS Cittadella",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         1,
         2
@@ -187774,7 +187774,7 @@
     },
     {
       "date": "2025-03-16",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "Eintracht Frankfurt",
       "goals": [
         1,
@@ -187904,7 +187904,7 @@
     },
     {
       "date": "2025-03-16",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "Mantova 1911 SSD",
       "goals": [
         3,
@@ -188276,7 +188276,7 @@
     {
       "date": "2025-03-28",
       "home": "Bayer 04 Leverkusen",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         3,
         1
@@ -188786,7 +188786,7 @@
     {
       "date": "2025-03-29",
       "home": "FC Bayern M\u00fcnchen",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         3,
         2
@@ -188871,7 +188871,7 @@
     {
       "date": "2025-03-29",
       "home": "Cosenza Calcio",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         0,
         3
@@ -188955,7 +188955,7 @@
     },
     {
       "date": "2025-03-29",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "AC Reggiana 1919",
       "goals": [
         5,
@@ -190649,7 +190649,7 @@
     },
     {
       "date": "2025-04-05",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "VfB Stuttgart",
       "goals": [
         0,
@@ -190850,7 +190850,7 @@
     },
     {
       "date": "2025-04-05",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "Modena FC",
       "goals": [
         1,
@@ -191416,7 +191416,7 @@
     },
     {
       "date": "2025-04-06",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "Borussia M\u00f6nchengladbach",
       "goals": [
         1,
@@ -191553,7 +191553,7 @@
     {
       "date": "2025-04-06",
       "home": "Palermo FC",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         5,
         3
@@ -192458,7 +192458,7 @@
     },
     {
       "date": "2025-04-12",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "FC Augsburg",
       "goals": [
         1,
@@ -192507,7 +192507,7 @@
     {
       "date": "2025-04-12",
       "home": "Holstein Kiel",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         1,
         2
@@ -192626,7 +192626,7 @@
     {
       "date": "2025-04-12",
       "home": "AC Reggiana 1919",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         0,
         2
@@ -192677,7 +192677,7 @@
     {
       "date": "2025-04-12",
       "home": "Modena FC",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         1,
         3
@@ -194195,7 +194195,7 @@
     {
       "date": "2025-04-19",
       "home": "SV Werder Bremen",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         1,
         0
@@ -194780,7 +194780,7 @@
     },
     {
       "date": "2025-04-20",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "Bayer 04 Leverkusen",
       "goals": [
         1,
@@ -195580,7 +195580,7 @@
     {
       "date": "2025-04-25",
       "home": "Brescia Calcio",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         1,
         2
@@ -195665,7 +195665,7 @@
     {
       "date": "2025-04-25",
       "home": "Cesena FC",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         0,
         2
@@ -196630,7 +196630,7 @@
     },
     {
       "date": "2025-04-27",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "1. FC Union Berlin",
       "goals": [
         1,
@@ -196648,7 +196648,7 @@
     {
       "date": "2025-04-27",
       "home": "SV Werder Bremen",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         0,
         0
@@ -197176,7 +197176,7 @@
     },
     {
       "date": "2025-05-01",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "Frosinone Calcio",
       "goals": [
         1,
@@ -197241,7 +197241,7 @@
     },
     {
       "date": "2025-05-01",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "Carrarese Calcio",
       "goals": [
         2,
@@ -197344,7 +197344,7 @@
     {
       "date": "2025-05-02",
       "home": "1. FC Heidenheim 1846",
-      "away": "VfL Bochum 1848",
+      "away": "VfL Bochum",
       "goals": [
         0,
         0
@@ -197830,7 +197830,7 @@
     },
     {
       "date": "2025-05-03",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "VfB Stuttgart",
       "goals": [
         0,
@@ -198610,7 +198610,7 @@
     {
       "date": "2025-05-04",
       "home": "SSC Bari",
-      "away": "Pisa SC",
+      "away": "AC Pisa 1909",
       "goals": [
         1,
         0
@@ -198760,7 +198760,7 @@
     {
       "date": "2025-05-04",
       "home": "US Cremonese",
-      "away": "Sassuolo Calcio",
+      "away": "US Sassuolo Calcio",
       "goals": [
         1,
         1
@@ -199215,7 +199215,7 @@
     },
     {
       "date": "2025-05-09",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "FC S\u00fcdtirol",
       "goals": [
         3,
@@ -199249,7 +199249,7 @@
     },
     {
       "date": "2025-05-09",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "US Catanzaro",
       "goals": [
         0,
@@ -199801,7 +199801,7 @@
     },
     {
       "date": "2025-05-10",
-      "home": "VfL Bochum 1848",
+      "home": "VfL Bochum",
       "away": "1. FSV Mainz 05",
       "goals": [
         1,
@@ -200547,7 +200547,7 @@
     {
       "date": "2025-05-11",
       "home": "Eintracht Frankfurt",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         2,
         2
@@ -200982,7 +200982,7 @@
     },
     {
       "date": "2025-05-13",
-      "home": "Pisa SC",
+      "home": "AC Pisa 1909",
       "away": "US Cremonese",
       "goals": [
         2,
@@ -200999,7 +200999,7 @@
     },
     {
       "date": "2025-05-13",
-      "home": "Sassuolo Calcio",
+      "home": "US Sassuolo Calcio",
       "away": "Frosinone Calcio",
       "goals": [
         0,
@@ -201741,8 +201741,8 @@
     },
     {
       "date": "2025-05-17",
-      "home": "FC St. Pauli 1910",
-      "away": "VfL Bochum 1848",
+      "home": "FC St. Pauli",
+      "away": "VfL Bochum",
       "goals": [
         0,
         2
@@ -206893,7 +206893,7 @@
     },
     {
       "date": "2025-08-23",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "Borussia Dortmund",
       "goals": [
         3,
@@ -208109,7 +208109,7 @@
     {
       "date": "2025-08-29",
       "home": "Hamburger SV",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         0,
         2
@@ -211231,7 +211231,7 @@
     },
     {
       "date": "2025-09-14",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "FC Augsburg",
       "goals": [
         2,
@@ -211804,7 +211804,7 @@
     {
       "date": "2025-09-19",
       "home": "VfB Stuttgart",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         2,
         0
@@ -214363,7 +214363,7 @@
     },
     {
       "date": "2025-09-27",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "Bayer 04 Leverkusen",
       "goals": [
         1,
@@ -216306,7 +216306,7 @@
     {
       "date": "2025-10-04",
       "home": "SV Werder Bremen",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         1,
         0
@@ -218836,7 +218836,7 @@
     },
     {
       "date": "2025-10-19",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "TSG 1899 Hoffenheim",
       "goals": [
         0,
@@ -219763,7 +219763,7 @@
     {
       "date": "2025-10-25",
       "home": "Eintracht Frankfurt",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         2,
         0
@@ -222174,7 +222174,7 @@
     },
     {
       "date": "2025-11-01",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "Borussia M\u00f6nchengladbach",
       "goals": [
         0,
@@ -224690,7 +224690,7 @@
     {
       "date": "2025-11-09",
       "home": "SC Freiburg",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         2,
         1
@@ -226223,7 +226223,7 @@
     },
     {
       "date": "2025-11-23",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "1. FC Union Berlin",
       "goals": [
         0,
@@ -227111,7 +227111,7 @@
     {
       "date": "2025-11-29",
       "home": "FC Bayern M\u00fcnchen",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         3,
         1
@@ -229124,7 +229124,7 @@
     {
       "date": "2025-12-06",
       "home": "1. FC K\u00f6ln",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         1,
         1
@@ -230708,7 +230708,7 @@
     },
     {
       "date": "2025-12-13",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "1. FC Heidenheim 1846",
       "goals": [
         2,
@@ -233024,7 +233024,7 @@
     {
       "date": "2025-12-21",
       "home": "1. FSV Mainz 05",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         0,
         0
@@ -236497,7 +236497,7 @@
     {
       "date": "2026-01-14",
       "home": "VfL Wolfsburg",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         2,
         1
@@ -237115,7 +237115,7 @@
     {
       "date": "2026-01-17",
       "home": "Borussia Dortmund",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         3,
         2
@@ -238256,7 +238256,7 @@
     },
     {
       "date": "2026-01-23",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "Hamburger SV",
       "goals": [
         0,
@@ -239872,7 +239872,7 @@
     },
     {
       "date": "2026-01-27",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "RB Leipzig",
       "goals": [
         1,
@@ -240419,7 +240419,7 @@
     {
       "date": "2026-01-31",
       "home": "FC Augsburg",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         2,
         1
@@ -242033,7 +242033,7 @@
     },
     {
       "date": "2026-02-07",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "VfB Stuttgart",
       "goals": [
         2,
@@ -244065,7 +244065,7 @@
     {
       "date": "2026-02-14",
       "home": "Bayer 04 Leverkusen",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         4,
         0
@@ -246395,7 +246395,7 @@
     },
     {
       "date": "2026-02-22",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "SV Werder Bremen",
       "goals": [
         2,
@@ -247318,7 +247318,7 @@
     {
       "date": "2026-02-28",
       "home": "TSG 1899 Hoffenheim",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         0,
         1
@@ -249843,7 +249843,7 @@
     },
     {
       "date": "2026-03-08",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "Eintracht Frankfurt",
       "goals": [
         0,
@@ -250232,7 +250232,7 @@
     {
       "date": "2026-03-13",
       "home": "Borussia M\u00f6nchengladbach",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         2,
         0
@@ -253200,7 +253200,7 @@
     },
     {
       "date": "2026-03-22",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "SC Freiburg",
       "goals": [
         1,
@@ -254365,7 +254365,7 @@
     {
       "date": "2026-04-05",
       "home": "1. FC Union Berlin",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         1,
         1
@@ -255342,7 +255342,7 @@
     },
     {
       "date": "2026-04-11",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "FC Bayern M\u00fcnchen",
       "goals": [
         0,
@@ -256359,7 +256359,7 @@
     },
     {
       "date": "2026-04-17",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "1. FC K\u00f6ln",
       "goals": [
         1,
@@ -258158,7 +258158,7 @@
     {
       "date": "2026-04-25",
       "home": "1. FC Heidenheim 1846",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         2,
         0
@@ -260117,7 +260117,7 @@
     },
     {
       "date": "2026-05-03",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "1. FSV Mainz 05",
       "goals": [
         1,
@@ -260928,7 +260928,7 @@
     {
       "date": "2026-05-09",
       "home": "RB Leipzig",
-      "away": "FC St. Pauli 1910",
+      "away": "FC St. Pauli",
       "goals": [
         2,
         1
@@ -262326,7 +262326,7 @@
     },
     {
       "date": "2026-05-16",
-      "home": "FC St. Pauli 1910",
+      "home": "FC St. Pauli",
       "away": "VfL Wolfsburg",
       "goals": [
         1,

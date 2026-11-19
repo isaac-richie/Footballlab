@@ -7,14 +7,14 @@
  "away": "LA Clippers",
  "home_abbr": "SA",
  "away_abbr": "LAC",
- "saved_at": "2026-11-19T07:31:28.621548+00:00",
+ "saved_at": "2026-11-19T14:39:39.329442+00:00",
  "winner": {
   "team": "San Antonio Spurs",
-  "probability": 0.866179778229779
+  "probability": 0.8652424686767974
  },
  "total": {
   "side": "under",
-  "line": 235.5,
-  "probability": 0.7027226429731963
+  "line": 236.5,
+  "probability": 0.7084664143455502
  }
 }

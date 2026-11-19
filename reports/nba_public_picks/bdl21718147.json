@@ -7,14 +7,14 @@
  "away": "Charlotte Hornets",
  "home_abbr": "ATL",
  "away_abbr": "CHA",
- "saved_at": "2026-11-19T07:31:28.621548+00:00",
+ "saved_at": "2026-11-19T14:39:39.329442+00:00",
  "winner": {
   "team": "Atlanta Hawks",
-  "probability": 0.7281016274396013
+  "probability": 0.7359885979753473
  },
  "total": {
-  "side": "over",
-  "line": 207.5,
-  "probability": 0.7010443219521847
+  "side": "under",
+  "line": 228.5,
+  "probability": 0.7070074840671222
  }
 }

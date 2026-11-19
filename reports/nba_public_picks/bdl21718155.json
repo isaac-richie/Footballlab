@@ -7,14 +7,14 @@
  "away": "Sacramento Kings",
  "home_abbr": "LAL",
  "away_abbr": "SAC",
- "saved_at": "2026-11-19T07:31:28.621548+00:00",
+ "saved_at": "2026-11-19T14:39:39.329442+00:00",
  "winner": {
   "team": "Los Angeles Lakers",
-  "probability": 0.8739411099281761
+  "probability": 0.861565833297744
  },
  "total": {
-  "side": "over",
-  "line": 224.5,
-  "probability": 0.7037640855596924
+  "side": "under",
+  "line": 243.5,
+  "probability": 0.7024865047191162
  }
 }

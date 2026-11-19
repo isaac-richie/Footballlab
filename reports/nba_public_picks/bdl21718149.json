@@ -7,11 +7,11 @@
  "away": "Indiana Pacers",
  "home_abbr": "CLE",
  "away_abbr": "IND",
- "saved_at": "2026-11-19T07:31:28.621548+00:00",
+ "saved_at": "2026-11-19T14:39:39.329442+00:00",
  "winner": null,
  "total": {
   "side": "under",
   "line": 242.5,
-  "probability": 0.7103660048295315
+  "probability": 0.7074402717583401
  }
 }

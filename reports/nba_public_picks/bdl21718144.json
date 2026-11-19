@@ -7,14 +7,14 @@
  "away": "Portland Trail Blazers",
  "home_abbr": "MIL",
  "away_abbr": "POR",
- "saved_at": "2026-11-19T07:31:28.621548+00:00",
+ "saved_at": "2026-11-19T14:39:39.329442+00:00",
  "winner": {
   "team": "Portland Trail Blazers",
-  "probability": 0.8831498946424161
+  "probability": 0.8815960852208513
  },
  "total": {
-  "side": "over",
-  "line": 217.5,
-  "probability": 0.7035855786348735
+  "side": "under",
+  "line": 239.5,
+  "probability": 0.7135898442058217
  }
 }

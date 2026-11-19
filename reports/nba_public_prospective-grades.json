@@ -1,137 +1,137 @@
 {
- "generated_at": "2026-11-18T14:26:56.170144+00:00",
- "data_hash": "811b78e12fe06ac3172052d043687258859176c86e2a01b2cd00e8b39c66a9bc",
+ "generated_at": "2026-11-19T14:39:39.562793+00:00",
+ "data_hash": "0e65b02a2615806394865e090d4484ba64de2eb5ee5c36907adfeb76e9a7fbf7",
  "first": {
   "cohort": "first",
-  "graded": 22,
-  "pending": 60,
+  "graded": 34,
+  "pending": 48,
   "void": 0,
   "shown": {
    "moneyline": {
-    "picks": 22,
-    "log_loss": 0.6103804566942392,
-    "brier": 0.21184816378696797,
-    "predicted": 0.7008946759321,
-    "won": 0.7272727272727273,
+    "picks": 34,
+    "log_loss": 0.6800170708444003,
+    "brier": 0.24182506024723,
+    "predicted": 0.6848552655260876,
+    "won": 0.6176470588235294,
     "calibration": [
      {
       "bin": "50-60%",
-      "picks": 6,
-      "predicted": 0.570428462664993,
-      "won": 0.8333333333333334
+      "picks": 11,
+      "predicted": 0.5603230145890611,
+      "won": 0.5454545454545454
      },
      {
       "bin": "60-70%",
-      "picks": 4,
-      "predicted": 0.6658474619975928,
-      "won": 0.75
+      "picks": 6,
+      "predicted": 0.6648875664749716,
+      "won": 0.8333333333333334
      },
      {
       "bin": "70-80%",
-      "picks": 8,
-      "predicted": 0.7506578552050456,
-      "won": 0.5
+      "picks": 11,
+      "predicted": 0.7409877271085805,
+      "won": 0.45454545454545453
      },
      {
       "bin": "80-90%",
-      "picks": 4,
-      "predicted": 0.8321148512213757,
-      "won": 1.0
+      "picks": 6,
+      "predicted": 0.830222578393848,
+      "won": 0.8333333333333334
      }
     ]
    },
    "spread": {
-    "picks": 22,
-    "log_loss": 0.692473322767115,
-    "brier": 0.24966268753958848,
-    "predicted": 0.5087426784190984,
-    "won": 0.5,
+    "picks": 34,
+    "log_loss": 0.693713718412614,
+    "brier": 0.2502831504963326,
+    "predicted": 0.5084015892919233,
+    "won": 0.4117647058823529,
     "calibration": [
      {
       "bin": "50-60%",
-      "picks": 22,
-      "predicted": 0.5087426784190984,
-      "won": 0.5
+      "picks": 34,
+      "predicted": 0.5084015892919233,
+      "won": 0.4117647058823529
      }
     ]
    },
    "total": {
-    "picks": 22,
-    "log_loss": 0.6979767547730206,
-    "brier": 0.2524143597099242,
-    "predicted": 0.5067533826043653,
-    "won": 0.36363636363636365,
+    "picks": 34,
+    "log_loss": 0.6974955351823257,
+    "brier": 0.25217373556785116,
+    "predicted": 0.5073471345095238,
+    "won": 0.4117647058823529,
     "calibration": [
      {
       "bin": "50-60%",
-      "picks": 22,
-      "predicted": 0.5067533826043653,
-      "won": 0.36363636363636365
+      "picks": 34,
+      "predicted": 0.5073471345095238,
+      "won": 0.4117647058823529
      }
     ]
    }
   },
   "model_only": {
    "moneyline": {
-    "picks": 22,
-    "log_loss": 0.6103804566942392,
-    "brier": 0.21184816378696797,
-    "predicted": 0.7008946759321,
-    "won": 0.7272727272727273,
+    "picks": 34,
+    "log_loss": 0.6800170708444003,
+    "brier": 0.24182506024723,
+    "predicted": 0.6848552655260876,
+    "won": 0.6176470588235294,
     "calibration": [
      {
       "bin": "50-60%",
-      "picks": 6,
-      "predicted": 0.570428462664993,
-      "won": 0.8333333333333334
+      "picks": 11,
+      "predicted": 0.5603230145890611,
+      "won": 0.5454545454545454
      },
      {
       "bin": "60-70%",
-      "picks": 4,
-      "predicted": 0.6658474619975928,
-      "won": 0.75
+      "picks": 6,
+      "predicted": 0.6648875664749716,
+      "won": 0.8333333333333334
      },
      {
       "bin": "70-80%",
-      "picks": 8,
-      "predicted": 0.7506578552050456,
-      "won": 0.5
+      "picks": 11,
+      "predicted": 0.7409877271085805,
+      "won": 0.45454545454545453
      },
      {
       "bin": "80-90%",
-      "picks": 4,
-      "predicted": 0.8321148512213757,
-      "won": 1.0
+      "picks": 6,
+      "predicted": 0.830222578393848,
+      "won": 0.8333333333333334
      }
     ]
    },
    "spread": {
-    "picks": 22,
-    "log_loss": 0.692473322767115,
-    "brier": 0.24966268753958848,
-    "predicted": 0.5087426784190984,
-    "won": 0.5,
+    "picks": 34,
+    "log_loss": 0.693713718412614,
+    "brier": 0.2502831504963326,
+    "predicted": 0.5084015892919233,
+    "won": 0.4117647058823529,
     "calibration": [
      {
       "bin": "50-60%",
-      "picks": 22,
-      "predicted": 0.5087426784190984,
-      "won": 0.5
+      "picks": 34,
+      "predicted": 0.5084015892919233,
+      "won": 0.4117647058823529
      }
     ]
    },
    "total": {
-    "picks": 22,
-    "log_loss": 0.6979767547730206,
-    "brier": 0.2524143597099242,
-    "predicted": 0.5067533826043653,
-    "won": 0.36363636363636365,
+    "picks": 34,
+    "log_loss": 0.6974955351823257,
+    "brier": 0.25217373556785116,
+    "predicted": 0.5073471345095238,
+    "won": 0.4117647058823529,
     "calibration": [
      {
       "bin": "50-60%",
-      "picks": 22,
-      "predicted": 0.5067533826043653,
-      "won": 0.36363636363636365
+      "picks": 34,
+      "predicted": 0.5073471345095238,
+      "won": 0.4117647058823529
      }
     ]
    }
@@ -139,71 +139,275 @@
   "by_source": {
    "model": {
     "moneyline": {
-     "picks": 22,
-     "log_loss": 0.6103804566942392,
-     "brier": 0.21184816378696797,
-     "predicted": 0.7008946759321,
-     "won": 0.7272727272727273,
+     "picks": 34,
+     "log_loss": 0.6800170708444003,
+     "brier": 0.24182506024723,
+     "predicted": 0.6848552655260876,
+     "won": 0.6176470588235294,
      "calibration": [
       {
        "bin": "50-60%",
-       "picks": 6,
-       "predicted": 0.570428462664993,
-       "won": 0.8333333333333334
+       "picks": 11,
+       "predicted": 0.5603230145890611,
+       "won": 0.5454545454545454
       },
       {
        "bin": "60-70%",
-       "picks": 4,
-       "predicted": 0.6658474619975928,
-       "won": 0.75
+       "picks": 6,
+       "predicted": 0.6648875664749716,
+       "won": 0.8333333333333334
       },
       {
        "bin": "70-80%",
-       "picks": 8,
-       "predicted": 0.7506578552050456,
-       "won": 0.5
+       "picks": 11,
+       "predicted": 0.7409877271085805,
+       "won": 0.45454545454545453
       },
       {
        "bin": "80-90%",
-       "picks": 4,
-       "predicted": 0.8321148512213757,
-       "won": 1.0
+       "picks": 6,
+       "predicted": 0.830222578393848,
+       "won": 0.8333333333333334
       }
      ]
     },
     "spread": {
-     "picks": 22,
-     "log_loss": 0.692473322767115,
-     "brier": 0.24966268753958848,
-     "predicted": 0.5087426784190984,
-     "won": 0.5,
+     "picks": 34,
+     "log_loss": 0.693713718412614,
+     "brier": 0.2502831504963326,
+     "predicted": 0.5084015892919233,
+     "won": 0.4117647058823529,
      "calibration": [
       {
        "bin": "50-60%",
-       "picks": 22,
-       "predicted": 0.5087426784190984,
-       "won": 0.5
+       "picks": 34,
+       "predicted": 0.5084015892919233,
+       "won": 0.4117647058823529
       }
      ]
     },
     "total": {
-     "picks": 22,
-     "log_loss": 0.6979767547730206,
-     "brier": 0.2524143597099242,
-     "predicted": 0.5067533826043653,
-     "won": 0.36363636363636365,
+     "picks": 34,
+     "log_loss": 0.6974955351823257,
+     "brier": 0.25217373556785116,
+     "predicted": 0.5073471345095238,
+     "won": 0.4117647058823529,
      "calibration": [
       {
        "bin": "50-60%",
-       "picks": 22,
-       "predicted": 0.5067533826043653,
-       "won": 0.36363636363636365
+       "picks": 34,
+       "predicted": 0.5073471345095238,
+       "won": 0.4117647058823529
       }
      ]
     }
    }
   },
   "recent": [
+   {
+    "id": "bdl21718142",
+    "date": "2026-11-18",
+    "home": "Sacramento Kings",
+    "away": "Phoenix Suns",
+    "source": "model",
+    "score": [
+     107,
+     128
+    ],
+    "moneyline": 0.36863944528741865,
+    "spread_line": 4.5,
+    "cover": 0.48601436411034105,
+    "total_line": 229.5,
+    "over": 0.48531804735693984,
+    "registered_at": "2026-11-15T08:04:45.802511+00:00"
+   },
+   {
+    "id": "bdl21718141",
+    "date": "2026-11-18",
+    "home": "Los Angeles Lakers",
+    "away": "Utah Jazz",
+    "source": "model",
+    "score": [
+     97,
+     109
+    ],
+    "moneyline": 0.8518351110779238,
+    "spread_line": -14.5,
+    "cover": 0.5044096825226593,
+    "total_line": 231.5,
+    "over": 0.49840717579269456,
+    "registered_at": "2026-11-15T08:04:45.802511+00:00"
+   },
+   {
+    "id": "bdl21718140",
+    "date": "2026-11-18",
+    "home": "Dallas Mavericks",
+    "away": "Golden State Warriors",
+    "source": "model",
+    "score": [
+     116,
+     94
+    ],
+    "moneyline": 0.4650311180026627,
+    "spread_line": 1.5,
+    "cover": 0.4890394796642687,
+    "total_line": 228.5,
+    "over": 0.4879874286000519,
+    "registered_at": "2026-11-15T08:04:45.802511+00:00"
+   },
+   {
+    "id": "bdl21718139",
+    "date": "2026-11-18",
+    "home": "Denver Nuggets",
+    "away": "Boston Celtics",
+    "source": "model",
+    "score": [
+     105,
+     101
+    ],
+    "moneyline": 0.4059486777183889,
+    "spread_line": 3.5,
+    "cover": 0.49330993008928126,
+    "total_line": 219.5,
+    "over": 0.49713815667524136,
+    "registered_at": "2026-11-15T08:04:45.802511+00:00"
+   },
+   {
+    "id": "bdl21718138",
+    "date": "2026-11-18",
+    "home": "Oklahoma City Thunder",
+    "away": "Atlanta Hawks",
+    "source": "model",
+    "score": [
+     112,
+     117
+    ],
+    "moneyline": 0.7189869566689847,
+    "spread_line": -8.5,
+    "cover": 0.4904713944029481,
+    "total_line": 225.5,
+    "over": 0.4893478543918642,
+    "registered_at": "2026-11-15T08:04:45.802511+00:00"
+   },
+   {
+    "id": "bdl21718137",
+    "date": "2026-11-18",
+    "home": "New Orleans Pelicans",
+    "away": "Detroit Pistons",
+    "source": "model",
+    "score": [
+     109,
+     122
+    ],
+    "moneyline": 0.30542500385312304,
+    "spread_line": 7.5,
+    "cover": 0.5082143526934654,
+    "total_line": 233.5,
+    "over": 0.4931867070373254,
+    "registered_at": "2026-11-15T08:04:45.802511+00:00"
+   },
+   {
+    "id": "bdl21718136",
+    "date": "2026-11-18",
+    "home": "Toronto Raptors",
+    "away": "Washington Wizards",
+    "source": "model",
+    "score": [
+     99,
+     103
+    ],
+    "moneyline": 0.7028342886776537,
+    "spread_line": -7.5,
+    "cover": 0.5011187554016292,
+    "total_line": 227.5,
+    "over": 0.4966727363176449,
+    "registered_at": "2026-11-15T08:04:45.802511+00:00"
+   },
+   {
+    "id": "bdl21718135",
+    "date": "2026-11-18",
+    "home": "Brooklyn Nets",
+    "away": "Chicago Bulls",
+    "source": "model",
+    "score": [
+     107,
+     137
+    ],
+    "moneyline": 0.5930772072230998,
+    "spread_line": -3.5,
+    "cover": 0.5057182031159491,
+    "total_line": 238.5,
+    "over": 0.4869318919861947,
+    "registered_at": "2026-11-15T08:04:45.802511+00:00"
+   },
+   {
+    "id": "bdl21718134",
+    "date": "2026-11-18",
+    "home": "Orlando Magic",
+    "away": "Philadelphia 76ers",
+    "source": "model",
+    "score": [
+     116,
+     121
+    ],
+    "moneyline": 0.484916883775499,
+    "spread_line": 0.5,
+    "cover": 0.48491699572172015,
+    "total_line": 220.5,
+    "over": 0.4897625990928569,
+    "registered_at": "2026-11-15T08:04:45.802511+00:00"
+   },
+   {
+    "id": "bdl21718133",
+    "date": "2026-11-18",
+    "home": "Miami Heat",
+    "away": "Milwaukee Bucks",
+    "source": "model",
+    "score": [
+     137,
+     130
+    ],
+    "moneyline": 0.8010409543996616,
+    "spread_line": -11.5,
+    "cover": 0.5099011225313506,
+    "total_line": 236.5,
+    "over": 0.4892829532601972,
+    "registered_at": "2026-11-15T08:04:45.802511+00:00"
+   },
+   {
+    "id": "bdl21718132",
+    "date": "2026-11-18",
+    "home": "Indiana Pacers",
+    "away": "Houston Rockets",
+    "source": "model",
+    "score": [
+     104,
+     119
+    ],
+    "moneyline": 0.2762190887926171,
+    "spread_line": 8.5,
+    "cover": 0.5039031881250481,
+    "total_line": 223.5,
+    "over": 0.48582217872241584,
+    "registered_at": "2026-11-15T08:04:45.802511+00:00"
+   },
+   {
+    "id": "bdl21718131",
+    "date": "2026-11-18",
+    "home": "Cleveland Cavaliers",
+    "away": "Memphis Grizzlies",
+    "source": "model",
+    "score": [
+     121,
+     124
+    ],
+    "moneyline": 0.5038018567631647,
+    "spread_line": -0.5,
+    "cover": 0.5038019703036812,
+    "total_line": 236.5,
+    "over": 0.4989141147387975,
+    "registered_at": "2026-11-15T08:04:45.802511+00:00"
+   },
    {
     "id": "bdl21718130",
     "date": "2026-11-17",
@@ -339,344 +543,140 @@
     "total_line": 227.5,
     "over": 0.49097096398988144,
     "registered_at": "2026-11-15T08:04:45.802511+00:00"
-   },
-   {
-    "id": "bdl21718122",
-    "date": "2026-11-16",
-    "home": "Miami Heat",
-    "away": "Houston Rockets",
-    "source": "model",
-    "score": [
-     128,
-     110
-    ],
-    "moneyline": 0.41673161162097716,
-    "spread_line": 2.5,
-    "cover": 0.4725234716074894,
-    "total_line": 234.5,
-    "over": 0.49235182435145586,
-    "registered_at": "2026-11-15T08:04:45.802511+00:00"
-   },
-   {
-    "id": "bdl21718121",
-    "date": "2026-11-16",
-    "home": "Brooklyn Nets",
-    "away": "Philadelphia 76ers",
-    "source": "model",
-    "score": [
-     123,
-     135
-    ],
-    "moneyline": 0.4577697291832577,
-    "spread_line": 1.5,
-    "cover": 0.48176516081552306,
-    "total_line": 225.5,
-    "over": 0.4952532534848442,
-    "registered_at": "2026-11-15T08:04:45.802511+00:00"
-   },
-   {
-    "id": "bdl21718120",
-    "date": "2026-11-16",
-    "home": "Washington Wizards",
-    "away": "Memphis Grizzlies",
-    "source": "model",
-    "score": [
-     120,
-     136
-    ],
-    "moneyline": 0.24345676182153814,
-    "spread_line": 9.5,
-    "cover": 0.49268736328400664,
-    "total_line": 231.5,
-    "over": 0.49353545141417554,
-    "registered_at": "2026-11-15T08:04:45.802511+00:00"
-   },
-   {
-    "id": "bdl21718119",
-    "date": "2026-11-16",
-    "home": "Cleveland Cavaliers",
-    "away": "Chicago Bulls",
-    "source": "model",
-    "score": [
-     126,
-     115
-    ],
-    "moneyline": 0.7669174460438414,
-    "spread_line": -10.5,
-    "cover": 0.49214322547707084,
-    "total_line": 243.5,
-    "over": 0.48892523238227503,
-    "registered_at": "2026-11-15T08:04:45.802511+00:00"
-   },
-   {
-    "id": "bdl21718118",
-    "date": "2026-11-16",
-    "home": "Boston Celtics",
-    "away": "Orlando Magic",
-    "source": "model",
-    "score": [
-     105,
-     115
-    ],
-    "moneyline": 0.7691864723937674,
-    "spread_line": -10.5,
-    "cover": 0.49463650041571194,
-    "total_line": 216.5,
-    "over": 0.49032448838384074,
-    "registered_at": "2026-11-15T08:04:45.802511+00:00"
-   },
-   {
-    "id": "bdl21718117",
-    "date": "2026-11-15",
-    "home": "Sacramento Kings",
-    "away": "Oklahoma City Thunder",
-    "source": "model",
-    "score": [
-     103,
-     125
-    ],
-    "moneyline": 0.19742898618928742,
-    "spread_line": 11.5,
-    "cover": 0.48822756735329453,
-    "total_line": 221.5,
-    "over": 0.49021887473203807,
-    "registered_at": "2026-11-15T08:04:45.802511+00:00"
-   },
-   {
-    "id": "bdl21718116",
-    "date": "2026-11-15",
-    "home": "Milwaukee Bucks",
-    "away": "Atlanta Hawks",
-    "source": "model",
-    "score": [
-     106,
-     113
-    ],
-    "moneyline": 0.2974664513726938,
-    "spread_line": 7.5,
-    "cover": 0.49918704143278264,
-    "total_line": 231.5,
-    "over": 0.5006461255876855,
-    "registered_at": "2026-11-15T08:04:45.802511+00:00"
-   },
-   {
-    "id": "bdl21718115",
-    "date": "2026-11-15",
-    "home": "Washington Wizards",
-    "away": "Houston Rockets",
-    "source": "model",
-    "score": [
-     119,
-     147
-    ],
-    "moneyline": 0.2104634015893259,
-    "spread_line": 11.5,
-    "cover": 0.5064252223318535,
-    "total_line": 223.5,
-    "over": 0.49987820279251166,
-    "registered_at": "2026-11-15T08:04:45.802511+00:00"
-   },
-   {
-    "id": "bdl21718114",
-    "date": "2026-11-15",
-    "home": "Toronto Raptors",
-    "away": "New York Knicks",
-    "source": "model",
-    "score": [
-     108,
-     112
-    ],
-    "moneyline": 0.4429853866117421,
-    "spread_line": 2.5,
-    "cover": 0.4990466005385025,
-    "total_line": 217.5,
-    "over": 0.4981477079939815,
-    "registered_at": "2026-11-15T08:04:45.802511+00:00"
-   },
-   {
-    "id": "bdl21718113",
-    "date": "2026-11-15",
-    "home": "Boston Celtics",
-    "away": "Dallas Mavericks",
-    "source": "model",
-    "score": [
-     131,
-     94
-    ],
-    "moneyline": 0.8020139379677655,
-    "spread_line": -11.5,
-    "cover": 0.5110009867618125,
-    "total_line": 222.5,
-    "over": 0.4911817335587227,
-    "registered_at": "2026-11-15T08:04:45.802511+00:00"
-   },
-   {
-    "id": "bdl21718112",
-    "date": "2026-11-15",
-    "home": "Utah Jazz",
-    "away": "San Antonio Spurs",
-    "source": "model",
-    "score": [
-     102,
-     110
-    ],
-    "moneyline": 0.14301892922331028,
-    "spread_line": 15.5,
-    "cover": 0.5148915408793201,
-    "total_line": 222.5,
-    "over": 0.50520822569799,
-    "registered_at": "2026-11-15T08:04:45.802511+00:00"
-   },
-   {
-    "id": "bdl21718111",
-    "date": "2026-11-15",
-    "home": "LA Clippers",
-    "away": "Charlotte Hornets",
-    "source": "model",
-    "score": [
-     113,
-     105
-    ],
-    "moneyline": 0.6924964847120552,
-    "spread_line": -7.5,
-    "cover": 0.4892874123175415,
-    "total_line": 216.5,
-    "over": 0.4838003379581074,
-    "registered_at": "2026-11-15T08:04:45.802511+00:00"
    }
   ]
  },
  "last": {
   "cohort": "last",
-  "graded": 22,
-  "pending": 60,
+  "graded": 34,
+  "pending": 48,
   "void": 0,
   "shown": {
    "moneyline": {
-    "picks": 22,
-    "log_loss": 0.6137171708797576,
-    "brier": 0.21324865703275922,
-    "predicted": 0.7036154075870469,
-    "won": 0.7272727272727273,
+    "picks": 34,
+    "log_loss": 0.6714163007332419,
+    "brier": 0.239554109613633,
+    "predicted": 0.6866250044193196,
+    "won": 0.6470588235294118,
     "calibration": [
      {
       "bin": "50-60%",
-      "picks": 5,
-      "predicted": 0.5628982637756992,
-      "won": 0.8
+      "picks": 9,
+      "predicted": 0.5503559708848453,
+      "won": 0.6666666666666666
      },
      {
       "bin": "60-70%",
-      "picks": 5,
-      "predicted": 0.6526681314116017,
-      "won": 0.8
+      "picks": 9,
+      "predicted": 0.6606135207556986,
+      "won": 0.6666666666666666
      },
      {
       "bin": "70-80%",
-      "picks": 8,
-      "predicted": 0.7585440507104615,
-      "won": 0.5
+      "picks": 11,
+      "predicted": 0.7546123392585679,
+      "won": 0.45454545454545453
      },
      {
       "bin": "80-90%",
-      "picks": 4,
-      "predicted": 0.8333386463237085,
+      "picks": 5,
+      "predicted": 0.8291577987295448,
       "won": 1.0
      }
     ]
    },
    "spread": {
-    "picks": 22,
-    "log_loss": 0.6907302999528103,
-    "brier": 0.2487929950568583,
-    "predicted": 0.5105723926836536,
-    "won": 0.5454545454545454,
+    "picks": 34,
+    "log_loss": 0.6924321413385993,
+    "brier": 0.249643358197285,
+    "predicted": 0.5101269787780743,
+    "won": 0.5294117647058824,
     "calibration": [
      {
       "bin": "50-60%",
-      "picks": 22,
-      "predicted": 0.5105723926836536,
-      "won": 0.5454545454545454
+      "picks": 34,
+      "predicted": 0.5101269787780743,
+      "won": 0.5294117647058824
      }
     ]
    },
    "total": {
-    "picks": 22,
-    "log_loss": 0.6950393026445632,
-    "brier": 0.25094595868151476,
-    "predicted": 0.5072664576104505,
-    "won": 0.4090909090909091,
+    "picks": 34,
+    "log_loss": 0.6941554055452491,
+    "brier": 0.2505040901818497,
+    "predicted": 0.5063098182783614,
+    "won": 0.47058823529411764,
     "calibration": [
      {
       "bin": "50-60%",
-      "picks": 22,
-      "predicted": 0.5072664576104505,
-      "won": 0.4090909090909091
+      "picks": 34,
+      "predicted": 0.5063098182783614,
+      "won": 0.47058823529411764
      }
     ]
    }
   },
   "model_only": {
    "moneyline": {
-    "picks": 22,
-    "log_loss": 0.6137171708797576,
-    "brier": 0.21324865703275922,
-    "predicted": 0.7036154075870469,
-    "won": 0.7272727272727273,
+    "picks": 34,
+    "log_loss": 0.6714163007332419,
+    "brier": 0.239554109613633,
+    "predicted": 0.6866250044193196,
+    "won": 0.6470588235294118,
     "calibration": [
      {
       "bin": "50-60%",
-      "picks": 5,
-      "predicted": 0.5628982637756992,
-      "won": 0.8
+      "picks": 9,
+      "predicted": 0.5503559708848453,
+      "won": 0.6666666666666666
      },
      {
       "bin": "60-70%",
-      "picks": 5,
-      "predicted": 0.6526681314116017,
-      "won": 0.8
+      "picks": 9,
+      "predicted": 0.6606135207556986,
+      "won": 0.6666666666666666
      },
      {
       "bin": "70-80%",
-      "picks": 8,
-      "predicted": 0.7585440507104615,
-      "won": 0.5
+      "picks": 11,
+      "predicted": 0.7546123392585679,
+      "won": 0.45454545454545453
      },
      {
       "bin": "80-90%",
-      "picks": 4,
-      "predicted": 0.8333386463237085,
+      "picks": 5,
+      "predicted": 0.8291577987295448,
       "won": 1.0
      }
     ]
    },
    "spread": {
-    "picks": 22,
-    "log_loss": 0.6907302999528103,
-    "brier": 0.2487929950568583,
-    "predicted": 0.5105723926836536,
-    "won": 0.5454545454545454,
+    "picks": 34,
+    "log_loss": 0.6924321413385993,
+    "brier": 0.249643358197285,
+    "predicted": 0.5101269787780743,
+    "won": 0.5294117647058824,
     "calibration": [
      {
       "bin": "50-60%",
-      "picks": 22,
-      "predicted": 0.5105723926836536,
-      "won": 0.5454545454545454
+      "picks": 34,
+      "predicted": 0.5101269787780743,
+      "won": 0.5294117647058824
      }
     ]
    },
    "total": {
-    "picks": 22,
-    "log_loss": 0.6950393026445632,
-    "brier": 0.25094595868151476,
-    "predicted": 0.5072664576104505,
-    "won": 0.4090909090909091,
+    "picks": 34,
+    "log_loss": 0.6941554055452491,
+    "brier": 0.2505040901818497,
+    "predicted": 0.5063098182783614,
+    "won": 0.47058823529411764,
     "calibration": [
      {
       "bin": "50-60%",
-      "picks": 22,
-      "predicted": 0.5072664576104505,
-      "won": 0.4090909090909091
+      "picks": 34,
+      "predicted": 0.5063098182783614,
+      "won": 0.47058823529411764
      }
     ]
    }
@@ -684,71 +684,275 @@
   "by_source": {
    "model": {
     "moneyline": {
-     "picks": 22,
-     "log_loss": 0.6137171708797576,
-     "brier": 0.21324865703275922,
-     "predicted": 0.7036154075870469,
-     "won": 0.7272727272727273,
+     "picks": 34,
+     "log_loss": 0.6714163007332419,
+     "brier": 0.239554109613633,
+     "predicted": 0.6866250044193196,
+     "won": 0.6470588235294118,
      "calibration": [
       {
        "bin": "50-60%",
-       "picks": 5,
-       "predicted": 0.5628982637756992,
-       "won": 0.8
+       "picks": 9,
+       "predicted": 0.5503559708848453,
+       "won": 0.6666666666666666
       },
       {
        "bin": "60-70%",
-       "picks": 5,
-       "predicted": 0.6526681314116017,
-       "won": 0.8
+       "picks": 9,
+       "predicted": 0.6606135207556986,
+       "won": 0.6666666666666666
       },
       {
        "bin": "70-80%",
-       "picks": 8,
-       "predicted": 0.7585440507104615,
-       "won": 0.5
+       "picks": 11,
+       "predicted": 0.7546123392585679,
+       "won": 0.45454545454545453
       },
       {
        "bin": "80-90%",
-       "picks": 4,
-       "predicted": 0.8333386463237085,
+       "picks": 5,
+       "predicted": 0.8291577987295448,
        "won": 1.0
       }
      ]
     },
     "spread": {
-     "picks": 22,
-     "log_loss": 0.6907302999528103,
-     "brier": 0.2487929950568583,
-     "predicted": 0.5105723926836536,
-     "won": 0.5454545454545454,
+     "picks": 34,
+     "log_loss": 0.6924321413385993,
+     "brier": 0.249643358197285,
+     "predicted": 0.5101269787780743,
+     "won": 0.5294117647058824,
      "calibration": [
       {
        "bin": "50-60%",
-       "picks": 22,
-       "predicted": 0.5105723926836536,
-       "won": 0.5454545454545454
+       "picks": 34,
+       "predicted": 0.5101269787780743,
+       "won": 0.5294117647058824
       }
      ]
     },
     "total": {
-     "picks": 22,
-     "log_loss": 0.6950393026445632,
-     "brier": 0.25094595868151476,
-     "predicted": 0.5072664576104505,
-     "won": 0.4090909090909091,
+     "picks": 34,
+     "log_loss": 0.6941554055452491,
+     "brier": 0.2505040901818497,
+     "predicted": 0.5063098182783614,
+     "won": 0.47058823529411764,
      "calibration": [
       {
        "bin": "50-60%",
-       "picks": 22,
-       "predicted": 0.5072664576104505,
-       "won": 0.4090909090909091
+       "picks": 34,
+       "predicted": 0.5063098182783614,
+       "won": 0.47058823529411764
       }
      ]
     }
    }
   },
   "recent": [
+   {
+    "id": "bdl21718142",
+    "date": "2026-11-18",
+    "home": "Sacramento Kings",
+    "away": "Phoenix Suns",
+    "source": "model",
+    "score": [
+     107,
+     128
+    ],
+    "moneyline": 0.32096087930587214,
+    "spread_line": 6.5,
+    "cover": 0.4958160019246622,
+    "total_line": 230.5,
+    "over": 0.4981325449245936,
+    "registered_at": "2026-11-18T14:26:56.084499+00:00"
+   },
+   {
+    "id": "bdl21718141",
+    "date": "2026-11-18",
+    "home": "Los Angeles Lakers",
+    "away": "Utah Jazz",
+    "source": "model",
+    "score": [
+     97,
+     109
+    ],
+    "moneyline": 0.7940585559486523,
+    "spread_line": -11.5,
+    "cover": 0.5000302184249066,
+    "total_line": 233.5,
+    "over": 0.5015613463001642,
+    "registered_at": "2026-11-18T14:26:56.084499+00:00"
+   },
+   {
+    "id": "bdl21718140",
+    "date": "2026-11-18",
+    "home": "Dallas Mavericks",
+    "away": "Golden State Warriors",
+    "source": "model",
+    "score": [
+     116,
+     94
+    ],
+    "moneyline": 0.4595171301428544,
+    "spread_line": 1.5,
+    "cover": 0.48351635863380593,
+    "total_line": 226.5,
+    "over": 0.49526238920496674,
+    "registered_at": "2026-11-18T14:26:56.084499+00:00"
+   },
+   {
+    "id": "bdl21718139",
+    "date": "2026-11-18",
+    "home": "Denver Nuggets",
+    "away": "Boston Celtics",
+    "source": "model",
+    "score": [
+     105,
+     101
+    ],
+    "moneyline": 0.34248606208673477,
+    "spread_line": 5.5,
+    "cover": 0.4890686540337408,
+    "total_line": 219.5,
+    "over": 0.4999891056335346,
+    "registered_at": "2026-11-18T14:26:56.084499+00:00"
+   },
+   {
+    "id": "bdl21718138",
+    "date": "2026-11-18",
+    "home": "Oklahoma City Thunder",
+    "away": "Atlanta Hawks",
+    "source": "model",
+    "score": [
+     112,
+     117
+    ],
+    "moneyline": 0.7111213210518313,
+    "spread_line": -7.5,
+    "cover": 0.5106202277286477,
+    "total_line": 224.5,
+    "over": 0.486732963710737,
+    "registered_at": "2026-11-18T14:26:56.084499+00:00"
+   },
+   {
+    "id": "bdl21718137",
+    "date": "2026-11-18",
+    "home": "New Orleans Pelicans",
+    "away": "Detroit Pistons",
+    "source": "model",
+    "score": [
+     109,
+     122
+    ],
+    "moneyline": 0.3402413544982202,
+    "spread_line": 5.5,
+    "cover": 0.4866022692109136,
+    "total_line": 229.5,
+    "over": 0.5022751527956509,
+    "registered_at": "2026-11-18T14:26:56.084499+00:00"
+   },
+   {
+    "id": "bdl21718136",
+    "date": "2026-11-18",
+    "home": "Toronto Raptors",
+    "away": "Washington Wizards",
+    "source": "model",
+    "score": [
+     99,
+     103
+    ],
+    "moneyline": 0.6858693256341057,
+    "spread_line": -6.5,
+    "cover": 0.5117576511996692,
+    "total_line": 229.5,
+    "over": 0.4971593633098809,
+    "registered_at": "2026-11-18T14:26:56.084499+00:00"
+   },
+   {
+    "id": "bdl21718135",
+    "date": "2026-11-18",
+    "home": "Brooklyn Nets",
+    "away": "Chicago Bulls",
+    "source": "model",
+    "score": [
+     107,
+     137
+    ],
+    "moneyline": 0.5684931077078084,
+    "spread_line": -2.5,
+    "cover": 0.5125251603215367,
+    "total_line": 239.5,
+    "over": 0.5022731328386999,
+    "registered_at": "2026-11-18T14:26:56.084499+00:00"
+   },
+   {
+    "id": "bdl21718134",
+    "date": "2026-11-18",
+    "home": "Orlando Magic",
+    "away": "Philadelphia 76ers",
+    "source": "model",
+    "score": [
+     116,
+     121
+    ],
+    "moneyline": 0.48241783707852726,
+    "spread_line": 0.5,
+    "cover": 0.4824179480026194,
+    "total_line": 224.5,
+    "over": 0.49715147430028356,
+    "registered_at": "2026-11-18T14:26:56.084499+00:00"
+   },
+   {
+    "id": "bdl21718133",
+    "date": "2026-11-18",
+    "home": "Miami Heat",
+    "away": "Milwaukee Bucks",
+    "source": "model",
+    "score": [
+     137,
+     130
+    ],
+    "moneyline": 0.8124344083528899,
+    "spread_line": -12.5,
+    "cover": 0.49815101740806933,
+    "total_line": 235.5,
+    "over": 0.49429647783303116,
+    "registered_at": "2026-11-18T14:26:56.084499+00:00"
+   },
+   {
+    "id": "bdl21718132",
+    "date": "2026-11-18",
+    "home": "Indiana Pacers",
+    "away": "Houston Rockets",
+    "source": "model",
+    "score": [
+     104,
+     119
+    ],
+    "moneyline": 0.272796550839929,
+    "spread_line": 8.5,
+    "cover": 0.49979053505743853,
+    "total_line": 227.5,
+    "over": 0.48460747625687944,
+    "registered_at": "2026-11-18T14:26:56.084499+00:00"
+   },
+   {
+    "id": "bdl21718131",
+    "date": "2026-11-18",
+    "home": "Cleveland Cavaliers",
+    "away": "Memphis Grizzlies",
+    "source": "model",
+    "score": [
+     121,
+     124
+    ],
+    "moneyline": 0.48784572140131477,
+    "spread_line": -0.5,
+    "cover": 0.48784583398936177,
+    "total_line": 237.5,
+    "over": 0.50189391727377,
+    "registered_at": "2026-11-18T14:26:56.084499+00:00"
+   },
    {
     "id": "bdl21718130",
     "date": "2026-11-17",
@@ -884,210 +1088,6 @@
     "total_line": 227.5,
     "over": 0.48980888784748905,
     "registered_at": "2026-11-16T13:54:42.942575+00:00"
-   },
-   {
-    "id": "bdl21718122",
-    "date": "2026-11-16",
-    "home": "Miami Heat",
-    "away": "Houston Rockets",
-    "source": "model",
-    "score": [
-     128,
-     110
-    ],
-    "moneyline": 0.41082645344004254,
-    "spread_line": 3.5,
-    "cover": 0.4982648487247609,
-    "total_line": 236.5,
-    "over": 0.4968813301247191,
-    "registered_at": "2026-11-16T13:54:42.942575+00:00"
-   },
-   {
-    "id": "bdl21718121",
-    "date": "2026-11-16",
-    "home": "Brooklyn Nets",
-    "away": "Philadelphia 76ers",
-    "source": "model",
-    "score": [
-     123,
-     135
-    ],
-    "moneyline": 0.4759735065544059,
-    "spread_line": 0.5,
-    "cover": 0.47597361694522655,
-    "total_line": 227.5,
-    "over": 0.49229136320248357,
-    "registered_at": "2026-11-16T13:54:42.942575+00:00"
-   },
-   {
-    "id": "bdl21718120",
-    "date": "2026-11-16",
-    "home": "Washington Wizards",
-    "away": "Memphis Grizzlies",
-    "source": "model",
-    "score": [
-     120,
-     136
-    ],
-    "moneyline": 0.2057653957269958,
-    "spread_line": 11.5,
-    "cover": 0.499725336858857,
-    "total_line": 233.5,
-    "over": 0.5009148932824631,
-    "registered_at": "2026-11-16T13:54:42.942575+00:00"
-   },
-   {
-    "id": "bdl21718119",
-    "date": "2026-11-16",
-    "home": "Cleveland Cavaliers",
-    "away": "Chicago Bulls",
-    "source": "model",
-    "score": [
-     126,
-     115
-    ],
-    "moneyline": 0.7628218960702782,
-    "spread_line": -10.5,
-    "cover": 0.4868599558121289,
-    "total_line": 243.5,
-    "over": 0.49173816195886194,
-    "registered_at": "2026-11-16T13:54:42.942575+00:00"
-   },
-   {
-    "id": "bdl21718118",
-    "date": "2026-11-16",
-    "home": "Boston Celtics",
-    "away": "Orlando Magic",
-    "source": "model",
-    "score": [
-     105,
-     115
-    ],
-    "moneyline": 0.7898850871399281,
-    "spread_line": -11.5,
-    "cover": 0.4939022691573645,
-    "total_line": 216.5,
-    "over": 0.4956988999001034,
-    "registered_at": "2026-11-16T13:54:42.942575+00:00"
-   },
-   {
-    "id": "bdl21718117",
-    "date": "2026-11-15",
-    "home": "Sacramento Kings",
-    "away": "Oklahoma City Thunder",
-    "source": "model",
-    "score": [
-     103,
-     125
-    ],
-    "moneyline": 0.19742898618928745,
-    "spread_line": 11.5,
-    "cover": 0.4882275673532944,
-    "total_line": 221.5,
-    "over": 0.490218874732038,
-    "registered_at": "2026-11-15T15:21:58.239151+00:00"
-   },
-   {
-    "id": "bdl21718116",
-    "date": "2026-11-15",
-    "home": "Milwaukee Bucks",
-    "away": "Atlanta Hawks",
-    "source": "model",
-    "score": [
-     106,
-     113
-    ],
-    "moneyline": 0.2974664513726939,
-    "spread_line": 7.5,
-    "cover": 0.4991870414327828,
-    "total_line": 231.5,
-    "over": 0.5006461255876856,
-    "registered_at": "2026-11-15T15:21:58.239151+00:00"
-   },
-   {
-    "id": "bdl21718115",
-    "date": "2026-11-15",
-    "home": "Washington Wizards",
-    "away": "Houston Rockets",
-    "source": "model",
-    "score": [
-     119,
-     147
-    ],
-    "moneyline": 0.21046340158932575,
-    "spread_line": 11.5,
-    "cover": 0.5064252223318534,
-    "total_line": 223.5,
-    "over": 0.4998782027925119,
-    "registered_at": "2026-11-15T15:21:58.239151+00:00"
-   },
-   {
-    "id": "bdl21718114",
-    "date": "2026-11-15",
-    "home": "Toronto Raptors",
-    "away": "New York Knicks",
-    "source": "model",
-    "score": [
-     108,
-     112
-    ],
-    "moneyline": 0.4429853866117418,
-    "spread_line": 2.5,
-    "cover": 0.4990466005385022,
-    "total_line": 217.5,
-    "over": 0.49814770799398156,
-    "registered_at": "2026-11-15T15:21:58.239151+00:00"
-   },
-   {
-    "id": "bdl21718113",
-    "date": "2026-11-15",
-    "home": "Boston Celtics",
-    "away": "Dallas Mavericks",
-    "source": "model",
-    "score": [
-     131,
-     94
-    ],
-    "moneyline": 0.8020139379677649,
-    "spread_line": -11.5,
-    "cover": 0.511000986761812,
-    "total_line": 222.5,
-    "over": 0.49118173355872286,
-    "registered_at": "2026-11-15T15:21:58.239151+00:00"
-   },
-   {
-    "id": "bdl21718112",
-    "date": "2026-11-15",
-    "home": "Utah Jazz",
-    "away": "San Antonio Spurs",
-    "source": "model",
-    "score": [
-     102,
-     110
-    ],
-    "moneyline": 0.14301892922331033,
-    "spread_line": 15.5,
-    "cover": 0.5148915408793201,
-    "total_line": 222.5,
-    "over": 0.5052082256979898,
-    "registered_at": "2026-11-15T15:21:58.239151+00:00"
-   },
-   {
-    "id": "bdl21718111",
-    "date": "2026-11-15",
-    "home": "LA Clippers",
-    "away": "Charlotte Hornets",
-    "source": "model",
-    "score": [
-     113,
-     105
-    ],
-    "moneyline": 0.6924964847120552,
-    "spread_line": -7.5,
-    "cover": 0.4892874123175416,
-    "total_line": 216.5,
-    "over": 0.4838003379581073,
-    "registered_at": "2026-11-15T15:21:58.239151+00:00"
    }
   ]
  },

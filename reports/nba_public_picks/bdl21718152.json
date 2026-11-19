@@ -7,14 +7,14 @@
  "away": "New Orleans Pelicans",
  "home_abbr": "OKC",
  "away_abbr": "NO",
- "saved_at": "2026-11-19T07:31:28.621548+00:00",
+ "saved_at": "2026-11-19T14:39:39.329442+00:00",
  "winner": {
   "team": "Oklahoma City Thunder",
-  "probability": 0.8445642286359613
+  "probability": 0.8325000430143479
  },
  "total": {
   "side": "over",
-  "line": 216.5,
-  "probability": 0.703954417804449
+  "line": 217.5,
+  "probability": 0.7045657094705977
  }
 }
