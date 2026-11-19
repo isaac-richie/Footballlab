@@ -1056,7 +1056,7 @@ button.bp-hero{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display
 .bp-day{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.6;padding:14px 0 4px}.bp-day:first-child{padding-top:0}
 button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line,rgba(255,255,255,.08))}.bp-day+button.bp-row{border-top:0}
 .bp-mid{display:grid;gap:3px;min-width:0}.bp-mid b{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.bp-row:hover b{text-decoration:underline}
-.bp-row .p{font-size:24px;font-weight:800}.bp-tabs{margin-bottom:14px;display:inline-flex}.bp-hrow{padding:10px 0;border-top:1px solid var(--line)}.bp-hrow:first-child{border-top:0}.bp-hm{display:flex;align-items:center;gap:8px;margin-bottom:6px}.bp-hm span{display:grid;margin-left:6px}.bp-hm small{opacity:.7}.bp-hm .jersey+.jersey{margin-left:-10px}.bp-hl{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;font-size:14px;padding:3px 0}.bp-hl small{opacity:.7}.bp-res{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px}.bp-res.won{background:color-mix(in srgb,#3ccf7a 22%,transparent);color:#4fe08c}.bp-res.lost{background:color-mix(in srgb,#f05a5a 22%,transparent);color:#ff7a7a}.bp-res.wait{background:var(--surface-3);opacity:.8}button.bp-row{grid-template-columns:auto 1fr auto auto}.bp-add{display:grid;place-items:center;width:30px;height:30px;border-radius:999px;border:1px solid var(--line-2);font-weight:800;font-size:18px;color:var(--accent);cursor:pointer}.bp-add:hover{background:var(--accent);color:var(--accent-ink)}.bp-vip{display:grid;gap:10px}.bp-vip>div{display:flex;align-items:center;gap:10px}.bp-vip span{display:grid}.bp-vip small{opacity:.75}.c[data-cslip]{cursor:pointer}.c[data-cslip]:hover{outline:2px solid var(--accent)}.bp-tabs small{opacity:.6;margin-left:4px}.bp-pair{display:flex}.bp-pair .jersey+.jersey{margin-left:-10px}.bp-row .p small{font-size:14px;opacity:.7}.bp-mid>small,.bp-hero small{opacity:.75}
+.bp-row .p{font-size:24px;font-weight:800}.bp-tabs{margin-bottom:14px;display:inline-flex}.bp-hrow{padding:10px 0;border-top:1px solid var(--line)}.bp-hrow:first-child{border-top:0}.bp-hm{display:flex;align-items:center;gap:8px;margin-bottom:6px}.bp-hm span{display:grid;margin-left:6px}.bp-hm small{opacity:.7}.bp-hm .jersey+.jersey{margin-left:-10px}.bp-hl{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;font-size:14px;padding:3px 0}.bp-hl small{opacity:.7}.bp-res{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px}.bp-res.won{background:color-mix(in srgb,#3ccf7a 22%,transparent);color:#4fe08c}.bp-res.lost{background:color-mix(in srgb,#f05a5a 22%,transparent);color:#ff7a7a}.bp-res.wait{background:var(--surface-3);opacity:.8}button.bp-row{grid-template-columns:auto 1fr auto auto}.bp-add{display:grid;place-items:center;width:30px;height:30px;border-radius:999px;border:1px solid var(--line-2);font-weight:800;font-size:18px;color:var(--accent);cursor:pointer}.bp-add:hover{background:var(--accent);color:var(--accent-ink)}.bp-vip{display:grid;gap:10px}.bp-vip>div{display:flex;align-items:center;gap:10px}.bp-vip span{display:grid}.bp-vip .bp-pair{display:flex;flex:none}.bp-vip small{opacity:.75}.c[data-cslip]{cursor:pointer}.c[data-cslip]:hover{outline:2px solid var(--accent)}.bp-tabs small{opacity:.6;margin-left:4px}.bp-pair{display:flex}.bp-pair .jersey+.jersey{margin-left:-10px}.bp-row .p small{font-size:14px;opacity:.7}.bp-mid>small,.bp-hero small{opacity:.75}
 body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body[data-sport="basketball"] #ticker{display:none!important}body:not([data-sport="basketball"]) #nba-ticker{display:none!important}
 .bx-head,.bx{display:grid;grid-template-columns:minmax(190px,1.5fr) minmax(170px,1.3fr) 92px 92px 92px 26px;gap:14px;align-items:center;padding:0 18px}
 .bx-head{height:38px;font-size:10.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--faint);border-bottom:1px solid var(--line)}
@@ -3810,10 +3810,6 @@ function renderNbaPicks(){
   const score = x => { const [h, a] = x.projected.map(Math.round); return x.at_home ? `${h}–${a}` : `${a}–${h}` };
   const hit = r => r ? `<span class="bp-hit" title="${esc(nbRec(r))}">${esc(r.bin)} picks hit <b>${pct(r.won)}</b></span>` : '';
   const pm = Math.round(top.probability * 100);
-  const vip = d.picks.slice(0, 3), vp = vip.reduce((m, x) => m * x.probability, 1);
-  const vipCard = vip.length === 3 ? card('VIP slip', `<div class="bp-vip">${vip.map(x => `<div>${jersey(x.team)}<span><b>${esc(x.team)}</b><small>to win · ${pct(x.probability)}</small></span></div>`).join('')}</div>
-      <div class="bp-foot" style="margin-top:12px"><span>All three: <b>${pct(vp)}</b> · fair odds <b>${(1 / vp).toFixed(2)}</b></span><button type="button" class="primary" id="nb-vip-add" style="width:auto;padding:8px 14px">Add all to slip</button></div>
-      <p class="note" style="margin:8px 0 0">Our three strongest winner calls. They are treated as independent games.</p>`, 'strongest 3') : '';
   let html = card('Pick of the day', `<button class="bp-hero" type="button" ${open(top)}>
       <div class="bp-match">${jersey(top.away)}<span>${esc(top.away_abbr)}</span><i>@</i>${jersey(top.home)}<span>${esc(top.home_abbr)}</span><small>${nLive(top) ? nStatus(top) : esc(nbTip(top))}</small></div>
       <div class="bp-team">${jersey(top.team)}<div><div class="big">${esc(top.team)}</div><small>to beat ${esc(top.opponent)} · ${top.at_home ? 'home' : 'away'}</small></div></div>
@@ -3826,8 +3822,19 @@ function renderNbaPicks(){
       <div class="bp-mid"><b>${esc(x.team)}</b><small>${x.at_home ? 'vs' : '@'} ${esc(x.at_home ? x.away_abbr : x.home_abbr)} · ${nLive(x) ? nStatus(x) : esc(time(x))}</small>${hit(x.record)}</div>
       <div class="p">${Math.round(x.probability * 100)}<small>%</small></div><span class="bp-add" role="button" tabindex="0" data-slip-win="${esc(x.id)}" title="Add to slip">+</span></button>`;
   }
-  el.innerHTML = tabs + html + vipCard + (rest.length ? card('More picks', rows, `${rest.length} more`) : '');
+  el.innerHTML = tabs + html + (rest.length ? card('More picks', rows, `${rest.length} more`) : '');
   $('#nbp-note').textContent = d.note + ' Tap a pick for the full match breakdown.';
+}
+function nbVipPicks(d){
+  const list = d.totals || [], first = list.length ? list[0].date : null;
+  return list.filter(x => x.date === first && !nLive(x)).sort((a, b) => b.probability - a.probability).slice(0, 3);
+}
+function nbVip(d){
+  const vip = nbVipPicks(d); if(vip.length < 3) return '';
+  const vp = vip.reduce((m, x) => m * x.probability, 1);
+  return card('VIP slip', `<div class="bp-vip">${vip.map(x => `<div><span class="bp-pair">${jersey(x.away)}${jersey(x.home)}</span><span><b>${x.side === 'over' ? 'Over' : 'Under'} ${x.line} points</b><small>${esc(x.away_abbr)} @ ${esc(x.home_abbr)} · ${pct(x.probability)}</small></span></div>`).join('')}</div>
+      <div class="bp-foot" style="margin-top:12px"><span>All three: <b>${pct(vp)}</b> · fair odds <b>${(1 / vp).toFixed(2)}</b></span><button type="button" class="primary" id="nb-vip-add" style="width:auto;padding:8px 14px">Add all to slip</button></div>
+      <p class="note" style="margin:8px 0 0">Our three strongest over/under calls of the next game day. They are treated as independent games.</p>`, 'strongest 3');
 }
 function renderNbaTotals(d){
   const list = d.totals || [];
@@ -3843,13 +3850,13 @@ function renderNbaTotals(d){
       <div class="p">${Math.round(x.probability * 100)}<small>%</small></div><span class="bp-add" role="button" tabindex="0" data-slip-tot="${esc(x.id)}" title="Add to slip">+</span></button>`;
   }
   const h = d.history || {}, o = h.over, u = h.under, rec = o && u && (o.won + o.lost + u.won + u.lost) ? `record: overs ${o.won}–${o.lost} · unders ${u.won}–${u.lost}` : 'both teams combined';
-  return card('Over / Under · total points', rows, rec) +
+  return nbVip(d) + card('Over / Under · total points', rows, rec) +
     '<p class="note">Lines are our own, set so each pick is about 70% likely. A bookmaker\'s line will differ: compare before you use it.</p>';
 }
 $('#nbp-body').addEventListener('click', e => {
   const t = e.target.closest('[data-ptab]'); if(t){ nb.pickTab = t.dataset.ptab; renderNbaPicks(); return }
   const d = nb.picks || {};
-  if(e.target.closest('#nb-vip-add')){ d.picks.slice(0, 3).forEach(x => slipAdd(nbSlipItem(x, [`${x.team} to win`], x.probability, 'ml'))); return }
+  if(e.target.closest('#nb-vip-add')){ nbVipPicks(d).forEach(x => slipAdd(nbSlipItem(x, [`${x.side === 'over' ? 'Over' : 'Under'} ${x.line} points`], x.probability, 'tot'))); return }
   const w = e.target.closest('[data-slip-win]'); if(w){ e.stopPropagation(); const x = d.picks.find(y => y.id === w.dataset.slipWin); if(x) slipAdd(nbSlipItem(x, [`${x.team} to win`], x.probability, 'ml')); return }
   const o = e.target.closest('[data-slip-tot]'); if(o){ e.stopPropagation(); const x = (d.totals || []).find(y => y.id === o.dataset.slipTot); if(x) slipAdd(nbSlipItem(x, [`${x.side === 'over' ? 'Over' : 'Under'} ${x.line} points`], x.probability, 'tot')); return }
   const b = e.target.closest('[data-home]'); if(!b) return;
