@@ -91,6 +91,13 @@ def _forecasts_for_day(data, day, leagues, fixture_rates, distribution, legs_for
     return games, legs
 
 
+def tier(leg):
+    """Where a goal pick sits in VIP_PRIORITY (0 = Over 2.5). Slips fill each league's places in this
+    order, surest first within a tier, so a 65-79% Over 2.5 (won 74-81% on unseen seasons, the best
+    of the three) is not crowded out by 80%+ Over 1.5 picks."""
+    return next((i for i, (m, sel, _) in enumerate(VIP_PRIORITY) if leg['market'] == m and leg['selection'] == sel), len(VIP_PRIORITY))
+
+
 def vip_pick(legs):
     """One game's VIP pick from all its candidate legs, or None: the first VIP_PRIORITY tier it reaches."""
     for market, selection, floor in VIP_PRIORITY:
@@ -120,7 +127,7 @@ def vip_from(legs):
         by_fixture.setdefault(leg['fixture'], []).append(leg)
     best = [p for p in map(vip_pick, by_fixture.values()) if p]
     picks, per = [], {}
-    for leg in sorted(best, key=lambda c: -c['probability']):
+    for leg in sorted(best, key=lambda c: (tier(c), -c['probability'])):
         if per.get(leg['league_id'], 0) < VIP_PER_LEAGUE:
             per[leg['league_id']] = per.get(leg['league_id'], 0) + 1
             picks.append(leg)

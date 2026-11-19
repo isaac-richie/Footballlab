@@ -111,6 +111,13 @@ class VipRecordTest(unittest.TestCase):
         self.assertEqual(sorted((p['fixture'], p['selection']) for p in picks),
                          [('A v B', 'Over 1.5'), ('C v D', 'C win'), ('G v H', 'G win')])
 
+    def test_over_25_is_not_crowded_out_by_the_league_cap(self):
+        leg = lambda fx, sel, p: dict(fixture=fx, league_id='de.1', market='ou25' if '2.5' in sel else 'ou15', selection=sel, probability=p)
+        legs = [leg(f'G{i}', 'Over 1.5', .85 - i / 100) for i in range(record.VIP_PER_LEAGUE)] + [leg('X', 'Over 2.5', .70)]
+        picks = record.vip_from(legs)
+        self.assertIn(('X', 'Over 2.5'), [(p['fixture'], p['selection']) for p in picks])
+        self.assertEqual(len(picks), record.VIP_PER_LEAGUE)
+
     def test_missing_file_gives_empty_ledger(self):
         s = record.vip_ledger()['summary']
         self.assertEqual((s['slips'], s['picks'], s['hit_rate']), (0, 0, None))

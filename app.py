@@ -871,7 +871,7 @@ def vip_slip(data, n=17, days=3, per_league=6):
         by_fixture.setdefault(c['fixture'], []).append(c)
     ranked = [p for p in map(record.vip_pick, by_fixture.values()) if p]
     legs, per = [], {}
-    for leg in sorted(ranked, key=lambda c: -c['probability']):
+    for leg in sorted(ranked, key=lambda c: (record.tier(c), -c['probability'])):
         if per.get(leg['league_id'], 0) >= per_league:
             continue
         per[leg['league_id']] = per.get(leg['league_id'], 0) + 1
