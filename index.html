@@ -1641,6 +1641,18 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
 .how-vs div:first-child i::after{background:var(--accent)}
 .how-vs b{font-family:var(--mono);font-weight:500;color:var(--text);text-align:right}
 .how-sub{font-size:22px!important;margin:10px 0 6px}
+.tr-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:10px 0}
+.tr-tile{display:grid;gap:2px;padding:16px;border:1px solid var(--line-2);border-radius:14px;background:var(--surface)}
+.tr-tile b{font-family:var(--mono);font-size:34px;font-weight:500;line-height:1;color:var(--accent)}.tr-tile small{color:var(--muted);font-size:12.5px}
+.tr-tile span{font-weight:650;margin-top:8px}.tr-tile em{font-style:normal;font-size:12px;color:var(--faint)}
+.tr-rows{display:grid;border-top:1px solid var(--line-2)}
+.tr-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:10px 18px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line-2)}
+.tr-row b{display:block;font-size:14.5px}.tr-row small{color:var(--faint);font-size:12px}.tr-row.sub b{font-weight:500;color:var(--muted);padding-left:10px}
+.tr-bars{display:grid;gap:5px}.tr-bars div{display:grid;grid-template-columns:52px 1fr 52px;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
+.tr-bars i{height:8px;border-radius:9px;background:var(--surface-3);overflow:hidden}.tr-bars em{display:block;height:100%;background:var(--muted);border-radius:9px}
+.tr-bars .won em{background:var(--accent)}.tr-bars b{font-family:var(--mono);font-size:13px;color:var(--text);text-align:right}
+.tr-rules{margin:8px 0;padding-left:20px;display:grid;gap:8px;color:var(--muted);line-height:1.55}.tr-rules b{color:var(--text)}
+@media (max-width:640px){.tr-row{grid-template-columns:minmax(0,1fr)}}
 .how-live{margin-top:6px}
 .how-livebar{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px;margin:0 0 22px;padding:12px 14px;border:1px solid var(--line-2);border-radius:4px;font-size:14px;color:var(--muted)}
 .how-livebar i{width:8px;height:8px;background:var(--ok);flex:none;align-self:center}
@@ -2034,7 +2046,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       <div class="vb-copy">
         <span class="vb-kicker">VIP picks</span>
         <h1>Our strongest calls</h1>
-        <p>Our surest goal calls over the next three days, from the leagues whose picks passed our accuracy check (England, Spain, Germany, Germany 2, Italy, Netherlands, Portugal) while their results are up to date. Each game gets <b>Over 2.5 goals</b> at 65%+, otherwise <b>Over 1.5</b> at 78%+, otherwise <b>Under 3.5</b> at 70%+, plus up to two <b>favourites to win</b> at 70%+. Plus our three strongest <b>NBA total-points</b> calls each day.</p>
+        <p>Our surest goal calls over the next three days, from the leagues whose picks passed our accuracy check (England, Spain, Germany, Germany 2, Italy, Netherlands, Portugal) while their results are up to date. Each game gets <b>Over 2.5 goals</b> at 65%+, otherwise <b>Over 1.5</b> at 78%+, otherwise <b>Under 3.5</b> at 70%+, plus up to two <b>favourites to win</b> at 75%+. Plus our three strongest <b>NBA total-points</b> calls each day.</p>
         <div class="hero-stats vb-stats" id="vip-stats"></div>
       </div>
       <a class="vwr card" id="vip-wr" href="#performance" hidden></a>
@@ -2057,7 +2069,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
     <div class="view-head">
       <div>
         <span class="eyebrow"><i></i>Our record</span><h1>Every pick, win or lose</h1>
-        <p>Every VIP pick is saved before kickoff and checked against the final score. Nothing is edited or deleted, so you see the losses as well as the wins. <a class="how-link inline" href="#how/proof">How we test the model →</a></p>
+        <p>Every VIP pick is saved before kickoff and checked against the final score. Nothing is edited or deleted, so you see the losses as well as the wins. <a class="how-link inline" href="#how/proof">How we test the model →</a> <a class="how-link inline" href="#track">Full track record →</a></p>
       </div>
     </div>
     <div id="record"><div class="card"><div class="skel" style="height:220px"></div></div></div>
@@ -2148,6 +2160,18 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
     </article>
   </section>
 
+  <!-- TRACK RECORD: both sports, for anyone checking our claims (reached from links, not the nav) -->
+  <section data-panel="track" hidden>
+    <article class="how">
+      <header class="how-head">
+        <span class="kicker">Track record</span>
+        <h1>Every claim, checked</h1>
+        <p class="how-lede">Every number on this page comes from forecasts made before the games, on games the model had not seen. Wins and losses are counted the same way, and nothing is edited after kickoff.</p>
+      </header>
+      <div id="track-body"><div class="card"><div class="skel" style="height:220px"></div></div></div>
+    </article>
+  </section>
+
   <!-- BASKETBALL: PICKS -->
   <section data-panel="b-featured" hidden>
     <div class="view-head"><div>
@@ -2225,7 +2249,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
     <span class="fb-only">Data: <a href="https://github.com/openfootball/football.json">OpenFootball (CC0)</a> · <a href="https://www.openligadb.de/">OpenLigaDB (ODbL)</a></span>
     <span class="bk-only" id="nba-foot1">NBA forecasts from past results. No injuries or lineups. Probabilities are not guarantees.</span>
     <span class="bk-only" id="nba-foot2"></span>
-    <a class="foot-how" href="#how">How it works</a>
+    <a class="foot-how" href="#how">How it works</a> · <a class="foot-how" href="#track">Track record</a>
   </footer>
 </div>
 
@@ -2410,6 +2434,13 @@ function showView(){
     $('#leagues').hidden = off; $('#strip').hidden = off || $('#strip').classList.contains('empty'); }   // the warning strip only when results are behind
   const v = (location.hash || '#featured').slice(1).split('/')[0];
   // How it works: one page for both sports, reached from links rather than the nav.
+  if(v === 'track'){
+    $('#leagues').hidden = $('#strip').hidden = true;
+    $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== 'track');
+    $$('.nav a, .tabbar a').forEach(a => a.removeAttribute('aria-current'));
+    loadTrack(); scrollTo(0, 0);
+    return;
+  }
   if(v === 'how'){
     $('#leagues').hidden = $('#strip').hidden = true;
     $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== 'how');
@@ -3132,6 +3163,43 @@ async function loadHow(){
     </div>
     ${live ? `<p class="how-livebar"><i></i>${live} <a href="#performance">See every pick</a></p>` : ''}`;
 }
+// Track record: the saved-before-kickoff records and the long-run checks for both sports, on one page.
+async function loadTrack(){
+  if(state.trackLoaded) return; state.trackLoaded = true;
+  const el = $('#track-body'), pc = v => v == null ? '–' : (v * 100).toFixed(1) + '%', n = v => (v || 0).toLocaleString();
+  const [rec, nba] = await Promise.all([getRecord().catch(() => null), api('/api/nba/picks').catch(() => null)]);
+  if(!rec && !nba){ state.trackLoaded = false; el.innerHTML = '<div class="error">The record is unavailable right now. Try again in a minute.</div>'; return }
+  const bar = (said, won) => `<div class="tr-bars"><div><span>We said</span><i><em style="width:${(said || 0) * 100}%"></em></i><b>${pc(said)}</b></div><div class="won"><span>It won</span><i><em style="width:${(won || 0) * 100}%"></em></i><b>${pc(won)}</b></div></div>`;
+  const wl = r => r && r.won + r.lost ? `<b>${r.won}–${r.lost}</b><small>${pc(r.won / (r.won + r.lost))} won</small>` : '<b>–</b><small>no results yet</small>';
+  const v = rec && rec.vip_ledger && rec.vip_ledger.summary, h = nba && nba.history;
+  const fb = v ? (v.settled ? `<div class="tr-tile">${wl({won: v.won, lost: v.lost})}<span>Football VIP picks</span><em>since ${esc(day(v.since))} · ${v.pending} still to play</em></div>`
+    : `<div class="tr-tile"><b>${v.picks}</b><small>saved, waiting for results</small><span>Football VIP picks</span><em>since ${esc(day(v.since))} · first results after the international break</em></div>`) : '';
+  const bk = h ? `<div class="tr-tile">${wl(h.total)}<span>NBA over/under picks</span><em>overs ${h.over ? h.over.won + '–' + h.over.lost : '–'} · unders ${h.under ? h.under.won + '–' + h.under.lost : '–'}</em></div>
+      <div class="tr-tile">${wl(h.winner)}<span>NBA winner picks</span><em>since 15 Nov</em></div>` : '';
+  let html = `<section class="how-sec"><h2 class="how-sub">1 · Saved before kickoff</h2>
+    <p class="how-p">Each morning the day's picks are saved before any game starts, then marked won or lost from the final score. This is the live record, so it starts small and grows every day.</p>
+    <div class="tr-tiles">${fb}${bk}</div>
+    <p class="note">NBA picks for 15–18 November were rebuilt from forecasts saved before tip-off with the same rules; every pick since 19 November is saved exactly as shown. Small samples swing a lot: judge this part after a few weeks.</p></section>`;
+  const g = rec && rec.goal_check && rec.goal_check.seasons, rows = [];
+  if(g) for(const [k, l] of [['2025-26', 'last season'], ['2026-27', 'this season so far']]) if(g[k] && g[k].all.picks){
+    rows.push([`Football goal picks, ${l}`, g[k].all.picks, g[k].all.said, g[k].all.won]);
+    rows.push(['· overs', g[k].overs.picks, g[k].overs.said, g[k].overs.won]);
+    rows.push(['· unders (3.5)', g[k].unders.picks, g[k].unders.said, g[k].unders.won]);
+  }
+  const m = nba && nba.lab && nba.lab.holdout && nba.lab.holdout.markets;
+  if(m) for(const [k, l] of [['moneyline', 'NBA winners at 70%+'], ['total', 'NBA over/under at 70%+'], ['spread', 'NBA spreads at 70%+']])
+    if(m[k] && m[k].sure && m[k].sure.picks) rows.push([`${l}, last season`, m[k].sure.picks, m[k].sure.predicted, m[k].sure.won]);
+  if(rows.length) html += `<section class="how-sec"><h2 class="how-sub">2 · Tested on seasons the model never saw</h2>
+    <p class="how-p">Before a rule goes live it is tested on whole seasons the model was not tuned on, forecasting every game as of the day before. When "we said" and "it won" match, our percentages mean what they say.</p>
+    <div class="tr-rows">${rows.map(([lab, picks, said, won]) => `<div class="tr-row${lab.startsWith('·') ? ' sub' : ''}"><div><b>${esc(lab)}</b><small>${n(picks)} picks</small></div>${bar(said, won)}</div>`).join('')}</div></section>`;
+  html += `<section class="how-sec"><h2 class="how-sub">3 · How the record is kept</h2>
+    <ol class="tr-rules"><li><b>Saved before the game.</b> Picks are written down before kickoff or tip-off, with the time.</li>
+      <li><b>Never edited.</b> A saved pick cannot be changed or deleted, so the losses stay up next to the wins.</li>
+      <li><b>Checked against the final score.</b> Each pick turns won or lost automatically when its game ends.</li></ol>
+    <p class="note">Probabilities, not promises: a 75% pick still loses one time in four. No team news, injuries or lineups are used yet. 18+.</p>
+    <footer class="how-cta"><a class="wl-go" href="#performance">Football record</a><a class="wl-ok" href="#how">How we work out the chances</a></footer></section>`;
+  el.innerHTML = html;
+}
 // VIP page: how the VIP picks have actually done, above today's slip.
 async function loadVipWinRate(){
   let d; try{ d = await getRecord() }catch{ return }
@@ -3608,7 +3676,7 @@ function goalCheckHtml(g){
   return `<div class="card"><div class="rx-head"><h4>How accurate are our goal picks?</h4><span class="note" style="margin:0">games the model had not seen</span></div>
     <div class="gc-grid"><span></span>${seasons.map(([, l]) => `<b>${l}</b>`).join('')}
     ${rows.map(([k, l]) => `<span>${l}</span>${seasons.map(([s]) => { const v = g.seasons[s][k]; return `<div><strong>${pc(v.won)}</strong><small>won · said ${pc(v.said)} · ${v.picks.toLocaleString()} picks</small></div>` }).join('')}`).join('')}</div>
-    <p class="note">Every finished match in nine leagues re-forecast as of its own matchday, using only what was known then, with today's VIP rule: Over 2.5 at 65%+, else Over 1.5 at 78%+, else Under 3.5 at 70%+. The rule was set on 2024-25 and not changed after. Under 2.5 failed this check (it won less often than it said), so we never pick it. The slip also carries up to two favourites to win at 70%+ (79–82% won on past seasons, 75% this season so far).</p></div>`;
+    <p class="note">Every finished match in nine leagues re-forecast as of its own matchday, using only what was known then, with today's VIP rule: Over 2.5 at 65%+, else Over 1.5 at 78%+, else Under 3.5 at 70%+. The rule was set on 2024-25 and not changed after. Under 2.5 failed this check (it won less often than it said), so we never pick it. The slip also carries up to two favourites to win at 75%+ (about 85% won across the last three seasons).</p></div>`;
 }
 function vipLedgerHtml(x, g){
   const how = `<div class="rx-how">
@@ -3832,7 +3900,7 @@ function nbRec(r){ return r ? `Our ${esc(r.bin)} picks won ${pct(r.won)} of ${r.
 function renderNbaPicks(){
   const d = nb.picks, el = $('#nbp-body'); if(!d) return;
   if(d.error){ el.innerHTML = `<div class="empty">${esc(d.error)}</div>`; return }
-  if(!d.picks.length){ el.innerHTML = '<div class="empty">No winner call reaches 72% in the next two game days.</div>'; return }
+  if(!d.picks.length){ el.innerHTML = '<div class="empty">No winner call reaches 80% in the next two game days.</div>'; return }
   const tab = nb.pickTab || 'total', tabs = `<div class="seg bp-tabs" role="tablist">${[['total', 'Over / Under', (d.totals || []).length], ['winner', 'To win', d.picks.length], ['results', 'Results', '']].map(([k, l, n]) => `<button type="button" data-ptab="${k}" aria-pressed="${tab === k}">${l} <small>${n}</small></button>`).join('')}</div>`;
   if(tab === 'total'){ el.innerHTML = tabs + renderNbaTotals(d); return }
   if(tab === 'results'){ el.innerHTML = tabs + nbHistory(d.history, 1); return }
@@ -3924,7 +3992,7 @@ function nbHistory(h, days){
     }).join('');
     html += card(day(dd.date), rows, sum(w, l));
   }
-  return html + '<p class="note">Showing the latest finished day; every earlier pick stays saved and counts in the record above. 15–18 November are rebuilt from the forecasts saved before each tip-off, with the same rules (marked ↺). From 19 November every pick is saved before tip-off as shown. Winner picks before 19 November used a 60% bar; from 19 November only a few strong calls (72%+) are listed.</p>';
+  return html + '<p class="note"><a class="how-link inline" href="#track">Full track record, both sports →</a></p><p class="note">Showing the latest finished day; every earlier pick stays saved and counts in the record above.15–18 November are rebuilt from the forecasts saved before each tip-off, with the same rules (marked ↺). From 19 November every pick is saved before tip-off as shown. Winner picks before 19 November used a 60% bar; now only a few strong calls (80%+) are listed.</p>';
 }
 function renderNbaRecord(){
   const el = $('#nbr-body');

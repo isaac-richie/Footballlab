@@ -1,6 +1,6 @@
 # Football Lab — project and progress
 
-Updated: 26 September 2026.
+Updated: 19 November 2026 (earlier sections kept as written).
 
 ## What we are building
 
@@ -41,6 +41,21 @@ OpenFootball's auto-update stopped on 22 September 2026. La Liga, Serie A, Ligue
 
 Walk-forward over 7,988 matches in eight leagues (2023-24 to 2025-26, refit before every match date), the goal lines are calibrated within 2 points on every line, on the tuning seasons and the 2025-26 hold-out alike. VIP-style picks run slightly cautious, not over-confident: Over 1.5 at 78%+ said 82.4% and won 83.7% (2025-26: 81.8% / 82.8%); Over 2.5 at 65%+ said 68.7% and won 74.5% (2025-26: 69.7% / 74.3%). The six-week replay's 85.9% / 83.0% was 177 picks. There is a small, consistent lean towards too many 0-0s and slightly too few goals (+1 to +1.7 points on Over 0.5 to Over 2.5), in line with the 1X2 draw shift; it was left alone because the published picks err on the safe side and the gain would come at the cost of 1X2 accuracy.
 
+## Hosted site and daily job (November 2026)
+
+The site runs at football-lab-ten.vercel.app from the committed open data. A GitHub Actions job (`.github/workflows/daily.yml`) runs every morning: it refreshes results and fixtures, freezes and grades forecasts, saves the football VIP slip before kickoff, saves backtest summaries for the Record page (`tools/save_backtests.py`, because the hosted disk is read-only and a live backtest took about a minute), refreshes NBA data from balldontlie, prices the NBA board, saves the NBA picks and grades them, and commits everything. GitHub has been starting the 05:30 UTC run up to nine hours late; it still runs before the evening games.
+
+## Football VIP picks (19 November 2026)
+
+Rule, in order, one pick per game: Over 2.5 at 65%+, else Over 1.5 at 78%+, else Under 3.5 at 70%+ (`record.VIP_PRIORITY`), plus up to two favourites to win at 70%+ from other games (`record.vip_favourites`). Leagues: Premier League, La Liga, Bundesliga, Serie A, Eredivisie, Primeira Liga and 2. Bundesliga, each only while its results are current (`league_fresh`). Ligue 1 (said 77.0%, won 73.2%) and Serie B are left out.
+
+The check (`tools/goal_lines_check.py`, `reports/goal_lines_check.json`): every finished match in nine leagues since August 2024 forecast with the production model as of its own matchday; the rule was set on 2024-25. 2025-26: 2,748 picks, said 77.6%, won 78.5% (overs 81.3%, unders 75.9%). 2026-27 to date: 523 picks, won 80.3%. Under 2.5 failed (60%+ said 62-63%, won 51-55%) and is never picked. Favourites at 70%+ won 79.0% (2024-25), 82.0% (2025-26) and 75.0% (2026-27, 40 picks). The saved VIP record started on 17 November; the first results arrive after the international break. The Record page shows separate Overs, Unders and To win tallies, the check above and the latest finished slip.
+
+## Data accounts (19 November 2026)
+
+- **API-Football is suspended** ("Your account is suspended"), so football live scores are off and `apifootball_results.py` cannot fill the stalled leagues. The free plan could not have filled them anyway: it serves only yesterday to tomorrow, not whole seasons. A paid plan (API-Football, or Live-Score-API from 11 euros a month) is needed to bring La Liga, Serie A, Eredivisie and Primeira Liga back.
+- **balldontlie** (free plan) supplies NBA scores, schedule and live scores; ALL-STAR would add injuries and player stats.
+
 ## Remaining priorities
 
 1. Keep the prospective runner active before fixtures, grade results, and accumulate enough forward matches for a meaningful score.
@@ -52,11 +67,17 @@ Football-docs v0.11.1 has been reviewed as a documentation reference; no footbal
 
 ## API configuration
 
-Only `TYPESAFE_API_KEY` is currently needed, and only for optional JEV reviews. The existing OpenFootball data pipeline needs no API key. SportyBet, paid statistics providers and other LLM APIs are not integrated, so no unused credential fields are invented.
+Keys live in `.env` locally (git-ignored, mode 0600), in Vercel's environment variables for the hosted site, and in GitHub's repository secrets for the daily job. Never paste them in chat or commit them.
 
-Edit `.env` in this folder and put a newly rotated key after `TYPESAFE_API_KEY=`. Do not paste secrets in chat, commit them, include them in screenshots or share the entire project folder with `.env` included. The file is plaintext with owner-only permissions (0600), not encrypted storage. `.gitignore` protects future Git workflows but not backups or folder sharing. The previously disclosed key has deliberately not been copied into this file.
+| Key | Used for | Where it must be set |
+|---|---|---|
+| `BALLDONTLIE_API_KEY` | NBA scores, schedule, live scores | `.env`, Vercel, GitHub secret |
+| `API_FOOTBALL_KEY` | football live scores, filling missing results, lineups | `.env`, Vercel, GitHub secret (account suspended on 19 November) |
+| `ODDS_API_KEY` | bookmaker odds (local Lab only; the hosted site shows none) | `.env` |
+| `TYPESAFE_API_KEY` | optional JEV reviews | `.env` |
+| `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` | community league | `.env`, GitHub secrets |
 
-An existing process environment value takes precedence, including an explicitly blank value. Restart after changing `.env`. Blank/missing key leaves local analytics available and JEV unavailable. A configured JEV review makes a network request and may consume provider quota; local throttling does not guarantee free usage.
+Restart the local server after changing `.env`; redeploy on Vercel after changing its variables.
 
 ## Run from this folder
 

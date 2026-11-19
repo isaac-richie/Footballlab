@@ -40,9 +40,10 @@ VIP_MAX, VIP_PER_LEAGUE, VIP_SIZE = .92, 3, 17   # VIP_SIZE: the largest slip th
 VIP_PRIORITY = (('ou25', 'Over 2.5', .65), ('ou15', 'Over 1.5', .78), ('ou35', 'Under 3.5', .70))
 GOAL_CHECK = ROOT / 'reports' / 'goal_lines_check.json'
 # Plus one or two strong favourites to win, from games without a goal pick. Same check, 1X2:
-# favourites at 70%+ said 76.6% won 79.0% (2024-25, 290), 77.0% / 82.0% (2025-26, 228),
-# 76.7% / 75.0% (2026-27 to date, 40).
-VIP_WIN_FLOOR, VIP_WINS = .70, 2
+# favourites at 75%+ won 85.2% (2024-25, 162), 86.9% (2025-26, 137) and 70.8% (2026-27 to
+# date, 24): 84.9% pooled, against 80.2% at 70%+ (558). Raised from 70% on 19 November 2026
+# so the slip carries fewer losing favourites.
+VIP_WIN_FLOOR, VIP_WINS = .75, 2
 
 
 def outcome(goals):

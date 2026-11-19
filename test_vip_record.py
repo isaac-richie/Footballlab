@@ -105,9 +105,9 @@ class VipRecordTest(unittest.TestCase):
         leg = lambda fx, m, sel, p: dict(fixture=fx, league_id='en.1', market=m, selection=sel, probability=p)
         picks = record.vip_from([
             leg('A v B', 'ou15', 'Over 1.5', .85), leg('A v B', '1x2', 'A win', .80),         # game already has a goal pick
-            leg('C v D', '1x2', 'C win', .74), leg('C v D', '1x2', 'Draw', .15),
-            leg('E v F', '1x2', 'F win', .69),                                                  # below 70%
-            leg('G v H', '1x2', 'G win', .78), leg('I v J', '1x2', 'J win', .72)])            # only two favourites
+            leg('C v D', '1x2', 'C win', .79), leg('C v D', '1x2', 'Draw', .12),
+            leg('E v F', '1x2', 'F win', .74),                                                  # below 75%
+            leg('G v H', '1x2', 'G win', .80), leg('I v J', '1x2', 'J win', .76)])            # only two favourites
         self.assertEqual(sorted((p['fixture'], p['selection']) for p in picks),
                          [('A v B', 'Over 1.5'), ('C v D', 'C win'), ('G v H', 'G win')])
 

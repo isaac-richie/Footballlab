@@ -1,6 +1,6 @@
 # Basketball (NBA): not finished yet
 
-Status as of 18 November 2026. What works is described in the README, under "Basketball (NBA)". This file lists what is still open.
+Status as of 19 November 2026. What works is described in the README, under "Basketball (NBA)". This file lists what is still open.
 
 ## Known accuracy gaps
 
@@ -19,20 +19,22 @@ Status as of 18 November 2026. What works is described in the README, under "Bas
 
 - **Public forward record** (`reports/nba_public_prospective-grades.json`): moneyline, spread and main-line total, first and last forecast. On 17 November: 17 graded, 56 pending. Moneyline said 70.5% and won 76.5% on those 17, far too few to judge.
 
-## Built 15 November 2026
+## Built 15-19 November 2026
 
-- **Total-points picks**: a "Total points" tab next to Winners on the picks page. Each game gets the over or under nearest the main total that is at least 70% likely, on the model's own line (`total_pick` in `nba_app.py`). Shown only where totals passed validation.
-- **VIP slip**: the three strongest winner picks, with their joint chance and true odds, and an "Add all to slip" button. The legs are treated as independent games.
-- **Bet slip**: winner picks, total-points picks, the VIP slip and any cell of the Match page's combo grid can be added to the shared slip.
-- **Results ticker**: an NBA ticker of recent final scores replaces the football one in basketball mode.
+- **Picks page, over/under first** (19 November). The page opens on Over / Under: each game's over or under nearest the main total that is at least 70% likely, on the model's own line (`total_pick` in `nba_app.py`). The To win tab lists only a few strong calls: 72% and up, at most five (`picks(floor=.72, most=5)`). Winner picks before 19 November used a 60% bar.
+- **Saved picks and Results** (`nba_picks_ledger.py`, `reports/nba_public_picks/`, committed). The daily job saves every pick on the page before tip-off (one file per game, never rewritten after tip-off) and the Results tab and the Record page mark each won or lost from the final scores, using the live feed for yesterday's games before the next morning's update. Only the latest finished day is listed; the running totals cover every day. 15-18 November were rebuilt from the forward ledger's frozen forecasts with the same rules and are marked rebuilt. Record on 19 November: over/under 25-9 (overs 8-5, unders 17-4), winners 16-9.
+- **VIP slip**: the three strongest over/under calls of the next game day, plus the one or two surest winners (80%+) from other games, with the joint chance and an "Add all to slip" button. The football VIP ticket also carries the NBA picks (`nba_vip.py`).
+- **Live scores** (`nba_live.py`): balldontlie's games list, cached a minute in the process and at the CDN, so about one request a minute however many people watch.
+- **Fast first load**: the daily job prices the board (`reports/nba_public_board.json`), so the hosted site opens in about a second.
+- **Bet slip**: picks, the VIP slip and any cell of the Match page's combo grid can be added to the shared slip. **Results ticker** of recent finals in basketball mode. Hardwood court background and TheSportsDB team logos on the hosted site.
 
 ## Not built
 
-- **Total-points picks and the VIP slip have no forward record.** The ledger grades the main-line total, not the picks' own lines, and nothing freezes the daily VIP three. The picks page shows the walk-forward record for each confidence band instead.
-- **VIP record and the public record page** (`record.py`) stay football-only.
+- **Injuries and who played.** The biggest accuracy gap. balldontlie ALL-STAR ($9.99 a month) has player injuries and per-game player stats; the plan is to test a who-played adjustment on 2025-26 before switching anything on.
+- **Spreads are not offered as picks** (shown on the match page only), and team totals and combos have no saved record.
 - **Bet builder** (pick your own legs) is football-only. NBA same-game combos come only from the fixed combo grid.
 - **Half and quarter markets** (1st-half spread and total, quarter winners): quarter scores are stored, but no model uses them yet.
-- **Only one sportsbook** (ESPN BET via ESPN). The Odds API path used for football (several books, best price) is not wired for NBA (`basketball_nba`).
+- **Only one sportsbook** (ESPN BET via ESPN) on the local Lab; the hosted site shows no odds by design.
 - **Line history**: lines are back-filled from 2023-24 onward, not for 2021-22 and 2022-23.
 - **Other leagues**: WNBA, EuroLeague and NCAA are not covered.
-- **Local Lab first load** still prices the board on start (about 4 to 5 seconds, warmed when the server starts). Only the hosted site reads the pre-priced board.
+- **Local Lab first load** still prices the board on start (about 4 to 5 seconds). Only the hosted site reads the pre-priced board.
