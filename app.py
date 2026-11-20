@@ -985,6 +985,7 @@ def nba_vip_ticket(nba_app, n=0):
     if n > 0:
         rows = sorted(rows, key=lambda r: -r['probability'])[:n]
     rows = sorted(rows, key=lambda r: (r['kickoff'] or r['date']))
+    _explain(rows)
     count = lambda s: sum(r['status'] == s for r in rows)
     combined = math.prod(r['probability'] for r in rows) if rows else 0
     return dict(date=day or today, saved=saved, frozen_at=store['days'].get(day, {}).get('frozen_at') if day else None, legs=rows,
@@ -992,6 +993,22 @@ def nba_vip_ticket(nba_app, n=0):
                              scheduled=count('scheduled'), void=count('void')),
                 combined_probability=combined, combined_fair_odds=(1 / combined) if combined else None,
                 record=nba_vip.ledger(public, live=live))
+
+
+def _explain(legs, data=None):
+    """Why-this-pick and confidence on every leg (explain.py); never breaks the caller."""
+    try:
+        import explain
+        import record
+        try:
+            track = explain.track_table(json.loads(record.FILE.read_text()))
+        except (OSError, ValueError):
+            track = {}
+        today = dt.date.today().isoformat()
+        explain.annotate(legs, lambda lid: history(data, today, lid) if data else [], track)
+    except Exception as exc:
+        log.warning('pick explanations unavailable: %s', exc)
+    return legs
 
 
 def vip_ticket(data, n=17, live_scores=None, nba_legs=None):
@@ -1050,6 +1067,7 @@ def vip_ticket(data, n=17, live_scores=None, nba_legs=None):
     if n < 17:       # a ready-made accumulator: the n surest picks
         rows = sorted(rows, key=lambda r: -r['probability'])[:n]
     rows = sorted(rows, key=lambda r: (r['date'], r.get('kickoff') or ''))
+    _explain(rows, data)
     count = lambda s: sum(r['status'] == s for r in rows)
     combined = math.prod(r['probability'] for r in rows) if rows else 0
     return dict(date=today, **saved, nba_saved=nba_saved, legs=rows,

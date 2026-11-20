@@ -2009,6 +2009,18 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
   .sport button{padding:0 10px}
   .icon-btn{width:36px;height:36px}
 }
+
+/* Why this pick + confidence badge */
+.pwhy{margin-top:8px;font-size:12.5px;line-height:1.45}
+.pwhy summary{display:inline-flex;align-items:center;gap:8px;cursor:pointer;list-style:none;color:var(--muted);font-weight:600}
+.pwhy summary::-webkit-details-marker{display:none}
+.pwhy summary::after{width:6px!important;height:6px!important}
+.pwhy p{margin:6px 0 0;color:var(--text)}
+.pwhy ul{margin:4px 0 0;padding-left:16px;color:var(--muted);font-size:11.5px}
+.cf{display:inline-block;padding:2px 8px;border-radius:999px;font-size:10.5px;font-weight:750;letter-spacing:.04em;text-transform:uppercase;border:1px solid currentColor}
+.cf-high{color:var(--ok);background:var(--ok-bg)}
+.cf-medium{color:var(--warn);background:var(--warn-bg)}
+.cf-low{color:var(--muted);background:transparent}
 </style>
 </head>
 <body>
@@ -3728,10 +3740,20 @@ function vipCardHtml(l, i, quiet, attr){
       <div class="vl-n${VIP_MARK[l.status] ? ' mk' : ''}">${VIP_MARK[l.status] || String(i + 1).padStart(2, '0')}</div>
       <div class="vl-main"><div class="vl-meta">${esc(l.league)} · ${esc(day(l.date))}${l.kickoff ? ' · ' + esc(koTime(l.kickoff)) : ''}</div>
         <div class="vl-teams"><span class="vl-team">${badge(l.home)}<b>${esc(l.home)}</b>${nba ? '' : formChips(f[0])}</span><span class="vl-team">${badge(l.away)}<b>${esc(l.away)}</b>${nba ? '' : formChips(f[1])}</span></div></div>
-      <div class="vl-call"><small>Our pick${nba ? (l.market === 'winner' ? ' · winner' : ' · total points') : ''}</small><strong>${esc(bookieText(l))}</strong>${(VIP_STATE[l.status] || VIP_STATE.scheduled)(l)}</div>
+      <div class="vl-call"><small>Our pick${nba ? (l.market === 'winner' ? ' · winner' : ' · total points') : ''}</small><strong>${esc(bookieText(l))}</strong>${(VIP_STATE[l.status] || VIP_STATE.scheduled)(l)}${whyHtml(l)}</div>
       <div class="vl-p"><b>${Math.round(l.probability * 100)}<i>%</i></b><small data-fair="fair ${l.fair_odds.toFixed(2)}">chance · fair ${l.fair_odds.toFixed(2)}</small>${l.best_odds ? `<small class="vl-best${l.best_odds > l.fair_odds ? ' up' : ''}">best price ${l.best_odds.toFixed(2)}</small>` : ''}</div>
       ${open ? `<button type="button" class="vl-add${state.slip.some(x => x.key === vipKey(l)) ? ' on' : ''}" ${attr}="${i}" aria-label="Add ${esc(l.home)} v ${esc(l.away)} to the slip">+</button>` : '<span class="vl-add-off" aria-hidden="true"></span>'}
     </article>`;
+}
+// Why this pick: a confidence badge (how far the evidence holds up, not the chance itself) and the plain reason.
+function confBadge(c, why){
+  if(!c) return '';
+  return `<span class="cf cf-${c.label.toLowerCase()}" title="${esc(['Confidence ' + c.score + ' of 100'].concat(c.parts || [], why ? [why] : []).join(' · '))}">${esc(c.label)} ${c.score}</span>`;
+}
+function whyHtml(l){
+  if(!l.why && !l.confidence) return '';
+  const parts = (l.confidence && l.confidence.parts || []).map(t => `<li>${esc(t)}</li>`).join('');
+  return `<details class="pwhy"><summary>${confBadge(l.confidence)}<span>Why this pick</span></summary>${l.why ? `<p>${esc(l.why)}</p>` : ''}${parts ? `<ul>${parts}</ul>` : ''}</details>`;
 }
 // Goals pick of the day: the slip's strongest Over 2.5 still to play (or in play). Over 2.5 at 65%+ is our
 // best-behaved goal pick: it has won more often than it said on every season the model had not seen.
@@ -4389,7 +4411,7 @@ function renderNbaPicks(){
   for(const x of rest){
     if(x.date !== last){ rows += `<div class="bp-day">${esc(day(x.date))}</div>`; last = x.date }
     rows += `<button class="bp-row" type="button" ${open(x)}>${jersey(x.team)}
-      <div class="bp-mid"><b>${esc(x.team)}${vipTag(x.id, 'winner')}</b><small>${x.at_home ? 'vs' : '@'} ${esc(x.at_home ? x.away_abbr : x.home_abbr)} · ${nLive(x) ? nStatus(x) : esc(time(x))}</small>${hit(x.record)}</div>
+      <div class="bp-mid"><b>${esc(x.team)}${vipTag(x.id, 'winner')} ${confBadge(x.confidence, x.why)}</b><small>${x.at_home ? 'vs' : '@'} ${esc(x.at_home ? x.away_abbr : x.home_abbr)} · ${nLive(x) ? nStatus(x) : esc(time(x))}</small>${hit(x.record)}</div>
       <div class="p">${Math.round(x.probability * 100)}<small>%</small></div><span class="bp-add" role="button" tabindex="0" data-slip-win="${esc(x.id)}" title="Add to slip">+</span></button>`;
   }
   el.innerHTML = tabs + nbStartedCard(d, 'winner') + html + (rest.length ? card('More picks', rows, `${rest.length} more`) : '');
@@ -4452,7 +4474,7 @@ function renderNbaTotals(d){
     if(x.date !== last){ rows += `<div class="bp-day">${esc(day(x.date))}</div>`; last = x.date }
     rows += `<button class="bp-row bp-tot" type="button" data-id="${esc(x.id)}" data-home="${esc(x.home)}" data-away="${esc(x.away)}">
       <span class="bp-pair">${jersey(x.away)}${jersey(x.home)}</span>
-      <div class="bp-mid"><b>${x.side === 'over' ? 'Over' : 'Under'} ${x.line} points${vipTag(x.id, 'total')}</b><small>${esc(x.away_abbr)} @ ${esc(x.home_abbr)} · ${nLive(x) ? nStatus(x) : esc(time(x))} · we expect ${Math.round(x.expected_total)}</small>${hit(x.record)}</div>
+      <div class="bp-mid"><b>${x.side === 'over' ? 'Over' : 'Under'} ${x.line} points${vipTag(x.id, 'total')} ${confBadge(x.confidence, x.why)}</b><small>${esc(x.away_abbr)} @ ${esc(x.home_abbr)} · ${nLive(x) ? nStatus(x) : esc(time(x))} · we expect ${Math.round(x.expected_total)}</small>${hit(x.record)}</div>
       <div class="p">${Math.round(x.probability * 100)}<small>%</small></div><span class="bp-add" role="button" tabindex="0" data-slip-tot="${esc(x.id)}" title="Add to slip">+</span></button>`;
   }
   const h = d.history || {}, o = h.over, u = h.under, rec = o && u && (o.won + o.lost + u.won + u.lost) ? `record: overs ${o.won}–${o.lost} · unders ${u.won}–${u.lost}` : 'both teams combined';
