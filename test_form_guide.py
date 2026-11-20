@@ -26,7 +26,7 @@ class FormGuideTests(unittest.TestCase):
         self.assertEqual(a['clean_sheets'], 2)
         self.assertEqual(a['streak'], 'W1')
         self.assertEqual(b['streak'], 'W1')
-        self.assertEqual(a['halves']['scored'], [3, 4])                # 1+0+1 then 1+0+3 (incl. last season's game)
+        self.assertEqual(a['halves']['scored'], [2, 5])                # first halves 0+1+0+1, second 1+1+0+3
 
 
 if __name__ == '__main__':
