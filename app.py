@@ -956,6 +956,38 @@ def _nba_ticket_legs(today):
         return [], False
 
 
+def nba_vip_ticket(nba_app, n=0):
+    """The basketball VIP page: today's saved NBA VIP slip with live state, plus its record.
+    n > 0 keeps only the n surest picks (an accumulator)."""
+    today = dt.date.today().isoformat()
+    public = nba_app.public()
+    if not public:
+        nba_vip.run(public=False)
+    try:
+        import nba_live
+        live = nba_live.live().get('games', {})
+    except Exception:
+        live = {}
+    store = nba_vip.load(public)
+    day = today if today in store['days'] else max((d for d in store['days'] if d <= today), default=None)
+    saved = day is not None
+    if saved:
+        rows, _ = nba_vip.ticket_legs(public, day, live)
+    else:
+        p = nba_app.picks()
+        rows = [dict(r, provisional=False) for r in nba_vip.ticket_legs(public, today, live, totals=p.get('totals') or [])[0]]
+    if n > 0:
+        rows = sorted(rows, key=lambda r: -r['probability'])[:n]
+    rows = sorted(rows, key=lambda r: (r['kickoff'] or r['date']))
+    count = lambda s: sum(r['status'] == s for r in rows)
+    combined = math.prod(r['probability'] for r in rows) if rows else 0
+    return dict(date=day or today, saved=saved, frozen_at=store['days'].get(day, {}).get('frozen_at') if day else None, legs=rows,
+                summary=dict(picks=len(rows), won=count('won'), lost=count('lost'), live=count('live'),
+                             scheduled=count('scheduled'), void=count('void')),
+                combined_probability=combined, combined_fair_odds=(1 / combined) if combined else None,
+                record=nba_vip.ledger(public))
+
+
 def vip_ticket(data, n=17, live_scores=None, nba_legs=None):
     """Today's VIP slip as a live ticket: the picks as saved before kickoff, each with its state.
 
@@ -1194,6 +1226,14 @@ class Handler(BaseHTTPRequestHandler):
             except ValueError:
                 return self.send_json(dict(error='Invalid date'), 400)
             self.send_json(match_setup(query['league'], query['date'], query['home'], query['away']))
+        elif path == '/api/nba/vip':
+            import nba_app
+            q = parse_qs(urlparse(self.path).query)
+            try:
+                n = int(q.get('n', ['0'])[0])
+            except ValueError:
+                n = 0
+            self.send_json(nba_vip_ticket(nba_app, n), cache='public, max-age=30, s-maxage=60, stale-while-revalidate=60')
         elif path == '/api/health':
             import model_health
             self.send_json(model_health.load() or dict(error='No health report yet: it is written by the daily job.'))

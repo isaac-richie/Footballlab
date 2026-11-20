@@ -43,6 +43,21 @@ class SaveAndGradeTests(unittest.TestCase):
         nba_vip.grade(store, [dict(id='g1', status='final', score=[118, 110]), dict(id='g3', status='postponed')])
         self.assertEqual([nba_vip.status_of(p) for p in store['days']['2026-11-18']['picks']], ['won', 'void'])
 
+    def test_surest_winners_join_from_other_games(self):
+        now = dt.datetime(2026, 11, 21, 6, 0, tzinfo=dt.timezone.utc)
+        tip = '2026-11-22T00:00:00Z'
+        totals = [dict(id='g1', date='2026-11-21', tipoff=tip, home='A', away='B', side='under', line=230.5, probability=.71)]
+        winners = [dict(id='g1', date='2026-11-21', tipoff=tip, home='A', away='B', team='A', probability=.90),   # game already taken
+                   dict(id='g2', date='2026-11-21', tipoff=tip, home='C', away='D', team='D', probability=.86),
+                   dict(id='g3', date='2026-11-21', tipoff=tip, home='E', away='F', team='E', probability=.79),   # below 80%
+                   dict(id='g4', date='2026-11-21', tipoff=tip, home='G', away='H', team='G', probability=.84),
+                   dict(id='g5', date='2026-11-21', tipoff=tip, home='I', away='J', team='I', probability=.83)]  # only two winners
+        picks = nba_vip.choose(totals, now, winners=winners)
+        self.assertEqual([(p['id'], nba_vip.label(p)) for p in picks],
+                         [('g1', 'Under 230.5 points'), ('g2', 'D to win'), ('g4', 'G to win')])
+        self.assertTrue(nba_vip.won(picks[1], [99, 104]))       # away team D won
+        self.assertFalse(nba_vip.won(picks[2], [99, 104]))      # home team G lost
+
     def test_ticket_legs_use_live_scores(self):
         from unittest.mock import patch
         store = dict(days={'2026-11-18': dict(frozen_at='x', picks=[
