@@ -37,7 +37,7 @@ def run_league(league_id):
         by = {}
         for l in legs:
             if l['market'] == '1x2':
-                key = 'home' if l['selection'] == f"{l['home']} win" else 'away' if l['selection'] == f"{l['away']} win" else 'draw'
+                key = 'p_home' if l['selection'] == f"{l['home']} win" else 'p_away' if l['selection'] == f"{l['away']} win" else 'p_draw'
                 by.setdefault((l['home'], l['away']), dict(league_id=league_id, date=day, home=l['home'], away=l['away'],
                                                            goals=l['goals'], source=l['source'],
                                                            season=season.get((day, l['home'], l['away']))))[key] = round(l['probability'], 4)
