@@ -1195,6 +1195,9 @@ class Handler(BaseHTTPRequestHandler):
             except ValueError:
                 return self.send_json(dict(error='Invalid date'), 400)
             self.send_json(match_setup(query['league'], query['date'], query['home'], query['away']))
+        elif path == '/api/health':
+            import model_health
+            self.send_json(model_health.load() or dict(error='No health report yet: it is written by the daily job.'))
         elif path == '/api/vip/export.csv':
             import record
             self.send_csv(vip_export_rows(record.vip_ledger(max_days=100000)), f'vip-record-{dt.date.today().isoformat()}.csv')

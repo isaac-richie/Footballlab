@@ -1651,6 +1651,9 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
 .tr-bars{display:grid;gap:5px}.tr-bars div{display:grid;grid-template-columns:52px 1fr 52px;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
 .tr-bars i{height:8px;border-radius:9px;background:var(--surface-3);overflow:hidden}.tr-bars em{display:block;height:100%;background:var(--muted);border-radius:9px}
 .tr-bars .won em{background:var(--accent)}.tr-bars b{font-family:var(--mono);font-size:13px;color:var(--text);text-align:right}
+.hl-rows{display:grid;border-top:1px solid var(--line-2)}.hl-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line-2)}
+.hl-row span{display:grid}.hl-row small{color:var(--faint);font-size:12px}.hl-row em{font-style:normal;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap;background:var(--surface-3)}
+.hl-ok,.hl-cautious{color:#4fe08c;background:color-mix(in srgb,#3ccf7a 18%,transparent)!important}.hl-watch{color:#f5c14b;background:color-mix(in srgb,#f5c14b 18%,transparent)!important}.hl-alert{color:#ff7a7a;background:color-mix(in srgb,#f05a5a 20%,transparent)!important}
 .tr-rules{margin:8px 0;padding-left:20px;display:grid;gap:8px;color:var(--muted);line-height:1.55}.tr-rules b{color:var(--text)}
 @media (max-width:640px){.tr-row{grid-template-columns:minmax(0,1fr)}}
 .how-live{margin-top:6px}
@@ -3167,7 +3170,7 @@ async function loadHow(){
 async function loadTrack(){
   if(state.trackLoaded) return; state.trackLoaded = true;
   const el = $('#track-body'), pc = v => v == null ? '–' : (v * 100).toFixed(1) + '%', n = v => (v || 0).toLocaleString();
-  const [rec, nba] = await Promise.all([getRecord().catch(() => null), api('/api/nba/picks').catch(() => null)]);
+  const [rec, nba, health] = await Promise.all([getRecord().catch(() => null), api('/api/nba/picks').catch(() => null), api('/api/health').catch(() => null)]);
   if(!rec && !nba){ state.trackLoaded = false; el.innerHTML = '<div class="error">The record is unavailable right now. Try again in a minute.</div>'; return }
   const bar = (said, won) => `<div class="tr-bars"><div><span>We said</span><i><em style="width:${(said || 0) * 100}%"></em></i><b>${pc(said)}</b></div><div class="won"><span>It won</span><i><em style="width:${(won || 0) * 100}%"></em></i><b>${pc(won)}</b></div></div>`;
   const wl = r => r && r.won + r.lost ? `<b>${r.won}–${r.lost}</b><small>${pc(r.won / (r.won + r.lost))} won</small>` : '<b>–</b><small>no results yet</small>';
@@ -3192,6 +3195,15 @@ async function loadTrack(){
   if(rows.length) html += `<section class="how-sec"><h2 class="how-sub">2 · Tested on seasons the model never saw</h2>
     <p class="how-p">Before a rule goes live it is tested on whole seasons the model was not tuned on, forecasting every game as of the day before. When "we said" and "it won" match, our percentages mean what they say.</p>
     <div class="tr-rows">${rows.map(([lab, picks, said, won]) => `<div class="tr-row${lab.startsWith('·') ? ' sub' : ''}"><div><b>${esc(lab)}</b><small>${n(picks)} picks</small></div>${bar(said, won)}</div>`).join('')}</div></section>`;
+  if(health && (health.football || health.nba)){
+    const word = {ok: 'On target', watch: 'Watch', alert: 'Below what we said', cautious: 'Better than we said', collecting: 'Collecting'};
+    const line = (sport, g, v) => { const a = v.all; return `<div class="hl-row"><span><b>${esc(sport)} · ${esc(g)}</b><small>${a.picks ? `${a.picks} picks · said ${pc(a.said)} · won ${pc(a.won)}` : 'no settled picks yet'}${a.status === 'collecting' && a.picks ? ` · judged from ${health.min_picks}` : ''}</small></span><em class="hl-${a.status}">${word[a.status] || a.status}</em></div>` };
+    const rowsH = [...Object.entries(health.football || {}).map(([g, v]) => line('Football', g, v)), ...Object.entries(health.nba || {}).map(([g, v]) => line('NBA', g, v))];
+    html += `<section class="how-sec"><h2 class="how-sub">Model health</h2>
+      <p class="how-p">Checked every morning on the saved picks: do they win about as often as we said? Each pick type is judged once it has ${health.min_picks} settled picks; until then it is still collecting.</p>
+      <div class="hl-rows">${rowsH.join('') || '<p class="note">No saved picks have settled yet.</p>'}</div>
+      <p class="note">Last checked ${esc(new Date(health.generated_at).toLocaleString(undefined, {day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'}))}. "Below what we said" means fewer picks won than promised, and we would look into it.</p></section>`;
+  }
   html += `<section class="how-sec"><h2 class="how-sub">3 · How the record is kept</h2>
     <ol class="tr-rules"><li><b>Saved before the game.</b> Picks are written down before kickoff or tip-off, with the time.</li>
       <li><b>Never edited.</b> A saved pick cannot be changed or deleted, so the losses stay up next to the wins.</li>

@@ -1,0 +1,82 @@
+{
+ "generated_at": "2026-11-20T08:34:13.505030+00:00",
+ "min_picks": 100,
+ "recent_days": 28,
+ "football": {},
+ "nba": {
+  "over/under (rebuilt days)": {
+   "all": {
+    "picks": 34,
+    "said": 0.7061,
+    "won": 0.7353,
+    "gap": 0.0292,
+    "z": 0.37,
+    "status": "collecting"
+   },
+   "recent": {
+    "picks": 34,
+    "said": 0.7061,
+    "won": 0.7353,
+    "gap": 0.0292,
+    "z": 0.37,
+    "status": "collecting"
+   }
+  },
+  "overs (rebuilt days)": {
+   "all": {
+    "picks": 13,
+    "said": 0.7031,
+    "won": 0.6154,
+    "gap": -0.0877,
+    "z": -0.69,
+    "status": "collecting"
+   },
+   "recent": {
+    "picks": 13,
+    "said": 0.7031,
+    "won": 0.6154,
+    "gap": -0.0877,
+    "z": -0.69,
+    "status": "collecting"
+   }
+  },
+  "unders (rebuilt days)": {
+   "all": {
+    "picks": 21,
+    "said": 0.708,
+    "won": 0.8095,
+    "gap": 0.1015,
+    "z": 1.02,
+    "status": "collecting"
+   },
+   "recent": {
+    "picks": 21,
+    "said": 0.708,
+    "won": 0.8095,
+    "gap": 0.1015,
+    "z": 1.02,
+    "status": "collecting"
+   }
+  },
+  "winners (rebuilt days)": {
+   "all": {
+    "picks": 25,
+    "said": 0.7357,
+    "won": 0.64,
+    "gap": -0.0957,
+    "z": -1.08,
+    "status": "collecting"
+   },
+   "recent": {
+    "picks": 25,
+    "said": 0.7357,
+    "won": 0.64,
+    "gap": -0.0957,
+    "z": -1.08,
+    "status": "collecting"
+   }
+  }
+ },
+ "method": "Run by the daily job after the picks are graded. For each sport and pick type it compares\nthe average stated chance (\"said\") with the share that won (\"won\") on the saved,\nbefore-kickoff record, overall and over the last 28 days, and gives a plain status:",
+ "flags": []
+}
