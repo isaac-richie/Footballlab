@@ -591,6 +591,11 @@ def predict(data, request, stats=None):
     result['decision'] = assess(result)
     from analysis import briefing
     result['analysis'] = briefing(rows, home, away, result)
+    try:
+        from analysis import form_guide
+        result['form_guide'] = form_guide(data['matches'], league_id, home, away, asof)
+    except Exception as exc:                          # an extra: never break the forecast
+        log.warning('form guide unavailable: %s', exc)
     result['jev_review'] = (jev_review(result) if request.get('review', True)
                             else {'status': 'skipped', 'reason': 'Independent review skipped for batch runs to protect quota.'})
     return result

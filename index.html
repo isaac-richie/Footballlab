@@ -2098,6 +2098,29 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
 .xi-p i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;color:#123821;font-style:normal;font-weight:800;font-size:13px}
 .xi-p b{font-size:11.5px;color:#fff;line-height:1.2;text-shadow:0 1px 2px #0008;overflow-wrap:break-word;max-width:100%}
 @media (max-width:760px){.tl-2{grid-template-columns:1fr 1fr}.qs-l{min-width:0;width:100%}.xi-pitch{min-height:400px}.xi-p{width:74px}.xi-p b{font-size:10.5px}}
+
+/* Form & H2H tab */
+.fg-tally{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;margin-bottom:6px}
+.fg-tally span{display:grid;font-size:12px;color:var(--muted)}
+.fg-tally b{font-size:24px;color:var(--text)}
+.fg-m{display:grid;grid-template-columns:1fr auto 1fr;gap:4px 10px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:13px}
+.fg-m small{grid-column:1/-1;color:var(--muted);font-size:11px}
+.fg-m span:first-of-type{text-align:right}
+.fg-m span.w{font-weight:700}
+.fg-m b{font-variant-numeric:tabular-nums}
+.fg-t th{text-align:center;color:var(--muted);font-weight:550;font-size:12px}
+.fg-t .fg-a{text-align:right}
+.fg-gr{display:grid;gap:6px;padding:8px 0;border-top:1px solid var(--line)}
+.fg-k{color:var(--muted);font-size:11px}
+.fg-cells{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:3px}
+.fg-cells span{background:var(--surface-2);border-radius:8px;padding:4px 6px;text-align:center}
+.fg-cells small{display:block;font-size:10px;color:var(--muted)}
+.fg-h{display:grid;gap:4px;padding:8px 0;border-top:1px solid var(--line)}
+.fg-h small{color:var(--muted);font-size:11.5px}
+.fg-bar{height:8px;border-radius:99px;background:color-mix(in srgb,var(--accent) 35%,var(--surface-2));overflow:hidden}
+.fg-bar i{display:block;height:100%;background:var(--accent)}
+.fg-bar.c{background:color-mix(in srgb,var(--warn) 35%,var(--surface-2))}
+.fg-bar.c i{background:var(--warn)}
 </style>
 </head>
 <body>
@@ -3117,7 +3140,7 @@ function compareStrip(d){
     <p class="note">${esc(d.pricing.label)}. ${esc(d.pricing.note || '')} Bookies have been more accurate than our model in testing, so trust the first row.</p>`;
 }
 // Ordered by what bettors reach for most.
-const TABS = [['overview','Summary'],['goals','Goals'],['scores','Correct score'],['handicap','Handicaps'],['halftime','Half-time'],['combos','Combos'],['builder','Bet builder'],['odds','Odds & value'],['pitch','Pitch view'],['stats','Corners'],['evidence','How sure are we?']];
+const TABS = [['overview','Summary'],['form','Form & H2H'],['goals','Goals'],['scores','Correct score'],['handicap','Handicaps'],['halftime','Half-time'],['combos','Combos'],['builder','Bet builder'],['odds','Odds & value'],['pitch','Pitch view'],['stats','Corners'],['evidence','How sure are we?']];
 if(!TABS.some(t => t[0] === state.tab)) state.tab = 'overview';
 // Once a match is on screen the breakdown takes the full width; the form folds behind "Change match".
 function matchMode(on, panel = 'match'){ const l = $(`[data-panel="${panel}"] .match-layout`); if(l){ l.classList.toggle('has-match', on); l.classList.remove('picking') } }
@@ -3208,7 +3231,7 @@ $('#out').addEventListener('click', e => {
 function renderTab(animate = true){
   const panel = $('#panel'); if(!panel) return;
   panel.classList.toggle('still', !animate);
-  panel.innerHTML = ({overview, goals, handicap, halftime, combos, scores, odds: oddsTab, stats: statsTab, builder, evidence, pitch})[state.tab](state.current);
+  panel.innerHTML = ({overview, form: formTab, goals, handicap, halftime, combos, scores, odds: oddsTab, stats: statsTab, builder, evidence, pitch})[state.tab](state.current);
   if(state.tab === 'pitch') loadSetup(state.current);
   panel.querySelectorAll('.heat .cell').forEach((c, i) => c.style.setProperty('--i', i));
   if(animate){ panel.style.animation = 'none'; panel.offsetHeight; panel.style.animation = '' }
@@ -3233,6 +3256,42 @@ function overview(d){
   return html;
 }
 
+// Form & H2H: head to head, season so far, goals record and when goals come, all from final scores.
+function formTab(d){
+  const g = d.form_guide;
+  if(!g) return '<div class="empty">No form guide for this match.</div>';
+  const [th, ta] = g.teams, H = d.home, A = d.away, h2 = g.h2h;
+  const side = (t, k) => t ? t[k] : '–';
+  const row = (label, a, b, hi) => `<tr><td class="r fg-a">${a ?? '–'}</td><th>${esc(label)}</th><td class="fg-b">${b ?? '–'}</td></tr>`;
+  const meetings = h2.games.length ? h2.games.map(m => {
+      const hw = m.goals[0] > m.goals[1], aw = m.goals[0] < m.goals[1];
+      return `<div class="fg-m"><small>${esc(new Date(m.date + 'T12:00:00').toLocaleDateString(undefined, {day: 'numeric', month: 'short', year: 'numeric'}))} · ${esc(m.league)}</small>
+        <span class="${hw ? 'w' : ''}">${esc(m.home)}</span><b>${m.goals[0]}–${m.goals[1]}</b><span class="${aw ? 'w' : ''}">${esc(m.away)}</span></div>` }).join('')
+    : '<p class="note">These two have not met in the competitions we hold since 2021.</p>';
+  const h2hCard = card('Head to head', (h2.games.length ? `<div class="fg-tally"><span><b>${h2.wins.home}</b>${esc(H)}</span><span><b>${h2.wins.draw}</b>draws</span><span><b>${h2.wins.away}</b>${esc(A)}</span></div>
+      <p class="note">${h2.games.length} meetings · ${h2.avg_goals.toFixed(1)} goals a game · over 2.5 in ${h2.over25} · both scored in ${h2.btts}</p>` : '') + meetings, h2.games.length ? `last ${h2.games.length}` : '');
+  const seasonCard = card('Season so far', `<table class="table fg-t"><tr><td class="r fg-a"><b>${esc(H)}</b></td><th></th><td class="fg-b"><b>${esc(A)}</b></td></tr>
+      ${row('Played', side(th, 'played'), side(ta, 'played'))}
+      ${row('W-D-L', th && `${th.won}-${th.drawn}-${th.lost}`, ta && `${ta.won}-${ta.drawn}-${ta.lost}`)}
+      ${row('Points', side(th, 'points'), side(ta, 'points'))}
+      ${row('Goals', th && `${th.goals_for}-${th.goals_against}`, ta && `${ta.goals_for}-${ta.goals_against}`)}
+      ${row('Clean sheets', side(th, 'clean_sheets'), side(ta, 'clean_sheets'))}
+      ${row('Failed to score', side(th, 'failed_to_score'), side(ta, 'failed_to_score'))}
+      ${row('At home', th && `${th.split.home.won}-${th.split.home.drawn}-${th.split.home.lost}`, ta && `${ta.split.home.won}-${ta.split.home.drawn}-${ta.split.home.lost}`)}
+      ${row('Away', th && `${th.split.away.won}-${th.split.away.drawn}-${th.split.away.lost}`, ta && `${ta.split.away.won}-${ta.split.away.drawn}-${ta.split.away.lost}`)}
+      ${row('Biggest win', side(th, 'biggest_win'), side(ta, 'biggest_win'))}
+      ${row('Streak', side(th, 'streak'), side(ta, 'streak'))}</table>`, th ? th.season : '');
+  const rec = (t, k) => t ? ['0.5', '1.5', '2.5', '3.5'].map(l => `<span><small>${l}</small><b>${t.goals_record[k][l]}/${t.goals_record.games}</b></span>`).join('') : '';
+  const goalsCard = card('Goals record', `${[[H, th], [A, ta]].map(([n, t]) => `<div class="fg-gr"><b>${esc(n)}</b>
+        <div><small class="fg-k">Scored over</small><div class="fg-cells">${rec(t, 'scored')}</div></div>
+        <div><small class="fg-k">Conceded over</small><div class="fg-cells">${rec(t, 'conceded')}</div></div></div>`).join('')}
+      <p class="note">Their last ${th ? th.goals_record.games : 8} games in any competition we hold.</p>`);
+  const half = t => { const h = t.halves, s = h.scored[0] + h.scored[1] || 1, c = h.conceded[0] + h.conceded[1] || 1;
+    return `<div class="fg-h"><b>${esc(t.team)}</b><div class="fg-bar"><i style="width:${h.scored[0] / s * 100}%"></i></div><small>Scored: ${h.scored[0]} first half · ${h.scored[1]} second half</small>
+      <div class="fg-bar c"><i style="width:${h.conceded[0] / c * 100}%"></i></div><small>Conceded: ${h.conceded[0]} first half · ${h.conceded[1]} second half</small></div>` };
+  const halvesCard = th && ta && th.halves.games ? card('When goals come', half(th) + half(ta) + `<p class="note">Their last ${th.halves.games} games with a half-time score.</p>`) : '';
+  return `<div class="grid g2">${h2hCard}${seasonCard}${goalsCard}${halvesCard}</div><p class="note">${esc(g.note)}</p>`;
+}
 function goals(d){
   const m = d.markets, H = d.home, A = d.away;
   const totals = Object.entries(d.total_goal_overs);
