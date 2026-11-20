@@ -1,5 +1,5 @@
 /* Motion layer shared by every page (the welcome film is in welcome.js): 3D tilt cards, magnetic buttons,
-   scroll reveal, sweeping headlines and a cursor ring. Everything is skipped
+   scroll reveal and sweeping headlines. Everything is skipped
    for prefers-reduced-motion and when the effects toggle is off; touch devices get no
    cursor or tilt. */
 (function(){
@@ -20,12 +20,7 @@
   .reveal.in{opacity:1;transform:none;transition:opacity .6s ease,transform .7s cubic-bezier(.16,1,.3,1)}
   .wipe{animation:wipeIn .9s cubic-bezier(.16,1,.3,1) both}
   @keyframes wipeIn{from{clip-path:inset(0 100% 0 0);transform:translateX(-14px);letter-spacing:6px}to{clip-path:inset(0 0 0 0)}}
-  .cur-ring{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:2px solid #c2f25e;border-radius:50%;pointer-events:none;z-index:999;
-    transition:width .25s,height .25s,margin .25s,background .25s,border-color .25s,opacity .3s;mix-blend-mode:difference;opacity:0}
-  .cur-ring.show{opacity:.85}
-  .cur-ring.hot{width:58px;height:58px;margin:-29px 0 0 -29px;background:rgba(194,242,94,.12)}
-  .cur-dot{position:fixed;left:0;top:0;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:#c2f25e;pointer-events:none;z-index:999;opacity:0;transition:opacity .3s}
-  .cur-dot.show{opacity:1}`;
+  `;
   document.head.appendChild(css);
 
   /* ---------- 3D tilt with glare ---------- */
@@ -76,24 +71,6 @@
     h.classList.remove('wipe'); void h.offsetWidth; h.classList.add('wipe');
   }
 
-  /* ---------- Cursor ring ---------- */
-  function cursor(){
-    if(!fine) return;
-    const ring = document.createElement('div'), dot = document.createElement('div');
-    ring.className = 'cur-ring'; dot.className = 'cur-dot';
-    document.body.append(ring, dot);
-    let x = 0, y = 0, rx = 0, ry = 0;
-    addEventListener('pointermove', e => {
-      x = e.clientX; y = e.clientY;
-      const show = !reduced() && !off() && !e.target.closest('canvas');   // games need a precise cursor
-      ring.classList.toggle('show', show); dot.classList.toggle('show', show);
-      ring.classList.toggle('hot', !!e.target.closest('a,button,select,input,summary,[role=slider],.fx,.ft'));
-      dot.style.transform = `translate(${x}px,${y}px)`;
-    }, {passive: true});
-    document.addEventListener('pointerleave', () => { ring.classList.remove('show'); dot.classList.remove('show') });
-    (function loop(){ rx += (x - rx) * 0.2; ry += (y - ry) * 0.2; ring.style.transform = `translate(${rx}px,${ry}px)`; requestAnimationFrame(loop) })();
-  }
-
   /* ---------- Wire up, including content rendered later ---------- */
   function scan(root){
     root.querySelectorAll && root.querySelectorAll(TILT).forEach(tiltable);
@@ -102,7 +79,7 @@
   }
   function headlines(){ document.querySelectorAll('.view-head h1, .hero h1').forEach(h => { if(h.offsetParent) split(h) }) }
   function start(){
-    cursor(); scan(document); headlines();
+    scan(document); headlines();
     new MutationObserver(muts => {
       for(const m of muts) for(const n of m.addedNodes) if(n.nodeType === 1){ scan(n); if(n.matches && n.matches(TILT)) tiltable(n) }
     }).observe(document.body, {childList: true, subtree: true});
