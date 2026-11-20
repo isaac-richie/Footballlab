@@ -3809,8 +3809,9 @@ function nbVipRecord(x){
         <span>Said <b>${pc(s.average_confidence)}</b> on average · came in <b>${pc(s.hit_rate)}</b> · overs ${wl(t.overs)} · unders ${wl(t.unders)} · to win ${wl(t.winners)}</span></div>`
     : `<div class="vwr-main" style="grid-column:1/3"><small>NBA VIP win rate</small><strong>Tracking started</strong><span>${s.picks} pick${s.picks === 1 ? '' : 's'} saved before tip-off, waiting for results.</span></div>`;
   el.hidden = false;
-  const last = x.days.find(d => d.won + d.lost > 0);
-  $('#nvip-last').innerHTML = last ? `<div class="card"><div class="rx-head"><h4>Latest finished slip · ${esc(day(last.date))}</h4><span class="note" style="margin:0">${last.won} won · ${last.lost} lost${last.pending ? ' · ' + last.pending + ' to play' : ''}</span></div>
+  // Slips are one NBA game day each; show the latest night that is fully played, else the latest with any result.
+  const last = x.days.find(d => d.settled && d.won + d.lost > 0) || x.days.find(d => d.won + d.lost > 0);
+  $('#nvip-last').innerHTML = last ? `<div class="card"><div class="rx-head"><h4>${last.settled ? 'Latest finished slip' : 'Latest slip so far'} · ${esc(day(last.date))}</h4><span class="note" style="margin:0">${last.won} won · ${last.lost} lost${last.pending ? ' · ' + last.pending + ' to play' : ''}</span></div>
       ${last.picks.map(q => `<div class="bp-hl"><span>${esc(q.away_abbr || q.away)} @ ${esc(q.home_abbr || q.home)} · ${esc(q.selection)}</span><small>${pc(q.probability)}</small><span class="bp-res ${q.status === 'won' ? 'won' : q.status === 'lost' ? 'lost' : 'wait'}">${q.status === 'won' ? '✓ Won' : q.status === 'lost' ? '✗ Lost' : q.status === 'void' ? 'Void' : 'Waiting'}</span></div>`).join('')}
       <div class="share-row"><button type="button" class="primary" id="nvip-share" data-date="${esc(last.date)}">Share this slip</button></div></div>` : '';
 }

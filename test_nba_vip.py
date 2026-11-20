@@ -83,5 +83,37 @@ class SaveAndGradeTests(unittest.TestCase):
         self.assertEqual((rows[0]['status'], rows[0]['clock'], rows[0]['needs'], rows[0]['sport']), ('live', 'Q2 3:10', 106, 'nba'))
 
 
+class GameDayTests(unittest.TestCase):
+    def test_new_york_date_keeps_a_night_together(self):
+        late = dt.datetime(2026, 11, 21, 3, 30, tzinfo=dt.timezone.utc)        # 10:30pm ET on the 20th
+        self.assertEqual(nba_vip.game_day(late).isoformat(), '2026-11-20')
+
+    def test_old_slips_regroup_by_game_day_without_duplicates(self):
+        pick = lambda i, d, won=None: dict(id=i, date=d, tipoff=d + 'T23:00:00Z', home='A', away='B', side='under', line=230.5, probability=.7, won=won)
+        old = dict(days={'2026-11-19': dict(frozen_at='2026-11-19T14:00', picks=[pick('m', '2026-11-19', True), pick('b', '2026-11-20')]),
+                         '2026-11-20': dict(frozen_at='2026-11-20T08:00', picks=[pick('b', '2026-11-20'), pick('s', '2026-11-21')])})
+        new = nba_vip.by_game_day(old)['days']
+        self.assertEqual({k: [p['id'] for p in v['picks']] for k, v in new.items()},
+                         {'2026-11-19': ['m'], '2026-11-20': ['b'], '2026-11-21': ['s']})
+        self.assertEqual(new['2026-11-20']['picks'][0]['saved_at'], '2026-11-19T14:00')      # first time it was published
+
+    def test_freeze_only_takes_tonights_games(self):
+        now = dt.datetime(2026, 11, 20, 9, 0, tzinfo=dt.timezone.utc)
+        totals = [dict(id='t', date='2026-11-20', tipoff='2026-11-21T00:30:00Z', home='A', away='B', side='over', line=220.5, probability=.72),
+                  dict(id='n', date='2026-11-21', tipoff='2026-11-22T00:30:00Z', home='C', away='D', side='over', line=221.5, probability=.80)]
+        store = dict(days={})
+        nba_vip.freeze(store, totals, now.date(), now)
+        self.assertEqual(list(store['days']), ['2026-11-20'])
+        self.assertEqual([p['id'] for p in store['days']['2026-11-20']['picks']], ['t'])
+
+    def test_ledger_settles_finished_games_from_live_scores(self):
+        from unittest.mock import patch
+        store = dict(days={'2026-11-19': dict(frozen_at='x', picks=[
+            dict(id='g', date='2026-11-19', tipoff='2026-11-20T01:00:00Z', home='A', away='B', side='under', line=230.5, probability=.71)])})
+        with patch.object(nba_vip, 'load', return_value=store):
+            led = nba_vip.ledger(True, live={'g': dict(status='final', score=[110, 104])})
+        self.assertEqual((led['days'][0]['picks'][0]['status'], led['days'][0]['settled'], led['summary']['won']), ('won', True, 1))
+
+
 if __name__ == '__main__':
     unittest.main()

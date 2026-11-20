@@ -33,9 +33,34 @@ def _file(public):
     return PUBLIC_FILE if public else LOCAL_FILE
 
 
+def game_day(now=None):
+    """Today's NBA game day: the date in New York, so a night's games share one slip even after
+    midnight UTC (a 7:30pm ET tip-off is 00:30 UTC the next day)."""
+    from zoneinfo import ZoneInfo
+    return (now or dt.datetime.now(dt.timezone.utc)).astimezone(ZoneInfo('America/New_York')).date()
+
+
+def by_game_day(store):
+    """One slip per game day. Slips saved before 20 November 2026 were filed under the day they were
+    saved and could hold the next day's games too (so a game could sit on two slips, and a slip only
+    finished a day late). Each pick moves to its own game day, once, under the first time it was saved."""
+    days, seen = {}, set()
+    for key in sorted(store.get('days', {})):
+        src = store['days'][key]
+        for p in src['picks']:
+            if p['id'] in seen:
+                continue
+            seen.add(p['id'])
+            q = dict(p, saved_at=p.get('saved_at') or src.get('frozen_at'))
+            days.setdefault(q.get('date') or key, dict(picks=[]))['picks'].append(q)
+    for d in days.values():
+        d['frozen_at'] = min((q['saved_at'] for q in d['picks'] if q.get('saved_at')), default=None)
+    return dict(store, days=days)
+
+
 def load(public=False):
     try:
-        return json.loads(_file(public).read_text())
+        return by_game_day(json.loads(_file(public).read_text()))
     except (OSError, ValueError):
         return dict(days={})
 
@@ -45,9 +70,12 @@ def _open(p, now):
     return not (tip and dt.datetime.fromisoformat(tip.replace('Z', '+00:00')) <= now)
 
 
-def choose(totals, now, size=SIZE, winners=(), wins=WINS):
+def choose(totals, now, size=SIZE, winners=(), wins=WINS, day=None):
     """The strongest total picks for games that have not tipped off, one per game, then up to
-    `wins` winner picks at WIN_FLOOR+ from other games."""
+    `wins` winner picks at WIN_FLOOR+ from other games. With `day`, only that game day's games."""
+    if day:
+        totals = [p for p in totals if p.get('date') == day]
+        winners = [p for p in winners if p.get('date') == day]
     seen, out = set(), []
     for p in sorted(totals, key=lambda p: -p['probability']):
         if p['id'] in seen or not _open(p, now):
@@ -75,7 +103,7 @@ def freeze(store, totals, today, now, winners=()):
     picks the current rule wants for games that have not started (each with its own saved time),
     so a slip saved under an older, smaller rule can be topped up before tip-off."""
     day = today.isoformat()
-    picks = choose(totals, now, winners=winners)
+    picks = choose(totals, now, winners=winners, day=day)          # today's game day only: one slip per night
     if not picks:
         return False
     if day not in store['days']:
@@ -157,7 +185,7 @@ def run(public=False, now=None):
     store = load(public)
     new = False
     p = nba_app.picks()                                       # the board is pre-priced, so this is quick
-    new = freeze(store, p.get('totals') or [], now.date(), now, winners=p.get('picks') or [])
+    new = freeze(store, p.get('totals') or [], game_day(now), now, winners=p.get('picks') or [])
     graded = grade(store, (nba_public.load() if public else nba.load())['games'])
     if new or graded:
         _file(public).parent.mkdir(parents=True, exist_ok=True)
@@ -174,7 +202,7 @@ def ticket_legs(public, today, live=None, totals=None, now=None):
         picks, saved = [dict(p, status=status_of(p)) for p in day['picks']], True
     else:
         now = now or dt.datetime.now(dt.timezone.utc)
-        picks, saved = [dict(p, status='pending') for p in choose(totals or [], now)], False
+        picks, saved = [dict(p, status='pending') for p in choose(totals or [], now, day=today)], False
     live = live or {}
     rows = []
     for p in picks:
@@ -200,15 +228,20 @@ def ticket_legs(public, today, live=None, totals=None, now=None):
     return rows, saved
 
 
-def ledger(public, max_days=60):
-    """Every saved NBA VIP slip with each pick's result, plus running totals. A game on more than one
-    slip counts once in the totals, under the first pick published for it (as for football)."""
+def ledger(public, max_days=60, live=None):
+    """Every saved NBA VIP slip (one per game day) with each pick's result, plus running totals.
+    `live` scores settle a finished game straight away, marked provisional until the morning job
+    grades it from the stored results."""
     store = load(public)
+    live = live or {}
     days, seen = [], set()
     for day in sorted(store['days']):
         picks = []
         for p in store['days'][day]['picks']:
             q = dict(p, status=status_of(p), selection=label(p), market=p.get('market') or 'total', counted=p['id'] not in seen)
+            lv = live.get(p['id']) or live.get(f"{p['date']}|{p.get('home_abbr')}")
+            if q['status'] == 'pending' and lv and lv.get('status') == 'final' and lv.get('score'):
+                q.update(status='won' if won(p, lv['score']) else 'lost', score=list(lv['score']), provisional=True)
             seen.add(p['id'])
             picks.append(q)
         won_ = sum(q['status'] == 'won' for q in picks); lost = sum(q['status'] == 'lost' for q in picks)
