@@ -531,7 +531,7 @@ html{background:var(--bg)}
 .ft-all{margin-top:34px}
 .bp-done{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.bp-day+.bp-done{border-top:0}
 .bp-done .bp-mid small{opacity:.75}.bp-done .st.live{white-space:nowrap}
-.vl-best{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}.vl-best.up{color:#4fe08c;font-weight:700}
+
 .sl-odds{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:10px;align-items:end;margin-top:8px}
 .sl-odds small{display:block;font-size:10.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.05em}.sl-odds b{font-size:14px}
 .sl-odds input{width:100%;min-height:36px;padding:6px 10px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--text);font-size:16px}
@@ -915,21 +915,6 @@ footer a{color:var(--muted)}
   background:radial-gradient(120% 120% at 0% 0%,color-mix(in srgb,#ffd166 22%,transparent),transparent 55%),var(--surface)!important;border:1px solid color-mix(in srgb,#ffd166 40%,var(--line-2))!important}
 
 .vip-legs{display:grid}
-.vl{display:grid;grid-template-columns:28px minmax(0,1fr) 64px;align-items:center;gap:12px;padding:14px;border-radius:16px;border:1px solid var(--line-2);
-  background:color-mix(in srgb,var(--surface) 94%,transparent);animation:rise .45s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i) * 35ms)}
-.vl-n{font-family:var(--display);font-weight:800;font-size:18px;color:var(--faint)}
-.vl-main{min-width:0;display:flex;flex-direction:column;gap:6px}
-.vl-meta{font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
-.vl-teams{display:flex;flex-direction:column;gap:3px;font-weight:650;font-size:14px}
-.vl-teams span{display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.vl-teams .tb{width:18px;height:18px}
-
-.vl-p{position:relative;display:flex;flex-direction:column;align-items:center}
-.vl-p svg{width:56px;height:56px;transform:rotate(-90deg)}
-.vl-p circle{fill:none;stroke:var(--surface-3);stroke-width:3.2}
-.vl-p .p{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:97.4}
-.vl-p b{position:absolute;top:17px;font-family:var(--display);font-size:15px}
-.vl-p small{font-size:11px;color:var(--muted);margin-top:2px}
 
 /* music: cover art, genres, search, shuffle */
 .mx-disc .art{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);border-radius:50%;object-fit:cover;animation:spin 6s linear infinite}
@@ -1428,24 +1413,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
 .vb-stamp svg{width:18px;height:18px;fill:none;stroke:var(--ok);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .vip-all{width:auto!important;padding:10px 18px!important}
 .vip-legs{gap:10px!important}
-.vl.vlx{display:grid;grid-template-columns:40px minmax(0,1.3fr) minmax(0,1fr) 128px 42px;gap:18px;align-items:center;padding:16px 18px 16px 24px!important;
-  background:linear-gradient(var(--kh) 50%,var(--ka) 50%) left/5px 100% no-repeat,var(--surface)!important;border:1px solid var(--line-2)!important;border-radius:6px!important;box-shadow:none!important}
-.vl.vlx:hover{border-color:var(--text)!important}
-.vlx .vl-n{font-family:var(--mono)!important;font-size:13px!important;font-weight:500!important;color:var(--accent)!important}
-.vlx .vl-meta{font-size:11px!important;letter-spacing:.1em!important;color:var(--muted)}
-.vlx .vl-teams{display:flex;flex-direction:column;gap:7px;margin-top:8px}
-.vl-team{display:flex;align-items:center;gap:10px;min-width:0}
-.vl-team .crest{flex:none}
-.vl-team b{font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
-.vl-call small{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:650;margin-bottom:4px}
-.vl-call strong{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.15;letter-spacing:-.01em}
-.vlx .vl-p{display:flex;flex-direction:column;align-items:flex-end;text-align:right}
-.vlx .vl-p b{position:static!important;font-family:var(--mono)!important;font-size:42px!important;font-weight:500!important;letter-spacing:-.05em!important;line-height:1;color:var(--accent)}
-.vlx .vl-p b i{font-style:normal;font-size:.5em;margin-left:1px}
-.vlx .vl-p small{font-size:11.5px;color:var(--muted);margin-top:6px}
-.vl-add{width:42px;height:42px;border-radius:4px;border:1px solid var(--line-2);background:none;color:var(--text);font-size:21px;line-height:1;cursor:pointer;transition:all .15s}
-.vl-add:hover{border-color:var(--accent);color:var(--accent)}
-.vl-add.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
 /* Live ticket: a segment per pick, the running tally, and each pick's state */
 .ticket{margin:0 0 14px;padding:14px 16px;border:1px solid var(--line-2);border-radius:6px;background:var(--surface)}
 .tk-segs{display:flex;gap:3px;height:8px}
@@ -1459,30 +1427,11 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
 .tk-tally b.tk-won{color:var(--ok)}.tk-tally b.tk-lost{color:var(--lost)}.tk-tally b.tk-live{color:var(--accent)}
 .tk-tally i{font-style:normal;color:var(--faint)}
 .tk-all b{font-family:var(--mono);font-weight:550;color:var(--text)}
-.vl-st{display:inline-flex;align-items:center;gap:7px;margin-top:8px;padding:4px 9px;border-radius:3px;font-size:12.5px;font-weight:650;line-height:1.2}
-.vl-st em{font-style:normal;font-weight:500;opacity:.75;margin-left:4px}
-.vl-st.sch{background:var(--surface-2);color:var(--muted)}
-.vl-st.live{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
-.vl-st.live i{width:7px;height:7px;background:var(--accent);animation:tkPulse 1.2s ease-in-out infinite}
-.vl-st.won{background:var(--ok-bg);color:var(--ok)}
-.vl-st.lost{background:color-mix(in srgb,var(--lost) 14%,transparent);color:var(--lost)}
-.vl-st.void{background:var(--surface-2);color:var(--faint)}
-.vlx .vl-n.mk{display:grid;place-items:center;width:30px;height:30px;font-size:15px!important;font-weight:700!important;border-radius:50%}
-.vlx.is-won .vl-n.mk{background:var(--ok);color:var(--bg)!important}
-.vlx.is-lost .vl-n.mk{background:var(--lost);color:#fff!important}
-.vlx.is-live .vl-n.mk i{width:10px;height:10px;border-radius:50%;background:var(--accent);animation:tkPulse 1.2s ease-in-out infinite}
-.vlx.is-live{border-color:color-mix(in srgb,var(--accent) 60%,var(--line-2))!important}
-.vlx.is-lost .vl-p b,.vlx.is-void .vl-p b{color:var(--faint)}
-.vlx.is-won .vl-p b{color:var(--ok)}
-.vl-add-off{width:42px}
+
 @media (prefers-reduced-motion:reduce){.tk-segs .tk-live,.vl-st.live i,.vlx.is-live .vl-n.mk i{animation:none}}
 @media (max-width:900px){.vip-band{grid-template-columns:minmax(0,1fr);padding:26px 20px 22px}}
 @media (max-width:760px){
-  .vl.vlx{grid-template-columns:24px minmax(0,1fr) auto;column-gap:12px}
-  .vlx .vl-n{grid-area:n;align-self:start;padding-top:2px}.vlx .vl-main{grid-area:main}.vlx .vl-p{grid-area:p;align-self:start}
-  .vlx .vl-call{grid-area:call}.vl-add{grid-area:add;align-self:end}
-  
-  .vl-team{row-gap:4px}
+
   .vb-stamp{margin-right:0;flex-basis:100%}
 }
 
@@ -1827,19 +1776,6 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   .potd-p b{font-size:36px!important}
 
   /* VIP pick cards: number, teams and chance up top; pick and button below */
-  .vl.vlx{padding:12px 12px 12px 14px!important;row-gap:8px!important}
-  .vlx .vl-meta{font-size:11px!important}
-  .vl-teams{gap:4px!important}
-  .vl-team{flex-wrap:nowrap!important;gap:8px!important}
-  .vl-team b{flex:1 1 auto!important;font-size:14.5px!important}
-  .vl-team .f5{margin-left:0!important;flex:none}
-  .vl-team .f5 i{width:7px!important;height:7px!important;font-size:0!important;border-radius:2px!important}
-  .vl-team .crest{width:24px!important;height:24px!important}
-  .vlx .vl-p b{font-size:28px!important}
-  .vlx .vl-p small{font-size:10.5px!important}
-  .vl-call small{font-size:10.5px!important}
-  .vl-call strong{font-size:17px!important}
-  .vl-add{width:38px!important;height:38px!important}
 
   /* Games board and other long lists */
   .toolbar{gap:8px!important}
@@ -1855,8 +1791,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   .view-head h1,.intro h1,.vip-band h1,.how-head h1{font-size:27px!important}
   .hero-stats b,.vb-stats b{font-size:18px!important}
   .fc-ring,.fc-ring.away{width:46px!important;height:46px!important}
-  .vlx .vl-p b{font-size:24px!important}
-  .vl-team .f5{display:none!important}
+
 }
 
 /* ================= Design system, 21 Nov 2026 =================
@@ -1888,12 +1823,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   .ga .tri-wrap .nums{display:none!important}
 
   /* VIP cards: the chance is the hero; the time shows once */
-  .vlx.is-scheduled .vl-st{display:none!important}
-  .vl-call>small{display:none!important}
-  .vl-call strong{margin:0!important}
-  .vlx .vl-p small:not(.vl-best){font-size:0!important}
-  .vlx .vl-p small:not(.vl-best)::after{content:attr(data-fair);font-size:11px}
-  .vl.vlx{grid-template-areas:"n main p" "n call add"!important;align-items:center!important}
+
   .vip-band .vb-copy>p,.vip-band .vb-how{display:none!important}
 
   /* Goals pick of the day: the call and its chance; the evidence sits under "how we choose" */
@@ -1907,6 +1837,86 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
 
   /* Bottom menu labels: sentence case, readable */
   .tabbar a{text-transform:none!important;letter-spacing:0!important;font-size:11px!important;font-weight:600!important}
+}
+
+/* ---- Notes that sit on the page background (not inside a card): readable over the pitch or court ---- */
+.note:not(.card .note):not(.potd .note){color:var(--muted)!important;background:color-mix(in srgb,var(--bg) 78%,transparent);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:10px 12px;border-radius:var(--r-md,12px)}
+.note:not(.card .note):not(.potd .note) a{color:var(--text)}
+.note:empty{display:none!important}
+.wrap>footer{color:var(--muted)!important;background:color-mix(in srgb,var(--bg) 78%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  padding:14px 16px!important;border-radius:var(--r-md,12px);border-top:0!important;margin-bottom:12px}
+.wrap>footer span{color:var(--muted)!important}
+
+/* ================= Component: VIP card (all of its rules, gathered from every layer) ================= */
+.vl-best{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
+.vl-best.up{color:#4fe08c;font-weight:700}
+.vl-main{min-width:0;display:flex;flex-direction:column;gap:6px}
+.vl-teams span{display:flex;align-items:center;gap:8px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vl-teams .tb{width:18px;height:18px}
+.vl-p svg{width:56px;height:56px;transform:rotate(-90deg)}
+.vl-p circle{fill:none;stroke:var(--surface-3);stroke-width:3.2}
+.vl-p .p{stroke:var(--accent);stroke-linecap:round;stroke-dasharray:97.4}
+.vl.vlx{animation:rise .45s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i) * 35ms);display:grid;grid-template-columns:40px minmax(0,1.3fr) minmax(0,1fr) 128px 42px;gap:18px;align-items:center;padding:16px 18px 16px 24px!important;border:1px solid var(--line-2)!important;border-radius:6px!important;box-shadow:none!important}
+.vl.vlx:hover{border-color:var(--text)!important}
+.vlx .vl-n{font-family:var(--mono)!important;font-size:13px!important;font-weight:500!important;color:var(--accent)!important}
+.vlx .vl-meta{text-transform:uppercase;font-size:11px!important;letter-spacing:.1em!important;color:var(--muted)}
+.vlx .vl-teams{font-weight:650;font-size:14px;display:flex;flex-direction:column;gap:7px;margin-top:8px}
+.vl-team{display:flex;align-items:center;gap:10px;min-width:0}
+.vl-team .crest{flex:none}
+.vl-team b{font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.vl-call small{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:650;margin-bottom:4px}
+.vl-call strong{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.15;letter-spacing:-.01em}
+.vlx .vl-p{position:relative;display:flex;flex-direction:column;align-items:flex-end;text-align:right}
+.vlx .vl-p b{top:17px;position:static!important;font-family:var(--mono)!important;font-size:42px!important;font-weight:500!important;letter-spacing:-.05em!important;line-height:1;color:var(--accent)}
+.vlx .vl-p b i{font-style:normal;font-size:.5em;margin-left:1px}
+.vlx .vl-p small{font-size:11.5px;color:var(--muted);margin-top:6px}
+.vl-add{width:42px;height:42px;border-radius:4px;border:1px solid var(--line-2);background:none;color:var(--text);font-size:21px;line-height:1;cursor:pointer;transition:all .15s}
+.vl-add:hover{border-color:var(--accent);color:var(--accent)}
+.vl-add.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.vl-st{display:inline-flex;align-items:center;gap:7px;margin-top:8px;padding:4px 9px;border-radius:3px;font-size:12.5px;font-weight:650;line-height:1.2}
+.vl-st em{font-style:normal;font-weight:500;opacity:.75;margin-left:4px}
+.vl-st.sch{background:var(--surface-2);color:var(--muted)}
+.vl-st.live{background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent)}
+.vl-st.live i{width:7px;height:7px;background:var(--accent);animation:tkPulse 1.2s ease-in-out infinite}
+.vl-st.won{background:var(--ok-bg);color:var(--ok)}
+.vl-st.lost{background:color-mix(in srgb,var(--lost) 14%,transparent);color:var(--lost)}
+.vl-st.void{background:var(--surface-2);color:var(--faint)}
+.vlx .vl-n.mk{display:grid;place-items:center;width:30px;height:30px;font-size:15px!important;font-weight:700!important;border-radius:50%}
+.vlx.is-won .vl-n.mk{background:var(--ok);color:var(--bg)!important}
+.vlx.is-lost .vl-n.mk{background:var(--lost);color:#fff!important}
+.vlx.is-live .vl-n.mk i{width:10px;height:10px;border-radius:50%;background:var(--accent);animation:tkPulse 1.2s ease-in-out infinite}
+.vlx.is-live{border-color:color-mix(in srgb,var(--accent) 60%,var(--line-2))!important}
+.vlx.is-lost .vl-p b{color:var(--faint)}
+.vlx.is-void .vl-p b{color:var(--faint)}
+.vlx.is-won .vl-p b{color:var(--ok)}
+.vl-add-off{width:42px}
+@media (max-width:760px){
+  .vlx .vl-n{grid-area:n;align-self:start;padding-top:2px}
+  .vlx .vl-main{grid-area:main}
+  .vlx .vl-p{grid-area:p;align-self:start}
+  .vlx .vl-call{grid-area:call}
+  .vlx .vl-meta{font-size:11px!important}
+  .vl-teams{gap:4px!important}
+  .vl-team{row-gap:4px;flex-wrap:nowrap!important;gap:8px!important}
+  .vl-team b{flex:1 1 auto!important;font-size:14.5px!important}
+  .vl-team .f5{margin-left:0!important;flex:none}
+  .vl-team .f5 i{width:7px!important;height:7px!important;font-size:0!important;border-radius:2px!important}
+  .vl-team .crest{width:24px!important;height:24px!important}
+  .vlx .vl-p b{font-size:28px!important}
+  .vlx .vl-p small{font-size:10.5px!important}
+  .vl-call small{font-size:10.5px!important}
+  .vl-add{grid-area:add;align-self:end;width:38px!important;height:38px!important}
+  .vlx.is-scheduled .vl-st{display:none!important}
+  .vl-call>small{display:none!important}
+  .vl-call strong{font-size:17px!important;margin:0!important}
+  .vlx .vl-p small:not(.vl-best){font-size:0!important}
+  .vlx .vl-p small:not(.vl-best)::after{content:attr(data-fair);font-size:11px}
+  .vl.vlx{grid-template-columns:24px minmax(0,1fr) auto;column-gap:12px;padding:12px 12px 12px 14px!important;row-gap:8px!important;grid-template-areas:"n main p" "n call add"!important;align-items:center!important}
+}
+@media (max-width:400px){
+  .vlx .vl-p b{font-size:24px!important}
+  .vl-team .f5{display:none!important}
 }
 </style>
 </head>
