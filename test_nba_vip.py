@@ -43,6 +43,21 @@ class SaveAndGradeTests(unittest.TestCase):
         nba_vip.grade(store, [dict(id='g1', status='final', score=[118, 110]), dict(id='g3', status='postponed')])
         self.assertEqual([nba_vip.status_of(p) for p in store['days']['2026-11-18']['picks']], ['won', 'void'])
 
+    def test_top_up_adds_new_picks_and_never_changes_saved_ones(self):
+        now = dt.datetime(2026, 11, 20, 9, 0, tzinfo=dt.timezone.utc)
+        tip = '2026-11-21T00:00:00Z'
+        old = [dict(id='g1', date='2026-11-20', tipoff=tip, home='A', away='B', side='under', line=230.5, probability=.71)]
+        store = dict(days={})
+        nba_vip.freeze(store, old, now.date(), now)
+        later = now + dt.timedelta(hours=2)
+        totals = [dict(old[0], line=228.5, probability=.72),                                   # same game, new line: ignored
+                  dict(id='g2', date='2026-11-20', tipoff=tip, home='C', away='D', side='over', line=220.5, probability=.70),
+                  dict(id='g3', date='2026-11-20', tipoff='2026-11-20T10:00:00Z', home='E', away='F', side='over', line=219.5, probability=.70)]
+        self.assertTrue(nba_vip.freeze(store, totals, now.date(), later))
+        picks = store['days']['2026-11-20']['picks']
+        self.assertEqual([(p['id'], p['line']) for p in picks], [('g1', 230.5), ('g2', 220.5)])   # g3 tipped off before the top-up
+        self.assertEqual(picks[1]['saved_at'], later.isoformat())
+
     def test_surest_winners_join_from_other_games(self):
         now = dt.datetime(2026, 11, 21, 6, 0, tzinfo=dt.timezone.utc)
         tip = '2026-11-22T00:00:00Z'

@@ -2239,14 +2239,14 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       <div class="vb-copy">
         <span class="vb-kicker">NBA VIP</span>
         <h1>Our strongest calls</h1>
-        <p>The day's surest NBA calls: our three strongest <b>over/under</b> picks (about 70% each, the market that matched its stated chance on a season the model never saw), plus up to two <b>winners at 80%+</b> from other games (those won 84.9% on that season).</p>
+        <p>The day's surest NBA calls: our five strongest <b>over/under</b> picks (about 70% each, the market that matched its stated chance on a season the model never saw), plus up to two <b>winners at 80%+</b> from other games (those won 84.9% on that season).</p>
         <div class="hero-stats vb-stats" id="nvip-stats"></div>
       </div>
       <a class="vwr card" id="nvip-wr" href="#featured" hidden></a>
     </header>
     <div class="vip-tools">
       <span class="vb-stamp" id="nvip-stamp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.4 3.4 8.4 8 9 4.6-.6 8-4.6 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Saved before tip-off · never edited · graded on the final score</span>
-      <div class="seg" id="nvip-n" role="group" aria-label="Accumulator size"><span class="seg-lbl">Accumulator</span><button data-n="2">2</button><button data-n="3">3</button><button data-n="4">4</button><button data-n="0" aria-pressed="true">All</button></div>
+      <div class="seg" id="nvip-n" role="group" aria-label="Accumulator size"><span class="seg-lbl">Accumulator</span><button data-n="3">3</button><button data-n="4">4</button><button data-n="5">5</button><button data-n="0" aria-pressed="true">All</button></div>
       <button type="button" class="primary vip-all" id="nvip-all" hidden>Add all to slip</button>
     </div>
     <div class="ticket" id="nvip-ticket" hidden aria-live="polite"></div>
@@ -3612,6 +3612,8 @@ async function loadNbaVip(quiet){
     nbVipRecord(d.record);
     if(!legs.length){ $('#nvip-ticket').hidden = true; $('#nvip-all').hidden = true; $('#nvip-stats').innerHTML = '';
       $('#nvip-legs').innerHTML = '<div class="placeholder"><div><h3>No NBA VIP slip right now</h3><p>No game reaches our VIP bar in the next two game days. The next slip is saved the morning before the games.</p></div></div>'; return }
+    const total = (d.record && d.record.days && d.record.days[0] && d.record.days[0].date === d.date) ? d.record.days[0].picks.length : legs.length;
+    $$('#nvip-n [data-n]').forEach(b => { const k = +b.dataset.n; b.hidden = k > 0 && k >= total });
     const avg = legs.reduce((t, l) => t + l.probability, 0) / legs.length, s = d.summary;
     $('#nvip-stats').innerHTML = `<span><b>${legs.length}</b> picks</span><span><b>${pc(avg)}</b> average chance</span><span><b>${legs.filter(l => l.market === 'winner').length}</b> to win</span>`;
     $('#nvip-stamp').lastChild.textContent = d.saved

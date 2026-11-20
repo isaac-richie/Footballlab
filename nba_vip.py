@@ -20,7 +20,8 @@ from quality import atomic_write
 ROOT = Path(__file__).resolve().parent
 PUBLIC_FILE = ROOT / 'reports' / 'nba_vip_public.json'
 LOCAL_FILE = ROOT / 'reports' / 'nba_prospective' / 'vip.json'
-SIZE = 3
+SIZE = 5            # 3 until 20 November 2026; every total pick is set near 70% (70-80% band won 73.7% on 2,644 in 2025-26),
+                    # so the 4th and 5th strongest are as good per pick as the first three
 # From 21 November 2026 the slip also carries up to WINS winners at WIN_FLOOR or better, from games
 # without a total pick (80%+ winner picks won 84.9% on the held-out 2025-26 season).
 WINS, WIN_FLOOR = 2, .80
@@ -70,14 +71,22 @@ def label(p):
 
 
 def freeze(store, totals, today, now, winners=()):
-    """Write today's picks once; later runs the same day change nothing."""
+    """Write today's picks once. A later run the same day never changes a saved pick; it only adds
+    picks the current rule wants for games that have not started (each with its own saved time),
+    so a slip saved under an older, smaller rule can be topped up before tip-off."""
     day = today.isoformat()
-    if day in store['days']:
-        return False
     picks = choose(totals, now, winners=winners)
     if not picks:
         return False
-    store['days'][day] = dict(frozen_at=now.isoformat(), picks=picks)
+    if day not in store['days']:
+        store['days'][day] = dict(frozen_at=now.isoformat(), picks=[dict(p, saved_at=now.isoformat()) for p in picks])
+        return True
+    saved = store['days'][day]['picks']
+    have = {p['id'] for p in saved}
+    extra = [dict(p, saved_at=now.isoformat()) for p in picks if p['id'] not in have]
+    if not extra:
+        return False
+    saved.extend(extra)
     return True
 
 
@@ -147,9 +156,8 @@ def run(public=False, now=None):
     now = now or dt.datetime.now(dt.timezone.utc)
     store = load(public)
     new = False
-    if now.date().isoformat() not in store['days']:          # pricing the picks takes seconds: once a day
-        p = nba_app.picks()
-        new = freeze(store, p.get('totals') or [], now.date(), now, winners=p.get('picks') or [])
+    p = nba_app.picks()                                       # the board is pre-priced, so this is quick
+    new = freeze(store, p.get('totals') or [], now.date(), now, winners=p.get('picks') or [])
     graded = grade(store, (nba_public.load() if public else nba.load())['games'])
     if new or graded:
         _file(public).parent.mkdir(parents=True, exist_ok=True)
