@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718202",
+ "date": "2026-11-27",
+ "tipoff": "2026-11-28T02:30:00Z",
+ "home": "LA Clippers",
+ "away": "New Orleans Pelicans",
+ "kind": "regular",
+ "registered_at": "2026-11-20T08:37:29.057652+00:00",
+ "version": "165d0091f932",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.6067118206579096,
+ "spread_line": -3.5,
+ "cover": 0.5196913644688059,
+ "total_line": 236.5,
+ "over": 0.4950614108420543,
+ "expected": [
+  120.18740953666081,
+  116.37290765912086
+ ],
+ "model": {
+  "moneyline": 0.6067118206579096,
+  "cover": 0.5196913644688059,
+  "over": 0.4950614108420543,
+  "expected": [
+   120.18740953666081,
+   116.37290765912086
+  ]
+ }
+}

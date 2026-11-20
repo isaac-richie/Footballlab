@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718197",
+ "date": "2026-11-27",
+ "tipoff": "2026-11-28T01:00:00Z",
+ "home": "Boston Celtics",
+ "away": "Atlanta Hawks",
+ "kind": "regular",
+ "registered_at": "2026-11-20T08:37:29.057652+00:00",
+ "version": "165d0091f932",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.7369698732997955,
+ "spread_line": -8.5,
+ "cover": 0.5118982628483711,
+ "total_line": 222.5,
+ "over": 0.5031518419696903,
+ "expected": [
+  115.91675602006383,
+  106.98738808852977
+ ],
+ "model": {
+  "moneyline": 0.7369698732997955,
+  "cover": 0.5118982628483711,
+  "over": 0.5031518419696903,
+  "expected": [
+   115.91675602006383,
+   106.98738808852977
+  ]
+ }
+}

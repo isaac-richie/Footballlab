@@ -1,0 +1,20 @@
+{
+ "schema": 1,
+ "id": "bdl21718161",
+ "date": "2026-11-21",
+ "tipoff": "2026-11-22T03:00:00Z",
+ "home": "Sacramento Kings",
+ "away": "Boston Celtics",
+ "home_abbr": "SAC",
+ "away_abbr": "BOS",
+ "saved_at": "2026-11-20T08:37:29.047073+00:00",
+ "winner": {
+  "team": "Boston Celtics",
+  "probability": 0.9180887138618192
+ },
+ "total": {
+  "side": "under",
+  "line": 230.5,
+  "probability": 0.713888590731069
+ }
+}

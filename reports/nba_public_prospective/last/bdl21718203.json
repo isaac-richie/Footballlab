@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718203",
+ "date": "2026-11-27",
+ "tipoff": "2026-11-28T02:30:00Z",
+ "home": "Portland Trail Blazers",
+ "away": "Golden State Warriors",
+ "kind": "regular",
+ "registered_at": "2026-11-20T08:37:29.057652+00:00",
+ "version": "165d0091f932",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.7122435124688727,
+ "spread_line": -7.5,
+ "cover": 0.5119328628859591,
+ "total_line": 225.5,
+ "over": 0.49212111523026225,
+ "expected": [
+  116.64425157477628,
+  108.75776049787957
+ ],
+ "model": {
+  "moneyline": 0.7122435124688727,
+  "cover": 0.5119328628859591,
+  "over": 0.49212111523026225,
+  "expected": [
+   116.64425157477628,
+   108.75776049787957
+  ]
+ }
+}

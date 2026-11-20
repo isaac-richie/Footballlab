@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718196",
+ "date": "2026-11-27",
+ "tipoff": "2026-11-28T00:30:00Z",
+ "home": "Toronto Raptors",
+ "away": "Brooklyn Nets",
+ "kind": "regular",
+ "registered_at": "2026-11-20T08:37:29.057652+00:00",
+ "version": "165d0091f932",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.7530584790066165,
+ "spread_line": -9.5,
+ "cover": 0.5028504465204875,
+ "total_line": 226.5,
+ "over": 0.497475474789727,
+ "expected": [
+  118.13229070521102,
+  108.49487081444383
+ ],
+ "model": {
+  "moneyline": 0.7530584790066165,
+  "cover": 0.5028504465204875,
+  "over": 0.497475474789727,
+  "expected": [
+   118.13229070521102,
+   108.49487081444383
+  ]
+ }
+}

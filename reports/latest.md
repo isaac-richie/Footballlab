@@ -1,6 +1,6 @@
-# Football Lab research run — 2026-11-19
+# Football Lab research run — 2026-11-20
 
-66 fixtures in the next 7 days (excluding today).
+69 fixtures in the next 7 days (excluding today).
 Status: review_required
 
 ## Coverage
@@ -17,10 +17,6 @@ Status: review_required
 
 ## Forecasts
 
-- 2026-11-20 · Germany — Bundesliga · FC Bayern München v 1. FC Köln: research_only; 1X2 87.6%/8.9%/3.5%; expected goals 3.44–0.74; O2.5 79.0%; BTTS 50.8%; decision withhold.
-- 2026-11-20 · France — Ligue 1 · ES Troyes AC v Le Havre AC: review_required; 1X2 33.2%/28.5%/38.2%; expected goals 1.28–1.38; O2.5 49.3%; BTTS 55.0%; decision withhold.
-- 2026-11-20 · Germany — 2. Bundesliga · SV Darmstadt 98 v 1. FC Heidenheim 1846: research_only; 1X2 43.4%/26.0%/30.6%; expected goals 1.67–1.39; O2.5 58.6%; BTTS 61.7%; decision withhold.
-- 2026-11-20 · Germany — 2. Bundesliga · DSC Arminia Bielefeld v 1. FC Magdeburg: research_only; 1X2 43.7%/25.1%/31.2%; expected goals 1.76–1.48; O2.5 62.4%; BTTS 64.6%; decision withhold.
 - 2026-11-21 · England — Premier League · Chelsea FC v Leeds United FC: research_only; 1X2 50.6%/26.3%/23.1%; expected goals 1.71–1.11; O2.5 53.2%; BTTS 55.9%; decision withhold.
 - 2026-11-21 · England — Premier League · Manchester City FC v Fulham FC: research_only; 1X2 66.2%/21.3%/12.5%; expected goals 2.09–0.85; O2.5 56.3%; BTTS 50.8%; decision withhold.
 - 2026-11-21 · England — Premier League · Aston Villa FC v Sunderland AFC: research_only; 1X2 53.8%/26.0%/20.2%; expected goals 1.73–1.01; O2.5 51.3%; BTTS 53.2%; decision withhold.
@@ -83,8 +79,15 @@ Status: review_required
 - 2026-11-23 · England — Premier League · Brentford FC v Everton FC: research_only; 1X2 47.5%/27.9%/24.6%; expected goals 1.55–1.08; O2.5 48.6%; BTTS 53.0%; decision withhold.
 - 2026-11-23 · Italy — Serie A · AC Monza v ACF Fiorentina: review_required; 1X2 25.5%/26.7%/47.8%; expected goals 1.10–1.57; O2.5 49.6%; BTTS 53.3%; decision withhold.
 - 2026-11-23 · Italy — Serie A · Juventus FC v Venezia FC: review_required; 1X2 71.2%/20.1%/8.7%; expected goals 1.99–0.59; O2.5 47.4%; BTTS 38.4%; decision withhold.
+- 2026-11-27 · England — Premier League · Nottingham Forest FC v Chelsea FC: research_only; 1X2 35.4%/27.9%/36.7%; expected goals 1.39–1.42; O2.5 52.7%; BTTS 57.8%; decision withhold.
+- 2026-11-27 · Germany — Bundesliga · SV Werder Bremen v Borussia Mönchengladbach: research_only; 1X2 48.1%/25.6%/26.2%; expected goals 1.79–1.30; O2.5 59.5%; BTTS 61.7%; decision withhold.
+- 2026-11-27 · France — Ligue 1 · Stade Brestois 29 v Paris FC: review_required; 1X2 34.7%/27.7%/37.6%; expected goals 1.36–1.43; O2.5 52.4%; BTTS 57.4%; decision withhold.
+- 2026-11-27 · Germany — 2. Bundesliga · 1. FC Heidenheim 1846 v 1. FC Nürnberg: research_only; 1X2 41.9%/25.8%/32.3%; expected goals 1.67–1.45; O2.5 59.9%; BTTS 62.9%; decision withhold.
+- 2026-11-27 · Germany — 2. Bundesliga · VfL Bochum v SV Darmstadt 98: research_only; 1X2 45.5%/27.2%/27.3%; expected goals 1.58–1.20; O2.5 52.2%; BTTS 56.3%; decision withhold.
+- 2026-11-27 · Netherlands — Eredivisie · FC Groningen v Willem II Tilburg: review_required; 1X2 64.0%/22.7%/13.3%; expected goals 2.09–0.91; O2.5 57.5%; BTTS 53.5%; decision withhold.
+- 2026-11-27 · Portugal — Primeira Liga · CS Marítimo v CD Nacional: review_required; 1X2 43.0%/26.5%/30.5%; expected goals 1.42–1.16; O2.5 47.2%; BTTS 51.9%; decision withhold.
 
-Prospective ledger: 398 registered, 140 graded, 66 pending.
+Prospective ledger: 405 registered, 140 graded, 73 pending.
 These are uncalibrated research forecasts, not recommendations.
 
-Run: 20261119T143730997118Z · data: 7b09ad3c09eb37564f184d6e2cf4bf19fa9bd5cb2aac488ff4942599e99b01cd · code: ce77ae850b1d365c6af11ba08a3551d6b71012b1cfee3d4c640611edd74a4047
+Run: 20261120T083553937040Z · data: b4f55d1fa9d6397e2044f9cdad824471d489a43602956883e73da918d66815e9 · code: 4c965596c649a90fd3bc7be03fb34f77434b046c08dc97c2ddeb14b34de0da71

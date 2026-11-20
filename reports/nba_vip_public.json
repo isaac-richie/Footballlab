@@ -15,7 +15,12 @@
      "line": 239.5,
      "probability": 0.7135898442058217,
      "expected_total": 229.03490713375922,
-     "source": "model"
+     "source": "model",
+     "score": [
+      114,
+      124
+     ],
+     "won": true
     },
     {
      "id": "bdl21718148",
@@ -43,6 +48,53 @@
      "line": 236.5,
      "probability": 0.7122197421489278,
      "expected_total": 226.05391967387322,
+     "source": "model"
+    }
+   ]
+  },
+  "2026-11-20": {
+   "frozen_at": "2026-11-20T08:37:29.112822+00:00",
+   "picks": [
+    {
+     "id": "bdl21718161",
+     "date": "2026-11-21",
+     "tipoff": "2026-11-22T03:00:00Z",
+     "home": "Sacramento Kings",
+     "away": "Boston Celtics",
+     "home_abbr": "SAC",
+     "away_abbr": "BOS",
+     "side": "under",
+     "line": 230.5,
+     "probability": 0.713888590731069,
+     "expected_total": 220.0217226872236,
+     "source": "model"
+    },
+    {
+     "id": "bdl21718148",
+     "date": "2026-11-20",
+     "tipoff": "2026-11-21T00:30:00Z",
+     "home": "Brooklyn Nets",
+     "away": "Orlando Magic",
+     "home_abbr": "BKN",
+     "away_abbr": "ORL",
+     "side": "under",
+     "line": 237.5,
+     "probability": 0.7112843093765117,
+     "expected_total": 227.12173678588746,
+     "source": "model"
+    },
+    {
+     "id": "bdl21718154",
+     "date": "2026-11-20",
+     "tipoff": "2026-11-21T03:00:00Z",
+     "home": "Denver Nuggets",
+     "away": "Houston Rockets",
+     "home_abbr": "DEN",
+     "away_abbr": "HOU",
+     "side": "under",
+     "line": 236.5,
+     "probability": 0.7112789102942634,
+     "expected_total": 226.10675320489665,
      "source": "model"
     }
    ]

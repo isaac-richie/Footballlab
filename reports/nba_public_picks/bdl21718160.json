@@ -1,0 +1,20 @@
+{
+ "schema": 1,
+ "id": "bdl21718160",
+ "date": "2026-11-21",
+ "tipoff": "2026-11-22T01:00:00Z",
+ "home": "San Antonio Spurs",
+ "away": "New Orleans Pelicans",
+ "home_abbr": "SA",
+ "away_abbr": "NO",
+ "saved_at": "2026-11-20T08:37:29.047073+00:00",
+ "winner": {
+  "team": "San Antonio Spurs",
+  "probability": 0.9297902576789169
+ },
+ "total": {
+  "side": "under",
+  "line": 240.5,
+  "probability": 0.7046961644302456
+ }
+}

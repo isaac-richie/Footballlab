@@ -7,11 +7,11 @@
  "away": "Washington Wizards",
  "home_abbr": "CHI",
  "away_abbr": "WSH",
- "saved_at": "2026-11-19T14:39:39.329442+00:00",
+ "saved_at": "2026-11-20T08:37:29.047073+00:00",
  "winner": null,
  "total": {
   "side": "under",
   "line": 250.5,
-  "probability": 0.7045318384754915
+  "probability": 0.7046839885495492
  }
 }

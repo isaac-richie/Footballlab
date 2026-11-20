@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-11-27",
+    "league_id": "fr.1",
+    "league": "France \u2014 Ligue 1",
+    "home": "Stade Brestois 29",
+    "away": "Paris FC"
+  },
+  "registered_at": "2026-11-20T08:35:53.937027+00:00",
+  "run_id": "20261120T083553937040Z",
+  "data_hash": "b4f55d1fa9d6397e2044f9cdad824471d489a43602956883e73da918d66815e9",
+  "code_hash": "4c965596c649a90fd3bc7be03fb34f77434b046c08dc97c2ddeb14b34de0da71",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-2.1-shrunk-totals",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "targets": "closing-price implied goals (90%) blended with scorelines, 60-day half-life, where prices exist; otherwise scorelines with a 365-day half-life",
+    "ridge": "0.005 with prices, 0.01 without; without prices, goal totals come from a second fit at ridge 0.1",
+    "optimizer": "block Newton, solved to convergence; no pinned reference team",
+    "calibration": "temperature 0.91 and draw shift 0.12 on the model's own 1X2 (0.94/0.09 without prices), fitted on 2023-25 forecasts",
+    "margin_removal": "power method",
+    "holdout": "2025-27, 3,330 matches in 8 leagues: 1X2 log loss 0.9873 (previous model 0.9975), tools/accuracy_lab.py"
+  },
+  "readiness": {
+    "league_id": "fr.1",
+    "season": "2026-27",
+    "records": 1984,
+    "completed": 1722,
+    "upcoming": 216,
+    "latest_result": "2026-09-20",
+    "current_records": 306,
+    "unresolved_past": 9,
+    "likely_postponed": 36,
+    "source_checked_at": "2026-11-20T08:35:38.266415+00:00",
+    "status": "review_required",
+    "issues": [
+      "Completed results are missing or more than 30 days old",
+      "9 recent current-season fixtures have no result yet"
+    ]
+  },
+  "probabilities": [
+    0.346632067461756,
+    0.27737853135444474,
+    0.3759894011837996
+  ],
+  "expected_goals": [
+    1.3646933950381765,
+    1.426608344664281
+  ],
+  "over25": 0.5237930870186017,
+  "btts": 0.5743498653116893,
+  "decision": "withhold",
+  "pricing_source": "model",
+  "model_probabilities": [
+    0.346632067461756,
+    0.27737853135444474,
+    0.3759894011837996
+  ]
+}

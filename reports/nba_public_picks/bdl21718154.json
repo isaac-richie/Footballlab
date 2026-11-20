@@ -7,11 +7,11 @@
  "away": "Houston Rockets",
  "home_abbr": "DEN",
  "away_abbr": "HOU",
- "saved_at": "2026-11-19T14:39:39.329442+00:00",
+ "saved_at": "2026-11-20T08:37:29.047073+00:00",
  "winner": null,
  "total": {
   "side": "under",
   "line": 236.5,
-  "probability": 0.7122197421489278
+  "probability": 0.7112789102942634
  }
 }

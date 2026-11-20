@@ -1,9 +1,27 @@
 {
- "generated_at": "2026-11-20T08:34:13.505030+00:00",
+ "generated_at": "2026-11-20T08:37:29.191461+00:00",
  "min_picks": 100,
  "recent_days": 28,
  "football": {},
  "nba": {
+  "over/under": {
+   "all": {
+    "picks": 4,
+    "said": 0.7077,
+    "won": 1.0,
+    "gap": 0.2923,
+    "z": 1.29,
+    "status": "collecting"
+   },
+   "recent": {
+    "picks": 4,
+    "said": 0.7077,
+    "won": 1.0,
+    "gap": 0.2923,
+    "z": 1.29,
+    "status": "collecting"
+   }
+  },
   "over/under (rebuilt days)": {
    "all": {
     "picks": 34,
@@ -40,6 +58,24 @@
     "status": "collecting"
    }
   },
+  "unders": {
+   "all": {
+    "picks": 4,
+    "said": 0.7077,
+    "won": 1.0,
+    "gap": 0.2923,
+    "z": 1.29,
+    "status": "collecting"
+   },
+   "recent": {
+    "picks": 4,
+    "said": 0.7077,
+    "won": 1.0,
+    "gap": 0.2923,
+    "z": 1.29,
+    "status": "collecting"
+   }
+  },
   "unders (rebuilt days)": {
    "all": {
     "picks": 21,
@@ -55,6 +91,24 @@
     "won": 0.8095,
     "gap": 0.1015,
     "z": 1.02,
+    "status": "collecting"
+   }
+  },
+  "winners": {
+   "all": {
+    "picks": 2,
+    "said": 0.8734,
+    "won": 1.0,
+    "gap": 0.1266,
+    "z": 0.54,
+    "status": "collecting"
+   },
+   "recent": {
+    "picks": 2,
+    "said": 0.8734,
+    "won": 1.0,
+    "gap": 0.1266,
+    "z": 0.54,
     "status": "collecting"
    }
   },

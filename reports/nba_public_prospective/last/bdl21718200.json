@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718200",
+ "date": "2026-11-27",
+ "tipoff": "2026-11-28T02:30:00Z",
+ "home": "San Antonio Spurs",
+ "away": "Los Angeles Lakers",
+ "kind": "regular",
+ "registered_at": "2026-11-20T08:37:29.057652+00:00",
+ "version": "165d0091f932",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.6907115373882768,
+ "spread_line": -7.5,
+ "cover": 0.48741249440851414,
+ "total_line": 230.5,
+ "over": 0.49711794866949766,
+ "expected": [
+  118.82467304095599,
+  111.81125416945417
+ ],
+ "model": {
+  "moneyline": 0.6907115373882768,
+  "cover": 0.48741249440851414,
+  "over": 0.49711794866949766,
+  "expected": [
+   118.82467304095599,
+   111.81125416945417
+  ]
+ }
+}

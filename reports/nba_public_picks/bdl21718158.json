@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718158",
+ "date": "2026-11-21",
+ "tipoff": "2026-11-22T01:00:00Z",
+ "home": "Dallas Mavericks",
+ "away": "LA Clippers",
+ "home_abbr": "DAL",
+ "away_abbr": "LAC",
+ "saved_at": "2026-11-20T08:37:29.047073+00:00",
+ "winner": null,
+ "total": {
+  "side": "under",
+  "line": 241.5,
+  "probability": 0.7107598197168039
+ }
+}
