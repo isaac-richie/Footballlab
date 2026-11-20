@@ -1,7 +1,7 @@
-/* Football Lab service worker: makes the app installable and lets the shell open offline.
+/* Fairline service worker: makes the app installable and lets the shell open offline.
    Pages are network-first (the latest page always wins; the last good copy is the offline
    fallback). Data (/api/...) is never cached, so odds and forecasts are always live. */
-const SHELL = 'fl-shell-v1';
+const SHELL = 'fl-shell-v2';         // v2: Fairline icons
 const STATIC = ['/icons/icon-192.png', '/icons/icon-512.png', '/manifest.webmanifest'];
 
 self.addEventListener('install', e => {
@@ -22,8 +22,8 @@ self.addEventListener('fetch', e => {
       if(res.ok){ const copy = res.clone(); caches.open(SHELL).then(c => c.put('/', copy)) }
       return res;
     }).catch(() => caches.match('/').then(r => r || new Response(
-      '<!doctype html><meta name="viewport" content="width=device-width"><title>Football Lab</title>' +
-      '<body style="font:16px system-ui;background:#141210;color:#F2EDE4;padding:40px">You are offline. Football Lab needs a connection for live odds and forecasts.</body>',
+      '<!doctype html><meta name="viewport" content="width=device-width"><title>Fairline</title>' +
+      '<body style="font:16px system-ui;background:#141210;color:#F2EDE4;padding:40px">You are offline. Fairline needs a connection for live odds and forecasts.</body>',
       {headers: {'Content-Type': 'text/html; charset=utf-8'}}))));
     return;
   }

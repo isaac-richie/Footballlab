@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Football Lab · Know the chances before you bet</title>
+<title>Fairline · The fair price on every game</title>
 <meta name="description" content="Win, goal and scoreline chances for every upcoming game, VIP picks posted before kickoff, and a public record of every result.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%2315130F'/%3E%3Cpath d='M12 3a9 9 0 0 0 0 18z' fill='%23E8462B'/%3E%3Ccircle cx='12' cy='12' r='9' fill='none' stroke='%23F4EFE6' stroke-width='1.6'/%3E%3Cpath d='M12 3v18' stroke='%23F4EFE6' stroke-width='1.6'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%23141210'/%3E%3Cpath d='M5 12a7 7 0 0 0 14 0z' fill='%236F8CFF'/%3E%3Ccircle cx='12' cy='12' r='7' fill='none' stroke='%23F4EFE6' stroke-width='1.6'/%3E%3Cpath d='M2.5 12h19' stroke='%23F4EFE6' stroke-width='1.6'/%3E%3C/svg%3E">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#F4EFE6" media="(prefers-color-scheme: light)">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Football Lab">
+<meta name="apple-mobile-web-app-title" content="Fairline">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter:wght@400..700&family=JetBrains+Mono:wght@400..700&display=swap">
@@ -1338,8 +1338,8 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
   --display:var(--sans);
   --bg:#141210;--surface:#1A1815;--surface-2:#211E1B;--surface-3:#2B2723;--line:#F4EFE614;--line-2:#F4EFE629;
   --text:#F2EDE4;--muted:#A79F93;--faint:#766F65;
-  --signal:#EF5436;--accent:#EF5436;--accent-ink:#140F0C;
-  --home:#EF5436;--draw:#8C857A;--away:#6AA5D0;
+  --signal:#6F8CFF;--accent:#6F8CFF;--accent-ink:#0A0E1F;
+  --home:#6F8CFF;--draw:#8C857A;--away:#D7B57A;
   --warn:#E2AB45;--warn-bg:#E2AB451C;--ok:#74BC8B;--ok-bg:#74BC8B1C;--lost:#D9665A;
   --radius:6px;--shadow:none;
   color-scheme:dark;
@@ -1347,16 +1347,16 @@ body[data-sport="basketball"] #leagues,body[data-sport="basketball"] #strip,body
 :root[data-theme="light"]{
   --bg:#F4EFE6;--surface:#FBF8F2;--surface-2:#EFE9DF;--surface-3:#E5DED2;--line:#15130F17;--line-2:#15130F2E;
   --text:#15130F;--muted:#5C564D;--faint:#8A8378;
-  --signal:#D63A1F;--accent:#D63A1F;--accent-ink:#FFFFFF;
-  --home:#D63A1F;--draw:#9C9488;--away:#2F6B9A;
+  --signal:#2745D6;--accent:#2745D6;--accent-ink:#FFFFFF;
+  --home:#2745D6;--draw:#9C9488;--away:#8A6420;
   --warn:#93600E;--warn-bg:#E2AB452B;--ok:#2B7A4B;--ok-bg:#74BC8B2E;--lost:#B23A2B;
   color-scheme:light;
 }
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
   --bg:#F4EFE6;--surface:#FBF8F2;--surface-2:#EFE9DF;--surface-3:#E5DED2;--line:#15130F17;--line-2:#15130F2E;
   --text:#15130F;--muted:#5C564D;--faint:#8A8378;
-  --signal:#D63A1F;--accent:#D63A1F;--accent-ink:#FFFFFF;
-  --home:#D63A1F;--draw:#9C9488;--away:#2F6B9A;
+  --signal:#2745D6;--accent:#2745D6;--accent-ink:#FFFFFF;
+  --home:#2745D6;--draw:#9C9488;--away:#8A6420;
   --warn:#93600E;--warn-bg:#E2AB452B;--ok:#2B7A4B;--ok-bg:#74BC8B2E;--lost:#B23A2B;
   color-scheme:light;
 }}
@@ -1759,8 +1759,8 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
 .vip-band .vwr{margin:0!important;background:#15130F!important;border:0!important;color:#F2EDE4;box-shadow:0 18px 40px -22px #000!important}
 .vip-band .vwr-main strong{color:#F2EDE4}
 .vip-band .vwr-main span{color:#A79F93}.vip-band .vwr-main span b{color:#F2EDE4}
-.vip-band .vwr-ring circle{stroke:#2B2723}.vip-band .vwr-ring .p{stroke:#EF5436!important}.vip-band .vwr-ring b{color:#F2EDE4}
-.vip-band .vwr-go,.vip-band .vwr-main small{color:#EF5436!important}
+.vip-band .vwr-ring circle{stroke:#2B2723}.vip-band .vwr-ring .p{stroke:#8FA6FF!important}.vip-band .vwr-ring b{color:#F2EDE4}
+.vip-band .vwr-go,.vip-band .vwr-main small{color:#8FA6FF!important}
 .vip-tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:0 0 16px}
 .vb-stamp{display:inline-flex;align-items:center;gap:8px;margin-right:auto;font-size:12.5px;font-weight:600;color:var(--muted)}
 .vb-stamp svg{width:18px;height:18px;fill:none;stroke:var(--ok);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -1965,18 +1965,18 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
 .vb-rules{margin:12px 0 0;max-width:560px}
 .vb-rules summary{cursor:pointer;font:650 12.5px/1.4 var(--sans);color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;list-style:none}
 .vb-rules summary::-webkit-details-marker{display:none}
+.vb-rules summary::after,.vb-rules summary::before{display:none!important}.vb-rules summary{display:inline!important;padding:0!important;border:0!important}
 .vb-rules p{margin-top:8px!important;font-size:13.5px!important}
 .hood{margin-top:4px}
 .hood[open]>summary{margin-bottom:12px}
 
-/* ---- Lab switch: Football Lab / Basketball Lab ---- */
+/* ---- Sport switch: Fairline · Football / Fairline · NBA ---- */
 .lab-toast{position:fixed;left:50%;top:76px;z-index:80;transform:translate(-50%,-12px);opacity:0;pointer-events:none;display:flex;align-items:baseline;gap:10px;white-space:nowrap;width:max-content;max-width:calc(100vw - 32px);
   padding:10px 16px;border-radius:6px;background:var(--text);color:var(--bg);box-shadow:0 14px 30px -18px #000;transition:opacity .25s,transform .25s}
 .lab-toast.on{opacity:1;transform:translate(-50%,0)}
 .lab-toast b{font-family:var(--serif);font-size:17px;font-weight:600}
 .lab-toast span{font-size:12.5px;opacity:.75}
 @media (max-width:760px){.lab-toast{top:64px;padding:8px 12px}.lab-toast b{font-size:15px}.lab-toast span{font-size:11.5px;overflow:hidden;text-overflow:ellipsis}
-  #wm-sport{display:inline!important}
   .sport .lab{display:inline!important;font-size:12.5px}.sport .ico{display:none!important}.sport button{padding:6px 10px!important}}
 
 /* ---- How-to slides in the hero (replaces the welcome card and the three link cards) ---- */
@@ -2054,12 +2054,21 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   .ht-row{grid-template-columns:minmax(0,1fr) 80px}
   .ht-prices{gap:6px}.ht-prices div{min-width:0;padding:6px 7px}.ht-prices b{font-size:16px}
 }
+
+/* ---- Fairline (Nov 2026): cobalt accent, a deep cobalt VIP band in both themes, bolder key numbers ---- */
+.vip-band{background:#2442CF!important;--accent-ink:#FFFFFF;color:#FFFFFF}
+.brand .wm{letter-spacing:-.03em}
+.hero-stats b{font-weight:600}
+.is-top,.fc-bar i.fav em,.ht-nums .is-top b{font-weight:700!important}
+.mh .tri-labels b.is-top,.nbh .two b.is-top{font-size:1.12em}
+/* VIP pick cards: no club-colour stripe (the later VIP layer set one with !important) */
+.vl.vlx,.vl.vlx.nba{background:var(--surface)!important}
 </style>
 </head>
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#featured" aria-label="Football Lab home"><svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0 0 20z" fill="var(--signal)"/><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v20" stroke="currentColor" stroke-width="1.8"/></svg><span class="wm"><span id="wm-sport">Football</span> <i>Lab</i></span></a>
+    <a class="brand" href="#featured" aria-label="Fairline home"><svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 0 0 18 0z" fill="var(--signal)"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M.5 12h23" stroke="currentColor" stroke-width="1.8"/></svg><span class="wm">Fair<i>line</i></span></a>
     <nav class="nav" aria-label="Views">
       <a href="#featured" data-view="featured">Home</a>
       <a href="#vip" data-view="vip">VIP picks</a>
@@ -2069,7 +2078,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       <a href="#performance" data-view="performance">Our record</a>
     </nav>
     <div class="spacer"></div>
-    <div class="seg sport" id="sport" role="group" aria-label="Choose a lab"><button type="button" data-sport="football" aria-pressed="true" title="Football Lab: nine leagues"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5l3.4 2.5-1.3 4h-4.2l-1.3-4zM12 7.5V3M15.4 10l4.2-1.4M14.1 14l2.6 3.6M9.9 14l-2.6 3.6M8.6 10 4.4 8.6"/></svg><span class="lab">Football</span></button><button type="button" data-sport="basketball" aria-pressed="false" title="Basketball Lab: NBA predictions"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c3 2.6 3 10.2 0 12.8M18.4 5.6c-3 2.6-3 10.2 0 12.8"/></svg><span class="lab">NBA</span></button></div>
+    <div class="seg sport" id="sport" role="group" aria-label="Sport"><button type="button" data-sport="football" aria-pressed="true" title="Football: nine leagues"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5l3.4 2.5-1.3 4h-4.2l-1.3-4zM12 7.5V3M15.4 10l4.2-1.4M14.1 14l2.6 3.6M9.9 14l-2.6 3.6M8.6 10 4.4 8.6"/></svg><span class="lab">Football</span></button><button type="button" data-sport="basketball" aria-pressed="false" title="NBA: games, totals and winners"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c3 2.6 3 10.2 0 12.8M18.4 5.6c-3 2.6-3 10.2 0 12.8"/></svg><span class="lab">NBA</span></button></div>
     <span class="fresh" id="fresh"></span>
     <button class="icon-btn" id="theme" type="button" aria-label="Switch light or dark theme" title="Light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
   </div>
@@ -2093,10 +2102,10 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       <div class="intro-copy">
         <span class="eyebrow"><i></i>Football predictions you can check</span>
         <h1>Know the chances <em>before you bet.</em></h1>
-        <p class="intro-lede">Football Lab works out the chance of every result, goal line and scoreline for this week's games. Our best picks go on the record before kickoff, win or lose.</p>
+        <p class="intro-lede">Fairline works out the chance of every result, goal line and scoreline for this week's games. Our best picks go on the record before kickoff, win or lose.</p>
         <div class="hero-stats" id="ft-stats"></div>
       </div>
-      <div class="howto" id="howto" role="region" aria-roledescription="carousel" aria-label="How to use Football Lab in three steps">
+      <div class="howto" id="howto" role="region" aria-roledescription="carousel" aria-label="How to use Fairline in three steps">
         <div class="ht-tabs" role="tablist" aria-label="Steps">
           <button type="button" role="tab" id="ht-t0" aria-controls="ht-s0" aria-selected="true" data-s="0"><i>1</i>Pick a game</button>
           <button type="button" role="tab" id="ht-t1" aria-controls="ht-s1" aria-selected="false" data-s="1" tabindex="-1"><i>2</i>Read the chances</button>
@@ -2275,7 +2284,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       <header class="how-head">
         <span class="kicker">How it works</span>
         <h1>How we work out the chances</h1>
-        <p class="how-lede">No pundit's hunch and no gut feeling. Football Lab turns past results and bookmaker prices into the chance of every outcome, then puts its picks on a public record so you can judge it on results.</p>
+        <p class="how-lede">No pundit's hunch and no gut feeling. Fairline turns past results and bookmaker prices into the chance of every outcome, then puts its picks on a public record so you can judge it on results.</p>
         <nav class="how-toc" aria-label="On this page"><a href="#how/method">The method</a><a href="#how/proof">The proof</a><a href="#how/read">Reading the numbers</a><a href="#how/limits">What we can't know</a></nav>
       </header>
 
@@ -4093,7 +4102,7 @@ function shareCardCanvas(o){
   const glow = g.createRadialGradient(W * .85, 0, 0, W * .85, 0, 700); glow.addColorStop(0, accent + '55'); glow.addColorStop(1, 'transparent');
   g.fillStyle = glow; g.fillRect(0, 0, W, H);
   // brand and title
-  g.fillStyle = '#f2efe9'; g.font = `600 40px ${serif}`; g.fillText('Football Lab', 72, 110);
+  g.fillStyle = '#f2efe9'; g.font = `600 40px ${serif}`; g.fillText('Fairline', 72, 110);
   g.fillStyle = accent; g.font = `700 26px ${sans}`; g.fillText(o.kicker.toUpperCase(), 72, 170);
   g.fillStyle = '#a8a39b'; g.font = `500 30px ${sans}`; g.fillText(o.date, 72, 214);
   // the score of the day
@@ -4257,21 +4266,20 @@ function duo(p, big){
 }
 
 /* Sport switch */
-// Two labs under one roof: the switch renames the whole app (wordmark, tab title), so it is clear
-// which one you are in. A basketball.* host (e.g. a Basketball Lab subdomain) or ?lab=nba opens the NBA side.
-const LAB = {football: {name: 'Football', title: 'Football Lab · Know the chances before you bet', blurb: 'Nine football leagues'},
-             basketball: {name: 'Basketball', title: 'Basketball Lab · NBA chances before tip-off', blurb: 'NBA games, totals and winners'}};
+// One brand, two sports: Fairline · Football and Fairline · NBA. The switch sets the tab title and says which
+// side you are on. An nba.* or basketball.* host (e.g. nba.fairline.app) or ?sport=nba opens the NBA side.
+const LAB = {football: {name: 'Football', title: 'Fairline · Football · The fair price on every game', blurb: 'Nine leagues'},
+             basketball: {name: 'NBA', title: 'Fairline · NBA · The fair price on every game', blurb: 'Games, totals and winners'}};
 function labToast(sport){
   let t = $('#lab-toast');
   if(!t){ t = document.createElement('div'); t.id = 'lab-toast'; t.className = 'lab-toast'; t.setAttribute('role', 'status'); document.body.append(t) }
-  t.innerHTML = `<b>${LAB[sport].name} Lab</b><span>${LAB[sport].blurb}</span>`;
+  t.innerHTML = `<b>Fairline · ${LAB[sport].name}</b><span>${LAB[sport].blurb}</span>`;
   t.classList.remove('on'); void t.offsetWidth; t.classList.add('on');
   clearTimeout(labToast.t); labToast.t = setTimeout(() => t.classList.remove('on'), 2600);
 }
 function setSport(sport, initial){
   document.body.dataset.sport = sport; store.set('fl-sport', sport);
-  $('#wm-sport').textContent = LAB[sport].name; document.title = LAB[sport].title;
-  $('.brand').setAttribute('aria-label', LAB[sport].name + ' Lab home');
+  document.title = LAB[sport].title;
   if(!initial) labToast(sport);
   $$('#sport button').forEach(b => b.setAttribute('aria-pressed', b.dataset.sport === sport));
   const v = (location.hash || '').slice(1).split('/')[0];
@@ -4282,8 +4290,8 @@ function setSport(sport, initial){
   if(!initial) transition(showView);
 }
 $('#sport').onclick = e => { const b = e.target.closest('[data-sport]'); if(b && b.dataset.sport !== document.body.dataset.sport) setSport(b.dataset.sport) };
-{ const q = new URLSearchParams(location.search).get('lab'), host = location.hostname.split('.')[0];
-  const pick = q === 'nba' || q === 'basketball' || host === 'basketball' ? 'basketball' : q === 'football' ? 'football' : store.get('fl-sport');
+{ const u = new URLSearchParams(location.search), q = u.get('sport') || u.get('lab'), host = location.hostname.split('.')[0];
+  const pick = q === 'nba' || q === 'basketball' || host === 'nba' || host === 'basketball' ? 'basketball' : q === 'football' ? 'football' : store.get('fl-sport');
   setSport(pick === 'basketball' ? 'basketball' : 'football', true) }
 
 function nbaShow(view){
@@ -4926,7 +4934,7 @@ function nbForm(d){
     $m('mx-art').src = art(vid); $m('mx-art-sm').src = art(vid, 'mqdefault');
     if(upNext == null || upNext === idx) upNext = pickNext();
     $m('mx-upnext').textContent = TRACKS[upNext][2] + ' · ' + TRACKS[upNext][1];
-    if('mediaSession' in navigator){ try{ navigator.mediaSession.metadata = new MediaMetadata({title: song, artist, album: 'Football Lab · Matchday mix',
+    if('mediaSession' in navigator){ try{ navigator.mediaSession.metadata = new MediaMetadata({title: song, artist, album: 'Fairline · Matchday mix',
       artwork: [{src: art(vid), sizes: '480x360', type: 'image/jpeg'}]}) }catch{} }
     $m('mx-title').textContent = song + ' · ' + artist; $m('mx-song').textContent = song; $m('mx-artist').textContent = artist;
     ui.style.setProperty('--disc', colour);
