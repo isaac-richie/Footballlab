@@ -582,6 +582,11 @@ def predict(data, request, stats=None):
                 for i, k in enumerate(('home', 'draw', 'away'))]
     result['supplemental_markets'] = supplemental_markets(stats or {'records': []}, league_id, home, away, asof)
     result['count_markets'] = count_markets(rows, market_lookup(data), league_id, home, away, asof)
+    try:
+        import corners
+        result['corners'] = corners.forecast(data['matches'], league_id, home, away, asof)
+    except Exception as exc:                          # corners are an extra: never break the forecast
+        result['corners'] = dict(status='unavailable', reason=str(exc)[:160])
     result['decision'] = assess(result)
     from analysis import briefing
     result['analysis'] = briefing(rows, home, away, result)

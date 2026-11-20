@@ -540,6 +540,11 @@ html{background:var(--bg)}
 .ft-filter button b{margin-left:6px;opacity:.6;font-weight:700}
 .ft-filter button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#0b0f14}
 .ft-all{margin-top:34px}.ga-more{display:block;width:100%;margin-top:12px}
+.cn-big{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:10px;margin-bottom:10px}.cn-big small{display:block;color:var(--muted);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cn-big b{font-family:var(--mono);font-size:34px;font-weight:500}.cn-big .r{text-align:right}.cn-tot{text-align:center}.cn-tot b{color:var(--accent);font-size:40px}.cn-tot span{display:block;font-size:11.5px;color:var(--faint)}
+.cn-bar{display:flex;height:8px;border-radius:9px;overflow:hidden;gap:2px;background:var(--surface-3)}.cn-bar i{display:block;height:100%}
+.cn-table td small{display:block;color:var(--faint);font-size:11px}.cn-table tr.cn-pick td{background:color-mix(in srgb,var(--accent) 9%,transparent)}.cn-ok{color:#4fe08c!important;font-weight:700}
+.cn-row{display:grid;grid-template-columns:minmax(0,1fr) 56px 72px;gap:8px;align-items:center;padding:7px 0;border-top:1px solid var(--line);font-size:13px}.cn-row>*:not(:first-child){text-align:right}.cn-row.cn-head{border-top:0;font-size:11px;color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
 .potd{margin:16px 0;padding:20px;border:1px solid var(--accent);border-left:6px solid var(--kh,var(--accent));display:grid;gap:14px}
 .potd-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 12px;align-items:baseline}
 .potd-kicker{font-weight:800;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}.potd-meta{font-size:12.5px;color:var(--muted)}
@@ -2849,7 +2854,7 @@ function compareStrip(d){
     <p class="note">${esc(d.pricing.label)}. ${esc(d.pricing.note || '')} Bookies have been more accurate than our model in testing, so trust the first row.</p>`;
 }
 // Ordered by what bettors reach for most.
-const TABS = [['overview','Summary'],['goals','Goals'],['scores','Correct score'],['handicap','Handicaps'],['halftime','Half-time'],['combos','Combos'],['builder','Bet builder'],['odds','Odds & value'],['pitch','Pitch view'],['stats','Corners & cards'],['evidence','How sure are we?']];
+const TABS = [['overview','Summary'],['goals','Goals'],['scores','Correct score'],['handicap','Handicaps'],['halftime','Half-time'],['combos','Combos'],['builder','Bet builder'],['odds','Odds & value'],['pitch','Pitch view'],['stats','Corners'],['evidence','How sure are we?']];
 if(!TABS.some(t => t[0] === state.tab)) state.tab = 'overview';
 // Once a match is on screen the breakdown takes the full width; the form folds behind "Change match".
 function matchMode(on, panel = 'match'){ const l = $(`[data-panel="${panel}"] .match-layout`); if(l){ l.classList.toggle('has-match', on); l.classList.remove('picking') } }
@@ -2882,7 +2887,7 @@ function renderMatch(){
   const d = state.current, p = d.probabilities, top = d.scorelines[0], ready = d.readiness.status === 'research_only';
   const action = d.decision.action, comp = d.league.split(' — ')[1] || d.league;
   // Corners & cards only where this league has the stats (the hosted site has none yet).
-  const tabs = TABS.filter(([k]) => k !== 'stats' || (d.count_markets && Object.keys(d.count_markets.markets || {}).length));
+  const tabs = TABS.filter(([k]) => k !== 'stats' || (d.corners && d.corners.status === 'ok') || (d.count_markets && Object.keys(d.count_markets.markets || {}).length));
   if(!tabs.some(([k]) => k === state.tab)) state.tab = 'overview';
   matchMode(true);
   $('#out').innerHTML =
@@ -3096,7 +3101,23 @@ function oddsTab(d){
   return html;
 }
 
+function cornersTab(d){
+  const c = d.corners, H = d.home, A = d.away, pc = v => Math.round(v * 100) + '%';
+  const [eh, ea] = c.expected, avg = c.league_average;
+  const bar = `<div class="cn-bar"><i style="width:${eh / (eh + ea) * 100}%;background:var(--home)"></i><i style="width:${ea / (eh + ea) * 100}%;background:var(--away)"></i></div>`;
+  const rowsL = c.lines.map(l => `<tr${l.pick ? ' class="cn-pick"' : ''}><td>${l.line}</td>
+      <td class="r"><b>${pc(l.over)}</b><small>league ${pc(l.league_over)}</small></td>
+      <td class="r"><b>${pc(l.under)}</b>${l.pick ? `<small class="cn-ok">✓ tested pick</small>` : ''}</td><td class="r"><small>${(1 / Math.max(l.over, l.under)).toFixed(2)}</small></td></tr>`).join('');
+  const form = (f, name) => f.length ? `<div class="cn-row cn-head"><span>${esc(name)}</span><span>Won</span><span>Conceded</span></div>` + f.map(x => `<div class="cn-row"><span>${esc(day(x.date))}</span><b>${x.won}</b><span>${x.conceded}</span></div>`).join('') : '<p class="note">No recent corner data.</p>';
+  const pick = c.lines.find(l => l.pick);
+  return `${pick ? `<div class="callout"><span class="ico">✓</span><span><b>Under ${pick.line} corners at ${pc(pick.under)}.</b> Under ${pick.line} at this level has matched its stated chance on seasons the model never saw.</span></div>` : ''}
+    <div class="grid g2">${card('Expected corners', `<div class="cn-big"><div><small>${esc(H)}</small><b>${eh.toFixed(1)}</b></div><div class="cn-tot"><small>Total</small><b>${(eh + ea).toFixed(1)}</b><span>league average ${avg.toFixed(1)}</span></div><div class="r"><small>${esc(A)}</small><b>${ea.toFixed(1)}</b></div></div>${bar}`)}
+    ${card('Total corners', `<div class="scroll"><table class="table cn-table"><tr><th>Line</th><th class="r">Over</th><th class="r">Under</th><th class="r">Fair odds</th></tr>${rowsL}</table></div>`, 'this match vs league')}</div>
+    <div class="grid g2">${card('Last six · ' + esc(H), form(c.form[0], 'Date'))}${card('Last six · ' + esc(A), form(c.form[1], 'Date'))}</div>
+    <p class="note">${esc(c.note)} Data: API-Football match statistics.</p>`;
+}
 function statsTab(d){
+  if(d.corners && d.corners.status === 'ok') return cornersTab(d);
   const c = d.count_markets, H = d.home, A = d.away;
   if(!c || !Object.keys(c.markets).length) return `<div class="error">${esc((c && c.withheld.join(' ')) || 'No corners or cards data for this league.')}</div>`;
   const label = {corners: 'Corners', cards: 'Cards', shots_on_target: 'Shots on target'};
