@@ -493,6 +493,13 @@ def picks(days=2, floor=.80, most=5):
     out = sorted(out, key=lambda x: -x['probability'])[:most]
     history = pick_history(data_games=_data()[0]['games'])
     totals.sort(key=lambda x: (x['date'], x['tipoff'] or ''))
+    try:
+        import explain
+        for x in out + totals:
+            x['sport'] = 'nba'
+        explain.annotate(out + totals, None)
+    except Exception:
+        pass
     return dict(today=s['today'], dates=dates, picks=out, totals=totals, history=history, public=s.get('public'), ledger=s.get('ledger'), lab=s.get('lab'),
                 note='Total-points picks first, plus a few strong winner calls (80% and up; on the held-out season those won 84.9%): the markets whose confident picks have matched their stated chance on a season the model never saw. '
                      'A 75% pick still loses one time in four.')
