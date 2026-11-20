@@ -1411,5 +1411,5 @@ if __name__ == '__main__':
         setup_logging()
         import nba_app
         nba_app.warm()
-        print(f'Football Lab: http://127.0.0.1:{args.port}', flush=True)
+        print(f'Fairline: http://127.0.0.1:{args.port}', flush=True)
         ThreadingHTTPServer(('127.0.0.1', args.port), Handler).serve_forever()
