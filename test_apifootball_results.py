@@ -82,3 +82,31 @@ class FreshnessTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class WholeSeasonTests(unittest.TestCase):
+    def fx(self, date, home, away, goals=None, status='FT'):
+        return dict(fixture=dict(date=date + 'T15:00:00+00:00', status=dict(short=status if goals else 'NS')),
+                    teams=dict(home=dict(name=home), away=dict(name=away)),
+                    goals=dict(home=goals[0] if goals else None, away=goals[1] if goals else None),
+                    score=dict(halftime=dict(home=0 if goals else None, away=0 if goals else None)))
+
+    def test_adds_missing_games_with_our_names_and_never_duplicates(self):
+        import apifootball_results as A
+        ours = [dict(league_id='it.2', season='2025-26', date=f'2025-09-{d:02d}', home=h, away=a, goals=g, ht=None)
+                for d, h, a, g in ((1, 'Palermo FC', 'Venezia FC', [1, 0]), (8, 'Venezia FC', 'Bari SSC', [2, 2]),
+                                   (15, 'Bari SSC', 'Palermo FC', [0, 3]), (18, 'Venezia FC', 'Palermo FC', [4, 4]),
+                                   (19, 'Bari SSC', 'Venezia FC', [5, 1]), (22, 'Palermo FC', 'Bari SSC', None))]
+        ours.append(dict(league_id='it.1', season='2025-26', date='2025-09-01', home='US Cremonese', away='X', goals=[1, 1], ht=None))
+        seasons = {2025: [self.fx('2025-09-01', 'Palermo', 'Venezia', [1, 0]), self.fx('2025-09-08', 'Venezia', 'Bari', [2, 2]),
+                          self.fx('2025-09-15', 'Bari', 'Palermo', [0, 3]), self.fx('2025-09-18', 'Venezia', 'Palermo', [4, 4]),
+                          self.fx('2025-09-19', 'Bari', 'Venezia', [5, 1]), self.fx('2025-09-23', 'Palermo', 'Bari', [2, 1]),
+                          self.fx('2025-09-29', 'Palermo', 'Venezia', [1, 1])],
+                   2026: [self.fx('2026-11-21', 'Cremonese', 'Palermo')]}
+        summary = A.load_seasons(ours, today=__import__('datetime').date(2026, 11, 20), key='k',
+                                 get=lambda p, key: seasons[p['season']], years=(2025, 2026))
+        self.assertEqual(summary['it.2'], dict(added=1, filled=1))   # the repeated pairing is the same game
+        late = next(m for m in ours if m['home'] == 'Palermo FC' and m['away'] == 'Bari SSC')
+        self.assertEqual((late['goals'], late['date']), ([2, 1], '2025-09-23'))          # completed and moved, not duplicated
+        new = [m for m in ours if m['season'] == '2026-27']
+        self.assertEqual((new[0]['home'], new[0]['away'], new[0]['goals']), ('US Cremonese', 'Palermo FC', None))

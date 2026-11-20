@@ -131,6 +131,7 @@ def refresh():
     # (never overwriting one). Whole seasons on a paid plan, yesterday and today on the free one.
     try:
         import apifootball_results
+        print(json.dumps(dict(api_football_seasons=apifootball_results.load_seasons(matches))))
         summary = apifootball_results.fill(matches)
         print(json.dumps(dict(api_football=summary)))
         if summary.get('filled'):
