@@ -1518,79 +1518,20 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
 
 /* ---- How-to slides in the hero (replaces the welcome card and the three link cards) ---- */
 .howto{position:relative;border:1px solid var(--line-2);border-radius:6px;background:var(--surface);padding:16px 18px 14px;min-width:0}
-.ht-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:14px}
-.ht-tabs button{display:flex;align-items:center;gap:8px;min-width:0;padding:8px 6px 9px;background:none;border:0;border-bottom:2px solid var(--line-2);
-  color:var(--muted);font:650 12.5px/1.2 var(--sans);text-align:left;cursor:pointer}
-.ht-tabs button i{flex:none;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid currentColor;font:600 11px/1 var(--mono);font-style:normal}
-.ht-tabs button[aria-selected="true"]{color:var(--text);border-bottom-color:var(--accent)}
-.ht-tabs button[aria-selected="true"] i{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.ht-stage{display:grid;touch-action:pan-y;user-select:none}
-.ht-slide{grid-area:1/1;display:flex;flex-direction:column;gap:14px}
-.ht-slide[hidden]{display:flex!important;visibility:hidden;opacity:0;pointer-events:none}
-.ht-slide.is-on{animation:htIn .45s cubic-bezier(.16,1,.3,1)}
+
 @keyframes htIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
-.ht-slide p{margin:0;font-size:14.5px;line-height:1.55;color:var(--muted)}
-.ht-slide p b{color:var(--text)}
-.ht-vis{position:relative;min-height:176px;border-radius:4px;background:color-mix(in srgb,var(--text) 4%,var(--surface));padding:14px;overflow:hidden}
-.ht-rows{display:grid;gap:8px}
-.ht-row{display:grid;grid-template-columns:minmax(0,1fr) 110px;grid-template-rows:auto auto;column-gap:12px;align-items:center;padding:8px 10px;border:1px solid var(--line-2);border-radius:4px;background:var(--surface)}
-.ht-row small{grid-column:1/-1;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
-.ht-row span{display:flex;align-items:center;gap:6px;min-width:0;font-size:13px}
-.ht-row span em{color:var(--muted);font-style:normal;font-size:11px}
-.ht-row .crest{flex:none}
-.ht-row .tri{height:6px}
-.is-on .ht-row.hit{animation:htHit 1.8s .9s both}
+
 @keyframes htHit{0%,40%{border-color:var(--line-2);box-shadow:none}60%,100%{border-color:var(--text);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}}
-.ht-tap{position:absolute;left:62%;top:38px;width:26px;height:26px;border-radius:50%;background:color-mix(in srgb,var(--accent) 70%,transparent);opacity:0}
-.is-on .ht-tap{animation:htTap 1.8s .5s both}
+
 @keyframes htTap{0%{opacity:0;transform:translate(40px,60px) scale(1)}45%{opacity:.9;transform:translate(0,0) scale(1)}60%{opacity:.9;transform:scale(.7)}75%{opacity:.5;transform:scale(1.8)}100%{opacity:0;transform:scale(2.2)}}
-.ht-teams{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-family:var(--serif);font-size:16px}
-.ht-teams em{color:var(--muted);font-style:normal;font-size:12px}
-.ht-teams .crest{flex:none}
-.ht-big{margin:16px 0 8px}
-.ht-big .tri i{transform-origin:left}
-.is-on .ht-big .tri i{animation:htGrow .8s cubic-bezier(.16,1,.3,1) both}
-.is-on .ht-big .tri i.d{animation-delay:.15s}.is-on .ht-big .tri i.a{animation-delay:.3s}
+
 @keyframes htGrow{from{transform:scaleX(0)}to{transform:none}}
-.ht-nums{display:flex;justify-content:space-between}
-.ht-nums span{display:flex;flex-direction:column;font-size:11.5px;color:var(--muted)}
-.ht-nums span:nth-child(2){align-items:center}.ht-nums span:nth-child(3){align-items:flex-end}
-.ht-nums b{font:600 20px/1.2 var(--mono);color:var(--muted)}
-.ht-nums .is-top b{color:var(--text)}
-.ht-call{margin-top:10px;font-size:13px;text-align:center;opacity:0}
-.is-on .ht-call{animation:htFade .5s 1s both}
+
 @keyframes htFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.ht-sel{font-family:var(--serif);font-size:18px;font-weight:600;text-align:center}
-.ht-sel small{margin-left:8px;font:500 10.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.ht-prices{display:flex;align-items:center;justify-content:center;gap:10px;margin:16px 0 12px}
-.ht-prices>span{color:var(--muted);font-size:12px}
-.ht-prices div{display:flex;flex-direction:column;align-items:center;padding:8px 10px;border:1px solid var(--line-2);border-radius:4px;background:var(--surface);min-width:72px}
-.ht-prices small{font-size:10.5px;color:var(--muted);white-space:nowrap}
-.ht-prices b{font:600 19px/1.3 var(--mono)}
-.ht-prices .bk{border-color:var(--text)}
-.is-on .ht-prices div{animation:htFade .4s both}.is-on .ht-prices div:nth-of-type(2){animation-delay:.35s}.is-on .ht-prices div:nth-of-type(3){animation-delay:.7s}
-.ht-verdict{width:max-content;max-width:100%;margin:0 auto;padding:6px 12px;border-radius:99px;background:var(--ok);color:var(--bg);font:650 12.5px/1.2 var(--sans);opacity:0}
-.is-on .ht-verdict{animation:htPop .4s 1.2s cubic-bezier(.34,1.56,.64,1) both}
+
 @keyframes htPop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
-.ht-foot{display:flex;align-items:center;gap:10px;margin-top:14px}
-.ht-arrow{width:32px;height:32px;flex:none;border:1px solid var(--line-2);border-radius:50%;background:none;color:var(--text);cursor:pointer;font-size:14px}
-.ht-arrow:hover{border-color:var(--text)}
-.ht-prog{flex:1;height:2px;background:var(--line-2);overflow:hidden}
-.ht-prog i{display:block;height:100%;width:100%;background:var(--accent);transform-origin:left;animation:htProg 6.5s linear both}
-.howto.manual .ht-prog i{animation:none;transform:scaleX(calc((var(--hi,0) + 1) / 3))}
-.howto.paused .ht-prog i{animation-play-state:paused}
+
 @keyframes htProg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-.ht-more{font:650 12.5px/1 var(--sans);color:var(--accent);text-decoration:none;white-space:nowrap}
-.ht-more:hover{text-decoration:underline}
-@media (prefers-reduced-motion:reduce){.ht-slide.is-on,.is-on .ht-row.hit,.is-on .ht-tap,.is-on .ht-big .tri i,.is-on .ht-call,.is-on .ht-prices div,.is-on .ht-verdict{animation:none!important;opacity:1}.ht-tap{display:none}.ht-prog i{animation:none}}
-@media (max-width:760px){
-  
-  .ht-tabs button{gap:6px}
-  .ht-tabs button i{width:18px;height:18px}
-  
-  .ht-row{grid-template-columns:minmax(0,1fr) 80px}
-  .ht-prices{gap:6px}.ht-prices div{min-width:0;padding:6px 7px}.ht-prices b{font-size:16px}
-}
 
 /* ---- Fairline (Nov 2026): cobalt accent, a deep cobalt VIP band in both themes, bolder key numbers ---- */
 .brand .wm{letter-spacing:-.03em}
@@ -1650,12 +1591,6 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   /* Home hero: copy, then the how-to, shorter */
   .intro{gap:14px!important;padding-top:6px!important}
   .howto{padding:10px 10px 8px!important}
-  .ht-tabs{display:flex!important;gap:4px!important;overflow-x:auto;scrollbar-width:none;margin-bottom:10px!important}
-  .ht-tabs::-webkit-scrollbar{display:none}
-  .ht-tabs button{flex:none!important;white-space:nowrap;font-size:12px!important;padding:6px 8px 7px!important}
-  .ht-slide{gap:10px!important}
-  .ht-vis{min-height:0!important;padding:10px!important}
-  .ht-slide p{font-size:13.5px!important;line-height:1.45!important}
 
   /* Games to watch: compact match card */
 
@@ -1713,10 +1648,6 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   .intro .hero-stats{margin-top:var(--sp-3)!important}
 
   /* Home: the how-to is for first visits; afterwards a single link */
-  body.ht-done #howto{display:none!important}
-  .ht-done-link{display:none}
-  body.ht-done .ht-done-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--accent);text-decoration:none;margin-top:var(--sp-2)}
-  .ht-foot .ht-ok{margin-left:auto;background:none;border:0;color:var(--muted);font-size:12.5px;font-weight:600;padding:6px 4px}
 
   /* Games to watch: teams, kick-off, the bar and one sentence */
 
@@ -1977,6 +1908,90 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
   .bp-row .bp-hit{display:none!important}
   .bp-mid small{font-size:12.5px!important}
   .bp-hero .bp-foot .bp-hit{display:inline-block!important}
+}
+
+/* ================= Component: Home hero (all of its rules, gathered from every layer) ================= */
+.ht-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:14px}
+.ht-tabs button{display:flex;align-items:center;gap:8px;min-width:0;padding:8px 6px 9px;background:none;border:0;border-bottom:2px solid var(--line-2);color:var(--muted);font:650 12.5px/1.2 var(--sans);text-align:left;cursor:pointer}
+.ht-tabs button i{flex:none;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid currentColor;font:600 11px/1 var(--mono);font-style:normal}
+.ht-tabs button[aria-selected="true"]{color:var(--text);border-bottom-color:var(--accent)}
+.ht-tabs button[aria-selected="true"] i{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.ht-stage{display:grid;touch-action:pan-y;user-select:none}
+.ht-slide{grid-area:1/1;display:flex;flex-direction:column;gap:14px}
+.ht-slide[hidden]{display:flex!important;visibility:hidden;opacity:0;pointer-events:none}
+.ht-slide.is-on{animation:htIn .45s cubic-bezier(.16,1,.3,1)}
+.ht-slide p{margin:0;font-size:14.5px;line-height:1.55;color:var(--muted)}
+.ht-slide p b{color:var(--text)}
+.ht-vis{position:relative;min-height:176px;border-radius:4px;background:color-mix(in srgb,var(--text) 4%,var(--surface));padding:14px;overflow:hidden}
+.ht-rows{display:grid;gap:8px}
+.ht-row{display:grid;grid-template-columns:minmax(0,1fr) 110px;grid-template-rows:auto auto;column-gap:12px;align-items:center;padding:8px 10px;border:1px solid var(--line-2);border-radius:4px}
+.ht-row small{grid-column:1/-1;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.ht-row span{display:flex;align-items:center;gap:6px;min-width:0;font-size:13px}
+.ht-row span em{color:var(--muted);font-style:normal;font-size:11px}
+.ht-row .crest{flex:none}
+.ht-row .tri{height:6px}
+.is-on .ht-row.hit{animation:htHit 1.8s .9s both}
+.ht-tap{position:absolute;left:62%;top:38px;width:26px;height:26px;border-radius:50%;background:color-mix(in srgb,var(--accent) 70%,transparent);opacity:0}
+.is-on .ht-tap{animation:htTap 1.8s .5s both}
+.ht-teams{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-family:var(--serif);font-size:16px}
+.ht-teams em{color:var(--muted);font-style:normal;font-size:12px}
+.ht-teams .crest{flex:none}
+.ht-big{margin:16px 0 8px}
+.ht-big .tri i{transform-origin:left}
+.is-on .ht-big .tri i{animation:htGrow .8s cubic-bezier(.16,1,.3,1) both}
+.is-on .ht-big .tri i.d{animation-delay:.15s}
+.is-on .ht-big .tri i.a{animation-delay:.3s}
+.ht-nums{display:flex;justify-content:space-between}
+.ht-nums span{display:flex;flex-direction:column;font-size:11.5px;color:var(--muted)}
+.ht-nums span:nth-child(2){align-items:center}
+.ht-nums span:nth-child(3){align-items:flex-end}
+.ht-nums b{font:600 20px/1.2 var(--mono);color:var(--muted)}
+.ht-nums .is-top b{color:var(--text)}
+.ht-call{margin-top:10px;font-size:13px;text-align:center;opacity:0}
+.is-on .ht-call{animation:htFade .5s 1s both}
+.ht-sel{font-family:var(--serif);font-size:18px;font-weight:600;text-align:center}
+.ht-sel small{margin-left:8px;font:500 10.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ht-prices{display:flex;align-items:center;justify-content:center;gap:10px;margin:16px 0 12px}
+.ht-prices>span{color:var(--muted);font-size:12px}
+.ht-prices div{display:flex;flex-direction:column;align-items:center;padding:8px 10px;border:1px solid var(--line-2);border-radius:4px;min-width:72px}
+.ht-prices small{font-size:10.5px;color:var(--muted);white-space:nowrap}
+.ht-prices b{font:600 19px/1.3 var(--mono)}
+.ht-prices .bk{border-color:var(--text)}
+.is-on .ht-prices div{animation:htFade .4s both}
+.is-on .ht-prices div:nth-of-type(2){animation-delay:.35s}
+.is-on .ht-prices div:nth-of-type(3){animation-delay:.7s}
+.ht-verdict{width:max-content;max-width:100%;margin:0 auto;padding:6px 12px;border-radius:99px;background:var(--ok);color:var(--bg);font:650 12.5px/1.2 var(--sans);opacity:0}
+.is-on .ht-verdict{animation:htPop .4s 1.2s cubic-bezier(.34,1.56,.64,1) both}
+.ht-foot{display:flex;align-items:center;gap:10px;margin-top:14px}
+.ht-arrow{width:32px;height:32px;flex:none;border:1px solid var(--line-2);border-radius:50%;background:none;color:var(--text);cursor:pointer;font-size:14px}
+.ht-arrow:hover{border-color:var(--text)}
+.ht-prog{flex:1;height:2px;background:var(--line-2);overflow:hidden}
+.ht-prog i{display:block;height:100%;width:100%;background:var(--accent);transform-origin:left;animation:htProg 6.5s linear both}
+.howto.manual .ht-prog i{animation:none;transform:scaleX(calc((var(--hi,0) + 1) / 3))}
+.howto.paused .ht-prog i{animation-play-state:paused}
+.ht-more{font:650 12.5px/1 var(--sans);color:var(--accent);text-decoration:none;white-space:nowrap}
+.ht-more:hover{text-decoration:underline}
+@media (prefers-reduced-motion:reduce){
+  .ht-slide.is-on,.is-on .ht-row.hit,.is-on .ht-tap,.is-on .ht-big .tri i,.is-on .ht-call,.is-on .ht-prices div,.is-on .ht-verdict{animation:none!important;opacity:1}
+  .ht-tap{display:none}
+  .ht-prog i{animation:none}
+}
+@media (max-width:760px){
+  .ht-tabs button i{width:18px;height:18px}
+  .ht-row{grid-template-columns:minmax(0,1fr) 80px}
+  .ht-prices{gap:6px}
+  .ht-prices div{min-width:0;padding:6px 7px}
+  .ht-prices b{font-size:16px}
+  .ht-tabs{display:flex!important;gap:4px!important;overflow-x:auto;scrollbar-width:none;margin-bottom:10px!important}
+  .ht-tabs::-webkit-scrollbar{display:none}
+  .ht-tabs button{gap:6px;flex:none!important;white-space:nowrap;font-size:12px!important;padding:6px 8px 7px!important}
+  .ht-slide{gap:10px!important}
+  .ht-vis{min-height:0!important;padding:10px!important}
+  .ht-slide p{font-size:13.5px!important;line-height:1.45!important}
+  body.ht-done #howto{display:none!important}
+  .ht-done-link{display:none}
+  body.ht-done .ht-done-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--accent);text-decoration:none;margin-top:var(--sp-2)}
+  .ht-foot .ht-ok{margin-left:auto;background:none;border:0;color:var(--muted);font-size:12.5px;font-weight:600;padding:6px 4px}
 }
 </style>
 </head>
