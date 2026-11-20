@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T08:46:19.080998+00:00",
+ "generated_at": "2026-11-20T14:17:38.205374+00:00",
  "min_picks": 100,
  "recent_days": 28,
  "football": {},
@@ -131,6 +131,7 @@
    }
   }
  },
+ "corners": {},
  "method": "Run by the daily job after the picks are graded. For each sport and pick type it compares\nthe average stated chance (\"said\") with the share that won (\"won\") on the saved,\nbefore-kickoff record, overall and over the last 28 days, and gives a plain status:",
  "flags": []
 }

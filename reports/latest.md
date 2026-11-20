@@ -1,6 +1,6 @@
 # Football Lab research run — 2026-11-20
 
-69 fixtures in the next 7 days (excluding today).
+88 fixtures in the next 7 days (excluding today).
 Status: review_required
 
 ## Coverage
@@ -10,13 +10,20 @@ Status: review_required
 - Italy — Serie A: research_only — Initial freshness checks passed; research only
 - Germany — Bundesliga: research_only — Initial freshness checks passed; research only
 - France — Ligue 1: research_only — Initial freshness checks passed; research only
-- Italy — Serie B: review_required — Current-season fixtures missing; Completed results are missing or more than 30 days old; Current source freshness unverified
+- Italy — Serie B: review_required — Current source freshness unverified
 - Germany — 2. Bundesliga: research_only — Initial freshness checks passed; research only
 - Netherlands — Eredivisie: research_only — Initial freshness checks passed; research only
 - Portugal — Primeira Liga: review_required — 1 recent current-season fixtures have no result yet
 
 ## Forecasts
 
+- 2026-11-21 · Italy — Serie B · Sampdoria v Benevento: review_required; 1X2 27.4%/32.5%/40.1%; expected goals 1.04–1.29; O2.5 40.6%; BTTS 48.7%; decision withhold.
+- 2026-11-21 · Italy — Serie B · Ascoli v Vicenza Virtus: review_required; 1X2 70.0%/21.4%/8.6%; expected goals 2.08–0.66; O2.5 51.6%; BTTS 43.5%; decision withhold.
+- 2026-11-21 · Italy — Serie B · Modena FC v Juve Stabia: review_required; 1X2 47.9%/31.2%/21.0%; expected goals 1.44–0.90; O2.5 40.9%; BTTS 47.0%; decision withhold.
+- 2026-11-21 · Italy — Serie B · FC Südtirol v US Cremonese: review_required; 1X2 30.4%/31.6%/38.0%; expected goals 1.16–1.31; O2.5 44.3%; BTTS 52.0%; decision withhold.
+- 2026-11-21 · Italy — Serie B · Carrarese Calcio v Virtus Entella: review_required; 1X2 43.7%/32.0%/24.3%; expected goals 1.36–0.98; O2.5 40.8%; BTTS 48.2%; decision withhold.
+- 2026-11-21 · Italy — Serie B · US Catanzaro v Palermo FC: review_required; 1X2 27.2%/28.4%/44.3%; expected goals 1.25–1.62; O2.5 54.0%; BTTS 58.7%; decision withhold.
+- 2026-11-21 · Italy — Serie B · Empoli FC v AC Pisa 1909: review_required; 1X2 27.0%/28.9%/44.1%; expected goals 1.21–1.57; O2.5 52.2%; BTTS 57.3%; decision withhold.
 - 2026-11-21 · England — Premier League · Chelsea FC v Leeds United FC: research_only; 1X2 50.6%/26.3%/23.1%; expected goals 1.71–1.11; O2.5 53.2%; BTTS 55.9%; decision withhold.
 - 2026-11-21 · England — Premier League · Manchester City FC v Fulham FC: research_only; 1X2 66.2%/21.3%/12.5%; expected goals 2.09–0.85; O2.5 56.3%; BTTS 50.8%; decision withhold.
 - 2026-11-21 · England — Premier League · Aston Villa FC v Sunderland AFC: research_only; 1X2 53.8%/26.0%/20.2%; expected goals 1.73–1.01; O2.5 51.3%; BTTS 53.2%; decision withhold.
@@ -48,6 +55,8 @@ Status: review_required
 - 2026-11-21 · Netherlands — Eredivisie · FC Utrecht v SC Cambuur-Leeuwarden: research_only; 1X2 51.1%/23.4%/25.4%; expected goals 2.07–1.46; O2.5 68.3%; BTTS 68.0%; decision withhold.
 - 2026-11-21 · Netherlands — Eredivisie · Telstar 1963 v PEC Zwolle: research_only; 1X2 53.3%/24.5%/22.2%; expected goals 1.94–1.24; O2.5 61.2%; BTTS 61.7%; decision withhold.
 - 2026-11-21 · Netherlands — Eredivisie · FC Groningen v SC Heerenveen: research_only; 1X2 39.2%/26.2%/34.6%; expected goals 1.65–1.55; O2.5 61.7%; BTTS 64.8%; decision withhold.
+- 2026-11-22 · Italy — Serie B · US Avellino v Mantova 1911 SSD: review_required; 1X2 42.8%/30.5%/26.7%; expected goals 1.45–1.12; O2.5 46.9%; BTTS 53.3%; decision withhold.
+- 2026-11-22 · Italy — Serie B · Arezzo v Calcio Padova: review_required; 1X2 29.0%/31.8%/39.1%; expected goals 1.12–1.32; O2.5 43.3%; BTTS 51.1%; decision withhold.
 - 2026-11-22 · England — Premier League · Liverpool FC v Manchester United FC: research_only; 1X2 55.5%/23.9%/20.6%; expected goals 1.95–1.16; O2.5 59.7%; BTTS 59.5%; decision withhold.
 - 2026-11-22 · England — Premier League · Hull City AFC v Brighton & Hove Albion FC: research_only; 1X2 31.0%/28.1%/40.9%; expected goals 1.26–1.47; O2.5 50.9%; BTTS 56.2%; decision withhold.
 - 2026-11-22 · Spain — La Liga · Athletic Club v RCD Espanyol de Barcelona: review_required; 1X2 54.9%/26.6%/18.5%; expected goals 1.62–0.87; O2.5 45.1%; BTTS 47.2%; decision withhold.
@@ -79,6 +88,16 @@ Status: review_required
 - 2026-11-23 · England — Premier League · Brentford FC v Everton FC: research_only; 1X2 47.5%/27.9%/24.6%; expected goals 1.55–1.08; O2.5 48.6%; BTTS 53.0%; decision withhold.
 - 2026-11-23 · Italy — Serie A · AC Monza v ACF Fiorentina: research_only; 1X2 26.5%/25.7%/47.8%; expected goals 1.19–1.65; O2.5 53.7%; BTTS 56.7%; decision withhold.
 - 2026-11-23 · Italy — Serie A · Juventus FC v Venezia FC: research_only; 1X2 67.1%/22.1%/10.8%; expected goals 1.86–0.64; O2.5 45.7%; BTTS 40.2%; decision withhold.
+- 2026-11-24 · Italy — Serie B · Benevento v Empoli FC: review_required; 1X2 53.8%/28.0%/18.2%; expected goals 1.68–0.93; O2.5 48.0%; BTTS 50.8%; decision withhold.
+- 2026-11-24 · Italy — Serie B · Cesena FC v Ascoli: review_required; 1X2 20.1%/30.2%/49.7%; expected goals 0.91–1.51; O2.5 43.0%; BTTS 48.2%; decision withhold.
+- 2026-11-24 · Italy — Serie B · US Cremonese v US Avellino: review_required; 1X2 50.3%/29.2%/20.6%; expected goals 1.59–0.97; O2.5 46.7%; BTTS 51.1%; decision withhold.
+- 2026-11-24 · Italy — Serie B · Palermo FC v FC Südtirol: review_required; 1X2 60.8%/25.5%/13.8%; expected goals 1.85–0.82; O2.5 49.6%; BTTS 48.6%; decision withhold.
+- 2026-11-24 · Italy — Serie B · Virtus Entella v Hellas Verona FC: review_required; 1X2 25.0%/31.0%/44.0%; expected goals 1.04–1.43; O2.5 44.2%; BTTS 50.9%; decision withhold.
+- 2026-11-24 · Italy — Serie B · AC Pisa 1909 v Modena FC: review_required; 1X2 43.5%/29.8%/26.6%; expected goals 1.50–1.15; O2.5 49.0%; BTTS 54.9%; decision withhold.
+- 2026-11-24 · Italy — Serie B · Juve Stabia v US Catanzaro: review_required; 1X2 43.6%/30.3%/26.1%; expected goals 1.47–1.11; O2.5 47.2%; BTTS 53.4%; decision withhold.
+- 2026-11-24 · Italy — Serie B · Calcio Padova v Sampdoria: review_required; 1X2 45.3%/32.0%/22.6%; expected goals 1.37–0.92; O2.5 39.7%; BTTS 46.8%; decision withhold.
+- 2026-11-24 · Italy — Serie B · Vicenza Virtus v Carrarese Calcio: review_required; 1X2 36.4%/30.4%/33.2%; expected goals 1.36–1.30; O2.5 49.1%; BTTS 55.8%; decision withhold.
+- 2026-11-24 · Italy — Serie B · Mantova 1911 SSD v Arezzo: review_required; 1X2 57.0%/26.9%/16.1%; expected goals 1.75–0.88; O2.5 48.6%; BTTS 49.8%; decision withhold.
 - 2026-11-27 · England — Premier League · Nottingham Forest FC v Chelsea FC: research_only; 1X2 35.4%/27.9%/36.7%; expected goals 1.39–1.42; O2.5 52.7%; BTTS 57.8%; decision withhold.
 - 2026-11-27 · Germany — Bundesliga · SV Werder Bremen v Borussia Mönchengladbach: research_only; 1X2 48.1%/25.6%/26.2%; expected goals 1.79–1.30; O2.5 59.5%; BTTS 61.7%; decision withhold.
 - 2026-11-27 · France — Ligue 1 · Stade Brestois 29 v Paris FC: research_only; 1X2 35.8%/27.4%/36.8%; expected goals 1.41–1.43; O2.5 53.5%; BTTS 58.3%; decision withhold.
@@ -87,7 +106,7 @@ Status: review_required
 - 2026-11-27 · Netherlands — Eredivisie · FC Groningen v Willem II Tilburg: research_only; 1X2 71.6%/18.0%/10.4%; expected goals 2.48–0.93; O2.5 66.3%; BTTS 56.1%; decision withhold.
 - 2026-11-27 · Portugal — Primeira Liga · CS Marítimo v CD Nacional: review_required; 1X2 34.5%/25.5%/40.0%; expected goals 1.23–1.34; O2.5 47.2%; BTTS 51.6%; decision withhold.
 
-Prospective ledger: 405 registered, 326 graded, 73 pending.
+Prospective ledger: 424 registered, 326 graded, 92 pending.
 These are uncalibrated research forecasts, not recommendations.
 
-Run: 20261120T084410234900Z · data: 8093b33fda3f413eca479be6575db46c997b860d5bc79da93117c4fff57ab53c · code: 4c965596c649a90fd3bc7be03fb34f77434b046c08dc97c2ddeb14b34de0da71
+Run: 20261120T141516923840Z · data: 9830f28a0342da73f947ab25e07779257d167ed41931c2bb36937332317f529f · code: 164f8a559461756c412d6fd61beb94cfaf9d2841038c57bf4b72450b090203f5
