@@ -1,0 +1,401 @@
+{
+ "chosen": {
+  "half_life": 240,
+  "shrink": 20,
+  "shots": 0.3
+ },
+ "lines": [
+  8.5,
+  9.5,
+  10.5,
+  11.5
+ ],
+ "tune": {
+  "model": {
+   "games": 1985,
+   "log_loss": 0.64563,
+   "sure_70_plus": {
+    "picks": 1915,
+    "said": 0.7522,
+    "won": 0.7431
+   }
+  },
+  "base": {
+   "games": 1985,
+   "log_loss": 0.65349,
+   "sure_70_plus": {
+    "picks": 1758,
+    "said": 0.744,
+    "won": 0.7241
+   }
+  }
+ },
+ "holdout": {
+  "2025": {
+   "model": {
+    "games": 3070,
+    "log_loss": 0.64901,
+    "sure_70_plus": {
+     "picks": 2823,
+     "said": 0.7507,
+     "won": 0.7279
+    }
+   },
+   "base": {
+    "games": 3070,
+    "log_loss": 0.65282,
+    "sure_70_plus": {
+     "picks": 2483,
+     "said": 0.7415,
+     "won": 0.7245
+    }
+   }
+  },
+  "2026": {
+   "model": {
+    "games": 915,
+    "log_loss": 0.65223,
+    "sure_70_plus": {
+     "picks": 752,
+     "said": 0.7481,
+     "won": 0.7367
+    }
+   },
+   "base": {
+    "games": 915,
+    "log_loss": 0.6615,
+    "sure_70_plus": {
+     "picks": 705,
+     "said": 0.7365,
+     "won": 0.7121
+    }
+   }
+  }
+ },
+ "by_league": {
+  "de.1": {
+   "model": {
+    "games": 389,
+    "log_loss": 0.66508,
+    "sure_70_plus": {
+     "picks": 285,
+     "said": 0.7421,
+     "won": 0.6982
+    }
+   },
+   "base": {
+    "games": 389,
+    "log_loss": 0.66581,
+    "sure_70_plus": {
+     "picks": 186,
+     "said": 0.7086,
+     "won": 0.6667
+    }
+   }
+  },
+  "de.2": {
+   "model": {
+    "games": 407,
+    "log_loss": 0.65926,
+    "sure_70_plus": {
+     "picks": 194,
+     "said": 0.7209,
+     "won": 0.6701
+    }
+   },
+   "base": {
+    "games": 407,
+    "log_loss": 0.66193,
+    "sure_70_plus": {
+     "picks": 153,
+     "said": 0.7062,
+     "won": 0.6732
+    }
+   }
+  },
+  "en.1": {
+   "model": {
+    "games": 480,
+    "log_loss": 0.6571,
+    "sure_70_plus": {
+     "picks": 297,
+     "said": 0.731,
+     "won": 0.7071
+    }
+   },
+   "base": {
+    "games": 480,
+    "log_loss": 0.6593,
+    "sure_70_plus": {
+     "picks": 287,
+     "said": 0.7239,
+     "won": 0.6969
+    }
+   }
+  },
+  "es.1": {
+   "model": {
+    "games": 499,
+    "log_loss": 0.6491,
+    "sure_70_plus": {
+     "picks": 406,
+     "said": 0.7461,
+     "won": 0.7438
+    }
+   },
+   "base": {
+    "games": 499,
+    "log_loss": 0.66194,
+    "sure_70_plus": {
+     "picks": 441,
+     "said": 0.7235,
+     "won": 0.6961
+    }
+   }
+  },
+  "fr.1": {
+   "model": {
+    "games": 397,
+    "log_loss": 0.6423,
+    "sure_70_plus": {
+     "picks": 374,
+     "said": 0.7513,
+     "won": 0.738
+    }
+   },
+   "base": {
+    "games": 397,
+    "log_loss": 0.64536,
+    "sure_70_plus": {
+     "picks": 397,
+     "said": 0.7458,
+     "won": 0.7557
+    }
+   }
+  },
+  "it.1": {
+   "model": {
+    "games": 490,
+    "log_loss": 0.62441,
+    "sure_70_plus": {
+     "picks": 720,
+     "said": 0.7707,
+     "won": 0.7653
+    }
+   },
+   "base": {
+    "games": 490,
+    "log_loss": 0.63221,
+    "sure_70_plus": {
+     "picks": 678,
+     "said": 0.7679,
+     "won": 0.7404
+    }
+   }
+  },
+  "it.2": {
+   "model": {
+    "games": 500,
+    "log_loss": 0.65465,
+    "sure_70_plus": {
+     "picks": 536,
+     "said": 0.7541,
+     "won": 0.7276
+    }
+   },
+   "base": {
+    "games": 500,
+    "log_loss": 0.65926,
+    "sure_70_plus": {
+     "picks": 464,
+     "said": 0.7498,
+     "won": 0.7134
+    }
+   }
+  },
+  "nl.1": {
+   "model": {
+    "games": 417,
+    "log_loss": 0.66115,
+    "sure_70_plus": {
+     "picks": 294,
+     "said": 0.7312,
+     "won": 0.6701
+    }
+   },
+   "base": {
+    "games": 417,
+    "log_loss": 0.6618,
+    "sure_70_plus": {
+     "picks": 176,
+     "said": 0.7153,
+     "won": 0.7102
+    }
+   }
+  },
+  "pt.1": {
+   "model": {
+    "games": 406,
+    "log_loss": 0.63775,
+    "sure_70_plus": {
+     "picks": 469,
+     "said": 0.7577,
+     "won": 0.7548
+    }
+   },
+   "base": {
+    "games": 406,
+    "log_loss": 0.64694,
+    "sure_70_plus": {
+     "picks": 406,
+     "said": 0.7467,
+     "won": 0.7611
+    }
+   }
+  }
+ },
+ "grid": [
+  {
+   "half_life": 240,
+   "shrink": 20,
+   "shots": 0.3,
+   "tune": {
+    "games": 1985,
+    "log_loss": 0.64563,
+    "sure_70_plus": {
+     "picks": 1915,
+     "said": 0.7522,
+     "won": 0.7431
+    }
+   }
+  },
+  {
+   "half_life": 120,
+   "shrink": 20,
+   "shots": 0.3,
+   "tune": {
+    "games": 1985,
+    "log_loss": 0.64586,
+    "sure_70_plus": {
+     "picks": 1902,
+     "said": 0.7508,
+     "won": 0.7392
+    }
+   }
+  },
+  {
+   "half_life": 240,
+   "shrink": 20,
+   "shots": 0.0,
+   "tune": {
+    "games": 1985,
+    "log_loss": 0.64608,
+    "sure_70_plus": {
+     "picks": 1972,
+     "said": 0.7551,
+     "won": 0.7388
+    }
+   }
+  },
+  {
+   "half_life": 120,
+   "shrink": 20,
+   "shots": 0.0,
+   "tune": {
+    "games": 1985,
+    "log_loss": 0.64609,
+    "sure_70_plus": {
+     "picks": 1943,
+     "said": 0.7533,
+     "won": 0.7422
+    }
+   }
+  },
+  {
+   "half_life": 240,
+   "shrink": 20,
+   "shots": 0.6,
+   "tune": {
+    "games": 1985,
+    "log_loss": 0.64628,
+    "sure_70_plus": {
+     "picks": 1898,
+     "said": 0.7508,
+     "won": 0.7413
+    }
+   }
+  },
+  {
+   "half_life": 120,
+   "shrink": 20,
+   "shots": 0.6,
+   "tune": {
+    "games": 1985,
+    "log_loss": 0.64647,
+    "sure_70_plus": {
+     "picks": 1864,
+     "said": 0.7502,
+     "won": 0.7387
+    }
+   }
+  },
+  {
+   "half_life": 120,
+   "shrink": 8,
+   "shots": 0.3,
+   "tune": {
+    "games": 1985,
+    "log_loss": 0.64652,
+    "sure_70_plus": {
+     "picks": 2069,
+     "said": 0.7589,
+     "won": 0.7376
+    }
+   }
+  },
+  {
+   "half_life": 60,
+   "shrink": 20,
+   "shots": 0.3,
+   "tune": {
+    "games": 1985,
+    "log_loss": 0.6466,
+    "sure_70_plus": {
+     "picks": 1908,
+     "said": 0.7493,
+     "won": 0.7379
+    }
+   }
+  },
+  {
+   "half_life": 240,
+   "shrink": 8,
+   "shots": 0.3,
+   "tune": {
+    "games": 1985,
+    "log_loss": 0.64661,
+    "sure_70_plus": {
+     "picks": 2094,
+     "said": 0.7602,
+     "won": 0.7364
+    }
+   }
+  },
+  {
+   "half_life": 60,
+   "shrink": 20,
+   "shots": 0.0,
+   "tune": {
+    "games": 1985,
+    "log_loss": 0.64671,
+    "sure_70_plus": {
+     "picks": 1934,
+     "said": 0.751,
+     "won": 0.7337
+    }
+   }
+  }
+ ],
+ "generated_at": "2026-11-20T10:24:17",
+ "method": "Can we predict total corners better than the league's own average? (research, walk-forward)"
+}
