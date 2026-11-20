@@ -55,9 +55,11 @@ button{cursor:pointer}
 .chip small{font-size:11px;color:var(--faint)}
 .chip:hover{border-color:var(--line-2);color:var(--text)}
 .chip[aria-pressed="true"] small{color:color-mix(in srgb,var(--bg) 60%,transparent)}
-.seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:3px;gap:2px;flex-wrap:wrap}
-.seg button{border:0;background:none;padding:5px 11px;border-radius:8px;font-size:12.5px;color:var(--muted);font-weight:550}
-.seg button[aria-pressed="true"]{background:var(--surface-3);color:var(--text);box-shadow:0 1px 2px #0000001a}
+.seg{display:inline-flex;align-items:center;background:color-mix(in srgb,var(--surface-2) 82%,transparent);border:1px solid var(--line);border-radius:999px;padding:4px;gap:2px;flex-wrap:wrap;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.seg button{display:inline-flex;align-items:center;gap:5px;border:0;background:none;min-height:32px;padding:0 14px;border-radius:999px;font-family:var(--display);font-size:13.5px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;color:var(--muted);white-space:nowrap;transition:background .2s,color .2s}
+.seg button:hover{color:var(--text)}
+.seg button small{font-family:inherit;font-weight:700;opacity:.6}
+.seg button[aria-pressed="true"]{background:var(--text);color:var(--bg);box-shadow:0 4px 14px color-mix(in srgb,var(--text) 14%,transparent)}
 .primary:active{transform:translateY(1px)}
 .primary:disabled{opacity:.6;cursor:wait}
 .ghost{border:1px solid var(--line-2);background:var(--surface);border-radius:12px;padding:9px 14px;font-weight:550;font-size:13px}
@@ -82,7 +84,7 @@ button{cursor:pointer}
 .mtabs button{padding:8px 14px;border-radius:12px;border:0!important;margin:0;white-space:nowrap;font-weight:600;transition:background .2s,color .2s}
 .mtabs button:hover{background:var(--surface-2)}
 .mtabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink)}
-.seg-lbl{align-self:center;padding:0 8px 0 6px;font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--faint)}
+.seg-lbl{align-self:center;padding:0 8px 0 10px;font-family:var(--display);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--faint);white-space:nowrap;flex:none}
 @media (max-width:760px){
   .ft-filter{margin-left:-14px;margin-right:-14px;padding:0 14px 4px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 24px),transparent)}
   .ft-filter button{padding:9px 14px;font-size:12px;background:var(--surface-2);box-shadow:0 6px 16px -10px #000;min-height:40px}
@@ -91,7 +93,9 @@ button{cursor:pointer}
   .mtabs{border-radius:16px;padding:6px;margin:14px -4px 14px;top:calc(56px + env(safe-area-inset-top))!important}
   .seg{background:var(--surface-2);flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none;max-width:100%}
   .seg::-webkit-scrollbar{display:none}
-  .seg button{min-height:38px;flex:none;white-space:nowrap}
+  .seg button{min-height:32px;flex:none;padding:0 12px;font-size:13px}
+  .seg{min-width:0}
+  .view-head .toolbar{min-width:0;max-width:100%}
   .tabs.mtabs{scrollbar-width:none}
   .tabs.mtabs::-webkit-scrollbar{display:none}
 }
