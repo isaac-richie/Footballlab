@@ -116,7 +116,13 @@ def gather(html, name, token, aliases=None, emit_root=None):
             if not props:
                 continue
             out_sel = text_of.get((ctx, sel), sel)
-            lines.append(f'{out_sel}{{' + ';'.join(f'{p}:{v}' for p, (v, *_) in props.items()) + '}')
+            body = ';'.join(f'{p}:{v}' for p, (v, *_) in props.items())
+            # neighbours with the same declarations become one selector list again (order is unchanged)
+            if lines and lines[-1][1] == body:
+                lines[-1] = (lines[-1][0] + ',' + out_sel, body)
+            else:
+                lines.append((out_sel, body))
+        lines = [f'{s}{{{b}}}' for s, b in lines]
         if not lines:
             continue
         if ctx:
