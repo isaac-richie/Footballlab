@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Fairline">
   <!-- Fairline mark: a level line through a ball, the half below it filled. Content sits inside the
        central 80% so the maskable icon survives any mask shape. -->
-  <rect width="512" height="512" fill="#141210"/>
-  <path d="M120 256a136 136 0 0 0 272 0z" fill="#6F8CFF"/>
-  <circle cx="256" cy="256" r="136" fill="none" stroke="#F4EFE6" stroke-width="26"/>
-  <path d="M84 256h344" stroke="#F4EFE6" stroke-width="26" stroke-linecap="round"/>
+  <rect width="512" height="512" fill="#0A0D12"/>
+  <path d="M120 256a136 136 0 0 0 272 0z" fill="#C2F25E"/>
+  <circle cx="256" cy="256" r="136" fill="none" stroke="#E9EEF4" stroke-width="26"/>
+  <path d="M84 256h344" stroke="#E9EEF4" stroke-width="26" stroke-linecap="round"/>
 </svg>
