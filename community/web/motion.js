@@ -11,17 +11,41 @@
 
   const css = document.createElement('style');
   css.textContent = `
-  .ko-intro{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:#0a0d12;cursor:pointer}
-  .ko-intro .lens{width:132px;height:132px;animation:koDrop .7s cubic-bezier(.2,1.4,.4,1) both}
-  .ko-intro .lens img{width:100%;height:100%;animation:koSpin .9s cubic-bezier(.3,.8,.3,1) .15s both}
-  .ko-intro .word{position:absolute;top:calc(50% + 86px);font:800 22px/1 'Barlow Condensed','Arial Narrow',sans-serif;letter-spacing:6px;color:#f4f7fb;text-transform:uppercase;opacity:0;animation:koWord .5s ease .45s both}
-  .ko-intro .word b{color:#c2f25e}
-  .ko-intro.out{animation:koOut .75s cubic-bezier(.7,0,.2,1) forwards}
-  @keyframes koDrop{from{transform:translateY(-60vh) scale(.6);opacity:0}}
-  @keyframes koSpin{from{transform:rotate(-540deg) scale(.4)}}
-  @keyframes koWord{from{opacity:0;transform:translateY(10px);letter-spacing:16px}to{opacity:1}}
-  @keyframes koOut{to{clip-path:circle(0 at 50% 50%);opacity:.6}}
-  .ko-intro{clip-path:circle(150% at 50% 50%)}
+  /* Welcome: the fair line draws, the mark closes round it, the name rises, then the screen shuts onto the line */
+  .fl-intro{position:fixed;inset:0;z-index:1000;cursor:pointer;--lime:#c2f25e;--ink:#f4f7fb}
+  .fl-stage{position:absolute;inset:0;overflow:hidden;background:radial-gradient(120% 80% at 50% 50%,#0f141b 0%,#07090c 70%);
+    clip-path:inset(0 0 0 0);display:grid;place-items:center}
+  .fl-stage::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+    background:repeating-radial-gradient(circle at 30% 40%,#fff 0 1px,transparent 1px 3px);animation:flGrain .4s steps(2) infinite}
+  .fl-beam{position:absolute;top:-30vh;width:60vmax;height:140vh;opacity:0;pointer-events:none;filter:blur(18px);
+    background:conic-gradient(from 180deg at 50% 0%,transparent 0deg,rgba(220,240,255,.16) 8deg,transparent 18deg)}
+  .fl-beam.l{left:-22vmax;transform-origin:50% 0;animation:flBeamL 1.6s cubic-bezier(.3,.7,.2,1) .35s both}
+  .fl-beam.r{right:-22vmax;transform-origin:50% 0;animation:flBeamR 1.6s cubic-bezier(.3,.7,.2,1) .45s both}
+  .fl-core{position:relative;display:grid;justify-items:center;gap:22px;transform:translateY(-8px)}
+  .fl-mark{width:112px;height:112px;overflow:visible;filter:drop-shadow(0 0 14px rgba(194,242,94,.28))}
+  .fl-mark .ring{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-dasharray:0 60;transform:rotate(-180deg);transform-origin:12px 12px;
+    animation:flRing .75s cubic-bezier(.65,0,.35,1) .55s forwards}
+  .fl-mark .fill{fill:var(--lime);clip-path:inset(100% 0 0 0);animation:flFill .5s cubic-bezier(.3,.8,.3,1) 1.05s forwards}
+  .fl-word{display:flex;font:800 clamp(52px,15vw,96px)/.9 'Barlow Condensed','Arial Narrow',sans-serif;letter-spacing:2px;color:var(--ink);text-transform:uppercase;
+    clip-path:inset(-20% -10% -20% -10%)}
+  .fl-word span{display:inline-block;opacity:0;transform:translateY(60%);filter:blur(10px);animation:flRise .7s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(1.2s + var(--i) * 55ms)}
+  .fl-word span.l{color:var(--lime);text-shadow:0 0 28px rgba(194,242,94,.35)}
+  .fl-tag{font:600 13px/1 Inter,system-ui,sans-serif;letter-spacing:5px;text-transform:uppercase;color:#8a96a8;opacity:0;animation:flTag .9s ease 1.75s both}
+  .fl-line{position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;pointer-events:none;
+    background:linear-gradient(90deg,transparent,var(--lime) 18%,var(--lime) 82%,transparent);box-shadow:0 0 18px 2px rgba(194,242,94,.55),0 0 60px 6px rgba(194,242,94,.18);
+    transform:scaleX(0);animation:flLine .8s cubic-bezier(.65,0,.35,1) .1s forwards}
+  .fl-intro.out .fl-stage{animation:flShut .62s cubic-bezier(.7,0,.25,1) forwards}
+  .fl-intro.out .fl-line{animation:flFlash .9s ease .45s forwards;transform:scaleX(1)}
+  @keyframes flLine{to{transform:scaleX(1)}}
+  @keyframes flRing{to{stroke-dasharray:57.5 60}}
+  @keyframes flFill{to{clip-path:inset(50% 0 0 0)}}
+  @keyframes flRise{to{opacity:1;transform:none;filter:blur(0)}}
+  @keyframes flTag{from{opacity:0;letter-spacing:12px}to{opacity:1}}
+  @keyframes flBeamL{0%{opacity:0;transform:rotate(-38deg)}40%{opacity:1}100%{opacity:.55;transform:rotate(-14deg)}}
+  @keyframes flBeamR{0%{opacity:0;transform:rotate(38deg)}40%{opacity:1}100%{opacity:.55;transform:rotate(14deg)}}
+  @keyframes flShut{to{clip-path:inset(var(--y,50%) 0 calc(100% - var(--y,50%)) 0)}}
+  @keyframes flFlash{0%{opacity:1;filter:brightness(1.8)}100%{opacity:0;transform:scaleX(1.15);filter:brightness(1)}}
+  @keyframes flGrain{50%{transform:translate(-1%,1%)}}
   .tilt{transform-style:preserve-3d;will-change:transform;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
   .tilt.on{transition:transform .08s linear}
   .tilt .glare{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:3;opacity:0;transition:opacity .3s;
@@ -39,18 +63,29 @@
   .cur-dot.show{opacity:1}`;
   document.head.appendChild(css);
 
-  /* ---------- Kickoff intro: once per visit ---------- */
+  /* ---------- Welcome: once per visit, a tap skips it ---------- */
   function intro(){
     let seen = false; try{ seen = sessionStorage.getItem('ko') === '1'; sessionStorage.setItem('ko', '1') }catch{}
     if(seen || reduced() || off()) return;
     const el = document.createElement('div');
-    el.className = 'ko-intro'; el.setAttribute('aria-hidden', 'true');
-    el.innerHTML = `<div class="lens"><img src="${logoSrc}" alt=""></div><div class="word">Football <b>Lab</b></div>`;
+    el.className = 'fl-intro'; el.setAttribute('aria-hidden', 'true');
+    const letters = [...'FAIRLINE'].map((c, i) => `<span${i > 3 ? ' class="l"' : ''} style="--i:${i}">${c}</span>`).join('');
+    el.innerHTML = `<div class="fl-stage"><i class="fl-beam l"></i><i class="fl-beam r"></i>
+        <div class="fl-core">
+          <svg class="fl-mark" viewBox="0 0 24 24"><path class="fill" d="M3 12a9 9 0 0 0 18 0z"/><circle class="ring" cx="12" cy="12" r="9" pathLength="57"/></svg>
+          <div class="fl-word">${letters}</div>
+          <div class="fl-tag">The fair price on every game</div>
+        </div></div><i class="fl-line"></i>`;
     document.body.appendChild(el);
-    const leave = () => { if(el.classList.contains('out')) return; el.classList.add('out'); setTimeout(() => el.remove(), 800) };
+    // the line runs through the middle of the mark
+    const place = () => { const m = el.querySelector('.fl-mark').getBoundingClientRect(); const y = m.top + m.height / 2; el.querySelector('.fl-line').style.top = y + 'px'; el.style.setProperty('--y', y + 'px') };
+    place();
+    const leave = () => { if(el.classList.contains('out')) return; place(); el.classList.add('out'); setTimeout(() => el.remove(), 1400) };
     el.addEventListener('click', leave);
-    setTimeout(leave, 1500);
+    setTimeout(leave, 2700);
   }
+  // replay on demand (for demos): fairlineIntro()
+  window.fairlineIntro = () => { try{ sessionStorage.removeItem('ko') }catch{} intro() };
 
   /* ---------- 3D tilt with glare ---------- */
   // Not .fixture: those hold drag sliders, which need a flat card to map the pointer.
