@@ -1811,6 +1811,110 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
 .vip-band h1{font-family:var(--display)!important;text-transform:uppercase;font-weight:800!important;letter-spacing:.2px!important;line-height:.92!important}
 .vip-band .vb-stats span{background:color-mix(in srgb,var(--accent-ink) 14%,transparent)!important;border-color:transparent!important;color:var(--accent-ink)!important;backdrop-filter:none!important}
 .vip-band .vb-stats b,.vip-band .vb-stats small{color:var(--accent-ink)!important}
+
+/* ================= Mobile pass, 21 Nov 2026: denser cards, shorter heroes, no wrapping controls ================= */
+@media (max-width:760px){
+  /* Page rhythm */
+  .wrap{padding-left:14px!important;padding-right:14px!important}
+  section[data-panel]>.view-head,.view-head{margin-bottom:12px!important}
+  .view-head h1,.intro h1,.vip-band h1,.how-head h1{font-size:clamp(28px,8.4vw,34px)!important;line-height:1.02!important;letter-spacing:0!important}
+  .view-head p,.intro-lede,.vb-copy>p,.how-lede{font-size:14px!important;line-height:1.5!important;margin-top:6px!important}
+  .sect-head h2,.ft-all-head h2,.ga-lg-head h3{font-size:22px!important}
+  .card{padding:14px!important;border-radius:16px!important}
+
+  /* Stats rows: one tidy line of figures, no bubbles */
+  .hero-stats,.vb-stats{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:0!important;margin-top:14px!important}
+  .hero-stats span,.vb-stats span{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:1px!important;
+    padding:4px 10px!important;border:0!important;border-left:1px solid color-mix(in srgb,currentColor 22%,transparent)!important;border-radius:0!important;
+    background:none!important;box-shadow:none!important;min-height:0!important;font-size:11.5px!important;line-height:1.25!important}
+  .hero-stats span:first-child,.vb-stats span:first-child{padding-left:0!important;border-left:0!important}
+  .hero-stats b,.vb-stats b{font-size:21px!important;line-height:1.1!important}
+
+  /* Home hero: copy, then the how-to, shorter */
+  .intro{gap:14px!important;padding-top:6px!important}
+  .howto{padding:10px 10px 8px!important}
+  .ht-tabs{display:flex!important;gap:4px!important;overflow-x:auto;scrollbar-width:none;margin-bottom:10px!important}
+  .ht-tabs::-webkit-scrollbar{display:none}
+  .ht-tabs button{flex:none!important;white-space:nowrap;font-size:12px!important;padding:6px 8px 7px!important}
+  .ht-slide{gap:10px!important}
+  .ht-vis{min-height:0!important;padding:10px!important}
+  .ht-slide p{font-size:13.5px!important;line-height:1.45!important}
+
+  /* Games to watch: compact match card */
+  .ft.card{padding:12px!important;gap:10px!important}
+  .fc-head{margin:0!important}
+  .fc-face{gap:6px!important;align-items:start!important}
+  .fc-ring,.fc-ring.away{width:52px!important;height:52px!important;margin-bottom:4px!important}
+  .fc-face{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important}.fc-team{align-self:start!important;justify-content:flex-start!important}
+  .fc-ring .crest{width:36px!important;height:36px!important}
+  .fc-team{gap:3px!important}
+  .fc-team b{font-size:13px!important;line-height:1.2!important}
+  .fc-team .fav-star{width:22px!important;height:22px!important}
+  .fc-ko{font-size:20px!important}
+  .fc-bar{height:24px!important}
+  .fc-take{font-size:13.5px!important;margin:0!important}
+  .fc-chips{flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none}
+  .fc-chips::-webkit-scrollbar{display:none}
+  .fc-chips span{flex:none;white-space:nowrap}
+  .fc-go{min-height:40px!important}
+
+  /* Every game on Home: rows inside one card per league */
+  .ga-lg{margin:0 0 16px!important;border:1px solid var(--line-2);border-radius:16px;background:var(--surface);overflow:hidden}
+  .ga-lg-head{padding:10px 14px!important;margin:0!important;border-bottom:1px solid var(--line)}
+  .ga-lg .ga{margin:0!important;border:0!important;border-radius:0!important;background:none!important;border-top:1px solid var(--line)!important;
+    grid-template-columns:minmax(0,1fr) auto!important;grid-template-areas:"tm meta" "bar bar"!important;padding:9px 14px!important;row-gap:6px!important;column-gap:10px!important}
+  .ga-lg-head+.ga{border-top:0!important}
+  .ga .tm{grid-area:tm;gap:2px!important;font-size:14px}
+  .ga .meta{grid-area:meta;flex-direction:column!important;align-items:flex-end!important;gap:2px!important;font-size:11.5px}
+  .ga .tri-wrap{grid-area:bar}
+  .ga .tri-wrap .nums{margin-top:2px!important;font-size:11px!important}
+
+  /* VIP hero */
+  .vip-band{padding:18px 16px 16px!important;gap:14px!important;border-radius:18px!important}
+  .vip-band .vwr{padding:12px!important}
+  .vip-tools{gap:8px!important;margin:12px 0!important}
+  .seg{flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:none;max-width:100%}
+  .seg::-webkit-scrollbar{display:none}
+  .seg button{flex:none;white-space:nowrap}
+
+  /* Goals pick of the day */
+  .potd{padding:14px!important;gap:10px!important}
+  .potd-match b{font-size:17px!important}
+  .potd-call strong{font-size:22px!important;margin:0 0 4px!important}
+  .potd-p b{font-size:36px!important}
+
+  /* VIP pick cards: number, teams and chance up top; pick and button below */
+  .vl.vlx{padding:12px 12px 12px 14px!important;row-gap:8px!important}
+  .vlx .vl-meta{font-size:11px!important}
+  .vl-teams{gap:4px!important}
+  .vl-team{flex-wrap:nowrap!important;gap:8px!important}
+  .vl-team b{flex:1 1 auto!important;font-size:14.5px!important}
+  .vl-team .f5{margin-left:0!important;flex:none}
+  .vl-team .f5 i{width:7px!important;height:7px!important;font-size:0!important;border-radius:2px!important}
+  .vl-team .crest{width:24px!important;height:24px!important}
+  .vlx .vl-p b{font-size:28px!important}
+  .vlx .vl-p small{font-size:10.5px!important}
+  .vl-call small{font-size:10.5px!important}
+  .vl-call strong{font-size:17px!important}
+  .vl-add{width:38px!important;height:38px!important}
+
+  /* Games board and other long lists */
+  .toolbar{gap:8px!important}
+  .day{padding:10px 14px!important}
+  .tabs.mtabs{scrollbar-width:none}
+  .tabs.mtabs::-webkit-scrollbar{display:none}
+  .tr-tile b{font-size:28px!important}
+
+  /* Leave room for the floating menu */
+  body{padding-bottom:calc(84px + env(safe-area-inset-bottom))!important}
+}
+@media (max-width:400px){
+  .view-head h1,.intro h1,.vip-band h1,.how-head h1{font-size:27px!important}
+  .hero-stats b,.vb-stats b{font-size:18px!important}
+  .fc-ring,.fc-ring.away{width:46px!important;height:46px!important}
+  .vlx .vl-p b{font-size:24px!important}
+  .vl-team .f5{display:none!important}
+}
 </style>
 </head>
 <body>
