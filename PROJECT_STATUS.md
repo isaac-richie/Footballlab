@@ -45,16 +45,25 @@ Walk-forward over 7,988 matches in eight leagues (2023-24 to 2025-26, refit befo
 
 The site runs at football-lab-ten.vercel.app from the committed open data. A GitHub Actions job (`.github/workflows/daily.yml`) runs every morning: it refreshes results and fixtures, freezes and grades forecasts, saves the football VIP slip before kickoff, saves backtest summaries for the Record page (`tools/save_backtests.py`, because the hosted disk is read-only and a live backtest took about a minute), refreshes NBA data from balldontlie, prices the NBA board, saves the NBA picks and grades them, and commits everything. GitHub has been starting the 05:30 UTC run up to nine hours late; it still runs before the evening games.
 
-## Football VIP picks (19 November 2026)
+## Football VIP picks (updated 20 November 2026)
 
-Rule, in order, one pick per game: Over 2.5 at 65%+, else Over 1.5 at 78%+, else Under 3.5 at 70%+ (`record.VIP_PRIORITY`), plus up to two favourites to win at 70%+ from other games (`record.vip_favourites`). Leagues: Premier League, La Liga, Bundesliga, Serie A, Eredivisie, Primeira Liga and 2. Bundesliga, each only while its results are current (`league_fresh`). Ligue 1 (said 77.0%, won 73.2%) and Serie B are left out.
+Rule, one goal pick per game: Over 2.5 at 65%+, else Over 1.5 at 78%+, else Under 3.5 at 70%+ (`record.VIP_PRIORITY`). Each league's places (at most six) fill in that order, Over 2.5 first (`record.tier`), so qualifying Over 2.5 picks are not crowded out by 80%+ Over 1.5. On top come up to three favourites to win at 75%+, from any game, including one that already has a goal pick (`record.vip_favourites`). Leagues: Premier League, La Liga, Bundesliga, Serie A, Eredivisie, Primeira Liga and 2. Bundesliga, each only while its results are current (`league_fresh`). Ligue 1 (said 77.0%, won 73.2%) and Serie B are left out. The VIP page leads with a "Goals pick of the day": the slip's strongest Over 2.5.
 
-The check (`tools/goal_lines_check.py`, `reports/goal_lines_check.json`): every finished match in nine leagues since August 2024 forecast with the production model as of its own matchday; the rule was set on 2024-25. 2025-26: 2,748 picks, said 77.6%, won 78.5% (overs 81.3%, unders 75.9%). 2026-27 to date: 523 picks, won 80.3%. Under 2.5 failed (60%+ said 62-63%, won 51-55%) and is never picked. Favourites at 70%+ won 79.0% (2024-25), 82.0% (2025-26) and 75.0% (2026-27, 40 picks). The saved VIP record started on 17 November; the first results arrive after the international break. The Record page shows separate Overs, Unders and To win tallies, the check above and the latest finished slip.
+The check (`tools/goal_lines_check.py`, `reports/goal_lines_check.json`): every finished match in nine leagues since August 2024 forecast with the production model as of its own matchday; the rule was set on 2024-25. 2025-26: 2,748 picks, said 77.6%, won 78.5% (overs 81.3%, unders 75.9%). 2026-27 to date: 523 picks, won 80.3%. Under 2.5 failed (60%+ said 62-63%, won 51-55%) and is never picked. Raising Over 1.5 to 80% made the combined rule slightly worse (77.9% against 78.5%) and was not adopted. Favourites at 75%+ won 84.9% pooled over three seasons, against 80.2% at 70%+.
 
-## Data accounts (19 November 2026)
+A private check against football-data.co.uk Over/Under 2.5 prices (not published; reuse terms unverified) found Over 2.5 at 65%+ about break-even to slightly positive at the best available price (2024-25 +9.6%, 2025-26 +1.3%, 2026-27 +0.1% per unit), while Over 2.5 at 60%+ lost 3-9% and Under 2.5 lost 8-25%.
 
-- **API-Football is suspended** ("Your account is suspended"), so football live scores are off and `apifootball_results.py` cannot fill the stalled leagues. The free plan could not have filled them anyway: it serves only yesterday to tomorrow, not whole seasons. A paid plan (API-Football, or Live-Score-API from 11 euros a month) is needed to bring La Liga, Serie A, Eredivisie and Primeira Liga back.
+The saved VIP record started on 17 November. The totals count each game's goal pick once and its winner pick once, under the first of each published (a slip covers three days, so a game can sit on several slips). The Record page shows Overs, Unders and To win tallies, the check above, the latest finished slip, a share card and a CSV of every saved pick (`/api/vip/export.csv`; NBA: `/api/nba/export.csv`).
+
+## Track record and model health (20 November 2026)
+
+`#track` shows both sports on one page: the saved-before-kickoff records, the long-run checks and a model health section. `model_health.py` runs in the daily job and compares "said" with "won" on the saved picks per sport and pick type, overall and over the last 28 days: collecting under 100 settled picks, then ok (within 3 points), watch (3-5 below), alert (5+ below or z <= -2.5) or cautious (5+ above). Report: `reports/model_health.json`, `/api/health`.
+
+## Data accounts (20 November 2026)
+
+- **API-Football** (Pro plan until 19 December 2026, 7,500 requests a day; key in `.env`, Vercel and the GitHub secret). On 20 November `apifootball_results.py` filled 231 missing results since 20 September (La Liga 47, Serie A 60, Ligue 1 44, Eredivisie 45, Primeira Liga 35) and the daily job now keeps those leagues current; football live scores work again. The earlier free account was suspended. About 1,470 requests had already been used on the new key before the first fill: check the dashboard for other users of the key. Pro also includes bookmaker odds (Bet365, Pinnacle and others), not yet used.
 - **balldontlie** (free plan) supplies NBA scores, schedule and live scores; ALL-STAR would add injuries and player stats.
+- **TypeSafe JEV** works on the hosted site (checked 20 November); the local `.env` key is empty, so it is off locally.
 
 ## Remaining priorities
 
@@ -72,7 +81,7 @@ Keys live in `.env` locally (git-ignored, mode 0600), in Vercel's environment va
 | Key | Used for | Where it must be set |
 |---|---|---|
 | `BALLDONTLIE_API_KEY` | NBA scores, schedule, live scores | `.env`, Vercel, GitHub secret |
-| `API_FOOTBALL_KEY` | football live scores, filling missing results, lineups | `.env`, Vercel, GitHub secret (account suspended on 19 November) |
+| `API_FOOTBALL_KEY` | football live scores, filling missing results, lineups, odds | `.env`, Vercel, GitHub secret (Pro plan from 20 November) |
 | `ODDS_API_KEY` | bookmaker odds (local Lab only; the hosted site shows none) | `.env` |
 | `TYPESAFE_API_KEY` | optional JEV reviews | `.env` |
 | `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` | community league | `.env`, GitHub secrets |
