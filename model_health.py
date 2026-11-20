@@ -88,6 +88,12 @@ def nba_rows(results):
     return rows
 
 
+def corner_rows():
+    import corner_ledger
+    return [(f"under {p['line']} corners", p['date'], p['probability'], p['won'])
+            for p in corner_ledger.load()['picks'].values() if 'won' in p]
+
+
 def run(today=None, write=True):
     import nba_picks_ledger
     import nba_public
@@ -96,9 +102,10 @@ def run(today=None, write=True):
     report = dict(generated_at=dt.datetime.now(dt.timezone.utc).isoformat(), min_picks=MIN_PICKS, recent_days=RECENT_DAYS,
                   football=_groups(football_rows(record.vip_ledger(max_days=100000)), today),
                   nba=_groups(nba_rows(nba_picks_ledger.results(nba_public.load()['games'])), today),
+                  corners=_groups(corner_rows(), today),
                   method=__doc__.split('\n\n')[1].strip())
     flags = [f'{sport} {g}: {v["all"]["status"]} (said {v["all"]["said"]:.1%}, won {v["all"]["won"]:.1%}, {v["all"]["picks"]} picks)'
-             for sport in ('football', 'nba') for g, v in report[sport].items() if v['all']['status'] in ('alert', 'watch')]
+             for sport in ('football', 'nba', 'corners') for g, v in report[sport].items() if v['all']['status'] in ('alert', 'watch')]
     report['flags'] = flags
     if write:
         atomic_write(FILE, json.dumps(report, indent=1))
@@ -114,7 +121,7 @@ def load():
 
 if __name__ == '__main__':
     r = run()
-    for sport in ('football', 'nba'):
+    for sport in ('football', 'nba', 'corners'):
         for g, v in r[sport].items():
             a = v['all']
             print(f"{sport:8} {g:28} {a['status']:10} picks {a['picks']:4}" + (f"  said {a['said']:.1%} won {a['won']:.1%}" if a['picks'] else ''))

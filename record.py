@@ -225,6 +225,11 @@ def load():
         return None
     saved.pop('days', None)
     saved['vip_ledger'] = vip_ledger()
+    try:                                    # corner picks saved before kickoff (corner_ledger.py)
+        import corner_ledger
+        saved['corner_picks'] = corner_ledger.summary()
+    except Exception:
+        pass
     try:                                    # long-run check of the goal-pick rule (tools/goal_lines_check.py)
         g = json.loads(GOAL_CHECK.read_text())
         saved['goal_check'] = dict(rule=g['rule'], seasons=g['vip_rule'], generated_at=g.get('generated_at'))

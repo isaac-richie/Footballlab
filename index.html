@@ -3122,7 +3122,7 @@ function cornersTab(d){
       <td class="r"><b>${pc(l.under)}</b>${l.pick ? `<small class="cn-ok">✓ tested pick</small>` : ''}</td><td class="r"><small>${(1 / Math.max(l.over, l.under)).toFixed(2)}</small></td></tr>`).join('');
   const form = (f, name) => f.length ? `<div class="cn-row cn-head"><span>${esc(name)}</span><span>Won</span><span>Conceded</span></div>` + f.map(x => `<div class="cn-row"><span>${esc(day(x.date))}</span><b>${x.won}</b><span>${x.conceded}</span></div>`).join('') : '<p class="note">No recent corner data.</p>';
   const pick = c.lines.find(l => l.pick);
-  return `${pick ? `<div class="callout"><span class="ico">✓</span><span><b>Under ${pick.line} corners at ${pc(pick.under)}.</b> Under ${pick.line} at this level has matched its stated chance on seasons the model never saw.</span></div>` : ''}
+  return `${pick ? `<div class="callout"><span class="ico">✓</span><span><b>Under ${pick.line} corners at ${pc(pick.under)}.</b> Under ${pick.line} at this level has matched its stated chance on seasons the model never saw. Picks like this are saved before kickoff and graded in public on our <a href="#track">track record</a>.</span></div>` : ''}
     <div class="grid g2">${card('Expected corners', `<div class="cn-big"><div><small>${esc(H)}</small><b>${eh.toFixed(1)}</b></div><div class="cn-tot"><small>Total</small><b>${(eh + ea).toFixed(1)}</b><span>league average ${avg.toFixed(1)}</span></div><div class="r"><small>${esc(A)}</small><b>${ea.toFixed(1)}</b></div></div>${bar}`)}
     ${card('Total corners', `<div class="scroll"><table class="table cn-table"><tr><th>Line</th><th class="r">Over</th><th class="r">Under</th><th class="r">Fair odds</th></tr>${rowsL}</table></div>`, 'this match vs league')}</div>
     <div class="grid g2">${card('Last six · ' + esc(H), form(c.form[0], 'Date'))}${card('Last six · ' + esc(A), form(c.form[1], 'Date'))}</div>
@@ -3275,8 +3275,10 @@ async function loadTrack(){
   const v = rec && rec.vip_ledger && rec.vip_ledger.summary, h = nba && nba.history;
   const fb = v ? (v.settled ? `<div class="tr-tile">${wl({won: v.won, lost: v.lost})}<span>Football VIP picks</span><em>since ${esc(day(v.since))} · ${v.pending} still to play</em></div>`
     : `<div class="tr-tile"><b>${v.picks}</b><small>saved, waiting for results</small><span>Football VIP picks</span><em>since ${esc(day(v.since))} · first results after the international break</em></div>`) : '';
-  const bk = h ? `<div class="tr-tile">${wl(h.total)}<span>NBA over/under picks</span><em>overs ${h.over ? h.over.won + '–' + h.over.lost : '–'} · unders ${h.under ? h.under.won + '–' + h.under.lost : '–'}</em></div>
-      <div class="tr-tile">${wl(h.winner)}<span>NBA winner picks</span><em>since 15 Nov</em></div>` : '';
+  const cp = rec && rec.corner_picks, cr = cp && cp.picks ? (cp.settled ? `<div class="tr-tile">${wl({won: cp.won, lost: cp.lost})}<span>Corner picks (unders)</span><em>since ${esc(day(cp.since))} · ${cp.pending} still to play</em></div>`
+    : `<div class="tr-tile"><b>${cp.picks}</b><small>saved, waiting for results</small><span>Corner picks (unders)</span><em>since ${esc(day(cp.since))}</em></div>`) : '';
+  const bk = cr + (h ? `<div class="tr-tile">${wl(h.total)}<span>NBA over/under picks</span><em>overs ${h.over ? h.over.won + '–' + h.over.lost : '–'} · unders ${h.under ? h.under.won + '–' + h.under.lost : '–'}</em></div>
+      <div class="tr-tile">${wl(h.winner)}<span>NBA winner picks</span><em>since 15 Nov</em></div>` : '');
   let html = `<section class="how-sec"><h2 class="how-sub">1 · Saved before kickoff</h2>
     <p class="how-p">Each morning the day's picks are saved before any game starts, then marked won or lost from the final score. This is the live record, so it starts small and grows every day.</p>
     <div class="tr-tiles">${fb}${bk}</div>
@@ -3296,7 +3298,7 @@ async function loadTrack(){
   if(health && (health.football || health.nba)){
     const word = {ok: 'On target', watch: 'Watch', alert: 'Below what we said', cautious: 'Better than we said', collecting: 'Collecting'};
     const line = (sport, g, v) => { const a = v.all; return `<div class="hl-row"><span><b>${esc(sport)} · ${esc(g)}</b><small>${a.picks ? `${a.picks} picks · said ${pc(a.said)} · won ${pc(a.won)}` : 'no settled picks yet'}${a.status === 'collecting' && a.picks ? ` · judged from ${health.min_picks}` : ''}</small></span><em class="hl-${a.status}">${word[a.status] || a.status}</em></div>` };
-    const rowsH = [...Object.entries(health.football || {}).map(([g, v]) => line('Football', g, v)), ...Object.entries(health.nba || {}).map(([g, v]) => line('NBA', g, v))];
+    const rowsH = [...Object.entries(health.football || {}).map(([g, v]) => line('Football', g, v)), ...Object.entries(health.corners || {}).map(([g, v]) => line('Corners', g, v)), ...Object.entries(health.nba || {}).map(([g, v]) => line('NBA', g, v))];
     html += `<section class="how-sec"><h2 class="how-sub">Model health</h2>
       <p class="how-p">Checked every morning on the saved picks: do they win about as often as we said? Each pick type is judged once it has ${health.min_picks} settled picks; until then it is still collecting.</p>
       <div class="hl-rows">${rowsH.join('') || '<p class="note">No saved picks have settled yet.</p>'}</div>
