@@ -2021,6 +2021,16 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
 .cf-high{color:var(--ok);background:var(--ok-bg)}
 .cf-medium{color:var(--warn);background:var(--warn-bg)}
 .cf-low{color:var(--muted);background:transparent}
+
+/* VIP slip code card */
+.vc-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.vc-top small{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:650;width:100%}
+.vc-code{font-family:var(--serif);font-size:26px;letter-spacing:.04em}
+.vc-n{color:var(--muted);font-size:12.5px}
+.vc-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.vc-b{border-radius:999px;padding:9px 16px;font-weight:650;font-size:13px}
+.vc-b.done{background:var(--ok-bg);color:var(--ok);border-color:var(--ok)}
+.vc-how{margin:12px 0 0;color:var(--muted);font-size:12.5px;line-height:1.5}
 </style>
 </head>
 <body>
@@ -3726,11 +3736,30 @@ async function loadVip(quiet){
       <div class="tk-line"><span class="tk-tally">${parts.map(([n, w], i) => `<b class="tk-${w.replace(' ', '-')}">${n} ${w}</b>`).join('<i>·</i>')}</span>
         <span class="tk-all">All ${legs.length} together: <b>${pct(d.combined_probability)}</b> · fair <b>${d.combined_fair_odds ? d.combined_fair_odds.toFixed(2) : '–'}</b></span></div>`;
     $('#vip-ticket').hidden = false;
-    $('#vip-code').hidden = true;   // booking codes are on hold for now
+    vipCodeCard(d, legs);
     $('#vip-all').hidden = !legs.some(l => l.status === 'scheduled');
     // One card per pick: club colours, crests with form, the pick, its chance and where it stands now.
     $('#vip-legs').innerHTML = legs.map((l, i) => vipCardHtml(l, i, quiet, 'data-vip')).join('');
   }catch(e){ if(!quiet) $('#vip-legs').innerHTML = `<div class="error">${esc(e.message)}</div>` }
+}
+// The slip's code card: copy the picks still to play in a form any bookie's betslip search takes, copy the code, or share.
+function vipCodeCard(d, legs){
+  const el = $('#vip-code'), open = legs.filter(l => l.status === 'scheduled');
+  if(!d.code || !open.length){ el.hidden = true; el.innerHTML = ''; return }
+  const text = () => `Book these ${open.length} picks:\n` + open.map((l, i) => `${i + 1}. ${l.home} vs ${l.away} (${day(l.date)}${l.kickoff ? ' ' + koTime(l.kickoff) : ''}): ${bookieText(l)}`).join('\n') + `\n\n${d.code} · Fairline`;
+  el.innerHTML = `<div class="vc-top"><small>Slip code</small><b class="vc-code">${esc(d.code)}</b><span class="vc-n">${open.length} of ${legs.length} picks still to play</span></div>
+    <div class="vc-btns"><button type="button" class="vc-b primary" data-vc="picks">Copy picks for your bookie</button><button type="button" class="vc-b" data-vc="code">Copy code</button><button type="button" class="vc-b" data-vc="share">Share</button></div>
+    <p class="vc-how">Paste the list into your bookie's search or betslip (SportyBet, Bet9ja, 1xBet…) and add each pick. Prices there will be a little below our fair odds.</p>`;
+  el.hidden = false;
+  const copy = async (t, b) => { try{ await navigator.clipboard.writeText(t) }catch{ const x = document.createElement('textarea'); x.value = t; document.body.appendChild(x); x.select(); document.execCommand('copy'); x.remove() }
+    const old = b.textContent; b.textContent = 'Copied ✓'; b.classList.add('done'); setTimeout(() => { b.textContent = old; b.classList.remove('done') }, 1600) };
+  el.onclick = async e => {
+    const b = e.target.closest('[data-vc]'); if(!b) return;
+    if(b.dataset.vc === 'picks') return copy(text(), b);
+    if(b.dataset.vc === 'code') return copy(d.code, b);
+    const url = location.origin + '/#vip';
+    if(navigator.share){ try{ await navigator.share({title: 'Fairline VIP slip ' + d.code, text: text(), url}) }catch{} } else copy(text() + '\n' + url, b);
+  };
 }
 // One VIP card: club colours, crests with form (football) or jerseys (NBA), the pick, its chance and where it stands now.
 function vipCardHtml(l, i, quiet, attr){

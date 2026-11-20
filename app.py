@@ -1024,10 +1024,11 @@ def vip_ticket(data, n=17, live_scores=None, nba_legs=None):
     day = next((d for d in record.vip_ledger(max_days=3)['days'] if d['date'] == today), None)
     if day:
         picks = day['picks'] if n >= 17 else sorted(day['picks'], key=lambda p: -p['probability'])[:n]   # 'All' is every saved pick
-        saved = dict(saved=True, frozen_at=day.get('frozen_at'))
+        saved = dict(saved=True, frozen_at=day.get('frozen_at'), code=day.get('code'))
     else:
-        picks = [dict(l, status='pending') for l in vip_slip(data, n)['legs']]
-        saved = dict(saved=False, frozen_at=None)
+        fresh = vip_slip(data, n)
+        picks = [dict(l, status='pending') for l in fresh['legs']]
+        saved = dict(saved=False, frozen_at=None, code=fresh.get('code'))
     if live_scores is None:
         try:
             import football_live
