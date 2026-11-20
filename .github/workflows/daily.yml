@@ -22,6 +22,8 @@ jobs:
           python-version: '3.12'
       - name: Refresh results, freeze forecasts, grade finished ones
         run: python3 agent.py --refresh --days 7
+      - name: Football record (the last six weeks of played matches, replayed and graded)
+        run: python3 app.py record > /dev/null
       - name: Corner statistics for the match page (API-Football, last few days)
         if: ${{ env.API_FOOTBALL_KEY != '' }}
         run: python3 corners.py
@@ -59,7 +61,7 @@ jobs:
         run: |
           git config user.name "football-lab-bot"
           git config user.email "football-lab-bot@users.noreply.github.com"
-          git add data.json corners_data.json reports/corner_picks.json reports/vip_odds.json reports/prospective reports/prospective-grades.json reports/latest.md reports/backtest reports/model_health.json
+          git add data.json reports/record.json corners_data.json reports/corner_picks.json reports/vip_odds.json reports/prospective reports/prospective-grades.json reports/latest.md reports/backtest reports/model_health.json
           git add nba_public.json reports/nba_public_board.json reports/nba_public_picks reports/nba_public_prospective reports/nba_public_prospective-grades.json reports/nba_vip_public.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "Daily refresh $(date -u +%F)"
           git push
