@@ -63,7 +63,7 @@ class VipRecordTest(unittest.TestCase):
         played = dict(matches=[match('2026-11-10', 'A', 'B', [1, 0]), match('2026-11-10', 'C', 'D', [2, 1])])
         self.run_day(played, slip(), today=TODAY + dt.timedelta(days=3))
         s = record.vip_ledger()['summary']
-        self.assertEqual((s['picks'], s['won'], s['lost']), (2, 1, 1))   # A v B counted once, as its first pick (Over 2.5: lost)
+        self.assertEqual((s['picks'], s['won'], s['lost']), (3, 2, 1))   # A v B's goal pick (Over 2.5: lost) and winner pick each count once
 
     def test_late_feed_is_pending_but_postponement_is_void(self):
         legs = slip(('2026-11-09', 'A', 'B', '1x2', 'A win', .75))
@@ -113,12 +113,17 @@ class VipRecordTest(unittest.TestCase):
     def test_favourites_join_from_other_games(self):
         leg = lambda fx, m, sel, p: dict(fixture=fx, league_id='en.1', market=m, selection=sel, probability=p)
         picks = record.vip_from([
-            leg('A v B', 'ou15', 'Over 1.5', .85), leg('A v B', '1x2', 'A win', .80),         # game already has a goal pick
+            leg('A v B', 'ou15', 'Over 1.5', .85), leg('A v B', '1x2', 'A win', .70),         # below 75%
             leg('C v D', '1x2', 'C win', .79), leg('C v D', '1x2', 'Draw', .12),
             leg('E v F', '1x2', 'F win', .74),                                                  # below 75%
-            leg('G v H', '1x2', 'G win', .80), leg('I v J', '1x2', 'J win', .76)])            # only two favourites
+            leg('G v H', '1x2', 'G win', .80), leg('I v J', '1x2', 'J win', .76), leg('K v L', '1x2', 'K win', .75)])   # only three favourites
         self.assertEqual(sorted((p['fixture'], p['selection']) for p in picks),
-                         [('A v B', 'Over 1.5'), ('C v D', 'C win'), ('G v H', 'G win')])
+                         [('A v B', 'Over 1.5'), ('C v D', 'C win'), ('G v H', 'G win'), ('I v J', 'J win')])
+
+    def test_favourite_joins_a_game_that_has_a_goal_pick(self):
+        leg = lambda fx, m, sel, p: dict(fixture=fx, league_id='en.1', market=m, selection=sel, probability=p)
+        picks = record.vip_from([leg('A v B', 'ou25', 'Over 2.5', .70), leg('A v B', '1x2', 'A win', .85)])
+        self.assertEqual(sorted(p['selection'] for p in picks), ['A win', 'Over 2.5'])
 
     def test_over_25_is_not_crowded_out_by_the_league_cap(self):
         leg = lambda fx, sel, p: dict(fixture=fx, league_id='de.1', market='ou25' if '2.5' in sel else 'ou15', selection=sel, probability=p)

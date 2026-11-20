@@ -878,7 +878,7 @@ def vip_slip(data, n=17, days=3, per_league=6):
         legs.append(leg)
         if len(legs) == n:
             break
-    legs += record.vip_favourites(by_fixture, {l['fixture'] for l in legs})
+    legs += record.vip_favourites(by_fixture, set())          # on top of the goal picks, same games allowed
     legs.sort(key=lambda c: (c['date'], c['league_id']))
     kick = {(m['league_id'], m['date'], m['home'], m['away']): m.get('kickoff') for m in data['matches'] if m['goals'] is None}
     form5 = {}
@@ -1000,7 +1000,7 @@ def vip_ticket(data, n=17, live_scores=None, nba_legs=None):
     today = dt.date.today().isoformat()
     day = next((d for d in record.vip_ledger(max_days=3)['days'] if d['date'] == today), None)
     if day:
-        picks = sorted(day['picks'], key=lambda p: -p['probability'])[:n]
+        picks = day['picks'] if n >= 17 else sorted(day['picks'], key=lambda p: -p['probability'])[:n]   # 'All' is every saved pick
         saved = dict(saved=True, frozen_at=day.get('frozen_at'))
     else:
         picks = [dict(l, status='pending') for l in vip_slip(data, n)['legs']]

@@ -1900,6 +1900,40 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   /* 16px inputs so iOS doesn't zoom the page on focus */
   input,select,textarea{font-size:16px!important}
 }
+
+/* ---------- Phones, 20 Nov 2026 review: smaller slip, tighter game cards, slimmer menu ---------- */
+@media (max-width:760px){
+  /* Slip: a bottom sheet only as tall as its picks, clear of the iPhone home bar */
+  .drawer{top:auto!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;max-height:82vh;max-height:82dvh;
+    border-left:0!important;border-top:1px solid var(--line-2);border-radius:18px 18px 0 0;transform:translateY(105%)!important;box-shadow:0 -20px 60px #00000059!important}
+  .drawer.open{transform:none!important}
+  .drawer header{padding:12px 16px!important}
+  .drawer header::before{content:"";position:absolute;left:50%;top:6px;width:36px;height:4px;margin-left:-18px;border-radius:4px;background:var(--line-2)}
+  .drawer .body{padding:10px 16px!important}
+  .drawer footer{padding:12px 16px calc(12px + env(safe-area-inset-bottom))!important}
+  .drawer footer .price{font-size:26px!important}
+  .drawer footer .field{margin-bottom:8px}
+  .drawer footer .note{margin-top:6px;font-size:11px}
+  .slip-item{padding:10px 12px!important;margin-bottom:8px!important}
+  .slip-item .legs{margin:4px 0!important}
+  /* Slip button: a compact pill */
+  .slip-fab{padding:8px 12px!important;font-size:12.5px!important;gap:6px!important}
+  .slip-fab b{min-width:20px!important;height:20px!important;font-size:11.5px!important}
+  /* Game cards: kick-off time in the top corner instead of its own row */
+  .fx{position:relative;padding:10px 14px!important;gap:6px 14px!important}
+  .fx .teams>span:first-child{max-width:calc(100% - 96px);overflow:hidden}
+  .fx .teams span{font-size:14.5px!important;line-height:1.3}
+  .fx .teams small.when{position:absolute;top:10px;right:14px;margin:0!important}
+  .fx .teams small.when .st{font-size:11.5px;padding:3px 7px}
+  .fx .bar .nums{margin-top:3px!important;font-size:11.5px}
+  .fx .stub b{font-size:15px}
+  /* Bottom menu: slimmer, solid, always on top of the cards */
+  .tabbar{padding:4px 6px calc(4px + env(safe-area-inset-bottom))!important;gap:2px!important;transform:translateZ(0)}
+  .tabbar a{padding:5px 0 3px!important;gap:2px!important;font-size:10px!important}
+  .tabbar svg{width:20px!important;height:20px!important}
+  body{padding-bottom:calc(58px + env(safe-area-inset-bottom))!important}
+  .mx,.slip-fab{bottom:calc(68px + env(safe-area-inset-bottom))!important}
+}
 </style>
 </head>
 <body>
@@ -2057,7 +2091,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       <div class="vb-copy">
         <span class="vb-kicker">VIP picks</span>
         <h1>Our strongest calls</h1>
-        <p>Our surest goal calls over the next three days, from the leagues whose picks passed our accuracy check (England, Spain, Germany, Germany 2, Italy, Netherlands, Portugal) while their results are up to date. Each game gets <b>Over 2.5 goals</b> at 65%+, otherwise <b>Over 1.5</b> at 78%+, otherwise <b>Under 3.5</b> at 70%+, plus up to two <b>favourites to win</b> at 75%+.</p>
+        <p>Our surest goal calls over the next three days, from the leagues whose picks passed our accuracy check (England, Spain, Germany, Germany 2, Italy, Netherlands, Portugal) while their results are up to date. Each game gets <b>Over 2.5 goals</b> at 65%+, otherwise <b>Over 1.5</b> at 78%+, otherwise <b>Under 3.5</b> at 70%+, plus up to three <b>favourites to win</b> at 75%+ on top.</p>
         <div class="hero-stats vb-stats" id="vip-stats"></div>
       </div>
       <a class="vwr card" id="vip-wr" href="#performance" hidden></a>
@@ -3827,7 +3861,7 @@ function goalCheckHtml(g){
   return `<div class="card"><div class="rx-head"><h4>How accurate are our goal picks?</h4><span class="note" style="margin:0">games the model had not seen</span></div>
     <div class="gc-grid"><span></span>${seasons.map(([, l]) => `<b>${l}</b>`).join('')}
     ${rows.map(([k, l]) => `<span>${l}</span>${seasons.map(([s]) => { const v = g.seasons[s][k]; return `<div><strong>${pc(v.won)}</strong><small>won · said ${pc(v.said)} · ${v.picks.toLocaleString()} picks</small></div>` }).join('')}`).join('')}</div>
-    <p class="note">Every finished match in nine leagues re-forecast as of its own matchday, using only what was known then, with today's VIP rule: Over 2.5 at 65%+, else Over 1.5 at 78%+, else Under 3.5 at 70%+. The rule was set on 2024-25 and not changed after. Under 2.5 failed this check (it won less often than it said), so we never pick it. The slip also carries up to two favourites to win at 75%+ (about 85% won across the last three seasons).</p></div>`;
+    <p class="note">Every finished match in nine leagues re-forecast as of its own matchday, using only what was known then, with today's VIP rule: Over 2.5 at 65%+, else Over 1.5 at 78%+, else Under 3.5 at 70%+. The rule was set on 2024-25 and not changed after. Under 2.5 failed this check (it won less often than it said), so we never pick it. The slip also carries up to three favourites to win at 75%+ on top of the goal picks (about 85% won across the last three seasons).</p></div>`;
 }
 /* ---------- Share card: one day's picks as an image (1080x1350) for WhatsApp, X and the rest ---------- */
 function shareCardCanvas(o){
