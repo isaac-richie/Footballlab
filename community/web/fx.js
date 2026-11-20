@@ -321,6 +321,7 @@
 
   /* ---------- Animated layers ---------- */
   function blit(s, t, alpha){
+    if(!s.off.width || !s.off.height) return;   // layer not sized yet (hidden or zero-size window)
     // slow camera drift (Ken Burns) plus parallax from cursor and scroll
     const z = 1 + 0.025 * Math.sin(t / 21000);
     const dx = (s.cw - W) / 2 + (mouse.x - 0.5) * -14 + Math.sin(t / 26000) * 8;
