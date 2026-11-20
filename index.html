@@ -2035,10 +2035,13 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
 /* ---------- Tools page ---------- */
 .tl-head{margin-bottom:14px}
 .tl-tabs{margin-bottom:16px}
-.tl-pane{display:grid;gap:14px}
+.tl-pane{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+.tl-pane>*,.qs-form>*{min-width:0}
 .tl-pane[hidden]{display:none}
 .tl-now{margin:0}
-.tl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;align-items:start}
+.tl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:14px;align-items:start}
+.tl-grid>*,.tl-2>*{min-width:0}
+.xi-names input{min-width:0;width:100%}
 .tl-card h3{margin:0 0 4px;font-family:var(--display);font-size:18px;letter-spacing:.02em}
 .tl-d{margin:0 0 12px;color:var(--muted);font-size:13px;line-height:1.5}
 .tl-2{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
@@ -2063,12 +2066,6 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
 .qs-n{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:999px;padding:3px}
 .qs-n button{width:32px;height:32px;border-radius:999px;border:0;background:var(--surface-2);font-size:18px;font-weight:700;color:var(--text)}
 .qs-n b{min-width:22px;text-align:center;font-size:16px}
-.qs-strat{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
-.qs-strat button{display:grid;gap:3px;text-align:left;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface-2);color:var(--text)}
-.qs-strat button b{font-family:var(--display);font-size:16px;letter-spacing:.02em}
-.qs-strat button small{color:var(--muted);font-size:12px}
-.qs-strat button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface-2))}
-.qs-strat button[aria-pressed="true"] b{color:var(--accent)}
 .qs-mk summary{cursor:pointer;font-weight:650;font-size:13px}
 .qs-mk summary small{color:var(--muted);font-weight:500;margin-left:6px}
 .qs-mk .chips{margin-top:10px}
@@ -2077,9 +2074,11 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
 .qs-go .primary{flex:1 1 180px}
 .qs-sum{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13.5px;color:var(--muted);padding-bottom:10px;border-bottom:1px solid var(--line)}
 .qs-sum b{color:var(--text);font-size:16px}
-.qs-leg{display:grid;grid-template-columns:1fr auto;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.qs-leg{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.qs-lm{min-width:0}
 .qs-lm small{display:block;color:var(--muted);font-size:11.5px;letter-spacing:.04em}
-.qs-tm{display:flex;align-items:center;gap:6px;font-weight:600;margin:4px 0}
+.qs-tm{display:block;font-weight:600;margin:4px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qs-tm .crest,.qs-tm .jersey{display:inline-block;vertical-align:middle;margin-right:6px}
 .qs-tm i{color:var(--faint);font-style:normal}
 .qs-lm strong{font-family:var(--serif);font-size:18px;font-weight:600}
 .qs-p{text-align:right}
@@ -2121,6 +2120,37 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
 .fg-bar i{display:block;height:100%;background:var(--accent)}
 .fg-bar.c{background:color-mix(in srgb,var(--warn) 35%,var(--surface-2))}
 .fg-bar.c i{background:var(--warn)}
+
+/* Declutter pass (phones first) */
+.season-link{display:inline-block;margin-top:6px;font-size:13px;font-weight:600;color:var(--accent);text-decoration:none}
+body[data-sport="basketball"] .season-link{display:none}
+.vl-meta{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qs-row{gap:10px;justify-content:space-between}
+.qs-strat{max-width:100%}
+#tl-quick{max-width:720px}
+@media (min-width:761px){.qs-strat button{flex:0 1 auto}}
+.qs-strat button{flex:1 1 auto;justify-content:center}
+.qs-sd{margin:-4px 0 0;color:var(--muted);font-size:12.5px}
+.qs-form{gap:10px}
+.vc-btns .vc-b{flex:1 1 auto}
+.vc-btns .vc-b.primary{flex:2 1 auto}
+@media (max-width:760px){
+  .tabbar a[data-view="season"]{display:none}
+  .fc-take{display:none}
+  [data-panel="fixtures"] > .legend{display:none}
+  .bp-row .cf{display:none}
+  .tl-head h1{font-size:28px}
+  .qs-form .seg{flex-wrap:nowrap;overflow-x:auto;max-width:100%;scrollbar-width:none}
+  .qs-form .seg::-webkit-scrollbar{display:none}
+  .qs-form .seg button{padding:0 11px}
+  .qs-leg{padding:10px 0}
+  .qs-lm strong{font-size:16px}
+  .vip-code{padding:16px!important}
+  .vc-code{font-size:22px}
+  .vc-b{padding:9px 12px}
+  .pwhy p{font-size:13px}
+  .vlx .vl-meta{letter-spacing:.03em!important}
+}
 </style>
 </head>
 <body>
@@ -2129,11 +2159,11 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
     <a class="brand" href="#featured" aria-label="Fairline home"><svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 0 0 18 0z" fill="var(--signal)"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M.5 12h23" stroke="currentColor" stroke-width="1.8"/></svg><span class="wm">Fair<i>line</i></span></a>
     <nav class="nav" aria-label="Views">
       <a href="#featured" data-view="featured">Home</a>
-      <a href="#vip" data-view="vip">VIP picks</a>
-      <a href="#fixtures" data-view="fixtures">All games</a>
+      <a href="#vip" data-view="vip">VIP</a>
+      <a href="#fixtures" data-view="fixtures">Games</a>
       <a href="#season" data-view="season">Season</a>
-      <a href="#match" data-view="match">Analyse a match</a>
-      <a href="#performance" data-view="performance">Our record</a>
+      <a href="#match" data-view="match">Analyse</a>
+      <a href="#performance" data-view="performance">Record</a>
       <a href="#tools" data-view="tools">Tools</a>
     </nav>
     <div class="spacer"></div>
@@ -2226,6 +2256,7 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
     <div class="view-head">
       <div>
         <span class="eyebrow"><i></i>All games</span><h1>Every upcoming game</h1>
+        <a class="season-link" href="#season">Season table &amp; projections →</a>
       </div>
       <div class="toolbar">
         <button class="ghost" id="live-refresh" type="button" hidden>Refresh live odds</button>
@@ -2342,8 +2373,7 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
 
   <!-- HOW IT WORKS: reached from links (welcome card, front page, record, footer), not the main nav -->
   <section data-panel="tools" hidden>
-    <div class="view-head tl-head"><div><span class="kicker">Tools</span><h1>Build, check and work out a slip</h1>
-      <p class="sub">Quick Slip builds one to a plan from every priced game. The calculators work with any odds.</p></div></div>
+    <div class="view-head tl-head"><div><span class="eyebrow"><i></i>Tools</span><h1>Build your slip</h1></div></div>
     <div class="seg tl-tabs" role="tablist">
       <button type="button" data-tl="quick" aria-pressed="true">Quick Slip</button>
       <button type="button" data-tl="slip" aria-pressed="false">Slip tools</button>
@@ -2354,7 +2384,6 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
     <div id="tl-slip" class="tl-pane" hidden></div>
     <div id="tl-calc" class="tl-pane" hidden></div>
     <div id="tl-xi" class="tl-pane" hidden></div>
-    <p class="note tl-foot">18+ only. These are probabilities, not guarantees, and staking tools only do arithmetic: they can't make a price worth more than it is. Bet only what you can afford to lose. <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware</a></p>
   </section>
 
   <section data-panel="how" hidden>
@@ -3899,8 +3928,8 @@ function vipCodeCard(d, legs){
   if(!d.code || !open.length){ el.hidden = true; el.innerHTML = ''; return }
   const text = () => `Book these ${open.length} picks:\n` + open.map((l, i) => `${i + 1}. ${l.home} vs ${l.away} (${day(l.date)}${l.kickoff ? ' ' + koTime(l.kickoff) : ''}): ${bookieText(l)}`).join('\n') + `\n\n${d.code} · Fairline`;
   el.innerHTML = `<div class="vc-top"><small>Slip code</small><b class="vc-code">${esc(d.code)}</b><span class="vc-n">${open.length} of ${legs.length} picks still to play</span></div>
-    <div class="vc-btns"><button type="button" class="vc-b primary" data-vc="picks">Copy picks for your bookie</button><button type="button" class="vc-b" data-vc="code">Copy code</button><button type="button" class="vc-b" data-vc="share">Share</button></div>
-    <p class="vc-how">Paste the list into your bookie's search or betslip (SportyBet, Bet9ja, 1xBet…) and add each pick. Prices there will be a little below our fair odds.</p>`;
+    <div class="vc-btns"><button type="button" class="vc-b primary" data-vc="picks">Copy picks</button><button type="button" class="vc-b" data-vc="code">Copy code</button><button type="button" class="vc-b" data-vc="share">Share</button></div>
+    <p class="vc-how">Paste into your bookie's betslip search.</p>`;
   el.hidden = false;
   const copy = async (t, b) => { try{ await navigator.clipboard.writeText(t) }catch{ const x = document.createElement('textarea'); x.value = t; document.body.appendChild(x); x.select(); document.execCommand('copy'); x.remove() }
     const old = b.textContent; b.textContent = 'Copied ✓'; b.classList.add('done'); setTimeout(() => { b.textContent = old; b.classList.remove('done') }, 1600) };
@@ -3912,13 +3941,19 @@ function vipCodeCard(d, legs){
     if(navigator.share){ try{ await navigator.share({title: 'Fairline VIP slip ' + d.code, text: text(), url}) }catch{} } else copy(text() + '\n' + url, b);
   };
 }
+// Compact "when": weekday and time (or the date when it is more than six days away).
+function shortWhen(l){
+  const d = new Date((l.kickoff || l.date + 'T12:00:00')), far = (d - Date.now()) / 864e5 > 6 || (Date.now() - d) / 864e5 > 1;
+  const wd = d.toLocaleDateString(undefined, far ? {day: 'numeric', month: 'short'} : {weekday: 'short'});
+  return l.kickoff ? `${wd} ${koTime(l.kickoff)}` : wd;
+}
 // One VIP card: club colours, crests with form (football) or jerseys (NBA), the pick, its chance and where it stands now.
 function vipCardHtml(l, i, quiet, attr){
   const f = l.last5 || [], open = l.status === 'scheduled';
   const nba = l.sport === 'nba', badge = n => nba ? jersey(n) : crest(n, true);
   return `<article class="vl vlx is-${l.status}${nba ? ' nba' : ''}" style="${nba ? clubVars(l.home, l.away, nbaPair) : clubVars(l.home, l.away)};--i:${quiet ? 0 : i}${quiet ? ';animation:none' : ''}">
       <div class="vl-n${VIP_MARK[l.status] ? ' mk' : ''}">${VIP_MARK[l.status] || String(i + 1).padStart(2, '0')}</div>
-      <div class="vl-main"><div class="vl-meta">${esc(l.league)} · ${esc(day(l.date))}${l.kickoff ? ' · ' + esc(koTime(l.kickoff)) : ''}</div>
+      <div class="vl-main"><div class="vl-meta">${esc(l.league)} · ${esc(shortWhen(l))}</div>
         <div class="vl-teams"><span class="vl-team">${badge(l.home)}<b>${esc(l.home)}</b>${nba ? '' : formChips(f[0])}</span><span class="vl-team">${badge(l.away)}<b>${esc(l.away)}</b>${nba ? '' : formChips(f[1])}</span></div></div>
       <div class="vl-call"><small>Our pick${nba ? (l.market === 'winner' ? ' · winner' : ' · total points') : ''}</small><strong>${esc(bookieText(l))}</strong>${(VIP_STATE[l.status] || VIP_STATE.scheduled)(l)}${whyHtml(l)}</div>
       <div class="vl-p"><b>${Math.round(l.probability * 100)}<i>%</i></b><small data-fair="fair ${l.fair_odds.toFixed(2)}">chance · fair ${l.fair_odds.toFixed(2)}</small>${l.best_odds ? `<small class="vl-best${l.best_odds > l.fair_odds ? ' up' : ''}">best price ${l.best_odds.toFixed(2)}</small>` : ''}</div>
@@ -4058,18 +4093,18 @@ const pickLines = legs => legs.map((l, i) => `${i + 1}. ${l.home} vs ${l.away} (
 
 /* Quick Slip */
 const QS_STRAT = [['balanced', 'Balanced', 'Bankers with two swings'], ['safest', 'Safest', 'The surest pick in each game'],
-  ['value', 'Value Hunter', 'Fair odds 1.35–1.85, best record first'], ['banker', 'Banker-led', 'Two or three 85%+ picks first']];
+  ['value', 'Value', 'Fair odds 1.35–1.85, best record first'], ['banker', 'Bankers', 'Two or three 85%+ picks first']];
 const QS_MK = {football: [['1x2', 'Match result'], ['dc', 'Double chance'], ['ou15', 'Goals 1.5'], ['ou25', 'Goals 2.5'], ['ou35', 'Goals 3.5'], ['btts', 'Both teams score']],
   nba: [['winner', 'NBA winner'], ['total', 'NBA total points']]};
 function renderQuick(){
   const q = TL.q, on = (k, v) => Array.isArray(q[k]) ? q[k].includes(v) : q[k] === v;
   const pill = (k, v, label) => `<button type="button" data-q="${k}" data-v="${v}" aria-pressed="${on(k, v)}">${label}</button>`;
   $('#tl-quick').innerHTML = `<div class="card qs-form">
-    <div class="qs-row"><span class="qs-l">Day</span><div class="seg">${[['today', 'Today'], ['tomorrow', 'Tomorrow'], ['next', 'Next 4 days']].map(([v, l]) => pill('day', v, l)).join('')}</div></div>
-    <div class="qs-row"><span class="qs-l">Kick-off</span><div class="seg">${[['all', 'All day'], ['early', 'Early'], ['afternoon', 'Afternoon'], ['late', 'Late']].map(([v, l]) => pill('when', v, l)).join('')}</div></div>
-    <div class="qs-row"><span class="qs-l">Sports</span><div class="seg">${pill('sports', 'football', 'Football')}${pill('sports', 'nba', 'Basketball')}</div></div>
-    <div class="qs-row"><span class="qs-l">Picks</span><div class="qs-n"><button type="button" data-qn="-1" aria-label="Fewer picks">−</button><b>${q.n}</b><button type="button" data-qn="1" aria-label="More picks">+</button></div></div>
-    <div class="qs-strat">${QS_STRAT.map(([v, l, d]) => `<button type="button" data-q="strategy" data-v="${v}" aria-pressed="${q.strategy === v}"><b>${l}</b><small>${d}</small></button>`).join('')}</div>
+    <div class="qs-row"><div class="seg">${[['today', 'Today'], ['tomorrow', 'Tomorrow'], ['next', 'Next 4 days']].map(([v, l]) => pill('day', v, l)).join('')}</div></div>
+    <div class="qs-row"><div class="seg">${[['all', 'All day'], ['early', 'Early'], ['afternoon', 'Afternoon'], ['late', 'Late']].map(([v, l]) => pill('when', v, l)).join('')}</div></div>
+    <div class="qs-row"><div class="seg">${pill('sports', 'football', 'Football')}${pill('sports', 'nba', 'NBA')}</div><div class="qs-n" aria-label="Number of picks"><button type="button" data-qn="-1" aria-label="Fewer picks">−</button><b>${q.n}</b><button type="button" data-qn="1" aria-label="More picks">+</button></div></div>
+    <div class="seg qs-strat">${QS_STRAT.map(([v, l]) => `<button type="button" data-q="strategy" data-v="${v}" aria-pressed="${q.strategy === v}">${l}</button>`).join('')}</div>
+    <p class="qs-sd">${esc((QS_STRAT.find(x => x[0] === q.strategy) || [])[2] || '')}</p>
     <details class="qs-mk"${q.markets.length ? ' open' : ''}><summary>Markets <small>${q.markets.length ? q.markets.length + ' chosen' : 'all markets'}</small></summary>
       <div class="chips">${q.sports.flatMap(sp => QS_MK[sp]).map(([v, l]) => `<button type="button" class="chip" data-q="markets" data-v="${v}" aria-pressed="${q.markets.includes(v)}">${l}</button>`).join('')}</div></details>
     <div class="qs-go"><button type="button" class="primary" id="qs-build"${TL.busy ? ' disabled' : ''}>${TL.busy ? 'Building…' : 'Build my slip'}</button>${TL.res && TL.res.legs && TL.res.legs.length ? '<button type="button" class="ghost" id="qs-shuffle">Shuffle</button>' : ''}</div>
@@ -4083,8 +4118,7 @@ function quickOut(r){
     ${r.legs.map(l => `<div class="qs-leg"><div class="qs-lm"><small>${esc(l.league)} · ${esc(day(l.date))}${l.kickoff ? ' · ' + esc(koTime(l.kickoff)) : ''}</small>
         <span class="qs-tm">${l.sport === 'nba' ? jersey(l.home) : crest(l.home, true)}${esc(l.home)} <i>v</i> ${esc(l.away)}</span><strong>${esc(bookieText(l))}</strong>${whyHtml(l)}</div>
       <div class="qs-p"><b>${Math.round(l.probability * 100)}<i>%</i></b><small>fair ${(1 / l.probability).toFixed(2)}</small></div></div>`).join('')}
-    <div class="qs-go"><button type="button" class="primary" id="qs-add">Add all to slip</button><button type="button" class="ghost" id="qs-copy">Copy for your bookie</button></div>
-    <p class="note">${esc(r.note)}</p></div>`;
+    <div class="qs-go"><button type="button" class="primary" id="qs-add">Add all to slip</button><button type="button" class="ghost" id="qs-copy">Copy</button></div></div>`;
 }
 async function quickBuild(){
   const q = TL.q;
@@ -4701,7 +4735,7 @@ function setSport(sport, initial){
   if(!initial) labToast(sport);
   $$('#sport button').forEach(b => b.setAttribute('aria-pressed', b.dataset.sport === sport));
   const v = (location.hash || '').slice(1).split('/')[0];
-  if(sport === 'basketball' && !['fixtures', 'match', 'featured', 'performance', 'how', 'vip', 'track'].includes(v)) history.replaceState(null, '', '#featured');
+  if(sport === 'basketball' && !['fixtures', 'match', 'featured', 'performance', 'how', 'vip', 'track', 'tools'].includes(v)) history.replaceState(null, '', '#featured');
   if(sport === 'football' && state.data && typeof renderStrip === 'function') renderStrip(state.data);
   if(sport === 'basketball' && nb.slate) nbFresh();
   if(sport === 'basketball' && !initial && typeof nbLivePoll === 'function') nbLivePoll();
