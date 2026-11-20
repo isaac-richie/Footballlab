@@ -2063,6 +2063,24 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
 .mh .tri-labels b.is-top,.nbh .two b.is-top{font-size:1.12em}
 /* VIP pick cards: no club-colour stripe (the later VIP layer set one with !important) */
 .vl.vlx,.vl.vlx.nba{background:var(--surface)!important}
+
+/* ---- Home: compact VIP slip card (replaces the scrolling VIP strip) ---- */
+.vt{display:grid;gap:12px;margin:0 0 16px;padding:16px 18px!important;text-decoration:none;color:var(--text);border:1px solid var(--line-2);border-left:4px solid var(--accent)!important;border-radius:6px}
+.vt:hover{border-color:var(--text)}
+.vt-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.vt-k{font:650 11px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.vt-head b{font-family:var(--serif);font-size:20px;font-weight:600}
+.vt-st{font-size:13px;color:var(--muted)}
+.vt-legs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.vt-leg{display:flex;flex-direction:column;gap:3px;min-width:0;padding:9px 11px;border-radius:4px;background:color-mix(in srgb,var(--text) 5%,var(--surface))}
+.vt-leg b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vt-leg small{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vt-foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 12px;font-size:13px;color:var(--muted)}
+.vt-foot b{color:var(--text)}
+.vt-go{font-weight:650;color:var(--accent)}
+.vip-tag{display:inline-block;margin-left:8px;padding:2px 6px;border-radius:3px;background:var(--accent);color:var(--accent-ink);font:700 9.5px/1.3 var(--sans);letter-spacing:.08em;vertical-align:middle}
+.bp-mid b:has(.vip-tag){white-space:normal!important;overflow:visible!important;text-overflow:clip!important;direction:ltr!important;text-align:left!important}
+@media (max-width:760px){.vt-legs{grid-template-columns:minmax(0,1fr)}.vt-leg{flex-direction:row;justify-content:space-between;align-items:baseline;gap:10px}}
 </style>
 </head>
 <body>
@@ -2137,11 +2155,11 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       <div class="view-head sect-head"><div><h2>Your teams</h2><p>Next games for the clubs you follow. Tap ☆ next to any club to follow or unfollow it.</p></div></div>
       <div id="yt-list"></div>
     </section>
+    <div id="fvt"></div>
     <div class="view-head sect-head">
       <div><h2>Games to watch</h2><p id="ft-sub">The biggest, closest games across every league.</p></div>
       <div class="seg" id="ft-period" role="group" aria-label="Period"><button data-p="day">Next matchday</button><button data-p="week" aria-pressed="true">This week</button></div>
     </div>
-    <a class="vtk" id="vtk" href="#performance" aria-label="VIP picks record" hidden><span class="vtk-lbl" id="vtk-lbl"></span><span class="vtk-win"><span class="vtk-run" id="vtk-run"></span></span></a>
     <div class="ft-filter" id="ft-filter-top" role="group" aria-label="League"></div>
     <div class="ft-pager">
       <div class="ft-stage" id="ft-stage"><div class="ft-grid" id="ft-grid"><div class="card"><div class="skel" style="height:220px"></div></div><div class="card"><div class="skel" style="height:220px"></div></div></div></div>
@@ -2654,6 +2672,33 @@ queueMicrotask(() => {            // after the whole script has run, so abbr/tri
   box.addEventListener('mouseenter', () => { if(HT.auto) clearTimeout(HT.timer), box.classList.add('paused') });
   box.addEventListener('mouseleave', () => { if(HT.auto){ box.classList.remove('paused'); htTick() } });
 });
+
+/* ---------- Home: one compact card for today's VIP slip (the full slip lives on the VIP page) ---------- */
+const vipTag = (id, market) => (nb.vipIds || new Set()).has(id + '|' + market) ? '<span class="vip-tag" title="On today\'s VIP slip">VIP</span>' : '';
+async function vipTeaser(sport){
+  const nba = sport === 'nba';
+  let d, rec;
+  try{
+    d = await api(nba ? '/api/nba/vip?n=0' : '/api/vip/ticket?n=17');
+    rec = nba ? d.record : (await getRecord().catch(() => ({}))).vip_ledger;
+  }catch{ return }
+  const legs = d.legs || [];
+  if(!legs.length) return;
+  const n = k => legs.filter(l => l.status === k).length, won = n('won'), lost = n('lost'), live = n('live'), toPlay = n('scheduled') + n('pending');
+  const state = [won && `${won} won`, lost && `${lost} lost`, live && `${live} live`, toPlay && `${toPlay} to play`].filter(Boolean).join(' · ');
+  const top = [...legs].filter(l => l.status === 'scheduled' || l.status === 'live' || l.status === 'pending').sort((a, b) => b.probability - a.probability).slice(0, 3);
+  const short = t => nba ? (t.split(' ').pop()) : abbr(t);
+  const s = rec && rec.summary, record = s && s.settled ? `Record <b>${Math.round(s.hit_rate * 100)}%</b> won · ${s.won} of ${s.settled}` : 'Record: tracking, first results soon';
+  const html = `<a class="vt card" href="#vip">
+      <div class="vt-head"><span class="vt-k">Today's VIP slip</span><b>${legs.length} picks</b><span class="vt-st">${esc(state)}</span></div>
+      ${top.length ? `<div class="vt-legs">${top.map(l => `<span class="vt-leg"><b>${esc(nba ? l.selection : bookieText(l))}</b><small>${esc(short(l.home))} v ${esc(short(l.away))} · ${Math.round(l.probability * 100)}%</small></span>`).join('')}</div>` : ''}
+      <div class="vt-foot"><span>${record}</span><span class="vt-go">Open the slip →</span></div></a>`;
+  if(nba){
+    nb.teaser = html; nb.vipIds = new Set(legs.map(l => l.id + '|' + (l.market || 'total')));
+    const box = $('#nvt'); if(box) box.innerHTML = html;
+    if(nb.picks && typeof renderNbaPicks === 'function') renderNbaPicks();
+  } else $('#fvt').innerHTML = html;
+}
 
 /* ---------- Theme ---------- */
 function applyTheme(t){
@@ -3547,7 +3592,7 @@ async function loadVipTicker(){
   $('#vtk').hidden = false;
 }
 async function loadFeatured(){
-  loadVipTicker();
+  vipTeaser('football');
   state.ftLoaded = true;
   try{
     const d = await api('/api/featured?period=' + state.ftPeriod);
@@ -4380,7 +4425,7 @@ async function nbLivePoll(){
 }
 setInterval(nbLivePoll, 60000); document.addEventListener('visibilitychange', nbLivePoll); setTimeout(nbLivePoll, 1500);
 async function loadNbaPicks(){
-  nb.picksLoading = true;
+  nb.picksLoading = true; vipTeaser('nba');
   try{ nb.picks = await api('/api/nba/picks'); if(nb.picks.public) nbPublicFoot(); renderNbaPicks() }
   catch(e){ $('#nbp-body').innerHTML = `<div class="empty">${esc(e.message)}</div>` }
   finally{ nb.picksLoading = false }
@@ -4409,7 +4454,7 @@ function renderNbaPicks(){
   for(const x of rest){
     if(x.date !== last){ rows += `<div class="bp-day">${esc(day(x.date))}</div>`; last = x.date }
     rows += `<button class="bp-row" type="button" ${open(x)}>${jersey(x.team)}
-      <div class="bp-mid"><b>${esc(x.team)}</b><small>${x.at_home ? 'vs' : '@'} ${esc(x.at_home ? x.away_abbr : x.home_abbr)} · ${nLive(x) ? nStatus(x) : esc(time(x))}</small>${hit(x.record)}</div>
+      <div class="bp-mid"><b>${esc(x.team)}${vipTag(x.id, 'winner')}</b><small>${x.at_home ? 'vs' : '@'} ${esc(x.at_home ? x.away_abbr : x.home_abbr)} · ${nLive(x) ? nStatus(x) : esc(time(x))}</small>${hit(x.record)}</div>
       <div class="p">${Math.round(x.probability * 100)}<small>%</small></div><span class="bp-add" role="button" tabindex="0" data-slip-win="${esc(x.id)}" title="Add to slip">+</span></button>`;
   }
   el.innerHTML = tabs + nbStartedCard(d, 'winner') + html + (rest.length ? card('More picks', rows, `${rest.length} more`) : '');
@@ -4472,11 +4517,11 @@ function renderNbaTotals(d){
     if(x.date !== last){ rows += `<div class="bp-day">${esc(day(x.date))}</div>`; last = x.date }
     rows += `<button class="bp-row bp-tot" type="button" data-id="${esc(x.id)}" data-home="${esc(x.home)}" data-away="${esc(x.away)}">
       <span class="bp-pair">${jersey(x.away)}${jersey(x.home)}</span>
-      <div class="bp-mid"><b>${x.side === 'over' ? 'Over' : 'Under'} ${x.line} points</b><small>${esc(x.away_abbr)} @ ${esc(x.home_abbr)} · ${nLive(x) ? nStatus(x) : esc(time(x))} · we expect ${Math.round(x.expected_total)}</small>${hit(x.record)}</div>
+      <div class="bp-mid"><b>${x.side === 'over' ? 'Over' : 'Under'} ${x.line} points${vipTag(x.id, 'total')}</b><small>${esc(x.away_abbr)} @ ${esc(x.home_abbr)} · ${nLive(x) ? nStatus(x) : esc(time(x))} · we expect ${Math.round(x.expected_total)}</small>${hit(x.record)}</div>
       <div class="p">${Math.round(x.probability * 100)}<small>%</small></div><span class="bp-add" role="button" tabindex="0" data-slip-tot="${esc(x.id)}" title="Add to slip">+</span></button>`;
   }
   const h = d.history || {}, o = h.over, u = h.under, rec = o && u && (o.won + o.lost + u.won + u.lost) ? `record: overs ${o.won}–${o.lost} · unders ${u.won}–${u.lost}` : 'both teams combined';
-  return `<a class="bp-vip-link card" href="#vip"><b>👑 Today's NBA VIP slip</b><span>Our surest calls, saved before tip-off and tracked in public →</span></a>` + started + card('Over / Under · total points', rows, rec) +
+  return `<div id="nvt">${nb.teaser || ''}</div>` + started + card('Over / Under · total points', rows, rec) +
     '<p class="note">Lines are our own, set so each pick is about 70% likely. A bookmaker\'s line will differ: compare before you use it.</p>';
 }
 $('#nbp-body').addEventListener('click', e => {
