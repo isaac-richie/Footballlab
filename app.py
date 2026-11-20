@@ -896,6 +896,37 @@ def vip_slip(data, n=17, days=3, per_league=6):
                 note='Fair odds are what each pick is worth by our numbers; your bookie will offer slightly less.')
 
 
+def vip_export_rows(ledger):
+    """Every saved VIP pick, oldest first, for a spreadsheet."""
+    rows = [['slip_date', 'match_date', 'kickoff_utc', 'league', 'home', 'away', 'pick', 'our_chance', 'fair_odds',
+             'final_score', 'result', 'counted_in_totals', 'saved_at']]
+    for day in sorted(ledger['days'], key=lambda d: d['date']):
+        for p in sorted(day['picks'], key=lambda p: (p['date'], p.get('kickoff') or '')):
+            g = p.get('goals')
+            rows.append([day['date'], p['date'], p.get('kickoff') or '', LEAGUES.get(p['league_id'], p['league_id']).split(' — ')[-1],
+                         p['home'], p['away'], p['selection'], f"{p['probability']:.3f}", f"{1 / p['probability']:.2f}",
+                         f'{g[0]}-{g[1]}' if g else '', p['status'], 'yes' if p.get('counted', True) else 'no (already on an earlier slip)',
+                         day.get('frozen_at') or ''])
+    return rows
+
+
+def nba_export_rows(results):
+    """Every saved NBA pick (winners and over/under), oldest first."""
+    rows = [['date', 'tipoff_utc', 'away', 'home', 'pick', 'our_chance', 'final_score_away_home', 'result', 'rebuilt']]
+    for day in sorted(results['days'], key=lambda d: d['date']):
+        for x in day['picks']:
+            sc = x.get('score')
+            for k in ('total', 'winner'):
+                pk = x.get(k)
+                if not pk:
+                    continue
+                label = (f"{'Over' if pk['side'] == 'over' else 'Under'} {pk['line']} points") if k == 'total' else f"{pk['team']} to win"
+                res = 'won' if pk.get('won') is True else 'lost' if pk.get('won') is False else x['status'] if x['status'] == 'void' else 'pending'
+                rows.append([x['date'], x.get('tipoff') or '', x['away'], x['home'], label, f"{pk['probability']:.3f}",
+                             f'{sc[1]}-{sc[0]}' if sc else '', res, 'yes' if x.get('rebuilt') else ''])
+    return rows
+
+
 def football_schedule(data, days=2):
     """{league_id: [(date, home, away)]} around today, for matching live scores to our fixtures."""
     near = {(dt.date.today() + dt.timedelta(days=d)).isoformat() for d in range(-days, days + 1)}
@@ -1024,6 +1055,20 @@ class Handler(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         log.info('%s %s', self.address_string(), format % args)
 
+    def send_csv(self, rows, filename):
+        import csv
+        import io
+        buf = io.StringIO()
+        csv.writer(buf).writerows(rows)
+        raw = ('\ufeff' + buf.getvalue()).encode()          # BOM so Excel reads accents correctly
+        self.send_response(200)
+        self.send_header('Content-Type', 'text/csv; charset=utf-8')
+        self.send_header('Content-Disposition', f'attachment; filename="{filename}"')
+        self.send_header('Cache-Control', 'public, max-age=300')
+        self.send_header('Content-Length', str(len(raw)))
+        self.end_headers()
+        self.wfile.write(raw)
+
     def send_json(self, value, code=200, cache=None):
         raw = json.dumps(value, allow_nan=False).encode()
         self.send_response(code)
@@ -1150,6 +1195,14 @@ class Handler(BaseHTTPRequestHandler):
             except ValueError:
                 return self.send_json(dict(error='Invalid date'), 400)
             self.send_json(match_setup(query['league'], query['date'], query['home'], query['away']))
+        elif path == '/api/vip/export.csv':
+            import record
+            self.send_csv(vip_export_rows(record.vip_ledger(max_days=100000)), f'vip-record-{dt.date.today().isoformat()}.csv')
+        elif path == '/api/nba/export.csv':
+            import nba_app
+            import nba_picks_ledger
+            data, _ = nba_app._data()
+            self.send_csv(nba_export_rows(nba_picks_ledger.results((data or {}).get('games', []))), f'nba-picks-{dt.date.today().isoformat()}.csv')
         elif path == '/api/record':
             import record
             saved = record.load()

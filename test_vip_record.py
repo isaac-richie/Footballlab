@@ -56,6 +56,15 @@ class VipRecordTest(unittest.TestCase):
         self.assertEqual([p['status'] for p in ledger['days'][0]['picks']], ['won', 'lost', 'pending'])
         self.assertFalse(ledger['days'][0]['settled'])
 
+    def test_game_on_two_slips_counts_once_under_its_first_pick(self):
+        self.run_day(dict(matches=[]), slip(('2026-11-10', 'A', 'B', 'ou25', 'Over 2.5', .70)))
+        self.run_day(dict(matches=[]), slip(('2026-11-10', 'A', 'B', '1x2', 'A win', .80), ('2026-11-10', 'C', 'D', 'ou15', 'Over 1.5', .80)),
+                     today=TODAY + dt.timedelta(days=1))
+        played = dict(matches=[match('2026-11-10', 'A', 'B', [1, 0]), match('2026-11-10', 'C', 'D', [2, 1])])
+        self.run_day(played, slip(), today=TODAY + dt.timedelta(days=3))
+        s = record.vip_ledger()['summary']
+        self.assertEqual((s['picks'], s['won'], s['lost']), (2, 1, 1))   # A v B counted once, as its first pick (Over 2.5: lost)
+
     def test_late_feed_is_pending_but_postponement_is_void(self):
         legs = slip(('2026-11-09', 'A', 'B', '1x2', 'A win', .75))
         self.run_day(dict(matches=[]), legs)

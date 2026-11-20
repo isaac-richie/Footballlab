@@ -335,7 +335,16 @@ def vip_ledger(live=None, max_days=60):
     for d in days:
         for p in d['picks']:
             p['side'] = 'unders' if p['selection'].startswith('Under') else 'overs' if p['selection'].startswith('Over') else 'wins' if p['market'] == '1x2' else 'other'
-    all_picks = [p for d in days for p in d['picks']]
+    # A slip covers the next three days, so one game can sit on two or three slips (sometimes with a
+    # different pick). The totals count each game once, under the first pick published for it;
+    # every slip is still shown as posted, and `counted` marks which picks enter the totals.
+    seen = set()
+    for d in sorted(days, key=lambda d: d['date']):
+        for p in sorted(d['picks'], key=lambda p: (p['date'], p.get('kickoff') or '', p['home'])):
+            key = (p['date'], p['home'], p['away'])
+            p['counted'] = key not in seen
+            seen.add(key)
+    all_picks = [p for d in days for p in d['picks'] if p['counted']]
     settled = [p for p in all_picks if p['status'] in ('won', 'lost')]
     won = sum(p['status'] == 'won' for p in settled)
     streak = 0                                  # consecutive winning picks, most recent kickoff first
@@ -361,6 +370,7 @@ def vip_ledger(live=None, max_days=60):
     return dict(summary=summary, days=days[:max_days],
                 method=f'Each day\'s VIP slip (all {VIP_SIZE} picks, so every slip size on the VIP page is covered) is saved the first time the daily update runs, '
                        'before those games kick off, and is never edited. Results are filled in as they arrive. '
+                       'A game that appears on more than one slip counts once in the totals, under the first pick published for it. '
                        f'A pick still without a result {VOID_AFTER_DAYS} days after its date, when later games in its league have results '
                        '(usually a postponement), is void '
                        'and left out of the hit rate.')

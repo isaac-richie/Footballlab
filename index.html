@@ -539,7 +539,7 @@ html{background:var(--bg)}
 .ft-filter button{flex-shrink:0;white-space:nowrap;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);color:var(--muted);font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.8px;font-size:13px;cursor:pointer;transition:all .2s}
 .ft-filter button b{margin-left:6px;opacity:.6;font-weight:700}
 .ft-filter button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#0b0f14}
-.ft-all{margin-top:34px}.ga-more{display:block;width:100%;margin-top:12px}
+.ft-all{margin-top:34px}.ga-more{display:block;width:100%;margin-top:12px}.share-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.share-row .primary,.share-row .ghost{width:auto;padding:10px 16px;text-decoration:none;display:inline-flex;align-items:center}
 .ft-all-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:10px}
 .ft-all-head h2{margin:0;white-space:nowrap;font-family:var(--display);text-transform:uppercase;letter-spacing:1px;font-size:26px}
 .ft-all-head span{color:var(--muted);font-size:14px}
@@ -3200,6 +3200,24 @@ async function loadTrack(){
     <footer class="how-cta"><a class="wl-go" href="#performance">Football record</a><a class="wl-ok" href="#how">How we work out the chances</a></footer></section>`;
   el.innerHTML = html;
 }
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-nba-share]'); if(!b || !nb.picks || !nb.picks.history) return;
+  const h = nb.picks.history, dd = h.days.find(v => v.date === b.dataset.nbaShare); if(!dd) return;
+  const res = (x, k) => { if(!x[k]) return null; if('won' in x[k]) return x[k].won ? 'won' : 'lost'; const L = nLive(x); if(!L || L.status !== 'final') return 'pending';
+    const [hs, as] = L.score; const ok = k === 'winner' ? (hs > as) === (x.winner.team === x.home) : x.total.side === 'over' ? hs + as > x.total.line : hs + as < x.total.line; return ok ? 'won' : 'lost' };
+  const rows = [];
+  for(const x of dd.picks){ const L = nLive(x), sc = x.score || (L && L.status === 'final' ? L.score : null), score = sc ? `${sc[1]}-${sc[0]}` : '';
+    if(x.total) rows.push({match: `${x.away_abbr || x.away} @ ${x.home_abbr || x.home}`, pick: `${x.total.side === 'over' ? 'Over' : 'Under'} ${x.total.line} points`, prob: x.total.probability, status: res(x, 'total'), score});
+    if(x.winner) rows.push({match: `${x.away_abbr || x.away} @ ${x.home_abbr || x.home}`, pick: `${x.winner.team} to win`, prob: x.winner.probability, status: res(x, 'winner'), score}) }
+  const won = rows.filter(r => r.status === 'won').length, lost = rows.filter(r => r.status === 'lost').length, t = h.total;
+  shareCard({kicker: 'NBA picks', date: day(dd.date), file: `nba-picks-${dd.date}`, won, lost, pending: rows.length - won - lost, rows,
+    record: t && t.won + t.lost ? `Over/under record: ${t.won}-${t.lost} (${Math.round(t.won / (t.won + t.lost) * 100)}%)` : ''}, b);
+});
+document.addEventListener('click', async e => {
+  const b = e.target.closest('#vip-share'); if(!b) return;
+  const d = await getRecord().catch(() => null), x = d && d.vip_ledger, day_ = x && x.days.find(v => v.date === b.dataset.date);
+  if(day_) shareCard(vipShareData(x, day_), b);
+});
 // VIP page: how the VIP picks have actually done, above today's slip.
 async function loadVipWinRate(){
   let d; try{ d = await getRecord() }catch{ return }
@@ -3678,6 +3696,68 @@ function goalCheckHtml(g){
     ${rows.map(([k, l]) => `<span>${l}</span>${seasons.map(([s]) => { const v = g.seasons[s][k]; return `<div><strong>${pc(v.won)}</strong><small>won · said ${pc(v.said)} · ${v.picks.toLocaleString()} picks</small></div>` }).join('')}`).join('')}</div>
     <p class="note">Every finished match in nine leagues re-forecast as of its own matchday, using only what was known then, with today's VIP rule: Over 2.5 at 65%+, else Over 1.5 at 78%+, else Under 3.5 at 70%+. The rule was set on 2024-25 and not changed after. Under 2.5 failed this check (it won less often than it said), so we never pick it. The slip also carries up to two favourites to win at 75%+ (about 85% won across the last three seasons).</p></div>`;
 }
+/* ---------- Share card: one day's picks as an image (1080x1350) for WhatsApp, X and the rest ---------- */
+function shareCardCanvas(o){
+  const W = 1080, H = 1350, c = document.createElement('canvas'); c.width = W; c.height = H;
+  const g = c.getContext('2d'), css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const accent = css('--accent') || '#e8573a', serif = getComputedStyle(document.querySelector('h1') || document.body).fontFamily;
+  const sans = '-apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif', mono = 'ui-monospace, "SF Mono", Menlo, monospace';
+  const fit = (t, w, font) => { g.font = font; if(g.measureText(t).width <= w) return t; while(t.length > 1 && g.measureText(t + '…').width > w) t = t.slice(0, -1); return t + '…' };
+  g.fillStyle = '#121212'; g.fillRect(0, 0, W, H);
+  const glow = g.createRadialGradient(W * .85, 0, 0, W * .85, 0, 700); glow.addColorStop(0, accent + '55'); glow.addColorStop(1, 'transparent');
+  g.fillStyle = glow; g.fillRect(0, 0, W, H);
+  // brand and title
+  g.fillStyle = '#f2efe9'; g.font = `600 40px ${serif}`; g.fillText('Football Lab', 72, 110);
+  g.fillStyle = accent; g.font = `700 26px ${sans}`; g.fillText(o.kicker.toUpperCase(), 72, 170);
+  g.fillStyle = '#a8a39b'; g.font = `500 30px ${sans}`; g.fillText(o.date, 72, 214);
+  // the score of the day
+  const settled = o.won + o.lost;
+  g.fillStyle = '#f2efe9'; g.font = `500 150px ${mono}`; g.fillText(settled ? `${o.won}/${settled}` : '—', 66, 380);
+  g.fillStyle = '#a8a39b'; g.font = `500 32px ${sans}`;
+  g.fillText(settled ? `won${o.pending ? ` · ${o.pending} still to play` : ''}` : 'waiting for results', 72, 432);
+  // picks
+  const rows = o.rows.slice(0, 16), top = 490, rh = Math.min(96, (1180 - top) / Math.max(rows.length, 1));
+  rows.forEach((r, i) => {
+    const y = top + i * rh;
+    g.fillStyle = i % 2 ? 'transparent' : 'rgba(255,255,255,.03)'; g.fillRect(56, y, W - 112, rh);
+    const col = r.status === 'won' ? '#3fd07f' : r.status === 'lost' ? '#ff6b6b' : '#7d7871';
+    g.fillStyle = col; g.beginPath(); g.arc(92, y + rh / 2, 15, 0, Math.PI * 2); g.fill();
+    g.fillStyle = '#121212'; g.font = `800 20px ${sans}`; g.textAlign = 'center';
+    g.fillText(r.status === 'won' ? '✓' : r.status === 'lost' ? '✕' : '•', 92, y + rh / 2 + 7); g.textAlign = 'left';
+    g.fillStyle = '#f2efe9'; g.fillText(fit(r.match, 470, `600 25px ${sans}`), 126, y + rh / 2 - 2);
+    g.fillStyle = '#a8a39b'; g.fillText(fit(r.pick, 470, `500 21px ${sans}`), 126, y + rh / 2 + 24);
+    g.textAlign = 'right';
+    g.fillStyle = '#f2efe9'; g.font = `500 26px ${mono}`; g.fillText(r.score || '', W - 200, y + rh / 2 + 9);
+    g.fillStyle = col; g.font = `600 24px ${mono}`; g.fillText(Math.round(r.prob * 100) + '%', W - 76, y + rh / 2 + 9);
+    g.textAlign = 'left';
+  });
+  if(o.rows.length > rows.length){ g.fillStyle = '#a8a39b'; g.font = `500 22px ${sans}`; g.fillText(`+ ${o.rows.length - rows.length} more picks`, 126, top + rows.length * rh + 30) }
+  // running record and the promise
+  g.fillStyle = 'rgba(255,255,255,.12)'; g.fillRect(72, 1200, W - 144, 2);
+  g.fillStyle = '#f2efe9'; g.font = `600 28px ${sans}`; g.fillText(o.record || '', 72, 1250);
+  g.fillStyle = '#a8a39b'; g.font = `500 22px ${sans}`; g.fillText('Saved before kickoff · never edited · 18+', 72, 1292);
+  g.textAlign = 'right'; g.fillStyle = accent; g.fillText(location.host || 'football-lab', W - 72, 1292); g.textAlign = 'left';
+  return c;
+}
+async function shareCard(o, btn){
+  const c = shareCardCanvas(o), name = `${o.file}.png`;
+  const blob = await new Promise(r => c.toBlob(r, 'image/png'));
+  const file = new File([blob], name, {type: 'image/png'});
+  const text = `${o.kicker} · ${o.date}: ${o.won}/${o.won + o.lost} won. Every pick saved before kickoff. ${location.origin}/#track`;
+  try{
+    if(navigator.canShare && navigator.canShare({files: [file]})){ await navigator.share({files: [file], text}); return }
+  }catch(e){ if(e && e.name === 'AbortError') return }
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove() }, 1000);
+  if(btn){ const t = btn.textContent; btn.textContent = 'Image saved ✓'; setTimeout(() => btn.textContent = t, 2000) }
+}
+function vipShareData(x, d){
+  const s = x.summary, pc = v => Math.round(v * 100) + '%';
+  return {kicker: 'VIP slip', date: day(d.date), file: `vip-slip-${d.date}`, won: d.won, lost: d.lost, pending: d.pending,
+    record: s.settled ? `VIP record: ${s.won} of ${s.settled} won (${pc(s.hit_rate)})` : '',
+    rows: d.picks.map(p => ({match: `${p.home} v ${p.away}`, pick: bookieText(p), prob: p.probability, status: p.status === 'void' ? 'void' : p.status,
+      score: p.goals ? `${p.goals[0]}-${p.goals[1]}` : ''}))};
+}
 function vipLedgerHtml(x, g){
   const how = `<div class="rx-how">
       <div><span>1</span><b>Posted before kickoff</b><small>Every morning we save the day's VIP slip, before any of its games start.</small></div>
@@ -3720,6 +3800,7 @@ function vipLedgerHtml(x, g){
     <div class="card" id="vip-record"><div class="rx-head"><h4>Latest finished slip</h4>
       <span class="rx-key"><span><i class="won"></i>Won</span><span><i class="lost"></i>Lost</span><span><i class="pending"></i>Still to play</span><span><i class="void"></i>Postponed</span></span></div>
       <p class="note" style="margin:0 0 4px">The most recent day with results. Every earlier slip stays saved and counts in the totals above.</p>
+      <div class="share-row">${latest ? `<button type="button" class="primary" id="vip-share" data-date="${esc(latest.date)}">Share this slip</button>` : ''}<a class="ghost" href="/api/vip/export.csv" download>Download every pick (CSV)</a></div>
       <div class="vr-days">${days}</div></div>`;
 }
 async function loadProspective(){
@@ -3990,7 +4071,7 @@ function nbHistory(h, days){
       return `<div class="bp-hrow"><div class="bp-hm">${jersey(x.away)}${jersey(x.home)}<span><b>${esc(x.away_abbr || '')} @ ${esc(x.home_abbr || '')}${x.rebuilt ? ' <small title="Rebuilt from the forecast saved before tip-off">↺</small>' : ''}</b><small>${score || 'not played yet'}</small></span></div>
         ${line('total', x.total ? (x.total.side === 'over' ? 'Over ' : 'Under ') + x.total.line + ' points' : '')}${line('winner', x.winner ? esc(x.winner.team) + ' to win' : '')}</div>`;
     }).join('');
-    html += card(day(dd.date), rows, sum(w, l));
+    html += card(day(dd.date), rows + `<div class="share-row"><button type="button" class="primary" data-nba-share="${esc(dd.date)}">Share this day</button><a class="ghost" href="/api/nba/export.csv" download>Download every pick (CSV)</a></div>`, sum(w, l));
   }
   return html + '<p class="note"><a class="how-link inline" href="#track">Full track record, both sports →</a></p><p class="note">Showing the latest finished day; every earlier pick stays saved and counts in the record above.15–18 November are rebuilt from the forecasts saved before each tip-off, with the same rules (marked ↺). From 19 November every pick is saved before tip-off as shown. Winner picks before 19 November used a 60% bar; now only a few strong calls (80%+) are listed.</p>';
 }
