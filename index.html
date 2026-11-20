@@ -1713,28 +1713,28 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   .how-livebar a{margin-left:0}
 }
 
-/* ---- Club colours (Nov 2026): every game wears its two clubs' kits ---- */
-.tri .h{background:var(--kh,var(--home))!important}
-.tri .a{background:var(--ka,var(--away))!important}
-.tri i,.fc-bar i,.duo i{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--text) 16%,transparent)}
-.fc-bar i.h{background:var(--kh)!important}.fc-bar i.a{background:var(--ka)!important}.fc-bar i.d{background:var(--surface-3)!important}
-.fc-bar i.h em{color:var(--kh-ink)!important}.fc-bar i.a em{color:var(--ka-ink)!important}.fc-bar i.d em{color:var(--muted)!important}
-.fc-bar i:not(.fav){opacity:.5!important}
-.ft.fc{background:linear-gradient(90deg,var(--kh) 50%,var(--ka) 50%) top/100% 5px no-repeat,var(--surface)!important}
-.fc-ring,.fc-ring.away{width:86px!important;height:86px!important;border:2px solid var(--kh)!important;
-  background:radial-gradient(circle,color-mix(in srgb,var(--kh) 22%,transparent),transparent 72%)!important}
-.fc-ring.away{border-color:var(--ka)!important;background:radial-gradient(circle,color-mix(in srgb,var(--ka) 22%,transparent),transparent 72%)!important}
+/* ---- One colour rule (Nov 2026 feedback): the most likely result is solid (text colour), the rest grey.
+   Club colours appear only on the crests and shirts themselves, never on bars, stripes or rings. ---- */
+.tri,.duo{background:transparent!important}
+.tri i,.duo i,.fc-bar i{background:color-mix(in srgb,var(--text) 26%,var(--surface))!important;box-shadow:none!important;opacity:1!important}
+.tri i.fav,.duo i.fav,.fc-bar i.fav,.fc-bar i.fav.h,.fc-bar i.fav.d,.fc-bar i.fav.a{background:var(--text)!important}
+.fc-bar i em{color:var(--muted)!important}.fc-bar i.fav em{color:var(--bg)!important}
+.c-h,.c-d,.c-a,.fx .bar .nums .c-h,.fx .bar .nums .c-d,.fx .bar .nums .c-a,.ga .nums span,.mh .tri-labels b,.nbh .two b,.bx .duo-n span{color:var(--muted)!important}
+.c-h.is-top,.c-d.is-top,.c-a.is-top,.fx .bar .nums .is-top,.ga .nums .is-top,.mh .tri-labels b.is-top,.nbh .two b.is-top,.bx .duo-n .is-top{color:var(--text)!important;font-weight:700!important}
+.ft.fc{background:var(--surface)!important}
+.fc-ring,.fc-ring.away{width:86px!important;height:86px!important;border:1px solid var(--line-2)!important;background:none!important;box-shadow:none!important}
 .fc-ring .crest{width:62px!important;height:62px!important}
-.fx,.ga,.bx{background:linear-gradient(var(--kh,transparent) 50%,var(--ka,transparent) 50%) left/4px 100% no-repeat!important}
-.fx:hover,.ga:hover,.bx:hover{background:linear-gradient(var(--kh,transparent) 50%,var(--ka,transparent) 50%) left/4px 100% no-repeat,var(--surface)!important}
-.ga{padding-left:16px!important}
-.mh,.mh.nbh{background:linear-gradient(90deg,var(--kh,var(--line-2)) 50%,var(--ka,var(--line-2)) 50%) top/100% 6px no-repeat,var(--surface)!important}
-.mh .versus .crest,.nbh .bk-vs .jersey{box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--kh)}
-.mh .versus .side.away .crest,.nbh .bk-vs .side.away .jersey{box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--ka)}
-/* Numbers sit on club-coloured bars, so they use the text colour rather than fixed home/away hues */
-.fx .bar .nums .c-h,.fx .bar .nums .c-a,.ga .nums .c-h,.ga .nums .c-a,.mh .tri-labels .c-h,.mh .tri-labels .c-a,.nbh .two .c-h,.nbh .two .c-a,.bx .duo-n .c-h,.bx .duo-n .c-a{color:var(--text)!important}
+.fx,.ga,.bx{background:none!important}
+.fx:hover,.ga:hover,.bx:hover{background:var(--surface)!important}
+.mh,.mh.nbh{background:var(--surface)!important}
+.mh .versus .crest,.nbh .bk-vs .jersey,.mh .versus .side.away .crest,.nbh .bk-vs .side.away .jersey{box-shadow:none}
+.vl.vlx{background:var(--surface)!important}
+.sc-card{background:var(--surface)!important}
+.potd{border-left-color:var(--accent)!important}
 .kit-key{display:inline-flex;align-items:center;gap:8px}
-.kit-key i{width:26px!important;height:10px!important;background:linear-gradient(90deg,#c8102e 0 45%,var(--surface-3) 45% 65%,#034694 65%)!important}
+.kit-key i{width:30px!important;height:10px!important;border-radius:2px;
+  background:linear-gradient(90deg,var(--text) 0 48%,transparent 48% 52%,color-mix(in srgb,var(--text) 26%,var(--surface)) 52% 74%,transparent 74% 78%,color-mix(in srgb,var(--text) 26%,var(--surface)) 78%)!important}
+.kit-key.nba i{background:linear-gradient(90deg,var(--text) 0 60%,transparent 60% 64%,color-mix(in srgb,var(--text) 26%,var(--surface)) 64%)!important}
 
 /* ---- Form at a glance: last five league results ---- */
 .f5{display:inline-flex;gap:2px;flex:none;margin-left:8px;vertical-align:middle}
@@ -1951,12 +1951,115 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   body{padding-bottom:calc(58px + env(safe-area-inset-bottom))!important}
   .mx,.slip-fab{bottom:calc(68px + env(safe-area-inset-bottom))!important}
 }
+
+/* ---- Every game, grouped by league ---- */
+.ga-lg{margin:0 0 22px}
+.ga-lg-head{display:flex;align-items:baseline;gap:10px;border-top:1px solid var(--text);padding:10px 0 8px;margin-bottom:4px}
+.ga-lg-head h3{margin:0!important;font-family:var(--serif)!important;font-size:19px!important;font-weight:600!important;letter-spacing:-.01em!important;text-transform:none!important}
+.ga-lg-head span{font-size:12.5px;color:var(--muted)}
+.ga-lg-more{margin-left:auto;background:none;border:0;padding:4px 0;font:650 12.5px/1 var(--sans);color:var(--accent);cursor:pointer}
+.ga-lg-more:hover{text-decoration:underline}
+.ga-lg .ga .meta .lg{font-family:var(--sans)!important;text-transform:none!important;letter-spacing:0!important;font-size:12.5px!important;color:var(--text)!important;font-weight:600}
+
+/* ---- Trimmed copy: rules and research folded away ---- */
+.vb-rules{margin:12px 0 0;max-width:560px}
+.vb-rules summary{cursor:pointer;font:650 12.5px/1.4 var(--sans);color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;list-style:none}
+.vb-rules summary::-webkit-details-marker{display:none}
+.vb-rules p{margin-top:8px!important;font-size:13.5px!important}
+.hood{margin-top:4px}
+.hood[open]>summary{margin-bottom:12px}
+
+/* ---- Lab switch: Football Lab / Basketball Lab ---- */
+.lab-toast{position:fixed;left:50%;top:76px;z-index:80;transform:translate(-50%,-12px);opacity:0;pointer-events:none;display:flex;align-items:baseline;gap:10px;white-space:nowrap;width:max-content;max-width:calc(100vw - 32px);
+  padding:10px 16px;border-radius:6px;background:var(--text);color:var(--bg);box-shadow:0 14px 30px -18px #000;transition:opacity .25s,transform .25s}
+.lab-toast.on{opacity:1;transform:translate(-50%,0)}
+.lab-toast b{font-family:var(--serif);font-size:17px;font-weight:600}
+.lab-toast span{font-size:12.5px;opacity:.75}
+@media (max-width:760px){.lab-toast{top:64px;padding:8px 12px}.lab-toast b{font-size:15px}.lab-toast span{font-size:11.5px;overflow:hidden;text-overflow:ellipsis}
+  #wm-sport{display:inline!important}
+  .sport .lab{display:inline!important;font-size:12.5px}.sport .ico{display:none!important}.sport button{padding:6px 10px!important}}
+
+/* ---- How-to slides in the hero (replaces the welcome card and the three link cards) ---- */
+.howto{position:relative;border:1px solid var(--line-2);border-radius:6px;background:var(--surface);padding:16px 18px 14px;min-width:0}
+.ht-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:14px}
+.ht-tabs button{display:flex;align-items:center;gap:8px;min-width:0;padding:8px 6px 9px;background:none;border:0;border-bottom:2px solid var(--line-2);
+  color:var(--muted);font:650 12.5px/1.2 var(--sans);text-align:left;cursor:pointer}
+.ht-tabs button i{flex:none;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;border:1px solid currentColor;font:600 11px/1 var(--mono);font-style:normal}
+.ht-tabs button[aria-selected="true"]{color:var(--text);border-bottom-color:var(--accent)}
+.ht-tabs button[aria-selected="true"] i{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.ht-stage{display:grid;touch-action:pan-y;user-select:none}
+.ht-slide{grid-area:1/1;display:flex;flex-direction:column;gap:14px}
+.ht-slide[hidden]{display:flex!important;visibility:hidden;opacity:0;pointer-events:none}
+.ht-slide.is-on{animation:htIn .45s cubic-bezier(.16,1,.3,1)}
+@keyframes htIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.ht-slide p{margin:0;font-size:14.5px;line-height:1.55;color:var(--muted)}
+.ht-slide p b{color:var(--text)}
+.ht-vis{position:relative;min-height:176px;border-radius:4px;background:color-mix(in srgb,var(--text) 4%,var(--surface));padding:14px;overflow:hidden}
+.ht-rows{display:grid;gap:8px}
+.ht-row{display:grid;grid-template-columns:minmax(0,1fr) 110px;grid-template-rows:auto auto;column-gap:12px;align-items:center;padding:8px 10px;border:1px solid var(--line-2);border-radius:4px;background:var(--surface)}
+.ht-row small{grid-column:1/-1;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.ht-row span{display:flex;align-items:center;gap:6px;min-width:0;font-size:13px}
+.ht-row span em{color:var(--muted);font-style:normal;font-size:11px}
+.ht-row .crest{flex:none}
+.ht-row .tri{height:6px}
+.is-on .ht-row.hit{animation:htHit 1.8s .9s both}
+@keyframes htHit{0%,40%{border-color:var(--line-2);box-shadow:none}60%,100%{border-color:var(--text);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 35%,transparent)}}
+.ht-tap{position:absolute;left:62%;top:38px;width:26px;height:26px;border-radius:50%;background:color-mix(in srgb,var(--accent) 70%,transparent);opacity:0}
+.is-on .ht-tap{animation:htTap 1.8s .5s both}
+@keyframes htTap{0%{opacity:0;transform:translate(40px,60px) scale(1)}45%{opacity:.9;transform:translate(0,0) scale(1)}60%{opacity:.9;transform:scale(.7)}75%{opacity:.5;transform:scale(1.8)}100%{opacity:0;transform:scale(2.2)}}
+.ht-teams{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;font-family:var(--serif);font-size:16px}
+.ht-teams em{color:var(--muted);font-style:normal;font-size:12px}
+.ht-teams .crest{flex:none}
+.ht-big{margin:16px 0 8px}
+.ht-big .tri i{transform-origin:left}
+.is-on .ht-big .tri i{animation:htGrow .8s cubic-bezier(.16,1,.3,1) both}
+.is-on .ht-big .tri i.d{animation-delay:.15s}.is-on .ht-big .tri i.a{animation-delay:.3s}
+@keyframes htGrow{from{transform:scaleX(0)}to{transform:none}}
+.ht-nums{display:flex;justify-content:space-between}
+.ht-nums span{display:flex;flex-direction:column;font-size:11.5px;color:var(--muted)}
+.ht-nums span:nth-child(2){align-items:center}.ht-nums span:nth-child(3){align-items:flex-end}
+.ht-nums b{font:600 20px/1.2 var(--mono);color:var(--muted)}
+.ht-nums .is-top b{color:var(--text)}
+.ht-call{margin-top:10px;font-size:13px;text-align:center;opacity:0}
+.is-on .ht-call{animation:htFade .5s 1s both}
+@keyframes htFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.ht-sel{font-family:var(--serif);font-size:18px;font-weight:600;text-align:center}
+.ht-sel small{margin-left:8px;font:500 10.5px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ht-prices{display:flex;align-items:center;justify-content:center;gap:10px;margin:16px 0 12px}
+.ht-prices>span{color:var(--muted);font-size:12px}
+.ht-prices div{display:flex;flex-direction:column;align-items:center;padding:8px 10px;border:1px solid var(--line-2);border-radius:4px;background:var(--surface);min-width:72px}
+.ht-prices small{font-size:10.5px;color:var(--muted);white-space:nowrap}
+.ht-prices b{font:600 19px/1.3 var(--mono)}
+.ht-prices .bk{border-color:var(--text)}
+.is-on .ht-prices div{animation:htFade .4s both}.is-on .ht-prices div:nth-of-type(2){animation-delay:.35s}.is-on .ht-prices div:nth-of-type(3){animation-delay:.7s}
+.ht-verdict{width:max-content;max-width:100%;margin:0 auto;padding:6px 12px;border-radius:99px;background:var(--ok);color:var(--bg);font:650 12.5px/1.2 var(--sans);opacity:0}
+.is-on .ht-verdict{animation:htPop .4s 1.2s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes htPop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+.ht-foot{display:flex;align-items:center;gap:10px;margin-top:14px}
+.ht-arrow{width:32px;height:32px;flex:none;border:1px solid var(--line-2);border-radius:50%;background:none;color:var(--text);cursor:pointer;font-size:14px}
+.ht-arrow:hover{border-color:var(--text)}
+.ht-prog{flex:1;height:2px;background:var(--line-2);overflow:hidden}
+.ht-prog i{display:block;height:100%;width:100%;background:var(--accent);transform-origin:left;animation:htProg 6.5s linear both}
+.howto.manual .ht-prog i{animation:none;transform:scaleX(calc((var(--hi,0) + 1) / 3))}
+.howto.paused .ht-prog i{animation-play-state:paused}
+@keyframes htProg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.ht-more{font:650 12.5px/1 var(--sans);color:var(--accent);text-decoration:none;white-space:nowrap}
+.ht-more:hover{text-decoration:underline}
+@media (prefers-reduced-motion:reduce){.ht-slide.is-on,.is-on .ht-row.hit,.is-on .ht-tap,.is-on .ht-big .tri i,.is-on .ht-call,.is-on .ht-prices div,.is-on .ht-verdict{animation:none!important;opacity:1}.ht-tap{display:none}.ht-prog i{animation:none}}
+@media (max-width:760px){
+  .howto{padding:12px 12px 10px}
+  .ht-tabs button{font-size:11.5px;gap:6px;padding:6px 2px 8px}
+  .ht-tabs button i{width:18px;height:18px}
+  .ht-vis{min-height:160px;padding:10px}
+  .ht-row{grid-template-columns:minmax(0,1fr) 80px}
+  .ht-prices{gap:6px}.ht-prices div{min-width:0;padding:6px 7px}.ht-prices b{font-size:16px}
+}
 </style>
 </head>
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#featured" aria-label="Football Lab home"><svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0 0 20z" fill="var(--signal)"/><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v20" stroke="currentColor" stroke-width="1.8"/></svg><span class="wm">Football <i>Lab</i></span></a>
+    <a class="brand" href="#featured" aria-label="Football Lab home"><svg class="mk" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0 0 20z" fill="var(--signal)"/><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v20" stroke="currentColor" stroke-width="1.8"/></svg><span class="wm"><span id="wm-sport">Football</span> <i>Lab</i></span></a>
     <nav class="nav" aria-label="Views">
       <a href="#featured" data-view="featured">Home</a>
       <a href="#vip" data-view="vip">VIP picks</a>
@@ -1966,7 +2069,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       <a href="#performance" data-view="performance">Our record</a>
     </nav>
     <div class="spacer"></div>
-    <div class="seg sport" id="sport" role="group" aria-label="Sport"><button type="button" data-sport="football" aria-pressed="true"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5l3.4 2.5-1.3 4h-4.2l-1.3-4zM12 7.5V3M15.4 10l4.2-1.4M14.1 14l2.6 3.6M9.9 14l-2.6 3.6M8.6 10 4.4 8.6"/></svg><span class="lab">Football</span></button><button type="button" data-sport="basketball" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c3 2.6 3 10.2 0 12.8M18.4 5.6c-3 2.6-3 10.2 0 12.8"/></svg><span class="lab">Basketball</span></button></div>
+    <div class="seg sport" id="sport" role="group" aria-label="Choose a lab"><button type="button" data-sport="football" aria-pressed="true" title="Football Lab: nine leagues"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5l3.4 2.5-1.3 4h-4.2l-1.3-4zM12 7.5V3M15.4 10l4.2-1.4M14.1 14l2.6 3.6M9.9 14l-2.6 3.6M8.6 10 4.4 8.6"/></svg><span class="lab">Football</span></button><button type="button" data-sport="basketball" aria-pressed="false" title="Basketball Lab: NBA predictions"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c3 2.6 3 10.2 0 12.8M18.4 5.6c-3 2.6-3 10.2 0 12.8"/></svg><span class="lab">NBA</span></button></div>
     <span class="fresh" id="fresh"></span>
     <button class="icon-btn" id="theme" type="button" aria-label="Switch light or dark theme" title="Light / dark"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
   </div>
@@ -1980,37 +2083,45 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
   <a href="#performance" data-view="performance"><svg viewBox="0 0 24 24"><path class="f" d="M4 20.5V14l5-4 4 3 7-7v14.5z"/><path d="M4 14l5-4 4 3 7-7M15.5 6H20v4.5M3 20.5h18"/></svg><span>Record</span></a>
 </nav>
 
-<div class="ticker" id="ticker" aria-label="Latest results" hidden><span class="lbl" id="ticker-lbl">Results</span><div class="run" id="ticker-run"></div></div>
-<div class="ticker" id="nba-ticker" aria-label="Latest NBA results" hidden><span class="lbl">NBA</span><div class="run" id="nba-ticker-run"></div></div>
 <div class="wrap">
   <div class="leagues" id="leagues" role="group" aria-label="Competition"></div>
   <div class="strip" id="strip" role="status">Loading local data…</div>
 
   <!-- FEATURED -->
   <section data-panel="featured" hidden>
-    <aside class="welcome" id="welcome" hidden aria-labelledby="welcome-h">
-      <div class="wl-head"><span class="kicker">New here</span><h2 id="welcome-h">How Football Lab works, in three steps</h2>
-        <button type="button" class="wl-x" id="welcome-x" aria-label="Close the welcome guide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
-      <ol class="wl-steps">
-        <li><b>Pick a game.</b> Scroll to Games to watch below, or open Games and choose a league.</li>
-        <li><b>Read the chances.</b> Each percentage is how often we expect that to happen. Tap the game for goals, scores and our plain-English read.</li>
-        <li><b>Spot the value.</b> Compare our fair odds with your bookie's. If they pay more than fair, the price is in your favour.</li>
-      </ol>
-      <span class="wl-hint">Swipe for the next step →</span>
-      <div class="wl-foot"><a class="wl-go" href="#vip" id="welcome-vip">See today's VIP picks</a><button type="button" class="wl-ok" id="welcome-ok">Got it</button><a class="wl-more" href="#how" id="welcome-how">How we work out the chances →</a><span>Probabilities, not promises. 18+.</span></div>
-    </aside>
     <div class="intro">
       <div class="intro-copy">
         <span class="eyebrow"><i></i>Football predictions you can check</span>
         <h1>Know the chances <em>before you bet.</em></h1>
         <p class="intro-lede">Football Lab works out the chance of every result, goal line and scoreline for this week's games. Our best picks go on the record before kickoff, win or lose.</p>
-        <a class="how-link" href="#how">How we work out the chances →</a>
         <div class="hero-stats" id="ft-stats"></div>
       </div>
-      <div class="intro-cards">
-        <a class="ic" href="#fixtures"><span class="ic-ico" aria-hidden="true">01</span><b>Win chances for every game</b><span>Home, draw and away percentages for every fixture, plus goals and likely scores.</span><i class="ic-go">See all games →</i></a>
-        <a class="ic gold" href="#vip"><span class="ic-ico" aria-hidden="true">02</span><b>VIP picks, on the record</b><span>Our strongest goal calls, posted before kickoff and marked won or lost.</span><i class="ic-go">Today's VIP picks →</i></a>
-        <a class="ic" href="#match"><span class="ic-ico" aria-hidden="true">03</span><b>Break down any match</b><span>Goals, both teams to score, handicaps, half-time and correct score in one view.</span><i class="ic-go">Analyse a match →</i></a>
+      <div class="howto" id="howto" role="region" aria-roledescription="carousel" aria-label="How to use Football Lab in three steps">
+        <div class="ht-tabs" role="tablist" aria-label="Steps">
+          <button type="button" role="tab" id="ht-t0" aria-controls="ht-s0" aria-selected="true" data-s="0"><i>1</i>Pick a game</button>
+          <button type="button" role="tab" id="ht-t1" aria-controls="ht-s1" aria-selected="false" data-s="1" tabindex="-1"><i>2</i>Read the chances</button>
+          <button type="button" role="tab" id="ht-t2" aria-controls="ht-s2" aria-selected="false" data-s="2" tabindex="-1"><i>3</i>Spot the value</button>
+        </div>
+        <div class="ht-stage" id="ht-stage">
+          <section class="ht-slide is-on" id="ht-s0" role="tabpanel" aria-labelledby="ht-t0" data-s="0">
+            <div class="ht-vis ht-pick" aria-hidden="true"><div class="ht-rows" id="ht-rows"></div><span class="ht-tap"></span></div>
+            <p><b>Pick a game.</b> Every game this week is below, grouped by league. Tap one for the full breakdown.</p>
+          </section>
+          <section class="ht-slide" id="ht-s1" role="tabpanel" aria-labelledby="ht-t1" data-s="1" hidden>
+            <div class="ht-vis ht-read" aria-hidden="true" id="ht-read"></div>
+            <p><b>Read the chances.</b> Each number is how often we expect it to happen. The highlighted part of the bar is the most likely result.</p>
+          </section>
+          <section class="ht-slide" id="ht-s2" role="tabpanel" aria-labelledby="ht-t2" data-s="2" hidden>
+            <div class="ht-vis ht-value" aria-hidden="true" id="ht-value"></div>
+            <p><b>Spot the value.</b> Fair odds are 1 ÷ our chance. If your bookie pays more, the price is in your favour. It can still lose.</p>
+          </section>
+        </div>
+        <div class="ht-foot">
+          <button type="button" class="ht-arrow" id="ht-prev" aria-label="Previous step">←</button>
+          <span class="ht-prog" aria-hidden="true"><i id="ht-bar"></i></span>
+          <button type="button" class="ht-arrow" id="ht-next" aria-label="Next step">→</button>
+          <a class="ht-more" href="#how">Full guide</a>
+        </div>
       </div>
     </div>
     <section class="your-teams" id="your-teams" hidden>
@@ -2032,7 +2143,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       </div>
     </div>
     <div class="ft-all">
-      <div class="ft-all-head"><h2>Coming up next</h2><span id="ft-all-count"></span></div>
+      <div class="ft-all-head"><h2>Every game, by league</h2><span id="ft-all-count"></span></div>
       <div id="ft-all"></div>
     </div>
     <p class="note" id="ft-note"></p>
@@ -2043,7 +2154,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
     <div class="view-head">
       <div>
         <span class="eyebrow"><i></i>All games</span><h1>Every upcoming game</h1>
-        <p>Pick a league above, then tap any game for the full breakdown. Every number is the chance it happens.</p>
+        <p>Pick a league above, then tap a game for the full breakdown.</p>
       </div>
       <div class="toolbar">
         <button class="ghost" id="live-refresh" type="button" hidden>Refresh live odds</button>
@@ -2058,7 +2169,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       </div>
     </div>
     <div class="legend" aria-label="How to read this table">
-      <span class="kit-key"><i></i>Bars use each club's colours: home on the left, draw in grey, away on the right</span>
+      <span class="kit-key"><i></i>Home · draw · away. The highlighted part is the most likely result</span>
       <span class="sep"></span>
       <span><b>Over 2.5</b> 3 or more goals in the game</span><span><b>Both score</b> each team scores at least once</span>
     </div>
@@ -2108,7 +2219,8 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       <div class="vb-copy">
         <span class="vb-kicker">VIP picks</span>
         <h1>Our strongest calls</h1>
-        <p>Our surest goal calls over the next three days, from the leagues whose picks passed our accuracy check (England, Spain, Germany, Germany 2, Italy, Netherlands, Portugal) while their results are up to date. Each game gets <b>Over 2.5 goals</b> at 65%+, otherwise <b>Over 1.5</b> at 78%+, otherwise <b>Under 3.5</b> at 70%+, plus up to three <b>favourites to win</b> at 75%+ on top.</p>
+        <p>Our surest calls for the next three days, mostly goal lines plus a few strong favourites. Saved before kickoff, then marked won or lost.</p>
+        <details class="vb-rules"><summary>How we choose them</summary><p>Only leagues whose picks passed our accuracy check and whose results are up to date (England, Spain, Germany, Germany 2, Italy, Netherlands, Portugal). Each game gets <b>Over 2.5 goals</b> at 65%+, otherwise <b>Over 1.5</b> at 78%+, otherwise <b>Under 3.5</b> at 70%+, plus up to three <b>favourites to win</b> at 75%+.</p></details>
         <div class="hero-stats vb-stats" id="vip-stats"></div>
       </div>
       <a class="vwr card" id="vip-wr" href="#performance" hidden></a>
@@ -2136,11 +2248,13 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       </div>
     </div>
     <div id="record"><div class="card"><div class="skel" style="height:220px"></div></div></div>
-    <h3 class="rec-h">Under the hood <small style="font-size:12px;letter-spacing:.4px;text-transform:none;font-family:inherit">how accurate the model has been on past seasons</small></h3>
-    <button class="ghost" id="test" type="button" style="margin-bottom:12px">Test the model on this league's past seasons</button>
-    <div id="benchmark" style="margin-bottom:14px"></div>
-    <div id="prospective" class="card"><div class="skel" style="height:70px"></div></div>
-    <div id="evaluation" style="margin-top:14px"></div>
+    <details class="more hood">
+      <summary>Under the hood: technical tests of the model on past seasons</summary>
+      <button class="ghost" id="test" type="button" style="margin-bottom:12px">Test the model on this league's past seasons</button>
+      <div id="benchmark" style="margin-bottom:14px"></div>
+      <div id="prospective" class="card"><div class="skel" style="height:70px"></div></div>
+      <div id="evaluation" style="margin-top:14px"></div>
+    </details>
   </section>
 
   <!-- SEASON: the rest of the season played out thousands of times -->
@@ -2295,7 +2409,7 @@ footer .foot-how{color:var(--text);font-weight:600;text-decoration:underline;tex
       </div>
     </div>
     <div class="legend" aria-label="How to read this table">
-      <span class="kit-key"><i></i>Bars use each team's colours: home on the left, away on the right</span>
+      <span class="kit-key nba"><i></i>Home · away. The highlighted part is the more likely winner</span>
       <span class="sep"></span>
       <span><b>Spread</b> the favourite must win by more than this</span><span><b>Total points</b> both teams combined, overtime included</span><span><b>B2B</b> played last night</span>
     </div>
@@ -2489,13 +2603,48 @@ function renderSeason(){
   $('#season-note').textContent = `${d.runs.toLocaleString()} simulated seasons from ${d.remaining} remaining games, with results up to ${day(d.stale_results)}. Likely range covers 80% of simulations. ${d.method}`;
 }
 
-/* ---------- First-visit welcome: shown until closed once ---------- */
-(() => {
-  const w = $('#welcome'); if(!w) return;
-  if(store.get('fl-welcome') !== 'done') w.hidden = false;
-  const done = () => { w.hidden = true; store.set('fl-welcome', 'done') };
-  $('#welcome-x').onclick = done; $('#welcome-ok').onclick = done; $('#welcome-vip').addEventListener('click', done); $('#welcome-how').addEventListener('click', done);
-})();
+/* ---------- How-to slides: three steps, shown with a real game once the week's games load ---------- */
+const HT = {i: 0, timer: null, auto: !matchMedia('(prefers-reduced-motion: reduce)').matches, game: null, rows: null};
+function htPaint(){
+  const g = HT.game || {league: 'Premier League', home: 'Manchester City FC', away: 'Fulham FC', probabilities: [.66, .21, .13]};
+  const rows = HT.rows || [g, {league: 'La Liga', home: 'Sevilla FC', away: 'Real Betis', probabilities: [.42, .29, .29]}, {league: 'Serie A', home: 'AC Milan', away: 'Torino FC', probabilities: [.58, .25, .17]}];
+  const p = g.probabilities, k = topOf(p), lab = [abbr(g.home) + ' win', 'Draw', abbr(g.away) + ' win'][k];
+  $('#ht-rows').innerHTML = rows.slice(0, 3).map((r, i) => `<div class="ht-row${i === 0 ? ' hit' : ''}"><small>${esc(r.league)}</small>` +
+    `<span>${crest(r.home, true)}<b>${esc(abbr(r.home))}</b><em>v</em><b>${esc(abbr(r.away))}</b>${crest(r.away, true)}</span>${tri(r.probabilities)}</div>`).join('');
+  $('#ht-read').innerHTML = `<div class="ht-teams">${crest(g.home, true)}<b>${esc(g.home)}</b><em>v</em><b>${esc(g.away)}</b>${crest(g.away, true)}</div>` +
+    `<div class="ht-big">${tri(p, true)}</div><div class="ht-nums">${['Home', 'Draw', 'Away'].map((w, i) => `<span class="${i === k ? 'is-top' : ''}"><b>${Math.round(p[i] * 100)}%</b>${w}</span>`).join('')}</div>` +
+    `<div class="ht-call"><b>${esc(lab)}</b> is most likely: about ${Math.max(1, Math.round(p[k] * 10))} times in 10.</div>`;
+  const fairOdds = 1 / p[k], bookie = Math.round(fairOdds * 1.1 * 100) / 100;
+  $('#ht-value').innerHTML = `<div class="ht-sel">${esc(lab)}<small>example</small></div><div class="ht-prices">` +
+    `<div><small>Our chance</small><b>${Math.round(p[k] * 100)}%</b></div><span>→</span><div><small>Fair odds</small><b>${fairOdds.toFixed(2)}</b></div>` +
+    `<span>vs</span><div class="bk"><small>Your bookie</small><b>${bookie.toFixed(2)}</b></div></div><div class="ht-verdict">Value: they pay more than fair</div>`;
+}
+function htGo(i, user){
+  HT.i = (i + 3) % 3;
+  $$('#howto [role=tab]').forEach(t => { const on = +t.dataset.s === HT.i; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1 });
+  $$('#howto .ht-slide').forEach(sl => { const on = +sl.dataset.s === HT.i; sl.hidden = !on; sl.classList.toggle('is-on', on) });
+  if(user){ HT.auto = false; $('#howto').classList.add('manual') }
+  $('#howto').style.setProperty('--hi', HT.i);
+  htTick();
+}
+function htTick(){
+  clearTimeout(HT.timer);
+  const bar = $('#ht-bar'); bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = '';
+  if(HT.auto) HT.timer = setTimeout(() => { if(!document.hidden && document.body.dataset.sport !== 'basketball') htGo(HT.i + 1); else htTick() }, 6500);
+}
+queueMicrotask(() => {            // after the whole script has run, so abbr/tri/crest exist
+  const box = $('#howto'); if(!box) return;
+  htPaint(); htTick();
+  $('.ht-tabs').onclick = e => { const t = e.target.closest('[data-s]'); if(t) htGo(+t.dataset.s, true) };
+  $('.ht-tabs').onkeydown = e => { const d = {ArrowRight: 1, ArrowLeft: -1}[e.key]; if(d){ htGo(HT.i + d, true); $(`#ht-t${HT.i}`).focus() } };
+  $('#ht-prev').onclick = () => htGo(HT.i - 1, true);
+  $('#ht-next').onclick = () => htGo(HT.i + 1, true);
+  let x0 = null;
+  $('#ht-stage').addEventListener('pointerdown', e => { x0 = e.clientX });
+  $('#ht-stage').addEventListener('pointerup', e => { if(x0 !== null && Math.abs(e.clientX - x0) > 40) htGo(HT.i + (e.clientX < x0 ? 1 : -1), true); x0 = null });
+  box.addEventListener('mouseenter', () => { if(HT.auto) clearTimeout(HT.timer), box.classList.add('paused') });
+  box.addEventListener('mouseleave', () => { if(HT.auto){ box.classList.remove('paused'); htTick() } });
+});
 
 /* ---------- Theme ---------- */
 function applyTheme(t){
@@ -2626,9 +2775,13 @@ function crest(name, small){
 }
 const SRC = {live: 'Live bookie odds', 'football-data': 'Bookie odds', entered: 'Your odds', model: 'Our model'};
 const srcBadge = source => `<span class="src ${source === 'model' ? 'model' : 'market'}"><i></i>${SRC[source] || source}</span>`;
+// One colour rule: the most likely result is drawn solid (text colour), the others grey. Club colours stay on crests.
+const topOf = p => p.indexOf(Math.max(...p));
+const topCls = (p, k) => topOf(p) === k ? ' is-top' : '';
 function tri(p, big){
+  const t = k => topOf(p) === k ? ' fav' : '';
   return `<div class="tri${big ? ' big' : ''}" role="img" aria-label="Home ${pct(p[0])}, draw ${pct(p[1])}, away ${pct(p[2])}">` +
-    `<i class="h" style="width:${p[0]*100}%"></i><i class="d" style="width:${p[1]*100}%"></i><i class="a" style="width:${p[2]*100}%"></i></div>`;
+    `<i class="h${t(0)}" style="width:${p[0]*100}%"></i><i class="d${t(1)}" style="width:${p[1]*100}%"></i><i class="a${t(2)}" style="width:${p[2]*100}%"></i></div>`;
 }
 function rows(entries, {highlight = true, head = true} = {}){
   const max = Math.max(...entries.map(e => e[1]));
@@ -2673,12 +2826,6 @@ async function loadLeague(){
     state.data = data; state.slate = slate;
     renderLeagues(data.leagues);
     renderStrip(data);
-    const tk = data.recent || [];
-    $('#ticker').hidden = !tk.length;
-    // Name the league: these are the selected league's results, not a mix of everything.
-    { const lg = (data.leagues[state.league] || '').split(' — ').pop(); $('#ticker-lbl').textContent = lg ? lg + ' results' : 'Results'; $('#ticker').setAttribute('aria-label', 'Latest ' + (lg || '') + ' results') }
-    const item = r => `<span>${esc(abbr(r.home))}<b>${r.goals[0]}–${r.goals[1]}</b>${esc(abbr(r.away))}</span>`;
-    $('#ticker-run').innerHTML = tk.map(item).join('') + tk.map(item).join('');   // doubled for a seamless loop
     fillTeams(data.teams, data.today);
     renderBoard(); loadOddsStatus();
     { const out = $('#out'); if(!out.children.length || out.querySelector('.mx-empty')){ matchMode(false); out.innerHTML = placeholder() } }
@@ -2745,14 +2892,14 @@ function renderBoard(){
     const mv = f.movement, mvTag = mv ? `<span class="move ${mv.change[0] >= 0 ? 'up' : 'down'}" title="Home probability moved since ${esc(new Date(mv.since).toLocaleString())}">${mv.change[0] >= 0 ? '▲' : '▼'}${Math.abs(mv.change[0] * 100).toFixed(1)}${mv.sharp ? ' sharp' : ''}</span>` : '';
     html += `<button class="fx${f.status === 'live' ? ' is-live' : ''}${isFav(f.home) || isFav(f.away) ? ' is-fav' : ''}" style="${clubVars(f.home, f.away)};--i:${state.noStagger ? 0 : Math.min(idx, 30)}${state.noStagger ? ';animation:none' : ''}" data-home="${esc(f.home)}" data-away="${esc(f.away)}" data-date="${esc(f.date)}">` +
       `<span class="teams"><span>${badgeImg(f.home, 'tb') || `<i class="kit" style="background:${kit(f.home).primary}"></i>`}${esc(f.home)}${favMark(f.home)}${formChips((f.last5 || [])[0], 1)}${f.source !== 'model' ? srcBadge(f.source) : ''}${mvTag}</span><span>${badgeImg(f.away, 'tb') || `<i class="kit" style="background:${kit(f.away).primary}"></i>`}${esc(f.away)}${favMark(f.away)}${formChips((f.last5 || [])[1], 1)}${f.thin_history ? '<span class="flag" title="Thin recent history">●</span>' : ''}</span><small class="when">${state.sort !== 'date' ? esc(day(f.date)) + ' ' : ''}${statusPill(f) || 'Time TBC'}</small></span>` +
-      `<span class="bar">${tri(p)}<span class="nums"><span class="c-h">${Math.round(p[0]*100)}%</span><span class="c-d">${Math.round(p[1]*100)}%</span><span class="c-a">${Math.round(p[2]*100)}%</span></span></span>` +
+      `<span class="bar">${tri(p)}<span class="nums"><span class="c-h${topCls(p, 0)}">${Math.round(p[0]*100)}%</span><span class="c-d${topCls(p, 1)}">${Math.round(p[1]*100)}%</span><span class="c-a${topCls(p, 2)}">${Math.round(p[2]*100)}%</span></span></span>` +
       `<span class="num goals" title="Expected goals ${f.expected_goals[0].toFixed(1)}–${f.expected_goals[1].toFixed(1)}"><span><em>Over 2.5</em><b>${Math.round(f.over25 * 100)}%</b></span><span><em>Both score</em><b>${Math.round(f.btts * 100)}%</b></span></span>` +
       `<span class="num lscore"><b>${esc(f.top_score.score)}</b><small>${Math.round(f.top_score.probability * 100)}% chance</small></span>${(() => { const i = p.indexOf(Math.max(...p)), lab = [abbr(f.home), 'Draw', abbr(f.away)][i];
         return `<span class="stub"><small>Our pick</small><b>${esc(i === 1 ? 'Draw' : lab + ' win')}</b><em>${Math.round(p[i] * 100)}% chance</em></span>` })()}` +
       `<span class="mini"><span>Over 2.5 <b>${Math.round(f.over25 * 100)}%</b></span><span>Both score <b>${Math.round(f.btts * 100)}%</b></span><span>Likely <b>${esc(f.top_score.score)}</b></span></span></button>`;
   });
   body.innerHTML = staleNote(s) + html;
-  $('#board-note').textContent = `${s.fixtures.filter(f => f.status !== 'awaiting_result').length} games. ${s.priced} use bookmaker odds, the rest our own model. ${s.note} ● means a team has played fewer than 10 league games in the past year, so read that forecast with extra care.`;
+  $('#board-note').textContent = `${s.fixtures.filter(f => f.status !== 'awaiting_result').length} games${s.priced ? `, ${s.priced} priced from bookmaker odds and the rest from our model` : ', all from our model'}. ● means a team has fewer than 10 league games in the past year, so treat that forecast with care.`;
 }
 // Keep live minutes ticking without a reload.
 setInterval(() => { if(state.slate && (state.slate.fixtures || []).some(f => f.status === 'live') && !document.hidden){ state.noStagger = true; renderBoard(); state.noStagger = false } }, 60000);
@@ -2917,9 +3064,9 @@ function renderMatch(){
       </div>
       ${tri(p, true)}
       <div class="tri-labels">
-        <div><span>${esc(abbr(d.home))} win</span><b class="c-h" data-count="${p[0]}" data-fmt="pct">${pct(p[0])}</b><small>fair odds ${fair(p[0])}</small></div>
-        <div><span>Draw</span><b class="c-d" data-count="${p[1]}" data-fmt="pct">${pct(p[1])}</b><small>fair odds ${fair(p[1])}</small></div>
-        <div><span>${esc(abbr(d.away))} win</span><b class="c-a" data-count="${p[2]}" data-fmt="pct">${pct(p[2])}</b><small>fair odds ${fair(p[2])}</small></div>
+        <div><span>${esc(abbr(d.home))} win</span><b class="c-h${topCls(p, 0)}" data-count="${p[0]}" data-fmt="pct">${pct(p[0])}</b><small>fair odds ${fair(p[0])}</small></div>
+        <div><span>Draw</span><b class="c-d${topCls(p, 1)}" data-count="${p[1]}" data-fmt="pct">${pct(p[1])}</b><small>fair odds ${fair(p[1])}</small></div>
+        <div><span>${esc(abbr(d.away))} win</span><b class="c-a${topCls(p, 2)}" data-count="${p[2]}" data-fmt="pct">${pct(p[2])}</b><small>fair odds ${fair(p[2])}</small></div>
       </div>
       ${verdict(d)}
       <div class="kpis">
@@ -3395,7 +3542,7 @@ async function loadFeatured(){
   state.ftLoaded = true;
   try{
     const d = await api('/api/featured?period=' + state.ftPeriod);
-    $('#ft-sub').textContent = `${d.label} · the biggest and closest games across every league. Tap one for the full breakdown.`;
+    $('#ft-sub').textContent = `${d.label} · the biggest and closest games.`;
     $('#ft-note').textContent = d.note;
     { const live = d.all.filter(g => g.status === 'live').length, leagues = Object.keys(d.leagues || {}).length;
       $('#ft-stats').innerHTML = `<span><b>${d.all.length}</b> games</span><span><b>${leagues}</b> leagues</span>` +
@@ -3403,6 +3550,7 @@ async function loadFeatured(){
     if(!d.games.length){ $('#ft-grid').innerHTML = '<div class="placeholder"><div><h3>No games found</h3><p>There are no upcoming fixtures in the data for this period.</p></div></div>'; return }
     state.ftData = d; if(state.ftLeague !== 'all' && !(d.leagues || {})[state.ftLeague]) state.ftLeague = 'all';
     ftFilters(); ftAll(); renderYourTeams(); state.ftGames = ftFiltered(); state.ftPage = 0;
+    HT.game = d.games[0]; HT.rows = [d.games[0], ...d.games.slice(1).filter(g => g.league_id !== d.games[0].league_id)].slice(0, 3); htPaint();
     ftRender(0, 0);
   }catch(e){ $('#ft-grid').innerHTML = `<div class="error">${esc(e.message)}</div>` }
 }
@@ -3418,27 +3566,35 @@ function ftFilters(){
   $('#ft-filter-top').innerHTML = [['all', 'All leagues'], ...Object.entries(d.leagues || {})].map(([id, name]) =>
     `<button type="button" data-lg="${id}" aria-pressed="${state.ftLeague === id}">${esc(name)}<b>${n(id)}</b></button>`).join('');
 }
-function gaRow(g, i){
+function gaRow(g, i, grouped){
   const d = state.ftData, p = g.probabilities, k = p.indexOf(Math.max(...p)), lab = [g.home, 'Draw', g.away][k];
   const side = t => `<span>${badgeImg(t, 'tb') || `<i class="kit" style="background:${kit(t).primary}"></i>`}${esc(t)}${favMark(t)}</span>`;
   return `<button type="button" class="ga${g.status === 'live' ? ' is-live' : ''}${isFav(g.home) || isFav(g.away) ? ' is-fav' : ''}" style="${clubVars(g.home, g.away)};--i:${Math.min(i, 40)}" data-ga="${d.all.indexOf(g)}">
-      <span class="meta"><span class="lg">${esc(g.league)}</span>${statusPill(g) || '<span class="st ko">TBC</span>'}</span>
+      <span class="meta"><span class="lg">${esc(grouped ? day(g.date) : g.league)}</span>${statusPill(g) || '<span class="st ko">TBC</span>'}</span>
       <span class="tm">${side(g.home)}${side(g.away)}</span>
-      <span class="tri-wrap">${tri(p)}<span class="nums" style="display:flex;justify-content:space-between;font-size:12px;margin-top:4px"><span class="c-h">${Math.round(p[0]*100)}</span><span class="c-d">${Math.round(p[1]*100)}</span><span class="c-a">${Math.round(p[2]*100)}</span></span></span>
+      <span class="tri-wrap">${tri(p)}<span class="nums" style="display:flex;justify-content:space-between;font-size:12px;margin-top:4px"><span class="c-h${topCls(p, 0)}">${Math.round(p[0]*100)}</span><span class="c-d${topCls(p, 1)}">${Math.round(p[1]*100)}</span><span class="c-a${topCls(p, 2)}">${Math.round(p[2]*100)}</span></span></span>
       <span class="pk">Our pick <b>${esc(k === 1 ? 'Draw' : abbr(lab))}</b> ${pct(p[k])}</span></button>`;
 }
+// Every game, grouped by league: each league shows its next few games, with the rest a tap away.
+state.ftOpen = new Set();
 function ftAll(){
-  const d = state.ftData, list = d.all.filter(g => state.ftLeague === 'all' || g.league_id === state.ftLeague);
+  const d = state.ftData, one = state.ftLeague !== 'all';
+  const list = d.all.filter(g => !one || g.league_id === state.ftLeague);
   $('#ft-all-count').textContent = `${list.length} game${list.length === 1 ? '' : 's'} · ${d.label}`;
-  // Home shows the next few games only; the full list opens on request (All games has every league in full).
-  const SHORT = 6, shown = state.ftAllOpen ? list : list.slice(0, SHORT);
-  let html = '', last = null;
-  shown.forEach((g, i) => {
-    if(g.date !== last){ html += `<div class="ga-day">${esc(day(g.date))}</div>`; last = g.date }
-    html += gaRow(g, i);
+  if(!list.length){ $('#ft-all').innerHTML = '<div class="empty">No games for this league in this period.</div>'; return }
+  const ids = [...new Set([...Object.keys(d.leagues || {}), ...list.map(g => g.league_id)])];
+  const PER = 3;
+  let html = '', i = 0;
+  ids.forEach(id => {
+    const gs = list.filter(g => g.league_id === id);
+    if(!gs.length) return;
+    const open = one || state.ftOpen.has(id), shown = open ? gs : gs.slice(0, PER);
+    html += `<section class="ga-lg"><header class="ga-lg-head"><h3>${esc((d.leagues || {})[id] || gs[0].league)}</h3>` +
+      `<span>${gs.length} game${gs.length === 1 ? '' : 's'}</span>` +
+      (!one && gs.length > PER ? `<button type="button" class="ga-lg-more" data-open="${esc(id)}" aria-expanded="${open}">${open ? 'Show fewer' : `All ${gs.length}`}</button>` : '') +
+      `</header>${shown.map(g => gaRow(g, i++, true)).join('')}</section>`;
   });
-  if(list.length > SHORT) html += `<button type="button" class="ghost ga-more" id="ft-all-more">${state.ftAllOpen ? 'Show fewer' : `Show all ${list.length} games`}</button>`;
-  $('#ft-all').innerHTML = html || '<div class="empty">No games for this league in this period.</div>';
+  $('#ft-all').innerHTML = html;
 }
 // Your teams: the followed clubs' games from this week's list, in date order.
 function renderYourTeams(){
@@ -3460,7 +3616,10 @@ async function openFeatured(g){
   location.hash = '#match'; analyse();
 }
 $('#ft-all').onclick = e => {
-  if(e.target.closest('#ft-all-more')){ state.ftAllOpen = !state.ftAllOpen; ftAll(); if(!state.ftAllOpen) $('.ft-all').scrollIntoView({block: 'start'}); return }
+  const more = e.target.closest('[data-open]');
+  if(more){ const id = more.dataset.open, sec = more.closest('.ga-lg');
+    state.ftOpen.has(id) ? state.ftOpen.delete(id) : state.ftOpen.add(id); ftAll();
+    if(!state.ftOpen.has(id)) $(`#ft-all [data-open="${CSS.escape(id)}"]`).closest('.ga-lg').scrollIntoView({block: 'nearest'}); return }
   const b = e.target.closest('[data-ga]'); if(b) openFeatured(state.ftData.all[+b.dataset.ga]) };
 // Pages of featured games: four a page on wide screens, two on phones.
 const ftPer = () => innerWidth < 760 ? 2 : 4;
@@ -4094,12 +4253,26 @@ function nStatus(f){
   return f.tipoff ? `<span class="st ko">${esc(koTime(f.tipoff))}</span>` : '';
 }
 function duo(p, big){
-  return `<div class="duo${big ? ' big' : ''}" role="img" aria-label="Home ${pct(p[0])}, away ${pct(p[1])}"><i style="width:${p[0] * 100}%;background:var(--kh,var(--home))"></i><i style="width:${p[1] * 100}%;background:var(--ka,var(--away))"></i></div>`;
+  return `<div class="duo${big ? ' big' : ''}" role="img" aria-label="Home ${pct(p[0])}, away ${pct(p[1])}"><i class="h${p[0] >= p[1] ? ' fav' : ''}" style="width:${p[0] * 100}%"></i><i class="a${p[1] > p[0] ? ' fav' : ''}" style="width:${p[1] * 100}%"></i></div>`;
 }
 
 /* Sport switch */
+// Two labs under one roof: the switch renames the whole app (wordmark, tab title), so it is clear
+// which one you are in. A basketball.* host (e.g. a Basketball Lab subdomain) or ?lab=nba opens the NBA side.
+const LAB = {football: {name: 'Football', title: 'Football Lab · Know the chances before you bet', blurb: 'Nine football leagues'},
+             basketball: {name: 'Basketball', title: 'Basketball Lab · NBA chances before tip-off', blurb: 'NBA games, totals and winners'}};
+function labToast(sport){
+  let t = $('#lab-toast');
+  if(!t){ t = document.createElement('div'); t.id = 'lab-toast'; t.className = 'lab-toast'; t.setAttribute('role', 'status'); document.body.append(t) }
+  t.innerHTML = `<b>${LAB[sport].name} Lab</b><span>${LAB[sport].blurb}</span>`;
+  t.classList.remove('on'); void t.offsetWidth; t.classList.add('on');
+  clearTimeout(labToast.t); labToast.t = setTimeout(() => t.classList.remove('on'), 2600);
+}
 function setSport(sport, initial){
   document.body.dataset.sport = sport; store.set('fl-sport', sport);
+  $('#wm-sport').textContent = LAB[sport].name; document.title = LAB[sport].title;
+  $('.brand').setAttribute('aria-label', LAB[sport].name + ' Lab home');
+  if(!initial) labToast(sport);
   $$('#sport button').forEach(b => b.setAttribute('aria-pressed', b.dataset.sport === sport));
   const v = (location.hash || '').slice(1).split('/')[0];
   if(sport === 'basketball' && !['fixtures', 'match', 'featured', 'performance', 'how', 'vip', 'track'].includes(v)) history.replaceState(null, '', '#featured');
@@ -4109,7 +4282,9 @@ function setSport(sport, initial){
   if(!initial) transition(showView);
 }
 $('#sport').onclick = e => { const b = e.target.closest('[data-sport]'); if(b && b.dataset.sport !== document.body.dataset.sport) setSport(b.dataset.sport) };
-setSport(store.get('fl-sport') === 'basketball' ? 'basketball' : 'football', true);
+{ const q = new URLSearchParams(location.search).get('lab'), host = location.hostname.split('.')[0];
+  const pick = q === 'nba' || q === 'basketball' || host === 'basketball' ? 'basketball' : q === 'football' ? 'football' : store.get('fl-sport');
+  setSport(pick === 'basketball' ? 'basketball' : 'football', true) }
 
 function nbaShow(view){
   if(!nb.loaded && !nb.loading) loadNba();
@@ -4135,8 +4310,6 @@ async function loadNba(){
     $('#nba-refresh').hidden = !!s.public;     // the hosted site updates once a day
     if(s.public) nbPublicFoot();
     else { $('#nba-foot1').textContent = 'NBA forecasts from scores and bookmaker lines only. No injuries, rest days beyond back-to-backs, or lineups. Probabilities are not guarantees.'; $('#nba-foot2').textContent = 'Data: ESPN public scoreboard and odds feeds (private research use)' }
-    const tk = s.recent || [], ti = r => `<span>${esc(r.away)}<b>${r.score[1]}–${r.score[0]}</b>${esc(r.home)}${r.ot ? ' OT' : ''}</span>`;
-    $('#nba-ticker').hidden = !tk.length; $('#nba-ticker-run').innerHTML = tk.map(ti).join('') + tk.map(ti).join('');
     renderNbaBoard(); renderNbaLab(); nbShowPlaceholder();
   }).catch(e => { $('#nba-body').innerHTML = `<div class="empty">${esc(e.message)}</div>` }).finally(() => { nb.loading = null });
   return nb.loading;
@@ -4169,7 +4342,7 @@ function renderNbaBoard(){
       (f.b2b[1] ? `<span class="tag warn" title="${esc(f.away)} played yesterday">${esc(nAbbr(f.away))} B2B</span>` : '') + (f.kind && f.kind !== 'regular' ? `<span class="tag">${esc(f.kind)}</span>` : '') + (f.neutral ? '<span class="tag">Neutral</span>' : '');
     html += `<button class="bx" style="${clubVars(f.home, f.away, nbaPair)};--i:${nb.still ? 0 : Math.min(i, 30)}${nb.still ? ';animation:none' : ''}" data-id="${esc(f.id)}" data-home="${esc(f.home)}" data-away="${esc(f.away)}">` +
       `<span class="teams"><span>${jersey(f.home)}${esc(f.home)}</span><span>${jersey(f.away)}${esc(f.away)}</span><small>${nb.sort !== 'date' ? esc(day(f.date)) + ' · ' : ''}${nStatus(f)}${tags}</small></span>` +
-      `<span class="win">${duo(p)}<span class="duo-n"><span class="c-h">${Math.round(p[0] * 100)}%</span><span class="c-a">${Math.round(p[1] * 100)}%</span></span></span>` +
+      `<span class="win">${duo(p)}<span class="duo-n"><span class="c-h${topCls(p, 0)}">${Math.round(p[0] * 100)}%</span><span class="c-a${topCls(p, 1)}">${Math.round(p[1] * 100)}%</span></span></span>` +
       `<span class="num c-spread"><span class="lbl">Spread</span>${esc(favLine(f.home, f.away, f.spread_line))}<small>covers ${pct(fav)}</small></span>` +
       `<span class="num c-total"><span class="lbl">Total</span>O/U ${f.total_line}<small>over ${pct(f.over)}</small></span>` +
       `<span class="num c-proj"><span class="lbl">Projected</span>${Math.round(f.expected_points[0])}–${Math.round(f.expected_points[1])}<small>total ${f.expected_total.toFixed(1)}</small></span>${(() => { const k = p[0] >= p[1] ? 0 : 1;
@@ -4463,8 +4636,8 @@ function renderNbaMatch(){
         <div class="side away">${jersey(A, true)}<strong>${esc(A)}</strong><small>Away · ${esc(rec('away'))}</small></div>
       </div>
       ${duo(ml, true)}
-      <div class="two"><div><span>${esc(nAbbr(H))} win</span><b class="c-h" data-count="${ml[0]}" data-fmt="pct">${pct(ml[0])}</b><small> fair odds ${fair(ml[0])}</small></div>
-        <div><span>${esc(nAbbr(A))} win</span><b class="c-a" data-count="${ml[1]}" data-fmt="pct">${pct(ml[1])}</b><small> fair odds ${fair(ml[1])}</small></div></div>
+      <div class="two"><div><span>${esc(nAbbr(H))} win</span><b class="c-h${topCls(ml, 0)}" data-count="${ml[0]}" data-fmt="pct">${pct(ml[0])}</b><small> fair odds ${fair(ml[0])}</small></div>
+        <div><span>${esc(nAbbr(A))} win</span><b class="c-a${topCls(ml, 1)}" data-count="${ml[1]}" data-fmt="pct">${pct(ml[1])}</b><small> fair odds ${fair(ml[1])}</small></div></div>
       ${nbVerdict(d)}
       <div class="kpis">
         <div class="kpi"><small>Projected margin</small><b>${esc(nAbbr(lead))} by ${Math.abs(ep[0] - ep[1]).toFixed(1)}</b></div>
