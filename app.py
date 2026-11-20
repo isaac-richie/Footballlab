@@ -956,7 +956,7 @@ def _nba_ticket_legs(today):
             live = nba_live.live().get('games', {})
         except Exception:
             live = {}
-        return nba_vip.ticket_legs(public, today, live, totals=[])
+        return nba_vip.ticket_legs(public, nba_vip.game_day().isoformat(), live, totals=[])
     except Exception as exc:                                # NBA is an extra: never break the football ticket
         log.warning('NBA VIP picks unavailable: %s', exc)
         return [], False
@@ -965,7 +965,7 @@ def _nba_ticket_legs(today):
 def nba_vip_ticket(nba_app, n=0):
     """The basketball VIP page: today's saved NBA VIP slip with live state, plus its record.
     n > 0 keeps only the n surest picks (an accumulator)."""
-    today = dt.date.today().isoformat()
+    today = nba_vip.game_day().isoformat()                   # New York date: one slip per night of games
     public = nba_app.public()
     if not public:
         nba_vip.run(public=False)
@@ -991,7 +991,7 @@ def nba_vip_ticket(nba_app, n=0):
                 summary=dict(picks=len(rows), won=count('won'), lost=count('lost'), live=count('live'),
                              scheduled=count('scheduled'), void=count('void')),
                 combined_probability=combined, combined_fair_odds=(1 / combined) if combined else None,
-                record=nba_vip.ledger(public))
+                record=nba_vip.ledger(public, live=live))
 
 
 def vip_ticket(data, n=17, live_scores=None, nba_legs=None):
