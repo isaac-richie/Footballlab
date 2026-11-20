@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-11-27",
+    "league_id": "fr.1",
+    "league": "France \u2014 Ligue 1",
+    "home": "Stade Brestois 29",
+    "away": "Paris FC"
+  },
+  "registered_at": "2026-11-20T08:44:10.234887+00:00",
+  "run_id": "20261120T084410234900Z",
+  "data_hash": "8093b33fda3f413eca479be6575db46c997b860d5bc79da93117c4fff57ab53c",
+  "code_hash": "4c965596c649a90fd3bc7be03fb34f77434b046c08dc97c2ddeb14b34de0da71",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-2.1-shrunk-totals",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "targets": "closing-price implied goals (90%) blended with scorelines, 60-day half-life, where prices exist; otherwise scorelines with a 365-day half-life",
+    "ridge": "0.005 with prices, 0.01 without; without prices, goal totals come from a second fit at ridge 0.1",
+    "optimizer": "block Newton, solved to convergence; no pinned reference team",
+    "calibration": "temperature 0.91 and draw shift 0.12 on the model's own 1X2 (0.94/0.09 without prices), fitted on 2023-25 forecasts",
+    "margin_removal": "power method",
+    "holdout": "2025-27, 3,330 matches in 8 leagues: 1X2 log loss 0.9873 (previous model 0.9975), tools/accuracy_lab.py"
+  },
+  "readiness": {
+    "league_id": "fr.1",
+    "season": "2026-27",
+    "records": 1984,
+    "completed": 1766,
+    "upcoming": 216,
+    "latest_result": "2026-11-08",
+    "current_records": 306,
+    "unresolved_past": 0,
+    "likely_postponed": 1,
+    "source_checked_at": "2026-11-20T08:43:45.488053+00:00",
+    "status": "research_only",
+    "issues": []
+  },
+  "probabilities": [
+    0.3578997010830039,
+    0.27393103430173027,
+    0.36816926461526644
+  ],
+  "expected_goals": [
+    1.4087628948590634,
+    1.4305708786972908
+  ],
+  "over25": 0.5353125207715068,
+  "btts": 0.5829729116703154,
+  "decision": "withhold",
+  "pricing_source": "model",
+  "model_probabilities": [
+    0.3578997010830039,
+    0.27393103430173027,
+    0.36816926461526644
+  ]
+}

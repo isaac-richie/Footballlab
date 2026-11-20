@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-11-20T08:35:54.276576+00:00",
-  "data_hash": "b4f55d1fa9d6397e2044f9cdad824471d489a43602956883e73da918d66815e9",
+  "generated_at": "2026-11-20T08:44:10.698728+00:00",
+  "data_hash": "8093b33fda3f413eca479be6575db46c997b860d5bc79da93117c4fff57ab53c",
   "registered": 405,
   "pending": 73,
-  "missing_result": 192,
+  "missing_result": 6,
   "void": 0,
   "overall": {
-    "matches": 140,
-    "log_loss": 0.9998504450826236,
-    "brier": 0.5966109798839371,
-    "over25_brier": 0.23869387829968508,
-    "btts_brier": 0.2470581985544661
+    "matches": 326,
+    "log_loss": 0.9395648159096704,
+    "brier": 0.5542666766900469,
+    "over25_brier": 0.2462788114011567,
+    "btts_brier": 0.24767831339315224
   },
-  "eligible_registered": 158,
-  "eligible_pending": 29,
+  "eligible_registered": 187,
+  "eligible_pending": 58,
   "eligible_overall": {
-    "matches": 65,
-    "log_loss": 0.9825975591880902,
-    "brier": 0.5866719361741342,
-    "over25_brier": 0.23187683110099747,
-    "btts_brier": 0.24903729385332182
+    "matches": 128,
+    "log_loss": 0.947591301725153,
+    "brier": 0.5603312493953962,
+    "over25_brier": 0.24276414194752172,
+    "btts_brier": 0.2456283260885805
   },
   "by_league": {
     "de.1": {
@@ -44,39 +44,39 @@
       "btts_brier": 0.26349376697734017
     },
     "es.1": {
-      "matches": 0,
-      "log_loss": null,
-      "brier": null,
-      "over25_brier": null,
-      "btts_brier": null
+      "matches": 47,
+      "log_loss": 0.9014467044407026,
+      "brier": 0.5269387910976104,
+      "over25_brier": 0.24845843717198196,
+      "btts_brier": 0.2570244734412137
     },
     "fr.1": {
-      "matches": 0,
-      "log_loss": null,
-      "brier": null,
-      "over25_brier": null,
-      "btts_brier": null
+      "matches": 44,
+      "log_loss": 0.9146842033328383,
+      "brier": 0.5382181070200539,
+      "over25_brier": 0.2552694750194629,
+      "btts_brier": 0.2449874167582722
     },
     "it.1": {
-      "matches": 0,
-      "log_loss": null,
-      "brier": null,
-      "over25_brier": null,
-      "btts_brier": null
+      "matches": 60,
+      "log_loss": 0.8951394127619403,
+      "brier": 0.5192348377731703,
+      "over25_brier": 0.2530741490006872,
+      "btts_brier": 0.24435150884362494
     },
     "nl.1": {
-      "matches": 0,
-      "log_loss": null,
-      "brier": null,
-      "over25_brier": null,
-      "btts_brier": null
+      "matches": 18,
+      "log_loss": 1.0284229569480412,
+      "brier": 0.626591613571787,
+      "over25_brier": 0.22765677375118956,
+      "btts_brier": 0.24725775344481532
     },
     "pt.1": {
-      "matches": 0,
-      "log_loss": null,
-      "brier": null,
-      "over25_brier": null,
-      "btts_brier": null
+      "matches": 17,
+      "log_loss": 0.6755876252262459,
+      "brier": 0.369702365650096,
+      "over25_brier": 0.27518089643053006,
+      "btts_brier": 0.24609739334218758
     }
   },
   "fixtures": [
@@ -91,8 +91,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.7187935594993231,
+        "brier": 0.3942707153828463,
+        "over25_brier": 0.36353559331398183,
+        "btts_brier": 0.390559940550852
+      },
+      "result_hash": "cfe76b3c6b0f8e0ab73ff0bbfdc304a347315d194ac61cc1cc72e56bb1cce975"
     },
     {
       "fixture": {
@@ -145,8 +157,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          2
+        ],
+        "outcome": 1,
+        "log_loss": 1.420133799261348,
+        "brier": 0.9054727732048063,
+        "over25_brier": 0.19589485583829389,
+        "btts_brier": 0.18752720843994972
+      },
+      "result_hash": "34ba908a86e1eea2d43b79f3ba12dc19642c81a1a5aef0b2d42742a3e0b99c58"
     },
     {
       "fixture": {
@@ -159,8 +183,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.3476321786135494,
+        "brier": 0.84605480990345,
+        "over25_brier": 0.2837599499642303,
+        "btts_brier": 0.2529884127432365
+      },
+      "result_hash": "f66d0f2cbbe73239b828fc0a8e5764df92cc3721291aab196ac2981114905f39"
     },
     {
       "fixture": {
@@ -173,8 +209,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          2
+        ],
+        "outcome": 0,
+        "log_loss": 0.4526379752257547,
+        "brier": 0.2033826689660708,
+        "over25_brier": 0.27086284231652863,
+        "btts_brier": 0.303801281902003
+      },
+      "result_hash": "79f77bbfac9ad5edc3f33ed7b9d89e47b602fcc898f50f647749a8c3f90d2fa0"
     },
     {
       "fixture": {
@@ -201,8 +249,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 0.6688558790621882,
+        "brier": 0.35681467590471255,
+        "over25_brier": 0.17752176202816636,
+        "btts_brier": 0.1691286916804437
+      },
+      "result_hash": "43e40e62732c3aae42a57d8048b0bcde06fec7828567190a632009c3041df1a9"
     },
     {
       "fixture": {
@@ -241,8 +301,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.232327044025756,
+        "brier": 0.7758721190918205,
+        "over25_brier": 0.16443321078718148,
+        "btts_brier": 0.28858195422789024
+      },
+      "result_hash": "4df32f066116e67f17357b5914c00e731d86ef3f468ffd7542c08c7b5f049b15"
     },
     {
       "fixture": {
@@ -269,8 +341,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          6
+        ],
+        "outcome": 2,
+        "log_loss": 0.8339550955979256,
+        "brier": 0.48012459568364896,
+        "over25_brier": 0.2618004915541436,
+        "btts_brier": 0.2144409454455633
+      },
+      "result_hash": "9bb1e811bf885a4b4d8ef6f4c192b767510a15ef5ccd16b5e126155b3cb6f5df"
     },
     {
       "fixture": {
@@ -377,8 +461,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.23967864391564442,
+        "brier": 0.0701347588234245,
+        "over25_brier": 0.4185328059647867,
+        "btts_brier": 0.22619646549116115
+      },
+      "result_hash": "fb69c76c79daa4c6babb8eb3a3c2c27fecd16916cf75c7df2bb877d277791788"
     },
     {
       "fixture": {
@@ -535,8 +631,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.6953260246033722,
+        "brier": 0.37664611401928316,
+        "over25_brier": 0.23209608661811587,
+        "btts_brier": 0.21086835033549556
+      },
+      "result_hash": "0df3a7e7a204a1abd3076b39b059b81caee8ba74630b6c42ea69902ef2a936a1"
     },
     {
       "fixture": {
@@ -549,8 +657,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          5,
+          2
+        ],
+        "outcome": 0,
+        "log_loss": 1.0580337447900932,
+        "brier": 0.6454749246121432,
+        "over25_brier": 0.2034839164732213,
+        "btts_brier": 0.16539881781028007
+      },
+      "result_hash": "49d8aace45c0e1f78eb2192553312301f0cda5d618c3f50857c3192a2ca826b6"
     },
     {
       "fixture": {
@@ -589,8 +709,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.4371112366560129,
+        "brier": 0.19357132499193885,
+        "over25_brier": 0.24299261517340295,
+        "btts_brier": 0.20726508058153106
+      },
+      "result_hash": "618e793c3c8efe88112b05ecdb624babf7304f4acd2f92ad79db1acad6f3d7f8"
     },
     {
       "fixture": {
@@ -629,8 +761,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.44932222342793704,
+        "brier": 0.1984874668927739,
+        "over25_brier": 0.27081854602095656,
+        "btts_brier": 0.2286067660798956
+      },
+      "result_hash": "c981c3e4b400ed1692f48ef4144bf9c04959bae0447308fe830e6fb1cbb3384c"
     },
     {
       "fixture": {
@@ -643,8 +787,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.2261521147001917,
+        "brier": 0.7499390241338197,
+        "over25_brier": 0.138527243506374,
+        "btts_brier": 0.3128882563463811
+      },
+      "result_hash": "f05aea692b656bc14dbb8531700cd4d10e6c66996357cf61da4295a798ec0c60"
     },
     {
       "fixture": {
@@ -657,8 +813,20 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          2
+        ],
+        "outcome": 1,
+        "log_loss": 1.2328755065487644,
+        "brier": 0.754700742811407,
+        "over25_brier": 0.22688876212551098,
+        "btts_brier": 0.17568068675356194
+      },
+      "result_hash": "8f00b2e4af99d5930aa57fc2d5d43895bc0eb4f9c2d3c5eb57ed6c3750b5138f"
     },
     {
       "fixture": {
@@ -671,8 +839,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          2
+        ],
+        "outcome": 0,
+        "log_loss": 1.080848072109928,
+        "brier": 0.658976583927174,
+        "over25_brier": 0.2013801037042797,
+        "btts_brier": 0.15832358636271765
+      },
+      "result_hash": "2fb0b3a59ac2ea7f7339db7f6aa7d19d3f630a8483594c0f165e54a5d21c8186"
     },
     {
       "fixture": {
@@ -685,8 +865,20 @@
       "cohort": "first",
       "registered_at": "2026-10-30T11:30:54.088697+00:00",
       "run_id": "20261030T113054088707Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.689510520092111,
+        "brier": 0.3725940935497283,
+        "over25_brier": 0.1979793531600402,
+        "btts_brier": 0.22998503882315466
+      },
+      "result_hash": "6a225d96bbdf19de64e52030d4d5146acdf884486c307e42c244f77332ea09a7"
     },
     {
       "fixture": {
@@ -725,8 +917,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.4901893721794552,
+        "brier": 0.2292034055344168,
+        "over25_brier": 0.3291661748581167,
+        "btts_brier": 0.34459015550003375
+      },
+      "result_hash": "a566f12c87991e6bb36f34fd0bcb553ed3f4b0ba64bd797c9c6d88bfbd4b3666"
     },
     {
       "fixture": {
@@ -791,8 +995,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          4,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.8038459907101265,
+        "brier": 0.4637739482081639,
+        "over25_brier": 0.566120814612223,
+        "btts_brier": 0.09996973036006329
+      },
+      "result_hash": "1c6eea59f90e2b6d2b10359485334c1cda8bc92e3bd49e514b29f206afc5319f"
     },
     {
       "fixture": {
@@ -805,8 +1021,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.768767035888768,
+        "brier": 0.43174454142119095,
+        "over25_brier": 0.3081334642965925,
+        "btts_brier": 0.2578601634351838
+      },
+      "result_hash": "09cf5b6793e702d7e7e9684489cba8fefebd7b73850a41008195b6040a01c989"
     },
     {
       "fixture": {
@@ -833,8 +1061,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.9883877645874902,
+        "brier": 0.595105097537907,
+        "over25_brier": 0.19881350569492726,
+        "btts_brier": 0.1619801845112539
+      },
+      "result_hash": "83d2f4fdabeaa422ff69780cef3ba5a132eae388d3b4f5d0d3f1c03186bf6970"
     },
     {
       "fixture": {
@@ -873,8 +1113,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.3638454813715243,
+        "brier": 0.13994453303691926,
+        "over25_brier": 0.08327312522335463,
+        "btts_brier": 0.14812034896526155
+      },
+      "result_hash": "325676411229a98aa633bed35394e2aa0eb58fc89dad7d75f7e27af35129eb81"
     },
     {
       "fixture": {
@@ -901,8 +1153,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          5
+        ],
+        "outcome": 2,
+        "log_loss": 0.15192275843398542,
+        "brier": 0.03050268373660644,
+        "over25_brier": 0.012181660022055495,
+        "btts_brier": 0.10189394693375038
+      },
+      "result_hash": "d9390a74aa502a48983d8b1cd37424eec8d90a306f615a30e125920a202c6758"
     },
     {
       "fixture": {
@@ -915,8 +1179,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.0820389288941614,
+        "brier": 0.6682517156995036,
+        "over25_brier": 0.2107637368199701,
+        "btts_brier": 0.3303894328409647
+      },
+      "result_hash": "eef5b4bc24df47fa2c7c613b2a4af62c55d620301267b937df9be59b0eef6cfe"
     },
     {
       "fixture": {
@@ -1061,8 +1337,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.4084192969315148,
+        "brier": 0.8985498495023617,
+        "over25_brier": 0.43240195156016414,
+        "btts_brier": 0.42824127733765033
+      },
+      "result_hash": "672aa92d52c6e600c01781acaf7c68fe6b970671356848f97951dc1e8a033149"
     },
     {
       "fixture": {
@@ -1127,8 +1415,20 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.12982212443635802,
+        "brier": 0.023653982121752428,
+        "over25_brier": 0.6015734899025319,
+        "btts_brier": 0.23407724896158752
+      },
+      "result_hash": "8c8c1970e46aa805a50e5150f41b3634457b2e4e782b6bc55ebb391dea6bda75"
     },
     {
       "fixture": {
@@ -1167,8 +1467,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          3
+        ],
+        "outcome": 0,
+        "log_loss": 0.5883892369511787,
+        "brier": 0.2988461499258606,
+        "over25_brier": 0.18995784506105154,
+        "btts_brier": 0.18444952244276905
+      },
+      "result_hash": "7ee44265c8102918991924b41a2e1ad4eecd6e1e195324785ddf0961280501ca"
     },
     {
       "fixture": {
@@ -1276,8 +1588,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.21993478712965034,
+        "brier": 0.06063352594333656,
+        "over25_brier": 0.47872390529434516,
+        "btts_brier": 0.25297276581326045
+      },
+      "result_hash": "7ef61ff59f68d51ce76030f6af64654522db9d9da8e6d7c54a451fb00fcddf58"
     },
     {
       "fixture": {
@@ -1382,8 +1706,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.8906529784722169,
+        "brier": 0.526972060675885,
+        "over25_brier": 0.16647526959494596,
+        "btts_brier": 0.14770514507769486
+      },
+      "result_hash": "bc70bb608df9ca1423064a9e4399f42317376a63d69368d5407b065f589dd909"
     },
     {
       "fixture": {
@@ -1396,8 +1732,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.7256492763474557,
+        "brier": 0.39971344476709264,
+        "over25_brier": 0.21437599035806243,
+        "btts_brier": 0.2541374741865693
+      },
+      "result_hash": "be5d986057cab1cb563dfc891d44441112341bd987e003a688d88857f8bf2a99"
     },
     {
       "fixture": {
@@ -1424,8 +1772,20 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          1
+        ],
+        "outcome": 2,
+        "log_loss": 1.0648221147048011,
+        "brier": 0.6502006527934221,
+        "over25_brier": 0.36035194723615055,
+        "btts_brier": 0.4076634774915248
+      },
+      "result_hash": "8b6517346bc566cc3fbc3dc5d5c7a7239659757b88c0158628fef00ee6ccef12"
     },
     {
       "fixture": {
@@ -1438,8 +1798,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          1
+        ],
+        "outcome": 2,
+        "log_loss": 0.7983169402582947,
+        "brier": 0.45365867177229946,
+        "over25_brier": 0.192821185409455,
+        "btts_brier": 0.23673118944808144
+      },
+      "result_hash": "bcc107478a2c4e980693362b333b587fd01412bfa4fd7759cb176d7bbd54f345"
     },
     {
       "fixture": {
@@ -1480,8 +1852,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.8990615839934416,
+        "brier": 0.5275600173040763,
+        "over25_brier": 0.19661197513876114,
+        "btts_brier": 0.25878046424913626
+      },
+      "result_hash": "f58a662ba00cb2ba11af31f2ca56bebe0866d66611dd0ee8ea46341c121510ee"
     },
     {
       "fixture": {
@@ -1546,8 +1930,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 1.1647167890520864,
+        "brier": 0.7174210236911871,
+        "over25_brier": 0.31025829370711405,
+        "btts_brier": 0.24858264603025781
+      },
+      "result_hash": "af2143d5c303f54172414c03d22503703ec4682e8128fa1fafea6c4361ffbacc"
     },
     {
       "fixture": {
@@ -1560,8 +1956,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.6678445669948548,
+        "brier": 0.3560622097759654,
+        "over25_brier": 0.33794185554034245,
+        "btts_brier": 0.34900387027126417
+      },
+      "result_hash": "cb9decfcd524fc4b2584fdacfdd80058f2ef37c968e17003b945fa2d2af548d6"
     },
     {
       "fixture": {
@@ -1640,8 +2048,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.263352670967254,
+        "brier": 0.7735928849194744,
+        "over25_brier": 0.21018131098045656,
+        "btts_brier": 0.2677696705386487
+      },
+      "result_hash": "5cfddb07b64b8e5f9d59ed2c6ce7ac05e6cf1720eb74181e698b239e31d09cdf"
     },
     {
       "fixture": {
@@ -1654,8 +2074,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          5,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.7289022417410694,
+        "brier": 0.40309484495585646,
+        "over25_brier": 0.36033567525041693,
+        "btts_brier": 0.30437102241876784
+      },
+      "result_hash": "1c356cef67f1be038dda71840ce97ab3cd753711b494ec08b6fd3f94082d2702"
     },
     {
       "fixture": {
@@ -1668,8 +2100,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.6061556653232556,
+        "brier": 0.31157387772422607,
+        "over25_brier": 0.32572976351489474,
+        "btts_brier": 0.3052320836332395
+      },
+      "result_hash": "b1a92da8641d39cc9dd9a9eb5aef2306b9f0608b1bd09f047c6b61f222064702"
     },
     {
       "fixture": {
@@ -1734,8 +2178,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          3
+        ],
+        "outcome": 1,
+        "log_loss": 1.3269545898364776,
+        "brier": 0.8176299606646796,
+        "over25_brier": 0.283324341670617,
+        "btts_brier": 0.23647574990223436
+      },
+      "result_hash": "53855cba836f531f465ecf925288c464580da01448267bfad679f830eb4e4b3e"
     },
     {
       "fixture": {
@@ -1748,8 +2204,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 0.7259716128010772,
+        "brier": 0.4002619045215521,
+        "over25_brier": 0.19262171378827764,
+        "btts_brier": 0.17718487460147475
+      },
+      "result_hash": "b3651dcefbc82fd657d794091c62ac25f2fae0894219b2ecc7c6bae5245a940e"
     },
     {
       "fixture": {
@@ -1762,8 +2230,20 @@
       "cohort": "first",
       "registered_at": "2026-10-30T11:30:54.088697+00:00",
       "run_id": "20261030T113054088707Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 1.4017158015690463,
+        "brier": 0.8728362955322833,
+        "over25_brier": 0.29460153765696934,
+        "btts_brier": 0.2481210312616244
+      },
+      "result_hash": "a4fbb3fb4737feef7e74fe127a580ea5c3042fadc8189e7c5ecdf2f86c32bd0a"
     },
     {
       "fixture": {
@@ -1776,8 +2256,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 0.2889417767739001,
+        "brier": 0.09482098623644308,
+        "over25_brier": 0.033959840990391225,
+        "btts_brier": 0.47556658865214
+      },
+      "result_hash": "99fc4323fa953badff0c70fcf892fb94571c3915472076b35200248d7bf15cc8"
     },
     {
       "fixture": {
@@ -1790,8 +2282,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.3216804859249627,
+        "brier": 0.85674364411638,
+        "over25_brier": 0.19094618077312678,
+        "btts_brier": 0.2857803645647367
+      },
+      "result_hash": "759a52f783f84602041d4ab879079dd46581c305210df1c3e17c23ba5a488543"
     },
     {
       "fixture": {
@@ -1818,8 +2322,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.556774941442169,
+        "brier": 0.27450386727880016,
+        "over25_brier": 0.24735870965254597,
+        "btts_brier": 0.24471503909224254
+      },
+      "result_hash": "e1c7d38607105497c2ff50855dc53828fd8d13c3f8401ee18e1695cab5dfd009"
     },
     {
       "fixture": {
@@ -1913,8 +2429,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.3845138130348547,
+        "brier": 0.8824027820375852,
+        "over25_brier": 0.2332911639009961,
+        "btts_brier": 0.24463702317693575
+      },
+      "result_hash": "346664a659e683cee6d7c1713691c5693d5ef040be4e08c1725116bf6171b3c7"
     },
     {
       "fixture": {
@@ -1953,8 +2481,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          4
+        ],
+        "outcome": 2,
+        "log_loss": 1.4090111855112604,
+        "brier": 0.8784739212740833,
+        "over25_brier": 0.2848980611513814,
+        "btts_brier": 0.242023530613329
+      },
+      "result_hash": "53f2ae0748699dacaad03e916fead8490cd286bb4499b3495571fad60e9fd6c0"
     },
     {
       "fixture": {
@@ -1995,8 +2535,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          2
+        ],
+        "outcome": 1,
+        "log_loss": 1.4117155758586013,
+        "brier": 0.870491638653267,
+        "over25_brier": 0.19661310434507323,
+        "btts_brier": 0.17571782318855608
+      },
+      "result_hash": "5ac70d1fc84934819739a533d44ddfd37640c7149c9bf0abdb0e266ea63e9494"
     },
     {
       "fixture": {
@@ -2064,8 +2616,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.48973085002299654,
+        "brier": 0.22551603760611127,
+        "over25_brier": 0.18170613450798484,
+        "btts_brier": 0.21123992252763138
+      },
+      "result_hash": "e59ef23269ede0a2ed5bec706f5ff773b44eb1f77ae03106514c2f965437dc00"
     },
     {
       "fixture": {
@@ -2078,8 +2642,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.37709682907865055,
+        "brier": 0.14936837061523667,
+        "over25_brier": 0.1226008988245041,
+        "btts_brier": 0.18989429707267538
+      },
+      "result_hash": "f9227a1bdd24089ff7bb7c4de1bc55e264c02417f01f9c2348c9e322beb3db4a"
     },
     {
       "fixture": {
@@ -2092,8 +2668,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 1.3942222958843618,
+        "brier": 0.8946566560430942,
+        "over25_brier": 0.1428612878952709,
+        "btts_brier": 0.14650520600690523
+      },
+      "result_hash": "e89463e1ad6b3bd6a39be34db6795da52ee33dd19fa0de3a1a59ae7e945087c6"
     },
     {
       "fixture": {
@@ -2158,8 +2746,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.9356750414445172,
+        "brier": 0.5541539572086055,
+        "over25_brier": 0.3360569585698762,
+        "btts_brier": 0.23670234323929362
+      },
+      "result_hash": "e3fc76f29f7f9d60268cc446977dc2ebf1fa333e88bb7fbcfd8938ee72eab680"
     },
     {
       "fixture": {
@@ -2251,8 +2851,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.4583385131226172,
+        "brier": 0.904373650073559,
+        "over25_brier": 0.35808869458735687,
+        "btts_brier": 0.1531893825285309
+      },
+      "result_hash": "735e30e1245cc8155ca84f88c543e7c1666b7ea0c217c2225f735f8069af6438"
     },
     {
       "fixture": {
@@ -2319,8 +2931,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.8478006428866702,
+        "brier": 1.2960119740853027,
+        "over25_brier": 0.4986953664346397,
+        "btts_brier": 0.19131863215456887
+      },
+      "result_hash": "89c036faa0a62f9fe2746fe26687b8793a63f0c1f4a550997535e39233f77c10"
     },
     {
       "fixture": {
@@ -2347,8 +2971,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.3038890964599391,
+        "brier": 0.10709552772864293,
+        "over25_brier": 0.3176342953517663,
+        "btts_brier": 0.1976395782381185
+      },
+      "result_hash": "a534da6d51bb26d83cfc7c6ef0d24cfcb81d99f83e06e30fd021c5a9d4110d5e"
     },
     {
       "fixture": {
@@ -2361,8 +2997,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.069182490792288,
+        "brier": 0.6502692447529979,
+        "over25_brier": 0.18711099810990955,
+        "btts_brier": 0.245674991771133
+      },
+      "result_hash": "af63bc6e067b2b2d8a9c25243b4990082f92fc219b3c3fe1facc2b60f9fad1ff"
     },
     {
       "fixture": {
@@ -2415,8 +3063,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.9438631725092085,
+        "brier": 0.5601019650567753,
+        "over25_brier": 0.14517691730156462,
+        "btts_brier": 0.20141264969742625
+      },
+      "result_hash": "d68e69cce69e0a670039c41ad15eac25499d4deafe87aadbee5bfa2b2cbd24ad"
     },
     {
       "fixture": {
@@ -2455,8 +3115,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.3057181365254176,
+        "brier": 0.7972487893621228,
+        "over25_brier": 0.24808311059112664,
+        "btts_brier": 0.20462035774812537
+      },
+      "result_hash": "ad230cb8e5bc5669579b46261b9af944dec5226b96c1b14667136af614234ebe"
     },
     {
       "fixture": {
@@ -2469,8 +3141,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.9722459220400366,
+        "brier": 0.5805737002389685,
+        "over25_brier": 0.4674729929759931,
+        "btts_brier": 0.3580203662311245
+      },
+      "result_hash": "19ecebce16a401ae3ec46773a7c2bfe23d4e1bbcbadbbca17eeee3dd3ca3f5ab"
     },
     {
       "fixture": {
@@ -2483,8 +3167,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 0.27345702063785715,
+        "brier": 0.0874432514645533,
+        "over25_brier": 0.113365910833025,
+        "btts_brier": 0.23033802135112
+      },
+      "result_hash": "127cf25e4542776f458261ec731f435e78b8ee90957bfc1754538480a3905343"
     },
     {
       "fixture": {
@@ -2615,8 +3311,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          4
+        ],
+        "outcome": 2,
+        "log_loss": 0.45871294693008885,
+        "brier": 0.20596407312837658,
+        "over25_brier": 0.22159987450127053,
+        "btts_brier": 0.25403231160340706
+      },
+      "result_hash": "4dc35a7e896384f221ab40f6cc20cd2fb0afde5a2baf5f0ff8abd6c6828fa4b5"
     },
     {
       "fixture": {
@@ -2629,8 +3337,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.2690361796011007,
+        "brier": 0.7789024655868273,
+        "over25_brier": 0.20414521374624697,
+        "btts_brier": 0.24116140862533916
+      },
+      "result_hash": "963871ecf298da47e52918228073d99ebfabdf1ea6563fe2e2ead7a876fc64b2"
     },
     {
       "fixture": {
@@ -2643,8 +3363,20 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.4355627061603308,
+        "brier": 0.18942352227148102,
+        "over25_brier": 0.18889680722384283,
+        "btts_brier": 0.26929249488706686
+      },
+      "result_hash": "f1b3f3b301f1fffa287738a0cf03c6127e60407654f90e273f458ffa50b40b7c"
     },
     {
       "fixture": {
@@ -2737,8 +3469,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          5,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.5908386513564955,
+        "brier": 0.3022506980329125,
+        "over25_brier": 0.3271813207781604,
+        "btts_brier": 0.3038862480122842
+      },
+      "result_hash": "6822b614d07383d3317618918d2c17edd7285528cfe00255de1b1330d612c5b1"
     },
     {
       "fixture": {
@@ -2817,8 +3561,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.1567663136120816,
+        "brier": 0.7072577766191714,
+        "over25_brier": 0.12936088745979946,
+        "btts_brier": 0.19273490812926328
+      },
+      "result_hash": "f873c0d1619173fa481b5b0adb6aa67449109714ae2b1434d203592e8ad78c05"
     },
     {
       "fixture": {
@@ -2845,8 +3601,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          4
+        ],
+        "outcome": 2,
+        "log_loss": 0.9869585106079671,
+        "brier": 0.5948905000915052,
+        "over25_brier": 0.21176386281593207,
+        "btts_brier": 0.17416305623249814
+      },
+      "result_hash": "09b3759edc9efd55107c121b99ae94be9d1e9c478d50061d42fa76124e25cc42"
     },
     {
       "fixture": {
@@ -2859,8 +3627,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          2
+        ],
+        "outcome": 1,
+        "log_loss": 1.2675260866933273,
+        "brier": 0.7757545137558703,
+        "over25_brier": 0.19237948053064394,
+        "btts_brier": 0.15271389393567186
+      },
+      "result_hash": "ad13d6119862e0f2e7904af6bf98f04209d779f69035c783581e8f78ea64a2d7"
     },
     {
       "fixture": {
@@ -2887,8 +3667,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 1.091205365236807,
+        "brier": 0.6675941106452947,
+        "over25_brier": 0.31608662046325986,
+        "btts_brier": 0.25463711724854093
+      },
+      "result_hash": "c970cca9f20f9edca481ca28080b9e7848523fc249b7caf614c3b595e7d0ca5a"
     },
     {
       "fixture": {
@@ -2915,8 +3707,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          4,
+          3
+        ],
+        "outcome": 0,
+        "log_loss": 0.5337126318110444,
+        "brier": 0.2586660211547469,
+        "over25_brier": 0.2542612372984234,
+        "btts_brier": 0.26193439336042684
+      },
+      "result_hash": "b0c2ee09814639d2d4f720b2ecfd67fb40eb315f5bd4652293ccae31cc591f11"
     },
     {
       "fixture": {
@@ -2995,8 +3799,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          2
+        ],
+        "outcome": 0,
+        "log_loss": 0.830661825006836,
+        "brier": 0.4822620344050652,
+        "over25_brier": 0.1444419066818916,
+        "btts_brier": 0.13371323766569754
+      },
+      "result_hash": "442c3aa632b033ff3ed16d56b4f5f25ca4686056e44b63f94fbc8e88beab8845"
     },
     {
       "fixture": {
@@ -3049,8 +3865,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          2
+        ],
+        "outcome": 1,
+        "log_loss": 1.301738270117563,
+        "brier": 0.8118410634937017,
+        "over25_brier": 0.26348063690775514,
+        "btts_brier": 0.21955485796683882
+      },
+      "result_hash": "6f3c0dff0f1de79af6fa43f93ce99d45aea4be993190722e4ee574d6695e6d9f"
     },
     {
       "fixture": {
@@ -3063,8 +3891,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.2772773103920987,
+        "brier": 0.7827712678042791,
+        "over25_brier": 0.187035439139643,
+        "btts_brier": 0.2403825204471778
+      },
+      "result_hash": "7bf3cc77c00db6db58498cc82d14689630ed557baa436f0682e1e102d7fa7b7a"
     },
     {
       "fixture": {
@@ -3129,8 +3969,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          9
+        ],
+        "outcome": 2,
+        "log_loss": 0.7643693259399884,
+        "brier": 0.42851671886372683,
+        "over25_brier": 0.20354630776657445,
+        "btts_brier": 0.34533916468242115
+      },
+      "result_hash": "0ddc1a5a1bd8dd34a1ffdfc8b5f606a7f0b61d3a280bb843118c157d6960deeb"
     },
     {
       "fixture": {
@@ -3157,8 +4009,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.9397373327651918,
+        "brier": 0.558926993952215,
+        "over25_brier": 0.5095664541049633,
+        "btts_brier": 0.39457260409385286
+      },
+      "result_hash": "3cfd04f331771994886f08d49df4f8a37c9b3fa4ef21afac497791943a7c8420"
     },
     {
       "fixture": {
@@ -3171,8 +4035,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.0765921485475458,
+        "brier": 0.6567193479952624,
+        "over25_brier": 0.05762833410081224,
+        "btts_brier": 0.45899799126600127
+      },
+      "result_hash": "01aeda8c1ef783443ab9c5102e42b6d38927e113f80b3992bd80ec77e8450c66"
     },
     {
       "fixture": {
@@ -3185,8 +4061,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.297745842752099,
+        "brier": 0.8090863525404034,
+        "over25_brier": 0.3164568649890339,
+        "btts_brier": 0.2354545024082909
+      },
+      "result_hash": "9e35de1f33a85f91121798e0ea91ccd19486402298b730aeac234dcc508fc24d"
     },
     {
       "fixture": {
@@ -3251,8 +4139,20 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.8215765552576426,
+        "brier": 0.4728499743894643,
+        "over25_brier": 0.42538901996930023,
+        "btts_brier": 0.3382102010028258
+      },
+      "result_hash": "cb7d4a6f2492fbb2f6e1c7a7e08ba3f0aeea95fa188c8b18a24ba9ec0b7794e7"
     },
     {
       "fixture": {
@@ -3291,8 +4191,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.448951855902406,
+        "brier": 0.9245963809445128,
+        "over25_brier": 0.08887724808016026,
+        "btts_brier": 0.4771271479604024
+      },
+      "result_hash": "3b4cff1e64f6fa10eeafa34b87e0b766a74234f9057c2483145bca95a21986a1"
     },
     {
       "fixture": {
@@ -3331,8 +4243,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.8409039836715598,
+        "brier": 0.48541819925139873,
+        "over25_brier": 0.2691023795578986,
+        "btts_brier": 0.22207831183849672
+      },
+      "result_hash": "4c7426b8eb9d3c3c60f212967753a54f08a64146316afb615c011453c8edd37e"
     },
     {
       "fixture": {
@@ -3411,8 +4335,20 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.3134375638596518,
+        "brier": 0.8298809041541513,
+        "over25_brier": 0.18332982640065593,
+        "btts_brier": 0.28020850681368764
+      },
+      "result_hash": "613f868f5aec8301f706d806ced87151fad15c80bda7c3968a54ca67e08e3efe"
     },
     {
       "fixture": {
@@ -3504,8 +4440,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          3
+        ],
+        "outcome": 1,
+        "log_loss": 1.3327693597440706,
+        "brier": 0.813215620242362,
+        "over25_brier": 0.2603459442325344,
+        "btts_brier": 0.21483650929864642
+      },
+      "result_hash": "f17853db31f6fd28535850e9bb2cc74fb1c50c5609d11a765a735a8169d2f217"
     },
     {
       "fixture": {
@@ -3518,8 +4466,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.1088996640656734,
+        "brier": 0.6859820584869104,
+        "over25_brier": 0.19659899049558544,
+        "btts_brier": 0.3490734665225095
+      },
+      "result_hash": "217e23cf807221e2b2eac3a51637843215ad012835336fe49b32952b641eae28"
     },
     {
       "fixture": {
@@ -3558,8 +4518,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.5230992393657113,
+        "brier": 0.2508424433276341,
+        "over25_brier": 0.225441303482468,
+        "btts_brier": 0.23560991717255814
+      },
+      "result_hash": "a379b1cbd797933677d396106af1638ce442b35f52902fcd76d3df0fa000750b"
     },
     {
       "fixture": {
@@ -3598,8 +4570,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          2
+        ],
+        "outcome": 0,
+        "log_loss": 0.92174357371906,
+        "brier": 0.5488297660697955,
+        "over25_brier": 0.2113192618598678,
+        "btts_brier": 0.18047486126265666
+      },
+      "result_hash": "631cb683a61b6d73306fe70e6e8e7b32096f45d3fa9e1c73fbfb6bfc7feedf16"
     },
     {
       "fixture": {
@@ -3626,8 +4610,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.8072667408069424,
+        "brier": 0.46028231765807226,
+        "over25_brier": 0.16504828842943325,
+        "btts_brier": 0.2123703890124209
+      },
+      "result_hash": "036c2f7d6f054a7d5c8ad72ea2438b51125ee67b57c026a8dac38f1c2e68c6bf"
     },
     {
       "fixture": {
@@ -3680,8 +4676,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.4930752050390336,
+        "brier": 0.22746015681584403,
+        "over25_brier": 0.3887377844312391,
+        "btts_brier": 0.34217710576853183
+      },
+      "result_hash": "e8f418c45e1d25508bbc540cc585bf1c57f231c8e6e84a07fd880a73e1ee8811"
     },
     {
       "fixture": {
@@ -3734,8 +4742,20 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.253152020494429,
+        "brier": 0.7800109327202346,
+        "over25_brier": 0.1920857900886187,
+        "btts_brier": 0.23903631687506843
+      },
+      "result_hash": "34d3d26e0d0e150f6c8831df5f38b128aa9b7a8d838d84b8e4f05b82b0d7bef4"
     },
     {
       "fixture": {
@@ -3748,8 +4768,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          5
+        ],
+        "outcome": 2,
+        "log_loss": 0.5997019141300204,
+        "brier": 0.3070188522647905,
+        "over25_brier": 0.27227906797949775,
+        "btts_brier": 0.2554001145344243
+      },
+      "result_hash": "392dd6da0a4fa42254761bd9997a339ea7323b0a99ef6adf15b71ecf58d493a6"
     },
     {
       "fixture": {
@@ -3762,8 +4794,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.3877343288524369,
+        "brier": 0.15650498297523885,
+        "over25_brier": 0.34538276516087674,
+        "btts_brier": 0.26123535654911606
+      },
+      "result_hash": "3592789d6619763725b1c7a2fdff25ac28a441dd5ddc786d6981c9e8a7d4a72d"
     },
     {
       "fixture": {
@@ -3802,8 +4846,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.774782130251599,
+        "brier": 0.436221323140548,
+        "over25_brier": 0.3564545403106031,
+        "btts_brier": 0.29861091474989715
+      },
+      "result_hash": "63ecd0146a75ed2085070f7cf057d6afa2f889e9986647af51f7fa4ac513b8b8"
     },
     {
       "fixture": {
@@ -3830,8 +4886,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.076127467898996,
+        "brier": 0.6617782482234901,
+        "over25_brier": 0.12124380911144163,
+        "btts_brier": 0.10500291636018858
+      },
+      "result_hash": "9e557331a5765864b45b2b3c82ac4a9c5501a5e832a5cbfa70f014ef158720e5"
     },
     {
       "fixture": {
@@ -3884,8 +4952,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.7553840953521127,
+        "brier": 0.4230475172978509,
+        "over25_brier": 0.33293534330519253,
+        "btts_brier": 0.35378104572721064
+      },
+      "result_hash": "edd7c7c6c3cd0d61c481badd6e4be21e5b8b07175e79d909642b83fc88c9afe3"
     },
     {
       "fixture": {
@@ -3912,8 +4992,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 0.5421543534253739,
+        "brier": 0.26402247569721615,
+        "over25_brier": 0.21734950733055206,
+        "btts_brier": 0.2777190118911026
+      },
+      "result_hash": "68b9630dbece32e2b808e012827acc1eed5ab77adf7b10b262a3010c1dbcb5b4"
     },
     {
       "fixture": {
@@ -3926,8 +5018,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.2064379694109733,
+        "brier": 0.7365715992321942,
+        "over25_brier": 0.12563557552185942,
+        "btts_brier": 0.181902632413747
+      },
+      "result_hash": "dff0759b744926c943fcc9697b088eeb7d4e6103a3ec3ecb1f96e3b1e607bce4"
     },
     {
       "fixture": {
@@ -3954,8 +5058,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.5312325867081142,
+        "brier": 0.259571467463879,
+        "over25_brier": 0.18006364465464345,
+        "btts_brier": 0.1827968066694107
+      },
+      "result_hash": "3719149175c7dec593d0cdacd8a82fbb199842c6f14a86d8458dde51f27ca168"
     },
     {
       "fixture": {
@@ -4008,8 +5124,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.7184354651299563,
+        "brier": 0.3940386130169638,
+        "over25_brier": 0.35486853703272453,
+        "btts_brier": 0.38340764674007377
+      },
+      "result_hash": "25eebb25b124e30101c98bd25146ffda550f68f16590150a46b2d9356865ffdf"
     },
     {
       "fixture": {
@@ -4048,8 +5176,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.5728951198419997,
+        "brier": 0.2858196204062244,
+        "over25_brier": 0.30551523473874276,
+        "btts_brier": 0.30049514885002415
+      },
+      "result_hash": "4d2f0280c1e4bd3ffa7a16677a237bc220f81c8e02ca31bd3d95a88e5eb12826"
     },
     {
       "fixture": {
@@ -4076,8 +5216,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.24898002904627062,
+        "brier": 0.07545128072507504,
+        "over25_brier": 0.15663495714174555,
+        "btts_brier": 0.19423183836101135
+      },
+      "result_hash": "a30b8d00ad9a5ad6887d20184a638dc40fefc8818a44fa229946ba2cde3dd26a"
     },
     {
       "fixture": {
@@ -4090,8 +5242,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.8253847872112842,
+        "brier": 0.4737592107326043,
+        "over25_brier": 0.3259086298675915,
+        "btts_brier": 0.26978575333687027
+      },
+      "result_hash": "faaff922425fa547825adc77daf7ba13496bc3af49562745cb1440458a395e89"
     },
     {
       "fixture": {
@@ -4184,8 +5348,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.3617887197979015,
+        "brier": 0.830310309910434,
+        "over25_brier": 0.2706197511687878,
+        "btts_brier": 0.3135068490015085
+      },
+      "result_hash": "9cabbec138295f28b07c46a31067d5df0f133ef1747aff21089f8821b9db7b05"
     },
     {
       "fixture": {
@@ -4226,8 +5402,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.7291721536021994,
+        "brier": 0.40251159881615484,
+        "over25_brier": 0.3014412259672726,
+        "btts_brier": 0.32467989026508026
+      },
+      "result_hash": "4f27e2c82df5875ddf075ea248a980a8a78d0bf89cfdbd31b163de84e27486fd"
     },
     {
       "fixture": {
@@ -4254,8 +5442,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.5680303894697658,
+        "brier": 0.2820433052209702,
+        "over25_brier": 0.21710482352674101,
+        "btts_brier": 0.22211052056723596
+      },
+      "result_hash": "8c13744a211b0335b930c0c57e5b4085059e23cdb68445914dcfc68b7f34b8ba"
     },
     {
       "fixture": {
@@ -4268,8 +5468,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.1816359377894345,
+        "brier": 0.7225949234532146,
+        "over25_brier": 0.1318516292371729,
+        "btts_brier": 0.19188246177292229
+      },
+      "result_hash": "2bf7230840926d1b3b6c1f6996e4873201ca95075b4f2de833bcb20fa9745299"
     },
     {
       "fixture": {
@@ -4334,8 +5546,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 1.2647226222734276,
+        "brier": 0.7936133239161298,
+        "over25_brier": 0.17101707543933026,
+        "btts_brier": 0.1498848746451841
+      },
+      "result_hash": "1c7fd458a774038d91ab389dcfc848175c6e471a564fad5240db0df9422638be"
     },
     {
       "fixture": {
@@ -4388,8 +5612,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.405123672010066,
+        "brier": 0.8893605746963856,
+        "over25_brier": 0.2618139723325263,
+        "btts_brier": 0.21976478377377678
+      },
+      "result_hash": "35c82dbd0c7cec6b4336b4c505b0c5b0101c8ff9b3d81c2b59845dc5ed729325"
     },
     {
       "fixture": {
@@ -4428,8 +5664,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.582230147872424,
+        "brier": 0.2982410317481472,
+        "over25_brier": 0.13098309066873576,
+        "btts_brier": 0.14626579063486514
+      },
+      "result_hash": "691f783a6eb8418e0af3b0f97ccc0839f8e2a755e02bc5469a351a5741df8e46"
     },
     {
       "fixture": {
@@ -4442,8 +5690,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.4339716285556456,
+        "brier": 0.9001353856319845,
+        "over25_brier": 0.2954162827686887,
+        "btts_brier": 0.23722798042823934
+      },
+      "result_hash": "56f094bc6b245177440af4a2c133357810019cb1fbf5ecbe54c160c4dab28149"
     },
     {
       "fixture": {
@@ -4522,8 +5782,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.0079826105814755,
+        "brier": 0.6090429109361443,
+        "over25_brier": 0.2071809316603281,
+        "btts_brier": 0.25927172639782314
+      },
+      "result_hash": "5e7e96519efbe84174e8c08364443f319c92a8cf5be07253782980cd69bed7b5"
     },
     {
       "fixture": {
@@ -4588,8 +5860,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          6,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.2105069154690055,
+        "brier": 0.05599108355547197,
+        "over25_brier": 0.08831280381742053,
+        "btts_brier": 0.2445800635042612
+      },
+      "result_hash": "4e91c114d36cb66f387ed7918a34575def0dca5f028ceba216b20420f4285e21"
     },
     {
       "fixture": {
@@ -4628,8 +5912,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 1.0201778293829091,
+        "brier": 0.6140654748570805,
+        "over25_brier": 0.18932231251793039,
+        "btts_brier": 0.255927497803646
+      },
+      "result_hash": "5819de96b72136f6490da9a39bf27313efbb4e6beb2f157f491515ecdf99113b"
     },
     {
       "fixture": {
@@ -4694,8 +5990,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.7126945224851541,
+        "brier": 0.39005925942197445,
+        "over25_brier": 0.2835978327011511,
+        "btts_brier": 0.24403806839133624
+      },
+      "result_hash": "1cd90b71e5b6808460c727f7a1c9493ecdfc444c201142db86bd1cd477f92f36"
     },
     {
       "fixture": {
@@ -4748,8 +6056,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.8955373833463349,
+        "brier": 0.5268980168386174,
+        "over25_brier": 0.2296927456325467,
+        "btts_brier": 0.27688533678613747
+      },
+      "result_hash": "481bb9057f861d7409a252ef04483a51320f26db6e1d6b1eedb33825d691c92a"
     },
     {
       "fixture": {
@@ -4814,8 +6134,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 1.1364500287133932,
+        "brier": 0.7073494888878002,
+        "over25_brier": 0.17295823045698108,
+        "btts_brier": 0.15049752392537843
+      },
+      "result_hash": "8a132cabfd86111998811af2c510f82859a249cc1c321f78a1f8426f277563d2"
     },
     {
       "fixture": {
@@ -4828,8 +6160,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.007832377083461,
+        "brier": 0.6106489745267938,
+        "over25_brier": 0.4011870977559773,
+        "btts_brier": 0.4399979825537665
+      },
+      "result_hash": "27a8f44e71c989628dcc67f84f4833cbb31936a78afb30d35fe0087b30c0c2c1"
     },
     {
       "fixture": {
@@ -4842,8 +6186,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.2268437615097862,
+        "brier": 0.7562896061200586,
+        "over25_brier": 0.13891387568217692,
+        "btts_brier": 0.192798764453322
+      },
+      "result_hash": "e9d08cf3ce226e9ecee5e1f181eaefec5abdfdfd8c5ae0862921dc689f8525b9"
     },
     {
       "fixture": {
@@ -4856,8 +6212,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.8704763374811951,
+        "brier": 0.5100073225862445,
+        "over25_brier": 0.174752790307249,
+        "btts_brier": 0.37231794957019193
+      },
+      "result_hash": "875c1b441e162f89c4be8327c999328fae73463179f050fef146ffffdd4bc16d"
     },
     {
       "fixture": {
@@ -4910,8 +6278,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.207759831379901,
+        "brier": 0.7529634536016852,
+        "over25_brier": 0.2696011341285691,
+        "btts_brier": 0.3114023410083688
+      },
+      "result_hash": "2c92cffeda326978c75597dc6da6199d00d03a9d2e559102a3f5830e06702ebc"
     },
     {
       "fixture": {
@@ -4924,8 +6304,20 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.1938198770741637,
+        "brier": 0.7590213697586475,
+        "over25_brier": 0.12861538925049584,
+        "btts_brier": 0.33733974126398353
+      },
+      "result_hash": "8f1eb2d4f09facdfcb5a89cd165dc954fd3c2ea7097e329f4d58be99cbb4e6dd"
     },
     {
       "fixture": {
@@ -4938,8 +6330,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          5
+        ],
+        "outcome": 2,
+        "log_loss": 0.6645533805144677,
+        "brier": 0.35464370464962186,
+        "over25_brier": 0.3023950158008852,
+        "btts_brier": 0.26960789480316216
+      },
+      "result_hash": "e4659ad2f30b095cfab033803812f8ab571d5cedd646f00bf161efdce81918ae"
     },
     {
       "fixture": {
@@ -4952,8 +6356,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.6828617366037683,
+        "brier": 0.3680534536200939,
+        "over25_brier": 0.3357481543309895,
+        "btts_brier": 0.20943899757044063
+      },
+      "result_hash": "9b5fb051d4f3d5be86d8d92ac8768892ef39c964b43bb45644a9f9f3a073aaf9"
     },
     {
       "fixture": {
@@ -4966,8 +6382,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 1.1093102143988307,
+        "brier": 0.6808815475576593,
+        "over25_brier": 0.27462409845524044,
+        "btts_brier": 0.22186967647600583
+      },
+      "result_hash": "4a9c82a7567745c2051d9f4b7dfaeda517024fb44ccde34165a62c6859c5cabe"
     },
     {
       "fixture": {
@@ -4980,8 +6408,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          2
+        ],
+        "outcome": 0,
+        "log_loss": 0.6884073642989865,
+        "brier": 0.37171185461534634,
+        "over25_brier": 0.1923890851178363,
+        "btts_brier": 0.18103552299283235
+      },
+      "result_hash": "1973971fd80c280ffe0fcf5ef8427e4c318d5092f4992b40aee822c68002e972"
     },
     {
       "fixture": {
@@ -4994,8 +6434,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.006240260330459,
+        "brier": 0.606039569014736,
+        "over25_brier": 0.3467652351120831,
+        "btts_brier": 0.22416673609758725
+      },
+      "result_hash": "ad90ba9bcd14f3dd2c30a7e816363743f9ba3fc694b8c3c2c4cc5ba5274d9c68"
     },
     {
       "fixture": {
@@ -5060,8 +6512,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.3665190637086648,
+        "brier": 0.14368267644377794,
+        "over25_brier": 0.19971111723215237,
+        "btts_brier": 0.28325245748380845
+      },
+      "result_hash": "24fd53ffea486b011277204e27125cc418963d8d245d3723e5ad500f234d80f8"
     },
     {
       "fixture": {
@@ -5074,8 +6538,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.6567986615078294,
+        "brier": 0.34954565144769595,
+        "over25_brier": 0.3076163335618405,
+        "btts_brier": 0.2717256177552729
+      },
+      "result_hash": "6a9156d709f251928ac9ea5371ee5d477d4fbe25658260aed0b1d33a206e985f"
     },
     {
       "fixture": {
@@ -5114,8 +6590,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.8450780694461695,
+        "brier": 0.4924361924903217,
+        "over25_brier": 0.1291597492010468,
+        "btts_brier": 0.11861022705239395
+      },
+      "result_hash": "99cccef8b0d6751f1a3d34ce3acfca2bee307655f5549c1585298c7428d9199e"
     },
     {
       "fixture": {
@@ -5128,8 +6616,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.356177641575255,
+        "brier": 0.8542193326284571,
+        "over25_brier": 0.23953822285463783,
+        "btts_brier": 0.2695026055814808
+      },
+      "result_hash": "9061cb47314e757c76db743082684156b58526014bb4aec6859538a6f2755aba"
     },
     {
       "fixture": {
@@ -5142,8 +6642,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.5095596393026122,
+        "brier": 0.24050105476649736,
+        "over25_brier": 0.2446667906240244,
+        "btts_brier": 0.25980516134337717
+      },
+      "result_hash": "b5bfcebdfe42c5518a67ca5542415b2ede23b937fc726046ede393ebdf9073e3"
     },
     {
       "fixture": {
@@ -5156,8 +6668,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 1.0297324947238071,
+        "brier": 0.6234226675413711,
+        "over25_brier": 0.23585855834420963,
+        "btts_brier": 0.187145037401116
+      },
+      "result_hash": "9af0a6d1436ec4a9a689af5bf467c230894dcb47d65ecefd80e2f3b85c58600b"
     },
     {
       "fixture": {
@@ -5196,8 +6720,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          5,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.6074826023679478,
+        "brier": 0.31161809521094125,
+        "over25_brier": 0.1903123343748248,
+        "btts_brier": 0.18433080509735497
+      },
+      "result_hash": "5357f162a5bbad0d8aa676983f7df76ef0a53f21f771f9e6f6051cb8758409c6"
     },
     {
       "fixture": {
@@ -5236,8 +6772,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.9714307634106004,
+        "brier": 0.5795050990717429,
+        "over25_brier": 0.13596376388550283,
+        "btts_brier": 0.203180882403458
+      },
+      "result_hash": "6d448c7468d0d677f41e2dfabde90b4ef73e8274c4e0454ff4d726567a1d16cf"
     },
     {
       "fixture": {
@@ -5291,8 +6839,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.0891369045554038,
+        "brier": 0.6611750471105124,
+        "over25_brier": 0.42162225418618304,
+        "btts_brier": 0.32641413726345164
+      },
+      "result_hash": "c634e006d50f41becbda7749a17608c5f7f388099ae3ad6c6bbdd65d8ed47892"
     },
     {
       "fixture": {
@@ -5319,8 +6879,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.4098571056533677,
+        "brier": 0.9075436441260334,
+        "over25_brier": 0.28404300949246497,
+        "btts_brier": 0.29427856051646484
+      },
+      "result_hash": "8043e50417bc12c23a6695cedbdad02435b67161f57d9bd02be173fbfae91d6b"
     },
     {
       "fixture": {
@@ -5359,8 +6931,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.6548359399550675,
+        "brier": 0.3466104712671297,
+        "over25_brier": 0.24392126876365858,
+        "btts_brier": 0.22430308148164674
+      },
+      "result_hash": "87f86f14f81cf07d10da0add79c51f97d163686311ac0c330ec5642caba12033"
     },
     {
       "fixture": {
@@ -5439,8 +7023,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.6634170600542116,
+        "brier": 0.3535963727616957,
+        "over25_brier": 0.2802961590143117,
+        "btts_brier": 0.24939042753199028
+      },
+      "result_hash": "fd0e8dfe000c8ab6b760ebf09bbb3929a112215989e74a5f806d045a545ff525"
     },
     {
       "fixture": {
@@ -5479,8 +7075,20 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          1
+        ],
+        "outcome": 2,
+        "log_loss": 0.936428375841981,
+        "brier": 0.5546296209812972,
+        "over25_brier": 0.2069692699370455,
+        "btts_brier": 0.27004498503903857
+      },
+      "result_hash": "433bba17b9d1627b28a942d73f7e27ff8b6c44309c6ac66a2a7ad1238be17926"
     },
     {
       "fixture": {
@@ -5519,8 +7127,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.3950870403147772,
+        "brier": 0.16601540440751364,
+        "over25_brier": 0.2988987357856971,
+        "btts_brier": 0.3638558508511089
+      },
+      "result_hash": "d9b6233409fc1c0842f7eeba4ea0f5ed9c210e0c83611fce7bf61b3ee0c8b440"
     },
     {
       "fixture": {
@@ -5599,8 +7219,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.4281940979307448,
+        "brier": 0.9064347782923411,
+        "over25_brier": 0.28134638269813556,
+        "btts_brier": 0.29519141638095536
+      },
+      "result_hash": "2bfb11db7867bf9538516d763f4abe3972ba519e231272b37df4868e92c8934b"
     },
     {
       "fixture": {
@@ -5639,8 +7271,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          5
+        ],
+        "outcome": 2,
+        "log_loss": 0.6671562261819859,
+        "brier": 0.3557690105602167,
+        "over25_brier": 0.1778895247240121,
+        "btts_brier": 0.1721352105973744
+      },
+      "result_hash": "3cb96bd5a37a56aac807d7dce25410bb09d741e360b61244d6d20d903b09b15b"
     },
     {
       "fixture": {
@@ -5667,8 +7311,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.9519442918314989,
+        "brier": 0.5707122011014194,
+        "over25_brier": 0.22930502191373012,
+        "btts_brier": 0.19299952701338308
+      },
+      "result_hash": "c0737f8e7285f91bb8d9b0fa8e7f1c7a29c6e374ffce4dfd8546e084ee3f6381"
     },
     {
       "fixture": {
@@ -5707,8 +7363,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          1
+        ],
+        "outcome": 2,
+        "log_loss": 1.3044240130399616,
+        "brier": 0.8172485912541846,
+        "over25_brier": 0.26347489333729784,
+        "btts_brier": 0.30219756434160877
+      },
+      "result_hash": "1010dcd471bc519d1953897963ea8050d53b3261a32b13a1f4950b51206525b6"
     },
     {
       "fixture": {
@@ -5721,8 +7389,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.6928232921174386,
+        "brier": 0.3748142741089709,
+        "over25_brier": 0.32883227394922465,
+        "btts_brier": 0.3478965104288117
+      },
+      "result_hash": "38998a7348022c4b9357c6bd11737551c88c028a5d99b473ae0a281489eaa83b"
     },
     {
       "fixture": {
@@ -5735,8 +7415,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.676901734255974,
+        "brier": 0.36360425722167933,
+        "over25_brier": 0.29472660168586484,
+        "btts_brier": 0.2610917979689879
+      },
+      "result_hash": "f2e7d2a5c0e9d10e18bbc292e9589d9b32acf782743385359df6395960ac2146"
     },
     {
       "fixture": {
@@ -5801,8 +7493,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.4262598718404156,
+        "brier": 0.8845891372010158,
+        "over25_brier": 0.23616775203532986,
+        "btts_brier": 0.1961535957028467
+      },
+      "result_hash": "2782d386a86a9874fbb5ab0aa8631e3d5be2bd761f7ec8fbc1d3676d7d604020"
     },
     {
       "fixture": {
@@ -5815,8 +7519,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.5398498232141832,
+        "brier": 0.26126559055978804,
+        "over25_brier": 0.18303148613320533,
+        "btts_brier": 0.3069352422914982
+      },
+      "result_hash": "3ddb2e6ed3a59f494d3582bbec198c550c840369bab5f6ef1b87e4fdb687442b"
     },
     {
       "fixture": {
@@ -5829,8 +7545,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.6775247435928796,
+        "brier": 0.3632929529193791,
+        "over25_brier": 0.25162477960158236,
+        "btts_brier": 0.27579355539149064
+      },
+      "result_hash": "6cf0473a65c6d28b4f888db2067c3ad85dfeb6c22d222a2c335faa98fc9e50fc"
     },
     {
       "fixture": {
@@ -5843,8 +7571,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          5
+        ],
+        "outcome": 2,
+        "log_loss": 0.4057721046449384,
+        "brier": 0.1707159973866825,
+        "over25_brier": 0.19473438111021418,
+        "btts_brier": 0.2493642415926721
+      },
+      "result_hash": "466fa55843720f3e09e218c88c425737e715d087dbbaa416e6f4495bd3c3278e"
     },
     {
       "fixture": {
@@ -5909,8 +7649,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.6877611415424874,
+        "brier": 1.030114553437375,
+        "over25_brier": 0.15761864419770993,
+        "btts_brier": 0.1838635678882905
+      },
+      "result_hash": "41349c6d72e5dd61f527109f111b3dd538159b0fa246200d895cc716ab757940"
     },
     {
       "fixture": {
@@ -5923,8 +7675,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          5,
+          2
+        ],
+        "outcome": 0,
+        "log_loss": 0.618302348453012,
+        "brier": 0.3200390723937589,
+        "over25_brier": 0.3096493705140412,
+        "btts_brier": 0.2887890200724427
+      },
+      "result_hash": "ffd0c92bd6e6edfc20b686fdd0f77b4bc9da1fd7e7a784e5f68495efe8edc2ff"
     },
     {
       "fixture": {
@@ -5937,8 +7701,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.5423634639055138,
+        "brier": 0.2654382383230312,
+        "over25_brier": 0.19069644933430352,
+        "btts_brier": 0.19065878917831092
+      },
+      "result_hash": "6497a60252632f0679efcd4c5f331219e710c5152de070da06414c11c5fcba44"
     },
     {
       "fixture": {
@@ -5951,8 +7727,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          3
+        ],
+        "outcome": 0,
+        "log_loss": 0.9320262021104677,
+        "brier": 0.5533537494699925,
+        "over25_brier": 0.25529478081876694,
+        "btts_brier": 0.20798463890489927
+      },
+      "result_hash": "c28edb130e4f134e70de7cf7e42068084e14a4d52a24e5835c0f1db922df4c78"
     },
     {
       "fixture": {
@@ -5991,8 +7779,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 1.2600030797122412,
+        "brier": 0.773155579384124,
+        "over25_brier": 0.4816254936707854,
+        "btts_brier": 0.3806550717357325
+      },
+      "result_hash": "64f3a27b1bf6f6f7ebed7c193c242f388e73f47e6260765b7e9d1060727adca4"
     },
     {
       "fixture": {
@@ -6005,8 +7805,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          7,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.07953528822350649,
+        "brier": 0.009463138058518871,
+        "over25_brier": 0.01734905721298678,
+        "btts_brier": 0.26797208557824764
+      },
+      "result_hash": "857700cb972d194471f875258279434f66b07eb30446faa6ab09216dbd13434b"
     },
     {
       "fixture": {
@@ -6111,8 +7923,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.3156048852370705,
+        "brier": 0.8037358371465284,
+        "over25_brier": 0.21723299368044527,
+        "btts_brier": 0.2672748683303865
+      },
+      "result_hash": "c36230017749ab5265706a6eb2f672b5d30f4b2b2156c47366221b97cb2b9275"
     },
     {
       "fixture": {
@@ -6139,8 +7963,20 @@
       "cohort": "first",
       "registered_at": "2026-10-30T11:30:54.088697+00:00",
       "run_id": "20261030T113054088707Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.24213189901605,
+        "brier": 0.7598814658144376,
+        "over25_brier": 0.2856889436981989,
+        "btts_brier": 0.1686596211626519
+      },
+      "result_hash": "2dba6c47797fc8b481e227985114b8ad9c0189a883fdc2ec5cc7d790a55488fb"
     },
     {
       "fixture": {
@@ -6179,8 +8015,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 0.5745141764175208,
+        "brier": 0.2865519646707688,
+        "over25_brier": 0.1307066661578915,
+        "btts_brier": 0.1455043639276749
+      },
+      "result_hash": "37e6930c4e4b4b123fbdfb7c954e4ec1c1aba4906d80a8be5c9504756e43a25f"
     },
     {
       "fixture": {
@@ -6273,8 +8121,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.4438758988803224,
+        "brier": 0.8813951366357995,
+        "over25_brier": 0.47756102205266565,
+        "btts_brier": 0.09146569166769158
+      },
+      "result_hash": "af9691b7686922f0e398a5638f799424dd7eb67e8094ef9cf81f23cf1f98894f"
     },
     {
       "fixture": {
@@ -6339,8 +8199,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.7605436155019166,
+        "brier": 0.42549041960509937,
+        "over25_brier": 0.2426752315495196,
+        "btts_brier": 0.2848234381140263
+      },
+      "result_hash": "9943bc15bfbbfe7719156e2fd4683204f98a27745a24ef8361b943e7a06f5b26"
     },
     {
       "fixture": {
@@ -6379,8 +8251,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.3309689161412184,
+        "brier": 0.12341577946509122,
+        "over25_brier": 0.256831238883208,
+        "btts_brier": 0.15120735139278593
+      },
+      "result_hash": "e5cb4ed1f2a10367fb47e818cbd6fd82d9204ef4b1cbdda478f7c052b11af606"
     },
     {
       "fixture": {
@@ -6459,8 +8343,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          5
+        ],
+        "outcome": 2,
+        "log_loss": 1.0190111635279773,
+        "brier": 0.615063625765988,
+        "over25_brier": 0.35344809674652683,
+        "btts_brier": 0.2822744263778669
+      },
+      "result_hash": "02a800e7dd2a94e8d907e0b05ca6b072f12f0db88a1b80d6347af2c54c91a180"
     },
     {
       "fixture": {
@@ -6501,8 +8397,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 0.6644339935116619,
+        "brier": 0.35364042842005927,
+        "over25_brier": 0.23377266024081722,
+        "btts_brier": 0.2145707860593095
+      },
+      "result_hash": "65f99cee5327897295b6683b9d86d5f6d41ece554776f99cfb775141271aa14c"
     },
     {
       "fixture": {
@@ -6515,8 +8423,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          1
+        ],
+        "outcome": 2,
+        "log_loss": 0.4741763006364683,
+        "brier": 0.2159378072353781,
+        "over25_brier": 0.30782475322239683,
+        "btts_brier": 0.27496649352424196
+      },
+      "result_hash": "0e652b5087258dc2fa9bf4ab16440a4213ea60ef1b4eaf2689a263ecb9b5f218"
     },
     {
       "fixture": {
@@ -6595,8 +8515,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.5949395021758156,
+        "brier": 0.30191179733403434,
+        "over25_brier": 0.36568501014502347,
+        "btts_brier": 0.36235994256092807
+      },
+      "result_hash": "e747a8fe05843d2a1bf45ca0d9702299950d9d9662638e44699fbd1f7bfbde36"
     },
     {
       "fixture": {
@@ -6609,8 +8541,20 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.1232881081401134,
+        "brier": 0.6890723315290843,
+        "over25_brier": 0.21973833592148684,
+        "btts_brier": 0.27726384014766253
+      },
+      "result_hash": "a35d6a9a93454a84aa60b8feabd2e9ff5a6b0b73f0021820fdcf05ec7612e953"
     },
     {
       "fixture": {
@@ -6715,8 +8659,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          2
+        ],
+        "outcome": 0,
+        "log_loss": 0.8624707295518635,
+        "brier": 0.5020043793057368,
+        "over25_brier": 0.2820276699755024,
+        "btts_brier": 0.2343766760561535
+      },
+      "result_hash": "41b5231400773dc85a2aedf4dbe94fd4ed543b0c5f55a3f207fb79ee354e4ac5"
     },
     {
       "fixture": {
@@ -6783,8 +8739,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.6780504973875555,
+        "brier": 0.3660216926858163,
+        "over25_brier": 0.3421394536412281,
+        "btts_brier": 0.2952396884349131
+      },
+      "result_hash": "646f2f117848fa0339757374bc9b259abfdc9063240c8148e467596a9f87b49d"
     },
     {
       "fixture": {
@@ -6797,8 +8765,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.73661204012162,
+        "brier": 0.40771767764085143,
+        "over25_brier": 0.3270204345249999,
+        "btts_brier": 0.2804373856528863
+      },
+      "result_hash": "c6f9167be3383a2ee4e676e537d122df275a9bb9851e5c0cfedd98eda72dd349"
     },
     {
       "fixture": {
@@ -6811,8 +8791,20 @@
       "cohort": "first",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          4,
+          4
+        ],
+        "outcome": 1,
+        "log_loss": 1.4758037757893179,
+        "brier": 0.9390880609292626,
+        "over25_brier": 0.17943847050733858,
+        "btts_brier": 0.17994999562887393
+      },
+      "result_hash": "1a2b5e5d28cfa8f9757edf0b2092bfbd7cada39786ddb95035d1ffa4bfd749d5"
     },
     {
       "fixture": {
@@ -6851,8 +8843,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.795635861025227,
+        "brier": 0.45204666426499635,
+        "over25_brier": 0.2640490353273904,
+        "btts_brier": 0.22435820205061804
+      },
+      "result_hash": "2a2580a5822562fc196f29dd7207f60623475fc9ed4bf7ef3eddb85caccb5186"
     },
     {
       "fixture": {
@@ -6905,8 +8909,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 1.0706428936561798,
+        "brier": 0.656715513296819,
+        "over25_brier": 0.2575180385075088,
+        "btts_brier": 0.21374556023106359
+      },
+      "result_hash": "4844a17d60ddff0b7ea17735bd82ab18d40291f3d65bf30167bbcd87a4feabfc"
     },
     {
       "fixture": {
@@ -6919,8 +8935,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.19636076985370468,
+        "brier": 0.049508582429869046,
+        "over25_brier": 0.4531358627120762,
+        "btts_brier": 0.21062721504090945
+      },
+      "result_hash": "2a81d35b942e9dac9b4a49de17b81813cdcd0f1268256885d7bc28abc16d1c06"
     },
     {
       "fixture": {
@@ -6933,8 +8961,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.9116133648120908,
+        "brier": 0.5395704821035435,
+        "over25_brier": 0.29891488833232566,
+        "btts_brier": 0.3429224349237361
+      },
+      "result_hash": "1b547aebab95c58ac3c584ecca29e516d72db336fe59adf1cacae74e46c0c5b7"
     },
     {
       "fixture": {
@@ -6947,8 +8987,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.6346279212442978,
+        "brier": 0.33116521640477137,
+        "over25_brier": 0.3595429777858444,
+        "btts_brier": 0.3635906361451363
+      },
+      "result_hash": "9140509f0ea07e57bf894db4712ad680ec8361ef16fa9724c88a67ddac76e82e"
     },
     {
       "fixture": {
@@ -6961,8 +9013,20 @@
       "cohort": "first",
       "registered_at": "2026-10-30T11:30:54.088697+00:00",
       "run_id": "20261030T113054088707Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.9623994026208044,
+        "brier": 0.5767989060321377,
+        "over25_brier": 0.18148133580038706,
+        "btts_brier": 0.1502776918705119
+      },
+      "result_hash": "8209b529ca9ad3416036907d7993bcf6babc41dbff8726fc8fb6a23eab6bf20e"
     },
     {
       "fixture": {
@@ -6975,8 +9039,20 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 1.214812803840375,
+        "brier": 0.7506961369319236,
+        "over25_brier": 0.2120968641878242,
+        "btts_brier": 0.1686992054080827
+      },
+      "result_hash": "d41efa08899fd70bea14d462cf4979221e649e1c032ca25132a548a16c79edc0"
     },
     {
       "fixture": {
@@ -7055,8 +9131,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.9605611413583375,
+        "brier": 1.1695194727107212,
+        "over25_brier": 0.3431522570598466,
+        "btts_brier": 0.16666228644513453
+      },
+      "result_hash": "3ade599ba0b396fb7fed718a2607a9c8b3aa686a376d92a23648a9c49f1867b8"
     },
     {
       "fixture": {
@@ -7095,8 +9183,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.204341118953093,
+        "brier": 0.7353463116097274,
+        "over25_brier": 0.160131839219306,
+        "btts_brier": 0.27857273404851146
+      },
+      "result_hash": "cddce75af7b0874acfe27cb45fba547c77f0d0e72621a4f047648194b433b339"
     },
     {
       "fixture": {
@@ -7135,8 +9235,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.9417369944786889,
+        "brier": 0.5582428484054467,
+        "over25_brier": 0.14822016984527517,
+        "btts_brier": 0.21065206050662466
+      },
+      "result_hash": "a54b93af1ffbbdd91b97e86ad3206bcf297483bcb1080d16d7c98f1b44848112"
     },
     {
       "fixture": {
@@ -7149,8 +9261,20 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:18:22.948124+00:00",
       "run_id": "20260923T061822948133Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 1.0126982034302843,
+        "brier": 0.6110540984749581,
+        "over25_brier": 0.32578621551276726,
+        "btts_brier": 0.2608063684136933
+      },
+      "result_hash": "65b019ae1029609befe2165b1a816d2e14b7f110ffa2da2d407e8521b78705ee"
     },
     {
       "fixture": {
@@ -7189,8 +9313,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 0.6290640008602745,
+        "brier": 0.3284864873037221,
+        "over25_brier": 0.2754065493690163,
+        "btts_brier": 0.2514016415278711
+      },
+      "result_hash": "bed80780d25f560cedfdd6b11547e5fa1f266b79af6fad81d4d5a5d65e3a4098"
     },
     {
       "fixture": {
@@ -7257,8 +9393,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.4349951681233242,
+        "brier": 0.927503706725738,
+        "over25_brier": 0.3109084073871998,
+        "btts_brier": 0.31451705567071897
+      },
+      "result_hash": "fb05da6629474207cc3f78dc1023eef6f34000fd8dd5c739c3da339507ed7734"
     },
     {
       "fixture": {
@@ -7271,8 +9419,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.2268040361362125,
+        "brier": 0.7657173299464343,
+        "over25_brier": 0.3210358987241272,
+        "btts_brier": 0.3605461547413273
+      },
+      "result_hash": "e8965bc0f8d932a9c9e412ac94c61ae0512fd6da74b05bf06f9c82330693fbc3"
     },
     {
       "fixture": {
@@ -7363,8 +9523,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          5,
+          3
+        ],
+        "outcome": 0,
+        "log_loss": 1.580178892361608,
+        "brier": 0.9951762142922937,
+        "over25_brier": 0.1314255522118804,
+        "btts_brier": 0.13567650923257804
+      },
+      "result_hash": "64f49cd22ebfb05499268e5b4cb9845e80b5eece59596eff5dd7b226a1a24d55"
     },
     {
       "fixture": {
@@ -7377,8 +9549,20 @@
       "cohort": "first",
       "registered_at": "2026-10-31T11:02:59.621670+00:00",
       "run_id": "20261031T110259621679Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.1837066366151825,
+        "brier": 0.04381886159289888,
+        "over25_brier": 0.48934988764710036,
+        "btts_brier": 0.22373095234761173
+      },
+      "result_hash": "f1d7f3aca3457d92dd17ce9549e00f05288008cc1fbd13df7963ad6e509ab8a4"
     },
     {
       "fixture": {
@@ -7391,8 +9575,20 @@
       "cohort": "first",
       "registered_at": "2026-10-26T11:22:39.936383+00:00",
       "run_id": "20261026T112239936389Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 1.288482611341386,
+        "brier": 0.8144165938049536,
+        "over25_brier": 0.16252195451298304,
+        "btts_brier": 0.1486777140933428
+      },
+      "result_hash": "e6aa113ca2c50033469500c2c7b019e65833bbe3cb6544b81aaf54e94b19491d"
     },
     {
       "fixture": {
@@ -7405,8 +9601,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          0,
+          1
+        ],
+        "outcome": 2,
+        "log_loss": 0.500225057896151,
+        "brier": 0.2334528689253564,
+        "over25_brier": 0.282689623974333,
+        "btts_brier": 0.2604487739710233
+      },
+      "result_hash": "506edbd8322cd4da36a125b5c1f19248774896b9b7c4ced1f39ca5c30963cef2"
     },
     {
       "fixture": {
@@ -7419,8 +9627,20 @@
       "cohort": "first",
       "registered_at": "2026-11-01T11:57:29.580324+00:00",
       "run_id": "20261101T115729580331Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          2,
+          2
+        ],
+        "outcome": 1,
+        "log_loss": 1.273728922448041,
+        "brier": 0.8052184953236207,
+        "over25_brier": 0.3116084243222524,
+        "btts_brier": 0.26072869050489106
+      },
+      "result_hash": "e39b7ef527241badf6c80f48113fc89580f42dffda65325a9b38c23741ec4896"
     },
     {
       "fixture": {
@@ -7433,8 +9653,34 @@
       "cohort": "first",
       "registered_at": "2026-09-23T06:14:36.769447+00:00",
       "run_id": "20260923T061436769464Z",
-      "status": "missing_result",
-      "readiness": "review_required"
+      "status": "graded",
+      "readiness": "review_required",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.28021511048275755,
+        "brier": 0.09147018349646209,
+        "over25_brier": 0.12918575117354553,
+        "btts_brier": 0.24426155785770626
+      },
+      "result_hash": "444c4d689f05c3a5a8e7e09c9edec06bfaa8cfb97b58118e7648ed1b10ee88ad"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-21",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Lille OSC",
+        "away": "Olympique Lyonnais"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
+      "readiness": "research_only"
     },
     {
       "fixture": {
@@ -7447,8 +9693,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          2
+        ],
+        "outcome": 1,
+        "log_loss": 1.4290052889711353,
+        "brier": 0.9147840251329666,
+        "over25_brier": 0.1934718561729141,
+        "btts_brier": 0.18811654163551175
+      },
+      "result_hash": "34ba908a86e1eea2d43b79f3ba12dc19642c81a1a5aef0b2d42742a3e0b99c58"
     },
     {
       "fixture": {
@@ -7461,7 +9719,33 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.3593646027657096,
+        "brier": 0.8529583510151931,
+        "over25_brier": 0.28867665524471436,
+        "btts_brier": 0.24879768457349008
+      },
+      "result_hash": "f66d0f2cbbe73239b828fc0a8e5764df92cc3721291aab196ac2981114905f39"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-21",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "AS Monaco FC",
+        "away": "AJ Auxerre"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -7475,7 +9759,33 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 0.6679845737278125,
+        "brier": 0.3561510683491484,
+        "over25_brier": 0.1798952731458215,
+        "btts_brier": 0.17111158454037484
+      },
+      "result_hash": "43e40e62732c3aae42a57d8048b0bcde06fec7828567190a632009c3041df1a9"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-21",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "FC Utrecht",
+        "away": "SC Cambuur-Leeuwarden"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -7664,6 +9974,20 @@
     },
     {
       "fixture": {
+        "date": "2026-11-27",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Stade Brestois 29",
+        "away": "Paris FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
         "date": "2026-10-25",
         "league_id": "es.1",
         "league": "Spain \u2014 La Liga",
@@ -7673,8 +9997,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.6953260246033722,
+        "brier": 0.37664611401928316,
+        "over25_brier": 0.23209608661811587,
+        "btts_brier": 0.21086835033549556
+      },
+      "result_hash": "0df3a7e7a204a1abd3076b39b059b81caee8ba74630b6c42ea69902ef2a936a1"
     },
     {
       "fixture": {
@@ -7687,8 +10023,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.4372805166505616,
+        "brier": 0.1901515015171683,
+        "over25_brier": 0.28349790949178083,
+        "btts_brier": 0.23421460859882107
+      },
+      "result_hash": "c981c3e4b400ed1692f48ef4144bf9c04959bae0447308fe830e6fb1cbb3384c"
     },
     {
       "fixture": {
@@ -7701,8 +10049,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          4,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.8038459907101265,
+        "brier": 0.4637739482081639,
+        "over25_brier": 0.566120814612223,
+        "btts_brier": 0.09996973036006329
+      },
+      "result_hash": "1c6eea59f90e2b6d2b10359485334c1cda8bc92e3bd49e514b29f206afc5319f"
     },
     {
       "fixture": {
@@ -7715,7 +10075,33 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.768767035888768,
+        "brier": 0.43174454142119095,
+        "over25_brier": 0.3081334642965925,
+        "btts_brier": 0.2578601634351838
+      },
+      "result_hash": "09cf5b6793e702d7e7e9684489cba8fefebd7b73850a41008195b6040a01c989"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-22",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Paris FC",
+        "away": "Angers SCO"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -7729,8 +10115,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.3638454813715243,
+        "brier": 0.13994453303691926,
+        "over25_brier": 0.08327312522335463,
+        "btts_brier": 0.14812034896526155
+      },
+      "result_hash": "325676411229a98aa633bed35394e2aa0eb58fc89dad7d75f7e27af35129eb81"
     },
     {
       "fixture": {
@@ -7771,6 +10169,20 @@
         "btts_brier": 0.17726660655716878
       },
       "result_hash": "4b3b39b14d7ec8cd48b867fb7666cde6b40e636f3d0aee92852636c60987b816"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-21",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "Telstar 1963",
+        "away": "PEC Zwolle"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
+      "readiness": "research_only"
     },
     {
       "fixture": {
@@ -7919,6 +10331,34 @@
     {
       "fixture": {
         "date": "2026-11-22",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "FC Twente '65",
+        "away": "Willem II Tilburg"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-21",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "RC Strasbourg Alsace",
+        "away": "Stade Brestois 29"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-22",
         "league_id": "de.2",
         "league": "Germany \u2014 2. Bundesliga",
         "home": "Karlsruher SC",
@@ -7941,8 +10381,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          1
+        ],
+        "outcome": 2,
+        "log_loss": 0.7728417069246334,
+        "brier": 0.4346521723066279,
+        "over25_brier": 0.19763207157025878,
+        "btts_brier": 0.23963826324210105
+      },
+      "result_hash": "bcc107478a2c4e980693362b333b587fd01412bfa4fd7759cb176d7bbd54f345"
     },
     {
       "fixture": {
@@ -7960,6 +10412,20 @@
     },
     {
       "fixture": {
+        "date": "2026-11-22",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Olympique de Marseille",
+        "away": "Le Mans FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
         "date": "2026-10-23",
         "league_id": "fr.1",
         "league": "France \u2014 Ligue 1",
@@ -7969,8 +10435,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 1.1531658297667693,
+        "brier": 0.7095996953360278,
+        "over25_brier": 0.3074739489943398,
+        "btts_brier": 0.24614706860102475
+      },
+      "result_hash": "af2143d5c303f54172414c03d22503703ec4682e8128fa1fafea6c4361ffbacc"
     },
     {
       "fixture": {
@@ -7997,8 +10475,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          5,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.7437765447089157,
+        "brier": 0.4140849796004552,
+        "over25_brier": 0.36381546505344486,
+        "btts_brier": 0.30468067895135315
+      },
+      "result_hash": "1c356cef67f1be038dda71840ce97ab3cd753711b494ec08b6fd3f94082d2702"
     },
     {
       "fixture": {
@@ -8011,8 +10501,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.6061556653232556,
+        "brier": 0.31157387772422607,
+        "over25_brier": 0.32572976351489474,
+        "btts_brier": 0.3052320836332395
+      },
+      "result_hash": "b1a92da8641d39cc9dd9a9eb5aef2306b9f0608b1bd09f047c6b61f222064702"
     },
     {
       "fixture": {
@@ -8025,8 +10527,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          3
+        ],
+        "outcome": 1,
+        "log_loss": 1.3225804471039981,
+        "brier": 0.8144332703739919,
+        "over25_brier": 0.2758503436737533,
+        "btts_brier": 0.2293950404302128
+      },
+      "result_hash": "53855cba836f531f465ecf925288c464580da01448267bfad679f830eb4e4b3e"
     },
     {
       "fixture": {
@@ -8039,8 +10553,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 0.7659219056589217,
+        "brier": 0.4305866889371102,
+        "over25_brier": 0.19873582899335995,
+        "btts_brier": 0.17825963499073363
+      },
+      "result_hash": "b3651dcefbc82fd657d794091c62ac25f2fae0894219b2ecc7c6bae5245a940e"
     },
     {
       "fixture": {
@@ -8053,7 +10579,33 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.3264073681517563,
+        "brier": 0.8603907006327796,
+        "over25_brier": 0.19443034954771649,
+        "btts_brier": 0.2829399818403035
+      },
+      "result_hash": "759a52f783f84602041d4ab879079dd46581c305210df1c3e17c23ba5a488543"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-23",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Juventus FC",
+        "away": "Venezia FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -8093,8 +10645,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.3735247093444876,
+        "brier": 0.8758711844658047,
+        "over25_brier": 0.22414395672477933,
+        "btts_brier": 0.25188062917591186
+      },
+      "result_hash": "346664a659e683cee6d7c1713691c5693d5ef040be4e08c1725116bf6171b3c7"
     },
     {
       "fixture": {
@@ -8124,6 +10688,20 @@
     },
     {
       "fixture": {
+        "date": "2026-11-21",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "Racing Club de Lens",
+        "away": "Toulouse FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
         "date": "2026-11-20",
         "league_id": "de.2",
         "league": "Germany \u2014 2. Bundesliga",
@@ -8138,6 +10716,20 @@
     },
     {
       "fixture": {
+        "date": "2026-11-21",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Como 1907",
+        "away": "Cagliari Calcio"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
         "date": "2026-10-25",
         "league_id": "es.1",
         "league": "Spain \u2014 La Liga",
@@ -8147,8 +10739,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 1.3942222958843618,
+        "brier": 0.8946566560430942,
+        "over25_brier": 0.1428612878952709,
+        "btts_brier": 0.14650520600690523
+      },
+      "result_hash": "e89463e1ad6b3bd6a39be34db6795da52ee33dd19fa0de3a1a59ae7e945087c6"
     },
     {
       "fixture": {
@@ -8213,8 +10817,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.466098665821363,
+        "brier": 0.9131646827371318,
+        "over25_brier": 0.36175267658877164,
+        "btts_brier": 0.15332034300631492
+      },
+      "result_hash": "735e30e1245cc8155ca84f88c543e7c1666b7ea0c217c2225f735f8069af6438"
     },
     {
       "fixture": {
@@ -8244,6 +10860,20 @@
     },
     {
       "fixture": {
+        "date": "2026-11-22",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "US Sassuolo Calcio",
+        "away": "Genoa CFC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
         "date": "2026-10-10",
         "league_id": "fr.1",
         "league": "France \u2014 Ligue 1",
@@ -8253,8 +10883,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.0774497495378141,
+        "brier": 0.6560516432169599,
+        "over25_brier": 0.1865794357079959,
+        "btts_brier": 0.24513336065943447
+      },
+      "result_hash": "af63bc6e067b2b2d8a9c25243b4990082f92fc219b3c3fe1facc2b60f9fad1ff"
     },
     {
       "fixture": {
@@ -8371,8 +11013,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.2690361796011007,
+        "brier": 0.7789024655868273,
+        "over25_brier": 0.20414521374624697,
+        "btts_brier": 0.24116140862533916
+      },
+      "result_hash": "963871ecf298da47e52918228073d99ebfabdf1ea6563fe2e2ead7a876fc64b2"
     },
     {
       "fixture": {
@@ -8385,6 +11039,20 @@
       "cohort": "eligible",
       "registered_at": "2026-11-14T12:24:09.991597+00:00",
       "run_id": "20261114T122409991607Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-21",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "SSC Napoli",
+        "away": "Torino FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
       "status": "pending",
       "readiness": "research_only"
     },
@@ -8482,6 +11150,20 @@
     },
     {
       "fixture": {
+        "date": "2026-11-21",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Parma Calcio 1913",
+        "away": "AS Roma"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
         "date": "2026-10-25",
         "league_id": "es.1",
         "league": "Spain \u2014 La Liga",
@@ -8491,8 +11173,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 1.091205365236807,
+        "brier": 0.6675941106452947,
+        "over25_brier": 0.31608662046325986,
+        "btts_brier": 0.25463711724854093
+      },
+      "result_hash": "c970cca9f20f9edca481ca28080b9e7848523fc249b7caf614c3b595e7d0ca5a"
     },
     {
       "fixture": {
@@ -8505,8 +11199,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          4,
+          3
+        ],
+        "outcome": 0,
+        "log_loss": 0.5337126318110444,
+        "brier": 0.2586660211547469,
+        "over25_brier": 0.2542612372984234,
+        "btts_brier": 0.26193439336042684
+      },
+      "result_hash": "b0c2ee09814639d2d4f720b2ecfd67fb40eb315f5bd4652293ccae31cc591f11"
     },
     {
       "fixture": {
@@ -8573,8 +11279,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.2772773103920987,
+        "brier": 0.7827712678042791,
+        "over25_brier": 0.187035439139643,
+        "btts_brier": 0.2403825204471778
+      },
+      "result_hash": "7bf3cc77c00db6db58498cc82d14689630ed557baa436f0682e1e102d7fa7b7a"
     },
     {
       "fixture": {
@@ -8653,8 +11371,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          1
+        ],
+        "outcome": 1,
+        "log_loss": 1.063526051322239,
+        "brier": 0.6481457606628944,
+        "over25_brier": 0.05573972039209033,
+        "btts_brier": 0.4624139551036497
+      },
+      "result_hash": "01aeda8c1ef783443ab9c5102e42b6d38927e113f80b3992bd80ec77e8450c66"
     },
     {
       "fixture": {
@@ -8667,8 +11397,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.297745842752099,
+        "brier": 0.8090863525404034,
+        "over25_brier": 0.3164568649890339,
+        "btts_brier": 0.2354545024082909
+      },
+      "result_hash": "9e35de1f33a85f91121798e0ea91ccd19486402298b730aeac234dcc508fc24d"
     },
     {
       "fixture": {
@@ -8733,8 +11475,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.8687830330091645,
+        "brier": 0.5061398424100281,
+        "over25_brier": 0.26978115145646075,
+        "btts_brier": 0.2208636986324472
+      },
+      "result_hash": "4c7426b8eb9d3c3c60f212967753a54f08a64146316afb615c011453c8edd37e"
     },
     {
       "fixture": {
@@ -8839,8 +11593,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          3
+        ],
+        "outcome": 1,
+        "log_loss": 1.3327693597440706,
+        "brier": 0.813215620242362,
+        "over25_brier": 0.2603459442325344,
+        "btts_brier": 0.21483650929864642
+      },
+      "result_hash": "f17853db31f6fd28535850e9bb2cc74fb1c50c5609d11a765a735a8169d2f217"
     },
     {
       "fixture": {
@@ -8879,7 +11645,33 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          2
+        ],
+        "outcome": 0,
+        "log_loss": 0.8773339901936799,
+        "brier": 0.5151756391424371,
+        "over25_brier": 0.20978468743041218,
+        "btts_brier": 0.1803510366144976
+      },
+      "result_hash": "631cb683a61b6d73306fe70e6e8e7b32096f45d3fa9e1c73fbfb6bfc7feedf16"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-22",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "AC Milan",
+        "away": "Frosinone Calcio"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -8893,8 +11685,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.8072667408069424,
+        "brier": 0.46028231765807226,
+        "over25_brier": 0.16504828842943325,
+        "btts_brier": 0.2123703890124209
+      },
+      "result_hash": "036c2f7d6f054a7d5c8ad72ea2438b51125ee67b57c026a8dac38f1c2e68c6bf"
     },
     {
       "fixture": {
@@ -8921,7 +11725,33 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.4930752050390336,
+        "brier": 0.22746015681584403,
+        "over25_brier": 0.3887377844312391,
+        "btts_brier": 0.34217710576853183
+      },
+      "result_hash": "e8f418c45e1d25508bbc540cc585bf1c57f231c8e6e84a07fd880a73e1ee8811"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-21",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "OGC Nice",
+        "away": "Paris Saint-Germain FC"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -8935,8 +11765,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.3919396434370919,
+        "brier": 0.1593785292222881,
+        "over25_brier": 0.3460454608117083,
+        "btts_brier": 0.2641641546697768
+      },
+      "result_hash": "3592789d6619763725b1c7a2fdff25ac28a441dd5ddc786d6981c9e8a7d4a72d"
     },
     {
       "fixture": {
@@ -8949,7 +11791,47 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.7519663377283218,
+        "brier": 0.41950049207024886,
+        "over25_brier": 0.3596895779392042,
+        "btts_brier": 0.3031595033831117
+      },
+      "result_hash": "63ecd0146a75ed2085070f7cf057d6afa2f889e9986647af51f7fa4ac513b8b8"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-21",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "SS Lazio",
+        "away": "US Lecce"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-22",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "AFC Ajax",
+        "away": "ADO Den Haag"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -8977,8 +11859,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.1964157735079315,
+        "brier": 0.7302365809268322,
+        "over25_brier": 0.12523874122979428,
+        "btts_brier": 0.1827172180879235
+      },
+      "result_hash": "dff0759b744926c943fcc9697b088eeb7d4e6103a3ec3ecb1f96e3b1e607bce4"
     },
     {
       "fixture": {
@@ -9031,7 +11925,33 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.5728951198419997,
+        "brier": 0.2858196204062244,
+        "over25_brier": 0.30551523473874276,
+        "btts_brier": 0.30049514885002415
+      },
+      "result_hash": "4d2f0280c1e4bd3ffa7a16677a237bc220f81c8e02ca31bd3d95a88e5eb12826"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-21",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "FC Groningen",
+        "away": "SC Heerenveen"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -9045,8 +11965,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.8296064766044571,
+        "brier": 0.4767850817361179,
+        "over25_brier": 0.33835941292924515,
+        "btts_brier": 0.2777223037305543
+      },
+      "result_hash": "faaff922425fa547825adc77daf7ba13496bc3af49562745cb1440458a395e89"
     },
     {
       "fixture": {
@@ -9085,7 +12017,33 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.3620785429015496,
+        "brier": 0.8301174264023385,
+        "over25_brier": 0.27366531052218585,
+        "btts_brier": 0.3165594413500128
+      },
+      "result_hash": "9cabbec138295f28b07c46a31067d5df0f133ef1747aff21089f8821b9db7b05"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-27",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "FC Groningen",
+        "away": "Willem II Tilburg"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -9113,8 +12071,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.7291721536021994,
+        "brier": 0.40251159881615484,
+        "over25_brier": 0.3014412259672726,
+        "btts_brier": 0.32467989026508026
+      },
+      "result_hash": "4f27e2c82df5875ddf075ea248a980a8a78d0bf89cfdbd31b163de84e27486fd"
     },
     {
       "fixture": {
@@ -9141,8 +12111,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.1816359377894345,
+        "brier": 0.7225949234532146,
+        "over25_brier": 0.1318516292371729,
+        "btts_brier": 0.19188246177292229
+      },
+      "result_hash": "2bf7230840926d1b3b6c1f6996e4873201ca95075b4f2de833bcb20fa9745299"
     },
     {
       "fixture": {
@@ -9221,8 +12203,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.5765726418329356,
+        "brier": 0.29348734030054746,
+        "over25_brier": 0.14131202867598502,
+        "btts_brier": 0.15506820702384905
+      },
+      "result_hash": "691f783a6eb8418e0af3b0f97ccc0839f8e2a755e02bc5469a351a5741df8e46"
     },
     {
       "fixture": {
@@ -9235,8 +12229,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.453837921385642,
+        "brier": 0.911764296272037,
+        "over25_brier": 0.2998957919404419,
+        "btts_brier": 0.232659064280728
+      },
+      "result_hash": "56f094bc6b245177440af4a2c133357810019cb1fbf5ecbe54c160c4dab28149"
     },
     {
       "fixture": {
@@ -9393,8 +12399,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.8955373833463349,
+        "brier": 0.5268980168386174,
+        "over25_brier": 0.2296927456325467,
+        "btts_brier": 0.27688533678613747
+      },
+      "result_hash": "481bb9057f861d7409a252ef04483a51320f26db6e1d6b1eedb33825d691c92a"
     },
     {
       "fixture": {
@@ -9407,8 +12425,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.8704763374811951,
+        "brier": 0.5100073225862445,
+        "over25_brier": 0.174752790307249,
+        "btts_brier": 0.37231794957019193
+      },
+      "result_hash": "875c1b441e162f89c4be8327c999328fae73463179f050fef146ffffdd4bc16d"
     },
     {
       "fixture": {
@@ -9447,8 +12477,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 1.2129680719779625,
+        "brier": 0.7563043092956131,
+        "over25_brier": 0.26684694892918276,
+        "btts_brier": 0.30889167940118684
+      },
+      "result_hash": "2c92cffeda326978c75597dc6da6199d00d03a9d2e559102a3f5830e06702ebc"
     },
     {
       "fixture": {
@@ -9461,8 +12503,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          5
+        ],
+        "outcome": 2,
+        "log_loss": 0.6994999367211335,
+        "brier": 0.3805489377003716,
+        "over25_brier": 0.31115118304736206,
+        "btts_brier": 0.27017419803865905
+      },
+      "result_hash": "e4659ad2f30b095cfab033803812f8ab571d5cedd646f00bf161efdce81918ae"
     },
     {
       "fixture": {
@@ -9475,8 +12529,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 1.0673776945762041,
+        "brier": 0.6511799803914224,
+        "over25_brier": 0.27238661517128276,
+        "btts_brier": 0.2193921134955802
+      },
+      "result_hash": "4a9c82a7567745c2051d9f4b7dfaeda517024fb44ccde34165a62c6859c5cabe"
     },
     {
       "fixture": {
@@ -9489,8 +12555,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.0233614854884274,
+        "brier": 0.6184772572865452,
+        "over25_brier": 0.3408635204237992,
+        "btts_brier": 0.22834896963185677
+      },
+      "result_hash": "ad90ba9bcd14f3dd2c30a7e816363743f9ba3fc694b8c3c2c4cc5ba5274d9c68"
     },
     {
       "fixture": {
@@ -9555,8 +12633,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          4,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.36630048597843207,
+        "brier": 0.1436888107705705,
+        "over25_brier": 0.19651240237503062,
+        "btts_brier": 0.2796519877691854
+      },
+      "result_hash": "24fd53ffea486b011277204e27125cc418963d8d245d3723e5ad500f234d80f8"
     },
     {
       "fixture": {
@@ -9621,7 +12711,33 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 1.083960380836726,
+        "brier": 0.6579626450746229,
+        "over25_brier": 0.40559482663457025,
+        "btts_brier": 0.3145455034187892
+      },
+      "result_hash": "c634e006d50f41becbda7749a17608c5f7f388099ae3ad6c6bbdd65d8ed47892"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-21",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "NEC",
+        "away": "PSV"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -9661,8 +12777,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          4,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.6817101458436794,
+        "brier": 0.3665595926173751,
+        "over25_brier": 0.2421240669518703,
+        "btts_brier": 0.2184674898034578
+      },
+      "result_hash": "87f86f14f81cf07d10da0add79c51f97d163686311ac0c330ec5642caba12033"
     },
     {
       "fixture": {
@@ -9767,8 +12895,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.414547900339911,
+        "brier": 0.893434982828484,
+        "over25_brier": 0.28667856190840313,
+        "btts_brier": 0.30474903288274185
+      },
+      "result_hash": "2bfb11db7867bf9538516d763f4abe3972ba519e231272b37df4868e92c8934b"
     },
     {
       "fixture": {
@@ -9807,7 +12947,33 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          5
+        ],
+        "outcome": 2,
+        "log_loss": 0.6714906098384376,
+        "brier": 0.358934720345979,
+        "over25_brier": 0.1809876739557064,
+        "btts_brier": 0.1734209795000605
+      },
+      "result_hash": "3cb96bd5a37a56aac807d7dce25410bb09d741e360b61244d6d20d903b09b15b"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-21",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "Feyenoord Rotterdam",
+        "away": "SBV Excelsior"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -9821,8 +12987,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.9304446651760314,
+        "brier": 0.5541591427743819,
+        "over25_brier": 0.23753153562588064,
+        "btts_brier": 0.19907010881342854
+      },
+      "result_hash": "c0737f8e7285f91bb8d9b0fa8e7f1c7a29c6e374ffce4dfd8546e084ee3f6381"
     },
     {
       "fixture": {
@@ -9835,8 +13013,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 0.6510781806176102,
+        "brier": 0.34446883366811615,
+        "over25_brier": 0.28752444295393303,
+        "btts_brier": 0.2602062243802267
+      },
+      "result_hash": "f2e7d2a5c0e9d10e18bbc292e9589d9b32acf782743385359df6395960ac2146"
     },
     {
       "fixture": {
@@ -9927,8 +13117,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          5,
+          2
+        ],
+        "outcome": 0,
+        "log_loss": 0.6198633104441182,
+        "brier": 0.32149888261981313,
+        "over25_brier": 0.3149660016664899,
+        "btts_brier": 0.29209892624171446
+      },
+      "result_hash": "ffd0c92bd6e6edfc20b686fdd0f77b4bc9da1fd7e7a784e5f68495efe8edc2ff"
     },
     {
       "fixture": {
@@ -9941,8 +13143,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-26T17:43:37.807088+00:00",
       "run_id": "20260926T174337807107Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.5423634639055138,
+        "brier": 0.2654382383230312,
+        "over25_brier": 0.19069644933430352,
+        "btts_brier": 0.19065878917831092
+      },
+      "result_hash": "6497a60252632f0679efcd4c5f331219e710c5152de070da06414c11c5fcba44"
     },
     {
       "fixture": {
@@ -9955,7 +13169,33 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          4,
+          3
+        ],
+        "outcome": 0,
+        "log_loss": 0.8721492369451495,
+        "brier": 0.5090224810438732,
+        "over25_brier": 0.24913242461555893,
+        "btts_brier": 0.2057046936203951
+      },
+      "result_hash": "c28edb130e4f134e70de7cf7e42068084e14a4d52a24e5835c0f1db922df4c78"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-23",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "AC Monza",
+        "away": "ACF Fiorentina"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -9969,7 +13209,33 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          0,
+          0
+        ],
+        "outcome": 1,
+        "log_loss": 1.3165112791248328,
+        "brier": 0.8040870238432842,
+        "over25_brier": 0.22881023790299498,
+        "btts_brier": 0.27892259393454877
+      },
+      "result_hash": "c36230017749ab5265706a6eb2f672b5d30f4b2b2156c47366221b97cb2b9275"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-22",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "Go Ahead Eagles",
+        "away": "Fortuna Sittard"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -9983,7 +13249,33 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          3
+        ],
+        "outcome": 2,
+        "log_loss": 0.5794056510188256,
+        "brier": 0.2901861503847723,
+        "over25_brier": 0.12920501684747787,
+        "btts_brier": 0.1433141473643412
+      },
+      "result_hash": "37e6930c4e4b4b123fbdfb7c954e4ec1c1aba4906d80a8be5c9504756e43a25f"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-22",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Atalanta BC",
+        "away": "FC Internazionale Milano"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
       "readiness": "research_only"
     },
     {
@@ -10011,8 +13303,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.33492520109197205,
+        "brier": 0.1261726675070091,
+        "over25_brier": 0.26117053841805055,
+        "btts_brier": 0.15018843949573613
+      },
+      "result_hash": "e5cb4ed1f2a10367fb47e818cbd6fd82d9204ef4b1cbdda478f7c052b11af606"
     },
     {
       "fixture": {
@@ -10039,6 +13343,20 @@
         "btts_brier": 0.44073814353062973
       },
       "result_hash": "20149a699550e683443c4f01c79aa550c23ea682a266febcd96d1ab14b92a55b"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-22",
+        "league_id": "it.1",
+        "league": "Italy \u2014 Serie A",
+        "home": "Bologna FC 1909",
+        "away": "Udinese Calcio"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
+      "readiness": "research_only"
     },
     {
       "fixture": {
@@ -10122,6 +13440,20 @@
     },
     {
       "fixture": {
+        "date": "2026-11-22",
+        "league_id": "nl.1",
+        "league": "Netherlands \u2014 Eredivisie",
+        "home": "Sparta Rotterdam",
+        "away": "AZ"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
         "date": "2026-11-27",
         "league_id": "en.1",
         "league": "England \u2014 Premier League",
@@ -10145,6 +13477,20 @@
       "cohort": "eligible",
       "registered_at": "2026-11-14T12:24:09.991597+00:00",
       "run_id": "20261114T122409991607Z",
+      "status": "pending",
+      "readiness": "research_only"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-22",
+        "league_id": "fr.1",
+        "league": "France \u2014 Ligue 1",
+        "home": "FC Lorient",
+        "away": "Stade Rennais FC 1901"
+      },
+      "cohort": "eligible",
+      "registered_at": "2026-11-20T08:44:10.234887+00:00",
+      "run_id": "20261120T084410234900Z",
       "status": "pending",
       "readiness": "research_only"
     },
@@ -10185,8 +13531,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          1,
+          2
+        ],
+        "outcome": 2,
+        "log_loss": 0.7306784114175441,
+        "brier": 0.40332452789810036,
+        "over25_brier": 0.3269453722999882,
+        "btts_brier": 0.28105989635614964
+      },
+      "result_hash": "c6f9167be3383a2ee4e676e537d122df275a9bb9851e5c0cfedd98eda72dd349"
     },
     {
       "fixture": {
@@ -10265,8 +13623,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          2,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 1.077898318834131,
+        "brier": 0.6620109268283436,
+        "over25_brier": 0.2548534225578124,
+        "btts_brier": 0.21178486219232895
+      },
+      "result_hash": "4844a17d60ddff0b7ea17735bd82ab18d40291f3d65bf30167bbcd87a4feabfc"
     },
     {
       "fixture": {
@@ -10357,8 +13727,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          1
+        ],
+        "outcome": 0,
+        "log_loss": 1.0126982034302843,
+        "brier": 0.6110540984749581,
+        "over25_brier": 0.32578621551276726,
+        "btts_brier": 0.2608063684136933
+      },
+      "result_hash": "65b019ae1029609befe2165b1a816d2e14b7f110ffa2da2d407e8521b78705ee"
     },
     {
       "fixture": {
@@ -10425,8 +13807,20 @@
       "cohort": "eligible",
       "registered_at": "2026-09-23T06:25:54.858046+00:00",
       "run_id": "20260923T062554858064Z",
-      "status": "missing_result",
-      "readiness": "research_only"
+      "status": "graded",
+      "readiness": "research_only",
+      "result": {
+        "goals": [
+          3,
+          0
+        ],
+        "outcome": 0,
+        "log_loss": 0.2821822577041329,
+        "brier": 0.09244944384703518,
+        "over25_brier": 0.12299547557505232,
+        "btts_brier": 0.25446001566797644
+      },
+      "result_hash": "444c4d689f05c3a5a8e7e09c9edec06bfaa8cfb97b58118e7648ed1b10ee88ad"
     }
   ],
   "method": "First forecast and first research-only forecast are frozen separately. Registration requires a calendar day before fixture date; a fixture moved to another date is graded on the date it was played and void if that was not after registration. Grades use current source results and may change if that source is corrected."
