@@ -1018,6 +1018,11 @@ def vip_ticket(data, n=17, live_scores=None, nba_legs=None):
             live_scores = {}
     form = {}
     rows = []
+    try:
+        import football_odds
+        odds = football_odds.load()['prices']
+    except Exception:
+        odds = {}
     for p in sorted(picks, key=lambda p: (p['date'], p.get('kickoff') or '', p['league_id'])):
         if p['league_id'] not in form:
             form[p['league_id']] = last_five(data, p['league_id'], today)
@@ -1025,7 +1030,8 @@ def vip_ticket(data, n=17, live_scores=None, nba_legs=None):
                    date=p['date'], kickoff=p.get('kickoff'), home=p['home'], away=p['away'], market=p['market'],
                    selection=p['selection'], probability=p['probability'], fair_odds=1 / p['probability'],
                    source=p.get('source'), last5=[form[p['league_id']].get(p['home'], []), form[p['league_id']].get(p['away'], [])],
-                   status=p['status'], score=p.get('goals'), clock='FT' if p['status'] in ('won', 'lost') else None, provisional=False)
+                   status=p['status'], score=p.get('goals'), clock='FT' if p['status'] in ('won', 'lost') else None, provisional=False,
+                   best_odds=(odds.get('|'.join((p['date'], p['home'], p['away'], p['selection']))) or {}).get('latest'))
         if p['status'] == 'pending':
             lv = live_scores.get('|'.join((p['date'], p['home'], p['away'])))
             if lv and lv['status'] == 'live':

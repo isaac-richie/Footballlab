@@ -540,6 +540,16 @@ html{background:var(--bg)}
 .ft-filter button b{margin-left:6px;opacity:.6;font-weight:700}
 .ft-filter button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#0b0f14}
 .ft-all{margin-top:34px}.ga-more{display:block;width:100%;margin-top:12px}
+.vl-best{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}.vl-best.up{color:#4fe08c;font-weight:700}
+.sl-odds{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:10px;align-items:end;margin-top:8px}
+.sl-odds small{display:block;font-size:10.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.05em}.sl-odds b{font-size:14px}
+.sl-odds input{width:100%;min-height:36px;padding:6px 10px;border-radius:9px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--text);font-size:16px}
+.calc-in{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:10px}.calc-in .field{margin-bottom:8px}
+.calc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:4px 0 8px}
+.calc-grid>div{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:8px 10px;min-width:0}
+.calc-grid small{display:block;font-size:10.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.05em}
+.calc-grid b{display:block;font-family:var(--mono);font-size:19px;margin:2px 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.calc-grid span{font-size:11px;color:var(--muted)}
+.calc-pay{color:var(--accent)}.calc-verdict{font-size:12.5px;margin:0 0 10px;color:var(--muted);line-height:1.45}.calc-verdict.pos b{color:#4fe08c}.calc-verdict.neg b{color:#ff7a7a}
 .cn-big{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:10px;margin-bottom:10px}.cn-big small{display:block;color:var(--muted);font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cn-big b{font-family:var(--mono);font-size:34px;font-weight:500}.cn-big .r{text-align:right}.cn-tot{text-align:center}.cn-tot b{color:var(--accent);font-size:40px}.cn-tot span{display:block;font-size:11.5px;color:var(--faint)}
 .cn-bar{display:flex;height:8px;border-radius:9px;overflow:hidden;gap:2px;background:var(--surface-3)}.cn-bar i{display:block;height:100%}
@@ -3567,7 +3577,7 @@ function vipCardHtml(l, i, quiet, attr){
       <div class="vl-main"><div class="vl-meta">${esc(l.league)} · ${esc(day(l.date))}${l.kickoff ? ' · ' + esc(koTime(l.kickoff)) : ''}</div>
         <div class="vl-teams"><span class="vl-team">${badge(l.home)}<b>${esc(l.home)}</b>${nba ? '' : formChips(f[0])}</span><span class="vl-team">${badge(l.away)}<b>${esc(l.away)}</b>${nba ? '' : formChips(f[1])}</span></div></div>
       <div class="vl-call"><small>Our pick${nba ? (l.market === 'winner' ? ' · winner' : ' · total points') : ''}</small><strong>${esc(bookieText(l))}</strong>${(VIP_STATE[l.status] || VIP_STATE.scheduled)(l)}</div>
-      <div class="vl-p"><b>${Math.round(l.probability * 100)}<i>%</i></b><small>chance · fair ${l.fair_odds.toFixed(2)}</small></div>
+      <div class="vl-p"><b>${Math.round(l.probability * 100)}<i>%</i></b><small>chance · fair ${l.fair_odds.toFixed(2)}</small>${l.best_odds ? `<small class="vl-best${l.best_odds > l.fair_odds ? ' up' : ''}">best price ${l.best_odds.toFixed(2)}</small>` : ''}</div>
       ${open ? `<button type="button" class="vl-add${state.slip.some(x => x.key === vipKey(l)) ? ' on' : ''}" ${attr}="${i}" aria-label="Add ${esc(l.home)} v ${esc(l.away)} to the slip">+</button>` : '<span class="vl-add-off" aria-hidden="true"></span>'}
     </article>`;
 }
@@ -3658,7 +3668,7 @@ setInterval(() => {
   if(d.legs.some(l => l.status === 'live' || (l.status === 'scheduled' && l.date <= today))) loadVip(true);
 }, 60000);
 const vipKey = l => `vip|${l.date}|${l.home}|${l.away}`;
-const vipItem = l => ({key: vipKey(l), home: l.home, away: l.away, date: l.date, legs: [bookieText(l)], p: l.probability, source: l.source || 'model', ...(l.sport === 'nba' ? {sport: 'nba'} : {})});
+const vipItem = l => ({key: vipKey(l), home: l.home, away: l.away, date: l.date, legs: [bookieText(l)], p: l.probability, source: l.source || 'model', ...(l.best_odds ? {odds: l.best_odds} : {}), ...(l.sport === 'nba' ? {sport: 'nba'} : {})});
 $('#vip-legs').addEventListener('click', e => {
   const b = e.target.closest('[data-vip]'); if(!b || !state.vip) return;
   slipAdd(vipItem(state.vip.legs[+b.dataset.vip])); b.classList.add('on');
@@ -3731,22 +3741,45 @@ function slipAdd(item){
   saveSlip(); const f = $('#slip-fab'); f.classList.remove('bump'); void f.offsetWidth; f.classList.add('bump');
 }
 function nbSlipItem(x, legs, p, tag){ return {key: `nba|${x.id || x.date + x.home}|${tag}`, home: x.home, away: x.away, date: x.date, legs, p, source: 'model', sport: 'nba'} }
+const CUR = [['NGN', '₦'], ['USD', '$'], ['GBP', '£'], ['EUR', '€'], ['GHS', 'GH₵'], ['KES', 'KSh']];
+function money(v){ const c = CUR.find(([k]) => k === (store.get('fl-cur') || 'NGN')) || CUR[0]; return c[1] + (v >= 1000 ? Math.round(v).toLocaleString() : v.toFixed(2)) }
 function renderSlip(){
   $('#slip-fab').hidden = !state.slip.length; $('#slip-count').textContent = state.slip.length;
-  if(!state.slip.length){ $('#slip-body').innerHTML = '<p class="note">Your slip is empty. Build a combination in a match and add it here.</p>'; $('#slip-foot').innerHTML = ''; return }
+  if(!state.slip.length){ $('#slip-body').innerHTML = '<p class="note">Your slip is empty. Add picks from VIP, a match or the NBA pages, then work out what they pay here.</p>'; $('#slip-foot').innerHTML = ''; return }
   $('#slip-body').innerHTML = state.slip.map((x, i) => `<div class="slip-item"><div class="slip-top"><span>${esc(day(x.date))} · ${esc(SRC[x.source] || x.source)}</span><button class="remove" data-remove="${i}" aria-label="Remove">✕</button></div>
     <div style="display:flex;gap:8px;align-items:center;font-weight:600;margin-top:6px">${x.sport === 'nba' ? jersey(x.home) : crest(x.home, true)}${esc(x.home)} <span style="color:var(--faint)">v</span> ${esc(x.away)}</div>
-    <div class="legs">${x.legs.map(esc).join(' + ')}</div><div style="display:flex;justify-content:space-between;font-size:12.5px"><span style="color:var(--muted)">${pct(x.p)}</span><b>${(1 / x.p).toFixed(2)}</b></div></div>`).join('');
-  const p = state.slip.reduce((m, x) => m * x.p, 1);
-  $('#slip-foot').innerHTML = `<div style="display:flex;justify-content:space-between;align-items:baseline"><span style="color:var(--muted)">${state.slip.length > 1 ? 'Accumulator fair price' : 'Fair price'}</span><span class="price" style="font-size:30px">${(1 / p).toFixed(2)}</span></div>
-    <div style="color:var(--muted);font-size:12.5px;margin-bottom:12px">Probability ${pct(p)}</div>
-    <label class="field"><span>Price offered by your bookmaker</span><input id="slip-offer" type="number" step="any" min="1.01" inputmode="decimal" placeholder="${(1 / p).toFixed(2)}"></label>
-    <p id="slip-ev" class="note" style="margin-top:0">Enter a price to compare it with the fair price.</p>
+    <div class="legs">${x.legs.map(esc).join(' + ')}</div>
+    <div class="sl-odds"><span><small>Our chance</small><b>${pct(x.p)}</b></span><span><small>Fair odds</small><b>${(1 / x.p).toFixed(2)}</b></span>
+      <label><small>Your bookie's odds</small><input type="number" step="0.01" min="1.01" inputmode="decimal" data-odds="${i}" value="${x.odds ? Number(x.odds).toFixed(2) : ''}" placeholder="${(1 / x.p).toFixed(2)}"></label></div></div>`).join('');
+  const cur = store.get('fl-cur') || 'NGN', stake = Number(store.get('fl-stake') || 1000);
+  $('#slip-foot').innerHTML = `<div class="calc">
+      <div class="calc-in"><label class="field"><span>Stake</span><input id="calc-stake" type="number" min="0" step="any" inputmode="decimal" value="${stake}"></label>
+        <label class="field"><span>Currency</span><select id="calc-cur">${CUR.map(([k, sym]) => `<option value="${k}"${k === cur ? ' selected' : ''}>${sym} ${k}</option>`).join('')}</select></label></div>
+      <div id="calc-out"></div></div>
     <button class="ghost" id="slip-clear" type="button" style="width:100%">Clear slip</button>
-    <p class="note">Different matches are treated as independent. This compares prices; it is not a recommendation to bet.</p>`;
-  $('#slip-offer').oninput = e => { const o = Number(e.target.value), ev = p * o - 1;
-    $('#slip-ev').innerHTML = o > 1 ? `Expected return <b class="${ev > 0 ? 'edge-pos' : 'edge-neg'}">${(ev > 0 ? '+' : '') + (ev * 100).toFixed(1)}%</b> per unit at ${o.toFixed(2)}. Break-even price is ${(1 / p).toFixed(2)}.` : 'Enter a price to compare it with the fair price.' };
+    <p class="note">Odds multiply across picks (different matches are treated as independent). Probabilities, not promises: check the odds on your bookie's own slip. 18+.</p>`;
+  calc();
 }
+function calc(){
+  const el = $('#calc-out'); if(!el) return;
+  const stake = Math.max(0, Number($('#calc-stake').value) || 0), p = state.slip.reduce((m, x) => m * x.p, 1);
+  const fair = 1 / p, priced = state.slip.every(x => x.odds > 1), book = state.slip.reduce((m, x) => m * (x.odds > 1 ? x.odds : 1 / x.p), 1);
+  const ret = stake * book, ev = p * book - 1, n = state.slip.length;
+  el.innerHTML = `<div class="calc-grid">
+      <div><small>${n > 1 ? n + '-pick odds' : 'Odds'}</small><b>${book.toFixed(2)}</b><span>${priced ? "your bookie's" : 'fair, until you add odds'}</span></div>
+      <div><small>Pays if ${n > 1 ? 'all win' : 'it wins'}</small><b class="calc-pay">${money(ret)}</b><span>profit ${money(ret - stake)}</span></div>
+      <div><small>Our chance ${n > 1 ? 'all win' : 'it wins'}</small><b>${pct(p)}</b><span>fair odds ${fair.toFixed(2)}</span></div></div>
+    ${priced ? `<p class="calc-verdict ${ev > 0 ? 'pos' : 'neg'}">${ev > 0
+      ? `Your bookie pays <b>more</b> than our numbers say this is worth: on average about <b>${money(stake * ev)}</b> back per ${money(stake)} staked over many slips like this.`
+      : `Your bookie pays <b>less</b> than fair: by our numbers a slip like this loses about <b>${money(stake * -ev)}</b> per ${money(stake)} staked on average.`}</p>`
+      : `<p class="calc-verdict">Add your bookie's odds for each pick to see what this slip really pays.</p>`}`;
+}
+document.addEventListener('input', e => {
+  const o = e.target.closest('[data-odds]');
+  if(o){ const x = state.slip[+o.dataset.odds], v = Number(o.value); if(x){ if(v > 1) x.odds = v; else delete x.odds; store.set('fl-slip', JSON.stringify(state.slip)) } calc(); return }
+  if(e.target.id === 'calc-stake'){ store.set('fl-stake', e.target.value); calc() }
+});
+document.addEventListener('change', e => { if(e.target.id === 'calc-cur'){ store.set('fl-cur', e.target.value); calc() } });
 function openSlip(open){ $('#drawer').classList.toggle('open', open); $('#scrim').classList.toggle('open', open); $('#drawer').setAttribute('aria-hidden', String(!open)) }
 $('#slip-fab').onclick = () => openSlip(true);
 $('#slip-close').onclick = $('#scrim').onclick = () => openSlip(false);
