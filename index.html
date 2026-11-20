@@ -2031,6 +2031,73 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
 .vc-b{border-radius:999px;padding:9px 16px;font-weight:650;font-size:13px}
 .vc-b.done{background:var(--ok-bg);color:var(--ok);border-color:var(--ok)}
 .vc-how{margin:12px 0 0;color:var(--muted);font-size:12.5px;line-height:1.5}
+
+/* ---------- Tools page ---------- */
+.tl-head{margin-bottom:14px}
+.tl-tabs{margin-bottom:16px}
+.tl-pane{display:grid;gap:14px}
+.tl-pane[hidden]{display:none}
+.tl-now{margin:0}
+.tl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;align-items:start}
+.tl-card h3{margin:0 0 4px;font-family:var(--display);font-size:18px;letter-spacing:.02em}
+.tl-d{margin:0 0 12px;color:var(--muted);font-size:13px;line-height:1.5}
+.tl-2{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
+.tl-card textarea,.tl-card select{width:100%;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;font-size:13.5px;color:var(--text)}
+.tl-card textarea{resize:vertical;min-height:72px}
+.tl-out:empty{display:none}
+.tl-out p{margin:8px 0 0;font-size:13px;line-height:1.5}
+.tl-drop{color:var(--muted)}
+.tl-res{display:flex;flex-wrap:wrap;gap:8px}
+.tl-res span{flex:1 1 90px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:8px 10px}
+.tl-res small{display:block;font-size:11px;color:var(--muted)}
+.tl-res b{font-size:17px}
+.tl-res b.pos,.calc-verdict.pos b{color:var(--ok)}
+.tl-res b.neg{color:var(--warn)}
+.tl-split{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;padding:8px 0;border-top:1px solid var(--line);font-size:13px}
+.tl-split small{grid-column:1/-1;color:var(--muted)}
+.tl-link{display:inline-flex;justify-content:center;width:100%;text-decoration:none}
+.tl-foot{margin-top:18px}
+.qs-form{display:grid;gap:12px}
+.qs-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.qs-l{min-width:70px;font-size:12px;font-weight:650;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.qs-n{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:999px;padding:3px}
+.qs-n button{width:32px;height:32px;border-radius:999px;border:0;background:var(--surface-2);font-size:18px;font-weight:700;color:var(--text)}
+.qs-n b{min-width:22px;text-align:center;font-size:16px}
+.qs-strat{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.qs-strat button{display:grid;gap:3px;text-align:left;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface-2);color:var(--text)}
+.qs-strat button b{font-family:var(--display);font-size:16px;letter-spacing:.02em}
+.qs-strat button small{color:var(--muted);font-size:12px}
+.qs-strat button[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--surface-2))}
+.qs-strat button[aria-pressed="true"] b{color:var(--accent)}
+.qs-mk summary{cursor:pointer;font-weight:650;font-size:13px}
+.qs-mk summary small{color:var(--muted);font-weight:500;margin-left:6px}
+.qs-mk .chips{margin-top:10px}
+.qs-mk .chip[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+.qs-go{display:flex;flex-wrap:wrap;gap:8px}
+.qs-go .primary{flex:1 1 180px}
+.qs-sum{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13.5px;color:var(--muted);padding-bottom:10px;border-bottom:1px solid var(--line)}
+.qs-sum b{color:var(--text);font-size:16px}
+.qs-leg{display:grid;grid-template-columns:1fr auto;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.qs-lm small{display:block;color:var(--muted);font-size:11.5px;letter-spacing:.04em}
+.qs-tm{display:flex;align-items:center;gap:6px;font-weight:600;margin:4px 0}
+.qs-tm i{color:var(--faint);font-style:normal}
+.qs-lm strong{font-family:var(--serif);font-size:18px;font-weight:600}
+.qs-p{text-align:right}
+.qs-p b{font-size:24px}
+.qs-p b i{font-style:normal;font-size:14px;opacity:.7}
+.qs-p small{display:block;color:var(--muted);font-size:11.5px}
+.qs-res .qs-go{margin-top:12px}
+.xi-names{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.xi-names input{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:9px 10px;font-size:13px;color:var(--text)}
+.xi-pitch{display:flex;flex-direction:column;justify-content:space-around;gap:10px;min-height:460px;padding:16px 10px;border-radius:20px;
+  background:repeating-linear-gradient(0deg,#1d5a33 0 46px,#1a5230 46px 92px);border:2px solid #ffffff55;position:relative}
+.xi-title{text-align:center;font-family:var(--display);font-size:18px;color:#fff;letter-spacing:.04em}
+.xi-title small{opacity:.7;margin-left:6px}
+.xi-row{display:flex;justify-content:space-around}
+.xi-p{display:grid;justify-items:center;gap:4px;width:80px;text-align:center}
+.xi-p i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;color:#123821;font-style:normal;font-weight:800;font-size:13px}
+.xi-p b{font-size:11.5px;color:#fff;line-height:1.2;text-shadow:0 1px 2px #0008;overflow-wrap:break-word;max-width:100%}
+@media (max-width:760px){.tl-2{grid-template-columns:1fr 1fr}.qs-l{min-width:0;width:100%}.xi-pitch{min-height:400px}.xi-p{width:74px}.xi-p b{font-size:10.5px}}
 </style>
 </head>
 <body>
@@ -2044,6 +2111,7 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
       <a href="#season" data-view="season">Season</a>
       <a href="#match" data-view="match">Analyse a match</a>
       <a href="#performance" data-view="performance">Our record</a>
+      <a href="#tools" data-view="tools">Tools</a>
     </nav>
     <div class="spacer"></div>
     <div class="seg sport" id="sport" role="group" aria-label="Sport"><button type="button" data-sport="football" aria-pressed="true" title="Football: nine leagues"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5l3.4 2.5-1.3 4h-4.2l-1.3-4zM12 7.5V3M15.4 10l4.2-1.4M14.1 14l2.6 3.6M9.9 14l-2.6 3.6M8.6 10 4.4 8.6"/></svg><span class="lab">Football</span></button><button type="button" data-sport="basketball" aria-pressed="false" title="NBA: games, totals and winners"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3v18M5.6 5.6c3 2.6 3 10.2 0 12.8M18.4 5.6c-3 2.6-3 10.2 0 12.8"/></svg><span class="lab">NBA</span></button></div>
@@ -2059,6 +2127,7 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
   <a href="#season" data-view="season"><svg viewBox="0 0 24 24"><path class="f" d="M7 3.5h10v5a5 5 0 0 1-10 0z"/><path d="M7 3.5h10v5a5 5 0 0 1-10 0zM7 5.5H4.2a3.3 3.3 0 0 0 3.3 4.2M17 5.5h2.8a3.3 3.3 0 0 1-3.3 4.2M12 13.5v3.5M8 20.5h8M9.5 17h5v3.5h-5z"/></svg><span>Season</span></a>
   <a href="#match" data-view="match"><svg viewBox="0 0 24 24"><circle class="f" cx="12" cy="12" r="9.2"/><circle cx="12" cy="12" r="9.2"/><path d="M12 7.6l3.3 2.4-1.3 3.9h-4l-1.3-3.9z"/><path d="M12 7.6V3.2M15.3 10l4.3-1.4M14 13.9l2.7 3.7M10 13.9l-2.7 3.7M8.7 10 4.4 8.6"/></svg><span>Analyse</span></a>
   <a href="#performance" data-view="performance"><svg viewBox="0 0 24 24"><path class="f" d="M4 20.5V14l5-4 4 3 7-7v14.5z"/><path d="M4 14l5-4 4 3 7-7M15.5 6H20v4.5M3 20.5h18"/></svg><span>Record</span></a>
+  <a href="#tools" data-view="tools"><svg viewBox="0 0 24 24"><rect class="f" x="4" y="3.5" width="16" height="17" rx="3"/><rect x="4" y="3.5" width="16" height="17" rx="3"/><path d="M8 8h8M8 12.5h2M14 12.5h2M8 16.5h2M14 16.5h2"/></svg><span>Tools</span></a>
 </nav>
 
 <div class="wrap">
@@ -2249,6 +2318,22 @@ button.bp-row{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:
   </section>
 
   <!-- HOW IT WORKS: reached from links (welcome card, front page, record, footer), not the main nav -->
+  <section data-panel="tools" hidden>
+    <div class="view-head tl-head"><div><span class="kicker">Tools</span><h1>Build, check and work out a slip</h1>
+      <p class="sub">Quick Slip builds one to a plan from every priced game. The calculators work with any odds.</p></div></div>
+    <div class="seg tl-tabs" role="tablist">
+      <button type="button" data-tl="quick" aria-pressed="true">Quick Slip</button>
+      <button type="button" data-tl="slip" aria-pressed="false">Slip tools</button>
+      <button type="button" data-tl="calc" aria-pressed="false">Calculators</button>
+      <button type="button" data-tl="xi" aria-pressed="false">Lineup</button>
+    </div>
+    <div id="tl-quick" class="tl-pane"></div>
+    <div id="tl-slip" class="tl-pane" hidden></div>
+    <div id="tl-calc" class="tl-pane" hidden></div>
+    <div id="tl-xi" class="tl-pane" hidden></div>
+    <p class="note tl-foot">18+ only. These are probabilities, not guarantees, and staking tools only do arithmetic: they can't make a price worth more than it is. Bet only what you can afford to lose. <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware</a></p>
+  </section>
+
   <section data-panel="how" hidden>
     <article class="how">
       <header class="how-head">
@@ -2685,6 +2770,13 @@ function showView(){
     $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== 'track');
     $$('.nav a, .tabbar a').forEach(a => a.removeAttribute('aria-current'));
     loadTrack(); scrollTo(0, 0);
+    return;
+  }
+  if(v === 'tools'){
+    $('#leagues').hidden = $('#strip').hidden = true;
+    $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== 'tools');
+    $$('.nav a, .tabbar a').forEach(a => a.dataset.view === 'tools' ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current'));
+    toolsShow(location.hash.split('/')[1]); scrollTo(0, 0);
     return;
   }
   if(v === 'how'){
@@ -3886,6 +3978,242 @@ $('#vip-potd').addEventListener('click', e => {
 $('#vip-all').onclick = () => { if(!state.vip) return; state.vip.legs.filter(l => l.status === 'scheduled').forEach(l => slipAdd(vipItem(l))); $$('#vip-legs .vl-add').forEach(b => b.classList.add('on')) };
 $('#vip-n').onclick = e => { const b = e.target.closest('[data-n]'); if(!b) return; state.vipN = +b.dataset.n;
   $$('#vip-n button').forEach(x => x.setAttribute('aria-pressed', x === b)); loadVip() };
+
+/* ---------- Tools: Quick Slip, slip tools, calculators, lineup builder ---------- */
+const TL = {tab: 'quick', res: null, busy: false,
+  q: {strategy: 'balanced', n: 5, day: 'next', when: 'all', sports: ['football', 'nba'], markets: [], seed: 0}};
+const TL_TABS = ['quick', 'slip', 'calc', 'xi'];
+function toolsShow(sub){
+  if(TL_TABS.includes(sub)) TL.tab = sub;
+  $$('[data-tl]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tl === TL.tab)));
+  TL_TABS.forEach(k => $('#tl-' + k).hidden = k !== TL.tab);
+  ({quick: renderQuick, slip: renderSlipTools, calc: renderCalcs, xi: renderXI})[TL.tab]();
+}
+$('.tl-tabs').addEventListener('click', e => { const b = e.target.closest('[data-tl]'); if(b) location.hash = '#tools/' + b.dataset.tl });
+const tlCopy = async (t, b) => {
+  try{ await navigator.clipboard.writeText(t) }catch{ const x = document.createElement('textarea'); x.value = t; document.body.appendChild(x); x.select(); document.execCommand('copy'); x.remove() }
+  if(b){ const old = b.textContent; b.textContent = 'Copied ✓'; setTimeout(() => { b.textContent = old }, 1600) }
+};
+const num = id => { const el = document.getElementById(id); return el ? Number(el.value) : NaN };
+const pickLines = legs => legs.map((l, i) => `${i + 1}. ${l.home} vs ${l.away} (${day(l.date)}${l.kickoff ? ' ' + koTime(l.kickoff) : ''}): ${bookieText(l)}`).join('\n');
+
+/* Quick Slip */
+const QS_STRAT = [['balanced', 'Balanced', 'Bankers with two swings'], ['safest', 'Safest', 'The surest pick in each game'],
+  ['value', 'Value Hunter', 'Fair odds 1.35–1.85, best record first'], ['banker', 'Banker-led', 'Two or three 85%+ picks first']];
+const QS_MK = {football: [['1x2', 'Match result'], ['dc', 'Double chance'], ['ou15', 'Goals 1.5'], ['ou25', 'Goals 2.5'], ['ou35', 'Goals 3.5'], ['btts', 'Both teams score']],
+  nba: [['winner', 'NBA winner'], ['total', 'NBA total points']]};
+function renderQuick(){
+  const q = TL.q, on = (k, v) => Array.isArray(q[k]) ? q[k].includes(v) : q[k] === v;
+  const pill = (k, v, label) => `<button type="button" data-q="${k}" data-v="${v}" aria-pressed="${on(k, v)}">${label}</button>`;
+  $('#tl-quick').innerHTML = `<div class="card qs-form">
+    <div class="qs-row"><span class="qs-l">Day</span><div class="seg">${[['today', 'Today'], ['tomorrow', 'Tomorrow'], ['next', 'Next 4 days']].map(([v, l]) => pill('day', v, l)).join('')}</div></div>
+    <div class="qs-row"><span class="qs-l">Kick-off</span><div class="seg">${[['all', 'All day'], ['early', 'Early'], ['afternoon', 'Afternoon'], ['late', 'Late']].map(([v, l]) => pill('when', v, l)).join('')}</div></div>
+    <div class="qs-row"><span class="qs-l">Sports</span><div class="seg">${pill('sports', 'football', 'Football')}${pill('sports', 'nba', 'Basketball')}</div></div>
+    <div class="qs-row"><span class="qs-l">Picks</span><div class="qs-n"><button type="button" data-qn="-1" aria-label="Fewer picks">−</button><b>${q.n}</b><button type="button" data-qn="1" aria-label="More picks">+</button></div></div>
+    <div class="qs-strat">${QS_STRAT.map(([v, l, d]) => `<button type="button" data-q="strategy" data-v="${v}" aria-pressed="${q.strategy === v}"><b>${l}</b><small>${d}</small></button>`).join('')}</div>
+    <details class="qs-mk"${q.markets.length ? ' open' : ''}><summary>Markets <small>${q.markets.length ? q.markets.length + ' chosen' : 'all markets'}</small></summary>
+      <div class="chips">${q.sports.flatMap(sp => QS_MK[sp]).map(([v, l]) => `<button type="button" class="chip" data-q="markets" data-v="${v}" aria-pressed="${q.markets.includes(v)}">${l}</button>`).join('')}</div></details>
+    <div class="qs-go"><button type="button" class="primary" id="qs-build"${TL.busy ? ' disabled' : ''}>${TL.busy ? 'Building…' : 'Build my slip'}</button>${TL.res && TL.res.legs && TL.res.legs.length ? '<button type="button" class="ghost" id="qs-shuffle">Shuffle</button>' : ''}</div>
+  </div><div id="qs-out">${TL.res ? quickOut(TL.res) : ''}</div>`;
+}
+function quickOut(r){
+  if(r.error) return `<div class="error">${esc(r.error)}</div>`;
+  if(!r.legs.length) return `<div class="placeholder"><div><h3>No picks match</h3><p>Try another day, kick-off window or strategy. ${r.games_available} games are priced for that choice.</p></div></div>`;
+  return `<div class="card qs-res"><div class="qs-sum"><span><b>${r.legs.length}</b> picks${r.legs.length < r.requested ? ` <small>(asked for ${r.requested})</small>` : ''}</span>
+      <span>All win <b>${pct(r.probability)}</b></span><span>Fair odds <b>${r.fair_odds ? r.fair_odds.toFixed(2) : '–'}</b></span></div>
+    ${r.legs.map(l => `<div class="qs-leg"><div class="qs-lm"><small>${esc(l.league)} · ${esc(day(l.date))}${l.kickoff ? ' · ' + esc(koTime(l.kickoff)) : ''}</small>
+        <span class="qs-tm">${l.sport === 'nba' ? jersey(l.home) : crest(l.home, true)}${esc(l.home)} <i>v</i> ${esc(l.away)}</span><strong>${esc(bookieText(l))}</strong>${whyHtml(l)}</div>
+      <div class="qs-p"><b>${Math.round(l.probability * 100)}<i>%</i></b><small>fair ${(1 / l.probability).toFixed(2)}</small></div></div>`).join('')}
+    <div class="qs-go"><button type="button" class="primary" id="qs-add">Add all to slip</button><button type="button" class="ghost" id="qs-copy">Copy for your bookie</button></div>
+    <p class="note">${esc(r.note)}</p></div>`;
+}
+async function quickBuild(){
+  const q = TL.q;
+  TL.busy = true; renderQuick();
+  const qs = new URLSearchParams({strategy: q.strategy, n: q.n, day: q.day, when: q.when, sports: q.sports.join(','), markets: q.markets.join(','),
+    seed: q.seed, tz: -new Date().getTimezoneOffset()});
+  try{ TL.res = await api('/api/quickslip?' + qs) }catch(e){ TL.res = {error: e.message} }
+  TL.busy = false; renderQuick();
+}
+$('#tl-quick').addEventListener('click', e => {
+  const q = TL.q, b = e.target.closest('[data-q]');
+  if(b){
+    const k = b.dataset.q, v = b.dataset.v;
+    if(Array.isArray(q[k])){
+      const has = q[k].includes(v);
+      if(k === 'sports' && has && q.sports.length === 1) return;          // keep at least one sport
+      q[k] = has ? q[k].filter(x => x !== v) : q[k].concat(v);
+      if(k === 'sports'){ const allowed = q.sports.flatMap(sp => QS_MK[sp].map(([m]) => m)); q.markets = q.markets.filter(m => allowed.includes(m)) }
+    }else q[k] = v;
+    q.seed = 0; renderQuick(); return;
+  }
+  const n = e.target.closest('[data-qn]');
+  if(n){ q.n = Math.max(1, Math.min(20, q.n + Number(n.dataset.qn))); renderQuick(); return }
+  if(e.target.closest('#qs-build')){ q.seed = 0; quickBuild(); return }
+  if(e.target.closest('#qs-shuffle')){ q.seed = 1 + Math.floor(Math.random() * 1e6); quickBuild(); return }
+  if(e.target.closest('#qs-add') && TL.res){ TL.res.legs.forEach(l => slipAdd(vipItem(l))); e.target.closest('#qs-add').textContent = 'Added to slip ✓'; return }
+  if(e.target.closest('#qs-copy') && TL.res){ tlCopy(`Book these ${TL.res.legs.length} picks:\n${pickLines(TL.res.legs)}\n\nFairline Quick Slip`, e.target.closest('#qs-copy')) }
+});
+
+/* Slip tools: work on the slip in the drawer */
+const slipP = xs => xs.reduce((m, x) => m * x.p, 1);
+const slipLine = (x, i) => `${i + 1}. ${x.home} vs ${x.away}: ${x.legs.join(' + ')}`;
+function renderSlipTools(){
+  const sl = state.slip, n = sl.length;
+  $('#tl-slip').innerHTML = (n ? `<p class="sub tl-now">Your slip: <b>${n}</b> pick${n > 1 ? 's' : ''}, all win <b>${pct(slipP(sl))}</b>, fair odds <b>${(1 / slipP(sl)).toFixed(2)}</b>.</p>`
+    : '<p class="sub tl-now">Your slip is empty. Build one with Quick Slip or add picks from VIP and the match pages; the optimizer and splitter work on it.</p>') +
+    `<div class="tl-grid">
+      <article class="card tl-card"><h3>Slip optimizer</h3><p class="tl-d">Cut the slip down to a target: drops the least likely picks until the whole slip reaches the chance you want.</p>
+        <label class="field"><span>Target chance that all win (%)</span><input id="op-t" type="number" min="1" max="99" value="${store.get('fl-op') || 40}" inputmode="decimal"></label><div id="op-out" class="tl-out"></div></article>
+      <article class="card tl-card"><h3>Slip splitter</h3><p class="tl-d">One big slip into smaller ones of about equal chance, so one loser doesn't sink everything.</p>
+        <label class="field"><span>Number of slips</span><input id="sp-k" type="number" min="2" max="6" value="2" inputmode="numeric"></label><div id="sp-out" class="tl-out"></div></article>
+      <article class="card tl-card"><h3>Slip merger</h3><p class="tl-d">Paste two or more pick lists, one pick per line (ours from Copy, or your own). We join them and drop repeated games.</p>
+        <textarea id="mg-in" rows="6" placeholder="1. Arsenal vs Chelsea: Over 1.5&#10;2. Inter vs Roma: Inter or draw"></textarea><div id="mg-out" class="tl-out"></div></article>
+      <article class="card tl-card"><h3>Booking-code converter</h3><p class="tl-d">Moving a booking code from one bookie to another needs each bookie's private booking system, which they don't open to apps like ours.
+        Use <b>Copy for your bookie</b> on VIP or Quick Slip instead: it pastes as a plain list that any bookie's search takes.</p></article>
+    </div>`;
+  slipToolsCalc();
+}
+function slipToolsCalc(){
+  const sl = state.slip;
+  const op = $('#op-out'), sp = $('#sp-out'), mg = $('#mg-out');
+  if(op){
+    const t = Math.min(.99, Math.max(.01, num('op-t') / 100)), keep = [];
+    for(const x of [...sl].sort((a, b) => b.p - a.p)){ if(slipP(keep.concat(x)) >= t) keep.push(x) }
+    op.innerHTML = !sl.length ? '' : !keep.length ? `<p>No single pick on your slip reaches ${pct(t)}.</p>`
+      : `<p>Keep <b>${keep.length}</b> of ${sl.length}: all win <b>${pct(slipP(keep))}</b>, fair odds <b>${(1 / slipP(keep)).toFixed(2)}</b>.</p>
+         ${keep.length < sl.length ? `<p class="tl-drop">Drops: ${sl.filter(x => !keep.includes(x)).map(x => esc(x.home + ' v ' + x.away)).join(', ')}</p><button type="button" class="ghost" id="op-apply">Apply to my slip</button>` : '<p class="tl-drop">Your slip already reaches the target.</p>'}`;
+    TL.opKeep = keep;
+  }
+  if(sp){
+    const k = Math.max(2, Math.min(6, Math.round(num('sp-k')) || 2));
+    if(sl.length < k){ sp.innerHTML = sl.length ? `<p>Needs at least ${k} picks.</p>` : ''; }
+    else{
+      const parts = Array.from({length: k}, () => []);
+      for(const x of [...sl].sort((a, b) => a.p - b.p)) parts.sort((a, b) => slipP(b) - slipP(a))[0].push(x);
+      TL.split = parts;
+      sp.innerHTML = parts.map((g, i) => `<div class="tl-split"><b>Slip ${i + 1}</b> · ${g.length} picks · all win ${pct(slipP(g))} · fair ${(1 / slipP(g)).toFixed(2)}
+        <button type="button" class="chip" data-split="${i}">Copy</button><small>${g.map(x => esc(x.home + ' v ' + x.away)).join(', ')}</small></div>`).join('');
+    }
+  }
+  if(mg){
+    const lines = ($('#mg-in').value || '').split('\n').map(l => l.replace(/^\s*\d+[.)]\s*/, '').trim()).filter(l => l && !/^book these|fairline/i.test(l));
+    const seen = new Set(), out = [];
+    for(const l of lines){ const game = l.split(/[:—]/)[0].replace(/\(.*?\)/g, '').trim().toLowerCase(); if(!seen.has(game)){ seen.add(game); out.push(l) } }
+    TL.merged = out;
+    mg.innerHTML = lines.length ? `<p><b>${out.length}</b> picks${lines.length > out.length ? `, ${lines.length - out.length} repeated game${lines.length - out.length > 1 ? 's' : ''} dropped` : ''}.</p>
+      <button type="button" class="ghost" id="mg-copy">Copy merged slip</button>` : '';
+  }
+}
+$('#tl-slip').addEventListener('input', e => { if(e.target.id === 'op-t') store.set('fl-op', e.target.value); slipToolsCalc() });
+$('#tl-slip').addEventListener('click', e => {
+  if(e.target.closest('#op-apply') && TL.opKeep){ state.slip = TL.opKeep.slice(); saveSlip(); renderSlipTools(); return }
+  const c = e.target.closest('[data-split]');
+  if(c && TL.split){ tlCopy(TL.split[+c.dataset.split].map(slipLine).join('\n'), c); return }
+  if(e.target.closest('#mg-copy') && TL.merged) tlCopy(TL.merged.map((l, i) => `${i + 1}. ${l}`).join('\n'), e.target.closest('#mg-copy'));
+});
+
+/* Calculators */
+function tlCard(title, desc, body){ return `<article class="card tl-card"><h3>${title}</h3><p class="tl-d">${desc}</p>${body}</article>` }
+const tlIn = (id, label, ph, v = '') => `<label class="field"><span>${label}</span><input id="${id}" type="number" step="any" min="0" inputmode="decimal" placeholder="${ph}" value="${v}"></label>`;
+function renderCalcs(){
+  $('#tl-calc').innerHTML = `<div class="tl-grid">
+    ${tlCard('Odds converter', 'Type into any box; the others follow.', `<div class="tl-2">${tlIn('oc-d', 'Decimal', '2.50')}<label class="field"><span>Fractional</span><input id="oc-f" type="text" placeholder="6/4"></label>
+      <label class="field"><span>American</span><input id="oc-a" type="text" inputmode="numeric" placeholder="+150"></label>${tlIn('oc-p', 'Implied chance %', '40')}</div>`)}
+    ${tlCard('Returns', 'Your stake and the odds of each pick, one per line for an accumulator.', `${tlIn('rt-s', 'Stake', '1000', store.get('fl-stake') || 1000)}
+      <label class="field"><span>Odds</span><textarea id="rt-o" rows="3" placeholder="1.45&#10;1.80&#10;2.10"></textarea></label><div id="rt-out" class="tl-out"></div>`)}
+    ${tlCard('Hedge', 'Back the other side to lock in the same result whichever way it goes.', `<div class="tl-2">${tlIn('hg-s', 'Original stake', '1000')}${tlIn('hg-o', 'Original odds', '3.00')}</div>
+      ${tlIn('hg-h', 'Odds against it now', '1.80')}<div id="hg-out" class="tl-out"></div>`)}
+    ${tlCard('Dutching', 'One total stake spread across several outcomes so every one of them pays the same.', `${tlIn('dt-s', 'Total stake', '1000')}
+      <label class="field"><span>Odds of each outcome</span><textarea id="dt-o" rows="3" placeholder="3.50&#10;4.00&#10;6.00"></textarea></label><div id="dt-out" class="tl-out"></div>`)}
+    ${tlCard('Kelly stake', 'How much of a bankroll a price is worth, given our chance. Most people use half or a quarter of it.', `<div class="tl-2">${tlIn('kl-b', 'Bankroll', '10000')}${tlIn('kl-o', 'Bookie odds', '1.95')}</div>
+      <div class="tl-2">${tlIn('kl-p', 'Our chance %', '55')}<label class="field"><span>Fraction</span><select id="kl-f"><option value="1">Full Kelly</option><option value=".5" selected>Half</option><option value=".25">Quarter</option></select></label></div><div id="kl-out" class="tl-out"></div>`)}
+    ${tlCard('Arb checker', 'The best price on every outcome of one event, each from a different bookie. If they add up to less than 100%, a stake on each wins whatever happens.', `<div class="tl-2">${tlIn('ar-1', 'Outcome 1 odds', '2.10')}${tlIn('ar-2', 'Outcome 2 odds', '2.05')}</div>
+      <div class="tl-2">${tlIn('ar-3', 'Outcome 3 odds (if any)', '')}${tlIn('ar-s', 'Total stake', '1000')}</div><div id="ar-out" class="tl-out"></div>`)}
+    ${tlCard('Bet builder', 'Stack markets on one match, priced from one joint score grid so the links between them are kept.', `<a class="primary tl-link" href="#match">Open a match's bet builder</a>`)}
+  </div>`;
+  calcAll();
+}
+const fracOf = d => { const x = d - 1; let best = [Math.round(x), 1], err = Math.abs(x - best[0]);
+  for(let den = 2; den <= 20; den++){ const nm = Math.round(x * den), e = Math.abs(x - nm / den); if(e < err - 1e-9){ best = [nm, den]; err = e } } return best[0] + '/' + best[1] };
+function oddsConvert(src){
+  let d = NaN;
+  const f = $('#oc-f').value.trim(), a = $('#oc-a').value.trim().replace('+', '');
+  if(src === 'oc-d') d = num('oc-d');
+  else if(src === 'oc-f'){ const m = f.match(/^(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)$/); if(m) d = 1 + m[1] / m[2] }
+  else if(src === 'oc-a'){ const v = Number(a); if(v >= 100) d = 1 + v / 100; else if(v <= -100) d = 1 + 100 / -v }
+  else if(src === 'oc-p'){ const p = num('oc-p'); if(p > 0 && p < 100) d = 100 / p }
+  if(!(d > 1)) return;
+  if(src !== 'oc-d') $('#oc-d').value = d.toFixed(2);
+  if(src !== 'oc-f') $('#oc-f').value = fracOf(d);
+  if(src !== 'oc-a') $('#oc-a').value = d >= 2 ? '+' + Math.round((d - 1) * 100) : String(Math.round(-100 / (d - 1)));
+  if(src !== 'oc-p') $('#oc-p').value = (100 / d).toFixed(1);
+}
+const oddsList = id => ($('#' + id).value || '').split(/[\s,]+/).map(Number).filter(v => v > 1);
+function calcAll(){
+  const out = (id, html) => { const el = $('#' + id); if(el) el.innerHTML = html };
+  // Returns
+  { const s = num('rt-s'), o = oddsList('rt-o'), t = o.reduce((m, v) => m * v, 1);
+    out('rt-out', s > 0 && o.length ? `<div class="tl-res"><span><small>${o.length > 1 ? o.length + '-pick odds' : 'Odds'}</small><b>${t.toFixed(2)}</b></span><span><small>Pays</small><b>${money(s * t)}</b></span><span><small>Profit</small><b>${money(s * t - s)}</b></span></div>
+      <p class="tl-drop">Needs about ${pct(1 / t)} to break even.</p>` : '') }
+  // Hedge
+  { const s = num('hg-s'), o = num('hg-o'), h = num('hg-h');
+    if(s > 0 && o > 1 && h > 1){ const hs = s * o / h, win = s * o - s - hs, other = hs * h - hs - s;
+      out('hg-out', `<div class="tl-res"><span><small>Hedge stake</small><b>${money(hs)}</b></span><span><small>Either way</small><b class="${win >= 0 ? 'pos' : 'neg'}">${win >= 0 ? '+' : '−'}${money(Math.abs(win))}</b></span></div>
+        <p class="tl-drop">${win >= 0 ? 'Locked-in profit' : 'Locked-in loss'} whichever side wins (${money(win)} / ${money(other)}).</p>`) }
+    else out('hg-out', '') }
+  // Dutching
+  { const s = num('dt-s'), o = oddsList('dt-o'), inv = o.reduce((m, v) => m + 1 / v, 0);
+    out('dt-out', s > 0 && o.length > 1 ? `<div class="tl-res">${o.map((v, i) => `<span><small>@ ${v.toFixed(2)}</small><b>${money(s / v / inv)}</b></span>`).join('')}</div>
+      <p class="tl-drop">Any of them pays <b>${money(s / inv)}</b>: ${s / inv >= s ? 'profit ' + money(s / inv - s) : 'a loss of ' + money(s - s / inv)} (the outcomes cover ${pct(inv)} of the book).</p>` : '') }
+  // Kelly
+  { const b = num('kl-b'), o = num('kl-o'), p = num('kl-p') / 100, f = Number($('#kl-f') ? $('#kl-f').value : .5);
+    if(b > 0 && o > 1 && p > 0 && p < 1){ const k = (p * o - 1) / (o - 1);
+      out('kl-out', k > 0 ? `<div class="tl-res"><span><small>Stake</small><b>${money(b * k * f)}</b></span><span><small>Of bankroll</small><b>${(k * f * 100).toFixed(1)}%</b></span><span><small>Edge</small><b class="pos">+${((p * o - 1) * 100).toFixed(1)}%</b></span></div>`
+        : `<p class="calc-verdict neg">No bet: at ${pct(p)} the fair price is ${(1 / p).toFixed(2)}, and ${o.toFixed(2)} pays less than that.</p>`) }
+    else out('kl-out', '') }
+  // Arb
+  { const o = ['ar-1', 'ar-2', 'ar-3'].map(num).filter(v => v > 1), s = num('ar-s'), inv = o.reduce((m, v) => m + 1 / v, 0);
+    out('ar-out', o.length >= 2 ? (inv < 1
+      ? `<p class="calc-verdict pos">Arb: the prices cover ${pct(inv)} of the book, so every outcome pays ${money((s > 0 ? s : 1000) / inv)}.</p>
+         <div class="tl-res">${o.map((v, i) => `<span><small>Outcome ${i + 1}</small><b>${money((s > 0 ? s : 1000) / v / inv)}</b></span>`).join('')}</div>
+         <p class="tl-drop">Prices move and bookies limit accounts that do this; check every price before staking.</p>`
+      : `<p class="calc-verdict">No arb: these prices add up to ${pct(inv)}, so the bookies keep ${pct(inv - 1)} whatever happens.</p>`) : '') }
+}
+$('#tl-calc').addEventListener('input', e => { if(e.target.id && e.target.id.startsWith('oc-')) oddsConvert(e.target.id); calcAll() });
+$('#tl-calc').addEventListener('change', calcAll);
+
+/* Lineup builder */
+const XI_SHAPES = {'4-3-3': [4, 3, 3], '4-4-2': [4, 4, 2], '4-2-3-1': [4, 2, 3, 1], '3-5-2': [3, 5, 2], '3-4-3': [3, 4, 3], '5-3-2': [5, 3, 2]};
+function xiState(){ try{ return JSON.parse(store.get('fl-xi') || '') }catch{ return {team: '', shape: '4-3-3', names: Array(11).fill('')} } }
+function renderXI(){
+  const x = xiState();
+  $('#tl-xi').innerHTML = `<div class="tl-grid tl-xi"><article class="card tl-card"><h3>Lineup builder</h3><p class="tl-d">Pick a shape, name your starting eleven, then share it.</p>
+      <div class="tl-2"><label class="field"><span>Team</span><input id="xi-team" type="text" maxlength="40" placeholder="My XI" value="${esc(x.team)}"></label>
+      <label class="field"><span>Formation</span><select id="xi-shape">${Object.keys(XI_SHAPES).map(k => `<option${k === x.shape ? ' selected' : ''}>${k}</option>`).join('')}</select></label></div>
+      <div class="xi-names">${x.names.map((n, i) => `<input type="text" maxlength="24" data-xi="${i}" placeholder="${i ? 'Player ' + (i + 1) : 'Goalkeeper'}" value="${esc(n)}">`).join('')}</div>
+      <div class="qs-go"><button type="button" class="primary" id="xi-share">Share lineup</button><button type="button" class="ghost" id="xi-clear">Clear</button></div></article>
+    <div class="xi-pitch" id="xi-pitch"></div></div>`;
+  xiPitch();
+}
+function xiPitch(){
+  const x = xiState(), rows = [[1]].concat(XI_SHAPES[x.shape].map(n => Array(n).fill(1)));
+  let k = 0;
+  $('#xi-pitch').innerHTML = `<div class="xi-title">${esc(x.team || 'My XI')} <small>${esc(x.shape)}</small></div>` + rows.map(r => `<div class="xi-row">${r.map(() => { const i = k++; return `<span class="xi-p"><i>${i + 1}</i><b>${esc(x.names[i] || (i ? '—' : 'GK'))}</b></span>` }).join('')}</div>`).reverse().join('');
+}
+function xiSave(){
+  const x = {team: $('#xi-team').value, shape: $('#xi-shape').value, names: $$('[data-xi]').map(i => i.value)};
+  store.set('fl-xi', JSON.stringify(x)); xiPitch();
+}
+$('#tl-xi').addEventListener('input', xiSave);
+$('#tl-xi').addEventListener('change', xiSave);
+$('#tl-xi').addEventListener('click', async e => {
+  if(e.target.closest('#xi-clear')){ store.set('fl-xi', ''); renderXI(); return }
+  const b = e.target.closest('#xi-share'); if(!b) return;
+  const x = xiState(), rows = [1].concat(XI_SHAPES[x.shape]); let k = 0;
+  const text = `${x.team || 'My XI'} (${x.shape})\n` + rows.map(n => x.names.slice(k, k += n).map(v => v || '—').join(' · ')).join('\n') + '\n\nBuilt on Fairline';
+  if(navigator.share){ try{ await navigator.share({title: x.team || 'My XI', text}) }catch{} } else tlCopy(text, b);
+});
 
 /* ---------- Bet builder ---------- */
 function legDefs(d){

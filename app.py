@@ -1011,6 +1011,56 @@ def _explain(legs, data=None):
     return legs
 
 
+def quick_slip(data, strategy='balanced', n=5, day='next', when='all', tz=0, sports=('football', 'nba'),
+               markets=(), leagues=(), seed=0):
+    """Quick Slip (quickslip.py): a slip built to a strategy from today's and the next days' priced picks."""
+    import quickslip
+    strategy = strategy if strategy in quickslip.STRATEGIES else 'balanced'
+    now = dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=tz)
+    today = now.date()
+    dates = {'today': {today}, 'tomorrow': {today + dt.timedelta(days=1)}}.get(day, {today + dt.timedelta(days=d) for d in range(4)})
+    dates = {d.isoformat() for d in dates}
+    legs = []
+    if 'football' in sports:
+        pool = [l for l in (leagues or LEAGUES) if l in LEAGUES and l != 'ucl' and league_fresh(data, l)]
+        kick = {(m['league_id'], m['date'], m['home'], m['away']): m.get('kickoff') for m in data['matches'] if m['goals'] is None}
+        for c in parlay_candidates(data, pool, days=4, include_today=True):
+            if c['date'] not in dates or (markets and c['market'] not in markets):
+                continue
+            ko = kick.get((c['league_id'], c['date'], c['home'], c['away']))
+            if not quickslip.in_window(quickslip.local_hour(ko, tz), when):
+                continue
+            legs.append(dict(c, sport='football', game=c['fixture'], kickoff=ko,
+                             league=LEAGUES[c['league_id']].split(' — ')[-1]))
+    if 'nba' in sports:
+        try:
+            import nba_app
+            p = nba_app.picks(days=3)
+            rows = [dict(x, market='winner', selection=f"{x['team']} to win") for x in p.get('picks') or []]
+            rows += [dict(x, market='total', selection=f"{'Over' if x['side'] == 'over' else 'Under'} {x['line']} points") for x in p.get('totals') or []]
+            for x in rows:
+                if x['date'] not in dates or (markets and x['market'] not in markets and any(m in quickslip.NBA_MARKETS for m in markets)):
+                    continue
+                if not quickslip.in_window(quickslip.local_hour(x.get('tipoff'), tz), when):
+                    continue
+                legs.append(dict(sport='nba', league='NBA', league_id='nba', game='nba|' + str(x['id']), id='nba|%s|%s' % (x['id'], x['market']),
+                                 date=x['date'], kickoff=x.get('tipoff'), home=x['home'], away=x['away'], market=x['market'],
+                                 selection=x['selection'], probability=x['probability'], fair_odds=1 / x['probability'],
+                                 team=x.get('team'), side=x.get('side'), line=x.get('line'), expected_total=x.get('expected_total'),
+                                 at_home=x.get('at_home'), record=x.get('record')))
+        except Exception as exc:
+            log.warning('NBA picks unavailable for Quick Slip: %s', exc)
+    if strategy == 'value':
+        _explain([l for l in legs if 1.35 <= 1 / l['probability'] <= 1.85], data)
+    chosen = quickslip.choose(legs, n, strategy, seed, score=lambda l: (l.get('confidence') or {}).get('score', 0))
+    chosen = [dict(l) for l in chosen]
+    _explain([l for l in chosen if 'why' not in l], data)
+    chosen.sort(key=lambda l: (l['date'], l.get('kickoff') or ''))
+    return dict(strategy=strategy, requested=n, legs=chosen, games_available=len({l['game'] for l in legs}),
+                **quickslip.summary(chosen),
+                note='One pick per game; games are treated as independent. Fair odds have no bookmaker margin.')
+
+
 def vip_ticket(data, n=17, live_scores=None, nba_legs=None):
     """Today's VIP slip as a live ticket: the picks as saved before kickoff, each with its state.
 
@@ -1282,6 +1332,17 @@ class Handler(BaseHTTPRequestHandler):
             if saved:
                 saved['league_names'] = LEAGUES
             self.send_json(saved or dict(error='No record yet. Run: python3 app.py record'), 200 if saved else 404)
+        elif path == '/api/quickslip':
+            q = parse_qs(urlparse(self.path).query)
+            arg = lambda k, d='': q.get(k, [d])[0]
+            try:
+                n, tz, seed = max(1, min(20, int(arg('n', '5')))), max(-840, min(840, int(arg('tz', '0')))), int(arg('seed', '0'))
+            except ValueError:
+                return self.send_json(dict(error='Bad number in the request.'), 400)
+            split = lambda k: tuple(x for x in arg(k).split(',') if x)
+            self.send_json(quick_slip(load(), arg('strategy', 'balanced'), n, arg('day', 'next'), arg('when', 'all'), tz,
+                                      split('sports') or ('football', 'nba'), split('markets'), split('leagues'), seed),
+                           cache='public, max-age=60, s-maxage=120, stale-while-revalidate=120')
         elif path == '/api/vip/ticket':
             q = parse_qs(urlparse(self.path).query)
             try:
