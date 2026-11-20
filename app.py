@@ -999,12 +999,11 @@ def vip_ticket(data, n=17, live_scores=None, nba_legs=None):
             else:
                 row['status'] = 'scheduled'
         rows.append(dict(row, sport='football'))
-    if nba_legs is None:
-        nba_legs, nba_saved = _nba_ticket_legs(today)
-    else:
-        nba_saved = True
-    rows = rows + nba_legs
-    if n < 17:       # a ready-made accumulator: the n surest picks across both sports
+    # Football only: the NBA picks have their own page (Picks, with its own VIP slip and record).
+    # NBA legs join only when a caller passes them in explicitly.
+    nba_saved = nba_legs is not None
+    rows = rows + (nba_legs or [])
+    if n < 17:       # a ready-made accumulator: the n surest picks
         rows = sorted(rows, key=lambda r: -r['probability'])[:n]
     rows = sorted(rows, key=lambda r: (r['date'], r.get('kickoff') or ''))
     count = lambda s: sum(r['status'] == s for r in rows)
