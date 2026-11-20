@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-11-20T08:35:42.874524+00:00",
+  "fetched_at": "2026-11-20T08:41:55.099528+00:00",
   "license": "per-source",
   "sources": [
     {
@@ -7,7 +7,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "fbdfd426fa18fa2f8630b77de87c082734da495ac4668d6d72f29f76b73b9564",
-      "checked_at": "2026-11-20T08:35:26.216734+00:00",
+      "checked_at": "2026-11-20T08:40:23.396825+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -15,7 +15,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "7beb67dd49d7132bf9f7baea540342439b97ed4a7b21ffb90d3231a402c54d02",
-      "checked_at": "2026-11-20T08:35:26.400647+00:00",
+      "checked_at": "2026-11-20T08:40:25.247513+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -23,7 +23,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "a3e94b23cac768e4191e99312f4d48471c4000c5c2fe766b0325cee935754061",
-      "checked_at": "2026-11-20T08:35:26.549809+00:00",
+      "checked_at": "2026-11-20T08:40:26.965856+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -31,7 +31,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "f1b9901cffb6b073f389e730213b5f8efe6a9a73b2f86058794f2d0f1dcc54dc",
-      "checked_at": "2026-11-20T08:35:26.676580+00:00",
+      "checked_at": "2026-11-20T08:40:28.505425+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -39,7 +39,7 @@
       "league_id": "fr.1",
       "matches": 380,
       "sha256": "8abb493061d32faaf413c403b440c043723d9743a9e69d6472bf5410e2d4e039",
-      "checked_at": "2026-11-20T08:35:26.836628+00:00",
+      "checked_at": "2026-11-20T08:40:30.340469+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -47,7 +47,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "8d09f0f9846981626cdfec48903e1f21e7c79aabe6f92535c9e092e8e79b808b",
-      "checked_at": "2026-11-20T08:35:28.471106+00:00",
+      "checked_at": "2026-11-20T08:40:40.553772+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -55,7 +55,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "0204c66c919c2cd5cc3d1ba26be4f68592e4e173843162a9e6755182ccf83778",
-      "checked_at": "2026-11-20T08:35:28.658302+00:00",
+      "checked_at": "2026-11-20T08:40:42.258072+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -63,7 +63,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "d775fdd375af6998233fbfcd5b33d176cb9d016a981682626c5ce2f95b0c2f88",
-      "checked_at": "2026-11-20T08:35:28.855907+00:00",
+      "checked_at": "2026-11-20T08:40:44.175395+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -71,7 +71,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "b0c052dc75836dfc6b0d3781d35b828851db7377c9f6ccb39643dbbe1964f3bd",
-      "checked_at": "2026-11-20T08:35:28.960889+00:00",
+      "checked_at": "2026-11-20T08:40:45.971879+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -79,7 +79,7 @@
       "league_id": "fr.1",
       "matches": 380,
       "sha256": "6301ac1ba1fa0f5b72345759711beac3b3be3c989725cc1c6ef9307ffef692c7",
-      "checked_at": "2026-11-20T08:35:29.087185+00:00",
+      "checked_at": "2026-11-20T08:40:47.762121+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -87,7 +87,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "03e13eafbf78dfe00d7e89dd3bf6643986eb6e8fd86c7664aeb8c5bc0bed88d0",
-      "checked_at": "2026-11-20T08:35:30.720026+00:00",
+      "checked_at": "2026-11-20T08:40:59.327139+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -95,7 +95,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "e4c1e1a958f224ba3c815c898982ab495b9577315cc58ee7a5e7b532960f738b",
-      "checked_at": "2026-11-20T08:35:30.865377+00:00",
+      "checked_at": "2026-11-20T08:41:01.022360+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -103,7 +103,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "47734fc8d2ec34c5529ca814c97d1c86ecddc4a2c8095506d9b12f29cb283308",
-      "checked_at": "2026-11-20T08:35:30.978152+00:00",
+      "checked_at": "2026-11-20T08:41:02.849410+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -111,7 +111,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "d104edde48a5e254545eac3d3ed379a09801e1ebcef5c6480e28bc36fcfa202d",
-      "checked_at": "2026-11-20T08:35:31.101266+00:00",
+      "checked_at": "2026-11-20T08:41:04.345908+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -119,7 +119,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "fa328cecf4c12232ac77a5d477059eebe16b68b3712ec87800b89efda8ddfb70",
-      "checked_at": "2026-11-20T08:35:31.208667+00:00",
+      "checked_at": "2026-11-20T08:41:05.956947+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -127,7 +127,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "c3d18f552d83382cd4b6b21127adbbfe38e7f8618ddc979fb5404f2df07d0a75",
-      "checked_at": "2026-11-20T08:35:33.160758+00:00",
+      "checked_at": "2026-11-20T08:41:16.114874+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -135,7 +135,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "da5bfa1b3634e1039d9e71aec50bdc847f8761189e3de235a4e730e0dc64ca38",
-      "checked_at": "2026-11-20T08:35:33.313944+00:00",
+      "checked_at": "2026-11-20T08:41:17.705825+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -143,7 +143,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "7d9bb936de3ccaeec54d57371512a58a5eeb21277e7d5f0882911a834d22b659",
-      "checked_at": "2026-11-20T08:35:33.420159+00:00",
+      "checked_at": "2026-11-20T08:41:19.309588+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -151,7 +151,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "f473d6595e6c29ebedc08b09177aed6a6b2ff0fa8378b82f51dea469139f44c3",
-      "checked_at": "2026-11-20T08:35:33.537904+00:00",
+      "checked_at": "2026-11-20T08:41:20.783953+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -159,7 +159,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "90e9974afe6597452622387ad218f6b0011a5f91f1b426f05152f5b9c105e355",
-      "checked_at": "2026-11-20T08:35:33.680180+00:00",
+      "checked_at": "2026-11-20T08:41:21.663679+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -167,7 +167,7 @@
       "league_id": "it.2",
       "matches": 390,
       "sha256": "7592d38014c83fa37477901fd288c9f7268e11cfb254f1dd9458e304970373b0",
-      "checked_at": "2026-11-20T08:35:33.886653+00:00",
+      "checked_at": "2026-11-20T08:41:22.588236+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -175,7 +175,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "d6070bdf731546ccf97767f062e8af4bd26dd309dee69f6092025bf9c78f43c1",
-      "checked_at": "2026-11-20T08:35:35.349426+00:00",
+      "checked_at": "2026-11-20T08:41:26.611438+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -183,7 +183,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "b40397d8e62c640138548d57a1a9f76150549213d2a07fcbbb90ed0eabc6ccea",
-      "checked_at": "2026-11-20T08:35:35.495492+00:00",
+      "checked_at": "2026-11-20T08:41:27.504940+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -191,7 +191,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "28f7773dea86345aeb0cbb4aff2f90231033f7ed855219e70fdd1cf45d4d7e7f",
-      "checked_at": "2026-11-20T08:35:35.606020+00:00",
+      "checked_at": "2026-11-20T08:41:28.390046+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -199,7 +199,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "17d0999db6281e6365823acdbce41a4f01dd469eac63e1f897e4e47c02906672",
-      "checked_at": "2026-11-20T08:35:35.809390+00:00",
+      "checked_at": "2026-11-20T08:41:29.282006+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -207,7 +207,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "3e9403445dd96f4bb7f740de22d4ea7e3ea7d640777a12eab621ae4d4dbf3bc7",
-      "checked_at": "2026-11-20T08:35:35.924942+00:00",
+      "checked_at": "2026-11-20T08:41:30.146426+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -215,7 +215,7 @@
       "league_id": "it.2",
       "matches": 380,
       "sha256": "74e38be319c2c30b82abcd9aabd5468a79d36408e7f6f2b066eb8bf7938a06b5",
-      "checked_at": "2026-11-20T08:35:36.063348+00:00",
+      "checked_at": "2026-11-20T08:41:31.050422+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -223,7 +223,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "bb91f0ab3e8359df163bb9ec98549bfed85e200dd4c32f3bd606b5890d932dd2",
-      "checked_at": "2026-11-20T08:35:37.842591+00:00",
+      "checked_at": "2026-11-20T08:41:34.991910+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -231,7 +231,7 @@
       "league_id": "es.1",
       "matches": 380,
       "sha256": "4b1a9906e3f2b279a1f25497a38f2f58e21ec19ea726b882fa646da7c07bc0e0",
-      "checked_at": "2026-11-20T08:35:37.951203+00:00",
+      "checked_at": "2026-11-20T08:41:36.523112+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -239,7 +239,7 @@
       "league_id": "it.1",
       "matches": 380,
       "sha256": "721a6c220fecb8208287e41401fa2fce652cd23765ce58a39bf98cdaa3d528ad",
-      "checked_at": "2026-11-20T08:35:38.028447+00:00",
+      "checked_at": "2026-11-20T08:41:37.354014+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -247,7 +247,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "07fab65d4a1de8ce4c8472da9ccf4d1d2b145ecd5abdc5b6d4250a5c119d7681",
-      "checked_at": "2026-11-20T08:35:38.145862+00:00",
+      "checked_at": "2026-11-20T08:41:38.419109+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -255,7 +255,7 @@
       "league_id": "fr.1",
       "matches": 306,
       "sha256": "f875275f835e378fc8c4e7d48c7a2f327e7d426237bd057fe652fd47f30b5a4f",
-      "checked_at": "2026-11-20T08:35:38.266415+00:00",
+      "checked_at": "2026-11-20T08:41:39.306495+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -263,7 +263,7 @@
       "league_id": "de.1",
       "matches": 306,
       "sha256": "820ff0480721b41ed829ad00e6ce359d99c2787ca133ca02c143e29d81b9385f",
-      "checked_at": "2026-11-20T08:35:40.456771+00:00",
+      "checked_at": "2026-11-20T08:41:45.155732+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
       "role": "corrects dates and kickoffs, fills missing results",
@@ -309,7 +309,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "6918998992aae77f498a1f39622f17032dde29649f0827822b9017699ee8212a",
-      "checked_at": "2026-11-20T08:35:28.208008+00:00",
+      "checked_at": "2026-11-20T08:40:37.194696+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -317,7 +317,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "053899d21effad8bc15aa74852631324276819673ad29ea9c3ed74ac02af2a51",
-      "checked_at": "2026-11-20T08:35:28.354708+00:00",
+      "checked_at": "2026-11-20T08:40:38.728049+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -325,7 +325,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "4c033f836ad98581c5055456d363a57d80d612a0e6605cf63c053ada1bfa19c1",
-      "checked_at": "2026-11-20T08:35:30.432471+00:00",
+      "checked_at": "2026-11-20T08:40:56.016255+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -333,7 +333,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "fdec06d71d3fe491d8fac75a7680c1ea8dc0e952f5d071e4722cd1fa77f76a06",
-      "checked_at": "2026-11-20T08:35:30.610838+00:00",
+      "checked_at": "2026-11-20T08:40:57.566251+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -341,7 +341,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "7fca2acdd40027c59890e68cc5b8cba667eebed353c2e4870315ae02f3ef5380",
-      "checked_at": "2026-11-20T08:35:32.827278+00:00",
+      "checked_at": "2026-11-20T08:41:12.867919+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -349,7 +349,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "70ae548487e9c3afb38d4af97f5896f90ec268b6aea9cb95e0da4765af0cee75",
-      "checked_at": "2026-11-20T08:35:33.010410+00:00",
+      "checked_at": "2026-11-20T08:41:14.398704+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -357,7 +357,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "e6398379f3d68eb2863cc7dcac12c60219ab186614366bb86560039638b2f6c5",
-      "checked_at": "2026-11-20T08:35:35.089183+00:00",
+      "checked_at": "2026-11-20T08:41:24.819809+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -365,7 +365,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "67b38b62062641055946f99f0f393e44ac22a7df3021d4fc7ba1bb6adf94df30",
-      "checked_at": "2026-11-20T08:35:37.387790+00:00",
+      "checked_at": "2026-11-20T08:41:33.288567+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -373,7 +373,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "c35c7b249ce7f3eb21c543d89ca32a3654cb218ed79c22ce6a9765fead5334da",
-      "checked_at": "2026-11-20T08:35:37.737547+00:00",
+      "checked_at": "2026-11-20T08:41:34.158664+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -389,7 +389,7 @@
       "league_id": "nl.1",
       "matches": 306,
       "sha256": "970507a228aa4ccd2968d52a9862b0d2844148bc548bc7ffe5e83d1c0d8f0517",
-      "checked_at": "2026-11-20T08:35:39.490674+00:00",
+      "checked_at": "2026-11-20T08:41:42.927387+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -397,7 +397,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "57cac2d6caab5a303d0b846ce523462b4571da10766a128ac0a5102bd0182e7e",
-      "checked_at": "2026-11-20T08:35:39.608924+00:00",
+      "checked_at": "2026-11-20T08:41:43.953578+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -405,7 +405,7 @@
       "league_id": "pt.1",
       "matches": 306,
       "sha256": "204a047e80abae556e9aed6afede82335d93866a49b479f585313ae5e7a9ecff",
-      "checked_at": "2026-11-20T08:35:35.193214+00:00",
+      "checked_at": "2026-11-20T08:41:25.699132+00:00",
       "license": "CC0-1.0"
     },
     {
@@ -421,7 +421,7 @@
       "league_id": "en.1",
       "matches": 380,
       "sha256": "b8b95a74468c081c2b9c6779b8c0aeb05d5c4c4d191c456b610bb2a9441a73b1",
-      "checked_at": "2026-11-20T08:35:41.796051+00:00",
+      "checked_at": "2026-11-20T08:41:46.775397+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
       "role": "corrects dates and kickoffs, fills missing results",
@@ -449,7 +449,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "563ee175daae3b2443ee99e48084e417cfcb2868499787f033ae2fec7cda4039",
-      "checked_at": "2026-11-20T08:35:28.105892+00:00",
+      "checked_at": "2026-11-20T08:40:35.493451+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -458,7 +458,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "b05ce1a790e16cccb7bd50a29dbb51aae88d822a551c1d30ec730322682ab34c",
-      "checked_at": "2026-11-20T08:35:30.304150+00:00",
+      "checked_at": "2026-11-20T08:40:54.507013+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -467,7 +467,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "a01a006edb8e310a432dc7eaf62d94298b4c19d8680dad8a934a1fe12e21b655",
-      "checked_at": "2026-11-20T08:35:32.710022+00:00",
+      "checked_at": "2026-11-20T08:41:11.362071+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -476,7 +476,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "93f8d0a04dc80adf2b477aeeee555f0a03cbefb4adab1a46b9aa42dc71bf3112",
-      "checked_at": "2026-11-20T08:35:34.978372+00:00",
+      "checked_at": "2026-11-20T08:41:23.945585+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -485,7 +485,7 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "80d7b806d0c96cd3e006f280a0e1838e9155ea75f23d8099e58587b90ab8ef5f",
-      "checked_at": "2026-11-20T08:35:37.262963+00:00",
+      "checked_at": "2026-11-20T08:41:32.402467+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
     },
@@ -494,9 +494,17 @@
       "league_id": "de.2",
       "matches": 306,
       "sha256": "9bcb3f8cf748d308bcf3495d895bb18c2a69e5c979b3e83d9cfed6f6b4920dce",
-      "checked_at": "2026-11-20T08:35:39.375382+00:00",
+      "checked_at": "2026-11-20T08:41:41.687504+00:00",
       "license": "ODbL-1.0",
       "license_url": "https://opendatacommons.org/licenses/odbl/1-0/"
+    },
+    {
+      "url": "https://v3.football.api-sports.io/fixtures",
+      "league_id": "multi",
+      "matches": 231,
+      "checked_at": "2026-11-20T08:41:55.079093+00:00",
+      "license": "API-Football terms of service",
+      "note": "Fills scores the open feeds have not published yet."
     }
   ],
   "failures": [
@@ -271343,12 +271351,16 @@
       "date": "2026-10-09",
       "home": "M\u00e1laga CF",
       "away": "RCD Espanyol de Barcelona",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-09T19:00:00Z"
+      "kickoff": "2026-10-09T19:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-09",
@@ -271372,12 +271384,16 @@
       "date": "2026-10-09",
       "home": "Racing Club de Lens",
       "away": "Olympique Lyonnais",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-09T18:45:00Z"
+      "kickoff": "2026-10-09T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-09",
@@ -271417,34 +271433,46 @@
       "date": "2026-10-09",
       "home": "PSV",
       "away": "SC Heerenveen",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-09T18:00:00Z"
+      "kickoff": "2026-10-09T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-09",
       "home": "Moreirense FC",
       "away": "Gil Vicente FC",
-      "goals": null,
+      "goals": [
+        0,
+        1
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-09T17:45:00Z"
+      "kickoff": "2026-10-09T17:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-09",
       "home": "Sporting Clube de Braga",
       "away": "Sporting Clube de Portugal",
-      "goals": null,
+      "goals": [
+        1,
+        3
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-09T19:15:00Z"
+      "kickoff": "2026-10-09T19:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
@@ -271569,67 +271597,91 @@
       "date": "2026-10-10",
       "home": "Deportivo Alav\u00e9s",
       "away": "Club Atl\u00e9tico de Madrid",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-10T14:15:00Z"
+      "kickoff": "2026-10-10T14:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "FC Barcelona",
       "away": "Getafe CF",
-      "goals": null,
+      "goals": [
+        3,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-10T16:30:00Z"
+      "kickoff": "2026-10-10T16:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "Real Madrid CF",
       "away": "Villarreal CF",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-10T19:00:00Z"
+      "kickoff": "2026-10-10T19:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "Genoa CFC",
       "away": "ACF Fiorentina",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-10T13:00:00Z"
+      "kickoff": "2026-10-10T13:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "FC Internazionale Milano",
       "away": "Parma Calcio 1913",
-      "goals": null,
+      "goals": [
+        3,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-10T16:00:00Z"
+      "kickoff": "2026-10-10T16:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "SSC Napoli",
       "away": "Frosinone Calcio",
-      "goals": null,
+      "goals": [
+        3,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-10T18:45:00Z"
+      "kickoff": "2026-10-10T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
@@ -271743,56 +271795,76 @@
       "date": "2026-10-10",
       "home": "Lille OSC",
       "away": "Le Havre AC",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-10T15:15:00Z"
+      "kickoff": "2026-10-10T15:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "Stade Brestois 29",
       "away": "Angers SCO",
-      "goals": null,
+      "goals": [
+        5,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-10T18:45:00Z"
+      "kickoff": "2026-10-10T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "FC Lorient",
       "away": "Paris FC",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-10T18:45:00Z"
+      "kickoff": "2026-10-10T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "Paris Saint-Germain FC",
       "away": "Le Mans FC",
-      "goals": null,
+      "goals": [
+        3,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-10T18:45:00Z"
+      "kickoff": "2026-10-10T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "AS Monaco FC",
       "away": "Toulouse FC",
-      "goals": null,
+      "goals": [
+        2,
+        2
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-10T18:45:00Z"
+      "kickoff": "2026-10-10T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
@@ -271866,78 +271938,106 @@
       "date": "2026-10-10",
       "home": "Go Ahead Eagles",
       "away": "Sparta Rotterdam",
-      "goals": null,
+      "goals": [
+        3,
+        3
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-10T14:30:00Z"
+      "kickoff": "2026-10-10T14:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "Feyenoord Rotterdam",
       "away": "AZ",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-10T16:45:00Z"
+      "kickoff": "2026-10-10T16:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "Fortuna Sittard",
       "away": "FC Twente '65",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-10T18:00:00Z"
+      "kickoff": "2026-10-10T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "AFC Ajax",
       "away": "NEC",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-10T19:00:00Z"
+      "kickoff": "2026-10-10T19:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "Casa Pia AC",
       "away": "CD Santa Clara",
-      "goals": null,
+      "goals": [
+        0,
+        1
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-10T14:30:00Z"
+      "kickoff": "2026-10-10T14:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "CS Mar\u00edtimo",
       "away": "FC Porto",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-10T17:00:00Z"
+      "kickoff": "2026-10-10T17:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-10",
       "home": "Acad\u00e9mico de Viseu FC",
       "away": "GD Estoril Praia",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-10T19:30:00Z"
+      "kickoff": "2026-10-10T19:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
@@ -271997,100 +272097,136 @@
       "date": "2026-10-11",
       "home": "Elche CF",
       "away": "RC Celta de Vigo",
-      "goals": null,
+      "goals": [
+        0,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-11T12:00:00Z"
+      "kickoff": "2026-10-11T12:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "Real Sociedad de F\u00fatbol",
       "away": "RC Deportivo La Coru\u00f1a",
-      "goals": null,
+      "goals": [
+        3,
+        2
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-11T14:15:00Z"
+      "kickoff": "2026-10-11T14:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "Real Betis Balompi\u00e9",
       "away": "CA Osasuna",
-      "goals": null,
+      "goals": [
+        5,
+        2
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-11T16:30:00Z"
+      "kickoff": "2026-10-11T16:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "Real Racing Club de Santander",
       "away": "Valencia CF",
-      "goals": null,
+      "goals": [
+        2,
+        2
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-11T19:00:00Z"
+      "kickoff": "2026-10-11T19:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "Como 1907",
       "away": "AS Roma",
-      "goals": null,
+      "goals": [
+        0,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-11T10:30:00Z"
+      "kickoff": "2026-10-11T10:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "US Lecce",
       "away": "Bologna FC 1909",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-11T13:00:00Z"
+      "kickoff": "2026-10-11T13:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "SS Lazio",
       "away": "AC Monza",
-      "goals": null,
+      "goals": [
+        3,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-11T13:00:00Z"
+      "kickoff": "2026-10-11T13:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "US Sassuolo Calcio",
       "away": "AC Milan",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-11T16:00:00Z"
+      "kickoff": "2026-10-11T16:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "Cagliari Calcio",
       "away": "Juventus FC",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-11T18:45:00Z"
+      "kickoff": "2026-10-11T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
@@ -272132,34 +272268,46 @@
       "date": "2026-10-11",
       "home": "OGC Nice",
       "away": "RC Strasbourg Alsace",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-11T13:00:00Z"
+      "kickoff": "2026-10-11T13:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "Stade Rennais FC 1901",
       "away": "AJ Auxerre",
-      "goals": null,
+      "goals": [
+        4,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-11T15:15:00Z"
+      "kickoff": "2026-10-11T15:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "ES Troyes AC",
       "away": "Olympique de Marseille",
-      "goals": null,
+      "goals": [
+        0,
+        2
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-11T18:45:00Z"
+      "kickoff": "2026-10-11T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
@@ -272216,78 +272364,106 @@
       "date": "2026-10-11",
       "home": "FC Utrecht",
       "away": "Willem II Tilburg",
-      "goals": null,
+      "goals": [
+        3,
+        1
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-11T10:15:00Z"
+      "kickoff": "2026-10-11T10:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "PEC Zwolle",
       "away": "SC Cambuur-Leeuwarden",
-      "goals": null,
+      "goals": [
+        0,
+        1
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-11T12:30:00Z"
+      "kickoff": "2026-10-11T12:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "Telstar 1963",
       "away": "ADO Den Haag",
-      "goals": null,
+      "goals": [
+        2,
+        2
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-11T12:30:00Z"
+      "kickoff": "2026-10-11T12:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "SBV Excelsior",
       "away": "FC Groningen",
-      "goals": null,
+      "goals": [
+        1,
+        5
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-11T14:45:00Z"
+      "kickoff": "2026-10-11T14:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "Rio Ave FC",
       "away": "CD Nacional",
-      "goals": null,
+      "goals": [
+        3,
+        2
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-11T14:30:00Z"
+      "kickoff": "2026-10-11T14:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "Sport Lisboa e Benfica",
       "away": "Vit\u00f3ria Guimar\u00e3es",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-11T17:00:00Z"
+      "kickoff": "2026-10-11T17:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-11",
       "home": "FC Arouca",
       "away": "CF Estrela da Amadora",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-11T19:30:00Z"
+      "kickoff": "2026-10-11T19:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-12",
@@ -272311,67 +272487,91 @@
       "date": "2026-10-12",
       "home": "Levante UD",
       "away": "Sevilla FC",
-      "goals": null,
+      "goals": [
+        3,
+        3
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-12T19:00:00Z"
+      "kickoff": "2026-10-12T19:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-12",
       "home": "Atalanta BC",
       "away": "Venezia FC",
-      "goals": null,
+      "goals": [
+        3,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-12T16:30:00Z"
+      "kickoff": "2026-10-12T16:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-12",
       "home": "Torino FC",
       "away": "Udinese Calcio",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-12T18:45:00Z"
+      "kickoff": "2026-10-12T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-12",
       "home": "FC Famalic\u00e3o",
       "away": "FC Alverca",
-      "goals": null,
+      "goals": [
+        1,
+        4
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-12T19:15:00Z"
+      "kickoff": "2026-10-12T19:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-16",
       "home": "RC Deportivo La Coru\u00f1a",
       "away": "Levante UD",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-16T19:00:00Z"
+      "kickoff": "2026-10-16T19:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-16",
       "home": "Frosinone Calcio",
       "away": "US Sassuolo Calcio",
-      "goals": null,
+      "goals": [
+        4,
+        2
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-16T18:45:00Z"
+      "kickoff": "2026-10-16T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-16",
@@ -272395,12 +272595,16 @@
       "date": "2026-10-16",
       "home": "Le Mans FC",
       "away": "Toulouse FC",
-      "goals": null,
+      "goals": [
+        0,
+        3
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-16T18:45:00Z"
+      "kickoff": "2026-10-16T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-16",
@@ -272440,12 +272644,16 @@
       "date": "2026-10-16",
       "home": "SC Heerenveen",
       "away": "SBV Excelsior",
-      "goals": null,
+      "goals": [
+        4,
+        0
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-16T18:00:00Z"
+      "kickoff": "2026-10-16T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-17",
@@ -272541,78 +272749,106 @@
       "date": "2026-10-17",
       "home": "RCD Espanyol de Barcelona",
       "away": "Club Atl\u00e9tico de Madrid",
-      "goals": null,
+      "goals": [
+        0,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-17T12:00:00Z"
+      "kickoff": "2026-10-17T12:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-17",
       "home": "Villarreal CF",
       "away": "Elche CF",
-      "goals": null,
+      "goals": [
+        0,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-17T14:15:00Z"
+      "kickoff": "2026-10-17T14:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-17",
       "home": "Real Betis Balompi\u00e9",
       "away": "FC Barcelona",
-      "goals": null,
+      "goals": [
+        2,
+        5
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-17T16:30:00Z"
+      "kickoff": "2026-10-17T16:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-17",
       "home": "Valencia CF",
       "away": "Athletic Club",
-      "goals": null,
+      "goals": [
+        0,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-17T19:00:00Z"
+      "kickoff": "2026-10-17T19:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-17",
       "home": "Venezia FC",
       "away": "SSC Napoli",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-17T13:00:00Z"
+      "kickoff": "2026-10-17T13:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-17",
       "home": "Bologna FC 1909",
       "away": "FC Internazionale Milano",
-      "goals": null,
+      "goals": [
+        1,
+        3
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-17T16:00:00Z"
+      "kickoff": "2026-10-17T16:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-17",
       "home": "AS Roma",
       "away": "Genoa CFC",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-17T18:45:00Z"
+      "kickoff": "2026-10-17T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-17",
@@ -272726,34 +272962,46 @@
       "date": "2026-10-17",
       "home": "RC Strasbourg Alsace",
       "away": "Paris Saint-Germain FC",
-      "goals": null,
+      "goals": [
+        1,
+        3
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-17T15:15:00Z"
+      "kickoff": "2026-10-17T15:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-17",
       "home": "ES Troyes AC",
       "away": "Racing Club de Lens",
-      "goals": null,
+      "goals": [
+        1,
+        3
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-17T18:45:00Z"
+      "kickoff": "2026-10-17T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-17",
       "home": "Lille OSC",
       "away": "Stade Brestois 29",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-17T18:45:00Z"
+      "kickoff": "2026-10-17T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-17",
@@ -272827,34 +273075,46 @@
       "date": "2026-10-17",
       "home": "ADO Den Haag",
       "away": "PSV",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-17T14:30:00Z"
+      "kickoff": "2026-10-17T14:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-17",
       "home": "Telstar 1963",
       "away": "Feyenoord Rotterdam",
-      "goals": null,
+      "goals": [
+        3,
+        4
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-17T18:00:00Z"
+      "kickoff": "2026-10-17T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-17",
       "home": "Sparta Rotterdam",
       "away": "Willem II Tilburg",
-      "goals": null,
+      "goals": [
+        3,
+        2
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-17T19:00:00Z"
+      "kickoff": "2026-10-17T19:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
@@ -272932,89 +273192,121 @@
       "date": "2026-10-18",
       "home": "CA Osasuna",
       "away": "Real Racing Club de Santander",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-18T12:00:00Z"
+      "kickoff": "2026-10-18T12:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "RC Celta de Vigo",
       "away": "Deportivo Alav\u00e9s",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-18T14:15:00Z"
+      "kickoff": "2026-10-18T14:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "M\u00e1laga CF",
       "away": "Real Sociedad de F\u00fatbol",
-      "goals": null,
+      "goals": [
+        2,
+        5
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-18T16:30:00Z"
+      "kickoff": "2026-10-18T16:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "Real Madrid CF",
       "away": "Sevilla FC",
-      "goals": null,
+      "goals": [
+        4,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-18T19:00:00Z"
+      "kickoff": "2026-10-18T19:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "Udinese Calcio",
       "away": "US Lecce",
-      "goals": null,
+      "goals": [
+        0,
+        3
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-18T10:30:00Z"
+      "kickoff": "2026-10-18T10:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "ACF Fiorentina",
       "away": "Como 1907",
-      "goals": null,
+      "goals": [
+        1,
+        3
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-18T13:00:00Z"
+      "kickoff": "2026-10-18T13:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "AC Milan",
       "away": "Atalanta BC",
-      "goals": null,
+      "goals": [
+        3,
+        2
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-18T16:00:00Z"
+      "kickoff": "2026-10-18T16:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "Juventus FC",
       "away": "SS Lazio",
-      "goals": null,
+      "goals": [
+        0,
+        3
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-18T18:45:00Z"
+      "kickoff": "2026-10-18T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
@@ -273056,56 +273348,76 @@
       "date": "2026-10-18",
       "home": "Angers SCO",
       "away": "Olympique de Marseille",
-      "goals": null,
+      "goals": [
+        2,
+        5
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-18T13:00:00Z"
+      "kickoff": "2026-10-18T13:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "FC Lorient",
       "away": "AS Monaco FC",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-18T15:15:00Z"
+      "kickoff": "2026-10-18T15:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "Paris FC",
       "away": "Stade Rennais FC 1901",
-      "goals": null,
+      "goals": [
+        4,
+        3
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-18T15:15:00Z"
+      "kickoff": "2026-10-18T15:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "Le Havre AC",
       "away": "AJ Auxerre",
-      "goals": null,
+      "goals": [
+        1,
+        3
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-18T15:15:00Z"
+      "kickoff": "2026-10-18T15:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "Olympique Lyonnais",
       "away": "OGC Nice",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-18T18:45:00Z"
+      "kickoff": "2026-10-18T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
@@ -273162,56 +273474,76 @@
       "date": "2026-10-18",
       "home": "PEC Zwolle",
       "away": "Go Ahead Eagles",
-      "goals": null,
+      "goals": [
+        4,
+        1
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-18T10:15:00Z"
+      "kickoff": "2026-10-18T10:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "SC Cambuur-Leeuwarden",
       "away": "AZ",
-      "goals": null,
+      "goals": [
+        2,
+        2
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-18T12:30:00Z"
+      "kickoff": "2026-10-18T12:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "FC Groningen",
       "away": "AFC Ajax",
-      "goals": null,
+      "goals": [
+        2,
+        5
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-18T14:45:00Z"
+      "kickoff": "2026-10-18T14:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "FC Twente '65",
       "away": "FC Utrecht",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-18T18:00:00Z"
+      "kickoff": "2026-10-18T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-18",
       "home": "NEC",
       "away": "Fortuna Sittard",
-      "goals": null,
+      "goals": [
+        2,
+        2
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-18T18:00:00Z"
+      "kickoff": "2026-10-18T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-19",
@@ -273235,45 +273567,61 @@
       "date": "2026-10-19",
       "home": "Getafe CF",
       "away": "Rayo Vallecano de Madrid",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-19T19:00:00Z"
+      "kickoff": "2026-10-19T19:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-19",
       "home": "AC Monza",
       "away": "Cagliari Calcio",
-      "goals": null,
+      "goals": [
+        4,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-19T16:30:00Z"
+      "kickoff": "2026-10-19T16:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-19",
       "home": "Parma Calcio 1913",
       "away": "Torino FC",
-      "goals": null,
+      "goals": [
+        0,
+        3
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-19T18:45:00Z"
+      "kickoff": "2026-10-19T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-21",
       "home": "Levante UD",
       "away": "Athletic Club",
-      "goals": null,
+      "goals": [
+        3,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-21T18:00:00Z"
+      "kickoff": "2026-10-21T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-23",
@@ -273297,12 +273645,16 @@
       "date": "2026-10-23",
       "home": "Torino FC",
       "away": "AC Monza",
-      "goals": null,
+      "goals": [
+        3,
+        2
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-23T18:45:00Z"
+      "kickoff": "2026-10-23T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-23",
@@ -273326,12 +273678,16 @@
       "date": "2026-10-23",
       "home": "Stade Brestois 29",
       "away": "OGC Nice",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-23T18:45:00Z"
+      "kickoff": "2026-10-23T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-23",
@@ -273371,23 +273727,31 @@
       "date": "2026-10-23",
       "home": "Go Ahead Eagles",
       "away": "Telstar 1963",
-      "goals": null,
+      "goals": [
+        3,
+        2
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-23T18:00:00Z"
+      "kickoff": "2026-10-23T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-23",
       "home": "Vit\u00f3ria Guimar\u00e3es",
       "away": "CS Mar\u00edtimo",
-      "goals": null,
+      "goals": [
+        5,
+        0
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-23T19:45:00Z"
+      "kickoff": "2026-10-23T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-24",
@@ -273465,45 +273829,61 @@
       "date": "2026-10-24",
       "home": "Cagliari Calcio",
       "away": "Bologna FC 1909",
-      "goals": null,
+      "goals": [
+        0,
+        2
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-24T13:00:00Z"
+      "kickoff": "2026-10-24T13:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-24",
       "home": "Como 1907",
       "away": "US Sassuolo Calcio",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-24T13:00:00Z"
+      "kickoff": "2026-10-24T13:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-24",
       "home": "SSC Napoli",
       "away": "AS Roma",
-      "goals": null,
+      "goals": [
+        3,
+        3
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-24T16:00:00Z"
+      "kickoff": "2026-10-24T16:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-24",
       "home": "SS Lazio",
       "away": "Parma Calcio 1913",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-24T18:45:00Z"
+      "kickoff": "2026-10-24T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-24",
@@ -273617,23 +273997,31 @@
       "date": "2026-10-24",
       "home": "Toulouse FC",
       "away": "ES Troyes AC",
-      "goals": null,
+      "goals": [
+        0,
+        0
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-24T15:15:00Z"
+      "kickoff": "2026-10-24T15:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-24",
       "home": "Racing Club de Lens",
       "away": "Paris FC",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-24T18:45:00Z"
+      "kickoff": "2026-10-24T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-24",
@@ -273707,67 +274095,91 @@
       "date": "2026-10-24",
       "home": "FC Utrecht",
       "away": "PEC Zwolle",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-24T14:30:00Z"
+      "kickoff": "2026-10-24T14:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-24",
       "home": "Willem II Tilburg",
       "away": "SC Cambuur-Leeuwarden",
-      "goals": null,
+      "goals": [
+        1,
+        6
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-24T16:45:00Z"
+      "kickoff": "2026-10-24T16:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-24",
       "home": "ADO Den Haag",
       "away": "SC Heerenveen",
-      "goals": null,
+      "goals": [
+        2,
+        3
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-24T19:00:00Z"
+      "kickoff": "2026-10-24T19:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-24",
       "home": "CF Estrela da Amadora",
       "away": "Casa Pia AC",
-      "goals": null,
+      "goals": [
+        0,
+        2
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-24T14:30:00Z"
+      "kickoff": "2026-10-24T14:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-24",
       "home": "FC Alverca",
       "away": "FC Arouca",
-      "goals": null,
+      "goals": [
+        0,
+        1
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-24T17:00:00Z"
+      "kickoff": "2026-10-24T17:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-24",
       "home": "Gil Vicente FC",
       "away": "FC Porto",
-      "goals": null,
+      "goals": [
+        0,
+        1
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-24T19:30:00Z"
+      "kickoff": "2026-10-24T19:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
@@ -273863,11 +274275,15 @@
       "date": "2026-10-25",
       "home": "Rayo Vallecano de Madrid",
       "away": "Elche CF",
-      "goals": null,
+      "goals": [
+        0,
+        3
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
@@ -273883,136 +274299,188 @@
       "date": "2026-10-25",
       "home": "Athletic Club",
       "away": "Getafe CF",
-      "goals": null,
+      "goals": [
+        4,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Sevilla FC",
       "away": "CA Osasuna",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Valencia CF",
       "away": "Villarreal CF",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "FC Barcelona",
       "away": "Real Madrid CF",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Club Atl\u00e9tico de Madrid",
       "away": "RC Deportivo La Coru\u00f1a",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "RC Celta de Vigo",
       "away": "Real Betis Balompi\u00e9",
-      "goals": null,
+      "goals": [
+        0,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Real Sociedad de F\u00fatbol",
       "away": "Levante UD",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Real Racing Club de Santander",
       "away": "RCD Espanyol de Barcelona",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "FC Internazionale Milano",
       "away": "ACF Fiorentina",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-25T11:30:00Z"
+      "kickoff": "2026-10-25T11:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Atalanta BC",
       "away": "Frosinone Calcio",
-      "goals": null,
+      "goals": [
+        4,
+        4
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-25T14:00:00Z"
+      "kickoff": "2026-10-25T14:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Genoa CFC",
       "away": "Venezia FC",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-25T14:00:00Z"
+      "kickoff": "2026-10-25T14:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "US Lecce",
       "away": "Juventus FC",
-      "goals": null,
+      "goals": [
+        0,
+        2
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-25T17:00:00Z"
+      "kickoff": "2026-10-25T17:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Udinese Calcio",
       "away": "AC Milan",
-      "goals": null,
+      "goals": [
+        0,
+        2
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-25T19:45:00Z"
+      "kickoff": "2026-10-25T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
@@ -274054,67 +274522,91 @@
       "date": "2026-10-25",
       "home": "AS Monaco FC",
       "away": "Lille OSC",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-25T14:00:00Z"
+      "kickoff": "2026-10-25T14:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Olympique de Marseille",
       "away": "Le Havre AC",
-      "goals": null,
+      "goals": [
+        4,
+        3
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-25T16:15:00Z"
+      "kickoff": "2026-10-25T16:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Stade Rennais FC 1901",
       "away": "RC Strasbourg Alsace",
-      "goals": null,
+      "goals": [
+        3,
+        0
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-25T16:15:00Z"
+      "kickoff": "2026-10-25T16:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Angers SCO",
       "away": "FC Lorient",
-      "goals": null,
+      "goals": [
+        0,
+        0
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-25T16:15:00Z"
+      "kickoff": "2026-10-25T16:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "AJ Auxerre",
       "away": "Le Mans FC",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-25T16:15:00Z"
+      "kickoff": "2026-10-25T16:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Paris Saint-Germain FC",
       "away": "Olympique Lyonnais",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-25T19:45:00Z"
+      "kickoff": "2026-10-25T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
@@ -274171,221 +274663,301 @@
       "date": "2026-10-25",
       "home": "Fortuna Sittard",
       "away": "SBV Excelsior",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-25T11:15:00Z"
+      "kickoff": "2026-10-25T11:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "NEC",
       "away": "FC Groningen",
-      "goals": null,
+      "goals": [
+        2,
+        2
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-25T13:30:00Z"
+      "kickoff": "2026-10-25T13:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "PSV",
       "away": "Feyenoord Rotterdam",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-25T13:30:00Z"
+      "kickoff": "2026-10-25T13:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Sparta Rotterdam",
       "away": "AFC Ajax",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-25T15:45:00Z"
+      "kickoff": "2026-10-25T15:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "AZ",
       "away": "FC Twente '65",
-      "goals": null,
+      "goals": [
+        0,
+        2
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-25T19:00:00Z"
+      "kickoff": "2026-10-25T19:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "GD Estoril Praia",
       "away": "Moreirense FC",
-      "goals": null,
+      "goals": [
+        1,
+        3
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-25T15:30:00Z"
+      "kickoff": "2026-10-25T15:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Rio Ave FC",
       "away": "FC Famalic\u00e3o",
-      "goals": null,
+      "goals": [
+        0,
+        4
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-25T18:00:00Z"
+      "kickoff": "2026-10-25T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "CD Nacional",
       "away": "Sporting Clube de Braga",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-25T18:00:00Z"
+      "kickoff": "2026-10-25T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-25",
       "home": "Sporting Clube de Portugal",
       "away": "Acad\u00e9mico de Viseu FC",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-25T20:30:00Z"
+      "kickoff": "2026-10-25T20:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-26",
       "home": "CD Santa Clara",
       "away": "Sport Lisboa e Benfica",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-26T18:45:00Z"
+      "kickoff": "2026-10-26T18:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-27",
       "home": "US Sassuolo Calcio",
       "away": "SS Lazio",
-      "goals": null,
+      "goals": [
+        2,
+        6
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-27T17:30:00Z"
+      "kickoff": "2026-10-27T17:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-27",
       "home": "AS Roma",
       "away": "Cagliari Calcio",
-      "goals": null,
+      "goals": [
+        4,
+        2
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-27T19:45:00Z"
+      "kickoff": "2026-10-27T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-27",
       "home": "Torino FC",
       "away": "Como 1907",
-      "goals": null,
+      "goals": [
+        1,
+        3
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-27T19:45:00Z"
+      "kickoff": "2026-10-27T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-28",
       "home": "AC Milan",
       "away": "Bologna FC 1909",
-      "goals": null,
+      "goals": [
+        2,
+        4
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-28T17:30:00Z"
+      "kickoff": "2026-10-28T17:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-28",
       "home": "Venezia FC",
       "away": "FC Internazionale Milano",
-      "goals": null,
+      "goals": [
+        0,
+        2
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-28T17:30:00Z"
+      "kickoff": "2026-10-28T17:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-28",
       "home": "Parma Calcio 1913",
       "away": "Udinese Calcio",
-      "goals": null,
+      "goals": [
+        0,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-28T17:30:00Z"
+      "kickoff": "2026-10-28T17:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-28",
       "home": "Genoa CFC",
       "away": "Juventus FC",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-28T19:45:00Z"
+      "kickoff": "2026-10-28T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-28",
       "home": "AC Monza",
       "away": "SSC Napoli",
-      "goals": null,
+      "goals": [
+        1,
+        4
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-28T19:45:00Z"
+      "kickoff": "2026-10-28T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-29",
       "home": "Frosinone Calcio",
       "away": "US Lecce",
-      "goals": null,
+      "goals": [
+        5,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-29T17:30:00Z"
+      "kickoff": "2026-10-29T17:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-29",
       "home": "ACF Fiorentina",
       "away": "Atalanta BC",
-      "goals": null,
+      "goals": [
+        2,
+        2
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-29T19:45:00Z"
+      "kickoff": "2026-10-29T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-30",
@@ -274409,23 +274981,31 @@
       "date": "2026-10-30",
       "home": "Le Havre AC",
       "away": "Paris Saint-Germain FC",
-      "goals": null,
+      "goals": [
+        1,
+        5
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-30T18:00:00Z"
+      "kickoff": "2026-10-30T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-30",
       "home": "Lille OSC",
       "away": "Racing Club de Lens",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-30T20:05:00Z"
+      "kickoff": "2026-10-30T20:05:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-30",
@@ -274465,12 +275045,16 @@
       "date": "2026-10-30",
       "home": "Casa Pia AC",
       "away": "Sporting Clube de Portugal",
-      "goals": null,
+      "goals": [
+        0,
+        2
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-30T20:15:00Z"
+      "kickoff": "2026-10-30T20:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-31",
@@ -274620,34 +275204,46 @@
       "date": "2026-10-31",
       "home": "Bologna FC 1909",
       "away": "AC Monza",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-31T14:00:00Z"
+      "kickoff": "2026-10-31T14:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-31",
       "home": "Udinese Calcio",
       "away": "AS Roma",
-      "goals": null,
+      "goals": [
+        2,
+        5
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-31T17:00:00Z"
+      "kickoff": "2026-10-31T17:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-31",
       "home": "AC Milan",
       "away": "FC Internazionale Milano",
-      "goals": null,
+      "goals": [
+        3,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-10-31T19:45:00Z"
+      "kickoff": "2026-10-31T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-31",
@@ -274761,23 +275357,31 @@
       "date": "2026-10-31",
       "home": "OGC Nice",
       "away": "Stade Rennais FC 1901",
-      "goals": null,
+      "goals": [
+        5,
+        2
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-31T16:15:00Z"
+      "kickoff": "2026-10-31T16:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-31",
       "home": "Olympique Lyonnais",
       "away": "Angers SCO",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-31T19:45:00Z"
+      "kickoff": "2026-10-31T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-31",
@@ -274794,12 +275398,16 @@
       "date": "2026-10-31",
       "home": "ES Troyes AC",
       "away": "Le Mans FC",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-10-31T19:45:00Z"
+      "kickoff": "2026-10-31T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-31",
@@ -274873,78 +275481,106 @@
       "date": "2026-10-31",
       "home": "Feyenoord Rotterdam",
       "away": "Fortuna Sittard",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-31T15:30:00Z"
+      "kickoff": "2026-10-31T15:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-31",
       "home": "SC Heerenveen",
       "away": "NEC",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-31T17:45:00Z"
+      "kickoff": "2026-10-31T17:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-31",
       "home": "PSV",
       "away": "Willem II Tilburg",
-      "goals": null,
+      "goals": [
+        7,
+        0
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-31T17:45:00Z"
+      "kickoff": "2026-10-31T17:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-31",
       "home": "SC Cambuur-Leeuwarden",
       "away": "Go Ahead Eagles",
-      "goals": null,
+      "goals": [
+        4,
+        0
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-31T20:00:00Z"
+      "kickoff": "2026-10-31T20:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-31",
       "home": "AFC Ajax",
       "away": "AZ",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-10-31T20:00:00Z"
+      "kickoff": "2026-10-31T20:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-31",
       "home": "Moreirense FC",
       "away": "CF Estrela da Amadora",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-31T15:30:00Z"
+      "kickoff": "2026-10-31T15:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-10-31",
       "home": "FC Porto",
       "away": "GD Estoril Praia",
-      "goals": null,
+      "goals": [
+        4,
+        0
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-10-31T20:30:00Z"
+      "kickoff": "2026-10-31T20:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
@@ -274968,11 +275604,15 @@
       "date": "2026-11-01",
       "home": "Real Betis Balompi\u00e9",
       "away": "M\u00e1laga CF",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
@@ -274988,136 +275628,188 @@
       "date": "2026-11-01",
       "home": "Elche CF",
       "away": "Valencia CF",
-      "goals": null,
+      "goals": [
+        0,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "Athletic Club",
       "away": "Real Sociedad de F\u00fatbol",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "Levante UD",
       "away": "Club Atl\u00e9tico de Madrid",
-      "goals": null,
+      "goals": [
+        0,
+        2
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "RC Deportivo La Coru\u00f1a",
       "away": "CA Osasuna",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "FC Barcelona",
       "away": "Deportivo Alav\u00e9s",
-      "goals": null,
+      "goals": [
+        6,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "Getafe CF",
       "away": "Sevilla FC",
-      "goals": null,
+      "goals": [
+        3,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "Real Racing Club de Santander",
       "away": "Real Madrid CF",
-      "goals": null,
+      "goals": [
+        0,
+        3
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "Rayo Vallecano de Madrid",
       "away": "RC Celta de Vigo",
-      "goals": null,
+      "goals": [
+        3,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "Como 1907",
       "away": "Venezia FC",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-01T11:30:00Z"
+      "kickoff": "2026-11-01T11:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "Frosinone Calcio",
       "away": "Torino FC",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-01T14:00:00Z"
+      "kickoff": "2026-11-01T14:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "SS Lazio",
       "away": "Cagliari Calcio",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-01T14:00:00Z"
+      "kickoff": "2026-11-01T14:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "US Lecce",
       "away": "Genoa CFC",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-01T17:00:00Z"
+      "kickoff": "2026-11-01T17:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "Juventus FC",
       "away": "SSC Napoli",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-01T19:45:00Z"
+      "kickoff": "2026-11-01T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
@@ -275159,34 +275851,46 @@
       "date": "2026-11-01",
       "home": "RC Strasbourg Alsace",
       "away": "AJ Auxerre",
-      "goals": null,
+      "goals": [
+        5,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-11-01T14:00:00Z"
+      "kickoff": "2026-11-01T14:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "Paris FC",
       "away": "AS Monaco FC",
-      "goals": null,
+      "goals": [
+        3,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-11-01T16:15:00Z"
+      "kickoff": "2026-11-01T16:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "Olympique de Marseille",
       "away": "Toulouse FC",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-11-01T19:45:00Z"
+      "kickoff": "2026-11-01T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
@@ -275243,89 +275947,121 @@
       "date": "2026-11-01",
       "home": "PEC Zwolle",
       "away": "ADO Den Haag",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-11-01T11:15:00Z"
+      "kickoff": "2026-11-01T11:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "Telstar 1963",
       "away": "FC Utrecht",
-      "goals": null,
+      "goals": [
+        4,
+        2
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-11-01T13:30:00Z"
+      "kickoff": "2026-11-01T13:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "SBV Excelsior",
       "away": "FC Twente '65",
-      "goals": null,
+      "goals": [
+        0,
+        9
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-11-01T13:30:00Z"
+      "kickoff": "2026-11-01T13:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "FC Groningen",
       "away": "Sparta Rotterdam",
-      "goals": null,
+      "goals": [
+        2,
+        3
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-11-01T15:45:00Z"
+      "kickoff": "2026-11-01T15:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "FC Arouca",
       "away": "CD Nacional",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-11-01T15:30:00Z"
+      "kickoff": "2026-11-01T15:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "CS Mar\u00edtimo",
       "away": "CD Santa Clara",
-      "goals": null,
+      "goals": [
+        0,
+        2
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-11-01T18:00:00Z"
+      "kickoff": "2026-11-01T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "Acad\u00e9mico de Viseu FC",
       "away": "Rio Ave FC",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-11-01T18:00:00Z"
+      "kickoff": "2026-11-01T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-01",
       "home": "Sporting Clube de Braga",
       "away": "FC Famalic\u00e3o",
-      "goals": null,
+      "goals": [
+        3,
+        0
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-11-01T20:30:00Z"
+      "kickoff": "2026-11-01T20:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-02",
@@ -275349,45 +276085,61 @@
       "date": "2026-11-02",
       "home": "US Sassuolo Calcio",
       "away": "ACF Fiorentina",
-      "goals": null,
+      "goals": [
+        2,
+        4
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-02T17:30:00Z"
+      "kickoff": "2026-11-02T17:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-02",
       "home": "Atalanta BC",
       "away": "Parma Calcio 1913",
-      "goals": null,
+      "goals": [
+        0,
+        3
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-02T19:45:00Z"
+      "kickoff": "2026-11-02T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-02",
       "home": "Sport Lisboa e Benfica",
       "away": "FC Alverca",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-11-02T20:15:00Z"
+      "kickoff": "2026-11-02T20:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-02",
       "home": "Gil Vicente FC",
       "away": "Vit\u00f3ria Guimar\u00e3es",
-      "goals": null,
+      "goals": [
+        0,
+        0
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-11-02T20:15:00Z"
+      "kickoff": "2026-11-02T20:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-06",
@@ -275411,12 +276163,16 @@
       "date": "2026-11-06",
       "home": "Venezia FC",
       "away": "Udinese Calcio",
-      "goals": null,
+      "goals": [
+        2,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-06T19:45:00Z"
+      "kickoff": "2026-11-06T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-06",
@@ -275440,12 +276196,16 @@
       "date": "2026-11-06",
       "home": "Toulouse FC",
       "away": "RC Strasbourg Alsace",
-      "goals": null,
+      "goals": [
+        3,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-11-06T19:45:00Z"
+      "kickoff": "2026-11-06T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-06",
@@ -275485,23 +276245,31 @@
       "date": "2026-11-06",
       "home": "Willem II Tilburg",
       "away": "PEC Zwolle",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-11-06T19:00:00Z"
+      "kickoff": "2026-11-06T19:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-06",
       "home": "FC Famalic\u00e3o",
       "away": "FC Arouca",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-11-06T20:45:00Z"
+      "kickoff": "2026-11-06T20:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-07",
@@ -275579,45 +276347,61 @@
       "date": "2026-11-07",
       "home": "Torino FC",
       "away": "US Lecce",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-07T14:00:00Z"
+      "kickoff": "2026-11-07T14:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-07",
       "home": "Cagliari Calcio",
       "away": "Frosinone Calcio",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-07T14:00:00Z"
+      "kickoff": "2026-11-07T14:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-07",
       "home": "Parma Calcio 1913",
       "away": "Bologna FC 1909",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-07T17:00:00Z"
+      "kickoff": "2026-11-07T17:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-07",
       "home": "AS Roma",
       "away": "US Sassuolo Calcio",
-      "goals": null,
+      "goals": [
+        3,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-07T19:45:00Z"
+      "kickoff": "2026-11-07T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-07",
@@ -275713,23 +276497,31 @@
       "date": "2026-11-07",
       "home": "AJ Auxerre",
       "away": "Paris FC",
-      "goals": null,
+      "goals": [
+        0,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-11-07T16:15:00Z"
+      "kickoff": "2026-11-07T16:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-07",
       "home": "Paris Saint-Germain FC",
       "away": "ES Troyes AC",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-11-07T19:45:00Z"
+      "kickoff": "2026-11-07T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-07",
@@ -275803,67 +276595,91 @@
       "date": "2026-11-07",
       "home": "Fortuna Sittard",
       "away": "Telstar 1963",
-      "goals": null,
+      "goals": [
+        2,
+        2
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-11-07T15:30:00Z"
+      "kickoff": "2026-11-07T15:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-07",
       "home": "ADO Den Haag",
       "away": "Sparta Rotterdam",
-      "goals": null,
+      "goals": [
+        3,
+        1
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-11-07T17:45:00Z"
+      "kickoff": "2026-11-07T17:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-07",
       "home": "SBV Excelsior",
       "away": "Go Ahead Eagles",
-      "goals": null,
+      "goals": [
+        0,
+        1
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-11-07T20:00:00Z"
+      "kickoff": "2026-11-07T20:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-07",
       "home": "CD Nacional",
       "away": "Acad\u00e9mico de Viseu FC",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-11-07T15:30:00Z"
+      "kickoff": "2026-11-07T15:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-07",
       "home": "FC Alverca",
       "away": "Casa Pia AC",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-11-07T18:00:00Z"
+      "kickoff": "2026-11-07T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-07",
       "home": "Sporting Clube de Portugal",
       "away": "Moreirense FC",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-11-07T20:30:00Z"
+      "kickoff": "2026-11-07T20:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
@@ -275959,21 +276775,29 @@
       "date": "2026-11-08",
       "home": "Elche CF",
       "away": "Real Betis Balompi\u00e9",
-      "goals": null,
+      "goals": [
+        0,
+        2
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "CA Osasuna",
       "away": "Athletic Club",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
@@ -275989,126 +276813,174 @@
       "date": "2026-11-08",
       "home": "Valencia CF",
       "away": "Real Madrid CF",
-      "goals": null,
+      "goals": [
+        0,
+        3
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "RC Celta de Vigo",
       "away": "Levante UD",
-      "goals": null,
+      "goals": [
+        0,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "Real Sociedad de F\u00fatbol",
       "away": "Rayo Vallecano de Madrid",
-      "goals": null,
+      "goals": [
+        1,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "M\u00e1laga CF",
       "away": "Real Racing Club de Santander",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "RCD Espanyol de Barcelona",
       "away": "RC Deportivo La Coru\u00f1a",
-      "goals": null,
+      "goals": [
+        0,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "Club Atl\u00e9tico de Madrid",
       "away": "FC Barcelona",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "Villarreal CF",
       "away": "Getafe CF",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "es.1",
       "league": "Spain \u2014 La Liga",
-      "season": "2026-27"
+      "season": "2026-27",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "SSC Napoli",
       "away": "SS Lazio",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-08T11:30:00Z"
+      "kickoff": "2026-11-08T11:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "Genoa CFC",
       "away": "AC Milan",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-08T14:00:00Z"
+      "kickoff": "2026-11-08T14:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "AC Monza",
       "away": "Atalanta BC",
-      "goals": null,
+      "goals": [
+        0,
+        1
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-08T14:00:00Z"
+      "kickoff": "2026-11-08T14:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "FC Internazionale Milano",
       "away": "Como 1907",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-08T17:00:00Z"
+      "kickoff": "2026-11-08T17:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "ACF Fiorentina",
       "away": "Juventus FC",
-      "goals": null,
+      "goals": [
+        2,
+        2
+      ],
       "ht": null,
       "league_id": "it.1",
       "league": "Italy \u2014 Serie A",
       "season": "2026-27",
-      "kickoff": "2026-11-08T19:45:00Z"
+      "kickoff": "2026-11-08T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
@@ -276168,67 +277040,91 @@
       "date": "2026-11-08",
       "home": "Stade Rennais FC 1901",
       "away": "Lille OSC",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-11-08T14:00:00Z"
+      "kickoff": "2026-11-08T14:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "Le Mans FC",
       "away": "AS Monaco FC",
-      "goals": null,
+      "goals": [
+        1,
+        1
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-11-08T16:15:00Z"
+      "kickoff": "2026-11-08T16:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "Stade Brestois 29",
       "away": "Olympique Lyonnais",
-      "goals": null,
+      "goals": [
+        2,
+        0
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-11-08T16:15:00Z"
+      "kickoff": "2026-11-08T16:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "Le Havre AC",
       "away": "FC Lorient",
-      "goals": null,
+      "goals": [
+        0,
+        2
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-11-08T16:15:00Z"
+      "kickoff": "2026-11-08T16:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "Angers SCO",
       "away": "OGC Nice",
-      "goals": null,
+      "goals": [
+        0,
+        2
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-11-08T16:15:00Z"
+      "kickoff": "2026-11-08T16:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "Racing Club de Lens",
       "away": "Olympique de Marseille",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "fr.1",
       "league": "France \u2014 Ligue 1",
       "season": "2026-27",
-      "kickoff": "2026-11-08T19:45:00Z"
+      "kickoff": "2026-11-08T19:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
@@ -276285,56 +277181,76 @@
       "date": "2026-11-08",
       "home": "SC Heerenveen",
       "away": "Feyenoord Rotterdam",
-      "goals": null,
+      "goals": [
+        5,
+        3
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-11-08T11:15:00Z"
+      "kickoff": "2026-11-08T11:15:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "FC Twente '65",
       "away": "AFC Ajax",
-      "goals": null,
+      "goals": [
+        2,
+        2
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-11-08T13:30:00Z"
+      "kickoff": "2026-11-08T13:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "AZ",
       "away": "FC Groningen",
-      "goals": null,
+      "goals": [
+        4,
+        3
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-11-08T15:45:00Z"
+      "kickoff": "2026-11-08T15:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "SC Cambuur-Leeuwarden",
       "away": "PSV",
-      "goals": null,
+      "goals": [
+        2,
+        5
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-11-08T15:45:00Z"
+      "kickoff": "2026-11-08T15:45:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "FC Utrecht",
       "away": "NEC",
-      "goals": null,
+      "goals": [
+        2,
+        3
+      ],
       "ht": null,
       "league_id": "nl.1",
       "league": "Netherlands \u2014 Eredivisie",
       "season": "2026-27",
-      "kickoff": "2026-11-08T19:00:00Z"
+      "kickoff": "2026-11-08T19:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
@@ -276351,45 +277267,61 @@
       "date": "2026-11-08",
       "home": "CD Santa Clara",
       "away": "Gil Vicente FC",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-11-08T15:30:00Z"
+      "kickoff": "2026-11-08T15:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "Vit\u00f3ria Guimar\u00e3es",
       "away": "FC Porto",
-      "goals": null,
+      "goals": [
+        1,
+        2
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-11-08T18:00:00Z"
+      "kickoff": "2026-11-08T18:00:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "Rio Ave FC",
       "away": "Sporting Clube de Braga",
-      "goals": null,
+      "goals": [
+        0,
+        1
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-11-08T20:30:00Z"
+      "kickoff": "2026-11-08T20:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-08",
       "home": "CF Estrela da Amadora",
       "away": "Sport Lisboa e Benfica",
-      "goals": null,
+      "goals": [
+        2,
+        3
+      ],
       "ht": null,
       "league_id": "pt.1",
       "league": "Portugal \u2014 Primeira Liga",
       "season": "2026-27",
-      "kickoff": "2026-11-08T20:30:00Z"
+      "kickoff": "2026-11-08T20:30:00Z",
+      "score_source": "api-football"
     },
     {
       "date": "2026-11-20",
