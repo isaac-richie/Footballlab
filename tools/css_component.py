@@ -14,6 +14,7 @@ specificity sat between the old copies and used to win: check with computed-styl
 
     python3 tools/css_component.py vip '\\.(vlx?|vl-[\\w-]+)(?![\\w-])'          # report
     python3 tools/css_component.py vip '...' --write
+    python3 tools/css_component.py controls '...' --at-first --write   # base styles: keep them early
 """
 import re
 import sys
@@ -52,7 +53,7 @@ def normaliser(aliases):
     return norm
 
 
-def gather(html, name, token, aliases=None, emit_root=None):
+def gather(html, name, token, aliases=None, emit_root=None, place='end'):
     tok = re.compile(token)
     a, b = html.index('<style>') + len('<style>'), html.index('</style>')
     css = html[a:b]
@@ -130,21 +131,36 @@ def gather(html, name, token, aliases=None, emit_root=None):
         else:
             out.extend(lines)
     block = '\n'.join(out) + '\n'
-    new_css = css
+    # where the block goes: the end of the stylesheet (place='end'); 'first', just before the top-level
+    # item holding the component's first rule (base styles that later components override); or 'last',
+    # just after the item holding its last rule
+    tops = C.split_top(css)
+    at = len(css)
+    if place == 'first':
+        first = min(r[3] for r in mine)
+        at = next(s for kind, pre, body, s, e in tops if s <= first < e)
+    elif place == 'last':
+        last = max(r[4] for r in mine)
+        at = next(e for kind, pre, body, s, e in tops if s < last <= e)
+    marker = '\0BLOCK\0'
+    new_css = css[:at] + marker + css[at:]
     for r in sorted(mine, key=lambda r: -r[3]):
-        new_css = new_css[:r[3]] + new_css[r[4]:]
+        shift = len(marker) if r[3] >= at else 0
+        new_css = new_css[:r[3] + shift] + new_css[r[4] + shift:]
     new_css = re.sub(r'@media[^{]*\{\s*\}', '', new_css)
     new_css = re.sub(r'\n\s*\n\s*\n+', '\n\n', new_css)
     stats = dict(rules_before=len(mine), rules_after=sum(len(v) for v in merged.values()),
                  important_before=sum(r[2].count('!important') for r in mine), important_after=block.count('!important'))
-    return html[:a] + new_css + block + html[b:], block, stats
+    new_css = new_css.replace(marker, block)
+    return html[:a] + new_css + html[b:], block, stats
 
 
 if __name__ == '__main__':
     name, token = sys.argv[1], sys.argv[2]
     aliases = [a for a in (sys.argv[3].split('|') if len(sys.argv) > 3 and not sys.argv[3].startswith('--') else [])]
     html = FILE.read_text()
-    new, block, stats = gather(html, name, token, aliases or None, aliases[0] if aliases else None)
+    new, block, stats = gather(html, name, token, aliases or None, aliases[0] if aliases else None,
+                              'first' if '--at-first' in sys.argv else 'last' if '--at-last' in sys.argv else 'end')
     print(stats)
     if '--write' in sys.argv:
         FILE.write_text(new)
