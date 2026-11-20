@@ -1162,7 +1162,7 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header('Cache-Control', 'max-age=604800')
             self.end_headers()
             self.wfile.write(raw)
-        elif path in ('/fx.js', '/motion.js'):
+        elif path in ('/fx.js', '/motion.js', '/welcome.js'):
             raw = (ROOT / 'community' / 'web' / path.lstrip('/')).read_bytes()   # one shared copy for every page
             self.send_response(200)
             self.send_header('Content-Type', 'text/javascript; charset=utf-8')

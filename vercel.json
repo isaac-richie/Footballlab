@@ -6,7 +6,7 @@
       "use": "@vercel/python",
       "config": {
         "maxDuration": 60,
-        "includeFiles": "{*.py,index.html,data.json,nba_public.json,corners_data.json,nba_badges.json,badge_urls.json,community/web/{fx.js,motion.js,kits.js,logo-mark.svg},reports/{corner_picks.json,vip_odds.json,model_health.json,backtest/*.json,goal_lines_check.json,nba_public_picks/*.json,nba_vip_public.json,nba_public_board.json,nba_public_lab.json,nba_public_prospective-grades.json,benchmark.json,experiments.json,accuracy_lab.json,prospective-grades.json,record.json,prospective/vip/record-live.json},pwa/{manifest.webmanifest,sw.js,icons/*.png}}"
+        "includeFiles": "{*.py,index.html,data.json,nba_public.json,corners_data.json,nba_badges.json,badge_urls.json,community/web/{fx.js,motion.js,welcome.js,kits.js,logo-mark.svg},reports/{corner_picks.json,vip_odds.json,model_health.json,backtest/*.json,goal_lines_check.json,nba_public_picks/*.json,nba_vip_public.json,nba_public_board.json,nba_public_lab.json,nba_public_prospective-grades.json,benchmark.json,experiments.json,accuracy_lab.json,prospective-grades.json,record.json,prospective/vip/record-live.json},pwa/{manifest.webmanifest,sw.js,icons/*.png}}"
       }
     }
   ],
