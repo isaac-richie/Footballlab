@@ -2185,6 +2185,17 @@ body[data-sport="basketball"] .season-link{display:none}
 .rx-restart{margin:0 0 10px;font-size:12px}
 .nvip-book{padding:16px!important;margin-bottom:14px}
 .nvip-book .bk-slot{margin-top:6px}
+
+/* How to use */
+.how-use{border-top:1px solid var(--line)}
+.how-use:last-child{border-bottom:1px solid var(--line)}
+.how-use summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 0;cursor:pointer;list-style:none;
+  font-family:var(--serif);font-size:19px;font-weight:600;color:var(--text)}
+.how-use summary::-webkit-details-marker{display:none}
+.how-use ol{margin:0 0 16px;padding-left:20px;color:var(--muted);font-size:15px;line-height:1.6}
+.how-use li{margin:4px 0}
+.how-use li b{color:var(--text);font-weight:600}
+@media (max-width:760px){.how-use summary{font-size:17px}.how-use ol{font-size:14.5px}}
 </style>
 </head>
 <body>
@@ -2408,7 +2419,7 @@ body[data-sport="basketball"] .season-link{display:none}
 
   <!-- HOW IT WORKS: reached from links (welcome card, front page, record, footer), not the main nav -->
   <section data-panel="tools" hidden>
-    <div class="view-head tl-head"><div><span class="eyebrow"><i></i>Tools</span><h1>Build your slip</h1></div></div>
+    <div class="view-head tl-head"><div><span class="eyebrow"><i></i>Tools</span><h1>Build your slip</h1><a class="season-link" href="#how/use">How to use the tools →</a></div></div>
     <div class="seg tl-tabs" role="tablist">
       <button type="button" data-tl="quick" aria-pressed="true">Quick Slip</button>
       <button type="button" data-tl="slip" aria-pressed="false">Slip tools</button>
@@ -2427,8 +2438,22 @@ body[data-sport="basketball"] .season-link{display:none}
         <span class="kicker">How it works</span>
         <h1>How we work out the chances</h1>
         <p class="how-lede">Past results and bookmaker prices, turned into the chance of every outcome. Every pick goes on a public record.</p>
-        <nav class="how-toc" aria-label="On this page"><a href="#how/method">The method</a><a href="#how/proof">The proof</a><a href="#how/read">Reading the numbers</a><a href="#how/limits">What we can't know</a></nav>
+        <nav class="how-toc" aria-label="On this page"><a href="#how/use">How to use</a><a href="#how/method">The method</a><a href="#how/proof">The proof</a><a href="#how/read">Reading the numbers</a><a href="#how/limits">What we can't know</a></nav>
       </header>
+
+      <section class="how-sec" id="how-use">
+        <h2><span>00</span>How to use Fairline</h2>
+          <details class="how-use"><summary>VIP: the day's surest picks</summary><ol><li>Open <b>VIP</b>. Switch <b>Football / NBA</b> at the top.</li><li>Each card: our chance, the <b>fair</b> odds, a <b>High / Medium / Low</b> badge. Tap <b>Why this pick</b> for the reason.</li><li><b>Accumulator</b> trims the slip to the surest few. <b>Yesterday</b> shows how the last slip did.</li></ol></details>
+          <details class="how-use"><summary>Booking codes</summary><ol><li>On VIP, Quick Slip or your Slip, choose your bookie and tap <b>Get booking code</b>.</li><li>Copy the code and paste it into your bookie's <b>Load booking code</b> box.</li><li>Football and NBA picks can share one code. Start before kickoff: started games can't be booked.</li></ol></details>
+          <details class="how-use"><summary>Quick Slip: a slip built for you</summary><ol><li><b>Tools → Quick Slip</b>. Choose the day, kick-off time, sports and number of picks.</li><li>Pick a plan: <b>Balanced</b>, <b>Safest</b>, <b>Value</b> or <b>Bankers</b>. Tap <b>Build my slip</b>; <b>Shuffle</b> for another mix.</li><li>Then get a booking code, add it all to your slip, or copy it.</li></ol></details>
+          <details class="how-use"><summary>Your slip</summary><ol><li>Tap <b>+</b> on any pick to add it. Open <b>Slip</b> (bottom right).</li><li>Enter your bookie's odds and your stake: see the payout, our chance it all wins, and whether the price is fair.</li><li>Tap <b>Get booking code</b> for one code covering the whole slip.</li></ol></details>
+          <details class="how-use"><summary>Code converter</summary><ol><li><b>Tools → Slip tools → Code converter</b>.</li><li>Paste a code, choose <b>From</b> and <b>To</b>, tap <b>Convert</b>. About 5 seconds.</li></ol></details>
+          <details class="how-use"><summary>Slip tools</summary><ol><li><b>Optimizer</b>: drops your least likely picks until the slip reaches the chance you set.</li><li><b>Splitter</b>: one big slip into smaller ones of equal chance.</li><li><b>Merger</b>: paste several pick lists; repeated games are removed.</li></ol></details>
+          <details class="how-use"><summary>Calculators</summary><ol><li><b>Odds converter</b>, <b>Returns</b>, <b>Hedge</b>, <b>Dutching</b>, <b>Kelly stake</b> and <b>Arb checker</b> under <b>Tools → Calculators</b>.</li><li>Type the numbers; answers update as you type.</li></ol></details>
+          <details class="how-use"><summary>Analyse a match</summary><ol><li>Tap <b>Full analysis</b> on any game, or pick two teams under <b>Analyse</b>.</li><li><b>Form &amp; H2H</b>: head to head, season so far, goals record, first v second half.</li><li>Other tabs price every market; <b>Bet builder</b> stacks picks on one match.</li></ol></details>
+          <details class="how-use"><summary>Lineup builder</summary><ol><li><b>Tools → Lineup</b>. Choose a formation, type eleven names, tap <b>Share lineup</b>.</li></ol></details>
+          <details class="how-use"><summary>Our record</summary><ol><li><b>Record</b> shows every VIP pick saved before kickoff, won or lost, and what we said against what came in.</li></ol></details>
+      </section>
 
       <section class="how-sec" id="how-method">
         <h2><span>01</span>From results to a percentage</h2>
