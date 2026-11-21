@@ -2180,6 +2180,8 @@ body[data-sport="basketball"] .season-link{display:none}
 .bk-code b{font-family:var(--serif);font-size:22px;letter-spacing:.06em;margin-right:auto}
 .bk-note,.bk-err,.bk-off{margin:8px 0 0;font-size:12.5px;color:var(--muted);line-height:1.45}
 .bk-err{color:var(--warn)}
+
+.slip-bk{margin:4px 0 12px}
 </style>
 </head>
 <body>
@@ -4102,7 +4104,7 @@ setInterval(() => {
   if(d.legs.some(l => l.status === 'live' || (l.status === 'scheduled' && l.date <= today))) loadVip(true);
 }, 60000);
 const vipKey = l => `vip|${l.date}|${l.home}|${l.away}`;
-const vipItem = l => ({key: vipKey(l), home: l.home, away: l.away, date: l.date, legs: [bookieText(l)], p: l.probability, source: l.source || 'model', ...(l.best_odds ? {odds: l.best_odds} : {}), ...(l.sport === 'nba' ? {sport: 'nba'} : {})});
+const vipItem = l => ({key: vipKey(l), home: l.home, away: l.away, date: l.date, legs: [bookieText(l)], p: l.probability, source: l.source || 'model', pick: bookLeg(l), ...(l.best_odds ? {odds: l.best_odds} : {}), ...(l.sport === 'nba' ? {sport: 'nba'} : {})});
 $('#vip-legs').addEventListener('click', e => {
   const b = e.target.closest('[data-vip]'); if(!b || !state.vip) return;
   slipAdd(vipItem(state.vip.legs[+b.dataset.vip])); b.classList.add('on');
@@ -4485,7 +4487,12 @@ function slipAdd(item){
   state.slip = state.slip.filter(x => x.key !== item.key); state.slip.push(item);
   saveSlip(); const f = $('#slip-fab'); f.classList.remove('bump'); void f.offsetWidth; f.classList.add('bump');
 }
-function nbSlipItem(x, legs, p, tag){ return {key: `nba|${x.id || x.date + x.home}|${tag}`, home: x.home, away: x.away, date: x.date, legs, p, source: 'model', sport: 'nba'} }
+function nbSlipItem(x, legs, p, tag){
+  const base = {home: x.home, away: x.away, date: x.date, kickoff: x.tipoff || null, league: 'NBA', sport: 'nba'};
+  const pick = tag === 'ml' ? {...base, market: 'winner', team: x.team, selection: `${x.team} to win`}
+    : tag === 'tot' ? {...base, market: 'total', side: x.side, line: x.line, selection: `${x.side === 'over' ? 'Over' : 'Under'} ${x.line} points`} : null;
+  return {key: `nba|${x.id || x.date + x.home}|${tag}`, home: x.home, away: x.away, date: x.date, legs, p, source: 'model', sport: 'nba', ...(pick ? {pick} : {})};
+}
 const CUR = [['NGN', '₦'], ['USD', '$'], ['GBP', '£'], ['EUR', '€'], ['GHS', 'GH₵'], ['KES', 'KSh']];
 function money(v){ const c = CUR.find(([k]) => k === (store.get('fl-cur') || 'NGN')) || CUR[0]; return c[1] + (v >= 1000 ? Math.round(v).toLocaleString() : v.toFixed(2)) }
 function renderSlip(){
@@ -4501,9 +4508,17 @@ function renderSlip(){
       <div class="calc-in"><label class="field"><span>Stake</span><input id="calc-stake" type="number" min="0" step="any" inputmode="decimal" value="${stake}"></label>
         <label class="field"><span>Currency</span><select id="calc-cur">${CUR.map(([k, sym]) => `<option value="${k}"${k === cur ? ' selected' : ''}>${sym} ${k}</option>`).join('')}</select></label></div>
       <div id="calc-out"></div></div>
+    ${slipBookHtml()}
     <button class="ghost" id="slip-clear" type="button" style="width:100%">Clear slip</button>
     <p class="note">Odds multiply across picks (different matches are treated as independent). Probabilities, not promises: check the odds on your bookie's own slip. 18+.</p>`;
-  calc();
+  calc(); bookPanels();
+}
+// Booking code for the slip: every pick that carries its market; bet builder combos can't be booked as one pick.
+function slipBookHtml(){
+  const ok = state.slip.filter(x => x.pick), left = state.slip.length - ok.length;
+  BOOK.legs.slip = ok.map(x => x.pick);
+  if(!ok.length) return left ? '<p class="bk-off">Bet builder combos and older slip entries can\'t be booked. Add picks again from VIP, Quick Slip or NBA to get a code.</p>' : '';
+  return `<div class="bk-slot slip-bk" data-book="slip"></div>${left ? `<p class="bk-off">${left} pick${left > 1 ? 's' : ''} left out of the code (bet builder combos and older slip entries can't be booked).</p>` : ''}`;
 }
 function calc(){
   const el = $('#calc-out'); if(!el) return;
