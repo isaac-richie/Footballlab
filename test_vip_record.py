@@ -98,39 +98,23 @@ class VipRecordTest(unittest.TestCase):
         s = record.vip_ledger()['summary']
         self.assertEqual((s['win_streak'], s['perfect_slips'], s['settled_slips']), (2, 1, 1))
 
-    def test_vip_rule_is_goals_only(self):
-        leg = lambda fx, m, sel, p: dict(fixture=fx, league_id='en.1', market=m, selection=sel, probability=p)
+    def test_vip_takes_each_games_surest_pick(self):
+        leg = lambda fx, m, sel, p: dict(fixture=fx, league_id=f'l{fx}', market=m, selection=sel, probability=p)
         picks = record.vip_from([
-            leg('A v B', 'btts', 'Both teams score', .88), leg('A v B', 'dc', 'A or draw', .90),
-            leg('A v B', 'ou15', 'Over 1.5', .85), leg('A v B', 'ou25', 'Over 2.5', .66),      # Over 2.5 wins the game
-            leg('C v D', 'ou25', 'Over 2.5', .60), leg('C v D', 'ou15', 'Over 1.5', .80), leg('C v D', 'dc', 'C or draw', .91),
-            leg('E v F', 'ou25', 'Under 2.5', .70), leg('E v F', 'ou15', 'Over 1.5', .70), leg('E v F', 'dc', 'E or draw', .82),
-            leg('G v H', 'ou15', 'Over 1.5', .77), leg('G v H', 'dc', 'G or draw', .79),      # nothing reaches its floor
-            leg('I v J', 'ou15', 'Over 1.5', .95)])                                            # near-certain: no value
-        self.assertEqual(sorted((p['fixture'], p['selection']) for p in picks),
-                         [('A v B', 'Over 2.5'), ('C v D', 'Over 1.5')])
+            leg('A v B', 'btts', 'Both teams score', .93), leg('A v B', 'dc', 'A or draw', .90),   # BTTS is not a VIP market
+            leg('A v B', 'ou15', 'Over 1.5', .85), leg('A v B', 'ou25', 'Over 2.5', .66),
+            leg('C v D', 'dc', 'C or D', .95), leg('C v D', 'ou15', 'Over 1.5', .80),           # "no draw" is not used
+            leg('E v F', 'ou25', 'Under 2.5', .90), leg('E v F', 'ou15', 'Over 1.5', .70),      # Under 2.5 is not used; 1.5 below floor
+            leg('G v H', '1x2', 'G win', .78), leg('G v H', 'ou25', 'Over 2.5', .67),
+            leg('I v J', 'ou15', 'Over 1.5', .95), leg('I v J', 'dc', 'I or draw', .99)])       # above VIP_MAX: the 95% stays
+        self.assertEqual([(p['fixture'], p['selection']) for p in picks],
+                         [('I v J', 'Over 1.5'), ('A v B', 'A or draw'), ('C v D', 'Over 1.5'), ('G v H', 'G win')])
 
-    def test_favourites_join_from_other_games(self):
-        leg = lambda fx, m, sel, p: dict(fixture=fx, league_id='en.1', market=m, selection=sel, probability=p)
-        picks = record.vip_from([
-            leg('A v B', 'ou15', 'Over 1.5', .85), leg('A v B', '1x2', 'A win', .70),         # below 75%
-            leg('C v D', '1x2', 'C win', .79), leg('C v D', '1x2', 'Draw', .12),
-            leg('E v F', '1x2', 'F win', .74),                                                  # below 75%
-            leg('G v H', '1x2', 'G win', .80), leg('I v J', '1x2', 'J win', .76), leg('K v L', '1x2', 'K win', .75)])   # only three favourites
-        self.assertEqual(sorted((p['fixture'], p['selection']) for p in picks),
-                         [('A v B', 'Over 1.5'), ('C v D', 'C win'), ('G v H', 'G win'), ('I v J', 'J win')])
-
-    def test_favourite_joins_a_game_that_has_a_goal_pick(self):
-        leg = lambda fx, m, sel, p: dict(fixture=fx, league_id='en.1', market=m, selection=sel, probability=p)
-        picks = record.vip_from([leg('A v B', 'ou25', 'Over 2.5', .70), leg('A v B', '1x2', 'A win', .85)])
-        self.assertEqual(sorted(p['selection'] for p in picks), ['A win', 'Over 2.5'])
-
-    def test_over_25_is_not_crowded_out_by_the_league_cap(self):
-        leg = lambda fx, sel, p: dict(fixture=fx, league_id='de.1', market='ou25' if '2.5' in sel else 'ou15', selection=sel, probability=p)
-        legs = [leg(f'G{i}', 'Over 1.5', .85 - i / 100) for i in range(record.VIP_PER_LEAGUE)] + [leg('X', 'Over 2.5', .70)]
-        picks = record.vip_from(legs)
-        self.assertIn(('X', 'Over 2.5'), [(p['fixture'], p['selection']) for p in picks])
+    def test_league_cap_keeps_the_surest(self):
+        leg = lambda fx, p: dict(fixture=fx, league_id='de.1', market='ou15', selection='Over 1.5', probability=p)
+        picks = record.vip_from([leg(f'G{i}', .80 + i / 100) for i in range(record.VIP_PER_LEAGUE + 2)])
         self.assertEqual(len(picks), record.VIP_PER_LEAGUE)
+        self.assertEqual(picks[0]['probability'], .80 + (record.VIP_PER_LEAGUE + 1) / 100)
 
     def test_missing_file_gives_empty_ledger(self):
         s = record.vip_ledger()['summary']

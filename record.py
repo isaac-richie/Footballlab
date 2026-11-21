@@ -27,7 +27,7 @@ FILE = ROOT / 'reports' / 'record.json'
 # Kept beside the forecast ledger so the daily job (which commits reports/prospective) saves it too.
 LIVE = ROOT / 'reports' / 'prospective' / 'vip' / 'record-live.json'
 REPLAY_DAYS = 42
-VIP_MAX, VIP_PER_LEAGUE, VIP_SIZE = .92, 3, 17   # VIP_SIZE: the largest slip the site offers
+VIP_MAX, VIP_PER_LEAGUE, VIP_SIZE = .97, 3, 17   # VIP_SIZE: the largest slip the site offers
 # Goals only. For each game the VIP pick is the first of these that reaches its floor:
 # (market, selection or None for any, minimum probability). Three seasons of walk-forward
 # weekly slips (Premier League, La Liga, Bundesliga; scorelines only): Over 2.5 at 65%+
@@ -100,14 +100,32 @@ def tier(leg):
     return next((i for i, (m, sel, _) in enumerate(VIP_PRIORITY) if leg['market'] == m and leg['selection'] == sel), len(VIP_PRIORITY))
 
 
-def vip_pick(legs):
-    """One game's VIP pick from all its candidate legs, or None: the first VIP_PRIORITY tier it reaches."""
+# Surest first (21 November 2026). Each game's VIP pick is its surest pick among these, each at
+# or above its floor, and the slip takes the surest games first. Walk-forward check on seasons
+# the model never saw (2025-26 and 2026-27 to date, reports/cache/goal_lines_records.json), the
+# surest pick per game: 95%+ said 96.2% won 95.2% (42), 92-95% said 93.2% won 94.8% (116),
+# 88-92% said 89.8% won 94.6% (258), 85-88% said 86.3% won 86.5% (333). Double chance (home or
+# draw, away or draw) and Over 1.5 make up most of the surest picks; both held their chance at
+# 85%+ in every season. VIP_MAX is raised to .97 so the surest games are no longer left out.
+VIP_DC_FLOOR = .80
+
+
+def vip_eligible(l):
+    """The floor this leg must reach to be a VIP candidate, or None if its market is not used."""
     for market, selection, floor in VIP_PRIORITY:
-        ok = [l for l in legs if l['market'] == market and (selection is None or l['selection'] == selection)
-              and floor <= l['probability'] <= VIP_MAX]
-        if ok:
-            return max(ok, key=lambda l: l['probability'])
+        if l['market'] == market and l['selection'] == selection:
+            return floor
+    if l['market'] == 'dc' and l['selection'].endswith(' or draw'):
+        return VIP_DC_FLOOR
+    if l['market'] == '1x2' and l['selection'] != 'Draw':
+        return VIP_WIN_FLOOR
     return None
+
+
+def vip_pick(legs):
+    """One game's VIP pick from all its candidate legs, or None: its surest eligible pick."""
+    ok = [l for l in legs if (f := vip_eligible(l)) is not None and f <= l['probability'] <= VIP_MAX]
+    return max(ok, key=lambda l: l['probability']) if ok else None
 
 
 def vip_favourites(by_fixture, taken, n=VIP_WINS):
@@ -129,13 +147,13 @@ def vip_from(legs):
         by_fixture.setdefault(leg['fixture'], []).append(leg)
     best = [p for p in map(vip_pick, by_fixture.values()) if p]
     picks, per = [], {}
-    for leg in sorted(best, key=lambda c: (tier(c), -c['probability'])):
+    for leg in sorted(best, key=lambda c: -c['probability']):
         if per.get(leg['league_id'], 0) < VIP_PER_LEAGUE:
             per[leg['league_id']] = per.get(leg['league_id'], 0) + 1
             picks.append(leg)
         if len(picks) == VIP_SIZE:
             break
-    return picks + vip_favourites(by_fixture, set())
+    return picks
 
 
 def replay(data, leagues, fixture_rates, distribution, legs_for, days=REPLAY_DAYS, cached=None):

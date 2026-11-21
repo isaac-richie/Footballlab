@@ -867,8 +867,8 @@ def vip_slip(data, n=17, days=0, per_league=6):
     """The day's VIP slip: the surest pick from each of the most predictable games.
 
     Only VIP_LEAGUES are used: a pick we cannot grade would sit on the record as pending forever.
-    Goals first: each game's pick follows record.VIP_PRIORITY (Over 2.5, then Over 1.5, then Under 3.5),
-    plus up to two strong favourites to win (record.vip_favourites) from other games;
+    Surest first: each game's pick is its surest eligible pick (record.vip_pick: Over 1.5, Over 2.5,
+    Under 3.5, double chance or a strong favourite, each above its floor), surest games first;
     a game that reaches neither floor is left off, so the slip can be shorter than n.
 
     One leg per game, most likely selections first, at most per_league legs from any
@@ -885,14 +885,13 @@ def vip_slip(data, n=17, days=0, per_league=6):
         by_fixture.setdefault(c['fixture'], []).append(c)
     ranked = [p for p in map(record.vip_pick, by_fixture.values()) if p]
     legs, per = [], {}
-    for leg in sorted(ranked, key=lambda c: (record.tier(c), -c['probability'])):
+    for leg in sorted(ranked, key=lambda c: -c['probability']):              # surest games first
         if per.get(leg['league_id'], 0) >= per_league:
             continue
         per[leg['league_id']] = per.get(leg['league_id'], 0) + 1
         legs.append(leg)
         if len(legs) == n:
             break
-    legs += record.vip_favourites(by_fixture, set())          # on top of the goal picks, same games allowed
     legs.sort(key=lambda c: (c['date'], c['league_id']))
     kick = {(m['league_id'], m['date'], m['home'], m['away']): m.get('kickoff') for m in data['matches'] if m['goals'] is None}
     form5 = {}
