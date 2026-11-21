@@ -1,59 +1,41 @@
 {
- "generated_at": "2026-11-21T06:43:38.543062+00:00",
+ "generated_at": "2026-11-21T13:41:59.977087+00:00",
  "min_picks": 100,
  "recent_days": 28,
  "football": {
   "all goal and win picks": {
    "all": {
-    "picks": 4,
-    "said": 0.8296,
-    "won": 0.5,
-    "gap": -0.3296,
-    "z": -1.75,
+    "picks": 2,
+    "said": 0.8367,
+    "won": 1.0,
+    "gap": 0.1633,
+    "z": 0.62,
     "status": "collecting"
    },
    "recent": {
-    "picks": 4,
-    "said": 0.8296,
-    "won": 0.5,
-    "gap": -0.3296,
-    "z": -1.75,
+    "picks": 2,
+    "said": 0.8367,
+    "won": 1.0,
+    "gap": 0.1633,
+    "z": 0.62,
     "status": "collecting"
    }
   },
-  "favourites to win": {
+  "other": {
    "all": {
-    "picks": 1,
-    "said": 0.8757,
-    "won": 0.0,
-    "gap": -0.8757,
-    "z": -2.65,
+    "picks": 2,
+    "said": 0.8367,
+    "won": 1.0,
+    "gap": 0.1633,
+    "z": 0.62,
     "status": "collecting"
    },
    "recent": {
-    "picks": 1,
-    "said": 0.8757,
-    "won": 0.0,
-    "gap": -0.8757,
-    "z": -2.65,
-    "status": "collecting"
-   }
-  },
-  "overs": {
-   "all": {
-    "picks": 3,
-    "said": 0.8142,
-    "won": 0.6667,
-    "gap": -0.1475,
-    "z": -0.66,
-    "status": "collecting"
-   },
-   "recent": {
-    "picks": 3,
-    "said": 0.8142,
-    "won": 0.6667,
-    "gap": -0.1475,
-    "z": -0.66,
+    "picks": 2,
+    "said": 0.8367,
+    "won": 1.0,
+    "gap": 0.1633,
+    "z": 0.62,
     "status": "collecting"
    }
   }
