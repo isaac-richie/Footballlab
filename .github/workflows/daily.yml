@@ -24,9 +24,6 @@ jobs:
         run: python3 agent.py --refresh --days 7
       - name: Football record (the last six weeks of played matches, replayed and graded)
         run: python3 app.py record > /dev/null
-      - name: Book today's VIP slip on SportyBet (booking codes, Manage Bet Codes API)
-        if: ${{ env.MANAGEBETCODES_API_KEY != '' }}
-        run: python3 vip_booking.py sportybet
       - name: Corner statistics for the match page (API-Football, last few days)
         if: ${{ env.API_FOOTBALL_KEY != '' }}
         run: python3 corners.py
@@ -40,6 +37,9 @@ jobs:
       - name: NBA scores (balldontlie), freeze and grade the public forward record
         if: ${{ env.BALLDONTLIE_API_KEY != '' }}
         run: python3 nba_public.py
+      - name: Book today's football and NBA VIP slips on SportyBet (booking codes, Manage Bet Codes API)
+        if: ${{ env.MANAGEBETCODES_API_KEY != '' }}
+        run: python3 vip_booking.py sportybet
       - name: Model health (do saved picks win about as often as they said?)
         run: python3 model_health.py
       - name: Sync the community league

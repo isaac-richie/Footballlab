@@ -22,9 +22,12 @@ PUBLIC_FILE = ROOT / 'reports' / 'nba_vip_public.json'
 LOCAL_FILE = ROOT / 'reports' / 'nba_prospective' / 'vip.json'
 SIZE = 5            # 3 until 20 November 2026; every total pick is set near 70% (70-80% band won 73.7% on 2,644 in 2025-26),
                     # so the 4th and 5th strongest are as good per pick as the first three
-# From 21 November 2026 the slip also carries up to WINS winners at WIN_FLOOR or better, from games
-# without a total pick (80%+ winner picks won 84.9% on the held-out 2025-26 season).
-WINS, WIN_FLOOR = 2, .80
+# From 21 November 2026 the slip also carries winners at WIN_FLOOR or better (80-90% winner picks
+# said 84.1% and won 84.9% on the held-out 2025-26 season, 152 picks: the surest NBA picks we have
+# tested). Surest first, from the same day: those winners take their games first (up to WINS), then
+# the total picks fill the slip from the other games. Totals set safer than about 70% (lines further
+# from the projection) have not been tested, so they are not used.
+WINS, WIN_FLOOR = 4, .80
 FIELDS = ('id', 'date', 'tipoff', 'home', 'away', 'home_abbr', 'away_abbr', 'side', 'line', 'probability', 'expected_total', 'source',
           'market', 'team')
 
@@ -71,25 +74,24 @@ def _open(p, now):
 
 
 def choose(totals, now, size=SIZE, winners=(), wins=WINS, day=None):
-    """The strongest total picks for games that have not tipped off, one per game, then up to
-    `wins` winner picks at WIN_FLOOR+ from other games. With `day`, only that game day's games."""
+    """Surest first, one pick per game, games that have not tipped off: up to `wins` winners at
+    WIN_FLOOR+ (surest first), then up to `size` total picks from the other games. With `day`, only
+    that game day's games."""
     if day:
         totals = [p for p in totals if p.get('date') == day]
         winners = [p for p in winners if p.get('date') == day]
     seen, out = set(), []
-    for p in sorted(totals, key=lambda p: -p['probability']):
-        if p['id'] in seen or not _open(p, now):
-            continue
-        seen.add(p['id'])
-        out.append(dict({k: p.get(k) for k in FIELDS}, market='total'))
-        if len(out) == size:
-            break
-    taken = 0
     for p in sorted(winners, key=lambda p: -p['probability']):
-        if taken == wins or p['id'] in seen or p['probability'] < WIN_FLOOR or not _open(p, now):
+        if len(out) == wins or p['id'] in seen or p['probability'] < WIN_FLOOR or not _open(p, now):
             continue
         seen.add(p['id'])
         out.append(dict({k: p.get(k) for k in FIELDS}, market='winner', team=p['team'], side=None, line=None))
+    taken = 0
+    for p in sorted(totals, key=lambda p: -p['probability']):
+        if taken == size or p['id'] in seen or not _open(p, now):
+            continue
+        seen.add(p['id'])
+        out.append(dict({k: p.get(k) for k in FIELDS}, market='total'))
         taken += 1
     return out
 

@@ -58,20 +58,22 @@ class SaveAndGradeTests(unittest.TestCase):
         self.assertEqual([(p['id'], p['line']) for p in picks], [('g1', 230.5), ('g2', 220.5)])   # g3 tipped off before the top-up
         self.assertEqual(picks[1]['saved_at'], later.isoformat())
 
-    def test_surest_winners_join_from_other_games(self):
+    def test_surest_winners_come_first(self):
         now = dt.datetime(2026, 11, 21, 6, 0, tzinfo=dt.timezone.utc)
         tip = '2026-11-22T00:00:00Z'
-        totals = [dict(id='g1', date='2026-11-21', tipoff=tip, home='A', away='B', side='under', line=230.5, probability=.71)]
-        winners = [dict(id='g1', date='2026-11-21', tipoff=tip, home='A', away='B', team='A', probability=.90),   # game already taken
+        totals = [dict(id='g1', date='2026-11-21', tipoff=tip, home='A', away='B', side='under', line=230.5, probability=.71),
+                  dict(id='g6', date='2026-11-21', tipoff=tip, home='K', away='L', side='over', line=220.5, probability=.70)]
+        winners = [dict(id='g1', date='2026-11-21', tipoff=tip, home='A', away='B', team='A', probability=.90),   # winner takes g1
                    dict(id='g2', date='2026-11-21', tipoff=tip, home='C', away='D', team='D', probability=.86),
                    dict(id='g3', date='2026-11-21', tipoff=tip, home='E', away='F', team='E', probability=.79),   # below 80%
-                   dict(id='g4', date='2026-11-21', tipoff=tip, home='G', away='H', team='G', probability=.84),
-                   dict(id='g5', date='2026-11-21', tipoff=tip, home='I', away='J', team='I', probability=.83)]  # only two winners
+                   dict(id='g4', date='2026-11-21', tipoff=tip, home='G', away='H', team='G', probability=.84)]
         picks = nba_vip.choose(totals, now, winners=winners)
         self.assertEqual([(p['id'], nba_vip.label(p)) for p in picks],
-                         [('g1', 'Under 230.5 points'), ('g2', 'D to win'), ('g4', 'G to win')])
+                         [('g1', 'A to win'), ('g2', 'D to win'), ('g4', 'G to win'), ('g6', 'Over 220.5 points')])
         self.assertTrue(nba_vip.won(picks[1], [99, 104]))       # away team D won
         self.assertFalse(nba_vip.won(picks[2], [99, 104]))      # home team G lost
+        five = [dict(id=f'w{i}', date='2026-11-21', tipoff=tip, home=f'H{i}', away=f'A{i}', team=f'H{i}', probability=.9 - i / 100) for i in range(6)]
+        self.assertEqual(len(nba_vip.choose([], now, winners=five)), nba_vip.WINS)
 
     def test_ticket_legs_use_live_scores(self):
         from unittest.mock import patch

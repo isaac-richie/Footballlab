@@ -2183,6 +2183,8 @@ body[data-sport="basketball"] .season-link{display:none}
 
 .slip-bk{margin:4px 0 12px}
 .rx-restart{margin:0 0 10px;font-size:12px}
+.nvip-book{padding:16px!important;margin-bottom:14px}
+.nvip-book .bk-slot{margin-top:6px}
 </style>
 </head>
 <body>
@@ -2504,7 +2506,7 @@ body[data-sport="basketball"] .season-link{display:none}
       <div class="vb-copy">
         <span class="vb-kicker">NBA VIP</span>
         <h1>Our strongest calls</h1>
-        <p>Our five strongest <b>over/under</b> picks, plus up to two <b>winners at 80%+</b>.</p>
+        <p>Tonight's surest calls: up to four <b>winners at 80%+</b> first, then our five strongest <b>over/under</b> picks.</p>
         <div class="hero-stats vb-stats" id="nvip-stats"></div>
       </div>
       <a class="vwr card" id="nvip-wr" href="#featured" hidden></a>
@@ -2515,6 +2517,7 @@ body[data-sport="basketball"] .season-link{display:none}
       <button type="button" class="primary vip-all" id="nvip-all" hidden>Add all to slip</button>
     </div>
     <div class="ticket" id="nvip-ticket" hidden aria-live="polite"></div>
+    <div class="card nvip-book" id="nvip-book" hidden><div class="vc-top"><small>Booking code</small></div><div class="bk-slot" data-book="nvip"></div></div>
     <div class="vip-legs" id="nvip-legs"><div class="card"><div class="skel" style="height:240px"></div></div></div>
     <div id="nvip-last"></div>
     <p class="note">18+. A 70% pick still loses about 3 in 10, and every extra pick adds risk. <a href="#track">Track record</a></p>
@@ -4058,6 +4061,8 @@ async function loadNbaVip(quiet){
       <div class="tk-line"><span class="tk-tally">${parts.map(([n, w]) => `<b class="tk-${w.replace(' ', '-')}">${n} ${w}</b>`).join('<i>·</i>')}</span>
         <span class="tk-all">All ${legs.length} together: <b>${pct(d.combined_probability)}</b> · fair <b>${d.combined_fair_odds ? d.combined_fair_odds.toFixed(2) : '–'}</b></span></div>`;
     $('#nvip-ticket').hidden = false;
+    BOOK.legs.nvip = legs.filter(l => l.status === 'scheduled').map(l => ({...l, sport: 'nba'}));
+    $('#nvip-book').hidden = !BOOK.legs.nvip.length; bookPanels();
     $('#nvip-all').hidden = !legs.some(l => l.status === 'scheduled');
     $('#nvip-legs').innerHTML = legs.map((l, i) => vipCardHtml(l, i, quiet, 'data-nvip')).join('');
   }catch(e){ if(!quiet) $('#nvip-legs').innerHTML = `<div class="error">${esc(e.message)}</div>` }
@@ -4381,14 +4386,15 @@ document.addEventListener('change', e => { const s = e.target.closest('.bk-sel')
 document.addEventListener('click', async e => {
   const b = e.target.closest('.bk-go'); if(!b) return;
   const slot = b.closest('.bk-slot'), out = slot.querySelector('.bk-out'), legs = BOOK.legs[slot.dataset.book] || [];
-  const bm = slot.querySelector('.bk-sel').value, pre = slot.dataset.book === 'vip' && BOOK.status && (BOOK.status.vip || {})[bm];
+  const kind = slot.dataset.book, saved = !BOOK.status ? {} : kind === 'vip' ? (BOOK.status.vip || {}) : kind === 'nvip' ? (BOOK.status.vip_nba || {}) : {};
+  const bm = slot.querySelector('.bk-sel').value, pre = saved[bm];
   if(pre){
     out.innerHTML = `<div class="bk-code"><small>${esc(pre.bookmaker_name)} code</small><b>${esc(pre.code)}</b><button type="button" class="chip bk-copy" data-code="${esc(pre.code)}">Copy</button></div>
-      <p class="bk-note">All ${pre.booked} of today's VIP picks, booked before the first kickoff${pre.missing && pre.missing.length ? ' (' + pre.missing.length + ' not on ' + esc(pre.bookmaker_name) + ')' : ''}. Games already started show as closed on ${esc(pre.bookmaker_name)}.</p>`;
+      <p class="bk-note">All ${pre.booked} of today's VIP picks, booked before the first ${kind === 'nvip' ? 'tip-off' : 'kickoff'}${pre.missing && pre.missing.length ? ' (' + pre.missing.length + ' not on ' + esc(pre.bookmaker_name) + ')' : ''}. Games already started show as closed on ${esc(pre.bookmaker_name)}.</p>`;
     return;
   }
   // Another bookie for the VIP slip: convert the morning's SportyBet code (about 5 s) instead of booking afresh.
-  const base = slot.dataset.book === 'vip' && BOOK.status && (BOOK.status.vip || {}).sportybet;
+  const base = saved.sportybet;
   if(base && bm !== 'sportybet'){
     b.disabled = true; b.textContent = 'Converting…'; out.innerHTML = '';
     try{
@@ -4396,7 +4402,7 @@ document.addEventListener('click', async e => {
         body: JSON.stringify({code: base.code, from: 'sportybet', to: bm})});
       out.innerHTML = `<div class="bk-code"><small>${esc(r.to_name)} code</small><b>${esc(r.code)}</b><button type="button" class="chip bk-copy" data-code="${esc(r.code)}">Copy</button></div>
         <p class="bk-note">${r.converted != null ? r.converted + ' of ' + r.original + ' picks' : 'Today\'s VIP picks'} on ${esc(r.to_name)}${r.partial ? '; the rest aren\'t listed there' : ''}.</p>`;
-      BOOK.last.vip = {sig: legs.map(l => l.home + l.selection).join('|'), html: out.innerHTML};
+      BOOK.last[kind] = {sig: legs.map(l => l.home + l.selection).join('|'), html: out.innerHTML};
     }catch(err){ out.innerHTML = `<p class="bk-err">${esc(err.message)}</p>` }
     b.disabled = false; b.textContent = 'Get booking code'; return;
   }

@@ -33,6 +33,13 @@ def today_codes(today=None):
     return d.get('bookings', {}) if d.get('date') == (today or dt.date.today().isoformat()) else {}
 
 
+def nba_codes(day=None):
+    """{bookmaker: booking} saved for today's NBA game day (New York date), or {}."""
+    import nba_vip
+    n = load().get('nba') or {}
+    return n.get('bookings', {}) if n.get('date') == (day or nba_vip.game_day().isoformat()) else {}
+
+
 def run(bookmakers=DEFAULT):
     import app
     import config
@@ -53,8 +60,33 @@ def run(bookmakers=DEFAULT):
             saved['bookings'][bm] = dict(r, at=dt.datetime.now(dt.timezone.utc).isoformat(timespec='minutes'))
         except bookcodes.BookingError as exc:
             saved['bookings'][bm] = dict(error=str(exc), code=None)
+    saved['nba'] = book_nba(bookmakers, (load().get('nba') or {}))
     atomic_write(FILE, json.dumps(saved, indent=1))
-    print(json.dumps(dict(vip_booking={k: v.get('code') for k, v in saved['bookings'].items()})))
+    print(json.dumps(dict(vip_booking={k: v.get('code') for k, v in saved['bookings'].items()},
+                          nba={k: v.get('code') for k, v in saved['nba'].get('bookings', {}).items()})))
+
+
+def book_nba(bookmakers, old):
+    """Book the NBA VIP slip for today's game day; keeps a booking already made for that day."""
+    import app
+    import nba_app
+    import nba_vip
+    day = nba_vip.game_day().isoformat()
+    out = old if old.get('date') == day else dict(date=day, bookings={})
+    try:
+        legs = [dict(l, sport='nba') for l in app.nba_vip_ticket(nba_app)['legs'] if l['status'] == 'scheduled']
+    except Exception as exc:                       # NBA is an extra: never break the football booking
+        print(json.dumps(dict(nba_booking=f'skipped: {exc}'[:200])))
+        return out
+    for bm in bookmakers:
+        if bm in out['bookings'] or not legs:
+            continue
+        try:
+            r = bookcodes.book(legs, bm)
+            out['bookings'][bm] = dict(r, at=dt.datetime.now(dt.timezone.utc).isoformat(timespec='minutes'))
+        except bookcodes.BookingError as exc:
+            out['bookings'][bm] = dict(error=str(exc), code=None)
+    return out
 
 
 if __name__ == '__main__':
