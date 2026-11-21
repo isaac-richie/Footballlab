@@ -1351,8 +1351,12 @@ class Handler(BaseHTTPRequestHandler):
             import bookcodes
             import vip_booking
             vip = {k: v for k, v in vip_booking.today_codes().items() if v.get('code')}
+            try:
+                vip_nba = {k: v for k, v in vip_booking.nba_codes().items() if v.get('code')}
+            except Exception:
+                vip_nba = {}
             self.send_json(dict(enabled=bookcodes.configured(), bookmakers=[dict(key=k, name=n) for k, n in bookcodes.BOOKMAKERS],
-                                vip=vip), cache='public, max-age=120')
+                                vip=vip, vip_nba=vip_nba), cache='public, max-age=120')
         elif path == '/api/quickslip':
             q = parse_qs(urlparse(self.path).query)
             arg = lambda k, d='': q.get(k, [d])[0]

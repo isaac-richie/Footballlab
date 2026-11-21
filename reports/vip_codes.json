@@ -13,5 +13,21 @@
    "verified": true,
    "at": "2026-11-21T06:40"
   }
+ },
+ "nba": {
+  "date": "2026-11-21",
+  "bookings": {
+   "sportybet": {
+    "code": "SB44E6",
+    "bookmaker": "sportybet",
+    "bookmaker_name": "SportyBet",
+    "booked": 6,
+    "total": 6,
+    "missing": [],
+    "total_odds": "",
+    "verified": true,
+    "at": "2026-11-21T06:56+00:00"
+   }
+  }
  }
 }
