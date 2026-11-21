@@ -1349,8 +1349,10 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json(saved or dict(error='No record yet. Run: python3 app.py record'), 200 if saved else 404)
         elif path == '/api/book/status':
             import bookcodes
-            self.send_json(dict(enabled=bookcodes.configured(), bookmakers=[dict(key=k, name=n) for k, n in bookcodes.BOOKMAKERS]),
-                           cache='public, max-age=300')
+            import vip_booking
+            vip = {k: v for k, v in vip_booking.today_codes().items() if v.get('code')}
+            self.send_json(dict(enabled=bookcodes.configured(), bookmakers=[dict(key=k, name=n) for k, n in bookcodes.BOOKMAKERS],
+                                vip=vip), cache='public, max-age=120')
         elif path == '/api/quickslip':
             q = parse_qs(urlparse(self.path).query)
             arg = lambda k, d='': q.get(k, [d])[0]

@@ -24,6 +24,9 @@ jobs:
         run: python3 agent.py --refresh --days 7
       - name: Football record (the last six weeks of played matches, replayed and graded)
         run: python3 app.py record > /dev/null
+      - name: Book today's VIP slip on SportyBet (booking codes, Manage Bet Codes API)
+        if: ${{ env.MANAGEBETCODES_API_KEY != '' }}
+        run: python3 vip_booking.py sportybet
       - name: Corner statistics for the match page (API-Football, last few days)
         if: ${{ env.API_FOOTBALL_KEY != '' }}
         run: python3 corners.py
@@ -62,6 +65,7 @@ jobs:
           git config user.name "football-lab-bot"
           git config user.email "football-lab-bot@users.noreply.github.com"
           git add data.json reports/record.json corners_data.json reports/corner_picks.json reports/vip_odds.json reports/prospective reports/prospective-grades.json reports/latest.md reports/backtest reports/model_health.json
+          git add reports/vip_codes.json 2>/dev/null || true
           git add nba_public.json reports/nba_public_board.json reports/nba_public_picks reports/nba_public_prospective reports/nba_public_prospective-grades.json reports/nba_vip_public.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "Daily refresh $(date -u +%F)"
           git push
@@ -70,3 +74,4 @@ jobs:
       BALLDONTLIE_API_KEY: ${{ secrets.BALLDONTLIE_API_KEY }}
       BALLDONTLIE_PER_MINUTE: '60'                          # ALL-STAR plan (paid since 21 Nov 2026); free plan is 5
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}    # fills scores the open feeds miss (apifootball_results.py)
+      MANAGEBETCODES_API_KEY: ${{ secrets.MANAGEBETCODES_API_KEY }}   # VIP booking codes (vip_booking.py)

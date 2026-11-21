@@ -9,10 +9,12 @@ others and returns that bookmaker's own code, and converts a code from one bookm
 Needs MANAGEBETCODES_API_KEY (server side only; it never reaches the page). A booked or converted
 code costs 2 credits, so each slip's code is cached per bookmaker for as long as it can be used.
 """
+import datetime as dt
 import json
 import os
 import threading
 import time
+from concurrent.futures import ThreadPoolExecutor
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
@@ -23,6 +25,8 @@ BOOKMAKERS = (('sportybet', 'SportyBet'), ('bet9ja', 'Bet9ja'), ('onexbet', '1xB
               ('sportybet_gh', 'SportyBet Ghana'), ('sportybet_ke', 'SportyBet Kenya'))
 KEYS = {k for k, _ in BOOKMAKERS}
 CODE_TTL = 6 * 3600
+SEARCH_CHUNK, SEARCH_WORKERS = 3, 6      # the search answers ~3 s a game; small parallel chunks keep a slip under ~20 s
+KICKOFF_SLACK_MIN = 180                  # a bookie event more than 3 h from our kickoff is a different game
 _cache, _lock = {}, threading.Lock()
 
 
@@ -68,6 +72,78 @@ def to_pick(leg):
     return None
 
 
+def _similar(a, b):
+    try:
+        from live_odds import similarity
+    except Exception:                                   # pragma: no cover
+        return 1.0 if a.lower() == b.lower() else 0.0
+    return similarity(a, b)
+
+
+def _minutes_apart(a, b):
+    try:
+        ta = dt.datetime.fromisoformat(a.replace('Z', '+00:00'))
+        tb = dt.datetime.fromisoformat(b.replace('Z', '+00:00'))
+        if ta.tzinfo is None:
+            ta = ta.replace(tzinfo=dt.timezone.utc)
+        if tb.tzinfo is None:
+            tb = tb.replace(tzinfo=dt.timezone.utc)
+        return abs((ta - tb).total_seconds()) / 60
+    except (AttributeError, ValueError):
+        return None
+
+
+def choose_event(leg, events):
+    """The bookie event that is this game: kickoff within KICKOFF_SLACK_MIN (when both are known) and the
+    best team-name match, at least 0.45 on average; None rather than a guess."""
+    best, best_score = None, 0.0
+    for e in events or []:
+        gap = _minutes_apart(leg.get('kickoff') or '', e.get('kickoff') or '')
+        if gap is not None and gap > KICKOFF_SLACK_MIN:
+            continue
+        score = (_similar(leg['home'], e.get('home', '')) + _similar(leg['away'], e.get('away', ''))) / 2
+        if e.get('confidence') == 'exact':
+            score += .1
+        if score > best_score:
+            best, best_score = e, score
+    return best if best_score >= .45 else None
+
+
+def find_events(legs, bookmaker, key, fetch=None):
+    """{index: event_id} for the legs the bookie lists, found with the free event search in parallel chunks."""
+    def query(l):
+        day = (l.get('kickoff') or l.get('date') or '')[:10]
+        q = dict(q=f"{l['home']} vs {l['away']}", limit=3)
+        if day:
+            q.update({'from': day, 'to': day})
+        return q
+    chunks = [list(range(i, min(i + SEARCH_CHUNK, len(legs)))) for i in range(0, len(legs), SEARCH_CHUNK)]
+
+    def run(idx):
+        sport = 'basketball' if legs[idx[0]].get('sport') == 'nba' else 'football'
+        try:
+            r = _call('/events/search', dict(bookmaker=bookmaker, sport=sport, queries=[query(legs[i]) for i in idx],
+                                             include_markets=False), key, fetch)
+        except BookingError:
+            return {}
+        found = {}
+        for i, res in zip(idx, r.get('results') or []):
+            e = choose_event(legs[i], res.get('events'))
+            if e and e.get('event_id'):
+                found[i] = e['event_id']
+        return found
+    # chunk football and NBA separately (the search takes one sport per call)
+    by_sport = {}
+    for i, l in enumerate(legs):
+        by_sport.setdefault(l.get('sport') == 'nba', []).append(i)
+    chunks = [ids[j:j + SEARCH_CHUNK] for ids in by_sport.values() for j in range(0, len(ids), SEARCH_CHUNK)]
+    out = {}
+    with ThreadPoolExecutor(max_workers=SEARCH_WORKERS) as pool:
+        for found in pool.map(run, chunks):
+            out.update(found)
+    return out
+
+
 def _call(path, body, key, fetch=None):
     data = json.dumps(body).encode()
     req = Request(API + path, data=data, method='POST',
@@ -75,7 +151,7 @@ def _call(path, body, key, fetch=None):
     if fetch:
         return fetch(path, body)
     try:
-        with urlopen(req, timeout=40) as r:
+        with urlopen(req, timeout=55) as r:
             return json.loads(r.read())
     except HTTPError as e:
         try:
@@ -110,14 +186,20 @@ def book(legs, bookmaker, key=None, fetch=None, now=None):
         hit = _cache.get(cache_key)
         if hit and now - hit[0] < CODE_TTL:
             return dict(hit[1], cached=True)
-    res = _call('/resolve', dict(bookmaker=bookmaker, picks=[p for _, p in picks], strict=False, accept_odds_change=True), key, fetch)
+    events = find_events([l for l, _ in picks], bookmaker, key, fetch)
+    found = [(l, dict(p, event_id=events[i])) for i, (l, p) in enumerate(picks) if i in events]
+    missing = [dict(home=l['home'], away=l['away'], selection=l['selection'], reason='not_listed')
+               for i, (l, _) in enumerate(picks) if i not in events]
+    missing += [dict(home=l['home'], away=l['away'], selection=l['selection'], reason='market_missing') for l in unmapped]
+    if not found:
+        raise BookingError(f"{dict(BOOKMAKERS)[bookmaker]} doesn't list these games yet.", 'not_found')
+    res = _call('/resolve', dict(bookmaker=bookmaker, picks=[p for _, p in found], strict=False, accept_odds_change=True), key, fetch)
     rows = res.get('picks') or []
     ok = [r for r in rows if r.get('status') == 'resolved' and r.get('bookable', True)]
-    missing = [dict(home=picks[r['index']][0]['home'], away=picks[r['index']][0]['away'], selection=picks[r['index']][0]['selection'],
-                    reason=r.get('status')) for r in rows if r not in ok and isinstance(r.get('index'), int) and r['index'] < len(picks)]
-    missing += [dict(home=l['home'], away=l['away'], selection=l['selection'], reason='market_missing') for l in unmapped]
+    missing += [dict(home=found[r['index']][0]['home'], away=found[r['index']][0]['away'], selection=found[r['index']][0]['selection'],
+                     reason=r.get('status')) for r in rows if r not in ok and isinstance(r.get('index'), int) and r['index'] < len(found)]
     if not ok or not res.get('plan_id'):
-        raise BookingError(f"{dict(BOOKMAKERS)[bookmaker]} doesn't list these games yet.", 'not_found')
+        raise BookingError(f"{dict(BOOKMAKERS)[bookmaker]} doesn't offer these picks right now.", 'not_found')
     out = _call('/book', dict(bookmaker=bookmaker, plan_id=res['plan_id'], strict=False, accept_odds_change=True), key, fetch)
     if not out.get('code'):
         raise BookingError('The bookmaker did not return a code. Try again.', 'book_failed', 502)
@@ -139,10 +221,18 @@ def convert(code, source, target, key=None, fetch=None):
         raise BookingError('Enter a booking code.', 'invalid_code')
     if source not in KEYS or target not in KEYS or source == target:
         raise BookingError('Choose two different bookmakers.', 'unsupported_bookmaker')
+    ck = ('convert', code, source, target)
+    with _lock:
+        hit = _cache.get(ck)
+        if hit and time.time() - hit[0] < CODE_TTL:
+            return dict(hit[1], cached=True)
     out = _call('/convert', dict(code=code, **{'from': source, 'to': target}), key, fetch)
     tgt = out.get('target') or {}
     if not tgt.get('code'):
         raise BookingError('That code could not be converted.', 'convert_failed')
     counts = out.get('counts') or {}
-    return dict(code=tgt['code'], **{'from': source, 'to': target}, to_name=dict(BOOKMAKERS)[target],
-                converted=counts.get('converted'), original=counts.get('original'), partial=bool(out.get('partial')))
+    result = dict(code=tgt['code'], **{'from': source, 'to': target}, to_name=dict(BOOKMAKERS)[target],
+                  converted=counts.get('converted'), original=counts.get('original'), partial=bool(out.get('partial')))
+    with _lock:
+        _cache[ck] = (time.time(), result)
+    return result

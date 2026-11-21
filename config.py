@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 
 ALLOWED = ('TYPESAFE_API_KEY', 'BALLDONTLIE_API_KEY', 'ODDS_API_KEY', 'API_FOOTBALL_KEY', 'SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY',
-           'BALLDONTLIE_PER_MINUTE')
+           'BALLDONTLIE_PER_MINUTE', 'MANAGEBETCODES_API_KEY')
 
 
 def load_environment(path=None):
