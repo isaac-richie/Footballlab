@@ -2182,6 +2182,7 @@ body[data-sport="basketball"] .season-link{display:none}
 .bk-err{color:var(--warn)}
 
 .slip-bk{margin:4px 0 12px}
+.rx-restart{margin:0 0 10px;font-size:12px}
 </style>
 </head>
 <body>
@@ -4748,6 +4749,7 @@ function vipLedgerHtml(x, g){
       <p>The first VIP slip is saved with the next morning's update. Results appear here as the games finish.</p></div></div>${how}${goalCheckHtml(g)}`;
   const s = x.summary, pc = v => v == null ? '–' : Math.round(v * 100) + '%';
   const label = {won: '✓', lost: '✗', pending: '•', void: '–'};
+  const restart = '<p class="note rx-restart">VIP record restarted on 21 Nov 2026 with one-day, surest-first slips. Earlier slips are archived, not deleted.</p>';
   const word = {won: 'Won', lost: 'Lost', pending: 'Still to play', void: 'Void: game postponed'};
   let verdict = 'No results in yet. The first picks are still to be played.';
   if(s.settled && s.settled < 50){
@@ -4765,7 +4767,7 @@ function vipLedgerHtml(x, g){
       <div class="vr-picks">${d.picks.map(p => `<div class="vr-p ${p.status}" title="${word[p.status]}"><span class="rg-mark">${label[p.status]}</span>
         <span class="rg-main"><small>${esc(LG_SHORT(p.league_id))} · ${esc(day(p.date))}</small><b>${esc(p.home)}${p.goals ? ` <em>${p.goals[0]}–${p.goals[1]}</em> ` : ' v '}${esc(p.away)}</b><span>${esc(bookieText(p))} · ${word[p.status]}</span></span>
         <strong>${Math.round(p.probability * 100)}%<small>our chance</small></strong></div>`).join('')}</div></details>`).join('');
-  return `<div class="card rx-hero">
+  return restart + `<div class="card rx-hero">
       <div class="rx-score"><div class="vwr-ring rx-ring"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle class="p" cx="18" cy="18" r="15.5" style="stroke-dashoffset:${(97.4 * (1 - (s.hit_rate || 0))).toFixed(1)}"/></svg><b>${s.settled ? pc(s.hit_rate) : '–'}</b></div>
         <div><small class="rx-eye">VIP win rate</small><h2>${s.settled ? `${s.won} of ${s.settled} picks won` : 'Waiting for results'}</h2>
           <p>${s.slips} slip${s.slips === 1 ? '' : 's'} posted since ${esc(day(s.since))}${s.win_streak > 1 ? ` · on a run of ${s.win_streak} winners` : ''}</p></div></div>
