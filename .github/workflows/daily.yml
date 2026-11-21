@@ -68,4 +68,5 @@ jobs:
     env:
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
       BALLDONTLIE_API_KEY: ${{ secrets.BALLDONTLIE_API_KEY }}
+      BALLDONTLIE_PER_MINUTE: '60'                          # ALL-STAR plan (paid since 21 Nov 2026); free plan is 5
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}    # fills scores the open feeds miss (apifootball_results.py)

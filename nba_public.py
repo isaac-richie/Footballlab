@@ -5,9 +5,10 @@ carries bookmaker lines. The hosted site uses this file instead: scores, quarter
 scores and the schedule only, from a keyed API, stored in nba_public.json in the
 same game shape as nba.py so the same model and pages work on it.
 
-Needs BALLDONTLIE_API_KEY. The free plan allows 5 requests a minute, so requests
-are spaced out; the first run reads three seasons (about ten minutes), later runs
-only the open dates and the next three weeks (a few requests).
+Needs BALLDONTLIE_API_KEY. Requests are spaced to the plan's limit, set by
+BALLDONTLIE_PER_MINUTE (5 on the free plan, the default; 60 on ALL-STAR, 600 on GOAT).
+On the free plan the first run reads three seasons in about ten minutes; on ALL-STAR
+in under a minute. Later runs read only the open dates and the next three weeks.
 
     python3 nba_public.py           # fetch, then freeze and grade the public forward record
 """
@@ -27,7 +28,13 @@ FILE = ROOT / 'nba_public.json'
 API = 'https://api.balldontlie.io/v1/games'
 SOURCE = 'balldontlie'
 SEASONS_BACK = 2                       # seasons before the current one (the ratings look back 400 days)
-GAP = 12.5                             # seconds between requests: 5 a minute on the free plan
+def gap():
+    """Seconds between requests for the plan's per-minute limit, with 5% to spare."""
+    try:
+        per = float(os.environ.get('BALLDONTLIE_PER_MINUTE') or 5)
+    except ValueError:
+        per = 5
+    return 60 / max(per, 1) * 1.05
 # balldontlie abbreviations -> the ESPN ones the pages use for colours and logos
 ABBR = {'GSW': 'GS', 'NOP': 'NO', 'NYK': 'NY', 'SAS': 'SA', 'UTA': 'UTAH', 'WAS': 'WSH'}
 TEAMS = {'ATL', 'BOS', 'BKN', 'CHA', 'CHI', 'CLE', 'DAL', 'DEN', 'DET', 'GS', 'HOU', 'IND', 'LAC', 'LAL', 'MEM',
@@ -47,7 +54,7 @@ def load():
 def _get(params, key, tries=5):
     url = API + '?' + urlencode(params, doseq=True)
     for attempt in range(tries):
-        wait = GAP - (time.monotonic() - _last[0])
+        wait = gap() - (time.monotonic() - _last[0])
         if wait > 0:
             time.sleep(wait)
         _last[0] = time.monotonic()
