@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718208",
+ "date": "2026-11-28",
+ "tipoff": "2026-11-29T01:30:00Z",
+ "home": "Houston Rockets",
+ "away": "Philadelphia 76ers",
+ "kind": "regular",
+ "registered_at": "2026-11-21T06:43:38.337916+00:00",
+ "version": "165d0091f932",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.7523148526786094,
+ "spread_line": -9.5,
+ "cover": 0.5019837260916632,
+ "total_line": 231.5,
+ "over": 0.48627182586221207,
+ "expected": [
+  120.35619671861913,
+  110.74988380377361
+ ],
+ "model": {
+  "moneyline": 0.7523148526786094,
+  "cover": 0.5019837260916632,
+  "over": 0.48627182586221207,
+  "expected": [
+   120.35619671861913,
+   110.74988380377361
+  ]
+ }
+}

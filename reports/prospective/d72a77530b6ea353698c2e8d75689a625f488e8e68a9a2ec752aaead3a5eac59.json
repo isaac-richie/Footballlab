@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "fixture": {
+    "date": "2026-11-28",
+    "league_id": "it.2",
+    "league": "Italy \u2014 Serie B",
+    "home": "Ascoli",
+    "away": "Virtus Entella"
+  },
+  "registered_at": "2026-11-21T06:40:50.629541+00:00",
+  "run_id": "20261121T064050629558Z",
+  "data_hash": "b179ca80665efb8c421af9d04b3a112d133e9db4dc11df6ad95cbf4b055f7a4d",
+  "code_hash": "0e950731163160e1e0c26c57225c4ae8e6f7fe81177a008f91f44dd364abcb10",
+  "model": {
+    "version": "poisson-attack-defence-dixon-coles-2.1-shrunk-totals",
+    "family": "Poisson scores with Dixon-Coles low-score dependence correction",
+    "features": [
+      "league baseline",
+      "home advantage",
+      "team attack",
+      "team defence"
+    ],
+    "targets": "closing-price implied goals (90%) blended with scorelines, 60-day half-life, where prices exist; otherwise scorelines with a 365-day half-life",
+    "ridge": "0.005 with prices, 0.01 without; without prices, goal totals come from a second fit at ridge 0.1",
+    "optimizer": "block Newton, solved to convergence; no pinned reference team",
+    "calibration": "temperature 0.91 and draw shift 0.12 on the model's own 1X2 (0.94/0.09 without prices), fitted on 2023-25 forecasts",
+    "margin_removal": "power method",
+    "holdout": "2025-27, 3,330 matches in 8 leagues: 1X2 log loss 0.9873 (previous model 0.9975), tools/accuracy_lab.py"
+  },
+  "readiness": {
+    "league_id": "it.2",
+    "season": "2026-27",
+    "records": 1150,
+    "completed": 878,
+    "upcoming": 269,
+    "latest_result": "2026-11-20",
+    "current_records": 380,
+    "unresolved_past": 0,
+    "likely_postponed": 0,
+    "source_checked_at": null,
+    "status": "review_required",
+    "issues": [
+      "Current source freshness unverified"
+    ]
+  },
+  "probabilities": [
+    0.6423193367280006,
+    0.25433540987232506,
+    0.10334525339967415
+  ],
+  "expected_goals": [
+    1.7715878118089736,
+    0.6261327920129195
+  ],
+  "over25": 0.42730529768238545,
+  "btts": 0.3986656481949157,
+  "decision": "withhold",
+  "pricing_source": "model",
+  "model_probabilities": [
+    0.6423193367280006,
+    0.25433540987232506,
+    0.10334525339967415
+  ]
+}

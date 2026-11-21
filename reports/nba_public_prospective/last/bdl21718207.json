@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718207",
+ "date": "2026-11-28",
+ "tipoff": "2026-11-29T01:00:00Z",
+ "home": "Milwaukee Bucks",
+ "away": "Oklahoma City Thunder",
+ "kind": "regular",
+ "registered_at": "2026-11-21T06:43:38.337916+00:00",
+ "version": "165d0091f932",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.1355817372807758,
+ "spread_line": 15.5,
+ "cover": 0.5015426409587374,
+ "total_line": 224.5,
+ "over": 0.4936992382046228,
+ "expected": [
+  104.43618024005086,
+  119.94124234157631
+ ],
+ "model": {
+  "moneyline": 0.1355817372807758,
+  "cover": 0.5015426409587374,
+  "over": 0.4936992382046228,
+  "expected": [
+   104.43618024005086,
+   119.94124234157631
+  ]
+ }
+}

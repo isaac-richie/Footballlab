@@ -1,24 +1,79 @@
 {
- "generated_at": "2026-11-20T14:17:38.205374+00:00",
+ "generated_at": "2026-11-21T06:43:38.543062+00:00",
  "min_picks": 100,
  "recent_days": 28,
- "football": {},
- "nba": {
-  "over/under": {
+ "football": {
+  "all goal and win picks": {
    "all": {
     "picks": 4,
-    "said": 0.7077,
-    "won": 1.0,
-    "gap": 0.2923,
-    "z": 1.29,
+    "said": 0.8296,
+    "won": 0.5,
+    "gap": -0.3296,
+    "z": -1.75,
     "status": "collecting"
    },
    "recent": {
     "picks": 4,
-    "said": 0.7077,
-    "won": 1.0,
-    "gap": 0.2923,
-    "z": 1.29,
+    "said": 0.8296,
+    "won": 0.5,
+    "gap": -0.3296,
+    "z": -1.75,
+    "status": "collecting"
+   }
+  },
+  "favourites to win": {
+   "all": {
+    "picks": 1,
+    "said": 0.8757,
+    "won": 0.0,
+    "gap": -0.8757,
+    "z": -2.65,
+    "status": "collecting"
+   },
+   "recent": {
+    "picks": 1,
+    "said": 0.8757,
+    "won": 0.0,
+    "gap": -0.8757,
+    "z": -2.65,
+    "status": "collecting"
+   }
+  },
+  "overs": {
+   "all": {
+    "picks": 3,
+    "said": 0.8142,
+    "won": 0.6667,
+    "gap": -0.1475,
+    "z": -0.66,
+    "status": "collecting"
+   },
+   "recent": {
+    "picks": 3,
+    "said": 0.8142,
+    "won": 0.6667,
+    "gap": -0.1475,
+    "z": -0.66,
+    "status": "collecting"
+   }
+  }
+ },
+ "nba": {
+  "over/under": {
+   "all": {
+    "picks": 13,
+    "said": 0.7073,
+    "won": 0.8462,
+    "gap": 0.1389,
+    "z": 1.1,
+    "status": "collecting"
+   },
+   "recent": {
+    "picks": 13,
+    "said": 0.7073,
+    "won": 0.8462,
+    "gap": 0.1389,
+    "z": 1.1,
     "status": "collecting"
    }
   },
@@ -37,6 +92,24 @@
     "won": 0.7353,
     "gap": 0.0292,
     "z": 0.37,
+    "status": "collecting"
+   }
+  },
+  "overs": {
+   "all": {
+    "picks": 1,
+    "said": 0.7034,
+    "won": 1.0,
+    "gap": 0.2966,
+    "z": 0.65,
+    "status": "collecting"
+   },
+   "recent": {
+    "picks": 1,
+    "said": 0.7034,
+    "won": 1.0,
+    "gap": 0.2966,
+    "z": 0.65,
     "status": "collecting"
    }
   },
@@ -60,19 +133,19 @@
   },
   "unders": {
    "all": {
-    "picks": 4,
-    "said": 0.7077,
-    "won": 1.0,
-    "gap": 0.2923,
-    "z": 1.29,
+    "picks": 12,
+    "said": 0.7076,
+    "won": 0.8333,
+    "gap": 0.1257,
+    "z": 0.96,
     "status": "collecting"
    },
    "recent": {
-    "picks": 4,
-    "said": 0.7077,
-    "won": 1.0,
-    "gap": 0.2923,
-    "z": 1.29,
+    "picks": 12,
+    "said": 0.7076,
+    "won": 0.8333,
+    "gap": 0.1257,
+    "z": 0.96,
     "status": "collecting"
    }
   },
@@ -96,19 +169,19 @@
   },
   "winners": {
    "all": {
-    "picks": 2,
-    "said": 0.8734,
+    "picks": 4,
+    "said": 0.8606,
     "won": 1.0,
-    "gap": 0.1266,
-    "z": 0.54,
+    "gap": 0.1394,
+    "z": 0.8,
     "status": "collecting"
    },
    "recent": {
-    "picks": 2,
-    "said": 0.8734,
+    "picks": 4,
+    "said": 0.8606,
     "won": 1.0,
-    "gap": 0.1266,
-    "z": 0.54,
+    "gap": 0.1394,
+    "z": 0.8,
     "status": "collecting"
    }
   },
@@ -131,7 +204,26 @@
    }
   }
  },
- "corners": {},
+ "corners": {
+  "under 10.5 corners": {
+   "all": {
+    "picks": 1,
+    "said": 0.6786,
+    "won": 1.0,
+    "gap": 0.3214,
+    "z": 0.69,
+    "status": "collecting"
+   },
+   "recent": {
+    "picks": 1,
+    "said": 0.6786,
+    "won": 1.0,
+    "gap": 0.3214,
+    "z": 0.69,
+    "status": "collecting"
+   }
+  }
+ },
  "method": "Run by the daily job after the picks are graded. For each sport and pick type it compares\nthe average stated chance (\"said\") with the share that won (\"won\") on the saved,\nbefore-kickoff record, overall and over the last 28 days, and gives a plain status:",
  "flags": []
 }

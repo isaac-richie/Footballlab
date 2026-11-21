@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718204",
+ "date": "2026-11-28",
+ "tipoff": "2026-11-28T22:00:00Z",
+ "home": "Washington Wizards",
+ "away": "Orlando Magic",
+ "kind": "regular",
+ "registered_at": "2026-11-21T06:43:38.337916+00:00",
+ "version": "165d0091f932",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.40634203620439596,
+ "spread_line": 3.5,
+ "cover": 0.49370532368377645,
+ "total_line": 224.5,
+ "over": 0.4946078256465343,
+ "expected": [
+  110.60208566388773,
+  113.9386035803263
+ ],
+ "model": {
+  "moneyline": 0.40634203620439596,
+  "cover": 0.49370532368377645,
+  "over": 0.4946078256465343,
+  "expected": [
+   110.60208566388773,
+   113.9386035803263
+  ]
+ }
+}

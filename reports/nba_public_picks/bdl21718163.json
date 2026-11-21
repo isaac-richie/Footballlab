@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718163",
+ "date": "2026-11-22",
+ "tipoff": "2026-11-22T23:00:00Z",
+ "home": "Miami Heat",
+ "away": "Oklahoma City Thunder",
+ "home_abbr": "MIA",
+ "away_abbr": "OKC",
+ "saved_at": "2026-11-21T06:43:38.326255+00:00",
+ "winner": null,
+ "total": {
+  "side": "over",
+  "line": 223.5,
+  "probability": 0.7026281993320064
+ }
+}

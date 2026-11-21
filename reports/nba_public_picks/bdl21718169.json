@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718169",
+ "date": "2026-11-22",
+ "tipoff": "2026-11-23T01:00:00Z",
+ "home": "New York Knicks",
+ "away": "Indiana Pacers",
+ "home_abbr": "NY",
+ "away_abbr": "IND",
+ "saved_at": "2026-11-21T06:43:38.326255+00:00",
+ "winner": null,
+ "total": {
+  "side": "under",
+  "line": 226.5,
+  "probability": 0.7102148277766511
+ }
+}

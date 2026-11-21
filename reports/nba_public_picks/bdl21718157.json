@@ -7,11 +7,11 @@
  "away": "Portland Trail Blazers",
  "home_abbr": "NY",
  "away_abbr": "POR",
- "saved_at": "2026-11-20T14:17:37.811276+00:00",
+ "saved_at": "2026-11-21T06:43:38.326255+00:00",
  "winner": null,
  "total": {
   "side": "under",
   "line": 227.5,
-  "probability": 0.7097291968770383
+  "probability": 0.7075666732856841
  }
 }

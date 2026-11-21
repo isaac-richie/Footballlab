@@ -322,7 +322,9 @@
 "saved_at": "2026-11-20T10:11:04.791664+00:00",
 "side": "under",
 "line": 10.5,
-"probability": 0.6786
+"probability": 0.6786,
+"corners": 7,
+"won": true
 },
 "fr.1|2026-11-21|OGC Nice|Paris Saint-Germain FC": {
 "league_id": "fr.1",
@@ -515,7 +517,91 @@
 "side": "under",
 "line": 11.5,
 "probability": 0.7043
+},
+"it.2|2026-11-24|US Cremonese|US Avellino": {
+"league_id": "it.2",
+"date": "2026-11-24",
+"home": "US Cremonese",
+"away": "US Avellino",
+"kickoff": "2026-11-24T14:00:00Z",
+"expected_total": 8.96,
+"saved_at": "2026-11-21T06:41:18.726038+00:00",
+"side": "under",
+"line": 10.5,
+"probability": 0.7053
+},
+"it.2|2026-11-24|Palermo FC|FC S\u00fcdtirol": {
+"league_id": "it.2",
+"date": "2026-11-24",
+"home": "Palermo FC",
+"away": "FC S\u00fcdtirol",
+"kickoff": "2026-11-24T14:00:00Z",
+"expected_total": 9.18,
+"saved_at": "2026-11-21T06:41:18.726038+00:00",
+"side": "under",
+"line": 10.5,
+"probability": 0.6807
+},
+"it.2|2026-11-24|Virtus Entella|Hellas Verona FC": {
+"league_id": "it.2",
+"date": "2026-11-24",
+"home": "Virtus Entella",
+"away": "Hellas Verona FC",
+"kickoff": "2026-11-24T14:00:00Z",
+"expected_total": 8.95,
+"saved_at": "2026-11-21T06:41:18.726038+00:00",
+"side": "under",
+"line": 10.5,
+"probability": 0.7073
+},
+"it.2|2026-11-24|AC Pisa 1909|Modena FC": {
+"league_id": "it.2",
+"date": "2026-11-24",
+"home": "AC Pisa 1909",
+"away": "Modena FC",
+"kickoff": "2026-11-24T14:00:00Z",
+"expected_total": 9.9,
+"saved_at": "2026-11-21T06:41:18.726038+00:00",
+"side": "under",
+"line": 11.5,
+"probability": 0.7021
+},
+"it.2|2026-11-24|Juve Stabia|US Catanzaro": {
+"league_id": "it.2",
+"date": "2026-11-24",
+"home": "Juve Stabia",
+"away": "US Catanzaro",
+"kickoff": "2026-11-24T14:00:00Z",
+"expected_total": 9.59,
+"saved_at": "2026-11-21T06:41:18.726038+00:00",
+"side": "under",
+"line": 11.5,
+"probability": 0.7361
+},
+"it.2|2026-11-24|Calcio Padova|Sampdoria": {
+"league_id": "it.2",
+"date": "2026-11-24",
+"home": "Calcio Padova",
+"away": "Sampdoria",
+"kickoff": "2026-11-24T14:00:00Z",
+"expected_total": 9.75,
+"saved_at": "2026-11-21T06:41:18.726038+00:00",
+"side": "under",
+"line": 11.5,
+"probability": 0.7184
+},
+"it.2|2026-11-24|Mantova 1911 SSD|Arezzo": {
+"league_id": "it.2",
+"date": "2026-11-24",
+"home": "Mantova 1911 SSD",
+"away": "Arezzo",
+"kickoff": "2026-11-24T14:00:00Z",
+"expected_total": 8.95,
+"saved_at": "2026-11-21T06:41:18.726038+00:00",
+"side": "under",
+"line": 10.5,
+"probability": 0.707
 }
 },
-"updated_at": "2026-11-20T14:15:24.487874+00:00"
+"updated_at": "2026-11-21T06:41:21.109032+00:00"
 }

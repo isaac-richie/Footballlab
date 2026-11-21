@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "id": "bdl21718205",
+ "date": "2026-11-28",
+ "tipoff": "2026-11-28T23:00:00Z",
+ "home": "Charlotte Hornets",
+ "away": "Brooklyn Nets",
+ "kind": "regular",
+ "registered_at": "2026-11-21T06:43:38.337916+00:00",
+ "version": "165d0091f932",
+ "source": "model",
+ "book": null,
+ "moneyline": 0.6404253831647985,
+ "spread_line": -5.5,
+ "cover": 0.4926948847340011,
+ "total_line": 217.5,
+ "over": 0.4954995324717551,
+ "expected": [
+  111.32441654750589,
+  106.26251317880896
+ ],
+ "model": {
+  "moneyline": 0.6404253831647985,
+  "cover": 0.4926948847340011,
+  "over": 0.4954995324717551,
+  "expected": [
+   111.32441654750589,
+   106.26251317880896
+  ]
+ }
+}

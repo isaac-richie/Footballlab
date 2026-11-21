@@ -7,11 +7,11 @@
  "away": "Memphis Grizzlies",
  "home_abbr": "MIN",
  "away_abbr": "MEM",
- "saved_at": "2026-11-20T14:17:37.811276+00:00",
+ "saved_at": "2026-11-21T06:43:38.326255+00:00",
  "winner": null,
  "total": {
   "side": "under",
   "line": 238.5,
-  "probability": 0.7065447204858817
+  "probability": 0.7090870134046439
  }
 }

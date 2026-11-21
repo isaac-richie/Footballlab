@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718167",
+ "date": "2026-11-22",
+ "tipoff": "2026-11-23T00:00:00Z",
+ "home": "Utah Jazz",
+ "away": "Dallas Mavericks",
+ "home_abbr": "UTAH",
+ "away_abbr": "DAL",
+ "saved_at": "2026-11-21T06:43:38.326255+00:00",
+ "winner": null,
+ "total": {
+  "side": "under",
+  "line": 234.5,
+  "probability": 0.7092342359979654
+ }
+}

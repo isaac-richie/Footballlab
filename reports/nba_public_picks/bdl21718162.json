@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718162",
+ "date": "2026-11-22",
+ "tipoff": "2026-11-22T20:30:00Z",
+ "home": "Atlanta Hawks",
+ "away": "Detroit Pistons",
+ "home_abbr": "ATL",
+ "away_abbr": "DET",
+ "saved_at": "2026-11-21T06:43:38.326255+00:00",
+ "winner": null,
+ "total": {
+  "side": "over",
+  "line": 215.5,
+  "probability": 0.7023921976543017
+ }
+}

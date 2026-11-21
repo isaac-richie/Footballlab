@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "id": "bdl21718170",
+ "date": "2026-11-22",
+ "tipoff": "2026-11-23T01:30:00Z",
+ "home": "Golden State Warriors",
+ "away": "Boston Celtics",
+ "home_abbr": "GS",
+ "away_abbr": "BOS",
+ "saved_at": "2026-11-21T06:43:38.326255+00:00",
+ "winner": null,
+ "total": {
+  "side": "under",
+  "line": 226.5,
+  "probability": 0.7039882049206543
+ }
+}
