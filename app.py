@@ -863,7 +863,7 @@ def update_live_record(data):
 VIP_LEAGUES = ('en.1', 'es.1', 'de.1', 'it.1', 'nl.1', 'pt.1', 'de.2')
 
 
-def vip_slip(data, n=17, days=3, per_league=6):
+def vip_slip(data, n=17, days=0, per_league=6):
     """The day's VIP slip: the surest pick from each of the most predictable games.
 
     Only VIP_LEAGUES are used: a pick we cannot grade would sit on the record as pending forever.
@@ -876,7 +876,10 @@ def vip_slip(data, n=17, days=3, per_league=6):
     """
     import hashlib
     import record
+    # One game day: today's games only, so each slip is settled by the end of its own day.
     pool = parlay_candidates(data, [l for l in VIP_LEAGUES if l in LEAGUES and league_fresh(data, l)], days=days, include_today=True)
+    today_iso = dt.date.today().isoformat()
+    pool = [c for c in pool if c['date'] == today_iso] if days == 0 else pool
     by_fixture = {}
     for c in pool:
         by_fixture.setdefault(c['fixture'], []).append(c)
@@ -1126,7 +1129,15 @@ def vip_ticket(data, n=17, live_scores=None, nba_legs=None):
     _explain(rows, data)
     count = lambda s: sum(r['status'] == s for r in rows)
     combined = math.prod(r['probability'] for r in rows) if rows else 0
-    return dict(date=today, **saved, nba_saved=nba_saved, legs=rows,
+    prev = next((d for d in record.vip_ledger(max_days=7)['days'] if d['date'] < today), None)
+    yesterday = None
+    if prev:
+        st = [p['status'] for p in prev['picks']]
+        yesterday = dict(date=prev['date'], picks=len(st), won=st.count('won'), lost=st.count('lost'),
+                         pending=st.count('pending'), void=st.count('void'),
+                         legs=[dict(home=p['home'], away=p['away'], selection=p['selection'], status=p['status'],
+                                    score=p.get('goals'), probability=p['probability']) for p in prev['picks']])
+    return dict(date=today, **saved, nba_saved=nba_saved, legs=rows, yesterday=yesterday,
                 summary=dict(picks=len(rows), won=count('won'), lost=count('lost'), live=count('live'),
                              scheduled=count('scheduled'), void=count('void')),
                 combined_probability=combined, combined_fair_odds=(1 / combined) if combined else None,

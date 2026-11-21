@@ -2151,6 +2151,23 @@ body[data-sport="basketball"] .season-link{display:none}
   .pwhy p{font-size:13px}
   .vlx .vl-meta{letter-spacing:.03em!important}
 }
+
+/* VIP: yesterday's settled slip */
+.yday{padding:12px 16px!important;margin-bottom:14px}
+.yday summary{display:flex;align-items:center;gap:10px;cursor:pointer;list-style:none;white-space:nowrap}
+.yday summary::-webkit-details-marker{display:none}
+.yday .yd-k{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:650}
+.yday summary b{font-size:16px}
+.yday summary small{color:var(--muted);font-size:12px}
+.yday summary::after{margin-left:auto}
+.yday ul{list-style:none;margin:10px 0 0;padding:0}
+.yday li{display:grid;grid-template-columns:20px minmax(0,1fr) auto;gap:8px;align-items:center;padding:7px 0;border-top:1px solid var(--line);font-size:13px}
+.yday li span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.yday li small{display:block;color:var(--muted);font-size:11.5px}
+.yday li i{font-style:normal;font-weight:800;text-align:center}
+.yday .yd-won i{color:var(--ok)}
+.yday .yd-lost i{color:var(--warn)}
+.yday li b{color:var(--muted);font-weight:600}
 </style>
 </head>
 <body>
@@ -2334,6 +2351,7 @@ body[data-sport="basketball"] .season-link{display:none}
     </div>
     <div id="vip-potd"></div>
     <div class="ticket" id="vip-ticket" hidden aria-live="polite"></div>
+    <details class="yday card" id="vip-yday" hidden></details>
     <div class="vip-code card" id="vip-code"></div>
     <div class="vip-legs" id="vip-legs"><div class="card"><div class="skel" style="height:240px"></div></div></div>
     <p class="note">18+. An 85% pick still loses about 1 in 7, and every extra pick adds risk. Bet only what you can afford to lose. <a href="https://www.begambleaware.org" target="_blank" rel="noopener">BeGambleAware</a></p>
@@ -3904,7 +3922,7 @@ async function loadVip(quiet){
     const d = await api('/api/vip/ticket?n=' + state.vipN); state.vip = d;
     const legs = d.legs;
     $('#vip-potd').innerHTML = goalsPickHtml(legs);
-    if(!legs.length){ $('#vip-ticket').hidden = true; $('#vip-all').hidden = true; $('#vip-code').innerHTML = ''; $('#vip-legs').innerHTML = '<div class="placeholder"><div><h3>No VIP slip right now</h3><p>No confident picks in our VIP leagues in the next three days, often an international break. The next slip is posted the morning before their games return.</p></div></div>'; return }
+    if(!legs.length){ vipYesterday(d.yesterday); $('#vip-ticket').hidden = true; $('#vip-all').hidden = true; $('#vip-code').innerHTML = ''; $('#vip-legs').innerHTML = '<div class="placeholder"><div><h3>No VIP slip right now</h3><p>No confident picks in our VIP leagues in the next three days, often an international break. The next slip is posted the morning before their games return.</p></div></div>'; return }
     const avg = legs.reduce((t, l) => t + l.probability, 0) / legs.length, s = d.summary;
     $('#vip-stats').innerHTML = `<span><b>${legs.length}</b> picks</span><span><b>${Math.round(avg * 100)}%</b> average chance</span><span><b>${new Set(legs.map(l => l.league)).size}</b> leagues</span>`;
     $('#vip-stamp').lastChild.textContent = d.saved
@@ -3917,6 +3935,7 @@ async function loadVip(quiet){
         <span class="tk-all">All ${legs.length} together: <b>${pct(d.combined_probability)}</b> · fair <b>${d.combined_fair_odds ? d.combined_fair_odds.toFixed(2) : '–'}</b></span></div>`;
     $('#vip-ticket').hidden = false;
     vipCodeCard(d, legs);
+    vipYesterday(d.yesterday);
     $('#vip-all').hidden = !legs.some(l => l.status === 'scheduled');
     // One card per pick: club colours, crests with form, the pick, its chance and where it stands now.
     $('#vip-legs').innerHTML = legs.map((l, i) => vipCardHtml(l, i, quiet, 'data-vip')).join('');
@@ -3946,6 +3965,15 @@ function shortWhen(l){
   const d = new Date((l.kickoff || l.date + 'T12:00:00')), far = (d - Date.now()) / 864e5 > 6 || (Date.now() - d) / 864e5 > 1;
   const wd = d.toLocaleDateString(undefined, far ? {day: 'numeric', month: 'short'} : {weekday: 'short'});
   return l.kickoff ? `${wd} ${koTime(l.kickoff)}` : wd;
+}
+// Yesterday's slip, settled: one line, opening to each pick's result.
+function vipYesterday(y){
+  const el = $('#vip-yday');
+  if(!y || !y.picks){ el.hidden = true; el.innerHTML = ''; return }
+  const settled = y.won + y.lost, mark = {won: '✓', lost: '✗', void: '–', pending: '…'};
+  el.innerHTML = `<summary><span class="yd-k">${y.date === new Date(Date.now() - 864e5).toLocaleDateString('en-CA') ? 'Yesterday' : esc(day(y.date))}</span>${settled ? `<b>${y.won}/${settled} won</b>` : '<b>Results coming</b>'}${y.pending && settled ? `<small>${y.pending} to settle</small>` : ''}</summary>
+    <ul>${y.legs.map(l => `<li class="yd-${l.status}"><i>${mark[l.status] || ''}</i><span>${esc(l.home)} v ${esc(l.away)}<small>${esc(l.selection)}${l.score ? ' · ' + l.score[0] + '–' + l.score[1] : ''}</small></span><b>${Math.round(l.probability * 100)}%</b></li>`).join('')}</ul>`;
+  el.hidden = false;
 }
 // One VIP card: club colours, crests with form (football) or jerseys (NBA), the pick, its chance and where it stands now.
 function vipCardHtml(l, i, quiet, attr){
