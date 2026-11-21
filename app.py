@@ -1347,6 +1347,10 @@ class Handler(BaseHTTPRequestHandler):
             if saved:
                 saved['league_names'] = LEAGUES
             self.send_json(saved or dict(error='No record yet. Run: python3 app.py record'), 200 if saved else 404)
+        elif path == '/api/book/status':
+            import bookcodes
+            self.send_json(dict(enabled=bookcodes.configured(), bookmakers=[dict(key=k, name=n) for k, n in bookcodes.BOOKMAKERS]),
+                           cache='public, max-age=300')
         elif path == '/api/quickslip':
             q = parse_qs(urlparse(self.path).query)
             arg = lambda k, d='': q.get(k, [d])[0]
@@ -1406,6 +1410,23 @@ class Handler(BaseHTTPRequestHandler):
         hosts = {h for h in (self.headers.get('Host'), self.headers.get('X-Forwarded-Host')) if h}
         if origin and urlparse(origin).netloc not in hosts:
             return self.send_json(dict(error='Cross-origin request rejected'), 403)
+        if urlparse(self.path).path in ('/api/book', '/api/convert'):
+            import bookcodes
+            try:
+                length = int(self.headers.get('Content-Length', '0'))
+                if not 0 < length <= 40000:
+                    raise ValueError('Invalid request size.')
+                q = json.loads(self.rfile.read(length))
+                if urlparse(self.path).path == '/api/book':
+                    legs = [l for l in q.get('legs') or [] if isinstance(l, dict) and l.get('home') and l.get('away') and l.get('selection') and l.get('market')]
+                    if not legs:
+                        raise ValueError('No picks to book.')
+                    return self.send_json(bookcodes.book(legs, str(q.get('bookmaker', ''))))
+                return self.send_json(bookcodes.convert(str(q.get('code', '')), str(q.get('from', '')), str(q.get('to', ''))))
+            except bookcodes.BookingError as exc:
+                return self.send_json(dict(error=str(exc), code=exc.code), exc.status)
+            except (ValueError, TypeError) as exc:
+                return self.send_json(dict(error=str(exc)), 400)
         if urlparse(self.path).path == '/api/parlay':
             from parlay import build, MARKETS
             try:
