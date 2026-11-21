@@ -31,6 +31,9 @@ class FakeApi:
 
     def __call__(self, path, body):
         self.calls.append(path)
+        if path == '/events/search':
+            return dict(results=[dict(events=[dict(event_id=f"sr:{q['q']}", home=q['q'].split(' vs ')[0], away=q['q'].split(' vs ')[1],
+                                                   confidence='exact')]) for q in body['queries']])
         if path == '/resolve':
             return dict(plan_id='plan_1', picks=[dict(index=i, status=s, bookable=True) for i, s in enumerate(self.status)])
         if path == '/book':
@@ -48,7 +51,7 @@ class BookTests(unittest.TestCase):
         r = B.book([leg('Over 1.5', 'ou15'), leg('Draw', '1x2', home='X', away='Y')], 'sportybet', key='k', fetch=api, now=1)
         self.assertEqual((r['code'], r['booked'], r['total']), ('AB12CD', 1, 2))
         self.assertEqual(r['missing'][0]['home'], 'X')
-        self.assertEqual(api.calls, ['/resolve', '/book'])
+        self.assertEqual([c for c in api.calls if c != '/events/search'], ['/resolve', '/book'])
 
     def test_same_slip_is_cached_per_bookmaker(self):
         api = FakeApi(('resolved',))
@@ -76,6 +79,15 @@ class BookTests(unittest.TestCase):
             B.convert('AB12CD', 'sportybet', 'sportybet', key='k', fetch=FakeApi())
         with self.assertRaises(B.BookingError):
             B.convert('bad code!', 'sportybet', 'bet9ja', key='k', fetch=FakeApi())
+
+
+class ChooseEventTests(unittest.TestCase):
+    def test_kickoff_and_names_pick_the_right_game(self):
+        leg = dict(home='Feyenoord Rotterdam', away='SBV Excelsior', kickoff='2026-11-21T17:45:00Z')
+        wrong = dict(event_id='x', home='Jong Sparta Rotterdam', away='Quick Boys', kickoff='2026-11-21T14:00:00+00:00', confidence='fuzzy')
+        right = dict(event_id='y', home='Feyenoord', away='Excelsior Rotterdam', kickoff='2026-11-21T17:45:00+00:00', confidence='exact')
+        self.assertEqual(B.choose_event(leg, [wrong, right])['event_id'], 'y')
+        self.assertIsNone(B.choose_event(leg, [wrong]))
 
 
 if __name__ == '__main__':

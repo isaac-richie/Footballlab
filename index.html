@@ -4378,8 +4378,27 @@ document.addEventListener('change', e => { const s = e.target.closest('.bk-sel')
 document.addEventListener('click', async e => {
   const b = e.target.closest('.bk-go'); if(!b) return;
   const slot = b.closest('.bk-slot'), out = slot.querySelector('.bk-out'), legs = BOOK.legs[slot.dataset.book] || [];
+  const bm = slot.querySelector('.bk-sel').value, pre = slot.dataset.book === 'vip' && BOOK.status && (BOOK.status.vip || {})[bm];
+  if(pre){
+    out.innerHTML = `<div class="bk-code"><small>${esc(pre.bookmaker_name)} code</small><b>${esc(pre.code)}</b><button type="button" class="chip bk-copy" data-code="${esc(pre.code)}">Copy</button></div>
+      <p class="bk-note">All ${pre.booked} of today's VIP picks, booked before the first kickoff${pre.missing && pre.missing.length ? ' (' + pre.missing.length + ' not on ' + esc(pre.bookmaker_name) + ')' : ''}. Games already started show as closed on ${esc(pre.bookmaker_name)}.</p>`;
+    return;
+  }
+  // Another bookie for the VIP slip: convert the morning's SportyBet code (about 5 s) instead of booking afresh.
+  const base = slot.dataset.book === 'vip' && BOOK.status && (BOOK.status.vip || {}).sportybet;
+  if(base && bm !== 'sportybet'){
+    b.disabled = true; b.textContent = 'Converting…'; out.innerHTML = '';
+    try{
+      const r = await api('/api/convert', {method: 'POST', headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({code: base.code, from: 'sportybet', to: bm})});
+      out.innerHTML = `<div class="bk-code"><small>${esc(r.to_name)} code</small><b>${esc(r.code)}</b><button type="button" class="chip bk-copy" data-code="${esc(r.code)}">Copy</button></div>
+        <p class="bk-note">${r.converted != null ? r.converted + ' of ' + r.original + ' picks' : 'Today\'s VIP picks'} on ${esc(r.to_name)}${r.partial ? '; the rest aren\'t listed there' : ''}.</p>`;
+      BOOK.last.vip = {sig: legs.map(l => l.home + l.selection).join('|'), html: out.innerHTML};
+    }catch(err){ out.innerHTML = `<p class="bk-err">${esc(err.message)}</p>` }
+    b.disabled = false; b.textContent = 'Get booking code'; return;
+  }
   if(!legs.length){ out.innerHTML = '<p class="bk-err">No picks left to book.</p>'; return }
-  b.disabled = true; b.textContent = 'Booking…'; out.innerHTML = '';
+  b.disabled = true; b.textContent = 'Booking…'; out.innerHTML = '<p class="bk-note">Finding each game on the bookie. This can take up to a minute.</p>';
   try{
     const r = await api('/api/book', {method: 'POST', headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({bookmaker: slot.querySelector('.bk-sel').value, legs: legs.map(bookLeg)})});
